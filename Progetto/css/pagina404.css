@@ -1,0 +1,23 @@
+
+.imgconteiner {
+    height: auto;
+    width: auto;
+}
+
+.imgconteiner img {
+    height: 100%;
+    width: 100%;
+    
+}
+
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+.attribution {
+    position: absolute;
+    bottom: 1rem;
+}
