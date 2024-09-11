@@ -1,0 +1,56 @@
+@media(max-width: 991px){
+    .sidebar{
+        background-color: rgba(255, 255, 255, 0.66);
+        backdrop-filter: blur(10px);
+    }
+
+    
+}
+
+.logo{
+    width: 7rem ;
+}
+
+.dropdown-menu{
+    display: none;
+}
+
+.dropdown-menu2{
+    display: none;
+}
+
+#menu-products:hover .dropdown-menu{
+    display: block;
+}
+
+
+.button1:hover{
+    color: coral !important;
+    
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: white;
+}
+
+.dropdown-menu{
+    background-color: #6c757dc8;
+    
+}
+
+.dropdown-menu li a {
+    color: white !important;
+}
+
+.dropdown-menu li a:hover{
+    background-color: coral !important;
+}
+
+#menu-products2:hover .dropdown-menu2{
+    display: block;
+}
+
+.dropdown-menu2 li a:hover{
+    background-color: coral !important;
+}
+
