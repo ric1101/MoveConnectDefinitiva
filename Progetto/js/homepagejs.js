@@ -34,11 +34,11 @@ function navbar(){
     <li><a class="dropdown-item" href="#">Richiesta trasporto m3(mCubi)</a></li>
     </ul>
     </li>
-    <li class="nav-item dropdown mx-5" id="menu-products2">
+    <li class="nav-item dropdown mx-5" id="menu-products">
     <a class="nav-link dropdown-toggle button1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Visualizza servizio
     </a>
-    <ul class="dropdown-menu2">
+    <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="#">Occupazione solo pubblico</a></li>
     <li><a class="dropdown-item" href="#">Richiesta supporto</a></li>
     <li><a class="dropdown-item" href="#">Scala elevatore</a></li>
@@ -71,7 +71,7 @@ navbar();
 let bottone = document.querySelector(".hamburger");
 let chiusura = document.querySelector(".closed");
 let dropdown = document.querySelector(".dropdown-menu");
-let dropdown2 = document.querySelector(".dropdown-menu2");
+
 
 function aggiungiClasse() {
     if(dropdown.classList.contains("show")){
@@ -80,13 +80,7 @@ function aggiungiClasse() {
     dropdown.classList.add("show");
 }
 
-function aggiungiClasse2() {
-    if(dropdown2.classList.contains("show")){
-        dropdown2.classList.remove("show");
-    }else
-    dropdown2.classList.add("show");
-}
 
-bottone.addEventListener("click", aggiungiClasse, aggiungiClasse2);
-chiusura.addEventListener("click", aggiungiClasse, aggiungiClasse2);
+bottone.addEventListener("click", aggiungiClasse);
+chiusura.addEventListener("click", aggiungiClasse);
 

@@ -15,9 +15,6 @@
     display: none;
 }
 
-.dropdown-menu2{
-    display: none;
-}
 
 #menu-products:hover .dropdown-menu{
     display: block;
@@ -46,11 +43,4 @@
     background-color: coral !important;
 }
 
-#menu-products2:hover .dropdown-menu2{
-    display: block;
-}
-
-.dropdown-menu2 li a:hover{
-    background-color: coral !important;
-}
 
