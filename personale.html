@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleziona i Professionisti</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="personale.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="text-center mb-4">SELEZIONA I PROFESSIONISTI NECESSARI</h2>
+        <div class="row text-center">
+            <!-- Facchino -->
+            <div class="col-md-3 mb-4">
+                <div class="card professional-card">
+                    <img src="facchino.jpg" alt="Facchino">
+                    <div class="card-body">
+                        <h5 class="card-title">Facchino</h5>
+                        <p class="card-text">Operatore</p>
+                        <div class="counter">
+                            <button class="btn btn-danger" onclick="decrement('facchino')">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <span id="facchino-count" class="mx-2">0</span>
+                            <button class="btn btn-success" onclick="increment('facchino')">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Autista -->
+            <div class="col-md-3 mb-4">
+                <div class="card professional-card">
+                    <img src="autista.jpg" alt="Autista">
+                    <div class="card-body">
+                        <h5 class="card-title">Autista C2</h5>
+                        <p class="card-text">Trasportatore</p>
+                        <div class="counter">
+                            <button class="btn btn-danger" onclick="decrement('autista')">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <span id="autista-count" class="mx-2">0</span>
+                            <button class="btn btn-success" onclick="increment('autista')">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Montatore -->
+            <div class="col-md-3 mb-4">
+                <div class="card professional-card">
+                    <img src="montatore.jpg" alt="Montatore">
+                    <div class="card-body">
+                        <h5 class="card-title">Montatore</h5>
+                        <p class="card-text">Montaggio</p>
+                        <div class="counter">
+                            <button class="btn btn-danger" onclick="decrement('montatore')">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <span id="montatore-count" class="mx-2">0</span>
+                            <button class="btn btn-success" onclick="increment('montatore')">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Falegname -->
+            <div class="col-md-3 mb-4">
+                <div class="card professional-card">
+                    <img src="falegname.jpg" alt="Falegname">
+                    <div class="card-body">
+                        <h5 class="card-title">Falegname</h5>
+                        <p class="card-text">Legno</p>
+                        <div class="counter">
+                            <button class="btn btn-danger" onclick="decrement('falegname')">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <span id="falegname-count" class="mx-2">0</span>
+                            <button class="btn btn-success" onclick="increment('falegname')">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Riepilogo -->
+        <div class="card text-bg-warning mb-3" style="max-width: 18rem;">
+            <div class="card-header">RIEPILOGO</div>
+            <div class="card-body">
+              <h5 class="card-title">La squadra che hai richiesto</h5>
+              <p class="card-text"><p>Facchino = <span id="facchino-summary">0</span></p>
+              <p>Autista = <span id="autista-summary">0</span></p>
+              <p>Montatore = <span id="montatore-summary">0</span></p>
+              <p>Falegname = <span id="falegname-summary">0</span></p> </p>
+            </div>
+
+        
+
+        <div class="d-flex justify-content-center mt-4">
+            
+            <button class="btn btn-success mx-2" onclick="submitRequest()">Invio Richiesta</button>
+        </div>
+    </div>  
+    <script src="./personale.js"></script>
+</body>
+</html>
