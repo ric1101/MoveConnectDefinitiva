@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrati</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/css01.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+<body style="background-color: #C0C0C0;">
+
+    <header>
+        <div class="navbarMain">
+
+        </div>
+    </header>
+
+    <section style="background-color: #C0C0C0;">
+        <form action="#!">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                            <div class="card-body p-5 ">
+
+                                <h3 class="mb-5 text-center"><i class="fa-solid fa-truck"></i> Registrati a TruckwaY
+                                </h3>
+
+                                <div class="mb-3">
+
+                                    <label for="nome" class="form-label">Nome</label>
+                                    <input type="text" class="form-control richiesti" id="nome" aria-label="Nome"
+                                        maxLength="50" required>
+                                    <!-- <p class="text-danger" id="usernameError"></p> -->
+                                    <div class="invalid-feedback">
+                                        Nome richiesto
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="cognome" class="form-label">Cognome</label>
+                                    <input type="text" class="form-control richiesti" id="cognome" aria-label="Cognome"
+                                        maxLength="40" required>
+                                    <div class="invalid-feedback">
+                                        Cognome richiesto
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="data_nascita" class="form-label">Data di nascita</label>
+                                    <input type="date" class="form-control richiesti" id="data_nascita" required>
+                                    <div class="invalid-feedback">
+                                        Data di nascita richiesta
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control richiesti" id="email" required>
+                                    <div class="invalid-feedback">
+                                        Email richiesta
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 password">
+
+                                    <div class="position-relative">
+                                        <label for="password" class="form-label">Password</label>
+                                        <input type="password" class="form-control richiesti" id="password" required>
+                                        <div class="invalid-feedback">
+                                            Password richiesta
+                                        </div>
+                                        <i class="fa-regular fa-eye" id="showPassword" style="right: 14px;"></i>
+                                    </div>
+                                    <ul id="listaErrori" class="text-danger"></ul>
+
+                                </div>
+
+                                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-lg btn-block btn-login"
+                                    type="submit" style="width: 150px;" id="login">Registrati
+                                </button>
+                                <p class="inviato mt-2"></p>
+                                <p class="nonInviato text-danger mt-2"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+
+
+    <script src="./js/homepagejs.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="./js/registrati.js"></script>
+</body>
+</html>
