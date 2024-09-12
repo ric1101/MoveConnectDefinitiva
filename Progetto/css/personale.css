@@ -18,3 +18,40 @@ body {
 .somma {
     margin-top: 20px;
 }
+.container{
+    margin-top: 2rem;
+}
+#riepilogoRichiesta{
+    background-color: coral !important;
+    border-radius: 1rem;
+}
+
+#richiesta{
+   
+   
+}
+#riepilogo{
+    
+    background-color: coral !important;
+    border:none;
+}
+.richiesta{
+    
+    
+}
+#regioni{
+    background-color: coral;
+
+}
+#provincia{
+    background-color: rgba(255, 127, 80, 0.500) ;
+}
+#indirizzo{
+    background-color: coral;
+}
+#civico{
+    background-color: coral;
+}
+#cap{
+    background-color: coral;
+}

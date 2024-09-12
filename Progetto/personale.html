@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,18 +9,26 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <link rel="stylesheet" href="personale.css">
+
+    <link rel="stylesheet" href="./css/personale.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/css01.css">
+
 </head>
+
 <body>
 
+    <div class="navbarMain">
+    </div>
     <div class="container">
-        <h2 class="text-center mb-4">SELEZIONA I PROFESSIONISTI NECESSARI</h2>
+        <div>
+            <h2 class="text-center mb-4">SELEZIONA I PROFESSIONISTI NECESSARI</h2>
+        </div>
         <div class="row text-center">
             <!-- Facchino -->
             <div class="col-md-3 mb-4">
                 <div class="card professional-card">
-                    <img src="facchino.jpg" alt="Facchino">
+                    <img src="./imgs/facchino.jpg" alt="Facchino">
                     <div class="card-body">
                         <h5 class="card-title">Facchino</h5>
                         <p class="card-text">Operatore</p>
@@ -39,7 +48,7 @@
             <!-- Autista -->
             <div class="col-md-3 mb-4">
                 <div class="card professional-card">
-                    <img src="autista.jpg" alt="Autista">
+                    <img src="./imgs/autista.jpg" alt="Autista">
                     <div class="card-body">
                         <h5 class="card-title">Autista C2</h5>
                         <p class="card-text">Trasportatore</p>
@@ -59,7 +68,7 @@
             <!-- Montatore -->
             <div class="col-md-3 mb-4">
                 <div class="card professional-card">
-                    <img src="montatore.jpg" alt="Montatore">
+                    <img src="./imgs/montatore.jpg" alt="Montatore">
                     <div class="card-body">
                         <h5 class="card-title">Montatore</h5>
                         <p class="card-text">Montaggio</p>
@@ -79,7 +88,7 @@
             <!-- Falegname -->
             <div class="col-md-3 mb-4">
                 <div class="card professional-card">
-                    <img src="falegname.jpg" alt="Falegname">
+                    <img src="./imgs/falegname.jpg" alt="Falegname">
                     <div class="card-body">
                         <h5 class="card-title">Falegname</h5>
                         <p class="card-text">Legno</p>
@@ -97,24 +106,101 @@
             </div>
         </div>
 
-        <!-- Riepilogo -->
-        <div class="card text-bg-warning mb-3" style="max-width: 18rem;">
-            <div class="card-header">RIEPILOGO</div>
-            <div class="card-body">
-              <h5 class="card-title">La squadra che hai richiesto</h5>
-              <p class="card-text"><p>Facchino = <span id="facchino-summary">0</span></p>
-              <p>Autista = <span id="autista-summary">0</span></p>
-              <p>Montatore = <span id="montatore-summary">0</span></p>
-              <p>Falegname = <span id="falegname-summary">0</span></p> </p>
+
+        <div class="row" id="riepilogoRichiesta">
+            <!-- form indirizzo -->
+            <div class="richiesta col-md-8" id="richiesta">
+                <h3>Dettagli Richiesta</h3>
+                <form>
+                    <!-- Selezione regione -->
+                    <div class="mb-3">
+                        <label for="regioni" class="form-label">Seleziona Regione</label>
+                        <select id="regioni" class="form-select">
+                            <option value="">Seleziona Regione</option>
+                            <option value="Abruzzo">Abruzzo</option>
+                            <option value="Basilicata">Basilicata</option>
+                            <option value="Calabria">Calabria</option>
+                            <option value="Campania">Campania</option>
+                            <option value="Emilia-Romagna">Emilia-Romagna</option>
+                            <option value="Friuli-Venezia Giulia">Friuli-Venezia Giulia</option>
+                            <option value="Lazio">Lazio</option>
+                            <option value="Liguria">Liguria</option>
+                            <option value="Lombardia">Lombardia</option>
+                            <option value="Marche">Marche</option>
+                            <option value="Molise">Molise</option>
+                            <option value="Piemonte">Piemonte</option>
+                            <option value="Puglia">Puglia</option>
+                            <option value="Sardegna">Sardegna</option>
+                            <option value="Sicilia">Sicilia</option>
+                            <option value="Toscana">Toscana</option>
+                            <option value="Trentino-Alto Adige">Trentino-Alto Adige</option>
+                            <option value="Umbria">Umbria</option>
+                            <option value="Valle d'Aosta">Valle d'Aosta</option>
+                            <option value="Veneto">Veneto</option>
+                        </select>
+                    </div>
+
+                    <!-- Campo Provincia -->
+                    <div class="mb-3">
+                        <label for="provincia" class="form-label">Provincia</label>
+                        <input type="text" id="provincia" class="form-control" placeholder="Inserisci la provincia"
+                            maxlength="50" pattern="[A-Za-z0-9\s]+" required>
+                    </div>
+
+                    <!-- Campo Indirizzo -->
+                    <div class="mb-3">
+                        <label for="indirizzo" class="form-label">Indirizzo</label>
+                        <input type="text" id="indirizzo" class="form-control" placeholder="Inserisci l'indirizzo"
+                            maxlength="100" pattern="[A-Za-z0-9\s]+" required>
+                    </div>
+
+                    <!-- Campo Numero Civico -->
+                    <div class="mb-3">
+                        <label for="civico" class="form-label">Numero Civico</label>
+                        <input type="text" id="civico" class="form-control" placeholder="Inserisci il numero civico"
+                            maxlength="50" pattern="[0-9]{1,5}" required>
+                    </div>
+
+                    <!-- Campo CAP -->
+                    <div class="mb-3">
+                        <label for="cap" class="form-label">CAP</label>
+                        <input type="text" id="cap" class="form-control" placeholder="Inserisci il CAP" maxlength="5"
+                            pattern="[0-9]{5}" required>
+                    </div>
+                </form>
             </div>
 
-        
 
+
+            <!-- Riepilogo -->
+            <div class="card text-bg-warning col-md-4 col-sm-6" style="max-width: 18rem;" id="riepilogo">
+                <div class="card-header">RIEPILOGO</div>
+                <div class="card-body">
+                    <h5 class="card-title">La squadra che hai richiesto</h5>
+                    <p class="card-text">
+                    <p>Facchino X <span id="facchino-summary">0</span></p>
+                    <p>Autista X <span id="autista-summary">0</span></p>
+                    <p>Montatore X <span id="montatore-summary">0</span></p>
+                    <p>Falegname X <span id="falegname-summary">0</span></p>
+                    </p>
+                </div>
+
+
+
+                <div class="d-flex justify-content-center mt-4">
+
+
+                </div>
+            </div>
+        </div>
         <div class="d-flex justify-content-center mt-4">
-            
             <button class="btn btn-success mx-2" onclick="submitRequest()">Invio Richiesta</button>
         </div>
-    </div>  
-    <script src="./personale.js"></script>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/homepagejs.js"></script>
+    <script src="./js/personale.js"></script>
 </body>
+
 </html>
