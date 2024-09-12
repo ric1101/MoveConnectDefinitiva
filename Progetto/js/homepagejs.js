@@ -1,10 +1,10 @@
 let navbarHTML = document.querySelector(".navbarMain");
 
-function navbar(){
+function navbar() {
     let navBarFinale = `<nav class="navbar navbar-expand-lg fixed-top" style="background-color: #6c757d;">
     <div class="container-fluid">
     <!-- Logo -->
-    <a class="navbar-brand fs-4" href="index.html"><img class="logo" src="../imgs/icona-transformed (1).png" alt=""></a>
+    <a class="navbar-brand fs-4" href="index.html"><img class="logo" src="../Progetto/imgs/icona-transformed (1).png" alt=""></a>
     <!-- Bottoni -->
     <button class="navbar-toggler shadow-none border-0 hamburger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -14,7 +14,7 @@ function navbar(){
     <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
     <!-- SideBar Header -->
     <div class="offcanvas-header text-black border-bottom">
-    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img class="logo" src="../imgs/icona-transformed (1).png" alt=""></h5>
+    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img class="logo" src="../Progetto/imgs/icona-transformed (1).png" alt=""></h5>
     <button type="button" class="btn-close-black shadow-none closed" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
     </div>
     <!--Sidebar Body  -->
@@ -24,28 +24,28 @@ function navbar(){
     <a class="nav-link dropdown-toggle button1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Inserisci servizio
     </a>
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu drop1">
     <li><a class="dropdown-item" href="#">Occupazione solo pubblico</a></li>
     <li><a class="dropdown-item" href="#">Richiesta supporto</a></li>
     <li><a class="dropdown-item" href="#">Scala elevatore</a></li>
     <li><a class="dropdown-item" href="#">Consegna imballi</a></li>
-    <li><a class="dropdown-item" href="#">Richiesta personale specializzato</a></li>
-    <li><a class="dropdown-item" href="#">Deposito magazzimo m2(mQuadri)</a></li>
-    <li><a class="dropdown-item" href="#">Richiesta trasporto m3(mCubi)</a></li>
+    <li><a class="dropdown-item" href="#">Richiesta personale spec.</a></li>
+    <li><a class="dropdown-item" href="#">Deposito magazzimo m2</a></li>
+    <li><a class="dropdown-item" href="#">Richiesta trasporto m3</a></li>
     </ul>
     </li>
     <li class="nav-item dropdown mx-5" id="menu-products">
     <a class="nav-link dropdown-toggle button1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Visualizza servizio
     </a>
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu drop2">
     <li><a class="dropdown-item" href="#">Occupazione solo pubblico</a></li>
     <li><a class="dropdown-item" href="#">Richiesta supporto</a></li>
     <li><a class="dropdown-item" href="#">Scala elevatore</a></li>
     <li><a class="dropdown-item" href="#">Consegna imballi</a></li>
-    <li><a class="dropdown-item" href="#">Richiesta personale specializzato</a></li>
-    <li><a class="dropdown-item" href="#">Deposito magazzimo m2(mQuadri)</a></li>
-    <li><a class="dropdown-item" href="#">Richiesta trasporto m3(mCubi)</a></li>
+    <li><a class="dropdown-item" href="#">Richiesta personale spec.</a></li>
+    <li><a class="dropdown-item" href="#">Deposito magazzimo m2</a></li>
+    <li><a class="dropdown-item" href="#">Richiesta trasporto m3</a></li>
     </ul>
     </li>
     <li class="nav-item">
@@ -62,7 +62,7 @@ function navbar(){
     </div>
     </div>
     </nav>`
-    
+
     navbarHTML.innerHTML = navBarFinale;
 }
 
@@ -70,17 +70,24 @@ navbar();
 
 let bottone = document.querySelector(".hamburger");
 let chiusura = document.querySelector(".closed");
-let dropdown = document.querySelector(".dropdown-menu");
+let dropdown1 = document.querySelector(".drop1");
+let dropdown2 = document.querySelector(".drop2");
 
 
-function aggiungiClasse() {
-    if(dropdown.classList.contains("show")){
-        dropdown.classList.remove("show");
-    }else
-    dropdown.classList.add("show");
-}
+bottone.addEventListener("click", function() {
+    dropdown1.classList.add("show");
+    dropdown2.classList.add("show");
+    
+    let back = document.querySelector('.offcanvas-backdrop');
 
+    back.addEventListener("click", function() {
+        dropdown1.classList.remove("show");
+        dropdown2.classList.remove("show");
+    });
+});
 
-bottone.addEventListener("click", aggiungiClasse);
-chiusura.addEventListener("click", aggiungiClasse);
+chiusura.addEventListener("click", function() {
+    dropdown1.classList.remove("show");
+    dropdown2.classList.remove("show");
+});
 
