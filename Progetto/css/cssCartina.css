@@ -1,4 +1,15 @@
 #map { 
-    height: 180vh; 
-    width: 180%;
+    height: 100%; 
+    width: 100%;
+    border-left: solid 0.3rem coral;
+    border-right: solid 0.3rem coral;
+}
+
+.row>*{
+    padding-right: 0rem !important;
+    padding-left: 0rem !important;
+}
+
+.puzzo{
+    border-top: solid 0.3rem coral;
 }

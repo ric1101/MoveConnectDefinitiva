@@ -60,34 +60,62 @@ body{
     padding-top: 7rem !important;
 
 }
-
-.containerMappa{
-    width: 35rem;
-    height: 50rem;
 }
+
+
+
+/* .containerMappa{
+    width: 60rem;
+    height: 1000px;
+} */
 
 .containerMappa #map{
     width: 100%;
     height: 100%;
-}
+} 
 
-.containerSinistra{
-    width: 35rem;
-    height: 50rem;
-}
 
 .containerSinistra img{
     width: 100%;
-    height: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-bottom: solid 0.3rem coral;
 }
 
-.containerDestra{
-    width: 35rem;
-    height: 50rem;
-}
 
 .containerDestra img{
     width: 100%;
-    height: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-bottom: solid 0.3rem coral;
 }
+
+.chisono {
+    padding: 5rem;
+    display: flex;
+    justify-content: center;
+    
 }
+
+.chisono img{
+    width: 100%;
+    padding: 2rem;
+}
+
+.chisono h1{
+    width: 100%;
+    padding: 2rem;
+}
+
+.chisono p{
+    width: 100%;
+    padding: 2rem;
+}
+
+
+
+
+
+
