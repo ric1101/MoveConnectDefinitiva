@@ -14,7 +14,20 @@
 <body>
 <!-- Navbar -->
 <div class="navbarMain"></div>
-<div id="map"></div>
+<div class="row">
+    <div class="col-md-4 containerSinistra">
+        <img src="../Progetto/imgs/1sinistra.png" alt="">
+    </div>
+    <div class="col-md-4 containerMappa">
+        <div id="map"></div>
+    </div>
+
+    <div class="col-md-4 containerDestra">
+        <img src="../Progetto/imgs/2destra.png" alt="">
+    </div>
+</div>
+
+
 
 
 
@@ -79,6 +92,16 @@ var googlestreet = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png
 
 // googlestreet.addTo(map);
 
+//black
+
+var Stadia_AlidadeSmoothDark = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}', {
+	minZoom: 0,
+	maxZoom: 20,
+	attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	ext: 'png'
+});
+
+
 
 // marker
 var myIcon = L.icon({
@@ -122,9 +145,8 @@ var singleMarker = L.marker([45.55345114896567, 9.149732021315225], {icon : myIc
 var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Express Delivery</a></h1> <p> Azienda di trasporti per ogni vostra esigenza </p> <img src="../Progetto/imgs/9.png"/>').openPopup()
 popUp.addTo(map);
 
-map.setView(new L.LatLng(38.153157913744465, 21.95617472545008), 7);
 
-map.setView(new L.LatLng(38.153157913744465, 21.95617472545008), 7);
+map.setView(new L.LatLng(42.08278075075734, 11.84566277443681), 6);
 
 
 // layer controller
@@ -134,17 +156,24 @@ var baseMaps = {
     "OpenStreetMapFrance":OpenStreetMap_France,
     "Esri_NatGeoWorldMap" :Esri_NatGeoWorldMap,
     "OpenTopoMap":OpenTopoMap,
-    "GoogleStreetView":googlestreet
+    "GoogleStreetView":googlestreet,
+    "BlackMap": Stadia_AlidadeSmoothDark
 };
 
 var overlayMaps = {
     "Marker": singleMarker
 };
 
-L.control.layers(baseMaps, overlayMaps, {collapsed: false}).addTo(map);
+L.control.layers(baseMaps, overlayMaps, {}).addTo(map);
 
 // Leaflet search
 L.control.geocoder().addTo(map);
+
+const resizeObserver = new ResizeObserver(() => {
+  map.invalidateSize();
+});
+
+L.control.resizer({ direction: 'e' }).addTo(map);
 
 
 
