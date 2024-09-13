@@ -2,6 +2,7 @@
   "dependencies": {
     "@tomtom-international/web-sdk-maps": "^6.25.0",
     "@tomtom-international/web-sdk-services": "^6.25.0",
-    "leaflet.control.resizer": "^0.0.1"
+    "leaflet.control.resizer": "^0.0.1",
+    "swiper": "^11.1.14"
   }
 }
