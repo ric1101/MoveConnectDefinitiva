@@ -1,7 +1,8 @@
 
 body {
     font-family: Arial, sans-serif;
-    padding: 20px;
+    
+    background-color: rgba(255, 255, 255, 0.5);
 }
 .professional-card img {
     width: 100%;
@@ -22,36 +23,34 @@ body {
     margin-top: 2rem;
 }
 #riepilogoRichiesta{
-    background-color: coral !important;
+    background-color: #6c757dc8 !important;
     border-radius: 1rem;
 }
 
-#richiesta{
-   
-   
-}
+
 #riepilogo{
     
-    background-color: coral !important;
+    background-color: #f0f4f700;
     border:none;
 }
-.richiesta{
-    
-    
-}
+
 #regioni{
-    background-color: coral;
+    background-color: rgba(255, 255, 255, 0.5);
 
 }
 #provincia{
-    background-color: rgba(255, 127, 80, 0.500) ;
+    background-color: rgba(255, 255, 255, 0.5) ;
 }
 #indirizzo{
-    background-color: coral;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 #civico{
-    background-color: coral;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 #cap{
-    background-color: coral;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#btnInvioRichiesta{
+    margin-bottom: 1rem;
 }

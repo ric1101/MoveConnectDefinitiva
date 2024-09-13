@@ -70,12 +70,14 @@ function submitRequest() {
 
         // Validazione Provincia (alfanumerico e max 50 caratteri)
         if (provincia.length > maxProvinciaLength || !alphanumericPattern.test(provincia)) {
-            alert("La provincia deve essere alfanumerica e non superare i 50 caratteri!");
+            alert("La provincia deve essere max 50 caratteri!");
             return false;
         }
 
         
     }
+
+    //document.getElementById('btnInvioRichiesta').addEventListener('click', confermaRichiesta);
 
 // .then(ordine => {
 //     console.log('Ordine registrato con successo:', ordine);
