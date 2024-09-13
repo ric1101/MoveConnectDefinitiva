@@ -1,7 +1,7 @@
 let navbarHTML = document.querySelector(".navbarMain");
 
 function navbar() {
-    let navBarFinale = `<nav class="navbar navbar-expand-lg fixed-top" style="background-color: #6c757d;">
+    let navBarFinale = `<nav class="navbar navbar-expand-lg" style="background-color: #6c757d;">
     <div class="container-fluid">
     <!-- Logo -->
     <a class="navbar-brand fs-4" href="index.html"><img class="logo" src="../Progetto/imgs/icona-transformed (1).png" alt=""></a>

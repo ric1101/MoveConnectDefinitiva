@@ -48,19 +48,20 @@ body{
     background-color: coral !important;
 }
 
-.navbarMain {
-    position: fixed; /* O sticky se vuoi che si muova leggermente con la pagina */
+/* .navbar {
     top: 0;
-    width: 100%;
-    z-index: 1000; /* Assicurati che la navbar sia sopra gli altri elementi */
+    right: 0;
+    left: 0;
+    z-index: 1030;
+} */
+
+@media(max-width: 768px){
+.navbar-nav {
+    padding-top: 7rem !important;
+
 }
 
-section {
-    padding-top: 80px; /* O l'altezza della navbar per creare spazio */
-    position: relative;
-    z-index: 1; /* Assicurati che il form sia sotto la navbar */
-}
-
+<<<<<<< 20-continuohomepage
 .containerMappa{
     width: 35rem;
     height: 50rem;
@@ -90,3 +91,6 @@ section {
     width: 100%;
     height: 100%;
 }
+=======
+}
+>>>>>>> main
