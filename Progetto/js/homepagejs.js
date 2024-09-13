@@ -1,7 +1,7 @@
 let navbarHTML = document.querySelector(".navbarMain");
 
 function navbar() {
-    let navBarFinale = `<nav class="navbar navbar-expand-lg" style="background-color: #6c757d;">
+    let navBarFinale = `<nav class="navbar navbar-expand-lg" style="background-color: #2B3035;">
     <div class="container-fluid">
     <!-- Logo -->
     <a class="navbar-brand fs-4" href="index.html"><img class="logo" src="../Progetto/imgs/icona-transformed (1).png" alt=""></a>
@@ -21,41 +21,41 @@ function navbar() {
     <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
     <ul class="navbar-nav justify-content-center fs-5 flex-grow-1 pe-3">
     <li class="nav-item dropdown mx-5" id="menu-products">
-    <a class="nav-link dropdown-toggle button1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle button1 text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Inserisci servizio
     </a>
     <ul class="dropdown-menu drop1">
     <li><a class="dropdown-item" href="#">Occupazione solo pubblico</a></li>
-    <li><a class="dropdown-item" href="#">Richiesta supporto</a></li>
+    <li><a class="dropdown-item" href="#">Richiesta trasporto</a></li>
     <li><a class="dropdown-item" href="#">Scala elevatore</a></li>
     <li><a class="dropdown-item" href="#">Consegna imballi</a></li>
-    <li><a class="dropdown-item" href="#">Richiesta personale spec.</a></li>
+    <li><a class="dropdown-item" href="./personale.html">Richiesta personale spec.</a></li>
     <li><a class="dropdown-item" href="#">Deposito magazzimo m2</a></li>
     <li><a class="dropdown-item" href="#">Richiesta trasporto m3</a></li>
     </ul>
     </li>
     <li class="nav-item dropdown mx-5" id="menu-products">
-    <a class="nav-link dropdown-toggle button1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle button1 text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Visualizza servizio
     </a>
     <ul class="dropdown-menu drop2">
     <li><a class="dropdown-item" href="#">Occupazione solo pubblico</a></li>
-    <li><a class="dropdown-item" href="#">Richiesta supporto</a></li>
+    <li><a class="dropdown-item" href="#">Trasporto</a></li>
     <li><a class="dropdown-item" href="#">Scala elevatore</a></li>
     <li><a class="dropdown-item" href="#">Consegna imballi</a></li>
-    <li><a class="dropdown-item" href="#">Richiesta personale spec.</a></li>
+    <li><a class="dropdown-item" href="#">Personale spec.</a></li>
     <li><a class="dropdown-item" href="#">Deposito magazzimo m2</a></li>
-    <li><a class="dropdown-item" href="#">Richiesta trasporto m3</a></li>
+    <li><a class="dropdown-item" href="#">Trasporto m3</a></li>
     </ul>
     </li>
     <li class="nav-item">
-    <a class="nav-link button1 mx-5" href="#">Visualizza tratte</a>
+    <a class="nav-link button1 mx-5 text-white" href="#">Visualizza tratte</a>
     </li>
     </ul>
     <!-- Login/Signup -->
     <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
-    <a href="login" class="text-black">Login</a>
-    <a href="signup" class="text-black text-decoration-none px-3 py-1 rounded-4" style="background-color: coral;">Sign Up</a>
+    <a href="./login.html" class="text-white text-decoration-none">Login</a>
+    <a href="./registrati.html" class="text-black text-decoration-none px-3 py-1 rounded-4" style="background-color: coral;">Sign Up</a>
     </div>
     
     </div>
