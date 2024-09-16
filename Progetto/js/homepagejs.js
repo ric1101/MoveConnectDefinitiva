@@ -1,10 +1,10 @@
 let navbarHTML = document.querySelector(".navbarMain");
 
 function navbar() {
-    let navBarFinale = `<nav class="navbar navbar-expand-lg" style="background-color: #2B3035;">
+    let navBarFinale = `<nav class="navbar navbar-expand-lg" style="background-color: #323232;">
     <div class="container-fluid">
     <!-- Logo -->
-    <a class="navbar-brand fs-4" href="index.html"><img class="logo" src="../Progetto/imgs/icona-transformed (1).png" alt=""></a>
+    <a class="navbar-brand fs-4" href="index.html"><img class="logo" src="../Progetto/imgs/img.png" alt=""></a>
     <!-- Bottoni -->
     <button class="navbar-toggler shadow-none border-0 hamburger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -14,7 +14,7 @@ function navbar() {
     <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
     <!-- SideBar Header -->
     <div class="offcanvas-header text-black border-bottom">
-    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img class="logo" src="../Progetto/imgs/icona-transformed (1).png" alt=""></h5>
+    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img class="logo" src="../Progetto/imgs/321.png" alt=""></h5>
     <button type="button" class="btn-close-black shadow-none closed" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
     </div>
     <!--Sidebar Body  -->
