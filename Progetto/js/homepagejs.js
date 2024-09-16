@@ -30,7 +30,7 @@ function navbar() {
     <li><a class="dropdown-item" href="#">Scala elevatore</a></li>
     <li><a class="dropdown-item" href="./imballi.html">Consegna imballi</a></li>
     <li><a class="dropdown-item" href="./personale.html">Richiesta personale spec.</a></li>
-    <li><a class="dropdown-item" href="#">Deposito magazzimo m2</a></li>
+    <li><a class="dropdown-item" href="./deposito-magazzino.html">Deposito magazzimo m2</a></li>
     <li><a class="dropdown-item" href="#">Richiesta trasporto m3</a></li>
     </ul>
     </li>
