@@ -58,7 +58,7 @@ function Footer() {
                             <h3>Links utili</h3>
                         </div>
                         <ul>
-                            <li><a href="#">Home</a></li>
+                            <li><a href="index.html">Home</a></li>
                             <li><a href="#">About</a></li>
                             <li><a href="#">Servizi</a></li>
                             <li><a href="#">Contatti</a></li>
