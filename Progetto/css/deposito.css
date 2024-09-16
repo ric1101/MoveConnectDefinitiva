@@ -1,0 +1,27 @@
+.deposito{
+    display: flex;
+    justify-content: center;
+}
+
+.magazzinoRow{
+    padding: 10rem;
+   
+}
+
+.provin{
+    padding-left: 2rem !important;
+}
+
+.IMMA{
+    padding-top: 5rem;
+    display: flex;
+    justify-content: center;
+
+}
+
+.pedana{
+    padding-left: 2rem;
+}
+
+
+
