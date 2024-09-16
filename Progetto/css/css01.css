@@ -279,7 +279,13 @@ ul {
   color: #878787;
 }
 
+.leaflet-control-zoom-in {
+  display: none !important;
+}
 
+.leaflet-control-zoom-out {
+  display: none !important;
+}
 
 
 
