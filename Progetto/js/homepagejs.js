@@ -25,7 +25,7 @@ function navbar() {
     Inserisci servizio
     </a>
     <ul class="dropdown-menu drop1">
-    <li><a class="dropdown-item" href="#">Occupazione solo pubblico</a></li>
+    <li><a class="dropdown-item" href="./occSuoloPub.html">Occupazione solo pubblico</a></li>
     <li><a class="dropdown-item" href="#">Richiesta trasporto</a></li>
     <li><a class="dropdown-item" href="#">Scala elevatore</a></li>
     <li><a class="dropdown-item" href="./imballi.html">Consegna imballi</a></li>

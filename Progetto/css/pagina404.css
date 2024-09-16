@@ -17,6 +17,8 @@ body {
 }
 
 .containerFoto {
+    margin-top: 40px;
+    margin-bottom: 40px;
     height: 415px;
     width: 578px;
     background-color: #c0c0c0;
@@ -25,6 +27,7 @@ body {
 .containerFoto img {
     height: 100%;
     width: 100%;
+    
 }
 
 .attribution {

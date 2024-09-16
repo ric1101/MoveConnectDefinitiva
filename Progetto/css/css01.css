@@ -287,7 +287,9 @@ ul {
   display: none !important;
 }
 
-
+.dropdown-item:focus, .dropdown-item:hover {
+  background-color: #6c757dc8 !important;
+}
 
 
 
