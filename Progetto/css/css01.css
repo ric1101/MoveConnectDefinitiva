@@ -256,7 +256,7 @@ ul {
   transform: rotate(-6deg);
 }
 .copyright-area{
-  background: #202020;
+  background-color: #c0c0c00d;
   padding: 25px 0;
 }
 .copyright-text p {
@@ -299,6 +299,10 @@ ul {
   border-color: coral;
   
 
+}
+
+.titolo{
+  align-items: center;
 }
 
 
