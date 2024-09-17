@@ -23,5 +23,20 @@
     padding-left: 2rem;
 }
 
+.list-group{
+    display: flex;
+    justify-content: center;
+    background-color: #8B9299;
+}
+
+.riepilogozzo{
+    border: none;
+}
+
+.riep{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
 
 
