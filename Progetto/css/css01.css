@@ -245,9 +245,9 @@ ul {
 .subscribe-form button {
     position: absolute;
     right: 0;
-    background: #ff5e14;
+    background: coral;
     padding: 13px 20px;
-    border: 1px solid #ff5e14;
+    border: 1px solid coral;
     top: 0;
 }
 .subscribe-form button i {
