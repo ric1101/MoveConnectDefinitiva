@@ -39,4 +39,35 @@
     padding-bottom: 2rem;
 }
 
+.form-outline{
+    width: 20%;
+    padding-top: 2rem;
+}
+
+.formRow{
+    display: flex;
+    justify-content: center;
+}
+
+.carta1{
+    width: 30rem;
+    padding-right: 5rem !important;
+    
+}
+
+.carta2{
+    width: 30rem;
+    padding-right: 5rem !important;
+}
+
+.carta1noP{
+    border: 0.2rem solid coral;
+    border-radius: 0.5rem;
+}
+
+.carta2noP{
+    border: 0.2rem solid coral;
+    border-radius: 0.5rem;
+}
+
 
