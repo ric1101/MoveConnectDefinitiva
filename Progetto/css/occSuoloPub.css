@@ -32,12 +32,4 @@
     box-shadow: 0 0 0 .08rem rgb(255 0 0 / 76%);
   } */
 
-.richiedi {
-  background: coral;
-  border-color: coral;
-}
 
-.richiedi:hover {
-  background: rgb(255, 141, 100);
-  border-color: rgb(255, 141, 100);
-}
