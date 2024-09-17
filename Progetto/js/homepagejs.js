@@ -1,7 +1,7 @@
 let navbarHTML = document.querySelector(".navbarMain");
 
 function navbar() {
-    let navBarFinale = `<nav class="navbar navbar-expand-lg" style="background-color: #323232;">
+    let navBarFinale = `<nav class="navbar navbar-expand-lg" style="background-color: #1B2023;">
     <div class="container-fluid">
     <!-- Logo -->
     <a class="navbar-brand fs-4" href="index.html"><img class="logo" src="../Progetto/imgs/img.png" alt=""></a>
@@ -13,8 +13,8 @@ function navbar() {
     <!-- SideBar -->
     <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
     <!-- SideBar Header -->
-    <div class="offcanvas-header text-black border-bottom">
-    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img class="logo" src="../Progetto/imgs/321.png" alt=""></h5>
+    <div class="offcanvas-header text-black border-bottom" style="background-color: #1B2023;border-bottom: solid 0.3rem coral !important;">
+    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img class="logo" src="../Progetto/imgs/img2.png" alt=""></h5>
     <button type="button" class="btn-close-black shadow-none closed" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
     </div>
     <!--Sidebar Body  -->

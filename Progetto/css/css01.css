@@ -33,7 +33,7 @@ html, body {
 
 
 .button1:hover{
-    color: coral !important;
+    color: #F8AD05 !important;
     
 }
 
@@ -126,7 +126,7 @@ ul {
     padding: 0px;
 }
 .footer-section {
-  background: #2B3035;
+  background: #1B2023;
   position: relative;
 }
 .footer-cta {
