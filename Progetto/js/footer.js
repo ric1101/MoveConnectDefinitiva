@@ -39,7 +39,7 @@ function Footer() {
                 <div class="col-xl-4 col-lg-4 mb-50">
                     <div class="footer-widget">
                         <div class="footer-logo">
-                            <a href="index.html"><img src="../Progetto/imgs/MveConnect (1).png" class="img-fluid" alt="logo"></a>
+                            <a href="index.html"><img src="../Progetto/imgs/img.png" class="img-fluid" alt="logo"></a>
                         </div>
                         <div class="footer-text">
                             <p>Siamo un'azienda di trasporti internazionale</p>
