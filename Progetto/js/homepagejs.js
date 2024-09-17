@@ -27,7 +27,7 @@ function navbar() {
     <ul class="dropdown-menu drop1">
     <li><a class="dropdown-item" href="./occSuoloPub.html">Occupazione solo pubblico</a></li>
     <li><a class="dropdown-item" href="#">Richiesta trasporto</a></li>
-    <li><a class="dropdown-item" href="#">Scala elevatore</a></li>
+    <li><a class="dropdown-item" href="./scala-elevatore.html">Scala elevatore</a></li>
     <li><a class="dropdown-item" href="./imballi.html">Consegna imballi</a></li>
     <li><a class="dropdown-item" href="./personale.html">Richiesta personale spec.</a></li>
     <li><a class="dropdown-item" href="./deposito-magazzino.html">Deposito magazzimo m2</a></li>
