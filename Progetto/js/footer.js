@@ -3,7 +3,7 @@ let footerHTML = document.querySelector(".footer");
 function Footer() {
     let footer = `<footer class="footer-section">
     <div class="container">
-        <div class="footer-cta pt-5 pb-5">
+        <div class="footer-cta pt-5">
             <div class="row">
                 <div class="col-xl-4 col-md-4 mb-30">
                     <div class="single-cta">

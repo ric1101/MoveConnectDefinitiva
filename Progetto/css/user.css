@@ -1,0 +1,12 @@
+.rowElenco {
+    justify-content: left;
+}
+
+.rowElenco a {
+    text-decoration: none;
+    color: black;
+}
+
+.rowDati {
+    align-items: center;
+}
