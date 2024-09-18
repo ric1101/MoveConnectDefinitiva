@@ -22,18 +22,24 @@ body {
 .container{
     margin-top: 2rem;
 }
+
 #riepilogoRichiesta{
-    padding: 10px;
+    
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
     background-color: #6c757dc8 !important;
     border-radius: 1rem;
 }
 
 
 #riepilogo{
-    margin: auto;
-    align-items: center;
+    
+    margin-top: 8px;
+    line-height: 4;
     background-color: #f0f4f700;
     border:none;
+    font-size: larger;
 }
 
 .list-group{
@@ -77,3 +83,4 @@ body {
 .professional-card{
     background-color: rgba(255, 255, 255, 0.306);
 }
+
