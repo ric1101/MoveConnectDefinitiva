@@ -51,6 +51,9 @@ function navbar() {
     <li class="nav-item">
     <a class="nav-link button1 mx-5 text-white" href="#">Visualizza tratte</a>
     </li>
+    <li class="nav-item">
+    <a class="nav-link button1 mx-5 text-white" href="./abbonamenti.html">Abbonamenti</a>
+    </li>
     </ul>
     <!-- Login/Signup -->
     <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
