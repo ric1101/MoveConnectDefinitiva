@@ -10,7 +10,7 @@ function Footer() {
                         <i class="fas fa-map-marker-alt"></i>
                         <div class="cta-text">
                             <h4>Dove siamo</h4>
-                            <span>Pomezia,RM</span>
+                            <span>Pomezia, RM</span>
                         </div>
                     </div>
                 </div>
@@ -58,13 +58,14 @@ function Footer() {
                             <h3>Links utili</h3>
                         </div>
                         <ul>
+
                             <li><a href="index.html">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Servizi</a></li>
-                            <li><a href="#">Contatti</a></li>
-                            <li><a href="#">Su di noi</a></li>
-                            <li><a href="#">I nostri servizi</a></li>
-                            <li><a href="#">Team</a></li>
+                            <li><a href="contatti.html">Contatti</a></li>
+                            <li><a href="abbonamenti.html">Abbonamenti</a></li>
+                            <li><a href="tratte.html">Tratte</a></li>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="registrati.html">Sign up</a></li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -98,11 +99,11 @@ function Footer() {
                 <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
                     <div class="footer-menu">
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Terms</a></li>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="terms.html">Termini</a></li>
                             <li><a href="#">Privacy</a></li>
-                            <li><a href="#">Policy</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Politica</a></li>
+                            <li><a href="#">Contatti</a></li>
                         </ul>
                     </div>
                 </div>

@@ -50,7 +50,7 @@ function navbar() {
     </ul>
     </li>
     <li class="nav-item">
-    <a class="nav-link button1 mx-5 text-white" href="#">Visualizza tratte</a>
+    <a class="nav-link button1 mx-5 text-white" href="tratte.html">Visualizza tratte</a>
     </li>
     <li class="nav-item">
     <a class="nav-link button1 mx-5 text-white" href="./abbonamenti.html">Abbonamenti</a>
