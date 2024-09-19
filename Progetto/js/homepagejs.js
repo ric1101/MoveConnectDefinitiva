@@ -1,7 +1,7 @@
 let navbarHTML = document.querySelector(".navbarMain");
 
 function navbar() {
-    let navBarFinale = `<nav class="navbar navbar-expand-lg" style="background-color: #1B2023;">
+    let navBarFinale = `<nav class="navbar navbar-expand-xxl" style="background-color: #1B2023;">
     <div class="container-fluid">
     <!-- Logo -->
     <a class="navbar-brand fs-4" href="index.html"><img class="logo" src="../Progetto/imgs/img.png" alt=""></a>
@@ -15,7 +15,8 @@ function navbar() {
     <!-- SideBar Header -->
     <div class="offcanvas-header text-black border-bottom" style="background-color: #1B2023;border-bottom: solid 0.3rem coral !important;">
     <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img class="logo" src="../Progetto/imgs/img2.png" alt=""></h5>
-    <button type="button" class="btn-close-black shadow-none closed" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
+    <div class="icon ms-auto">
+<i class="fa-regular fa-circle-xmark closed" style="color: #ffffff; font-size: 30px" closed data-bs-dismiss="offcanvas" aria-label="Close"></i></div>
     </div>
     <!--Sidebar Body  -->
     <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
@@ -77,19 +78,19 @@ let dropdown1 = document.querySelector(".drop1");
 let dropdown2 = document.querySelector(".drop2");
 
 
-bottone.addEventListener("click", function() {
+bottone.addEventListener("click", function () {
     dropdown1.classList.add("show");
     dropdown2.classList.add("show");
-    
+
     let back = document.querySelector('.offcanvas-backdrop');
 
-    back.addEventListener("click", function() {
+    back.addEventListener("click", function () {
         dropdown1.classList.remove("show");
         dropdown2.classList.remove("show");
     });
 });
 
-chiusura.addEventListener("click", function() {
+chiusura.addEventListener("click", function () {
     dropdown1.classList.remove("show");
     dropdown2.classList.remove("show");
 });

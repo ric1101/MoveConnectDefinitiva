@@ -144,7 +144,7 @@ function feedback() {
                                                 </div>
                                                 <div class="progress">
                                                     <div class="progress-bar bg-success"
-                                                        role="progressbar" style="width: 47%"
+                                                        role="progressbar" style="width: 40%"
                                                         aria-valuenow="47" aria-valuemin="0"
                                                         aria-valuemax="100"></div>
                                                 </div>
@@ -166,7 +166,7 @@ function feedback() {
                                                 </div>
                                                 <div class="progress">
                                                     <div class="progress-bar bg-orange"
-                                                        role="progressbar" style="width: 80%"
+                                                        role="progressbar" style="width: 30%"
                                                         aria-valuenow="33" aria-valuemin="0"
                                                         aria-valuemax="100"></div>
                                                 </div>
@@ -186,7 +186,7 @@ function feedback() {
                                                 </div>
                                                 <div class="progress">
                                                     <div class="progress-bar bg-info" role="progressbar"
-                                                        style="width: 20%" aria-valuenow="20"
+                                                        style="width: 10%" aria-valuenow="20"
                                                         aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
                                             </li>
@@ -204,7 +204,7 @@ function feedback() {
                                                 </div>
                                                 <div class="progress">
                                                     <div class="progress-bar bg-success"
-                                                        role="progressbar" style="width: 47%"
+                                                        role="progressbar" style="width: 5%"
                                                         aria-valuenow="47" aria-valuemin="0"
                                                         aria-valuemax="100"></div>
                                                 </div>
@@ -214,13 +214,13 @@ function feedback() {
                                                     <i class="fa-solid fa-star display-5 "
                                                         style="color: #FFD43B;"></i>
                                                     <div class="ml-2 p-3">
-                                                        <h5 class="mb-0">Recensioni Positive</h5>
+                                                        <h5 class="mb-0">Recensioni 1 stella</h5>
                                                         <span class="text-muted">25547 Recensioni</span>
                                                     </div>
                                                 </div>
                                                 <div class="progress mb-4">
                                                     <div class="progress-bar bg-success"
-                                                        role="progressbar" style="width: 47%"
+                                                        role="progressbar" style="width: 5%"
                                                         aria-valuenow="47" aria-valuemin="0"
                                                         aria-valuemax="100"></div>
                                                 </div>

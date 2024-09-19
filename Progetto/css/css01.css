@@ -1,4 +1,4 @@
-@media(max-width: 991px){
+@media(max-width: 1400px){
     .sidebar{
         background-color: rgba(255, 255, 255, 0.66);
         backdrop-filter: blur(10px);
@@ -295,6 +295,7 @@ ul {
   background-color: coral !important;
   color: #000000;
 }
+
 .separazione{
   border-color: coral;
   
@@ -304,8 +305,4 @@ ul {
 .titolo{
   align-items: center;
 }
-
-
-
-
 
