@@ -101,25 +101,19 @@ html, body {
 
 .chisono {
     padding: 5rem;
-    display: flex;
     justify-content: center;
-    
+    align-items: center;
+    font-size: 18px;
 }
 
 .chisono img{
     width: 100%;
     padding: 2rem;
-    width: 35rem;
+    
 }
 
 .chisono h1{
     width: 100%;
-    padding: 2rem;
-}
-
-.chisono p{
-    width: 100%;
-    padding: 2rem;
 }
 
 ul {
@@ -320,4 +314,8 @@ ul {
     padding: 0 !important;
   }
   
+}
+
+.desc {
+  font-size: 1.5rem;
 }
