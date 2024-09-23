@@ -322,7 +322,6 @@ ul {
   font-size: 1.5rem;
 }
 
- 56-cambiamenti
 .partner{
   display: flex;
   /* align-items: center; */
@@ -341,5 +340,51 @@ ul {
   font-size: 10rem;
   text-decoration: none;
   color: coral;
+}
+
+@media(max-width: 556px){
+  .league-spartan-sponsor {
+    font-family: "League Spartan", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 3rem;
+    text-decoration: none;
+    color: coral;
+  }
+}
+
+@media(max-width: 767px){
+  .container-finale{
+    padding-left: 5rem;
+    padding-right: 5rem;
+    
+  }
+  .partnerImage{
+    padding-bottom: 2rem;
+  }
+  
+  .container{
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .cod{
+    font-size: 1rem;
+  }
+}
+
+@media(max-width: 1256px) {
+  .partnerDati{
+    padding-left: 3rem;
+    
+  }
+}
+
+@media(min-width:768px ) and (max-width: 1256px){
+    .immaginePartner{
+      width: 10rem;
+      height: 10rem;
+    }
+
 }
 
