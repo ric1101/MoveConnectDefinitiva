@@ -29,52 +29,60 @@
 <body>
     <!-- Navbar -->
     <div class="navbarMain"></div>
-    <div class="row puzzo d-flex ">
-        <div class="col-md-3 containerSinistra">
+    <div class="row home">
+        <div class="col-md-3 col-sm-3 col-3 containerSinistra">
             <img src="../Progetto/imgs/11sinistra.png" alt="">
         </div>
-        <div class="col-md-6 containerMappa">
+        <div class="col-md-6 col-sm-6 col-6 containerMappa">
             <div id="map"></div>
         </div>
-
-        <div class="col-md-3 containerDestra">
+        <div class="col-md-3 col-sm-3 col-3 containerDestra">
             <img src="../Progetto/imgs/22destra.png" alt="">
         </div>
     </div>
 
+    <div class="row homeSmall">
+
+        <div class="col-12">
+            <img src="../Progetto/imgs/small.png" alt="">
+        </div>
+
+    </div>
+
+
     <div class="row chisono">
-        <div class="col-md-6 col-sm-12 immagineFinale">
+        <div class="col-md-6 col-sm-12 p-2 immagineFinale">
             <img src="../Progetto/imgs/talebano.PNG" alt="">
         </div>
-        <div class="col-md-6 col-sm-12">
+        <div class="col-md-6 col-sm-12 p-2">
             <P class="desc">
-                <h1>Entra nel network di MoveConnect!</h1>
-                MoveConnect è una piattaforma online che connette in modo efficiente aziende e
-                professionisti del settore dei trasporti in tutta Italia. Attraverso il sito, le imprese di trasporto
-                possono trovare nuove opportunità di collaborazione, ottimizzare le rotte logistiche e migliorare
-                l'occupazione dei mezzi. MoveConnect semplifica la gestione delle richieste di trasporto, offrendo un
-                sistema intuitivo che permette di inviare e ricevere offerte, confrontare prezzi e capacità, e costruire
-                partnership strategiche. L’obiettivo è rendere il trasporto merci più agile, sostenibile e vantaggioso
-                per tutte le parti coinvolte.
+            <h1>Entra nel network di MoveConnect!</h1>
+            MoveConnect è una piattaforma online che connette in modo efficiente aziende e
+            professionisti del settore dei trasporti in tutta Italia. Attraverso il sito, le imprese di trasporto
+            possono trovare nuove opportunità di collaborazione, ottimizzare le rotte logistiche e migliorare
+            l'occupazione dei mezzi. MoveConnect semplifica la gestione delle richieste di trasporto, offrendo un
+            sistema intuitivo che permette di inviare e ricevere offerte, confrontare prezzi e capacità, e costruire
+            partnership strategiche. L’obiettivo è rendere il trasporto merci più agile, sostenibile e vantaggioso
+            per tutte le parti coinvolte.
             </P>
         </div>
     </div>
     </div>
 
     <div class="row chisono">
-        <div class="col-md-6 col-sm-12">
+        <div class="col-md-6 col-sm-12 p-2">
             <P class="desc">
-                <h1>Entra nel network di MoveConnect!</h1>
-                MoveConnect è una piattaforma online che connette in modo efficiente aziende e
-                professionisti del settore dei trasporti in tutta Italia. Attraverso il sito, le imprese di trasporto
-                possono trovare nuove opportunità di collaborazione, ottimizzare le rotte logistiche e migliorare
-                l'occupazione dei mezzi. MoveConnect semplifica la gestione delle richieste di trasporto, offrendo un
-                sistema intuitivo che permette di inviare e ricevere offerte, confrontare prezzi e capacità, e costruire
-                partnership strategiche. L’obiettivo è rendere il trasporto merci più agile, sostenibile e vantaggioso
-                per tutte le parti coinvolte.
+            <h1>Entra nel network di MoveConnect!</h1>
+            MoveConnect è una piattaforma online che connette in modo efficiente aziende e
+            professionisti del settore dei trasporti in tutta Italia. Attraverso il sito, le imprese di trasporto
+            possono trovare nuove opportunità di collaborazione, ottimizzare le rotte logistiche e migliorare
+            l'occupazione dei mezzi. MoveConnect semplifica la gestione delle richieste di trasporto, offrendo un
+            sistema intuitivo che permette di inviare e ricevere offerte, confrontare prezzi e capacità, e costruire
+            partnership strategiche. L’obiettivo è rendere il trasporto merci più agile, sostenibile e vantaggioso
+            per tutte le parti coinvolte.
             </P>
         </div>
-        <div class="col-md-6 col-sm-12 immagineFinale">
+        <div class="col-md-6 col-sm-12 p-2 immagineFinale">
             <img src="../Progetto/imgs/talebano.PNG" alt="">
         </div>
     </div>
@@ -235,6 +243,30 @@
 
     L.control.resizer({ direction: 'e' }).addTo(map);
 
+    var map; // Definisci la variabile mappa in un contesto globale.
+
+    function initMap() {
+        map = L.map('map').setView([51.505, -0.09], 13); // Crea la mappa qui
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        initMap(); // Inizializza la mappa al caricamento della pagina.
+
+        // Quando la media query per lo schermo piccolo scatta:
+        window.addEventListener("resize", function () {
+            var width = window.innerWidth;
+            if (width < 577) {
+                setTimeout(function () {
+                    if (map) {
+                        map.invalidateSize(); // Forza il ridimensionamento della mappa
+                    }
+                }, 100); // Attendi che la mappa diventi visibile
+            }
+        });
+    });
 
 
 
