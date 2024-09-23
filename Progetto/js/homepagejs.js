@@ -37,7 +37,7 @@ function navbar() {
     </li>
     <li class="nav-item dropdown mx-5" id="menu-products">
     <a class="nav-link dropdown-toggle button1 text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Visualizza servizio
+    Visualizza richieste
     </a>
     <ul class="dropdown-menu drop2">
     <li><a class="dropdown-item" href="#">Occupazione solo pubblico</a></li>

@@ -168,14 +168,54 @@
 
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-3">
+                    <label for="regioni" class="form-label">Tipologia di veicolo trasporto</label>
+                    <select id="regioni" class="form-select">
+                        <option value="">Seleziona tipo di veicolo</option>
+                        <option value="Ducato">Ducato</option>
+                        <option value="Daily35">Daily 35 quintali</option>
+                        <option value="Daily75">Daily 75 quintali</option>
+                        <option value="Camion100">Camion 100 quintali</option>
+                        <option value="Camion180">Camion 180 quintali</option>
+                        <option value="Bilico">Bilico</option>
+                    </select>
+                </div>
+                
+            </div>
+            
+            <hr class="separazione">
+            <div class="row g-3 justify-content-evenly">
+                <div class="col-md-3">
+                    <h3 class="d-flex justify-content">Carico/Scarico</h3>
                     
-                    <div class="invalidM2 text-danger">
-    
+                </div>
+                
+                <div class="col-md-3">
+                    
+                </div>
+            </div>
+            
+            <div class="row g-3 justify-content-evenly">
+                <div class="col-md-3">
+                    <label for="validationCustom08" class="form-label">Data carico</label>
+                    <input type="date" class="form-control richiesti" id="validationCustom08" required>
+                    <div class="invalidNumber text-danger">
+                        
                     </div>
                 </div>
-
-                    <div class="col-md-3">
-                    <div data-mdb-input-init class="form-outline">
+                
+                
+                
+                <div class="col-md-3">
+                    <label for="validationCustom10" class="form-label">Data scarico</label>
+                    <input type="date" class="form-control richiesti" id="validationCustom10" required>
+                    <div class="invalid text-danger">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row g-3 justify-content-evenly">
+            <div class="col-md-3">
+                <div data-mdb-input-init class="form-outline">
                     <label class="form-label" for="textAreaExample">Note</label>
                     <textarea class="form-control" id="textAreaExample1" rows="4" placeholder="Esigenze particolari..."></textarea>
                 </div>
@@ -183,15 +223,16 @@
                     <div class="d-flex justify-content-end mt-4">
                         <button class="btn btn-success mx-2 bottonozzo" onclick="submitRequest()" id="btnInvioRichiesta">Invio Richiesta</button>
                     </div>
-    
+                    
                 </div>
             </div>
         </div>
-
-          
-            
-
-
+    </div>
+    
+    
+    
+    
+    
             <!-- <div class="row g-3 justify-content-evenly">
                 <div class="col-md-3">
                     <label for="validationCustom09" class="form-label">Indica M2</label>
