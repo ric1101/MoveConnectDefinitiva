@@ -58,6 +58,15 @@ function iMieiDati() {
                             <hr>
                             <div class="row rowDati">
                                 <div class="col-sm-3">
+                                    <h6 class="mb-0">Numero di telefono</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary email">
+                                    3422145989
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-3">
                                     <h6 class="mb-0">Email Utente</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary email">

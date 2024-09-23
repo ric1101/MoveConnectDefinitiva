@@ -319,3 +319,23 @@ ul {
 .desc {
   font-size: 1.5rem;
 }
+
+.partner{
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  background-color: #1B2023;
+  border: 0.3rem solid coral;
+  margin-bottom: 2rem;
+}
+
+
+
+.league-spartan-sponsor {
+  font-family: "League Spartan", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-size: 10rem;
+  text-decoration: none;
+  color: coral;
+}
