@@ -1,69 +1,59 @@
 
-let regioni = 'https://comuni-istat-api.belicedigital.com/api/regioni';
+let regioniSeconda = 'https://comuni-istat-api.belicedigital.com/api/regioni';
 
-addEventListener("DOMContentLoaded", function () {
 
-    this.localStorage.clear();
-    
-});
-
-fetch(regioni)
+fetch(regioniSeconda)
     .then((res) => res.json())
     .then((data) => {
-        stampaRegione(data);
+        stampaRegione2(data);
         console.log(data);
 
         // Add event listener to the select element after options are dynamically added
-        let selectElement = document.querySelector('#regioni');
+        let selectElement1 = document.querySelector('#regioni1');
 
-        selectElement.addEventListener('change', function () {
-            JSON.stringify(localStorage.setItem('regione', selectElement.value));
-            visualizzaProvincia();
-            visualizzaComune();
-            if(selectElement == `<option value="">Seleziona Provincia</option>`) {
-
-
-            }
+        selectElement1.addEventListener('change', function () {
+            JSON.stringify(localStorage.setItem('regione1', selectElement1.value));
+            visualizzaProvincia2();
+            visualizzaComune2();
         });
 
 
     });
 
 
-function stampaRegione(regioni) {
+function stampaRegione2(regioni) {
 
-    let reg = document.querySelector('#regioni');
+    let reg1 = document.querySelector('#regioni1');
 
     regioni.forEach(element => {
-        reg.innerHTML += `<option value="${element}">${element}</option>`;
+        reg1.innerHTML += `<option value="${element}">${element}</option>`;
 
     });
-
 
 }
 
 
-function visualizzaProvincia() {
+function visualizzaProvincia2() {
 
-    let regione = localStorage.getItem('regione');
+    let regione1 = localStorage.getItem('regione1');
 
-    fetch(`https://comuni-istat-api.belicedigital.com/api/province/${regione}`)
+    fetch(`https://comuni-istat-api.belicedigital.com/api/province/${regione1}`)
         .then((res) => res.json())
         .then((data) => {
 
             console.log(data);
-            stampaProvincia(data);
+            stampaProvincia2(data);
 
         });
 }
 
-function stampaProvincia(province) {
+function stampaProvincia2(province) {
 
-    let prov = document.querySelector('#province');
-    prov.innerHTML = `<option value="">Seleziona Provincia</option>`;
+    let prov1 = document.querySelector('#province1');
+    prov1.innerHTML = `<option value="">Seleziona Provincia</option>`;
 
     province.forEach(element => {
-        prov.innerHTML += `<option value="${element}">${element}</option>`;
+        prov1.innerHTML += `<option value="${element}">${element}</option>`;
         
     });
 
@@ -74,20 +64,20 @@ fetch(`https://comuni-istat-api.belicedigital.com/api/province`)
     .then((res) => res.json())
     .then((data) => {
 
-        let selectElement1 = document.querySelector('#province');
+        let selectElement2 = document.querySelector('#province1');
 
-        selectElement1.addEventListener('change', function () {
-            JSON.stringify(localStorage.setItem('provincia', selectElement1.value));
+        selectElement2.addEventListener('change', function () {
+            JSON.stringify(localStorage.setItem('provincia1', selectElement2.value));
 
-            arrayConfronto(data);
-            visualizzaComune();
+            arrayConfronto2(data);
+            visualizzaComune2();
         });
         
     });
 
 
 
-let provinceAbbreviate = [
+let provinceAbbreviate2 = [
     "AG",  // Agrigento
     "AL",  // Alessandria
     "AN",  // Ancona
@@ -106,7 +96,7 @@ let provinceAbbreviate = [
     "BO",  // Bologna
     "BZ",  // Bolzano
     "BS",  // Brescia
-    "BR",  // Brindisi
+    "BR",  // BrindisiTrasporto  
     "CA",  // Cagliari
     "CL",  // Caltanissetta
     "CB",  // Campobasso
@@ -199,47 +189,46 @@ let provinceAbbreviate = [
     "VT"   // Viterbo
   ];
 
-  console.log(provinceAbbreviate); 
   
-function arrayConfronto(prov) {
+function arrayConfronto2(prov) {
     
-    let provinciaEstesa = localStorage.getItem('provincia');
-    let arrayEstesa = prov;
-    console.log(provinciaEstesa);
-    console.log(arrayEstesa);
+    let provinciaEstesa1 = localStorage.getItem('provincia1');
+    let arrayEstesa1 = prov;
+    console.log(provinciaEstesa1);
+    console.log(arrayEstesa1);
 
-    let indiceEsteso = arrayEstesa.indexOf(provinciaEstesa);
+    let indiceEsteso1 = arrayEstesa1.indexOf(provinciaEstesa1);
 
-    let indiceAbbreviato = provinceAbbreviate[indiceEsteso];
-    console.log(indiceAbbreviato);
-    JSON.stringify(localStorage.setItem('sigla', indiceAbbreviato));
+    let indiceAbbreviato1 = provinceAbbreviate2[indiceEsteso1];
+    console.log(indiceAbbreviato1);
+    JSON.stringify(localStorage.setItem('sigla1', indiceAbbreviato1));
     
 }
 
-async function visualizzaComune() {
+async function visualizzaComune2() {
     
 
-    let sigla = localStorage.getItem('sigla');
-    console.log(sigla);
+    let sigla1 = localStorage.getItem('sigla1');
+    console.log(sigla1);
 
-    await fetch(`https://comuni-istat-api.belicedigital.com/api/provincia/${sigla}/comuni`)
+    await fetch(`https://comuni-istat-api.belicedigital.com/api/provincia/${sigla1}/comuni`)
         .then((res) => res.json())
         .then((data) => {
 
             console.log(data);
-            stampaComune(data);
+            stampaComune2(data);
 
         });
 
 }
 
-function stampaComune(comun) {
+function stampaComune2(comun) {
     
-    let comune = document.querySelector('#comuni');
-    comune.innerHTML = `<option value="">Seleziona Comune</option>`;
+    let comune1 = document.querySelector('#comuni1');
+    comune1.innerHTML = `<option value="">Seleziona Comune</option>`;
 
     comun.forEach(element => {
-        comune.innerHTML += `<option value="${element}">${element}</option>`;
+        comune1.innerHTML += `<option value="${element}">${element}</option>`;
         
     });
 
