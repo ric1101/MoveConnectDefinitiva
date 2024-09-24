@@ -45,7 +45,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="cognome" class="form-label">Inserisci un logo</label>
+                                    <label for="immagine" class="form-label">Inserisci un logo</label>
                                     <input type="file" class="form-control richiesti" id="immagine" aria-label="Inserisci foto"
                                         maxLength="40" required>
                                     <div class="invalid-feedback">
@@ -54,15 +54,14 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="cognome" class="form-label">Indirizzo completo</label>
+                                    <label for="indirizzo" class="form-label">Indirizzo completo</label>
                                     <input type="text" class="form-control richiesti" id="indirizzo" aria-label="Inserisci indirizzo"
-                                        maxLength="60" required>
+                                    maxLength="60" required>
                                     <div class="invalid-feedback">
                                         Indirizzo richiesto
                                     </div>
                                 </div>
                                 
-
                                 <div class="mb-3">
 
                                     <label for="partitaIva" class="form-label">Partita IVA</label>
@@ -71,6 +70,14 @@
                                     <!-- <p class="text-danger" id="usernameError"></p> -->
                                     <div class="invalid-feedback">
                                         Partita IVA richiesta
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="emailAziendale" class="form-label">Email Aziendale</label>
+                                    <input type="email" class="form-control richiesti" id="emailAziendale" required>
+                                    <div class="invalid-feedback">
+                                        Email Aziendale richiesta
                                     </div>
                                 </div>
 
@@ -95,15 +102,15 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="data_nascita" class="form-label">Data di nascita</label>
-                                    <input type="date" class="form-control richiesti" id="data_nascita" required>
+                                    <label for="dataNascita" class="form-label">Data di nascita</label>
+                                    <input type="date" class="form-control richiesti" id="dataNascita" required>
                                     <div class="invalid-feedback">
                                         Data di nascita richiesta
                                     </div>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="cognome" class="form-label">Numero di telefono</label>
+                                    <label for="numeroTelefono" class="form-label">Numero di telefono</label>
                                     <input type="number" class="form-control richiesti" id="numeroTelefono" aria-label="Numero di telefono"
                                         maxLength="40" required>
                                     <div class="invalid-feedback">
@@ -111,13 +118,15 @@
                                     </div>
                                 </div>
 
+
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control richiesti" id="email" required>
+                                    <label for="emailDipendente" class="form-label">Email Dipendente</label>
+                                    <input type="email" class="form-control richiesti" id="emailDipendente" required>
                                     <div class="invalid-feedback">
-                                        Email richiesta
+                                        Email Dipendente richiesta
                                     </div>
                                 </div>
+
 
                                 <div class="mb-3 password">
 
