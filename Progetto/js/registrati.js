@@ -7,7 +7,7 @@ let nomeDipendente = document.querySelector("#nome");
 let cognomeDipendente = document.querySelector("#cognome");
 let dataNascita = document.querySelector("#dataNascita");
 let numeroTelefono = document.querySelector("#numeroTelefono");
-let emailDipendente = document.querySelector("#emailDipendente");
+let email = document.querySelector("#emailDipendente");
 let password = document.querySelector("#password");
 let bottoneRegistrati = document.querySelector("#registrati");
 
@@ -16,7 +16,7 @@ let bottoneRegistrati = document.querySelector("#registrati");
 
 
 class Azienda {
-    constructor(nomeAzienda,logo,indirizzo,pIva, emailAziendale,nomeDipendente,cognomeDipendente,dataNascita,numeroTelefono,emailDipendente,password){
+    constructor(nomeAzienda,logo,indirizzo,pIva, emailAziendale,nomeDipendente,cognomeDipendente,dataNascita,numeroTelefono,email,password){
         (this.nomeAzienda = nomeAzienda),
         (this.logo = logo),
         (this.indirizzo = indirizzo),
@@ -26,10 +26,15 @@ class Azienda {
         (this.cognomeDipendente = cognomeDipendente),
         (this.dataNascita = dataNascita),
         (this.numeroTelefono = numeroTelefono),
-        (this.emailDipendente = emailDipendente),
+        (this.email = email),
         (this.password = password);
     }
 }
+
+let nuovaAzienda = {};
+
+console.log(JSON.stringify(nuovaAzienda));
+
 
 function registrazioneAzienda() {
     nuovaAzienda = new Azienda( 
@@ -42,18 +47,22 @@ function registrazioneAzienda() {
         cognomeDipendente.value,
         dataNascita.value,
         numeroTelefono.value,
-        emailDipendente.value,
+        email.value,
         password.value
     );
 
+    
+    
     fetch("http://localhost:8080/api/azienda/inserisci", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+            "Content-Type": "application/json",
         },
         body: JSON.stringify(nuovaAzienda),
-      });
-    }
+    });
+    console.log(nuovaAzienda);
+}
 
+    
     bottoneRegistrati.addEventListener("click", registrazioneAzienda);
 
