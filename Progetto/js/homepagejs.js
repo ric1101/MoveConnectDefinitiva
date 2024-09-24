@@ -32,7 +32,7 @@ function navbar() {
     <li><a class="dropdown-item" href="./imballi.html">Consegna imballi</a></li>
     <li><a class="dropdown-item" href="./personale.html">Richiesta personale spec.</a></li>
     <li><a class="dropdown-item" href="./deposito-magazzino.html">Deposito magazzimo m2</a></li>
-    <li><a class="dropdown-item" href="#">Richiesta trasporto m3</a></li>
+    <li><a class="dropdown-item" href="./insertTratte.html">Inserisci tratta</a></li>
     </ul>
     </li>
     <li class="nav-item dropdown mx-5" id="menu-products">
