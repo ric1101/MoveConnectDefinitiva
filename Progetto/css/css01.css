@@ -324,7 +324,6 @@ ul {
 
 .partner{
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   background-color: #1B2023;
   border: 0.3rem solid coral;
@@ -332,14 +331,15 @@ ul {
 }
 
 
-
 .league-spartan-sponsor {
   font-family: "League Spartan", system-ui;
   font-optical-sizing: auto;
-  font-weight: 600;
-  font-size: 10rem;
+  font-weight: 500;
+  font-size: 4rem;
   text-decoration: none;
   color: coral;
+  margin-top: 1rem !important;
+  padding: 10px;
 }
 
 @media(max-width: 556px){
