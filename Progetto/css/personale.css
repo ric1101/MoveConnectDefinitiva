@@ -86,18 +86,21 @@ body {
 #cap{
     background-color: rgba(255, 255, 255, 0.5);
 }
+#cap{
+    background-color: rgba(255, 255, 255, 0.5);
+}
 
 #btnInvioRichiesta{
     margin-bottom: 1rem;
 }
 .professional-card{
-    background-color: rgba(255, 255, 255, 0.306);
+    background-color: rgba(255, 255, 255, 0.306) !important;
 }
 
 @media (max-width: 767px) {
 
     .titoli {
-        display: none;
+        display: none !important;
     }
 
 }
@@ -105,7 +108,7 @@ body {
 @media (min-width: 767px) {
 
     .titoliResp {
-        display: none;
+        display: none !important;
     }
 
 }
