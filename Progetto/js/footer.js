@@ -101,7 +101,7 @@ function Footer() {
                         <ul>
                             <li><a href="index.html">Home</a></li>
                             <li><a href="terms.html">Termini</a></li>
-                            <li><a href="#">Privacy</a></li>
+                            <li><a href="privacyPolicy.html">Privacy</a></li>
                             <li><a href="#">Politica</a></li>
                             <li><a href="#">Contatti</a></li>
                         </ul>
