@@ -35,14 +35,14 @@
                 <div class="col-md-3">
                     <label for="regioni" class="form-label">Seleziona Regione</label>
                     <select id="regioni" class="form-select">
-                        <option value="">Seleziona Regione</option>
+                        <option value="" disabled selected>Seleziona Regione</option>
 
                     </select>
                 </div>
                 <div class="col-md-3">
                     <label for="province" class="form-label">Seleziona Provincia</label>
                     <select id="province" class="form-select">
-                        <option value="">Seleziona Provincia</option>
+                        <option value="" disabled selected>Seleziona Provincia</option>
 
                     </select>
                 </div>
@@ -52,7 +52,7 @@
                 <div class="col-md-3">
                     <label for="comuni" class="form-label">Seleziona Comune</label>
                     <select id="comuni" class="form-select">
-                        <option value="">Seleziona Comune</option>
+                        <option value="" disabled selected>Seleziona Comune</option>
 
                     </select>
 
@@ -132,23 +132,14 @@
                         <textarea class="form-control" id="textAreaExample1" rows="4"
                             placeholder="esigenze particolari..."></textarea>
                     </div>
-                </div>
 
+                    <div class="d-flex justify-content-end mt-4">
+                        <div class="d-flex justify-content-end mt-4">
+                            <button class="btn btn-success mx-2 bottonozzo" onclick="submitRequest()"
+                                id="btnInvioRichiesta">Invio Richiesta</button>
+                        </div>
 
-            </div>
-            <div class="row mt-4">
-                <div class="mt-4 col-md-3 col-sm-3 col-3">
-
-                </div>
-                <div class="mt-4 col-md-3 col-sm-3 col-3">
-
-                </div>
-                <div class="mt-4 col-md-3 col-sm-3 col-3">
-
-                </div>
-                <div class="mt-4 col-md-3 col-sm-3 col-3">
-                    <button class="btn btn-success mx-2 bottonozzo" onclick="submitRequest()"
-                        id="btnInvioRichiesta">Invio Richiesta</button>
+                    </div>
                 </div>
 
             </div>

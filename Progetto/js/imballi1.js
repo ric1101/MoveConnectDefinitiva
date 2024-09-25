@@ -1,6 +1,15 @@
 
 let regioniSeconda = 'https://comuni-istat-api.belicedigital.com/api/regioni';
 
+addEventListener("DOMContentLoaded", function () {
+
+    this.localStorage.removeItem('regione1');
+    this.localStorage.removeItem('sigla1');
+    this.localStorage.removeItem('provincia1');
+    
+    
+});
+
 
 fetch(regioniSeconda)
     .then((res) => res.json())
@@ -13,6 +22,10 @@ fetch(regioniSeconda)
 
         selectElement1.addEventListener('change', function () {
             JSON.stringify(localStorage.setItem('regione1', selectElement1.value));
+
+            localStorage.removeItem('sigla1');
+            localStorage.removeItem('provincia1');
+            
             visualizzaProvincia2();
             visualizzaComune2();
         });

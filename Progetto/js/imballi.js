@@ -3,8 +3,12 @@ let regioni = 'https://comuni-istat-api.belicedigital.com/api/regioni';
 
 addEventListener("DOMContentLoaded", function () {
 
-    this.localStorage.clear();
-    
+    this.localStorage.removeItem('regione');
+    this.localStorage.removeItem('provincia');
+    this.localStorage.removeItem('sigla');
+
+
+
 });
 
 fetch(regioni)
@@ -18,12 +22,14 @@ fetch(regioni)
 
         selectElement.addEventListener('change', function () {
             JSON.stringify(localStorage.setItem('regione', selectElement.value));
+
+            localStorage.removeItem('sigla');
+            localStorage.removeItem('provincia');
+
+            
             visualizzaProvincia();
             visualizzaComune();
-            if(selectElement == `<option value="">Seleziona Provincia</option>`) {
 
-
-            }
         });
 
 
@@ -64,7 +70,7 @@ function stampaProvincia(province) {
 
     province.forEach(element => {
         prov.innerHTML += `<option value="${element}">${element}</option>`;
-        
+
     });
 
 }
@@ -82,7 +88,7 @@ fetch(`https://comuni-istat-api.belicedigital.com/api/province`)
             arrayConfronto(data);
             visualizzaComune();
         });
-        
+
     });
 
 
@@ -197,12 +203,12 @@ let provinceAbbreviate = [
     "VV",  // Vibo Valentia
     "VI",  // Vicenza
     "VT"   // Viterbo
-  ];
+];
 
-  console.log(provinceAbbreviate); 
-  
+console.log(provinceAbbreviate);
+
 function arrayConfronto(prov) {
-    
+
     let provinciaEstesa = localStorage.getItem('provincia');
     let arrayEstesa = prov;
     console.log(provinciaEstesa);
@@ -213,11 +219,11 @@ function arrayConfronto(prov) {
     let indiceAbbreviato = provinceAbbreviate[indiceEsteso];
     console.log(indiceAbbreviato);
     JSON.stringify(localStorage.setItem('sigla', indiceAbbreviato));
-    
+
 }
 
 async function visualizzaComune() {
-    
+
 
     let sigla = localStorage.getItem('sigla');
     console.log(sigla);
@@ -234,13 +240,13 @@ async function visualizzaComune() {
 }
 
 function stampaComune(comun) {
-    
+
     let comune = document.querySelector('#comuni');
     comune.innerHTML = `<option value="">Seleziona Comune</option>`;
 
     comun.forEach(element => {
         comune.innerHTML += `<option value="${element}">${element}</option>`;
-        
+
     });
 
 }
