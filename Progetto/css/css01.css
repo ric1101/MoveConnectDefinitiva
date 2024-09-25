@@ -1,19 +1,19 @@
 @media(max-width: 1400px){
     .sidebar{
-        background-color: rgba(255, 255, 255, 0.66);
+        background-color: rgba(255, 255, 255, 0.66) !important;
         backdrop-filter: blur(10px);
     }
      
 }
 
 body{
-    background-color: #6c757da5;
+    background-color: #6c757da5 !important;
    
 }
 
 html, body {
-  height: 100%;
-  overflow-x: hidden; /* Evita lo scorrimento orizzontale */
+  height: 100% !important;
+  overflow-x: hidden !important; /* Evita lo scorrimento orizzontale */
 }
 
 
@@ -37,11 +37,11 @@ html, body {
 }
 
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
-    color: white;
+    color: white !important;
 }
 
 .dropdown-menu{
-    background-color: #6c757dc8;
+    background-color: #6c757dc8 !important;
     
 }
 
