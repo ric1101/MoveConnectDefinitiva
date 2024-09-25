@@ -2,17 +2,249 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Inserisci Tratta</title>
-
+    <title>Trasporti</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/css01.css">
     <link rel="icon" href="./imgs/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    
+    <div class="navbarMain"></div>
+
+
+    <div class="container p-5">
+
+
+        <div>
+            <h1 class="text-center mb-4">TRATTA &nbsp;<i class="fa-solid fa-road"></i></h1>
+        </div>
+
+
+        <form class="row g-3 formRow">
+
+            <!-- ----------------------------------------------------------------------- -->
+            <!--                                  Partenza                               -->
+            <!-- ----------------------------------------------------------------------- -->
+            <div class="row g-3 justify-content-evenly">
+                <div class="col-md-3">
+                    <h3 class="d-flex justify-content">Partenza</h3>
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+
+            <div class="row g-3 justify-content-evenly">
+                <div class="col-md-3">
+                    <label for="regioni" class="form-label">Seleziona Regione</label>
+                    <select id="regioni" class="form-select">
+                        <option value="" disabled selected>Seleziona Regione</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-3">
+                    <label for="province" class="form-label">Seleziona Provincia</label>
+                    <select id="province" class="form-select">
+                        <option value="" disabled selected>Seleziona Provincia</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="row g-3 justify-content-evenly">
+
+                <div class="col-md-3">
+                    <label for="comuni" class="form-label">Seleziona Comune</label>
+                    <select id="comuni" class="form-select">
+                        <option value="" disabled selected>Seleziona Comune</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-3">
+                    <label for="validationCustom07" class="form-label">Indirizzo</label>
+                    <input type="text" class="form-control richiesti" id="validationCustom07" placeholder="Indirizzo"
+                        maxLength="50" required>
+
+                </div>
+
+
+            </div>
+
+            <div class="row g-3 justify-content-evenly">
+
+                <div class="col-md-3">
+                    <label for="validationCustom07" class="form-label">Indirizzo 2</label>
+                    <input type="text" class="form-control richiesti" id="validationCustom07"
+                        placeholder="Indirizzo Secondario" maxLength="50" required>
+
+                </div>
+
+                <div class="col-md-3">
+                    <label for="validationCustom08" class="form-label">CAP</label>
+                    <input type="text" class="form-control richiesti" id="validationCustom08" placeholder="CAP"
+                        required>
+                    <div class="invalidNumber text-danger">
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row g-3 justify-content-evenly">
+                <div class="col-md-3">
+                    <label for="validationCustom08" class="form-label">Partenza</label>
+                    <input type="date" class="form-control richiesti" id="validationCustom08" required>
+                    <div class="invalidNumber text-danger">
+
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-3">
+                    <label for="veicolo" class="form-label">Tipologia veicolo</label>
+                    <select id="veicolo" class="form-select">
+                        <option value="" disabled selected>Seleziona tipo di veicolo</option>
+                        <option value="Ducato">Ducato</option>
+                        <option value="Daily35">Daily 35 quintali</option>
+                        <option value="Daily75">Daily 75 quintali</option>
+                        <option value="Camion100">Camion 100 quintali</option>
+                        <option value="Camion180">Camion 180 quintali</option>
+                        <option value="Bilico">Bilico</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <!-- ----------------------------------------------------------------------- -->
+            <!--                                  Arrivo                                 -->
+            <!-- ----------------------------------------------------------------------- -->
+
+
+            <hr class="separazione">
+            <div class="row g-3 justify-content-evenly">
+                <div class="col-md-3">
+                    <h3 class="d-flex justify-content">Arrivo</h3>
+
+                </div>
+
+                <div class="col-md-3">
+
+                </div>
+            </div>
+
+            <div class="row g-3 justify-content-evenly">
+                <div class="col-md-3">
+                    <label for="regioni1" class="form-label">Seleziona Regione</label>
+                    <select id="regioni1" class="form-select">
+                        <option value="" disabled selected>Seleziona Regione</option>
+
+                    </select>
+
+                </div>
+                <div class="col-md-3">
+                    <label for="province1" class="form-label">Seleziona Provincia</label>
+                    <select id="province1" class="form-select">
+                        <option value="" disabled selected>Seleziona Provincia</option>
+
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="row g-3 justify-content-evenly">
+
+                <div class="col-md-3">
+                    <label for="comuni1" class="form-label">Seleziona Comune</label>
+                    <select id="comuni1" class="form-select">
+                        <option value="" disabled selected>Seleziona Comune</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-3">
+                    <label for="validationCustom07" class="form-label">Indirizzo</label>
+                    <input type="text" class="form-control richiesti" id="validationCustom07" placeholder="Indirizzo"
+                        maxLength="50" required>
+
+                </div>
+
+
+            </div>
+
+            <div class="row g-3 justify-content-evenly">
+
+                <div class="col-md-3">
+                    <label for="validationCustom07" class="form-label">Indirizzo 2</label>
+                    <input type="text" class="form-control richiesti" id="validationCustom07"
+                        placeholder="Indirizzo Secondario" maxLength="50" required>
+
+                </div>
+
+                <div class="col-md-3">
+                    <label for="validationCustom08" class="form-label">CAP</label>
+                    <input type="text" class="form-control richiesti" id="validationCustom08" placeholder="CAP"
+                        required>
+                    <div class="invalidNumber text-danger">
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="row g-3 justify-content-evenly">
+                <div class="col-md-3">
+                    <label for="validationCustom08" class="form-label">Arrivo</label>
+                    <input type="date" class="form-control richiesti" id="validationCustom08" required>
+                    <div class="invalidNumber text-danger">
+
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div data-mdb-input-init class="form-outline">
+                        <label class="form-label" for="textAreaExample">Note</label>
+                        <textarea class="form-control" id="textAreaExample1" rows="1"
+                            placeholder="Esigenze particolari..."></textarea>
+                    </div>
+                    <div class="d-flex justify-content-end mt-4">
+                        <div class="d-flex justify-content-end mt-4">
+                            <button class="btn btn-success mx-2 bottonozzo" onclick="submitRequest()"
+                                id="btnInvioRichiesta">Invio Richiesta</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+
+
+    <div class="footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="../Progetto/js/homepagejs.js"></script>
+    <script src="../Progetto/js/footer.js"></script>
+    <script src="../Progetto/js/imballi.js"></script>
+    <script src="../Progetto/js/imballi1.js"></script>
+
 </body>
 
 </html>

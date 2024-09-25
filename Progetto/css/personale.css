@@ -19,9 +19,7 @@ body {
 .somma {
     margin-top: 20px;
 }
-.container{
-    margin-top: 2rem;
-}
+
 
 #riepilogoRichiesta{
     
@@ -95,6 +93,7 @@ body {
 }
 .professional-card{
     background-color: rgba(255, 255, 255, 0.306) !important;
+    border: solid 4px #1B2023 !important;
 }
 
 @media (max-width: 767px) {
