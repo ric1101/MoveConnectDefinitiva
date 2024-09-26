@@ -388,6 +388,11 @@ ul {
 
 }
 
+
+a {
+  text-decoration: none;
+}
+
 .checkboxs{
   width: 100% !important;
 }
