@@ -44,7 +44,7 @@ function Footer() {
                         <div class="footer-text">
                             <p>Siamo un'azienda di trasporti internazionale</p>
                         </div>
-                        <div class="footer-social-icon">
+                        <div class="footer-social-icon" style="padding:  10px  10px 10px 0px">
                             <span>Seguici</span>
                             <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
                             <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
@@ -93,7 +93,7 @@ function Footer() {
             <div class="row">
                 <div class="col-xl-6 col-lg-6 text-center text-lg-left">
                     <div class="copyright-text">
-                        <p>Copyright &copy; 2024, Tutti i diritti riservati a <a href="https://codepen.io/anupkumar92/">Moveconnect</a></p>
+                        <p>Copyright &copy; 2024, Tutti i diritti riservati a <a href="index.html">Moveconnect</a></p>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">

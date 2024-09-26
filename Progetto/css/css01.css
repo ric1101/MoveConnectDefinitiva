@@ -103,7 +103,7 @@ html, body {
 }
 
 .chisono {
-    padding: 5rem;
+    padding: 4rem;
     justify-content: center;
     align-items: center;
     font-size: 18px;
@@ -308,6 +308,7 @@ ul {
     flex-direction: column !important;
     padding: 1.5rem !important;
   }
+
 }
 
 @media(min-width: 1400px) {
