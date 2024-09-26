@@ -388,6 +388,17 @@ ul {
 
 }
 
+
 a {
   text-decoration: none;
 }
+
+.checkboxs{
+  width: 100% !important;
+}
+
+#registrati{
+  margin-top: 2rem;
+}
+
+

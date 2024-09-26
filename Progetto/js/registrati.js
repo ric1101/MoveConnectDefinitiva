@@ -12,6 +12,8 @@ let password = document.querySelector("#password");
 let bottoneRegistrati = document.querySelector("#registrati");
 let listaErrori = document.querySelector("#listaErrori");
 let showPassword = document.querySelector("#showPassword");
+let checkboxPrivacy = document.querySelector("#flexCheckPrivacy");
+let checkboxCookie = document.querySelector("#flexCheckCookie");
 
 class Azienda {
   constructor(
@@ -46,19 +48,35 @@ let nuovaAzienda = {};
 console.log(JSON.stringify(nuovaAzienda));
 
 function registrazioneAzienda() {
-  nuovaAzienda = new Azienda(
-    nomeAzienda.value,
-    logo.value,
-    indirizzo.value,
-    pIva.value,
-    emailAziendale.value,
-    nomeDipendente.value,
-    cognomeDipendente.value,
-    dataNascita.value,
-    numeroTelefono.value,
-    email.value,
-    password.value
-  );
+  event.preventDefault();
+
+  if(nomeAzienda.value.trim() != "" &&
+      logo.value.trim() != "" &&
+      indirizzo.value.trim() != "" &&
+      pIva.value.trim() != "" &&
+      emailAziendale.value.trim() != "" &&
+      nomeDipendente.value.trim() != "" &&
+      cognomeDipendente.value.trim() != "" &&
+      dataNascita.value.trim() != "" &&
+      numeroTelefono.value.trim!= "" &&
+      email.value.trim() != "" && 
+      password.value.trim() != "" && 
+      checkboxPrivacy.checked && 
+      checkboxCookie.checked){
+      
+          nuovaAzienda = new Azienda(
+            nomeAzienda.value,
+            logo.value,
+            indirizzo.value,
+            pIva.value,
+            emailAziendale.value,
+            nomeDipendente.value,
+            cognomeDipendente.value,
+            dataNascita.value,
+            numeroTelefono.value,
+            email.value,
+            password.value
+          );
 
   fetch("http://localhost:8080/api/azienda/inserisci", {
     method: "POST",
@@ -66,7 +84,25 @@ function registrazioneAzienda() {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(nuovaAzienda),
-  });
+  })
+  .then((response) => {
+    if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("Success:", data);
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+    });
+
+    window.localStorage.setItem("azienda", JSON.stringify(nuovaAzienda));
+    location.reload();
+   } else {
+    console.textContent = "Per continuare devi compilare tutti i campi e accettare i Termini di servizio e Cookie";
+  }
   console.log(nuovaAzienda);
 }
 
@@ -134,6 +170,8 @@ function toShowPassword() {
   }
   
   showPassword.addEventListener("click", toShowPassword);
+
+ 
 
 //   bottoneRegistrati.addEventListener("click", function(){
 //     event.preventDefault();
