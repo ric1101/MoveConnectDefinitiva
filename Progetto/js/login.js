@@ -29,7 +29,7 @@ let nuovoUtente = {};
 
 console.log(JSON.stringify(nuovoUtente));
 
-function login() {
+function logIn() {
     event.preventDefault();
     nuovoUtente = new Utente(
         email.value,
@@ -69,6 +69,6 @@ function login() {
 
         });
 }
-button.addEventListener('click', login);
+button.addEventListener('click', logIn);
 
 

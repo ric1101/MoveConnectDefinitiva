@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="../Progetto/css/index.css">
 </head>
 
 <body>
@@ -88,22 +88,22 @@
     </div>
     </div>
 
-
-    <div class="row">
-        <div class=" col-md-12 partner d-flex">
-            <marquee loop="-1" scrollamount="20" scrolldelay="0" direction="right" height="auto" width="auto"
-                behavior="scroll">
-                <a style="text-decoration: none;" href="./partners.html">
-                    <h1 class="league-spartan-sponsor m-0"><i class="fa-solid fa-handshake"></i> I Nostri Partners <i
-                            class="fa-solid fa-handshake"></i></h1>
-                </a>
-                <a style="text-decoration: none;" href="./partners.html">
-                    <h1 class="league-spartan-sponsor m-0">ciao</h1>
-                </a>
-            </marquee>
+    <div class="text-wrapper">
+        <div class="titles">
+            <h1 class="league-spartan-sponsor m-0 titles-item"><a href="./partners.html">I Nostri Partners <i class="fa-solid fa-handshake"></i></a></h1>
+            <h1 class="league-spartan-sponsor m-0 titles-item"><a href="./contatti.html">Contattaci <i class="fa-solid fa-pen-to-square"></i></a></h1>
+            <h1 class="league-spartan-sponsor m-0 titles-item"><a href="./abbonamenti.html">Abbonati <i class="fa-solid fa-circle-dollar-to-slot"></i></a></h1>
         </div>
-    </div>
+        <!-- Duplicazione per lo scorrimento continuo -->
+        <div class="titles">
+            <h1 class="league-spartan-sponsor m-0 titles-item"><a href="./partners.html">I Nostri Partners <i class="fa-solid fa-handshake"></i></a></h1>
+            <h1 class="league-spartan-sponsor m-0 titles-item"><a href="./contatti.html">Contattaci <i class="fa-solid fa-pen-to-square"></i></a></h1>
+            <h1 class="league-spartan-sponsor m-0 titles-item"><a href="./abbonamenti.html">Abbonati <i class="fa-solid fa-circle-dollar-to-slot"></i></a></h1>
+        </div>
 
+        
+    </div>
+    
 
 
     <div class="footer">
@@ -116,10 +116,6 @@
         crossorigin="anonymous"></script>
     <script src="../Progetto/js/homepagejs.js"></script>
     <script src="../Progetto/js/footer.js"></script>
-    <script src="../Progetto/js/index.js"></script>
-
-
-
 
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"

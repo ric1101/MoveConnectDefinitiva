@@ -3,71 +3,85 @@ let navbarHTML = document.querySelector(".navbarMain");
 function navbar() {
     let navBarFinale = `<nav class="navbar navbar-expand-xxl" style="background-color: #1B2023;">
     <div class="container-fluid">
-    <!-- Logo -->
-    <a class="navbar-brand fs-4" href="index.html"><img class="logo" src="../Progetto/imgs/img.png" alt=""></a>
-    <!-- Bottoni -->
-    <button class="navbar-toggler shadow-0 border-0 hamburger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" data-bs-theme="dark">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <!-- SideBar -->
-    <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-    <!-- SideBar Header -->
-    <div class="offcanvas-header text-black border-bottom" style="background-color: #1B2023;border-bottom: solid 0.3rem coral !important;">
-    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img class="logo" src="../Progetto/imgs/img2.png" alt=""></h5>
-    <div class="icon ms-auto">
-<i class="fa-regular fa-circle-xmark closed" style="color: #ffffff; font-size: 30px" closed data-bs-dismiss="offcanvas" aria-label="Close"></i></div>
+        <!-- Logo -->
+        <a class="navbar-brand fs-4" href="index.html"><img class="logo" src="../Progetto/imgs/img.png" alt=""></a>
+        <!-- Bottoni -->
+        <button class="navbar-toggler shadow-0 border-0 hamburger" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"
+            data-bs-theme="dark">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- SideBar -->
+        <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <!-- SideBar Header -->
+            <div class="offcanvas-header text-black border-bottom"
+                style="background-color: #1B2023;border-bottom: solid 0.3rem coral !important;">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img class="logo" src="../Progetto/imgs/img2.png"
+                        alt=""></h5>
+                <div class="icon ms-auto">
+                    <i class="fa-regular fa-circle-xmark closed" style="color: #ffffff; font-size: 30px" closed
+                        data-bs-dismiss="offcanvas" aria-label="Close"></i>
+                </div>
+            </div>
+            <!--Sidebar Body  -->
+            <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
+                <ul class="navbar-nav justify-content-center fs-5 flex-grow-1 pe-3">
+                    <li class="nav-item dropdown mx-5" id="menu-products">
+                        <a class="nav-link dropdown-toggle button1 text-white" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Inserisci servizio
+                        </a>
+                        <ul class="dropdown-menu drop1">
+                            <li><a class="dropdown-item" href="./occSuoloPub.html">Occupazione solo pubblico</a></li>
+                            <li><a class="dropdown-item" href="./richiestaTrasporto.html">Richiesta trasporto</a></li>
+                            <li><a class="dropdown-item" href="./scala-elevatore.html">Scala elevatore</a></li>
+                            <li><a class="dropdown-item" href="./imballi.html">Consegna imballi</a></li>
+                            <li><a class="dropdown-item" href="./personale.html">Richiesta personale spec.</a></li>
+                            <li><a class="dropdown-item" href="./deposito-magazzino.html">Deposito magazzimo m2</a></li>
+                            <li><a class="dropdown-item" href="./insertTratte.html">Inserisci tratta</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown mx-5" id="menu-products">
+                        <a class="nav-link dropdown-toggle button1 text-white" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Visualizza richieste
+                        </a>
+                        <ul class="dropdown-menu drop2">
+                            <li><a class="dropdown-item" href="#">Occupazione solo pubblico</a></li>
+                            <li><a class="dropdown-item" href="#">Trasporto</a></li>
+                            <li><a class="dropdown-item" href="#">Scala elevatore</a></li>
+                            <li><a class="dropdown-item" href="#">Consegna imballi</a></li>
+                            <li><a class="dropdown-item" href="#">Personale spec.</a></li>
+                            <li><a class="dropdown-item" href="#">Deposito magazzimo m2</a></li>
+                            <li><a class="dropdown-item" href="#">Trasporto m3</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link button1 mx-5 text-white" href="tratte.html">Visualizza tratte</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link button1 mx-5 text-white" href="./abbonamenti.html">Abbonamenti</a>
+                    </li>
+                </ul>
+                <!-- Login/Signup -->
+                <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
+                    <a href="user.html" class="text-white text-decoration-none user d-none"><i
+                        class="fa-solid fa-user"></i> &nbsp;User </a>
+                    <a href="login.html" class="text-white text-decoration-none login"><i
+                            class="fa-solid fa-arrow-right-to-bracket"></i> &nbsp;Login </a>
+                    <a href="index.html" class="text-white text-decoration-none logout d-none"><i
+                            class="fa-solid fa-arrow-right-from-bracket"></i> &nbsp;Logout </a>
+                    <a href="registrati.html" class="text-black text-decoration-none px-3 py-1 rounded-4 signup"
+                        style="background-color: coral;">Sign Up&nbsp; <i class="fa-solid fa-pen"></i></a>
+                    
+                </div>
+
+            </div>
+        </div>
     </div>
-    <!--Sidebar Body  -->
-    <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
-    <ul class="navbar-nav justify-content-center fs-5 flex-grow-1 pe-3">
-    <li class="nav-item dropdown mx-5" id="menu-products">
-    <a class="nav-link dropdown-toggle button1 text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Inserisci servizio
-    </a>
-    <ul class="dropdown-menu drop1">
-    <li><a class="dropdown-item" href="./occSuoloPub.html">Occupazione solo pubblico</a></li>
-    <li><a class="dropdown-item" href="./richiestaTrasporto.html">Richiesta trasporto</a></li>
-    <li><a class="dropdown-item" href="./scala-elevatore.html">Scala elevatore</a></li>
-    <li><a class="dropdown-item" href="./imballi.html">Consegna imballi</a></li>
-    <li><a class="dropdown-item" href="./personale.html">Richiesta personale spec.</a></li>
-    <li><a class="dropdown-item" href="./deposito-magazzino.html">Deposito magazzimo m2</a></li>
-    <li><a class="dropdown-item" href="./insertTratte.html">Inserisci tratta</a></li>
-    </ul>
-    </li>
-    <li class="nav-item dropdown mx-5" id="menu-products">
-    <a class="nav-link dropdown-toggle button1 text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Visualizza richieste
-    </a>
-    <ul class="dropdown-menu drop2">
-    <li><a class="dropdown-item" href="#">Occupazione solo pubblico</a></li>
-    <li><a class="dropdown-item" href="#">Trasporto</a></li>
-    <li><a class="dropdown-item" href="#">Scala elevatore</a></li>
-    <li><a class="dropdown-item" href="#">Consegna imballi</a></li>
-    <li><a class="dropdown-item" href="#">Personale spec.</a></li>
-    <li><a class="dropdown-item" href="#">Deposito magazzimo m2</a></li>
-    <li><a class="dropdown-item" href="#">Trasporto m3</a></li>
-    </ul>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link button1 mx-5 text-white" href="tratte.html">Visualizza tratte</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link button1 mx-5 text-white" href="./abbonamenti.html">Abbonamenti</a>
-    </li>
-    </ul>
-    <!-- Login/Signup -->
-    <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
-    <a href="./login.html" class="text-white text-decoration-none d-none" class="user"><i class="fa-solid fa-user"></i> &nbsp;User </a>
-    <a href="login.html" class="text-white text-decoration-none" class="login"><i class="fa-solid fa-arrow-right-to-bracket"></i> &nbsp;Login </a>
-    <a href="login.html" class="text-white text-decoration-none d-none" class="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> &nbsp;Logout </a>
-    <a href="registrati.html" class="text-black text-decoration-none px-3 py-1 rounded-4" class="signup" style="background-color: coral;">Sign Up&nbsp; <i class="fa-solid fa-pen"></i></a>
-    </div>
-    
-    </div>
-    </div>
-    </div>
-    </nav>`
+</nav>`
 
     navbarHTML.innerHTML = navBarFinale;
 }
@@ -110,124 +124,111 @@ let signup = document.querySelector('.signup');
 function logged() {
 
   let getIdUtente = localStorage.getItem('idUtente');
+  console.log(getIdUtente);
 
   if (getIdUtente != null) {
     console.log(getIdUtente);
     user.classList.remove('d-none');
-    user.classList.add('d-block');
-    signup.classList.remove('d-none');
-    signup.classList.add('d-block');
+    signup.classList.add('d-none');
     logout.classList.remove('d-none');
-    logout.classList.add('d-block');
     login.classList.add('d-none');
 
   } else {
     console.log(55);
     user.classList.add('d-none');
-    signup.classList.add('d-none');
+    signup.classList.remove('d-none');
     logout.classList.add('d-none');
     login.classList.remove('d-none');
-    login.classList.add('d-block');
+ 
   }
 
   
 }
-
+logged();
 
 function logOut() {
   localStorage.removeItem('idUtente');
-  localStorage.removeItem('arrayIdOggetto');
-  localStorage.removeItem('arrayId');
-  localStorage.removeItem('totaleCarrello');
+  logged();
   
-  let ruolo = localStorage.getItem('ruolo');
-  console.log(ruolo);
-  if (ruolo === "USER") {
-    console.log('si');
-    logged();
-  } else if (ruolo === "ADMIN") {
-    loggedAdmin();
-  }
-  localStorage.removeItem('ruolo');
 }
 
 logout.addEventListener('click', logOut);
 
-let arrayCarrello = [];
-let numeroArticoli = document.querySelector('#numeroArticoli');
-let numProdotti = 0;
+// let arrayCarrello = [];
+// let numeroArticoli = document.querySelector('#numeroArticoli');
+// let numProdotti = 0;
 
-function contoCarrello() {
-  console.log(numProdotti);
+// function contoCarrello() {
+//   console.log(numProdotti);
 
-  arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
-  console.log(arrayCarrello);
+//   arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
+//   console.log(arrayCarrello);
 
-  if (arrayCarrello !== null) {
+//   if (arrayCarrello !== null) {
 
-    numProdotti = arrayCarrello.length;
-  }
-  console.log(numProdotti);
-  numeroArticoli.innerHTML = numProdotti;
+//     numProdotti = arrayCarrello.length;
+//   }
+//   console.log(numProdotti);
+//   numeroArticoli.innerHTML = numProdotti;
 
-  if (numProdotti == 0) {
-    numeroArticoli.innerHTML = null;
-  }
+//   if (numProdotti == 0) {
+//     numeroArticoli.innerHTML = null;
+//   }
 
-}
-contoCarrello();
+// }
+// contoCarrello();
 
-let ruolo = "";
+// let ruolo = "";
 
-function ottieniRuolo() {
+// function ottieniRuolo() {
 
-  let idUtente = localStorage.getItem('idUtente');
+//   let idUtente = localStorage.getItem('idUtente');
 
-  if (idUtente !== null) {
+//   if (idUtente !== null) {
 
-    fetch(`http://localhost:8080/api/utenti/${idUtente}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data.ruolo);
+//     fetch(`http://localhost:8080/api/utenti/${idUtente}`)
+//       .then((res) => res.json())
+//       .then((data) => {
+//         console.log(data.ruolo);
 
-        ruolo = data.ruolo;
-        localStorage.setItem('ruolo', ruolo);
+//         ruolo = data.ruolo;
+//         localStorage.setItem('ruolo', ruolo);
 
 
-        console.log(ruolo);
-        let ruoloLocale = localStorage.getItem('ruolo');
-        if (ruoloLocale === "USER") {
-          console.log('si');
-          logged();
-        } else if (ruoloLocale === "ADMIN") {
-          loggedAdmin();
-        }
-      });
-  }
+//         console.log(ruolo);
+//         let ruoloLocale = localStorage.getItem('ruolo');
+//         if (ruoloLocale === "USER") {
+//           console.log('si');
+//           logged();
+//         } else if (ruoloLocale === "ADMIN") {
+//           loggedAdmin();
+//         }
+//       });
+//   }
 
-}
-ottieniRuolo();
+// }
+// ottieniRuolo();
 
-function loggedAdmin() {
-  let getIdUtente = localStorage.getItem('idUtente');
+// function loggedAdmin() {
+//   let getIdUtente = localStorage.getItem('idUtente');
 
-  if (getIdUtente != null) {
-    console.log(getIdUtente);
-    user.classList.remove('d-none');
-    user.classList.add('d-block');
-    admin.classList.remove('d-none');
-    admin.classList.add('d-block');
-    logout.classList.remove('d-none');
-    logout.classList.add('d-block');
-    login.classList.add('d-none');
+//   if (getIdUtente != null) {
+//     console.log(getIdUtente);
+//     user.classList.remove('d-none');
+//     user.classList.add('d-block');
+//     admin.classList.remove('d-none');
+//     admin.classList.add('d-block');
+//     logout.classList.remove('d-none');
+//     logout.classList.add('d-block');
+//     login.classList.add('d-none');
 
-  } else {
-    console.log(55);
-    user.classList.add('d-none');
-    logout.classList.add('d-none');
-    admin.classList.add('d-none');
-    login.classList.remove('d-none');
-    login.classList.add('d-block');
-  }
+//   } else {
+//     console.log(55);
+//     user.classList.add('d-none');
+//     logout.classList.add('d-none');
+//     admin.classList.add('d-none');
+//     login.classList.remove('d-none');
+//     login.classList.add('d-block');
+//   }
 
-}
+// }

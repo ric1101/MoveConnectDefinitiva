@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.text-wrapper {
+    display: flex;
+    overflow: hidden;
+    background-color: #1B2023;
+    white-space: nowrap;
+    justify-content: flex-start;
+    position: relative;
+    border-top: solid 4px coral;
+    border-bottom: solid 4px coral;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.titles {
+    display: flex;
+    animation: move-rtl 17s linear infinite;
+    
+}
+
+.titles-item {
+    font-size: 48px;
+    text-transform: uppercase;
+    -webkit-text-stroke-width: 0.1px;
+    -webkit-text-stroke-color: #fff;
+    text-stroke-color: #fff;
+    white-space: nowrap;
+    letter-spacing: 1px;
+    padding: 0 6rem;
+    border-left: solid 4px coral;
+    border-right: solid 4px coral;
+}
+
+.titles-item a {
+    color: coral;
+    text-decoration: none;
+}
+
+@keyframes move-rtl {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.league-spartan-sponsor {
+    margin-top: 0 !important;
+}
