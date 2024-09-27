@@ -1,7 +1,8 @@
-const URLOG = `http://localhost:8080/api/utenti/login`;
+const URLOG = `http://localhost:8080/api/azienda/login`;
 
 let email = document.querySelector('#email');
 let password = document.querySelector('#password');
+
 let errore = document.querySelector('.errore');
 let register = document.querySelector('#register');
 let showPassword = document.querySelector('#showPassword');
@@ -48,7 +49,7 @@ function login() {
             console.log(response);
 
             if (response.ok) {
-                fetch(`http://localhost:8080/api/utenti/email/${email.value}`)
+                fetch(`http://localhost:8080/api/azienda/email/${email.value}`)
 
                     .then((res) => res.json())
                     .then((data) => {
