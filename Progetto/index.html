@@ -116,172 +116,178 @@
         crossorigin="anonymous"></script>
     <script src="../Progetto/js/homepagejs.js"></script>
     <script src="../Progetto/js/footer.js"></script>
+    <script src="../Progetto/js/index.js"></script>
+
+
+
+
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+        // Map initialization
+        var map = L.map('map').setView([41.90223306855646, 12.480054350031331], 7);
+
+        // Osm layer
+        var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        });
+        osm.addTo(map);
+
+        // open street hot
+        var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
+        });
+
+        // OpenStreetMap_HOT.addTo(map);
+
+        // all city
+        var OpenStreetMap_France = L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+            maxZoom: 20,
+            attribution: '&copy; OpenStreetMap France | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        });
+
+        // OpenStreetMap_France.addTo(map);
+
+        // old style
+        var Esri_NatGeoWorldMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+            maxZoom: 16
+        });
+
+        // Esri_NatGeoWorldMap.addTo(map);
+
+        // all black
+
+        var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+            maxZoom: 17,
+            attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+        });
+
+        // OpenTopoMap.addTo(map);
+
+        // google street
+        var googlestreet = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+            maxZoom: 17,
+            attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+        });
+
+        // googlestreet.addTo(map);
+
+        //black
+
+        var Stadia_AlidadeSmoothDark = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}', {
+            minZoom: 0,
+            maxZoom: 20,
+            attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            ext: 'png'
+        });
+
+
+
+        // marker
+        var myIcon = L.icon({
+            iconUrl: '../Progetto/imgs/file (1).png',
+            iconSize: [60, 60],
+        });
+
+        var singleMarker = L.marker([41.90223306855646, 12.480054350031331], { icon: myIcon, draggable: false });
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        popUp.addTo(map);
+
+        var singleMarker = L.marker([44.05696191208719, 12.094067787609784], { icon: myIcon, draggable: false });
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        popUp.addTo(map);
+
+        var singleMarker = L.marker([41.47665089692522, 15.422925004444286], { icon: myIcon, draggable: false });
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+        popUp.addTo(map);
+
+        var singleMarker = L.marker([43.56542966573223, 11.094311989814605], { icon: myIcon, draggable: false });
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >GoTruck</a></h1> <p> Azienda di trasporti monetari per banche di alto livello </p> <img src="../Progetto/imgs/4.png"/>').openPopup()
+        popUp.addTo(map);
+
+        var singleMarker = L.marker([40.85470516374417, 14.259648114346458], { icon: myIcon, draggable: false });
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Precise</a></h1> <p> Azienda di trasporti per persone disabili </p> <img src="../Progetto/imgs/5.png"/>').openPopup()
+        popUp.addTo(map);
+
+        var singleMarker = L.marker([37.93497458095478, 13.518414643909932], { icon: myIcon, draggable: false });
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >NoStopTrack</a></h1> <p> Azienda di trasporti con camion ad altissima velocità per consegne e ritiri del giorno dopo </p> <img src="../Progetto/imgs/6.png"/>').openPopup()
+        popUp.addTo(map);
+
+        var singleMarker = L.marker([40.9311142067774, 16.27985854541158], { icon: myIcon, draggable: false });
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracker Trucking</a></h1> <p> Azienda di trasporti di legno,imballagi di plastica </p> <img src="../Progetto/imgs/7.png"/>').openPopup()
+        popUp.addTo(map);
+
+        var singleMarker = L.marker([39.23673815861203, 9.118421512069883], { icon: myIcon, draggable: false });
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Logistic Timing</a></h1> <p> Azienda di trasporti di ferro,metalli,legno e acciaio </p> <img src="../Progetto/imgs/8.png"/>').openPopup()
+        popUp.addTo(map);
+
+        var singleMarker = L.marker([45.55345114896567, 9.149732021315225], { icon: myIcon, draggable: false });
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Express Delivery</a></h1> <p> Azienda di trasporti per ogni vostra esigenza </p> <img src="../Progetto/imgs/9.png"/>').openPopup()
+        popUp.addTo(map);
+
+
+        map.setView(new L.LatLng(42.08278075075734, 11.84566277443681), 6);
+
+
+        // layer controller
+        var baseMaps = {
+            "OSM": osm,
+            "OpenStreetMap.HOT": OpenStreetMap_HOT,
+            "OpenStreetMapFrance": OpenStreetMap_France,
+            "Esri_NatGeoWorldMap": Esri_NatGeoWorldMap,
+            "OpenTopoMap": OpenTopoMap,
+            "GoogleStreetView": googlestreet,
+            "BlackMap": Stadia_AlidadeSmoothDark
+        };
+
+        var overlayMaps = {
+            "Marker": singleMarker
+        };
+
+        L.control.layers(baseMaps, overlayMaps, {}).addTo(map);
+
+        // Leaflet search
+        L.control.geocoder().addTo(map);
+
+        const resizeObserver = new ResizeObserver(() => {
+            map.invalidateSize();
+        });
+
+        L.control.resizer({ direction: 'e' }).addTo(map);
+
+        var map; // Definisci la variabile mappa in un contesto globale.
+
+        function initMap() {
+            map = L.map('map').setView([51.505, -0.09], 13); // Crea la mappa qui
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            initMap(); // Inizializza la mappa al caricamento della pagina.
+
+            // Quando la media query per lo schermo piccolo scatta:
+            window.addEventListener("resize", function () {
+                var width = window.innerWidth;
+                if (width < 577) {
+                    setTimeout(function () {
+                        if (map) {
+                            map.invalidateSize(); // Forza il ridimensionamento della mappa
+                        }
+                    }, 100); // Attendi che la mappa diventi visibile
+                }
+            });
+        });
+
+
+
+
+    </script>
+
 </body>
 
 </html>
-<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script>
-    // Map initialization
-    var map = L.map('map').setView([41.90223306855646, 12.480054350031331], 7);
-
-    // Osm layer
-    var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    });
-    osm.addTo(map);
-
-    // open street hot
-    var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
-    });
-
-    // OpenStreetMap_HOT.addTo(map);
-
-    // all city
-    var OpenStreetMap_France = L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-        maxZoom: 20,
-        attribution: '&copy; OpenStreetMap France | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    });
-
-    // OpenStreetMap_France.addTo(map);
-
-    // old style
-    var Esri_NatGeoWorldMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
-        attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
-        maxZoom: 16
-    });
-
-    // Esri_NatGeoWorldMap.addTo(map);
-
-    // all black
-
-    var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-        maxZoom: 17,
-        attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-    });
-
-    // OpenTopoMap.addTo(map);
-
-    // google street
-    var googlestreet = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-        maxZoom: 17,
-        attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-    });
-
-    // googlestreet.addTo(map);
-
-    //black
-
-    var Stadia_AlidadeSmoothDark = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}', {
-        minZoom: 0,
-        maxZoom: 20,
-        attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        ext: 'png'
-    });
-
-
-
-    // marker
-    var myIcon = L.icon({
-        iconUrl: '../Progetto/imgs/file (1).png',
-        iconSize: [60, 60],
-    });
-
-    var singleMarker = L.marker([41.90223306855646, 12.480054350031331], { icon: myIcon, draggable: false });
-    var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
-    popUp.addTo(map);
-
-    var singleMarker = L.marker([44.05696191208719, 12.094067787609784], { icon: myIcon, draggable: false });
-    var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
-    popUp.addTo(map);
-
-    var singleMarker = L.marker([41.47665089692522, 15.422925004444286], { icon: myIcon, draggable: false });
-    var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
-    popUp.addTo(map);
-
-    var singleMarker = L.marker([43.56542966573223, 11.094311989814605], { icon: myIcon, draggable: false });
-    var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >GoTruck</a></h1> <p> Azienda di trasporti monetari per banche di alto livello </p> <img src="../Progetto/imgs/4.png"/>').openPopup()
-    popUp.addTo(map);
-
-    var singleMarker = L.marker([40.85470516374417, 14.259648114346458], { icon: myIcon, draggable: false });
-    var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Precise</a></h1> <p> Azienda di trasporti per persone disabili </p> <img src="../Progetto/imgs/5.png"/>').openPopup()
-    popUp.addTo(map);
-
-    var singleMarker = L.marker([37.93497458095478, 13.518414643909932], { icon: myIcon, draggable: false });
-    var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >NoStopTrack</a></h1> <p> Azienda di trasporti con camion ad altissima velocità per consegne e ritiri del giorno dopo </p> <img src="../Progetto/imgs/6.png"/>').openPopup()
-    popUp.addTo(map);
-
-    var singleMarker = L.marker([40.9311142067774, 16.27985854541158], { icon: myIcon, draggable: false });
-    var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracker Trucking</a></h1> <p> Azienda di trasporti di legno,imballagi di plastica </p> <img src="../Progetto/imgs/7.png"/>').openPopup()
-    popUp.addTo(map);
-
-    var singleMarker = L.marker([39.23673815861203, 9.118421512069883], { icon: myIcon, draggable: false });
-    var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Logistic Timing</a></h1> <p> Azienda di trasporti di ferro,metalli,legno e acciaio </p> <img src="../Progetto/imgs/8.png"/>').openPopup()
-    popUp.addTo(map);
-
-    var singleMarker = L.marker([45.55345114896567, 9.149732021315225], { icon: myIcon, draggable: false });
-    var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Express Delivery</a></h1> <p> Azienda di trasporti per ogni vostra esigenza </p> <img src="../Progetto/imgs/9.png"/>').openPopup()
-    popUp.addTo(map);
-
-
-    map.setView(new L.LatLng(42.08278075075734, 11.84566277443681), 6);
-
-
-    // layer controller
-    var baseMaps = {
-        "OSM": osm,
-        "OpenStreetMap.HOT": OpenStreetMap_HOT,
-        "OpenStreetMapFrance": OpenStreetMap_France,
-        "Esri_NatGeoWorldMap": Esri_NatGeoWorldMap,
-        "OpenTopoMap": OpenTopoMap,
-        "GoogleStreetView": googlestreet,
-        "BlackMap": Stadia_AlidadeSmoothDark
-    };
-
-    var overlayMaps = {
-        "Marker": singleMarker
-    };
-
-    L.control.layers(baseMaps, overlayMaps, {}).addTo(map);
-
-    // Leaflet search
-    L.control.geocoder().addTo(map);
-
-    const resizeObserver = new ResizeObserver(() => {
-        map.invalidateSize();
-    });
-
-    L.control.resizer({ direction: 'e' }).addTo(map);
-
-    var map; // Definisci la variabile mappa in un contesto globale.
-
-    function initMap() {
-        map = L.map('map').setView([51.505, -0.09], 13); // Crea la mappa qui
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        initMap(); // Inizializza la mappa al caricamento della pagina.
-
-        // Quando la media query per lo schermo piccolo scatta:
-        window.addEventListener("resize", function () {
-            var width = window.innerWidth;
-            if (width < 577) {
-                setTimeout(function () {
-                    if (map) {
-                        map.invalidateSize(); // Forza il ridimensionamento della mappa
-                    }
-                }, 100); // Attendi che la mappa diventi visibile
-            }
-        });
-    });
-
-
-
-
-</script>
