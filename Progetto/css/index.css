@@ -52,3 +52,18 @@
 .league-spartan-sponsor {
     margin-top: 0 !important;
 }
+
+.titles1 {
+    display: flex;
+    animation: move-rtl1 17s linear infinite;
+    
+}
+
+@keyframes move-rtl1 {
+    0% {
+        transform: translateX(-100%); /* Inizia fuori dalla destra */
+    }
+    100% {
+        transform: translateX(100%); /* Termina fuori dalla sinistra */
+    }
+}

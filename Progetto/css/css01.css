@@ -1,79 +1,82 @@
-@media(max-width: 1400px){
-    .sidebar{
-        background-color: rgba(255, 255, 255, 0.66) !important;
-        backdrop-filter: blur(10px);
-    }
-     
+@media(max-width: 1400px) {
+  .sidebar {
+    background-color: rgba(255, 255, 255, 0.66) !important;
+    backdrop-filter: blur(10px);
+  }
+
 }
 
-body{
-    background-color: #6c757da5 !important;
-   
+body {
+  background-color: #6c757da5 !important;
+
 }
 
-html, body {
+html,
+body {
   height: 100% !important;
-  overflow-x: hidden !important; /* Evita lo scorrimento orizzontale */
+  overflow-x: hidden !important;
+  /* Evita lo scorrimento orizzontale */
 }
 
 
-.logo{
-    width: 7rem ;
+.logo {
+  width: 7rem;
 }
 
-.dropdown-menu{
-    display: none;
-}
-
-
-#menu-products:hover .dropdown-menu{
-    display: block;
+.dropdown-menu {
+  display: none;
 }
 
 
-.button1:hover{
-    color: coral !important;
-    
+#menu-products:hover .dropdown-menu {
+  display: block;
 }
 
-.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
-    color: white !important;
+
+.button1:hover {
+  color: coral !important;
+
 }
 
-.dropdown-menu{
-    background-color: #6c757dc8 !important;
-    
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+  color: white !important;
+}
+
+.dropdown-menu {
+  background-color: #6c757dc8 !important;
+
 }
 
 .dropdown-menu li a {
-    color: white !important;
+  color: white !important;
 }
 
-.dropdown-menu li a:hover{
-    background-color: coral !important;
+.dropdown-menu li a:hover {
+  background-color: coral !important;
 }
 
 @media(max-width: 577px) {
   .home {
     display: none;
   }
-  
+
 }
 
 @media(min-width: 577px) {
   .homeSmall {
     display: none;
   }
-  
+
 }
 
 
-.containerMappa #map{
-    width: 100%;
-    height: 100%;
-} 
+.containerMappa #map {
+  width: 100%;
+  height: 100%;
+}
 
-.homeSmall img{
+.homeSmall img {
   width: 100%;
   height: auto;
   display: block;
@@ -81,21 +84,21 @@ html, body {
   border-bottom: solid 0.3rem coral;
 }
 
-.containerSinistra img{
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    border-bottom: solid 0.3rem coral;
+.containerSinistra img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-bottom: solid 0.3rem coral;
 }
 
 
-.containerDestra img{
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    border-bottom: solid 0.3rem coral;
+.containerDestra img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-bottom: solid 0.3rem coral;
 }
 
 .immagineFinale img {
@@ -103,24 +106,24 @@ html, body {
 }
 
 .chisono {
-    padding: 4rem;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
+  padding: 4rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
 }
 
-.chisono img{
-    width: 100%;
-    
+.chisono img {
+  width: 100%;
+
 }
 
-.chisono h1{
-    width: 100%;
+.chisono h1 {
+  width: 100%;
 }
 
 ul {
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .footer-section {
@@ -134,24 +137,29 @@ ul {
   float: left;
   margin-top: 8px;
 }
+
 .cta-text {
   padding-left: 15px;
   display: inline-block;
 }
+
 .cta-text h4 {
   color: #fff;
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 2px;
 }
+
 .cta-text span {
   color: #757575;
   font-size: 15px;
 }
+
 .footer-content {
   position: relative;
   z-index: 2;
 }
+
 .footer-pattern img {
   position: absolute;
   top: 0;
@@ -160,15 +168,18 @@ ul {
   background-size: cover;
   background-position: 100% 100%;
 }
+
 .footer-logo img {
-    max-width: 200px;
+  max-width: 200px;
 }
+
 .footer-text p {
   margin-bottom: 14px;
   font-size: 14px;
-      color: #7e7e7e;
+  color: #7e7e7e;
   line-height: 28px;
 }
+
 .footer-social-icon span {
   color: #fff;
   display: block;
@@ -177,11 +188,13 @@ ul {
   font-family: 'Poppins', sans-serif;
   margin-bottom: 20px;
 }
+
 .footer-social-icon a {
   color: #fff;
   font-size: 16px;
   margin-right: 15px;
 }
+
 .footer-social-icon i {
   height: 40px;
   width: 40px;
@@ -189,15 +202,19 @@ ul {
   line-height: 38px;
   border-radius: 50%;
 }
-.facebook-bg{
+
+.facebook-bg {
   background: #3B5998;
 }
-.twitter-bg{
+
+.twitter-bg {
   background: #55ACEE;
 }
-.instagram-bg{
+
+.instagram-bg {
   background: #C34271;
 }
+
 .footer-widget-heading h3 {
   color: #fff;
   font-size: 20px;
@@ -205,6 +222,7 @@ ul {
   margin-bottom: 40px;
   position: relative;
 }
+
 .footer-widget-heading h3::before {
   content: "";
   position: absolute;
@@ -214,23 +232,28 @@ ul {
   width: 50px;
   background: #ff5e14;
 }
+
 .footer-widget ul li {
   display: inline-block;
   float: left;
   width: 50%;
   margin-bottom: 12px;
 }
-.footer-widget ul li a:hover{
+
+.footer-widget ul li a:hover {
   color: #ff5e14;
 }
+
 .footer-widget ul li a {
   color: #878787;
   text-transform: capitalize;
 }
+
 .subscribe-form {
   position: relative;
   overflow: hidden;
 }
+
 .subscribe-form input {
   width: 100%;
   padding: 14px 28px;
@@ -238,39 +261,47 @@ ul {
   border: 1px solid #2E2E2E;
   color: #fff;
 }
+
 .subscribe-form button {
-    position: absolute;
-    right: 0;
-    background: coral;
-    padding: 13px 20px;
-    border: 1px solid coral;
-    top: 0;
+  position: absolute;
+  right: 0;
+  background: coral;
+  padding: 13px 20px;
+  border: 1px solid coral;
+  top: 0;
 }
+
 .subscribe-form button i {
   color: #fff;
   font-size: 22px;
   transform: rotate(-6deg);
 }
-.copyright-area{
+
+.copyright-area {
   background-color: #c0c0c00d;
   padding: 25px 0;
   border-top: solid 3px coral;
 }
+
 .copyright-text p {
   margin: 0;
   font-size: 14px;
   color: #878787;
 }
-.copyright-text p a{
+
+.copyright-text p a {
   color: #ff5e14;
 }
+
 .footer-menu li {
   display: inline-block;
   margin-left: 20px;
 }
-.footer-menu li:hover a{
+
+.footer-menu li:hover a {
   color: #ff5e14;
 }
+
 .footer-menu li a {
   font-size: 14px;
   color: #878787;
@@ -284,22 +315,23 @@ ul {
   display: none !important;
 }
 
-.dropdown-item:focus, .dropdown-item:hover {
+.dropdown-item:focus,
+.dropdown-item:hover {
   background-color: #6c757dc8 !important;
 }
 
-.bottonozzo{
+.bottonozzo {
   background-color: coral !important;
   color: #000000;
 }
 
-.separazione{
+.separazione {
   border-color: coral;
-  
+
 
 }
 
-.titolo{
+.titolo {
   align-items: center;
 }
 
@@ -316,14 +348,25 @@ ul {
     flex-direction: row !important;
     padding: 0 !important;
   }
-  
+
+
+}
+
+@media(max-width: 1400px) {
+  .button1 {
+    color: #1B2023 !important;
+  }
+
+  .login {
+    color: #1B2023 !important;
+  }
 }
 
 .desc {
   font-size: 1.5rem;
 }
 
-.partner{
+.partner {
   display: flex;
   justify-content: center;
   background-color: #1B2023;
@@ -343,7 +386,7 @@ ul {
   padding: 10px;
 }
 
-@media(max-width: 556px){
+@media(max-width: 556px) {
   .league-spartan-sponsor {
     font-family: "League Spartan", system-ui;
     font-optical-sizing: auto;
@@ -354,38 +397,39 @@ ul {
   }
 }
 
-@media(max-width: 767px){
-  .container-finale{
+@media(max-width: 767px) {
+  .container-finale {
     padding-left: 5rem;
     padding-right: 5rem;
-    
+
   }
-  .partnerImage{
+
+  .partnerImage {
     padding-bottom: 2rem;
   }
-  
-  .container{
+
+  .container {
     padding-left: 3rem;
     padding-right: 3rem;
   }
 
-  .cod{
+  .cod {
     font-size: 1rem;
   }
 }
 
 @media(max-width: 1256px) {
-  .partnerDati{
+  .partnerDati {
     padding-left: 3rem;
-    
+
   }
 }
 
-@media(min-width:768px ) and (max-width: 1256px){
-    .immaginePartner{
-      width: 10rem;
-      height: 10rem;
-    }
+@media(min-width:768px) and (max-width: 1256px) {
+  .immaginePartner {
+    width: 10rem;
+    height: 10rem;
+  }
 
 }
 
@@ -394,12 +438,10 @@ a {
   text-decoration: none;
 }
 
-.checkboxs{
+.checkboxs {
   width: 100% !important;
 }
 
-#registrati{
+#registrati {
   margin-top: 2rem;
 }
-
-
