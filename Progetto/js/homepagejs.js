@@ -35,10 +35,10 @@ function navbar() {
                         </a>
                         <ul class="dropdown-menu drop1">
                             <li><a class="dropdown-item" href="./occSuoloPub.html">Occupazione solo pubblico</a></li>
-                            <li><a class="dropdown-item" href="./richiestaTrasporto.html">Richiesta trasporto</a></li>
+                            <li><a class="dropdown-item" href="./richiestaTrasporto.html">Trasporto</a></li>
                             <li><a class="dropdown-item" href="./scala-elevatore.html">Scala elevatore</a></li>
                             <li><a class="dropdown-item" href="./imballi.html">Consegna imballi</a></li>
-                            <li><a class="dropdown-item" href="./personale.html">Richiesta personale spec.</a></li>
+                            <li><a class="dropdown-item" href="./personale.html">Personale spec.</a></li>
                             <li><a class="dropdown-item" href="./deposito-magazzino.html">Deposito magazzimo m2</a></li>
                             <li><a class="dropdown-item" href="./insertTratte.html">Inserisci tratta</a></li>
                         </ul>
@@ -55,7 +55,7 @@ function navbar() {
                             <li><a class="dropdown-item" href="#">Consegna imballi</a></li>
                             <li><a class="dropdown-item" href="#">Personale spec.</a></li>
                             <li><a class="dropdown-item" href="#">Deposito magazzimo m2</a></li>
-                            <li><a class="dropdown-item" href="#">Trasporto m3</a></li>
+                            <li><a class="dropdown-item" href="#">Tratte</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
