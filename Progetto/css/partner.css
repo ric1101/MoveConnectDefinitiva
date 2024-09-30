@@ -1,24 +1,35 @@
-.immaginePartner{
-    border-radius: 10rem;
-}
-
-
-.partnerImage{
-    display: flex;
-    justify-content: center;    
-}
-
-.discount{
-    display: flex;
-    align-items: center;
-}
-
-.codice{
-    border-radius: 10rem;
-    border: 0.1rem solid rgb(0, 0, 0);
-    background-color: coral;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    width: fit-content;
-}
-
+.partner-section {
+    
+    padding: 50px 0;
+  }
+  .partner-heading {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    
+  }
+  .partner-card {
+    transition: transform 0.3s ease-in-out;
+  }
+  .partner-card:hover {
+    transform: scale(1.05);
+  }
+  .partner-logo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .partner-description {
+    margin-top: 15px;
+    text-align: center;
+  }
+  .partner-description h5 {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  .partner-description p {
+    font-size: 1rem;
+    color: #6c757d;
+  }
