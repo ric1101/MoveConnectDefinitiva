@@ -28,7 +28,7 @@ function navbar() {
             <!--Sidebar Body  -->
             <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
                 <ul class="navbar-nav justify-content-center fs-5 flex-grow-1 pe-3">
-                    <li class="nav-item dropdown mx-5" id="menu-products">
+                    <li class="nav-item dropdown mx-5 inserisci d-none" id="menu-products">
                         <a class="nav-link dropdown-toggle button1 text-white" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Inserisci servizio
@@ -43,7 +43,7 @@ function navbar() {
                             <li><a class="dropdown-item" href="./insertTratte.html">Inserisci tratta</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown mx-5" id="menu-products">
+                    <li class="nav-item dropdown visualizza mx-5 d-none" id="menu-products">
                         <a class="nav-link dropdown-toggle button1 text-white" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Visualizza richieste
@@ -59,7 +59,7 @@ function navbar() {
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link button1 mx-5 text-white" href="abbonamenti.html">Abbonamenti</a>
+                        <a class="nav-link button1 mx-5 text-white abb" href="abbonamenti.html">Abbonati</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link button1 mx-5 text-white" href="./partners.html">Partners</a>
@@ -116,6 +116,9 @@ let user = document.querySelector('.user');
 let logout = document.querySelector('.logout');
 let login = document.querySelector('.login');
 let signup = document.querySelector('.signup');
+let inserisci = document.querySelector('.inserisci');
+let visualizza = document.querySelector('.visualizza');
+let abb = document.querySelector('.abb');
 
 
 
@@ -131,14 +134,20 @@ function logged() {
     user.classList.remove('d-none');
     signup.classList.add('d-none');
     logout.classList.remove('d-none');
+    inserisci.classList.remove('d-none');
+    visualizza.classList.remove('d-none');
     login.classList.add('d-none');
-
+    abb.classList.add('d-none');
+    
   } else {
     console.log(55);
     user.classList.add('d-none');
     signup.classList.remove('d-none');
     logout.classList.add('d-none');
+    inserisci.classList.add('d-none');
+    visualizza.classList.add('d-none');
     login.classList.remove('d-none');
+    abb.classList.remove('d-none');
  
   }
 

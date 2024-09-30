@@ -107,10 +107,13 @@ body {
 }
 
 .chisono {
-  padding: 4rem;
   justify-content: center;
   align-items: center;
   font-size: 18px;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .chisono img {
