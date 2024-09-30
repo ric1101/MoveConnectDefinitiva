@@ -93,7 +93,11 @@ body {
 }
 .professional-card{
     background-color: rgba(255, 255, 255, 0.306) !important;
-    border: solid 4px #1B2023 !important;
+    border: solid 3px #1B2023 !important;
+}
+
+.professional-card img{
+    border-radius: var(--bs-card-border-radius);
 }
 
 @media (max-width: 767px) {

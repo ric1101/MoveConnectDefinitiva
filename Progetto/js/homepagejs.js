@@ -55,14 +55,14 @@ function navbar() {
                             <li><a class="dropdown-item" href="#">Consegna imballi</a></li>
                             <li><a class="dropdown-item" href="#">Personale spec.</a></li>
                             <li><a class="dropdown-item" href="#">Deposito magazzimo m2</a></li>
-                            <li><a class="dropdown-item" href="#">Tratte</a></li>
+                            <li><a class="dropdown-item" href="tratte.html">Tratte</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link button1 mx-5 text-white" href="tratte.html">Visualizza tratte</a>
+                        <a class="nav-link button1 mx-5 text-white" href="abbonamenti.html">Abbonamenti</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link button1 mx-5 text-white" href="./abbonamenti.html">Abbonamenti</a>
+                        <a class="nav-link button1 mx-5 text-white" href="./partners.html">Partners</a>
                     </li>
                 </ul>
                 <!-- Login/Signup -->
