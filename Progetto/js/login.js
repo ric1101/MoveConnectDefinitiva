@@ -48,6 +48,8 @@ function logIn() {
         if (data.token) {
             // Salva il token JWT nel localStorage
             localStorage.setItem('authToken', data.token);
+            console.log(data.token);
+             
             window.location.href = 'index.html';
         } else {
             errore.innerHTML = 'Email o password errati';
