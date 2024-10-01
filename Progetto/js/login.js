@@ -1,3 +1,4 @@
+import * as CryptoJS from 'crypto-js';
 const URLOG = `http://localhost:8080/api/azienda/login`;
 
 let email = document.querySelector('#email');
@@ -55,8 +56,9 @@ function logIn() {
                     .then((data) => {
                         console.log(data);
                         window.location.href = 'index.html';
-                        let id = JSON.stringify(data.id);
-                        localStorage.setItem('idUtente', id);
+                        // let id = JSON.stringify(data.id);
+                        // localStorage.setItem('idUtente', id);
+                        storageEncryption(data.id);
                     });
                     
                 } else {
@@ -71,4 +73,44 @@ function logIn() {
 }
 button.addEventListener('click', logIn);
 
+
+function storageEncryption(id) {
+    /**
+  * secret key should be stored in a safe place. This is only for a demo purpose.
+  */
+    let _key = "secret_key"
+
+    function encrypt(txt) {
+        return CryptoJS.AES.encrypt(txt, _key).toString();
+    }
+
+    function decrypt(txtToDecrypt) {
+        return CryptoJS.AES.decrypt(txtToDecrypt, _key).toString(CryptoJS.enc.Utf8);
+    }
+
+    function manipulateLocalStorage() {
+        Storage.prototype.setEncryptedItem = (key, value) => {
+            localStorage.setItem(key, encrypt(value));
+        };
+
+        Storage.prototype.getDecryptedItem = (key) => {
+            let data = localStorage.getItem(key) || "";
+            return decrypt(data) || null;
+        }
+    }
+ /**
+  * First call this function to add our custom functions to the Storage interface
+  * 
+  */
+    manipulateLocalStorage();
+    /**
+     * you can use the setEncryptedItem and getDecryptedItem functions
+     * to encrypt and decrypt the data
+     * */ 
+
+    localStorage.setEncryptedItem("token", id);
+    const token = localStorage.getDecryptedItem("token");
+    console.log(token);
+}
+storageEncryption();
 
