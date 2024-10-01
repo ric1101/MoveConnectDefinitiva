@@ -57,7 +57,7 @@ function logIn() {
 
 button.addEventListener('click', logIn);
 
-fetch('http://localhost:8080/api/azienda/loginDue', {
+fetch('http://localhost:8080/api/azienda/userinfo', {
     method: 'GET',
     headers: {
         'Authorization': `Bearer ${localStorage.getItem('authToken')}`
