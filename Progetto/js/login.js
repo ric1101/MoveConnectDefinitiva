@@ -1,4 +1,4 @@
-const URLOG = `http://localhost:8080/api/azienda/login`;
+const URLOG = `http://localhost:8080/api/azienda/authenticateUsers`;
 
 let email = document.querySelector('#email');
 let password = document.querySelector('#password');
