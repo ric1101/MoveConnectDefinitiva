@@ -15,6 +15,9 @@ let showPassword = document.querySelector("#showPassword");
 let checkboxPrivacy = document.querySelector("#flexCheckPrivacy");
 let checkboxCookie = document.querySelector("#flexCheckCookie");
 
+
+
+
 class Azienda {
   constructor(
     nomeAzienda,
@@ -78,6 +81,8 @@ function registrazioneAzienda() {
             password.value
           );
 
+      
+
   fetch("http://localhost:8080/api/azienda/inserisci", {
     method: "POST",
     headers: {
@@ -106,7 +111,7 @@ function registrazioneAzienda() {
   console.log(nuovaAzienda);
 }
 
-bottoneRegistrati.addEventListener("click", registrazioneAzienda);
+bottoneRegistrati.addEventListener("click", registrazioneAzienda);  
 
 const regexPASSWORD =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
