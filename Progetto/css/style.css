@@ -137,14 +137,19 @@ header {
 
 
 
+.banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Allinea gli elementi al centro */
+}
+
 .white-line {
     width: 40%; /* La linea occupa tutta la larghezza */
     height: 4px; /* Altezza della linea */
     background-color: white; /* Colore della linea */
-
+    margin-top: 10px; /* Spazio sopra la linea */
+    position: relative; /* Posizione relativa per centrarla */
 }
-
-
 
 
 
