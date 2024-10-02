@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+:root{
+  --Playfair: 'Playfair Display', serif;
+  --Quicksand: 'Quicksand', sans-serif;
+  --Roboto: 'Roboto', sans-serif;
+  --dark: #3c393d;
+  --exDark: #2b2b2b;
+}
+
+* {
+  font-family: var(--Quicksand);
+}
+
 @media(max-width: 1400px) {
   .sidebar {
     background-color: rgba(255, 255, 255, 0.66) !important;
