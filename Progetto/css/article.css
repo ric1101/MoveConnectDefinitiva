@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: #bebebe !important;
+    background-color: #fff !important;
 }
 
 h1 {
@@ -28,8 +28,8 @@ p {
 }
 
 .cont {
-    padding-left: 300px;
-    padding-right: 300px;
+    padding-left: 220px;
+    padding-right: 220px;
     padding-top: 150px;
     padding-bottom: 150px;
 }
@@ -44,3 +44,11 @@ p {
     }
 
 }
+@media (max-width: 768px) {
+    
+    .imgPexels {
+        display: none;
+    }
+
+}
+
