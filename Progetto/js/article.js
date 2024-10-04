@@ -1,12 +1,14 @@
 let articoloIntero = document.querySelector('.articoloIntero');
 
+let id = JSON.parse(localStorage.getItem('artId'));
+console.log(id);
+
 
 async function DesignOBlog() {
     
     let esito = localStorage.getItem('art');
     
     if (esito === 'Blog') {
-        let id = localStorage.getItem('id');
         let URLB = `http://localhost:8080/api/blog/${id}`;
         await fetch(URLB)
         .then((res) => res.json())
@@ -19,7 +21,7 @@ async function DesignOBlog() {
         
         
     } else if (esito === 'Design') {
-        let id = localStorage.getItem('id');
+        
         let URLD = `http://localhost:8080/api/design/${id}`;
         await fetch(URLD)
             .then((res) => res.json())
@@ -119,4 +121,10 @@ function articolo(dati) {
         articoloIntero.innerHTML = art;
 
 }
- 
+
+addEventListener("DOMContentLoaded", function () {
+
+    this.localStorage.removeItem('artId');
+    this.localStorage.removeItem('art');
+
+});

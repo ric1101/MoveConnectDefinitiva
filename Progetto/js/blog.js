@@ -7,12 +7,14 @@ let blogContent = document.querySelector('.blog-content');
 const URLD = 'http://localhost:8080/api/blog/tutti';
 const URLB = 'http://localhost:8080/api/design/tutti';
 
+function fetcha() {
+    
 fetch(URLD)
 .then((res) => res.json())
 .then((data) => {
     
     popolaArticoliDesign(data);
-    console.log(data);
+    inviaDesign();
     
 });
 
@@ -21,14 +23,45 @@ fetch(URLB)
 .then((data) => {
     
     popolaArticoliBlog(data);
-    console.log(data);
+    inviaBlog();
     
 });
 
-let designItem = document.querySelectorAll('.designLink');
-let blogItem = document.querySelectorAll('.blogLink');
+}
+
+fetcha();
+
+
+
+
+function inviaDesign() {
+    
+    let designItem = document.querySelectorAll('.designLink');
+        console.log(designItem);
+        
+
+        designItem.forEach(art => {
+            
+            art.addEventListener('click', function () {
+
+                let id = art.getAttribute('id');
+                localStorage.setItem('artId', id);
+                let articoloBlog = 'Blog';
+                localStorage.setItem('art', articoloBlog);
+                
+    
+            }
+    
+            );
+
+
+        });
+        
+}
+
 
 function popolaArticoliDesign(dati) {
+    
     
     dati.forEach(element => {
         
@@ -49,12 +82,36 @@ function popolaArticoliDesign(dati) {
         
     });
     
-    inviaDesign();
     
 }
 
-popolaArticoliDesign();
 
+
+
+function inviaBlog() {
+    
+    let blogItem = document.querySelectorAll('.blogLink');
+        console.log(blogItem);
+        
+
+        blogItem.forEach(art => {
+            
+            art.addEventListener('click', function () {
+
+                let id = element.getAttribute('id');
+                localStorage.setItem('artId', id);
+                let articoloBlog = 'Blog';
+                localStorage.setItem('art', articoloBlog);
+                
+    
+            }
+    
+            );
+
+
+        });
+        
+}
 
 
 function popolaArticoliBlog(dati) {
@@ -79,50 +136,5 @@ function popolaArticoliBlog(dati) {
         
     });
     
-    inviaBlog();
-    
 }
-
-popolaArticoliBlog();
-
-
-
-
-function inviaDesign() {
-
-    designItem.forEach(element => {
-
-        element.addEventListener('click', function () {
-
-            let id = element.getAttribute('id');
-            localStorage.setItem('artId', id);
-            let articoloDesign = 'Design';
-            localStorage.setItem('art', articoloDesign);
-
-        }
-
-        );
-
-    });
-}
-
-
-function inviaBlog() {
-
-    blogItem.forEach(element => {
-
-        element.addEventListener('click', function () {
-
-            let id = element.getAttribute('id');
-            localStorage.setItem('artId', id);
-            let articoloBlog = 'Blog';
-            localStorage.setItem('art', articoloBlog);
-
-        }
-
-        );
-
-    });
-}
-
 
