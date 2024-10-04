@@ -3,8 +3,9 @@ let designContent = document.querySelector('.design-content');
 /* curiosità */
 let blogContent = document.querySelector('.blog-content');
 
-const URLD = '';
-const URLB = '';
+
+const URLD = 'http://localhost:8080/api/blog/tutti';
+const URLB = 'http://localhost:8080/api/design/tutti';
 
 fetch(URLD)
     .then((res) => res.json())
@@ -95,8 +96,8 @@ function inviaDesign() {
 
             let id = element.getAttribute('id');
             localStorage.setItem('artId', id);
-            // let articoloDesign = 'Design';
-            // localStorage.setItem('art', articoloDesign);
+            let articoloDesign = 'Design';
+            localStorage.setItem('art', articoloDesign);
 
         }
 
@@ -114,8 +115,8 @@ function inviaBlog() {
 
             let id = element.getAttribute('id');
             localStorage.setItem('artId', id);
-            // let articoloBlog = 'Blog';
-            // localStorage.setItem('art', articoloBlog);
+            let articoloBlog = 'Blog';
+            localStorage.setItem('art', articoloBlog);
 
         }
 
@@ -123,3 +124,5 @@ function inviaBlog() {
 
     });
 }
+
+

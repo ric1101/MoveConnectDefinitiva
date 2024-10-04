@@ -1,45 +1,57 @@
 let articoloIntero = document.querySelector('.articoloIntero');
 
-const URLD = 'rotta che recupera l id della tabella';
-const URLB = '';
 
+function DesignOBlog() {
+    
+    let esito = localStorage.getItem('art');
+    
+    if (esito === 'Blog') {
+        let id = localStorage.getItem('id');
+        const URLB = `http://localhost:8080/api/blog/${id}`;
+        fetch(URLB)
+        .then((res) => res.json())
+        .then((data) => {
+            
+            articolo(data);
+            console.log(data);
+            
+        });
+        
+        
+    } else if (esito === 'Design') {
+        let id = localStorage.getItem('id');
+        const URLD = `http://localhost:8080/api/design/${id}`;
+        fetch(URLD)
+            .then((res) => res.json())
+            .then((data) => {
 
-fetch(URLD)
-    .then((res) => res.json())
-    .then((data) => {
+                articolo(data);
+                console.log(data);
 
-        popolaArticoliDesign(data);
-        console.log(data);
+            });
 
-    });
+    }
 
-fetch(URLB)
-    .then((res) => res.json())
-    .then((data) => {
+}
 
-        articolo(data);
-        console.log(data);
-
-    });
-
+DesignOBlog();
 
 function articolo(dati) {
 
-    dati.forEach(element => {
 
-    let art = `<div class="row p-2">
+        let art = `<div class="row p-2">
 
                 <div class="col-md-2 p-2">
 
                 </div>
 
                 <div class="col-md-8 p-2">
-                    <h1 class="fw-bold">${element.title}</h1>
-                    <p>${element.desc}</p>
+                    <h1 class="fw-bold">${dati.title}</h1>
+                    <p>${dati.desc}</p>
                 </div>
 
                 <div class="col-md-2 d-flex justify-content-end">
-                    <h6 class="mt-3" >${element.data}</h6>
+                    <h6 class="mt-3" >${dati.data}</h6>
                 </div>
 
             </div>
@@ -72,7 +84,7 @@ function articolo(dati) {
                     
                 </div>
                 <div class="col-md-8">
-                    <img src="${element.img}" alt=""
+                    <img src="${dati.img}" alt=""
                         style="width: 100%; height: 100%;">
                 </div>
                 <div class="col-md-1"></div>
@@ -87,11 +99,11 @@ function articolo(dati) {
                 </div>
                 <div class="col-md-8 p-2">
                     <p align="justify">
-                      ${element.testo}  
+                      ${dati.testo}  
                     </p>
                     <div class="row ">
                         <div class="col-md-12 d-flex justify-content-end p-3">
-                            <h5>${element.writer}</h5>
+                            <h5>${dati.writer}</h5>
                         </div>
                     </div>
                 </div>
@@ -104,8 +116,7 @@ function articolo(dati) {
                 </div>
             </div>`;
 
-            articoloIntero.innerHTML = art;
+        articoloIntero.innerHTML = art;
 
-
-    }
-)}
+}
+ 
