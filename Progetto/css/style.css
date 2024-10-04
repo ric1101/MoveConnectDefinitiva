@@ -123,13 +123,6 @@ header {
     align-items: center; /* Allinea gli elementi al centro */
 }
 
-/* .white-line {
-    width: 40%; 
-    height: 4px; 
-    background-color: white; 
-    position: relative; 
-} */
-
 
 .white-line {
     width: 30%;
@@ -138,8 +131,8 @@ header {
       90deg,
       white,
       white 30px, /* Segmento bianco più lungo */
-      #FAAD06 30px, /* Grigio più scuro per maggiore contrasto */
-      #FAAD06 60px /* Lunghezza totale del pattern */
+      #D3A034 30px, /* Grigio più scuro per maggiore contrasto */
+      #D3A034 60px /* Lunghezza totale del pattern */
     );
     background-size: 200% 100%;
     animation: moveLine 3s linear infinite; /* Animazione leggermente più veloce */
@@ -155,11 +148,6 @@ header {
   }
   
   
-  
-
-
-
-
 
 /* design */
 .design {
@@ -424,7 +412,7 @@ header {
 
 .animated-logo {
     width: 100px;
-    animation: wobble 3s ease-in-out infinite;
+    animation: wobble 5s ease-in-out infinite;
   }
   
   @keyframes wobble {
