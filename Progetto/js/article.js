@@ -1,14 +1,14 @@
 let articoloIntero = document.querySelector('.articoloIntero');
 
 
-function DesignOBlog() {
+async function DesignOBlog() {
     
     let esito = localStorage.getItem('art');
     
     if (esito === 'Blog') {
         let id = localStorage.getItem('id');
-        const URLB = `http://localhost:8080/api/blog/${id}`;
-        fetch(URLB)
+        let URLB = `http://localhost:8080/api/blog/${id}`;
+        await fetch(URLB)
         .then((res) => res.json())
         .then((data) => {
             
@@ -20,8 +20,8 @@ function DesignOBlog() {
         
     } else if (esito === 'Design') {
         let id = localStorage.getItem('id');
-        const URLD = `http://localhost:8080/api/design/${id}`;
-        fetch(URLD)
+        let URLD = `http://localhost:8080/api/design/${id}`;
+        await fetch(URLD)
             .then((res) => res.json())
             .then((data) => {
 
@@ -46,7 +46,7 @@ function articolo(dati) {
                 </div>
 
                 <div class="col-md-8 p-2">
-                    <h1 class="fw-bold">${dati.title}</h1>
+                    <h1 class="fw-bold">${dati.titolo}</h1>
                     <p>${dati.desc}</p>
                 </div>
 
