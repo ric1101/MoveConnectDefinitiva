@@ -38,7 +38,7 @@ async function DesignOBlog() {
 
 DesignOBlog();
 
-function articolo(dati) {
+async function articolo(dati) {
 
 
         let art = `<div class="row p-2">
@@ -122,9 +122,3 @@ function articolo(dati) {
 
 }
 
-addEventListener("DOMContentLoaded", function () {
-
-    this.localStorage.removeItem('artId');
-    this.localStorage.removeItem('art');
-
-});

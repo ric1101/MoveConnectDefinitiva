@@ -4,17 +4,17 @@ let designContent = document.querySelector('.design-content');
 let blogContent = document.querySelector('.blog-content');
 
 
-const URLD = 'http://localhost:8080/api/blog/tutti';
-const URLB = 'http://localhost:8080/api/design/tutti';
+const URLD = 'http://localhost:8080/api/design/tutti';
+const URLB = 'http://localhost:8080/api/blog/tutti';
 
-function fetcha() {
+
     
 fetch(URLD)
 .then((res) => res.json())
 .then((data) => {
     
     popolaArticoliDesign(data);
-    inviaDesign();
+    
     
 });
 
@@ -23,13 +23,11 @@ fetch(URLB)
 .then((data) => {
     
     popolaArticoliBlog(data);
-    inviaBlog();
+    
     
 });
 
-}
 
-fetcha();
 
 
 
@@ -46,8 +44,8 @@ function inviaDesign() {
 
                 let id = art.getAttribute('id');
                 localStorage.setItem('artId', id);
-                let articoloBlog = 'Blog';
-                localStorage.setItem('art', articoloBlog);
+                let articoloDesign = 'Design';
+                localStorage.setItem('art', articoloDesign);
                 
     
             }
@@ -81,7 +79,7 @@ function popolaArticoliDesign(dati) {
         
         
     });
-    
+    inviaDesign();
     
 }
 
@@ -98,7 +96,7 @@ function inviaBlog() {
             
             art.addEventListener('click', function () {
 
-                let id = element.getAttribute('id');
+                let id = art.getAttribute('id');
                 localStorage.setItem('artId', id);
                 let articoloBlog = 'Blog';
                 localStorage.setItem('art', articoloBlog);
@@ -136,5 +134,7 @@ function popolaArticoliBlog(dati) {
         
     });
     
+    inviaBlog();
 }
+
 
