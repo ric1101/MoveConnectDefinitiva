@@ -9,6 +9,7 @@ let dataNascita = document.querySelector("#dataNascita");
 let numeroTelefono = document.querySelector("#numeroTelefono");
 let email = document.querySelector("#emailDipendente");
 let password = document.querySelector("#password");
+let numeroTelefonoAziendale = document.querySelector("#numeroTelefonoAziendale");
 let bottoneRegistrati = document.querySelector("#registrati");
 let listaErrori = document.querySelector("#listaErrori");
 let showPassword = document.querySelector("#showPassword");
@@ -23,6 +24,7 @@ class Azienda {
     nomeAzienda,
     logo,
     indirizzo,
+    numeroTelefonoAziendale,
     pIva,
     emailAziendale,
     nomeDipendente,
@@ -35,6 +37,7 @@ class Azienda {
     (this.nomeAzienda = nomeAzienda),
       (this.logo = logo),
       (this.indirizzo = indirizzo),
+      (this.numeroTelefonoAziendale = numeroTelefonoAziendale),
       (this.pIva = pIva),
       (this.emailAziendale = emailAziendale),
       (this.nomeDipendente = nomeDipendente),
@@ -56,6 +59,7 @@ function registrazioneAzienda() {
   if(nomeAzienda.value.trim() != "" &&
       logo.value.trim() != "" &&
       indirizzo.value.trim() != "" &&
+      numeroTelefonoAziendale.value.trim() != "" &&
       pIva.value.trim() != "" &&
       emailAziendale.value.trim() != "" &&
       nomeDipendente.value.trim() != "" &&
@@ -71,6 +75,7 @@ function registrazioneAzienda() {
             nomeAzienda.value,
             logo.value,
             indirizzo.value,
+            numeroTelefonoAziendale.value,
             pIva.value,
             emailAziendale.value,
             nomeDipendente.value,
