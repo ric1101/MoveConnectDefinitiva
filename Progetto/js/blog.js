@@ -124,17 +124,36 @@ function popolaArticoliBlog(dati) {
         <div class="blog-text">
         <span>${element.data}</span>
         <h2>${element.titolo}</h2>
-        <p>${element.desc}</p>
+        <p class="puntino">${element.desc}</p>
         <a class="blogLink" id="${element.id}" href="/Progetto/article.html">Scopri di più</a>
         </div>
         </div>`;
-        
         blogContent.innerHTML += articolo;
         
         
     });
     
+    puntini();
     inviaBlog();
 }
 
+
+function puntini() {
+
+    let cardText = document.querySelectorAll('.puntino');
+    console.log(cardText);
+    
+    cardText.forEach(desc => {
+      // console.log(cardText);
+      let descrizione = desc.textContent.trim();
+      if (descrizione.length > 100) {
+        // console.log(descrizione.length);
+        desc.textContent = descrizione.substring(0, 100);
+        desc.textContent += '...';
+        // console.log(desc.textContent);
+      }
+  
+    });
+  
+  }
 

@@ -203,14 +203,14 @@ header {
     height: 100%;
     background: rgba(0, 0, 0, 0.3);
 }
-
-.design-img img {
+/* 
+.design-img {
     transition: all 0.5s ease;
-}
+} */
 
-.design-item:hover img {
+/* .design-item:hover {
     transform: scale(1.2);
-}
+} */
 
 .design-img span:first-of-type {
     position: absolute;

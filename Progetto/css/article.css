@@ -45,13 +45,7 @@ p {
 
 }
 
-@media (max-width: 768px) {
 
-    .imgPexels {
-        display: none;
-    }
-
-}
 
 .containerImg {
 
@@ -60,4 +54,14 @@ p {
     background-repeat: no-repeat;
     max-width: 100%;
     
+}
+
+@media (max-width: 768px) {
+
+    .imgPexels {
+        display: none;
+    }
+
+    
+
 }
