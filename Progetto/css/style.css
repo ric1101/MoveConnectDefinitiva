@@ -183,6 +183,14 @@ header {
 .design-img {
     position: relative;
     overflow: hidden;
+    position: relative;
+    height: 300px;
+    width: auto;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 100%;
+
 
 }
 
@@ -251,6 +259,12 @@ header {
 
 .blog-img {
     position: relative;
+    height: 300px;
+    width: auto;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 100%;
 }
 
 .blog-img span {

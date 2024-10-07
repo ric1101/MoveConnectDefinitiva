@@ -65,8 +65,8 @@ function popolaArticoliDesign(dati) {
         
         let articolo = `<div class="design-item">
         <a id="${element.id}" class="designLink" href="/Progetto/article.html">
-        <div class="design-img">
-        <img src="${element.img}" alt="">
+        <div class="design-img" style="background-image: url('${element.img}');">
+        
         
         </div>
         </a>
@@ -117,8 +117,8 @@ function popolaArticoliBlog(dati) {
     dati.forEach(element => {
         
         let articolo = `<div class="blog-item">
-        <div class="blog-img">
-        <img src="${element.img}" alt="">
+        <div class="blog-img" style="background-image: url('${element.img}');">
+        
         
         </div>
         <div class="blog-text">

@@ -35,7 +35,7 @@ p {
 }
 
 @media (max-width: 1357px) {
-    
+
     .cont {
         padding-left: 0px;
         padding-right: 0px;
@@ -44,11 +44,20 @@ p {
     }
 
 }
+
 @media (max-width: 768px) {
-    
+
     .imgPexels {
         display: none;
     }
 
 }
 
+.containerImg {
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    
+}
