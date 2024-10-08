@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../Progetto/css/css01.css">
-    <link rel="stylesheet" href="../Progetto/css/normalize.css">
+    
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
@@ -24,23 +24,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Progetto/css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
     <!-- Navbar -->
-    <div class="navbarMain"></div>
-
-    <div class="row home">
-        <div class="col-md-3 col-sm-3 col-3 containerSinistra">
-            <img src="../Progetto/imgs/11sinistra.png" alt="">
+    <header>
+        <div class="navbarMain"></div>
+        <div class="banner">
+          <div class="container">
+            <div class="row logoImg d-flex justify-content-center">
+              <img src="imgs/img22.png" alt="Logo" class="animated-logo" style="width: 256px; height: 213;">
+            </div>
+            <div class="row row d-flex justify-content-center ">
+              <div class="white-line"></div>
+            </div>
+            <!-- Aggiungi la linea qui -->
+            <!-- La linea bianca -->
+            <h1 class="banner-title">
+              m<i class="bi bi-globe2"></i>veconnect
+            </h1>
+            <p>La tua community dei trasporti</p>
+          </div>
         </div>
-        <div class="col-md-6 col-sm-6 col-6 containerMappa">
-            <div id="map"></div>
-        </div>
-        <div class="col-md-3 col-sm-3 col-3 containerDestra">
-            <img src="../Progetto/imgs/22destra.png" alt="">
-        </div>
-    </div>
+      </header>
 
     <div class="row homeSmall">
 
@@ -54,7 +61,8 @@
         <div class="titles1">
             <h1 class="league-spartan-sponsor m-0 titles-item1"><a href="./partners.html">I Nostri Partners <i
                         class="fa-solid fa-handshake"></i></a></h1>
-            <h1 class="league-spartan-sponsor m-0 titles-item1"><a href="./tratte.html">Visualizza tratte <i class="fa-solid fa-road"></i></a></h1>
+            <h1 class="league-spartan-sponsor m-0 titles-item1"><a href="./tratte.html">Visualizza tratte <i
+                        class="fa-solid fa-road"></i></a></h1>
             <h1 class="league-spartan-sponsor m-0 titles-item1"><a href="./registrati.html">Registrati <i
                         class="fa-solid fa-pen-to-square"></i></a></h1>
         </div>
@@ -62,7 +70,8 @@
         <div class="titles1">
             <h1 class="league-spartan-sponsor m-0 titles-item1"><a href="./partners.html">I Nostri Partners <i
                         class="fa-solid fa-handshake"></i></a></h1>
-            <h1 class="league-spartan-sponsor m-0 titles-item1"><a href="./tratte.html">Visualizza tratte <i class="fa-solid fa-road"></i></a></h1>
+            <h1 class="league-spartan-sponsor m-0 titles-item1"><a href="./tratte.html">Visualizza tratte <i
+                        class="fa-solid fa-road"></i></a></h1>
             <h1 class="league-spartan-sponsor m-0 titles-item1"><a href="./registrati.html">Registrati <i
                         class="fa-solid fa-pen-to-square"></i></a></h1>
         </div>
@@ -70,12 +79,12 @@
     </div>
 
     <div class="row chisono">
-        <div class="col-12 col-md-12 col-lg-12 col-xl-6 p-2 immagineFinale">
-            <img src="../Progetto/imgs/4camion.jpg" alt="Immagine camion">
+        <div class="col-8 col-sm-8 col-md-6 col-lg-3 col-xl-3 p-2 containerDestra">
+            <img src="../Progetto/imgs/22destra.png" alt="">
         </div>
-        <div class="col-12 col-md-12 col-lg-12 col-xl-6 p-2">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 p-2">
             <h1>Entra nel network di MoveConnect!</h1>
-            <p class="desc">
+            <p class="desc" align="justify">
                 MoveConnect è una piattaforma online che connette in modo efficiente aziende e
                 professionisti del settore dei trasporti in tutta Italia. Attraverso il sito, le imprese di trasporto
                 possono trovare nuove opportunità di collaborazione, ottimizzare le rotte logistiche e migliorare
@@ -87,10 +96,11 @@
         </div>
     </div>
 
+
     <div class="row chisono">
-        <div class="col-12 col-md-12 col-lg-12 col-xl-6 p-2">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 p-2">
             <h1>Abbonati a MoveConnect!</h1>
-            <p class="desc">
+            <p class="desc" align="justify">
                 MoveConnect offre due piani di abbonamento:<br>
                 - Piano Base: Consente alle aziende di accedere alla rete di trasportatori, inviare e ricevere richieste
                 di trasporto, visualizzare offerte e stabilire contatti commerciali. Il Piano Base consente di gestire
@@ -103,8 +113,8 @@
                 team di lavorare contemporaneamente sulla piattaforma.
             </p>
         </div>
-        <div class="col-12 col-md-12 col-lg-12 col-xl-6 p-2 immagineFinale">
-            <img src="../Progetto/imgs/camion2.png" alt="Immagine camion 2">
+        <div class="col-8 col-sm-8 col-md-6 col-lg-3 col-xl-3 p-2 containerSinistra">
+            <img src="../Progetto/imgs/11sinistra.png" alt="">
         </div>
     </div>
 
@@ -130,6 +140,19 @@
         </div>
 
 
+    </div>
+
+    <div class="row home d-flex justify-content-center p-3" style="background-color: #1b202346;">
+        <div class="col-md-5 col-sm-5 col-5 p-3 align-content-center" style="height: 600px; font-size: 1.5rem;">
+            <h1>Le nostre aziende</h1>
+            <p align="justify">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium dignissimos quos iure consequuntur natus libero non. Commodi molestiae tempore fugit in, veritatis nulla voluptas cumque qui, laudantium eveniet id ratione. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, atque! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, tenetur? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi dolor sed corrupti quidem, minima quod. 
+            </p>
+        </div>
+        <div class="col-md-7 col-sm-7 col-7 p-3 containerMappa">
+            <div id="map"></div>
+        </div>
+        
     </div>
 
 

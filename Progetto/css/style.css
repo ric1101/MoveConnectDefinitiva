@@ -85,28 +85,6 @@ header {
     justify-content: space-between;
 }
 
-.search-input {
-    font-family: var(--Roboto);
-    font-size: 1.1rem;
-    width: 100%;
-    outline: 0;
-    padding: 0.6rem 0;
-    border: none;
-}
-
-.search-input::placeholder {
-    text-transform: capitalize;
-}
-
-.search-btn {
-    width: 40px;
-    font-size: 1.1rem;
-    color: var(--dark);
-    border: none;
-    background: transparent;
-    outline: 0;
-    cursor: pointer;
-}
 
 .navbarMain {
     position: fixed;
@@ -146,6 +124,14 @@ header {
       background-position: 200% 0%;
     }
   }
+
+  
+  @media (max-width: 768px) {
+    .white-line {
+      animation: moveLine 2s linear infinite; /* Aumenta la velocità su schermi più piccoli */
+    }
+  }
+  
   
   
 
@@ -366,15 +352,10 @@ header {
 @media screen and (min-width: 540px) {
 
     .banner-title {
-        font-size: 5rem;
+        font-size: 5rem !important;
     }
 
-    .banner form {
-        margin-top: 1.4rem;
-        width: 40%;
-        margin-left: auto;
-        margin-right: auto;
-    }
+    
 }
 
 @media screen and (min-width: 768px) {

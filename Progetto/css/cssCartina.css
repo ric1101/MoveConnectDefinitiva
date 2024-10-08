@@ -1,8 +1,7 @@
 #map { 
     height: 100%; 
     width: 100%;
-    border-left: solid 0.3rem coral;
-    border-right: solid 0.3rem coral;
+    border: solid 0.3rem coral;
 }
 
 .row>*{
