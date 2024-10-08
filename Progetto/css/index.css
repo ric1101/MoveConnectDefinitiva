@@ -25,13 +25,13 @@
     border-bottom: solid 3px coral;
     padding: 20px;
     margin-bottom: 30px;
-    
+
 }
 
 .titles {
     display: flex;
     animation: move-rtl 17s linear infinite;
-    
+
 }
 
 .titles-item {
@@ -56,6 +56,7 @@
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-100%);
     }
@@ -68,10 +69,13 @@
 
 @keyframes move-rtl1 {
     0% {
-        transform: translateX(-100%); /* Inizia fuori dalla destra */
+        transform: translateX(-100%);
+        /* Inizia fuori dalla destra */
     }
+
     100% {
-        transform: translateX(0%); /* Termina fuori dalla sinistra */
+        transform: translateX(0%);
+        /* Termina fuori dalla sinistra */
     }
 }
 
@@ -91,7 +95,7 @@
 .titles1 {
     display: flex;
     animation: move-rtl1 17s linear infinite;
-    
+
 }
 
 .titles-item1 {
@@ -132,7 +136,7 @@ header {
  }   */
 
 
- .navbarMain {
+.navbarMain {
     position: fixed;
     top: 0;
     width: 100%;
@@ -190,47 +194,54 @@ header {
 .banner {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Allinea gli elementi al centro */
+    align-items: center;
+    /* Allinea gli elementi al centro */
 }
 
 
 .white-line {
     width: 30%;
-    height: 5px; /* Puoi regolare l'altezza della linea */
-    background: repeating-linear-gradient(
-      90deg,
-      white,
-      white 30px, /* Segmento bianco più lungo */
-      #D3A034 30px, /* Grigio più scuro per maggiore contrasto */
-      #D3A034 60px /* Lunghezza totale del pattern */
-    );
+    height: 5px;
+    /* Puoi regolare l'altezza della linea */
+    background: repeating-linear-gradient(90deg,
+            white,
+            white 30px,
+            /* Segmento bianco più lungo */
+            #D3A034 30px,
+            /* Grigio più scuro per maggiore contrasto */
+            #D3A034 60px
+            /* Lunghezza totale del pattern */
+        );
     background-size: 200% 100%;
-    animation: moveLine 5s linear infinite; /* Animazione leggermente più veloce */
-  }
-  
-  @keyframes moveLine {
+    animation: moveLine 5s linear infinite;
+    /* Animazione leggermente più veloce */
+}
+
+@keyframes moveLine {
     0% {
-      background-position: 0% 0%;
+        background-position: 0% 0%;
     }
+
     100% {
-      background-position: 200% 0%;
+        background-position: 200% 0%;
     }
-  }
+}
 
-  
-  @media (max-width: 768px) {
+
+@media (max-width: 768px) {
     .white-line {
-      animation: moveLine 3s linear infinite; /* Aumenta la velocità su schermi più piccoli */
+        animation: moveLine 3s linear infinite;
+        /* Aumenta la velocità su schermi più piccoli */
     }
-  }
+}
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
 
     .banner-title {
         font-size: 5rem !important;
     }
 
-    
+
 }
 
 
@@ -244,9 +255,7 @@ header {
         font-size: 30px;
     }
 
-    
 
-    
 }
 
 
@@ -261,19 +270,16 @@ header {
         font-size: 20px;
     }
 
-   
 
-    
 }
 
 @media screen and (max-width: 992px) {
 
-    
+
     .containerMappa {
         height: 600px;
         width: 800px;
     }
-   
 
-    
+
 }
