@@ -116,11 +116,20 @@
 header {
     min-height: 100vh !important;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url(../imgs/sfondo.png) center/cover no-repeat fixed !important;
+        url(../imgs/grande.png) center/cover no-repeat fixed !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: stretch !important;
 }
+
+.navbarMain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: #fff;
+ }  
 
 .bi-globe2 {
     font-size: 48px;
