@@ -113,7 +113,7 @@ header {
       #D3A034 60px /* Lunghezza totale del pattern */
     );
     background-size: 200% 100%;
-    animation: moveLine 3s linear infinite; /* Animazione leggermente più veloce */
+    animation: moveLine 5s linear infinite; /* Animazione leggermente più veloce */
   }
   
   @keyframes moveLine {
@@ -128,7 +128,7 @@ header {
   
   @media (max-width: 768px) {
     .white-line {
-      animation: moveLine 2s linear infinite; /* Aumenta la velocità su schermi più piccoli */
+      animation: moveLine 3s linear infinite; /* Aumenta la velocità su schermi più piccoli */
     }
   }
   

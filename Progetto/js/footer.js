@@ -7,14 +7,14 @@ function Footer() {
             <div class="row">
                 <div class="col-xl-4 col-md-4 mb-30">
                     <div class="single-cta">
-                        <i class="fas fa-map-marker-alt"></i>
+                        <i class="fas fa-map-marker-alt" style="padding-right: 5px"></i>
                         <div class="cta-text">
                             <h4>Dove siamo</h4>
                             <span>Pomezia, RM</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-md-4 mb-30">
+                <div class="col-xl-3 col-md-3 mb-30">
                     <div class="single-cta">
                         <i class="fas fa-phone"></i>
                         <div class="cta-text">
@@ -23,12 +23,12 @@ function Footer() {
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-md-4 mb-30">
+                <div class="col-xl-5 col-md-5 mb-30">
                     <div class="single-cta">
                         <i class="far fa-envelope-open"></i>
                         <div class="cta-text">
                             <h4>Mandaci un'email</h4>
-                            <span>move.connect@moveconnect.it</span>
+                            <span>move@moveconnect.it</span>
                         </div>
                     </div>
                 </div>

@@ -122,14 +122,27 @@ header {
     justify-content: stretch !important;
 }
 
-.navbarMain {
+/* .navbarMain {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 10;
     background-color: #fff;
- }  
+ }   */
+
+
+ .navbarMain {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+#map {
+    z-index: 1 !important;
+}
+
 
 .bi-globe2 {
     font-size: 48px;
@@ -192,7 +205,7 @@ header {
       #D3A034 60px /* Lunghezza totale del pattern */
     );
     background-size: 200% 100%;
-    animation: moveLine 3s linear infinite; /* Animazione leggermente più veloce */
+    animation: moveLine 5s linear infinite; /* Animazione leggermente più veloce */
   }
   
   @keyframes moveLine {
@@ -207,15 +220,60 @@ header {
   
   @media (max-width: 768px) {
     .white-line {
-      animation: moveLine 2s linear infinite; /* Aumenta la velocità su schermi più piccoli */
+      animation: moveLine 3s linear infinite; /* Aumenta la velocità su schermi più piccoli */
     }
   }
 
-  @media screen and (min-width: 540px) {
+  @media screen and (min-width: 768px) {
 
     .banner-title {
         font-size: 5rem !important;
     }
+
+    
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .white-line {
+        display: none;
+    }
+
+    .bi-globe2 {
+        font-size: 30px;
+    }
+
+    
+
+    
+}
+
+
+
+@media screen and (max-width: 424px) {
+
+    .banner-title {
+        font-size: 2rem !important;
+    }
+
+    .bi-globe2 {
+        font-size: 20px;
+    }
+
+   
+
+    
+}
+
+@media screen and (max-width: 992px) {
+
+    
+    .containerMappa {
+        height: 600px;
+        width: 800px;
+    }
+   
 
     
 }
