@@ -1,12 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Sketch&family=Spicy+Rice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Chakra+Petch:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Londrina+Sketch&family=Spicy+Rice&display=swap');
 
 :root {
     --Playfair: 'Playfair Display', serif;
     --Quicksand: 'Quicksand', sans-serif;
     --Roboto: 'Roboto', sans-serif;
+    --Spicy: 'Spicy Rice', serif;
+    --Strange: "Chakra Petch", sans-serif;
     --dark: #3c393d;
     --exDark: #2b2b2b;
 }
+
+
+  
 
 
 * {
@@ -17,22 +24,19 @@
 .text-wrapper {
     display: flex;
     overflow: hidden;
-    background-color:#282D30;
     white-space: nowrap;
     justify-content: flex-start;
     position: relative;
-    border-top: solid 3px coral;
-    border-bottom: solid 3px coral;
     padding: 20px;
-    margin-bottom: 30px;
-    margin-top: 30px;
+    margin-bottom: 15px;
+    margin-top: 15px;
 
 }
-/* #1B2023 */
+
 
 .titles {
     display: flex;
-    animation: move-rtl 17s linear infinite;
+    animation: move-rtl 23s linear infinite;
 
 }
 
@@ -40,12 +44,9 @@
     font-size: 48px;
     -webkit-text-stroke-width: 0.1px;
     -webkit-text-stroke-color: #fff;
-    text-stroke-color: #fff;
     white-space: nowrap;
     letter-spacing: 1px;
     padding: 0 6rem;
-    border-left: solid 3px coral;
-    border-right: solid 3px coral;
 }
 
 .titles-item a {
@@ -84,20 +85,17 @@
 .text-wrapper1 {
     display: flex;
     overflow: hidden;
-    background-color: #282D30;
     white-space: nowrap;
     justify-content: flex-start;
     position: relative;
-    border-top: solid 3px coral;
-    border-bottom: solid 3px coral;
     padding: 20px;
-    margin-bottom: 30px;
-    margin-top: 30px;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .titles1 {
     display: flex;
-    animation: move-rtl1 17s linear infinite;
+    animation: move-rtl1 23s linear infinite;
 
 }
 
@@ -105,18 +103,19 @@
     font-size: 48px;
     -webkit-text-stroke-width: 0.1px;
     -webkit-text-stroke-color: #fff;
-    text-stroke-color: #fff;
     white-space: nowrap;
     letter-spacing: 1px;
     padding: 0 6rem;
-    border-left: solid 3px coral;
-    border-right: solid 3px coral;
+    color: #282D30 !important;
 }
 
 .titles-item1 a {
-    color: coral;
+    color: #282D30 !important;
     text-decoration: none;
     font-size: 30px;
+    font-family: var(--Strange);
+    font-weight: 700;
+  font-style: normal;
 }
 
 
@@ -129,14 +128,6 @@ header {
     justify-content: stretch !important;
 }
 
-/* .navbarMain {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    background-color: #fff;
- }   */
 
 
 .navbarMain {
