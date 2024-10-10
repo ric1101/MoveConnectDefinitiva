@@ -71,7 +71,7 @@ function popolaArticoliDesign(dati) {
         </div>
         </a>
         <div class="design-title">
-        <a id="${element.id}" class="designLink" href="/Progetto/article.html">${element.titolo}</a>
+        <a id="${element.id}" class="designLink Linkdesign" href="/Progetto/article.html">${element.titolo}</a>
         </div>
         </div>`;
         

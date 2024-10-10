@@ -428,3 +428,58 @@ header {
     }
   }
   
+
+  .design-img {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 250px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.design-img:hover {
+    transform: scale(1.1); /* Zoom di 10% */
+}
+
+
+
+.blogLink {
+    position: relative;
+    display: inline-block;
+    color: coral;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.blogLink::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: coral;
+    transition: width 0.3s ease;
+}
+
+.blogLink:hover::after {
+    width: 100%;
+}
+
+.blogLink:hover {
+    color: coral;
+}
+
+
+.Linkdesign {
+    text-decoration: none;
+    color: coral;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.Linkdesign:hover {
+    color: #ff6600; /* Cambia colore */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Aggiunge un'ombra */
+}
+
+
