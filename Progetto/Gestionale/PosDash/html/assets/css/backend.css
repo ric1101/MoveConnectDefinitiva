@@ -3898,7 +3898,7 @@ a.close.disabled {
     overflow-x: hidden;
     overflow-y: auto; }
 
-.modal {
+/* .modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -3907,7 +3907,7 @@ a.close.disabled {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  outline: 0; }
+  outline: 0; } */
 
 .modal-dialog {
   position: relative;

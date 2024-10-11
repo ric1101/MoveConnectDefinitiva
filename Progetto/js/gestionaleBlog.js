@@ -1,16 +1,11 @@
 let tabella = document.querySelector(".tabellozza");
-let nomeAzienda = document.getElementById("nomeAzienda");
-let logo = document.querySelector("#logo");
-let indirizzo = document.querySelector("#indirizzo");
-let pIva = document.querySelector("#pIva");
-let numeroAziendale = document.querySelector("#numeroAziendale");
-let emailAziendale = document.querySelector("#emailAziendale");
-let nomeDipendente = document.querySelector("#nomeDipendente");
-let cognomeDipendente = document.querySelector("#cognomeDipendente");
-let dataNascita = document.querySelector("#dataNascita");
-let numeroTelefono = document.querySelector("#numeroTelefono");
-let email = document.querySelector("#email");
-let password = document.querySelector("#password");
+let titolo = document.getElementById("#titolo");
+let desc = document.querySelector("#desc");
+let testo = document.querySelector("#testo");
+let img = document.querySelector("#img");
+let data = document.querySelector("#data");
+let writer = document.querySelector("#writer");
+let genere = document.querySelector("#genere");
 let bodyTabella = document.querySelector("#bodyTabella");
 let bottoneModifica = document.querySelector(".bottoneModifica");
 let spavAziendaDaEliminare = document.querySelector("#spanEventoDaEliminare");
@@ -19,45 +14,39 @@ let bottoneConfermaEliminazione = document.querySelector('.delete');
 let deleteCont = document.querySelector(".delete_cont");
 
 let eventoSelezionato = "";
-let arrayAziende = [];
+let arrayBlog = [];
 
-async function getAllAziende() {
+async function getAllBlog() {
     try {
-        const response = await fetch("http://localhost:8080/api/azienda/tutteLeAziende")
-        const aziende = await response.json();
+        const response = await fetch("http://localhost:8080/api/blog/tutti")
+        const blog = await response.json();
         console.log("CIAO");
-        arrayAziende = aziende;
-        console.log(aziende);
-        tutteLeAziende();
+        arrayBlog = blog;
+        console.log(blog);
+        tutteLeBlog();
         
         
     } catch (error) {
-        console.error("Error fetching aziende", error);
+        console.error("Error fetching blog", error);
     }
     
 }
 
-getAllAziende();
+getAllBlog();
 
-function tutteLeAziende() {
+function tutteLeBlog() {
     let fragment = document.createDocumentFragment();
-    arrayAziende.forEach((evento) => {
+    arrayBlog.forEach((evento) => {
         let aziendaRecord = document.createElement("tr");
         let inserisciTabella = `  
-        <td class="idAzienda">${evento.id}</td>
-        <td class="nomeAzienda" data-eventoId="${evento.id}" >${evento.nomeAzienda}</td>
-        <td class="logo"  data-eventoId="${evento.id}">${evento.logo}</td>
-        <td class="indirizzo"  data-eventoId="${evento.id}">${evento.indirizzo}</td>
-        <td class="pIva"  data-eventoId="${evento.id}">${evento.pIva}</td>
-        <td class="numeroAziendale"  data-eventoId="${evento.id}">${evento.numeroTelefonoAziendale}</td>
-        <td class="emailAziendale"  data-eventoId="${evento.id}">${evento.emailAziendale}</td>
-        <td class="nomeDipendente"  data-eventoId="${evento.id}">${evento.nomeDipendente}</td>
-        <td class="cognomeDipendente"  data-eventoId="${evento.id}">${evento.cognomeDipendente}</td>
-        <td class="dataNascita"  data-eventoId="${evento.id}">${evento.dataNascita}</td>
-        <td class="numeroTelefono"  data-eventoId="${evento.id}">${evento.numeroTelefono}</td>
-        <td class="email"  data-eventoId="${evento.id}">${evento.email}</td>
-        <td class="password"  data-eventoId="${evento.id}">${evento.password}</td>
-        
+        <td class="idBlog">${evento.id}</td>
+        <td class="titolo" data-eventoId="${evento.id}" >${evento.titolo}</td>
+        <td class="desc"  data-eventoId="${evento.id}">${evento.desc}</td>
+        <td class="testo"  data-eventoId="${evento.id}">${evento.testo}</td>
+        <td class="img"  data-eventoId="${evento.id}">${evento.img}</td>
+        <td class="data"  data-eventoId="${evento.id}">${evento.data}</td>
+        <td class="writer"  data-eventoId="${evento.id}">${evento.writer}</td>
+        <td class="genere"  data-eventoId="${evento.id}">${evento.genere}</td>
         <td>
         <button class="bottoneModifica fa-solid fa-pen btn btn-primary" data-eventoId="${evento.id}"></button>
         <button data-bs-toggle="modal" data-bs-target="#modalConfermaEliminazione" class="btnApriModalEliminazione fa-solid fa-trash btn btn-danger" data-eventoId="${evento.id}"></button>  
@@ -74,15 +63,6 @@ function tutteLeAziende() {
         btn.addEventListener("click", () => toggleEdit(btn));
     });
     
-    // document.querySelectorAll(".btnApriModalEliminazione").forEach(btn => {
-        //     btn.addEventListener("click", () =>{
-            //         let azienda = arrayAziende.find(azienda => azienda.id == btn.getAttribute("data-eventoId"));
-            //         if(azienda){
-                //             spavAziendaDaEliminare.textContent = azienda.nomeAzienda;
-                //             eventoSelezionato = btn.getAttribute("data-eventoId");
-                //         }
-                //     });
-                // });
                 
                 let modalElimina = document.querySelectorAll(".btnApriModalEliminazione")
                 modalElimina.forEach(btn => {
@@ -106,7 +86,7 @@ function tutteLeAziende() {
                 modalElimina.forEach(btn => {
                     btn.addEventListener("click", () => {
                         eventoSelezionato = btn.getAttribute("data-eventoId"); // Capture the ID here
-                        let azienda = arrayAziende.find(azienda => azienda.id == eventoSelezionato);
+                        let azienda = arrayBlog.find(azienda => azienda.id == eventoSelezionato);
                         if (azienda) {
                             spavAziendaDaEliminare.textContent = azienda.nomeAzienda;
                             deleteCont.classList.remove("d-none");
@@ -132,33 +112,23 @@ async function toggleEdit(btn){
     let btnApriModalEliminazioneSingoloEvento = document.querySelector(`.btnApriModalEliminazione[data-eventoId="${eventId}"]`);
 
     if(btn.classList.contains("fa-floppy-disk")){
-        let nomeAziendaSelezionata = document.querySelector(`.nomeAzienda[data-eventoId="${eventId}"]`);
-        let logoSelezionata= document.querySelector(`.logo[data-eventoId="${eventId}"]`);
-        let indirizzoSelezionata = document.querySelector(`.indirizzo[data-eventoId="${eventId}"]`);
-        let pIvaSelezionata = document.querySelector(`.pIva[data-eventoId="${eventId}"]`);
-        let numeroTelefonoAziendaleSelezionata = document.querySelector(`.numeroAziendale[data-eventoId="${eventId}"]`);
-        let emailAziendaleSelezionata = document.querySelector(`.emailAziendale[data-eventoId="${eventId}"]`);
-        let nomeDipendenteSelezionata = document.querySelector(`.nomeDipendente[data-eventoId="${eventId}"]`);
-        let cognomeDipendenteSelezionata= document.querySelector(`.cognomeDipendente[data-eventoId="${eventId}"]`);
-        let dataNascitaSelezionata = document.querySelector(`.dataNascita[data-eventoId="${eventId}"]`);
-        let numeroTelefonoSelezionata = document.querySelector(`.numeroTelefono[data-eventoId="${eventId}"]`);
-        let emailSelezionata = document.querySelector(`.email[data-eventoId="${eventId}"]`);
-        let passwordSelezionata = document.querySelector(`.password[data-eventoId="${eventId}"]`);  
+        let titoloSelezionata = document.querySelector(`.titolo[data-eventoId="${eventId}"]`);
+        let descSelezionata= document.querySelector(`.desc[data-eventoId="${eventId}"]`);
+        let testoSelezionata = document.querySelector(`.testo[data-eventoId="${eventId}"]`);
+        let imgSelezionata = document.querySelector(`.img[data-eventoId="${eventId}"]`);
+        let dataSelezionata = document.querySelector(`.data[data-eventoId="${eventId}"]`);
+        let writerSelezionata = document.querySelector(`.writer[data-eventoId="${eventId}"]`);
+        let genereSelezionata = document.querySelector(`.genere[data-eventoId="${eventId}"]`);
 
         const oggettoAziendaModificata = new EventoPUT(
             Number(eventId),
-            nomeAziendaSelezionata.textContent,
-            logoSelezionata.textContent,
-            indirizzoSelezionata.textContent,
-            pIvaSelezionata.textContent,
-            numeroTelefonoAziendaleSelezionata.textContent,
-            emailAziendaleSelezionata.textContent,
-            nomeDipendenteSelezionata.textContent,
-            cognomeDipendenteSelezionata.textContent,
-            dataNascitaSelezionata.textContent,
-            numeroTelefonoSelezionata.textContent,
-            emailSelezionata.textContent,
-            passwordSelezionata.textContent
+            titoloSelezionata.textContent,
+            descSelezionata.textContent,
+            testoSelezionata.textContent,
+            imgSelezionata.textContent,
+            dataSelezionata.textContent,
+            writerSelezionata.textContent,
+            genereSelezionata.textContent,
         )
 
         console.log("Azienda da aggiornare", oggettoAziendaModificata);
@@ -205,7 +175,7 @@ async function confermaEliminazione() {
 
             console.log("Azienda eliminata con successo");
             // Optionally, refresh the list or remove the entry from the table
-            // getAllAziende(); // You can call this to refresh the list
+            // getAllBlog(); // You can call this to refresh the list
         } catch (error) {
             console.error("Error deleting event:", error);
         }
@@ -219,7 +189,7 @@ bottoneConfermaEliminazione.addEventListener("click", confermaEliminazione);
 
 
     class Evento{
-        constructor(nomeAzienda,logo,indirizzo,pIva,numeroTelefonoAziendale,emailAziendale,nomeDipendente,cognomeDipendente,dataNascita,numeroTelefono,email,password){
+        constructor(){
             this.nomeAzienda = nomeAzienda;
             this.logo = logo;
             this.indirizzo = indirizzo;
@@ -228,7 +198,7 @@ bottoneConfermaEliminazione.addEventListener("click", confermaEliminazione);
             this.emailAziendale = emailAziendale;modalElimina.forEach(btn => {
                 btn.addEventListener("click", () => {
                     eventoSelezionato = btn.getAttribute("data-eventoId"); // Capture the ID here
-                    let azienda = arrayAziende.find(azienda => azienda.id == eventoSelezionato);
+                    let azienda = arrayBlog.find(azienda => azienda.id == eventoSelezionato);
                     if (azienda) {
                         spavAziendaDaEliminare.textContent = azienda.nomeAzienda;
                         deleteCont.classList.remove("d-none");
