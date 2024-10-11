@@ -13,7 +13,7 @@
 }
 
 
-  
+
 
 
 * {
@@ -115,7 +115,7 @@
     font-size: 30px;
     font-family: var(--Strange);
     font-weight: 700;
-  font-style: normal;
+    font-style: normal;
 }
 
 
@@ -267,7 +267,7 @@ header {
 
 }
 
-@media screen and (max-width: 992px) {
+/* @media screen and (max-width: 992px) {
 
 
     .containerMappa {
@@ -276,4 +276,67 @@ header {
     }
 
 
+} */
+
+.imgAbbonati {
+    width: 100%;
+    height: auto;
 }
+
+
+.computer-container {
+    position: relative;
+    width: 566.4px;
+    height: 676px;
+    background-image: url('/Progetto/imgs/iphone.png');
+    /* Immagine del computer */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Mantiene le proporzioni corrette e la posizione della mappa */
+.map-container {
+    position: absolute;
+    width: 282px;
+    /* Adatta alle dimensioni dello schermo dell'immagine */
+    height: 625.67px;
+    /* Adatta alle dimensioni dello schermo dell'immagine */
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+/* Aggiungi media queries per diverse risoluzioni di schermo */
+
+.containerMappa {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+@media screen and (max-width: 450px) {
+
+    .map-container {
+        border: solid 5px coral;
+    }
+
+    .computer-container {
+
+        background-image: none;
+    }
+
+
+}
+
+.bottone-abbonamento:hover {
+    position: relative;
+    display: inline-block;
+    color: coral;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
