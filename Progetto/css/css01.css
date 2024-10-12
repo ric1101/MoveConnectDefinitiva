@@ -91,53 +91,15 @@ body {
   height: 100%;
 }
 
-.homeSmall img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  border-bottom: solid 0.3rem coral;
-}
-
-.containerSinistra img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  border: solid 0.3rem coral;
-}
 
 
-.containerDestra img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  border: solid 0.3rem coral;
-}
+
 
 .immagineFinale img {
   border: solid 0.3rem coral;
 }
 
-.chisono {
-  justify-content: center;
-  align-items: center;
-  font-size: 18px;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
 
-.chisono img {
-  width: 100%;
-
-}
-
-.chisono h1 {
-  width: 100%;
-}
 
 ul {
   margin: 0px;
@@ -383,9 +345,7 @@ ul {
   }
 }
 
-.desc {
-  font-size: 1.5rem;
-}
+
 
 .partner {
   display: flex;
@@ -466,3 +426,19 @@ a {
 #registrati {
   margin-top: 2rem;
 }
+
+.desc {
+  font-size: 1.4rem;
+}
+
+.containerImg {
+  height: 100%;
+  width: 100%px;
+  padding-right: 20px !important;
+}
+
+.containerImg img {
+  height: 100%;
+  width: 100%;
+}
+
