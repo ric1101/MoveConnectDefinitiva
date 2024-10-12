@@ -77,7 +77,7 @@ function navbar() {
                     <a href="index.html" class="text-white text-decoration-none logout d-none"><i
                             class="fa-solid fa-arrow-right-from-bracket"></i> &nbsp;Logout </a>
                     <a href="registrati.html" class="text-black text-decoration-none px-3 py-1 rounded-4 signup"
-                        style="background-color: coral;">Sign Up&nbsp; <i class="fa-solid fa-pen"></i></a>
+                        style="background-color: coral; ">Sign Up&nbsp; <i class="fa-solid fa-pen"></i></a>
                     
                 </div>
 
