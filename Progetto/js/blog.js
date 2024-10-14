@@ -62,10 +62,12 @@ function popolaArticoliDesign(dati) {
     
     
     dati.forEach(element => {
+
+      
         
         let articolo = `<div class="design-item">
         <a id="${element.id}" class="designLink" href="/Progetto/article.html">
-        <div class="design-img" style="background-image: url('${element.img}');">
+        <div class="design-img" style="background-image: url(${element.img});">
         
         
         </div>
@@ -117,14 +119,14 @@ function popolaArticoliBlog(dati) {
     dati.forEach(element => {
         
         let articolo = `<div class="blog-item">
-        <div class="blog-img" style="background-image: url('${element.img}');">
+        <div class="blog-img" style="background-image: url(${element.img});">
         
         
         </div>
         <div class="blog-text">
         <span>${element.data}</span>
         <h2>${element.titolo}</h2>
-        <p class="puntino">${element.description}</p>
+        <p class="puntino">${element.desc}</p>
         <a class="blogLink" id="${element.id}" href="/Progetto/article.html">Scopri di più</a>
         </div>
         </div>`;
@@ -146,9 +148,9 @@ function puntini() {
     cardText.forEach(desc => {
       // console.log(cardText);
       let descrizione = desc.textContent.trim();
-      if (descrizione.length > 100) {
+      if (descrizione.length > 120) {
         // console.log(descrizione.length);
-        desc.textContent = descrizione.substring(0, 100);
+        desc.textContent = descrizione.substring(0, 120);
         desc.textContent += '...';
         // console.log(desc.textContent);
       }

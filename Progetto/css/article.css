@@ -47,7 +47,7 @@ p {
 
 
 
-.containerImg {
+.imgContenuto {
 
     background-position: center;
     background-size: cover;
@@ -60,6 +60,11 @@ p {
 
     .imgPexels {
         display: none;
+    }
+
+    .imgContenuto {
+        height: 300px;
+        width: 100%;
     }
 
     

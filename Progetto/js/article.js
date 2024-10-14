@@ -38,9 +38,9 @@ async function DesignOBlog() {
 
 DesignOBlog();
 
-async function articolo(dati) {
+function articolo(dati) {
 
-    console.log(dati.img);
+    console.log(dati.img, 'ciao');
 
 
     let art = `<div class="row p-2">
@@ -51,7 +51,7 @@ async function articolo(dati) {
 
     <div class="col-md-9 p-2">
         <h1 class="fw-bold">${dati.titolo}</h1>
-        <p>${dati.description}</p>
+        <p>${dati.desc}</p>
     </div>
 
     <div class="col-md-2 d-flex justify-content-end">
@@ -87,11 +87,15 @@ async function articolo(dati) {
         </div>
         
     </div>
-    <div class="col-md-8 containerImg" style="background-image: url('${dati.img}');">
+    <div class="col-md-8 imgContenuto" style="background-image: url(${dati.img});">
         
     </div>
-    <div class="col-md-1 col-sm-1"></div>
+    
+    <div class="col-md-1"></div>
 </div>
+
+
+
 <div class="row p-2">
 <div class="col-md-1"></div>
     <div class="col-md-2"></div>
