@@ -18,7 +18,7 @@ let arrayBlog = [];
 
 async function getAllBlog() {
     try {
-        const response = await fetch("http://localhost:8080/api/blog/tutti")
+        const response = await fetch("http://localhost:8080/api/design/tutti")
         const blog = await response.json();
         console.log("CIAO");
         arrayBlog = blog;
@@ -39,7 +39,7 @@ function tutteLeBlog() {
     arrayBlog.forEach((evento) => {
         let aziendaRecord = document.createElement("tr");
         let inserisciTabella = `  
-        <td class="idBlog">${evento.id}</td>
+        <td class="idDesign">${evento.id}</td>
         <td class="titolo" data-eventoId="${evento.id}" >${evento.titolo}</td>
         <td class="desc"  data-eventoId="${evento.id}">${evento.desc}</td>
         <td class="testo"  data-eventoId="${evento.id}">${evento.testo}</td>
@@ -164,7 +164,7 @@ async function confermaEliminazione() {
     console.log("ID da eliminare:", eventoSelezionato); // Check the ID
     if(eventoSelezionato) { // Make sure the ID is not empty
         try {
-            const response = await fetch(`http://localhost:8080/api/blog/eliminaBlog/${eventoSelezionato}`, {
+            const response = await fetch(`http://localhost:8080/api/design/eliminaDesign/${eventoSelezionato}`, {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json" },
             });
@@ -201,29 +201,28 @@ bottoneConfermaEliminazione.addEventListener("click", confermaEliminazione);
 
         }
 
-        function modificaAzienda(oggettoAziendaModificata) {
-            console.log('Dati inviati per la modifica:', oggettoAziendaModificata); // Verifica i dati qui
-            fetch('http://localhost:8080/api/blog/modificaBlog', {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(oggettoAziendaModificata)
-            })
-            .then(response => {
+   
+        async function modificaAzienda(oggettoAziendaModificata) {
+            console.log('Dati inviati per la modifica:', oggettoAziendaModificata); 
+            try {
+                const response = await fetch('http://localhost:8080/api/blog/modificaBlog', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(oggettoAziendaModificata)
+                });
+        
                 if (!response.ok) {
-                    return response.text().then(errorText => {
-                        throw new Error('Errore nella richiesta: ' + errorText);
-                    });
+                    const errorDetails = await response.text(); // Capture the response text for better debugging
+                    throw new Error(`HTTP error! status: ${response.status}, details: ${errorDetails}`);
                 }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Azienda modificata con successo:', data);
-            })
-            .catch(error => {
-                console.error('Errore durante la modifica dell\'azienda:', error.message);
-            });
+                
+                const data = await response.json();
+                console.log(data);
+            } catch (error) {
+                console.error('Errore durante la modifica dell\'azienda:', error);
+            }
         }
 
     
