@@ -51,7 +51,7 @@ async function articolo(dati) {
 
     <div class="col-md-9 p-2">
         <h1 class="fw-bold">${dati.titolo}</h1>
-        <p>${dati.desc}</p>
+        <p>${dati.description}</p>
     </div>
 
     <div class="col-md-2 d-flex justify-content-end">

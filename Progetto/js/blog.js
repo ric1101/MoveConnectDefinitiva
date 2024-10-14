@@ -124,7 +124,7 @@ function popolaArticoliBlog(dati) {
         <div class="blog-text">
         <span>${element.data}</span>
         <h2>${element.titolo}</h2>
-        <p class="puntino">${element.desc}</p>
+        <p class="puntino">${element.description}</p>
         <a class="blogLink" id="${element.id}" href="/Progetto/article.html">Scopri di più</a>
         </div>
         </div>`;

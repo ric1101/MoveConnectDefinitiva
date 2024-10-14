@@ -354,6 +354,8 @@ header {
     }
 
     
+
+    
 }
 
 @media screen and (min-width: 768px) {
@@ -481,3 +483,21 @@ header {
 }
 
 
+@media screen and (max-width: 540px) {
+
+    .bi-globe2 {
+        font-size: 30px;
+        color: #FAAD06;
+    }
+
+    
+}
+
+@media screen and (max-width: 768px) {
+
+    .white-line {
+        display: none;
+    }
+
+    
+}
