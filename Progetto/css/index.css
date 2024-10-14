@@ -157,11 +157,14 @@ header {
 }
 
 .banner-title {
-    font-size: 3rem !important;
-    font-family: var(--Playfair);
+    font-size: 3rem;
+    font-family: var(--Open);
+    font-weight: bold !important;
     line-height: 1.2;
     align-items: center;
 }
+
+
 
 .banner-title span {
     font-family: var(--Playfair);
