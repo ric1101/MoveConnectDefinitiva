@@ -1,5 +1,7 @@
 let navbarHTML = document.querySelector(".navbarMain");
 
+
+
 function navbar() {
     let navBarFinale = `<nav class="navbar navbar-expand-xxl navbar-fixed-top" style="background-color: #1B2023;">
     <div class="container-fluid">
@@ -34,13 +36,13 @@ function navbar() {
                             Inserisci servizio
                         </a>
                         <ul class="dropdown-menu drop1">
-                            <li><a class="dropdown-item" href="./occSuoloPub.html">Occupazione solo pubblico</a></li>
-                            <li><a class="dropdown-item" href="./richiestaTrasporto.html">Trasporto</a></li>
-                            <li><a class="dropdown-item" href="./scala-elevatore.html">Scala elevatore</a></li>
-                            <li><a class="dropdown-item" href="./imballi.html">Consegna imballi</a></li>
-                            <li><a class="dropdown-item" href="./personale.html">Personale spec.</a></li>
-                            <li><a class="dropdown-item" href="./deposito-magazzino.html">Deposito magazzino m2</a></li>
-                            <li><a class="dropdown-item" href="./insertTratte.html">Inserisci tratta</a></li>
+                            <li><a class="dropdown-item" href="occSuoloPub.html">Occupazione solo pubblico</a></li>
+                            <li><a class="dropdown-item" href="richiestaTrasporto.html">Trasporto</a></li>
+                            <li><a class="dropdown-item" href="scala-elevatore.html">Scala elevatore</a></li>
+                            <li><a class="dropdown-item" href="imballi.html">Consegna imballi</a></li>
+                            <li><a class="dropdown-item" href="personale.html">Personale spec.</a></li>
+                            <li><a class="dropdown-item" href="deposito-magazzino.html">Deposito magazzino m2</a></li>
+                            <li><a class="dropdown-item" href="insertTratte.html">Inserisci tratta</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown visualizza mx-2 d-none" id="menu-products">
@@ -52,10 +54,10 @@ function navbar() {
                             <li><a class="dropdown-item" href="suoloPubVisualizza.html">Occupazione solo pubblico</a></li>
                             <li><a class="dropdown-item" href="trasportoVisualizza.html">Trasporto</a></li>
                             <li><a class="dropdown-item" href="elevatoreVisualizza.html">Scala elevatore</a></li>
-                            <li><a class="dropdown-item" href="imballaggi.html">Consegna imballi</a></li>
+                            <li><a class="dropdown-item" href="imballaggiVisualizza.html">Consegna imballi</a></li>
                             <li><a class="dropdown-item" href="personale-specVisualizza.html">Personale spec.</a></li>
-                            <li><a class="dropdown-item" href="magazzino.html">Deposito magazzino m2</a></li>
-                            <li><a class="dropdown-item" href="tratte.html">Tratte</a></li>
+                            <li><a class="dropdown-item" href="magazzinoVisualizza.html">Deposito magazzino m2</a></li>
+                            <li><a class="dropdown-item" href="tratteVisualizza.html">Tratte</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
