@@ -113,7 +113,7 @@ let provinceAbbreviate2 = [
     "CA",  // Cagliari
     "CL",  // Caltanissetta
     "CB",  // Campobasso
-    "CI",  // Carbonia-Iglesias
+    "SU",  // Carbonia-Iglesias
     "CE",  // Caserta
     "CT",  // Catania
     "CZ",  // Catanzaro

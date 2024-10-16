@@ -24,7 +24,7 @@ function suolo(dati) {
                         <td class="" data-eventoid="1">${element.regione}</td>
                         <td class="" data-eventoid="1">${element.provincia}</td>
                         <td class="" data-eventoid="1">${element.comune}</td>
-                        <td class="" data-eventoid="1">${element.m2}</td>
+                        <td class="" data-eventoid="1">${element.mq}</td>
                         <td class="" data-eventoid="1">${element.inizio}</td>
                         <td class="" data-eventoid="1">${element.fine}</td>
                         <td class="" data-eventoid="1">${element.chiusuraStrada}</td>
