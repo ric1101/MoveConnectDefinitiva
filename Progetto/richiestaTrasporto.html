@@ -226,7 +226,7 @@
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-3">
                     <label for="carico" class="form-label">Carico</label>
-                    <input type="date" min="" max="" class="form-control richiesti carico" required>
+                    <input type="date" min="" max="" class="form-control richiesti carico" onkeydown="return false" required>
                     <div class="invalidCarico text-danger">
 
                     </div>
@@ -236,7 +236,7 @@
 
                 <div class="col-md-3">
                     <label for="scarico" class="form-label">Scarico</label>
-                    <input type="date" min="" max="" class="form-control richiesti scarico" required>
+                    <input type="date" min="" max="" class="form-control richiesti scarico" onkeydown="return false" required disabled>
                     <div class="invalidScarico text-danger">
 
                     </div>
@@ -254,7 +254,9 @@
                             <button class="btn btn-success mx-2 bottonozzo btnInvioRichiestaTrasporto"
                                 id="btnInvioRichiestaTrasporto">Invio Richiesta</button>
                         </div>
-                        <div class="blankCamp"></div>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <div class="text-danger blankCamp"></div>
                     </div>
                 </div>
             </div>

@@ -146,26 +146,32 @@ let blankCamp = document.querySelector('.blankCamp');
 new Date();
 let dat = new Date();
 
+//--------------------------------------//
 
 let ggMin = dat.getDate() + 1;
 let mmMin = (dat.getMonth() + 1);
 let aaMin = dat.getFullYear();
 
+let dataMinCarico = aaMin + "-" + mmMin + "-" + ggMin;
+console.log(dataMinCarico);
+
+//--------------------------------------//
+
 let ggMax = dat.getDate() + 1;
 let mmMax = (dat.getMonth() + 1);
-let aaMax = dat.getFullYear() +1;
+let aaMax = dat.getFullYear() + 1;
+let dataMaxCarico = aaMax + "-" + mmMax + "-" + ggMax;
 
-let dataMin= aaMin  + "-" + mmMin + "-" + ggMin ;
-let dataMax= aaMax + "-" + mmMax + "-" + ggMax;
+console.log(dataMaxCarico);
 
-console.log(dataMin);
-console.log(dataMax);
+//--------------------------------------//
+
+carico.setAttribute('min', dataMinCarico)
+carico.setAttribute('max', dataMaxCarico)
+// scarico.setAttribute('min', dataMin)
+// scarico.setAttribute('max', dataMax)
 
 
-carico.setAttribute('min', dataMin)
-carico.setAttribute('max', dataMax)
-scarico.setAttribute('min', dataMin)
-scarico.setAttribute('max', dataMax)
 
 
 
@@ -195,17 +201,18 @@ function controllaValiditaCampi() {
         invalidMq.innerHTML = '';
     }
 
-    // if (!carico.value.match(regexDate)) {
-    //     invalidCarico.innerHTML = 'data non valida';
-    // } else {
-    //     invalidCarico.innerHTML = '';
-    // }
 
-    // if (!scarico.value.match(regexDate)) {
-    //     invalidScarico.innerHTML = 'data non valida';
-    // } else {
-    //     invalidScarico.innerHTML = '';
-    // }
+    if (carico.value != '') {
+
+        console.log('hello');
+        scarico.removeAttribute('disabled');
+        scarico.setAttribute('min', carico.value)
+        scarico.setAttribute('max', dataMaxCarico)
+
+    } else {
+        console.log('ciao');
+
+    }
 
 
 
@@ -237,7 +244,7 @@ function checkCampi() {
         inviaRichiesta();
 
     } else {
-        blankCamp.innerHTML = 'ci sono dei campi vuoti';
+        blankCamp.innerHTML = 'riempi i campi mancanti!';
     }
 
 
@@ -247,6 +254,5 @@ function checkCampi() {
 
 btnInvioRichiestaTrasporto.addEventListener('click', checkCampi);
 
-document.addEventListener('keyup', controllaValiditaCampi);
 
-
+document.addEventListener('input', controllaValiditaCampi);
