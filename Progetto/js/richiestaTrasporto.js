@@ -111,12 +111,12 @@ function inviaRichiesta() {
     // console.log(carico.value,);
     // console.log(scarico.value,);
     // console.log(note.value);
-    
+
     console.log(nuovaRichiestaTrasporto);
-    
 
 
-    
+
+
 
     fetch(`http://localhost:8080/api/azienda/nuovaRichiestaTrasporto/${azienda_id}`, {
         method: "POST",
@@ -129,23 +129,88 @@ function inviaRichiesta() {
 
     location.reload();
 
-    
+
 
 
 }
 
-// function controllaValiditaCampi() {
-    
-//controlli da fare qua dentro
-//capPartenza
-//capArrivo
-//mq
-//carico
-//scarico
+
+let invalidCapPartenza = document.querySelector('.invalidCapPartenza');
+let invalidCapArrivo = document.querySelector('.invalidCapArrivo');
+let invalidMq = document.querySelector('.invalidMq');
+let invalidCarico = document.querySelector('.invalidCarico');
+let invalidScarico = document.querySelector('.invalidScarico');
+let blankCamp = document.querySelector('.blankCamp');
+
+
+new Date();
+let dat = new Date();
+
+
+let ggMin = dat.getDate() + 1;
+let mmMin = (dat.getMonth() + 1);
+let aaMin = dat.getFullYear();
+
+let ggMax = dat.getDate() + 1;
+let mmMax = (dat.getMonth() + 1);
+let aaMax = dat.getFullYear() +1;
+
+let dataMin= aaMin  + "-" + mmMin + "-" + ggMin ;
+let dataMax= aaMax + "-" + mmMax + "-" + ggMax;
+
+console.log(dataMin);
+console.log(dataMax);
+
+
+carico.setAttribute('min', dataMin)
+carico.setAttribute('max', dataMax)
+scarico.setAttribute('min', dataMin)
+scarico.setAttribute('max', dataMax)
 
 
 
-// }
+
+let regexCap = /^[0-9]{5}$/;
+let regexMq = /^[1-9][0-9]?$/;
+
+
+function controllaValiditaCampi() {
+
+
+    if (!capPartenza.value.match(regexCap)) {
+        invalidCapPartenza.innerHTML = 'cap non valido';
+    } else {
+        invalidCapPartenza.innerHTML = '';
+    }
+
+    if (!capArrivo.value.match(regexCap)) {
+        invalidCapArrivo.innerHTML = 'cap non valido';
+    } else {
+        invalidCapArrivo.innerHTML = '';
+    }
+
+    if (!mq.value.match(regexMq)) {
+        invalidMq.innerHTML = 'mq non validi';
+    } else {
+        invalidMq.innerHTML = '';
+    }
+
+    // if (!carico.value.match(regexDate)) {
+    //     invalidCarico.innerHTML = 'data non valida';
+    // } else {
+    //     invalidCarico.innerHTML = '';
+    // }
+
+    // if (!scarico.value.match(regexDate)) {
+    //     invalidScarico.innerHTML = 'data non valida';
+    // } else {
+    //     invalidScarico.innerHTML = '';
+    // }
+
+
+
+
+}
 
 
 
@@ -167,9 +232,12 @@ function checkCampi() {
         carico.value.trim() != "" &&
         scarico.value.trim() != "") {
 
-        // controllaValiditaCampi();
+        blankCamp.innerHTML = '';
+
         inviaRichiesta();
 
+    } else {
+        blankCamp.innerHTML = 'ci sono dei campi vuoti';
     }
 
 
@@ -178,4 +246,7 @@ function checkCampi() {
 
 
 btnInvioRichiestaTrasporto.addEventListener('click', checkCampi);
+
+document.addEventListener('keyup', controllaValiditaCampi);
+
 

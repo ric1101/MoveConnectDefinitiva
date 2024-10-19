@@ -92,7 +92,7 @@
                 <div class="col-md-3">
                     <label for="capPartenza" class="form-label">CAP</label>
                     <input type="text" class="form-control richiesti capPartenza" placeholder="CAP" required>
-                    <div class="invalid text-danger">
+                    <div class="invalidCapPartenza text-danger">
 
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                     <label for="mq" class="form-label">Indica MQ</label>
                     <input type="text" class="form-control richiesti mq" placeholder="Indica MQ" maxlength="50"
                         required>
-                    <div class="invalid text-danger">
+                    <div class="invalidMq text-danger">
 
                     </div>
                 </div>
@@ -198,7 +198,7 @@
                 <div class="col-md-3">
                     <label for="capArrivo" class="form-label">CAP</label>
                     <input type="text" class="form-control richiesti capArrivo" placeholder="CAP" required>
-                    <div class="invalid text-danger">
+                    <div class="invalidCapArrivo text-danger">
 
                     </div>
                 </div>
@@ -226,8 +226,8 @@
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-3">
                     <label for="carico" class="form-label">Carico</label>
-                    <input type="date" class="form-control richiesti carico" required>
-                    <div class="invalid text-danger">
+                    <input type="date" min="" max="" class="form-control richiesti carico" required>
+                    <div class="invalidCarico text-danger">
 
                     </div>
                 </div>
@@ -236,8 +236,8 @@
 
                 <div class="col-md-3">
                     <label for="scarico" class="form-label">Scarico</label>
-                    <input type="date" class="form-control richiesti scarico" required>
-                    <div class="invalid text-danger">
+                    <input type="date" min="" max="" class="form-control richiesti scarico" required>
+                    <div class="invalidScarico text-danger">
 
                     </div>
                 </div>
@@ -254,7 +254,7 @@
                             <button class="btn btn-success mx-2 bottonozzo btnInvioRichiestaTrasporto"
                                 id="btnInvioRichiestaTrasporto">Invio Richiesta</button>
                         </div>
-
+                        <div class="blankCamp"></div>
                     </div>
                 </div>
             </div>
