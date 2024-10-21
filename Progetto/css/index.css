@@ -343,3 +343,55 @@ header {
     transition: color 0.3s ease;
 }
 
+.cerchio {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgba(166, 159, 159, 0.277);
+    text-align: center;
+    position: relative;
+  }
+  
+  .cerchio img {
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+  }
+  
+  .cerchio:hover {
+    cursor: pointer;
+  }
+  
+  /* .cerchio:hover img {
+    filter: grayscale(0%) !important;
+  }
+  
+  .grayscale {
+    filter: grayscale(100%) !important;
+  }
+  
+  .no-grayscale {
+    filter: grayscale(0%) !important;
+  } */
+
+  .d-flex-center-wrap {
+    display: flex;
+    justify-content: center;
+    /* Distribuisce gli elementi con spazi uguali */
+    flex-wrap: wrap;
+    /* Permette agli elementi di andare a capo se non c'è abbastanza spazio */
+  }
+  
+  @media screen and (max-width: 768px) {
+  
+    .d-flex-center-wrap {
+      justify-content: center;
+    }
+  
+  
+  }

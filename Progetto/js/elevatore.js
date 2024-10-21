@@ -83,8 +83,6 @@ function inviaRichiesta() {
     location.reload();
 
 
-
-
 }
 
 
@@ -121,9 +119,7 @@ inizio.setAttribute('min', dataMinInizio);
 inizio.setAttribute('max', dataMaxInizio);
 
 
-
 let regexCap = /^[0-9]{5}$/;
-let regexMq = /^[1-9][0-9]?$/;
 
 
 function controllaValiditaCampi() {
@@ -147,8 +143,6 @@ function controllaValiditaCampi() {
         console.log('ciao');
 
     }
-
-
 
 
 }

@@ -124,7 +124,7 @@
                     <!-- Selezione regione -->
                     <div class="mb-3 selectRegione">
                         <label for="regioni" class="form-label">Seleziona Regione</label>
-                        <select id="regioni" class="form-select">
+                        <select id="regioni" class="form-select regione">
                             <option value="" disabled selected>Seleziona Regione</option>
 
                         </select>
@@ -134,7 +134,7 @@
                     <!-- Campo Provincia -->
                     <div class="mb-3 selectProvincia">
                         <label for="province" class="form-label">Seleziona Provincia</label>
-                        <select id="province" class="form-select">
+                        <select id="province" class="form-select provincia">
                             <option value="" disabled selected>Seleziona Provincia</option>
 
                         </select>
@@ -144,7 +144,7 @@
                     <!-- Campo Comune -->
                     <div class="mb-3 selectComune">
                         <label for="comuni" class="form-label">Seleziona Comune</label>
-                        <select id="comuni" class="form-select">
+                        <select id="comuni" class="form-select comune">
                             <option value="" disabled selected>Seleziona Comune</option>
 
                         </select>
@@ -153,23 +153,26 @@
 
                     <!-- Campo Indirizzo -->
                     <div class="mb-3">
-                        <label for="indirizzo" class="form-label">Indirizzo Completo</label>
-                        <input type="text" id="indirizzo" class="form-control" placeholder="Inserisci l'indirizzo"
-                            maxlength="50" pattern="[A-Za-z0-9\s]+" required>
+                        <label class="form-label">Indirizzo Completo</label>
+                        <input type="text" class="form-control indirizzo" placeholder="Inserisci l'indirizzo"
+                            maxlength="50" required>
                     </div>
 
                     <!-- Campo Numero Civico -->
                     <div class="mb-3">
-                        <label for="indirizzoSecondario" class="form-label">Indirizzo Secondario</label>
-                        <input type="text" id="indirizzoSecondario" class="form-control" placeholder="Inserisci l'indirizzo"
-                            maxlength="50" pattern="[A-Za-z0-9\s]+" required>
+                        <label class="form-label">Indirizzo Secondario</label>
+                        <input type="text" class="form-control indirizzoDue" placeholder="Inserisci l'indirizzo"
+                            maxlength="50" required>
                     </div>
 
                     <!-- Campo CAP -->
                     <div class="mb-3">
-                        <label for="cap" class="form-label">CAP</label>
-                        <input type="text" id="cap" class="form-control" placeholder="Inserisci il CAP" maxlength="5"
-                            pattern="[0-9]{5}" required>
+                        <label class="form-label">CAP</label>
+                        <input type="text" class="form-control cap" placeholder="Inserisci il CAP" maxlength="5"
+                             required>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <div class="invalidCap text-danger"></div>
                     </div>
                 </form>
             </div>
@@ -178,7 +181,7 @@
             align-items: center;">
                 <div data-mdb-input-init class="form-outline">
                     <h3 class="titoliResp">Note</h3>
-                    <textarea class="form-control" id="textAreaExample1" rows="15"
+                    <textarea class="form-control note" rows="15"
                         placeholder="Esigenze particolari..."></textarea>
                 </div>
             </div>
@@ -190,23 +193,23 @@
                 <ul class="list-group">
                     <li class="list-group-item d-flex justify-content-between align-items-center list-group-item list-group-item-dark"
                         id="facchino">
-                        Facchini
-                        <span class="badge text-bg-dark rounded-pill " id="facchino-summary">0</span>
+                        Imballo 1
+                        <span class="badge text-bg-dark rounded-pill imballo1" id="facchino-summary">0</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center list-group-item list-group-item-dark"
                         id="autista">
-                        Autisti
-                        <span class="badge text-bg-dark rounded-pill" id="autista-summary">0</span>
+                        Imballo 2
+                        <span class="badge text-bg-dark rounded-pill imballo2" id="autista-summary">0</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center list-group-item list-group-item-dark"
                         id="montatore">
-                        Montatori
-                        <span class="badge text-bg-dark rounded-pill" id="montatore-summary">0</span>
+                        Imballo 3
+                        <span class="badge text-bg-dark rounded-pill imballo3" id="montatore-summary">0</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center list-group-item list-group-item-dark"
                         id="falegname">
-                        Falegnami
-                        <span class="badge text-bg-dark rounded-pill" id="falegname-summary">0</span>
+                        Imballo 4
+                        <span class="badge text-bg-dark rounded-pill imballo4" id="falegname-summary">0</span>
                     </li>
                 </ul>
             </div>
@@ -216,10 +219,13 @@
         </div>
         <div class="d-flex justify-content-end mt-4">
             <div class="d-flex justify-content-end mt-4">
-                <button class="btn btn-success bottonozzo" onclick="submitRequest()"
-                    id="btnInvioRichiesta">Invio Richiesta</button>
+                <button class="btn btn-success bottonozzo btnInvioRichiestaImballi"
+                    id="btnInvioRichiestaImballi">Invio Richiesta</button>
             </div>
 
+        </div>
+        <div class="d-flex justify-content-end">
+            <div class="text-danger blankCamp"></div>
         </div>
 
     </div>
@@ -230,6 +236,7 @@
     <script src="./js/homepagejs.js"></script>
     <script src="./js/personale.js"></script>
     <script src="./js/imballi.js"></script>
+    <script src="./js/richiestaImballi.js"></script>
     <script src="../Progetto/js/footer.js"></script>
 
 </body>
