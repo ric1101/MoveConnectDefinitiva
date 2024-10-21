@@ -904,9 +904,7 @@
                 </div>
 
                 <!-- Modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Launch demo modal
-                  </button>
+             
                   
                   <!-- Modal -->
                   <div class="modal fade pazzo" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -954,7 +952,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="DataEvento">Img</label>
-                                        <input id="img" type="date" placeholder="Data">
+                                        <input id="img" type="text" placeholder="Data">
                                     </div>
                                     <div class="form-group">
                                         <label for="Localita">Data</label>
@@ -984,7 +982,58 @@
 
       </div>
     </div>
-    <!-- Wrapper End-->
+
+    <div class="open-modal-btn-wrapper">
+        <button class="open-modal-btn">
+            Aggiungi Blog
+        </button>
+    </div>
+
+    <div class="modal-overlay hide">
+        <div class="modal-wrapper">
+            <div class="close-btn-wrapper">
+                <button class="close-modal-btn">
+                    Close
+                </button>
+            </div>
+            <h1 class="add pb-2">Aggiungi Blog</h1>
+            <form action="" id="modal-registrazione">
+            <div class="form-group">
+                <label class="titolo" for="titolo">Titolo</label>
+                <input id="titolo2" type="text" placeholder="Titolo">
+            </div>
+            <div class="form-group">
+                <label class="locandina" for="desc">Desc</label>
+                <input id="desc2" type="text" placeholder="Locandina">
+            </div>
+            <div class="form-group">
+                <label for="Descrizione Evento">Testo</label>
+                <input id="testo2" type="text" placeholder="Descrizione">
+            </div>
+            <div class="form-group">
+                <label for="DataEvento">Img</label>
+                <input id="img2" type="text" placeholder="Data">
+            </div>
+            <div class="form-group">
+                <label for="Localita">Data</label>
+                <input id="data2" type="date" placeholder="Località">
+            </div>
+            <div class="form-group">
+                <label for="Coordinate">Writer</label>
+                <input id="writer2" type="text" placeholder="Coordinate">
+            </div>
+            <div class="form-group">
+                <label for="prezzoIntero">Genere</label>
+                <input id="genere2" type="text" step=".01" placeholder="PrezzoIntero">
+            </div>
+            <div class="div-btn-auth"><button id="aggiungiAziendaButton" class="btn-utentePubblica btn-auth">Inserisci Blog</button></div>
+            <!-- <button type="button" class="btn btn-primary" id="aggiungiAziendaButton">Aggiungi azienda</button> -->
+            </form>
+        </div>
+    </div>
+            
+        
+        <!-- Wrapper End-->
     <footer class="iq-footer">
             <div class="container-fluid">
             <div class="card">
@@ -1004,6 +1053,8 @@
             </div>
         </div>
     </footer>
+
+    
     <!-- Backend Bundle JavaScript -->
     <script src="../assets/js/backend-bundle.min.js"></script>
     

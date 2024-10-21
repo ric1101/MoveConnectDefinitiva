@@ -16,6 +16,8 @@ let deleteCont = document.querySelector(".delete_cont");
 let eventoSelezionato = "";
 let arrayBlog = [];
 
+
+
 async function getAllBlog() {
     try {
         const response = await fetch("http://localhost:8080/api/design/tutti")
@@ -188,7 +190,7 @@ async function confermaEliminazione() {
 bottoneConfermaEliminazione.addEventListener("click", confermaEliminazione);
 
         class EventoPUT {
-            constructor(id, data, desc,genere,img,testo,titolo,writer){ 
+            constructor(id, titolo,desc,testo,img,data,writer,genere){ 
             this.id = id;
             this.titolo = titolo;
             this.desc = desc;
@@ -205,7 +207,7 @@ bottoneConfermaEliminazione.addEventListener("click", confermaEliminazione);
         async function modificaAzienda(oggettoAziendaModificata) {
             console.log('Dati inviati per la modifica:', oggettoAziendaModificata); 
             try {
-                const response = await fetch('http://localhost:8080/api/blog/modificaBlog', {
+                const response = await fetch('http://localhost:8080/api/design/modificaDesign', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'

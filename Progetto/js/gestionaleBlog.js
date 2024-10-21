@@ -1,5 +1,5 @@
 let tabella = document.querySelector(".tabellozza");
-let titolo = document.getElementById("#titolo");
+let titolo = document.getElementById("titolo");
 let desc = document.querySelector("#desc");
 let testo = document.querySelector("#testo");
 let img = document.querySelector("#img");
@@ -12,9 +12,35 @@ let spavAziendaDaEliminare = document.querySelector("#spanEventoDaEliminare");
 let spanEventoDaEliminare = document.getElementById('spanEventoDaEliminare');
 let bottoneConfermaEliminazione = document.querySelector('.delete');
 let deleteCont = document.querySelector(".delete_cont");
-
+let aggiungiAziendaButton = document.getElementById("aggiungiAziendaButton");
+let titolo2 = document.getElementById('titolo2'); 
+let desc2 = document.getElementById('desc2');
+let testo2 = document.getElementById('testo2');
+let img2 = document.getElementById('img2');
+let data2 = document.getElementById('data2');
+let writer2 = document.getElementById('writer2');
+let genere2 = document.getElementById('genere2');
 let eventoSelezionato = "";
 let arrayBlog = [];
+
+const openBtn = document.querySelector(".open-modal-btn");
+const modal = document.querySelector(".modal-overlay");
+const closeBtn = document.querySelector(".close-modal-btn");
+
+function openModal() {
+    modal.classList.remove("hide");
+}
+
+function closeModal(e, clickedOutside) {
+    if (clickedOutside) {
+        if (e.target.classList.contains("modal-overlay"))
+            modal.classList.add("hide");
+    } else modal.classList.add("hide");
+}
+
+openBtn.addEventListener("click", openModal);
+modal.addEventListener("click", (e) => closeModal(e, true));
+closeBtn.addEventListener("click", closeModal);
 
 async function getAllBlog() {
     try {
@@ -88,7 +114,7 @@ function tutteLeBlog() {
                         eventoSelezionato = btn.getAttribute("data-eventoId"); // Capture the ID here
                         let azienda = arrayBlog.find(azienda => azienda.id == eventoSelezionato);
                         if (azienda) {
-                            spavAziendaDaEliminare.textContent = azienda.nomeAzienda;
+                            spavAziendaDaEliminare.textContent = azienda.titolo;
                             deleteCont.classList.remove("d-none");
                             deleteCont.classList.add("d-block");
                         }
@@ -187,8 +213,20 @@ async function confermaEliminazione() {
 // Attach the click event for confirmation
 bottoneConfermaEliminazione.addEventListener("click", confermaEliminazione);
 
+        class Evento{
+            constructor(titolo2,desc2,testo2,img2,data2,writer2,genere2){
+                this.titolo2 = titolo2;
+                this.desc2 = desc2;
+                this.testo2 = testo2;
+                this.img2 = img2;
+                this.data2= data2;
+                this.writer2 = writer2;
+                this.genere2 = genere2;
+            }
+        }
+
         class EventoPUT {
-            constructor(id, data, desc,genere,img,testo,titolo,writer){ 
+            constructor(id,titolo, desc,testo,img,data,writer,genere){ 
             this.id = id;
             this.titolo = titolo;
             this.desc = desc;
@@ -200,6 +238,60 @@ bottoneConfermaEliminazione.addEventListener("click", confermaEliminazione);
         }
 
         }
+
+        function inserisciNuovoBlog() {
+            event.preventDefault(); // Prevent form submission
+        
+            // Check if any of the input fields are empty
+            if (titolo2.value.trim() === "" || 
+                desc2.value.trim() === "" || 
+                testo2.value.trim() === "" || 
+                img2.value.trim() === "" || 
+                data2.value.trim() === "" || 
+                writer2.value.trim() === "" || 
+                genere2.value.trim() === "") {
+                console.error("All fields are required.");
+            } else {
+                // Create a new blog object
+                const BlogCreato = new Evento(
+                    titolo2.value,
+                    desc2.value,
+                    testo2.value,
+                    img2.value,
+                    data2.value,
+                    writer2.value,
+                    genere2.value
+                );
+        
+                console.log(BlogCreato); // Log the created object
+        
+                // Send a POST request
+                fetch('http://localhost:8080/api/blog/inserisciBlog', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(BlogCreato),
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Failed to post data");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Blog created successfully:", data);
+                    // Optionally, refresh the list or clear the input fields
+                })
+                .catch(error => {
+                    console.error("Error while creating blog:", error);
+                });
+            }
+        }
+        
+        aggiungiAziendaButton.addEventListener("click", inserisciNuovoBlog);
+       
+
 
         function modificaAzienda(oggettoAziendaModificata) {
             console.log('Dati inviati per la modifica:', oggettoAziendaModificata); // Verifica i dati qui
@@ -227,4 +319,4 @@ bottoneConfermaEliminazione.addEventListener("click", confermaEliminazione);
         }
 
     
-
+    
