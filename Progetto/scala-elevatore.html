@@ -31,18 +31,18 @@
         <div>
             <h1 class="text-center mb-4">SCALA ELEVATORE &nbsp;<i class="fa-solid fa-water-ladder"></i></h1>
         </div>
-        <div class="row g-3 formRow">
+        <form class="row g-3 formRow">
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-3">
                     <label for="regioni" class="form-label">Seleziona Regione</label>
-                    <select id="regioni" class="form-select">
+                    <select id="regioni" class="form-select regione">
                         <option value="" disabled selected>Seleziona Regione</option>
 
                     </select>
                 </div>
                 <div class="col-md-3">
                     <label for="province" class="form-label">Seleziona Provincia</label>
-                    <select id="province" class="form-select">
+                    <select id="province" class="form-select provincia">
                         <option value="" disabled selected>Seleziona Provincia</option>
 
                     </select>
@@ -51,9 +51,9 @@
 
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-3">
-                    
+
                     <label for="comuni" class="form-label">Seleziona Comune</label>
-                    <select id="comuni" class="form-select">
+                    <select id="comuni" class="form-select comune">
                         <option value="" disabled selected>Seleziona Comune</option>
 
                     </select>
@@ -62,21 +62,21 @@
                 </div>
 
                 <div class="col-md-3">
-                    
-                    
-                    <label for="validationCustom07" class="form-label">Indirizzo</label>
-                    <input type="text" class="form-control richiesti" id="validationCustom07" placeholder="Indirizzo"
-                        maxLength="50" required>
-                    
+
+
+                    <label class="form-label">Indirizzo</label>
+                    <input type="text" class="form-control richiesti indirizzo" placeholder="Indirizzo" maxLength="50"
+                        required>
+
 
                 </div>
             </div>
 
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-3">
-                    
-                    <label for="validationCustom07" class="form-label">Indirizzo 2</label>
-                    <input type="text" class="form-control richiesti" id="validationCustom07" placeholder="Indirizzo Secondario"
+
+                    <label class="form-label">Indirizzo 2</label>
+                    <input type="text" class="form-control richiesti indirizzoDue" placeholder="Indirizzo Secondario"
                         maxLength="50" required>
 
                 </div>
@@ -84,35 +84,37 @@
 
                 <div class="col-md-3">
 
-                    <label for="validationCustom07" class="form-label">CAP</label>
-                    <input type="number" class="form-control richiesti" id="validationCustom07" placeholder="CAP"
-                        maxLength="5" required>
+                    <label class="form-label">CAP</label>
+                    <input type="text" class="form-control richiesti cap" placeholder="CAP" maxLength="5" required>
+                    <div class="invalidCap text-danger">
 
+                    </div>
                 </div>
+
             </div>
 
 
-            
+
 
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-3">
-                    <label for="regioni" class="form-label">Tipologia di scala</label>
-                    <select id="regioni" class="form-select">
+                    <label for="scala" class="form-label">Tipologia di scala</label>
+                    <select id="scala" class="form-select tipoDiScala">
                         <option value="" disabled selected>Seleziona tipo</option>
                         <option value="Componibile">Componibile</option>
                         <option value="Trainata">Trainata</option>
-                        <option value="18mt">Altezza 18mt</option>
-                        <option value="25mt">Altezza 25mt</option>
-                        <option value="27mt">Altezza 27mt</option>
-                        <option value="34mt">Altezza 34mt</option>
+                        <option value="18 mt">Altezza 18mt</option>
+                        <option value="25 mt">Altezza 25mt</option>
+                        <option value="27 mt">Altezza 27mt</option>
+                        <option value="34 mt">Altezza 34mt</option>
                     </select>
                 </div>
 
 
 
                 <div class="col-md-3">
-                    <label for="regioni" class="form-label">Peso massimo</label>
-                    <select id="regioni" class="form-select">
+                    <label for="peso" class="form-label">Peso massimo</label>
+                    <select id="peso" class="form-select pesoMassimo">
                         <option value="" disabled selected>Seleziona peso massimo</option>
                         <option value="200kg">200kg</option>
                         <option value="300kg">300kg</option>
@@ -123,17 +125,17 @@
 
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-3">
-                    <label for="validationCustom08" class="form-label">Inizio</label>
-                    <input type="date" class="form-control richiesti" id="validationCustom08" required>
-                    <div class="invalidNumber text-danger">
+                    <label class="form-label">Inizio</label>
+                    <input type="date" min="" max="" class="form-control richiesti inizio" onkeydown="return false" required>
+                    <div class="invalidInizio text-danger">
 
                     </div>
                 </div>
 
                 <div class="col-md-3">
-                    <label for="validationCustom10" class="form-label">Fine</label>
-                    <input type="date" class="form-control richiesti" id="validationCustom10" required>
-                    <div class="invalid text-danger">
+                    <label class="form-label">Fine</label>
+                    <input type="date" min="" max="" class="form-control richiesti fine" onkeydown="return false" required disabled>
+                    <div class="invalidFine text-danger">
 
                     </div>
                 </div>
@@ -141,43 +143,28 @@
 
 
             <div class="row g-3 justify-content-evenly">
-                
+
                 <div class="col-md-3">
                     <div data-mdb-input-init class="form-outline">
-                        <label class="form-label" for="textAreaExample">Note</label>
-                        <textarea class="form-control" id="textAreaExample1" rows="4"
-                        placeholder="Esigenze particolari..."></textarea>
+                        <label class="form-label">Note</label>
+                        <textarea class="form-control note" rows="4" placeholder="Esigenze particolari..."></textarea>
                     </div>
                     <div class="col-md-3">
-                        
+
                     </div>
                     <div class="d-flex justify-content-end mt-4">
                         <div class="d-flex justify-content-end mt-4">
-                            <button class="btn btn-success mx-2 bottonozzo" onclick="submitRequest()"
-                                id="btnInvioRichiesta">Invio Richiesta</button>
+                            <button class="btn btn-success mx-2 bottonozzo btnInvioRichiestaScalaElevatore"
+                                id="btnInvioRichiestaScalaElevatore">Invio Richiesta</button>
                         </div>
-
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <div class="text-danger blankCamp"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- <div class="modal" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Ordine Confermato #<span class="numOrdine"></span></h5>
-                        </div>
-                        <div class="modal-body">
-                            <p>Grazie per aver acquistato su TruckwaY!</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary close" data-dismiss="modal">Continua ad
-                                acquistare</button>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-        </div>
+        </form>
     </div>
 
 
@@ -191,6 +178,7 @@
     <script src="../Progetto/js/homepagejs.js"></script>
     <script src="../Progetto/js/footer.js"></script>
     <script src="../Progetto/js/imballi.js"></script>
+    <script src="../Progetto/js/elevatore.js"></script>
 </body>
 
 </html>

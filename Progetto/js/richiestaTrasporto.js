@@ -237,14 +237,18 @@ function checkCampi() {
         indirizzoArrivo.value.trim() != "" &&
         capArrivo.value.trim() != "" &&
         carico.value.trim() != "" &&
-        scarico.value.trim() != "") {
+        scarico.value.trim() != "" &&
+        mq.value.match(regexMq) && 
+        capArrivo.value.match(regexCap) &&
+        capPartenza.value.match(regexCap)
+    ) {
 
         blankCamp.innerHTML = '';
 
         inviaRichiesta();
 
     } else {
-        blankCamp.innerHTML = 'riempi i campi mancanti!';
+        blankCamp.innerHTML = 'riempi i campi mancanti o incompleti!';
     }
 
 

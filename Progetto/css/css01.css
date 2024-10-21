@@ -379,6 +379,7 @@ ul {
 }
 
 @media(max-width: 1400px) {
+  
   .button1 {
     color: #1B2023 !important;
   }
@@ -386,6 +387,15 @@ ul {
   .login {
     color: #1B2023 !important;
   }
+
+  .logout {
+    color: #1B2023 !important;
+  }
+  .user {
+    color: #1B2023 !important;
+  }
+
+  
 }
 
 
