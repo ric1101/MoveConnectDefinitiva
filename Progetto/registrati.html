@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrati</title>
     <link rel="icon" href="./imgs/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/css01.css">
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/login.css">
 </head>
+
 <body>
 
     <header>
@@ -36,8 +38,8 @@
                                 <div class="mb-3">
 
                                     <label for="nomeAzienda" class="form-label">Nome Azienda</label>
-                                    <input type="text" class="form-control richiesti" id="nomeAzienda" aria-label="nomeAzienda"
-                                        maxLength="50" required>
+                                    <input type="text" class="form-control richiesti" id="nomeAzienda"
+                                    placeholder="es: Terzi S.p.A" aria-label="nomeAzienda" maxLength="50" required>
                                     <!-- <p class="text-danger" id="usernameError"></p> -->
                                     <div class="invalid-feedback">
                                         Nome Azienda richiesto
@@ -46,85 +48,99 @@
 
                                 <div class="mb-3">
                                     <label for="immagine" class="form-label">Inserisci un logo</label>
-                                    <input type="file" class="form-control richiesti" id="immagine" aria-label="Inserisci foto"
-                                        maxLength="40" required>
+                                    <input type="file" class="form-control richiesti" id="immagine"
+                                        aria-label="Inserisci foto" maxLength="40" required>
                                     <div class="invalid-feedback">
                                         Foto logo richiesta
                                     </div>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="indirizzo" class="form-label">Indirizzo completo</label>
-                                    <input type="text" class="form-control richiesti" id="indirizzo" aria-label="Inserisci indirizzo"
-                                    maxLength="60" required>
-                                    <div class="invalid-feedback">
-                                        Indirizzo richiesto
+                                    <label for="regioni" class="form-label">Regione</label>
+                                    <select id="regioni" class="form-select richiesti regione">
+                                        <option value="" disabled selected>Seleziona Regione</option>
+
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="province" class="form-label">Provincia</label>
+                                    <select id="province" class="form-select richiesti provincia">
+                                        <option value="" disabled selected>Seleziona Provincia</option>
+
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="comuni" class="form-label">Comune</label>
+                                    <select id="comuni" class="form-select richiesti comune">
+                                        <option value="" disabled selected>Seleziona Comune</option>
+
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="indirizzo" class="form-label">Indirizzo</label>
+                                    <input type="text" class="form-control richiesti indirizzo"
+                                        placeholder="es: Via Roma 3" maxLength="50" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">CAP</label>
+                                    <input type="text" class="form-control richiesti cap" placeholder="es. 00015"
+                                        required>
+                                    <div class="invalidCap text-danger">
+
                                     </div>
                                 </div>
-                                
+
                                 <div class="mb-3">
 
                                     <label for="partitaIva" class="form-label">Partita IVA</label>
-                                    <input type="text" class="form-control richiesti" id="partitaIva" aria-label="partitaIva"
-                                        maxLength="11" required>
+                                    <input type="text" class="form-control richiesti" id="partitaIva"
+                                        aria-label="partitaIva" maxLength="11" placeholder="es. 86334519757" required>
                                     <!-- <p class="text-danger" id="usernameError"></p> -->
-                                    <div class="invalid-feedback">
-                                        Partita IVA richiesta
+                                    <div class="invalidPiva text-danger">
+                                        
                                     </div>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="emailAziendale" class="form-label">Email Aziendale</label>
-                                    <input type="email" class="form-control richiesti" id="emailAziendale" required>
-                                    <div class="invalid-feedback">
-                                        Email Aziendale richiesta
-                                    </div>
+                                    <input type="email" class="form-control richiesti" id="emailAziendale" placeholder="es: terzi@gmail.com" required>
+                                    
                                 </div>
 
                                 <div class="mb-3">
 
                                     <label for="nome" class="form-label">Nome</label>
                                     <input type="text" class="form-control richiesti" id="nome" aria-label="Nome"
-                                        maxLength="50" required>
+                                        maxLength="50" placeholder="es: mario" required>
                                     <!-- <p class="text-danger" id="usernameError"></p> -->
-                                    <div class="invalid-feedback">
-                                        Nome richiesto
-                                    </div>
+                                    
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="cognome" class="form-label">Cognome</label>
                                     <input type="text" class="form-control richiesti" id="cognome" aria-label="Cognome"
-                                        maxLength="40" required>
-                                    <div class="invalid-feedback">
-                                        Cognome richiesto
-                                    </div>
+                                        maxLength="40" placeholder="es: rossi" required>
+                                    
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="dataNascita" class="form-label">Data di nascita</label>
                                     <input type="date" class="form-control richiesti" id="dataNascita" required>
-                                    <div class="invalid-feedback">
-                                        Data di nascita richiesta
-                                    </div>
+                                    
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="numeroTelefono" class="form-label">Numero di telefono</label>
-                                    <input type="number" class="form-control richiesti" id="numeroTelefono" aria-label="Numero di telefono"
-                                        maxLength="40" required>
-                                    <div class="invalid-feedback">
-                                        Numero di telefono richiesto
-                                    </div>
+                                    <input type="number" class="form-control richiesti" id="numeroTelefono"
+                                        aria-label="Numero di telefono" maxLength="40" placeholder="es: 327171717" required>
+                                    
                                 </div>
 
 
                                 <div class="mb-3">
                                     <label for="emailDipendente" class="form-label">Email Dipendente</label>
-                                    <input type="email" class="form-control richiesti" id="emailDipendente" required>
-                                    <div class="invalid-feedback">
-                                        Email Dipendente richiesta
-                                    </div>
+                                    <input type="email" class="form-control richiesti" id="emailDipendente" placeholder="es: mariorossi@gmail.com" required>
+                                    
                                 </div>
 
 
@@ -133,9 +149,7 @@
                                     <div class="position-relative">
                                         <label for="password" class="form-label">Password</label>
                                         <input type="password" class="form-control richiesti" id="password" required>
-                                        <div class="invalid-feedback">
-                                            Password richiesta
-                                        </div>
+                                        
                                         <i class="fa-regular fa-eye" id="showPassword" style="right: 14px;"></i>
                                     </div>
                                     <ul id="listaErrori" class="text-danger"></ul>
@@ -144,9 +158,10 @@
 
                                 <div class="row g-3 justify-content-evenly">
                                     <div class="col-md-3 checkboxs">
-                    
+
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckPrivacy">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="flexCheckPrivacy">
                                             <label class="form-check-label" for="flexCheck1">
                                                 Accetto la <a href="privacyPolicy.html">Policy Privacy.</a>
                                             </label>
@@ -154,20 +169,20 @@
                                     </div>
                                     <div class="col-md-3 checkboxs">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckCookie">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="flexCheckCookie">
                                             <label class="form-check-label" for="flexCheck2">
                                                 Accetto la <a href="cookiePolicy.html">Cookie Policy.</a>
                                             </label>
                                         </div>
-                    
+
                                     </div>
-                    
+
                                 </div>
 
                                 <button data-mdb-button-init data-mdb-ripple-init class="btn btn-lg btn-block btn-login"
-                                    type="submit" style="width: 150px;" id="registrati">Registrati
+                                    style="width: 150px;" id="registrati">Registrati
                                 </button>
-                                <p class="inviato mt-2"></p>
                                 <p class="nonInviato text-danger mt-2"></p>
                             </div>
                         </div>
@@ -184,8 +199,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="../Progetto/js/imballi.js"></script>
     <script src="./js/registrati.js"></script>
     <script src="../Progetto/js/footer.js"></script>
 
 </body>
+
 </html>
