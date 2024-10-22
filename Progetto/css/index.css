@@ -141,6 +141,17 @@ header {
     z-index: 1 !important;
 }
 
+#maps {
+    z-index: 1 !important;
+}
+
+#maps {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+  }
+  
 
 .bi-globe2 {
     font-size: 48px;
@@ -371,6 +382,9 @@ header {
     background-color: #FAAD06;
   }
    
+  a {
+    color: #282D30;
+  }
 
 
   .d-flex-center-wrap {

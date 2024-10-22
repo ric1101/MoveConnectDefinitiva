@@ -2,187 +2,227 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Cartina</title>
-    <link rel="stylesheet" href="../Progetto/css/cssCartina.css">
-    <link rel="icon" href="./imgs/favicon.ico">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="../Progetto/css/index.css">
-    <link rel="stylesheet" href="../Progetto/css/css01.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Cartina</title>
+  <link rel="stylesheet" href="../Progetto/css/cssCartina.css">
+  <link rel="icon" href="./imgs/favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="../Progetto/css/index.css">
+  <link rel="stylesheet" href="../Progetto/css/css01.css">
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Londrina+Sketch&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Londrina+Sketch&display=swap" rel="stylesheet">
 </head>
 
 <body style="background-color: white !important;">
-    <!-- Navbar -->
-    <header>
-        <div class="navbarMain"></div>
-        <div class="banner">
-            <div class="container">
-                <div class="row logoImg d-flex justify-content-center">
-                    <img src="imgs/img22.png" alt="Logo" class="animated-logo" style="width: 256px; height: auto;">
-                </div>
-                <div class="row row d-flex justify-content-center ">
-                    <div class="white-line"></div>
-                </div>
-                <!-- Aggiungi la linea qui -->
-                <!-- La linea bianca -->
-                <h1 class="banner-title">
-                    m<i class="bi bi-globe2"></i>veconnect
-                </h1>
-                <p>La tua community dei trasporti</p>
-            </div>
+  <!-- Navbar -->
+  <header>
+    <div class="navbarMain"></div>
+    <div class="banner">
+      <div class="container">
+        <div class="row logoImg d-flex justify-content-center">
+          <img src="imgs/img22.png" alt="Logo" class="animated-logo" style="width: 256px; height: auto;">
         </div>
-    </header>
+        <div class="row row d-flex justify-content-center ">
+          <div class="white-line"></div>
+        </div>
+        <!-- Aggiungi la linea qui -->
+        <!-- La linea bianca -->
+        <h1 class="banner-title">
+          m<i class="bi bi-globe2"></i>veconnect
+        </h1>
+        <p>La tua community dei trasporti</p>
+      </div>
+    </div>
+  </header>
 
-    <h1 class="mt-4 d-flex-center-wrap "> Le nostre aziende </h1>
+  <h1 class="mt-4 d-flex-center-wrap "> Le nostre aziende </h1>
   <div class="d-flex-center-wrap mt-4">
 
     <div class="mx-2 my-2" role="presentation">
-      <div data class="cerchio filtro">
-        <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-abruzzo.png" alt="regioni">
-      </div>
-      <p class="text-center fw-bold">Abruzzo</p>
+      <a class="linkRegione" href="mappaRegione.html" data-name="Abruzzo">
+        <div data class="cerchio filtro">
+          <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-abruzzo.png" alt="regioni">
+        </div>
+        <p class="text-center fw-bold">Abruzzo</p>
+      </a>
     </div>
     <div class="mx-2 my-2" role="presentation">
+      <a class="linkRegione" href="mappaRegione.html" data-name="Basilicata">
         <div data class="cerchio filtro">
-            <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-basilicata.png" alt="regioni">
+          <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-basilicata.png" alt="regioni">
         </div>
         <p class="text-center fw-bold">Basilicata</p>
-      </div>
-      <div class="mx-2 my-2" role="presentation">
+      </a>
+    </div>
+    <div class="mx-2 my-2" role="presentation">
+      <a class="linkRegione" href="mappaRegione.html" data-name="Calabria">
         <div data class="cerchio filtro">
           <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-calabria.png" alt="regioni">
         </div>
         <p class="text-center fw-bold">Calabria</p>
-      </div>
-      <div class="mx-2 my-2" role="presentation">
+      </a>
+    </div>
+    <div class="mx-2 my-2" role="presentation">
+      <a class="linkRegione" href="mappaRegione.html" data-name="Campania">
         <div data class="cerchio filtro">
           <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-campania.png" alt="regioni">
         </div>
         <p class="text-center fw-bold">Campania</p>
-      </div>
-      <div class="mx-2 my-2" role="presentation">
+      </a>
+    </div>
+    <div class="mx-2 my-2" role="presentation">
+      <a class="linkRegione" href="mappaRegione.html" data-name="Emilia">
         <div data class="cerchio filtro">
           <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-emilia.png" alt="regioni">
         </div>
         <p class="text-center fw-bold">Emilia</p>
-      </div>
-      <div class="mx-2 my-2" role="presentation">
+      </a>
+    </div>
+    <div class="mx-2 my-2" role="presentation">
+      <a class="linkRegione" href="mappaRegione.html" data-name="Friuli">
         <div data class="cerchio filtro">
           <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-friuli.png" alt="regioni">
         </div>
         <p class="text-center fw-bold">Friuli</p>
-      </div>
-      <div class="mx-2 my-2" role="presentation">
+      </a>
+    </div>
+    <div class="mx-2 my-2" role="presentation">
+      <a class="linkRegione" href="mappaRegione.html" data-name="Lazio">
         <div data class="cerchio filtro">
           <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-lazio.png" alt="regioni">
         </div>
         <p class="text-center fw-bold">Lazio</p>
-      </div>
-      <div class="mx-2 my-2" role="presentation">
+      </a>
+    </div>
+    <div class="mx-2 my-2" role="presentation">
+      <a class="linkRegione" href="mappaRegione.html" data-name="Liguria">
         <div data class="cerchio filtro">
           <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-liguria.png" alt="regioni">
         </div>
         <p class="text-center fw-bold">Liguria</p>
-      </div>
-      <div class="mx-2 my-2" role="presentation">
+      </a>
+    </div>
+    <div class="mx-2 my-2" role="presentation">
+      <a class="linkRegione" href="mappaRegione.html" data-name="Lombardia">
         <div data class="cerchio filtro">
           <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-lombardia.png" alt="regioni">
         </div>
         <p class="text-center fw-bold">Lombardia</p>
-      </div>
-      <div class="mx-2 my-2" role="presentation">
+      </a>
+    </div>
+    <div class="mx-2 my-2" role="presentation">
+      <a class="linkRegione" href="mappaRegione.html" data-name="Marche">
         <div data class="cerchio filtro">
           <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-marche.png" alt="regioni">
         </div>
         <p class="text-center fw-bold">Marche</p>
-      </div>
-      <div class="mx-2 my-2" role="presentation">
+      </a>
+    </div>
+    <div class="mx-2 my-2" role="presentation">
+      <a class="linkRegione" href="mappaRegione.html" data-name="Molise">
         <div data class="cerchio filtro">
           <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-molise.png" alt="regioni">
         </div>
         <p class="text-center fw-bold">Molise</p>
-      </div>
-      <div class="mx-2 my-2" role="presentation">
+      </a>
+    </div>
+    <div class="mx-2 my-2" role="presentation">
+      <a class="linkRegione" href="mappaRegione.html" data-name="Piemonte">
         <div data class="cerchio filtro">
           <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-piemonte.png" alt="regioni">
         </div>
         <p class="text-center fw-bold">Piemonte</p>
-      </div>
-      <div class="mx-2 my-2" role="presentation">
+      </a>
+    </div>
+    <div class="mx-2 my-2" role="presentation">
+      <a class="linkRegione" href="mappaRegione.html" data-name="Puglia">
         <div data class="cerchio filtro">
           <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-puglia.png" alt="regioni">
         </div>
         <p class="text-center fw-bold">Puglia</p>
-      </div>
-      <div class="mx-2 my-2" role="presentation">
+      </a>
+    </div>
+    <div class="mx-2 my-2" role="presentation">
+      <a class="linkRegione" href="mappaRegione.html" data-name="Sardegna">
         <div data class="cerchio filtro">
           <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-sardegna.png" alt="regioni">
         </div>
         <p class="text-center fw-bold">Sardegna</p>
-      </div>
-      <div class="mx-2 my-2" role="presentation">
+      </a>
+    </div>
+    <div class="mx-2 my-2" role="presentation">
+      <a class="linkRegione" href="mappaRegione.html" data-name="Sicilia">
         <div data class="cerchio filtro">
           <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-sicilia.png" alt="regioni">
         </div>
         <p class="text-center fw-bold">Sicilia</p>
-      </div>
-      <div class="mx-2 my-2" role="presentation">
+      </a>
+    </div>
+    <div class="mx-2 my-2" role="presentation">
+      <a class="linkRegione" href="mappaRegione.html" data-name="Toscana">
         <div data class="cerchio filtro">
           <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-toscana.png" alt="regioni">
         </div>
         <p class="text-center fw-bold">Toscana</p>
-      </div>
-      <div class="mx-2 my-2" role="presentation">
+      </a>
+    </div>
+    <div class="mx-2 my-2" role="presentation">
+      <a class="linkRegione" href="mappaRegione.html" data-name="Trentino">
         <div data class="cerchio filtro">
           <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-trentino.png" alt="regioni">
         </div>
         <p class="text-center fw-bold">Trentino</p>
-      </div>
-      <div class="mx-2 my-2" role="presentation">
+      </a>
+    </div>
+    <div class="mx-2 my-2" role="presentation">
+      <a class="linkRegione" href="mappaRegione.html" data-name="Umbria">
         <div data class="cerchio filtro">
           <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-umbria.png" alt="regioni">
         </div>
         <p class="text-center fw-bold">Umbria</p>
-      </div>
-      <div class="mx-2 my-2" role="presentation">
+      </a>
+    </div>
+    <div class="mx-2 my-2" role="presentation">
+      <a class="linkRegione" href="mappaRegione.html" data-name="Valdaosta">
         <div data class="cerchio filtro">
           <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-valdaosta.png" alt="regioni">
         </div>
         <p class="text-center fw-bold">Valdaosta</p>
-      </div>
-      <div class="mx-2 my-2" role="presentation">
+      </a>
+    </div>
+    <div class="mx-2 my-2" role="presentation">
+      <a class="linkRegione" href="mappaRegione.html" data-name="Veneto">
         <div data class="cerchio filtro">
           <img class="immagineFiltro" src="/Progetto/imgs/regioni/it-veneto.png" alt="regioni">
         </div>
         <p class="text-center fw-bold">Veneto</p>
-      </div>
+      </a>
+    </div>
 
 
   </div>
 
 
 
-    <!-- <div class="text-wrapper1">
+  <!-- <div class="text-wrapper1">
         <div class="titles1">
             <h1 class="m-0 titles-item1""><a href=" ./partners.html">I Nostri Partners <i
                     class="fa-solid fa-handshake"></i></a></h1>
@@ -241,311 +281,312 @@
 
 
 
-    <div class="row p-5 mb-5 d-flex justify-content-center align-items-center"
-        style="background-color: #1b2023f0; color: #C0C0C0;">
-        <div class="containerImg col-xl-6">
-            <img src="../Progetto/imgs/small.png" alt="">
-        </div>
-        <div class="col-xl-6 p-2">
-            <h1>Entra nel network di MoveConnect!</h1>
-            <p class="desc" align="justify">
-                MoveConnect è una piattaforma online che connette in modo efficiente aziende e
-                professionisti del settore dei trasporti in tutta Italia. Attraverso il sito, le imprese di trasporto
-                possono trovare nuove opportunità di collaborazione, ottimizzare le rotte logistiche e migliorare
-                l'occupazione dei mezzi. MoveConnect semplifica la gestione delle richieste di trasporto, offrendo un
-                sistema intuitivo che permette di inviare e ricevere offerte, confrontare prezzi e capacità, e costruire
-                partnership strategiche. L’obiettivo è rendere il trasporto merci più agile, sostenibile e vantaggioso
-                per tutte le parti coinvolte.
-            </p>
-        </div>
+  <div class="row p-5 mb-5 d-flex justify-content-center align-items-center"
+    style="background-color: #1b2023f0; color: #C0C0C0;">
+    <div class="containerImg col-xl-6">
+      <img src="../Progetto/imgs/small.png" alt="">
+    </div>
+    <div class="col-xl-6 p-2">
+      <h1>Entra nel network di MoveConnect!</h1>
+      <p class="desc" align="justify">
+        MoveConnect è una piattaforma online che connette in modo efficiente aziende e
+        professionisti del settore dei trasporti in tutta Italia. Attraverso il sito, le imprese di trasporto
+        possono trovare nuove opportunità di collaborazione, ottimizzare le rotte logistiche e migliorare
+        l'occupazione dei mezzi. MoveConnect semplifica la gestione delle richieste di trasporto, offrendo un
+        sistema intuitivo che permette di inviare e ricevere offerte, confrontare prezzi e capacità, e costruire
+        partnership strategiche. L’obiettivo è rendere il trasporto merci più agile, sostenibile e vantaggioso
+        per tutte le parti coinvolte.
+      </p>
+    </div>
+  </div>
+
+  <div class="row p-5 d-flex justify-content-center align-items-center">
+    <div class="col-lg-6 col-md-12 col-sm-12 col-12 p-4">
+      <h1>Abbonati Ora</h1>
+      <p class="desc" align="justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam sunt
+        repellendus dicta
+        perspiciatis cumque molestiae esse, recusandae officia eos veritatis suscipit, voluptatibus atque nam,
+        velit quaerat. Doloremque, nam dolorum. Tempora quasi, necessitatibus eos amet fuga saepe velit
+        voluptatibus quo. Ab architecto, dolores animi temporibus quo numquam quod veniam? Fuga quasi ipsum
+        soluta ducimus libero? Debitis animi amet nobis sapiente in eligendi, illum ducimus velit? Quasi, modi
+        optio! Voluptates, numquam laudantium voluptatem recusandae nihil animi quaerat officia.</p>
+      <div class="d-flex justify-content-center p-3">
+        <a class="btn btn-dark bottone-" href="/Progetto/abbonamenti.html">Abbonati Ora</a>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-12 col-sm-12 col-12 p-4">
+      <img src="imgs/camion2.png" alt="" class="imgAbbonati">
+    </div>
+  </div>
+
+
+  <div class="row p-5 mt-5 d-flex justify-content-center align-items-center"
+    style="background-color: #1b2023f0; color: #C0C0C0;">
+    <div class="containerImg col-xl-6 p-2">
+      <img src="../Progetto/imgs/choose.jpg" alt="">
+    </div>
+    <div class="col-xl-6 p-2">
+      <h1>Scegli il piano per il tuo business!</h1>
+      <p class="desc" align="justify">
+        MoveConnect offre due piani di abbonamento:<br>
+        - Piano Base: Consente alle aziende di accedere alla rete di trasportatori, inviare e ricevere richieste
+        di trasporto, visualizzare offerte e stabilire contatti commerciali. Il Piano Base consente di gestire
+        fino
+        a 3 accessi per azienda. È il punto di partenza ideale per chi
+        vuole semplificare le proprie operazioni di trasporto. <br>
+        - Piano Pro: Include tutte le funzionalità del Piano Base, ma con vantaggi aggiuntivi come quello di
+        gestire
+        fino a 4 accessi per azienda, permettendo a più membri del
+        team di lavorare contemporaneamente sulla piattaforma.
+      </p>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center mt-5">
+    <h1>I nostri partner:</h1>
+  </div>
+  <div class="text-wrapper">
+    <div class="titles">
+      <a href="" class="titles-item"><img src="imgs/1.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/2.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/3.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/4.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/5.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/6.png" alt=""></a>
+    </div>
+    <!-- Duplicazione per lo scorrimento continuo -->
+    <div class="titles">
+      <a href="" class="titles-item"><img src="imgs/1.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/2.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/3.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/4.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/5.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/6.png" alt=""></a>
     </div>
 
-    <div class="row p-5 d-flex justify-content-center align-items-center">
-        <div class="col-lg-6 col-md-12 col-sm-12 col-12 p-4">
-            <h1>Abbonati Ora</h1>
-            <p class="desc" align="justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam sunt
-                repellendus dicta
-                perspiciatis cumque molestiae esse, recusandae officia eos veritatis suscipit, voluptatibus atque nam,
-                velit quaerat. Doloremque, nam dolorum. Tempora quasi, necessitatibus eos amet fuga saepe velit
-                voluptatibus quo. Ab architecto, dolores animi temporibus quo numquam quod veniam? Fuga quasi ipsum
-                soluta ducimus libero? Debitis animi amet nobis sapiente in eligendi, illum ducimus velit? Quasi, modi
-                optio! Voluptates, numquam laudantium voluptatem recusandae nihil animi quaerat officia.</p>
-            <div class="d-flex justify-content-center p-3">
-                <a class="btn btn-dark bottone-" href="/Progetto/abbonamenti.html">Abbonati Ora</a>
-            </div>
-        </div>
-        <div class="col-lg-6 col-md-12 col-sm-12 col-12 p-4">
-            <img src="imgs/camion2.png" alt="" class="imgAbbonati">
-        </div>
+    <div class="titles">
+      <a href="" class="titles-item"><img src="imgs/1.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/2.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/3.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/4.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/5.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/6.png" alt=""></a>
     </div>
 
-
-    <div class="row p-5 mt-5 d-flex justify-content-center align-items-center"
-        style="background-color: #1b2023f0; color: #C0C0C0;">
-        <div class="containerImg col-xl-6 p-2">
-            <img src="../Progetto/imgs/choose.jpg" alt="">
-        </div>
-        <div class="col-xl-6 p-2">
-            <h1>Scegli il piano per il tuo business!</h1>
-            <p class="desc" align="justify">
-                MoveConnect offre due piani di abbonamento:<br>
-                - Piano Base: Consente alle aziende di accedere alla rete di trasportatori, inviare e ricevere richieste
-                di trasporto, visualizzare offerte e stabilire contatti commerciali. Il Piano Base consente di gestire
-                fino
-                a 3 accessi per azienda. È il punto di partenza ideale per chi
-                vuole semplificare le proprie operazioni di trasporto. <br>
-                - Piano Pro: Include tutte le funzionalità del Piano Base, ma con vantaggi aggiuntivi come quello di
-                gestire
-                fino a 4 accessi per azienda, permettendo a più membri del
-                team di lavorare contemporaneamente sulla piattaforma.
-            </p>
-        </div>
+    <div class="titles">
+      <a href="" class="titles-item"><img src="imgs/1.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/2.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/3.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/4.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/5.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/6.png" alt=""></a>
     </div>
 
-    <div class="d-flex justify-content-center mt-5">
-        <h1>I nostri partner:</h1>
-    </div>
-    <div class="text-wrapper">
-        <div class="titles">
-            <a href="" class="titles-item"><img src="imgs/1.png" alt=""></a>
-            <a href="" class="titles-item"><img src="imgs/2.png" alt=""></a>
-            <a href="" class="titles-item"><img src="imgs/3.png" alt=""></a>
-            <a href="" class="titles-item"><img src="imgs/4.png" alt=""></a>
-            <a href="" class="titles-item"><img src="imgs/5.png" alt=""></a>
-            <a href="" class="titles-item"><img src="imgs/6.png" alt=""></a>
-        </div>
-        <!-- Duplicazione per lo scorrimento continuo -->
-        <div class="titles">
-            <a href="" class="titles-item"><img src="imgs/1.png" alt=""></a>
-            <a href="" class="titles-item"><img src="imgs/2.png" alt=""></a>
-            <a href="" class="titles-item"><img src="imgs/3.png" alt=""></a>
-            <a href="" class="titles-item"><img src="imgs/4.png" alt=""></a>
-            <a href="" class="titles-item"><img src="imgs/5.png" alt=""></a>
-            <a href="" class="titles-item"><img src="imgs/6.png" alt=""></a>
-        </div>
+  </div>
 
-        <div class="titles">
-            <a href="" class="titles-item"><img src="imgs/1.png" alt=""></a>
-            <a href="" class="titles-item"><img src="imgs/2.png" alt=""></a>
-            <a href="" class="titles-item"><img src="imgs/3.png" alt=""></a>
-            <a href="" class="titles-item"><img src="imgs/4.png" alt=""></a>
-            <a href="" class="titles-item"><img src="imgs/5.png" alt=""></a>
-            <a href="" class="titles-item"><img src="imgs/6.png" alt=""></a>
-        </div>
-
-        <div class="titles">
-            <a href="" class="titles-item"><img src="imgs/1.png" alt=""></a>
-            <a href="" class="titles-item"><img src="imgs/2.png" alt=""></a>
-            <a href="" class="titles-item"><img src="imgs/3.png" alt=""></a>
-            <a href="" class="titles-item"><img src="imgs/4.png" alt=""></a>
-            <a href="" class="titles-item"><img src="imgs/5.png" alt=""></a>
-            <a href="" class="titles-item"><img src="imgs/6.png" alt=""></a>
-        </div>
-
+  <div class="row home d-flex justify-content-center p-5" style="background-color: #1b202311;">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 p-5 align-content-center"
+      style="height: auto; font-size: 1.5rem;">
+      <h1>Le nostre aziende</h1>
+      <p align="justify">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium dignissimos quos iure consequuntur
+        natus libero non. Commodi molestiae tempore fugit in, veritatis nulla voluptas cumque qui, laudantium
+        eveniet id ratione. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, atque! Lorem ipsum
+        dolor, sit amet consectetur adipisicing elit. Debitis, tenetur? Lorem ipsum dolor sit amet consectetur,
+        adipisicing elit. Excepturi dolor sed corrupti quidem, minima quod.
+      </p>
     </div>
 
-    <div class="row home d-flex justify-content-center p-5" style="background-color: #1b202311;">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 p-5 align-content-center"
-            style="height: auto; font-size: 1.5rem;">
-            <h1>Le nostre aziende</h1>
-            <p align="justify">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium dignissimos quos iure consequuntur
-                natus libero non. Commodi molestiae tempore fugit in, veritatis nulla voluptas cumque qui, laudantium
-                eveniet id ratione. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, atque! Lorem ipsum
-                dolor, sit amet consectetur adipisicing elit. Debitis, tenetur? Lorem ipsum dolor sit amet consectetur,
-                adipisicing elit. Excepturi dolor sed corrupti quidem, minima quod.
-            </p>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 p-3 containerMappa">
+      <div class="computer-container">
+
+        <div class="map-container">
+          <div id="map"></div>
         </div>
-
-        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 p-3 containerMappa">
-            <div class="computer-container">
-
-                <div class="map-container">
-                    <div id="map"></div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 
 
 
-    <div class="footer">
+  <div class="footer">
 
-    </div>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <script src="../Progetto/js/homepagejs.js"></script>
-    <script src="../Progetto/js/footer.js"></script>
-
-    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script>
-        // Map initialization
-        var map = L.map('map').setView([41.90223306855646, 12.480054350031331], 7);
-
-        // Osm layer
-        var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        });
-        osm.addTo(map);
-
-        // open street hot
-        var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
-        });
-
-        // OpenStreetMap_HOT.addTo(map);
-
-        // all city
-        var OpenStreetMap_France = L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-            maxZoom: 20,
-            attribution: '&copy; OpenStreetMap France | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        });
-
-        // OpenStreetMap_France.addTo(map);
-
-        // old style
-        var Esri_NatGeoWorldMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
-            attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
-            maxZoom: 16
-        });
-
-        // Esri_NatGeoWorldMap.addTo(map);
-
-        // all black
-
-        var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-            maxZoom: 17,
-            attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-        });
-
-        // OpenTopoMap.addTo(map);
-
-        // google street
-        var googlestreet = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-            maxZoom: 17,
-            attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-        });
-
-        // googlestreet.addTo(map);
-
-        //black
-
-        var Stadia_AlidadeSmoothDark = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}', {
-            minZoom: 0,
-            maxZoom: 20,
-            attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-            ext: 'png'
-        });
+  </div>
 
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="../Progetto/js/homepagejs.js"></script>
+  <script src="../Progetto/js/footer.js"></script>
+  <script src="../Progetto/js/index.js"></script>
 
-        // marker
-        var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
-            iconSize: [60, 60],
-        });
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    // Map initialization
+    var map = L.map('map').setView([41.90223306855646, 12.480054350031331], 7);
 
-        var singleMarker = L.marker([41.90223306855646, 12.480054350031331], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
-        popUp.addTo(map);
+    // Osm layer
+    var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    });
+    osm.addTo(map);
 
-        var singleMarker = L.marker([44.05696191208719, 12.094067787609784], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
-        popUp.addTo(map);
+    // open street hot
+    var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
+    });
 
-        var singleMarker = L.marker([41.47665089692522, 15.422925004444286], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
-        popUp.addTo(map);
+    // OpenStreetMap_HOT.addTo(map);
 
-        var singleMarker = L.marker([43.56542966573223, 11.094311989814605], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >GoTruck</a></h1> <p> Azienda di trasporti monetari per banche di alto livello </p> <img src="../Progetto/imgs/4.png"/>').openPopup()
-        popUp.addTo(map);
+    // all city
+    var OpenStreetMap_France = L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+      maxZoom: 20,
+      attribution: '&copy; OpenStreetMap France | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    });
 
-        var singleMarker = L.marker([40.85470516374417, 14.259648114346458], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Precise</a></h1> <p> Azienda di trasporti per persone disabili </p> <img src="../Progetto/imgs/5.png"/>').openPopup()
-        popUp.addTo(map);
+    // OpenStreetMap_France.addTo(map);
 
-        var singleMarker = L.marker([37.93497458095478, 13.518414643909932], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >NoStopTrack</a></h1> <p> Azienda di trasporti con camion ad altissima velocità per consegne e ritiri del giorno dopo </p> <img src="../Progetto/imgs/6.png"/>').openPopup()
-        popUp.addTo(map);
+    // old style
+    var Esri_NatGeoWorldMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+      maxZoom: 16
+    });
 
-        var singleMarker = L.marker([40.9311142067774, 16.27985854541158], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracker Trucking</a></h1> <p> Azienda di trasporti di legno,imballagi di plastica </p> <img src="../Progetto/imgs/7.png"/>').openPopup()
-        popUp.addTo(map);
+    // Esri_NatGeoWorldMap.addTo(map);
 
-        var singleMarker = L.marker([39.23673815861203, 9.118421512069883], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Logistic Timing</a></h1> <p> Azienda di trasporti di ferro,metalli,legno e acciaio </p> <img src="../Progetto/imgs/8.png"/>').openPopup()
-        popUp.addTo(map);
+    // all black
 
-        var singleMarker = L.marker([45.55345114896567, 9.149732021315225], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Express Delivery</a></h1> <p> Azienda di trasporti per ogni vostra esigenza </p> <img src="../Progetto/imgs/9.png"/>').openPopup()
-        popUp.addTo(map);
+    var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+      maxZoom: 17,
+      attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+    });
+
+    // OpenTopoMap.addTo(map);
+
+    // google street
+    var googlestreet = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+      maxZoom: 17,
+      attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+    });
+
+    // googlestreet.addTo(map);
+
+    //black
+
+    var Stadia_AlidadeSmoothDark = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}', {
+      minZoom: 0,
+      maxZoom: 20,
+      attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      ext: 'png'
+    });
 
 
-        map.setView(new L.LatLng(42.08278075075734, 11.84566277443681), 5);
+
+    // marker
+    var myIcon = L.icon({
+      iconUrl: '../Progetto/imgs/file (1).png',
+      iconSize: [60, 60],
+    });
+
+    var singleMarker = L.marker([41.90223306855646, 12.480054350031331], { icon: myIcon, draggable: false });
+    var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+    popUp.addTo(map);
+
+    var singleMarker = L.marker([44.05696191208719, 12.094067787609784], { icon: myIcon, draggable: false });
+    var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+    popUp.addTo(map);
+
+    var singleMarker = L.marker([41.47665089692522, 15.422925004444286], { icon: myIcon, draggable: false });
+    var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+    popUp.addTo(map);
+
+    var singleMarker = L.marker([43.56542966573223, 11.094311989814605], { icon: myIcon, draggable: false });
+    var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >GoTruck</a></h1> <p> Azienda di trasporti monetari per banche di alto livello </p> <img src="../Progetto/imgs/4.png"/>').openPopup()
+    popUp.addTo(map);
+
+    var singleMarker = L.marker([40.85470516374417, 14.259648114346458], { icon: myIcon, draggable: false });
+    var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Precise</a></h1> <p> Azienda di trasporti per persone disabili </p> <img src="../Progetto/imgs/5.png"/>').openPopup()
+    popUp.addTo(map);
+
+    var singleMarker = L.marker([37.93497458095478, 13.518414643909932], { icon: myIcon, draggable: false });
+    var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >NoStopTrack</a></h1> <p> Azienda di trasporti con camion ad altissima velocità per consegne e ritiri del giorno dopo </p> <img src="../Progetto/imgs/6.png"/>').openPopup()
+    popUp.addTo(map);
+
+    var singleMarker = L.marker([40.9311142067774, 16.27985854541158], { icon: myIcon, draggable: false });
+    var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracker Trucking</a></h1> <p> Azienda di trasporti di legno,imballagi di plastica </p> <img src="../Progetto/imgs/7.png"/>').openPopup()
+    popUp.addTo(map);
+
+    var singleMarker = L.marker([39.23673815861203, 9.118421512069883], { icon: myIcon, draggable: false });
+    var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Logistic Timing</a></h1> <p> Azienda di trasporti di ferro,metalli,legno e acciaio </p> <img src="../Progetto/imgs/8.png"/>').openPopup()
+    popUp.addTo(map);
+
+    var singleMarker = L.marker([45.55345114896567, 9.149732021315225], { icon: myIcon, draggable: false });
+    var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Express Delivery</a></h1> <p> Azienda di trasporti per ogni vostra esigenza </p> <img src="../Progetto/imgs/9.png"/>').openPopup()
+    popUp.addTo(map);
 
 
-        // layer controller
-        var baseMaps = {
-            "OSM": osm,
-            "OpenStreetMap.HOT": OpenStreetMap_HOT,
-            "OpenStreetMapFrance": OpenStreetMap_France,
-            "Esri_NatGeoWorldMap": Esri_NatGeoWorldMap,
-            "OpenTopoMap": OpenTopoMap,
-            "GoogleStreetView": googlestreet,
-            "BlackMap": Stadia_AlidadeSmoothDark
-        };
+    map.setView(new L.LatLng(42.08278075075734, 11.84566277443681), 5);
 
-        var overlayMaps = {
-            "Marker": singleMarker
-        };
 
-        L.control.layers(baseMaps, overlayMaps, {}).addTo(map);
+    // layer controller
+    var baseMaps = {
+      "OSM": osm,
+      "OpenStreetMap.HOT": OpenStreetMap_HOT,
+      "OpenStreetMapFrance": OpenStreetMap_France,
+      "Esri_NatGeoWorldMap": Esri_NatGeoWorldMap,
+      "OpenTopoMap": OpenTopoMap,
+      "GoogleStreetView": googlestreet,
+      "BlackMap": Stadia_AlidadeSmoothDark
+    };
 
-        // Leaflet search
-        L.control.geocoder().addTo(map);
+    var overlayMaps = {
+      "Marker": singleMarker
+    };
 
-        const resizeObserver = new ResizeObserver(() => {
-            map.invalidateSize();
-        });
+    L.control.layers(baseMaps, overlayMaps, {}).addTo(map);
 
-        L.control.resizer({ direction: 'e' }).addTo(map);
+    // Leaflet search
+    L.control.geocoder().addTo(map);
 
-        var map; // Definisci la variabile mappa in un contesto globale.
+    const resizeObserver = new ResizeObserver(() => {
+      map.invalidateSize();
+    });
 
-        function initMap() {
-            map = L.map('map').setView([51.505, -0.09], 13); // Crea la mappa qui
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors'
-            }).addTo(map);
+    L.control.resizer({ direction: 'e' }).addTo(map);
+
+    var map; // Definisci la variabile mappa in un contesto globale.
+
+    function initMap() {
+      map = L.map('map').setView([51.505, -0.09], 13); // Crea la mappa qui
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(map);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      initMap(); // Inizializza la mappa al caricamento della pagina.
+
+      // Quando la media query per lo schermo piccolo scatta:
+      window.addEventListener("resize", function () {
+        var width = window.innerWidth;
+        if (width < 577) {
+          setTimeout(function () {
+            if (map) {
+              map.invalidateSize(); // Forza il ridimensionamento della mappa
+            }
+          }, 100); // Attendi che la mappa diventi visibile
         }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            initMap(); // Inizializza la mappa al caricamento della pagina.
-
-            // Quando la media query per lo schermo piccolo scatta:
-            window.addEventListener("resize", function () {
-                var width = window.innerWidth;
-                if (width < 577) {
-                    setTimeout(function () {
-                        if (map) {
-                            map.invalidateSize(); // Forza il ridimensionamento della mappa
-                        }
-                    }, 100); // Attendi che la mappa diventi visibile
-                }
-            });
-        });
+      });
+    });
 
 
 
 
-    </script>
+  </script>
 
 </body>
 
