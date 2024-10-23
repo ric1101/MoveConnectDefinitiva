@@ -39,7 +39,7 @@
 
                                     <label for="nomeAzienda" class="form-label">Nome Azienda</label>
                                     <input type="text" class="form-control richiesti" id="nomeAzienda"
-                                        placeholder="es: Terzi S.p.A" aria-label="nomeAzienda" maxLength="50" required>
+                                        placeholder="es: Terzi S.p.A" maxLength="50">
                                     <!-- <p class="text-danger" id="usernameError"></p> -->
                                     <div class="invalidNomeAzienda">
 
@@ -50,7 +50,7 @@
 
                                     <label for="immagine" class="form-label">Inserisci un logo</label>
                                     <input type="file" class="form-control richiesti" id="immagine"
-                                        aria-label="Inserisci foto" maxLength="40" required>
+                                        aria-label="Inserisci foto" maxLength="40">
 
                                 </div>
 
@@ -85,14 +85,14 @@
 
                                     <label for="indirizzo" class="form-label">Indirizzo</label>
                                     <input type="text" class="form-control richiesti indirizzo"
-                                        placeholder="es: Via Roma 3" maxLength="50" required>
+                                        placeholder="es: Via Roma 3" maxLength="50">
                                 </div>
 
                                 <div class="mb-3">
 
                                     <label class="form-label">CAP</label>
                                     <input type="text" class="form-control richiesti cap" placeholder="es. 00015"
-                                    maxlength="5" required>
+                                    maxlength="5">
                                 </div>
                                 <div class="invalidCap text-danger" >
 
@@ -102,7 +102,7 @@
 
                                     <label for="partitaIva" class="form-label">Partita IVA</label>
                                     <input type="text" class="form-control richiesti" id="partitaIva"
-                                        aria-label="partitaIva" maxLength="11" placeholder="es. 86334519757" required>
+                                        aria-label="partitaIva" maxLength="11" placeholder="es. 86334519757">
                                     <!-- <p class="text-danger" id="usernameError"></p> -->
                                     <div class="invalidPIva text-danger">
 
@@ -112,10 +112,10 @@
                                 <div class="mb-3">
 
                                     <label for="emailAziendale" class="form-label">Email Aziendale</label>
-                                    <input type="email" class="form-control richiesti" id="emailAziendale"
-                                        placeholder="es: terzi@gmail.com" required>
+                                    <input type="text" class="form-control richiesti" id="emailAziendale"
+                                        placeholder="es: terzi@gmail.com">
 
-                                    <div class="invalidEmailAz">
+                                    <div class="invalidEmailAz text-danger">
 
                                     </div>
                                 </div>
@@ -124,10 +124,10 @@
 
                                     <label for="numeroTelefono" class="form-label">Numero di telefono Aziendale</label>
                                     <input type="text" class="form-control richiesti" id="numeroTelefonoAziendale"
-                                        aria-label="Numero di telefono" maxLength="10" placeholder="es: 327171717"
-                                        required>
+                                        aria-label="Numero di telefono" maxLength="15" placeholder="es: 3271717174">
+                                        
 
-                                    <div class="invalidNumAz">
+                                    <div class="invalidNumTelAz text-danger">
 
                                     </div>
                                 </div>
@@ -136,8 +136,8 @@
 
                                     <label for="nome" class="form-label">Nome</label>
                                     <input type="text" class="form-control richiesti" id="nome" aria-label="Nome"
-                                        maxLength="50" placeholder="es: mario" required>
-                                    <!-- <p class="text-danger" id="usernameError"></p> -->
+                                        maxLength="50" placeholder="es: mario" >
+                                    
 
                                 </div>
 
@@ -145,16 +145,16 @@
 
                                     <label for="cognome" class="form-label">Cognome</label>
                                     <input type="text" class="form-control richiesti" id="cognome" aria-label="Cognome"
-                                        maxLength="40" placeholder="es: rossi" required>
+                                        maxLength="40" placeholder="es: rossi">
 
                                 </div>
 
                                 <div class="mb-3">
 
                                     <label for="dataNascita" class="form-label">Data di nascita</label>
-                                    <input type="date" class="form-control richiesti" id="dataNascita" required>
+                                    <input type="date" class="form-control richiesti" id="dataNascita" min="" max="" onkeydown="return false">
 
-                                    <div class="invalidDataNascita">
+                                    <div class="invalidDataNascita text-danger">
 
                                     </div>
                                 </div>
@@ -163,10 +163,10 @@
 
                                     <label for="numeroTelefono" class="form-label">Numero di telefono</label>
                                     <input type="text" class="form-control richiesti" id="numeroTelefono"
-                                        aria-label="Numero di telefono" maxLength="10" placeholder="es: 327171717"
-                                        required>
+                                        aria-label="Numero di telefono" maxLength="15" placeholder="es: 3271717174">
+                                        
 
-                                    <div class="invalidNum">
+                                    <div class="invalidNumTelDip text-danger">
 
                                     </div>
                                 </div>
@@ -175,10 +175,10 @@
                                 <div class="mb-3">
 
                                     <label for="emailDipendente" class="form-label">Email Dipendente</label>
-                                    <input type="email" class="form-control richiesti" id="emailDipendente"
-                                        placeholder="es: mariorossi@gmail.com" required>
+                                    <input type="text" class="form-control richiesti" id="emailDipendente"
+                                        placeholder="es: mariorossi@gmail.com">
 
-                                    <div class="invalidEmailDip">
+                                    <div class="invalidEmailDip text-danger">
 
                                     </div>
                                 </div>
@@ -189,7 +189,7 @@
 
                                     <div class="position-relative">
                                         <label for="password" class="form-label">Password</label>
-                                        <input type="password" class="form-control richiesti" id="password" required>
+                                        <input type="password" class="form-control richiesti" id="password">
 
                                         <i class="fa-regular fa-eye" id="showPassword" style="right: 14px;"></i>
                                     </div>
