@@ -5,41 +5,45 @@ let regione = document.querySelector('.regione');
 let provincia = document.querySelector('.provincia');
 let comune = document.querySelector('.comune');
 let indirizzo = document.querySelector('.indirizzo');
-let indirizzoDue = document.querySelector('.indirizzoDue');
 let cap = document.querySelector('.cap');
-let tipoDiScala = document.querySelector('.tipoDiScala');
-let pesoMassimo = document.querySelector('.pesoMassimo');
+let mq = document.querySelector('.mq');
 let inizio = document.querySelector('.inizio');
 let fine = document.querySelector('.fine');
 let note = document.querySelector('.note');
+let mobilio = document.querySelector('.mobilio');
+let pedane = document.querySelector('.pedane');
+let altro = document.querySelector('.altro');
 
-let btnInvioRichiestaScalaElevatore = document.querySelector('.btnInvioRichiestaScalaElevatore');
 
-class ScalaElevatore {
+let btnInvioRichiestaDeposito = document.querySelector('.btnInvioRichiestaDeposito');
+
+class Deposito {
     constructor(regione,
         provincia,
         comune,
         indirizzo,
-        indirizzoDue,
         cap,
-        tipoDiScala,
-        pesoMassimo,
+        mq,
         inizio,
         fine,
         note,
+        mobilio,
+        pedane,
+        altro,
         azienda_id) {
 
         (this.regione = regione),
             (this.provincia = provincia),
             (this.comune = comune),
             (this.indirizzo = indirizzo),
-            (this.indirizzoDue = indirizzoDue),
             (this.cap = cap),
-            (this.tipoDiScala = tipoDiScala),
-            (this.pesoMassimo = pesoMassimo),
+            (this.mq = mq),
             (this.inizio = inizio),
             (this.fine = fine),
             (this.note = note),
+            (this.mobilio = mobilio),
+            (this.pedane = pedane),
+            (this.altro = altro),
             (this.azienda_id = azienda_id)
     }
 }
@@ -51,32 +55,33 @@ function inviaRichiesta() {
     console.log(azienda_id);
 
 
-    let nuovaRichiestaScalaElevatore = new ScalaElevatore(
+    let nuovaRichiestaDeposito = new Deposito(
         regione.value,
         provincia.value,
         comune.value,
         indirizzo.value,
-        indirizzoDue.value,
         cap.value,
-        tipoDiScala.value,
-        pesoMassimo.value,
+        mq.value,
         inizio.value,
         fine.value,
         note.value,
+        mobilio.value,
+        pedane.value,
+        altro.value,
         azienda_id
     );
 
 
 
-    console.log(nuovaRichiestaScalaElevatore);
+    console.log(nuovaRichiestaDeposito);
 
 
-    fetch(`http://localhost:8080/api/azienda/nuovaScala/${azienda_id}`, {
+    fetch(`${azienda_id}`, { //Inserire qui la rotta
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(nuovaRichiestaScalaElevatore),
+        body: JSON.stringify(nuovaRichiestaDeposito),
 
     })
 
@@ -84,12 +89,6 @@ function inviaRichiesta() {
 
 
 }
-
-
-let invalidCap = document.querySelector('.invalidCap');
-let invalidInizio = document.querySelector('.invalidInizio');
-let invalidFine = document.querySelector('.invalidFine');
-let blankCamp = document.querySelector('.blankCamp');
 
 
 new Date();
@@ -119,7 +118,16 @@ inizio.setAttribute('min', dataMinInizio);
 inizio.setAttribute('max', dataMaxInizio);
 
 
+
+let invalidInizio = document.querySelector('.invalidInizio');
+let invalidFine = document.querySelector('.invalidFine');
+let invalidCap = document.querySelector('.invalidCap');
+let invalidMq = document.querySelector('.invalidMq');
+let blankCamp = document.querySelector('.blankCamp');
+
+
 let regexCap = /^[0-9]{5}$/;
+let regexMq = /^[1-9][0-9]?$/;
 
 
 function capCheck() {
@@ -130,8 +138,18 @@ function capCheck() {
     } else {
         invalidCap.innerHTML = '';
     }
+
 }
 
+
+function mqCheck() {
+
+    if (!mq.value.match(regexMq)) {
+        invalidMq.innerHTML = 'mq non validi';
+    } else {
+        invalidMq.innerHTML = '';
+    }
+}
 
 function inizioCheck() {
 
@@ -159,10 +177,6 @@ function checkCampi() {
         comune.value.trim() != "" &&
         indirizzo.value.trim() != "" &&
         cap.value.trim() != "" &&
-        tipoDiScala.value.trim() != "" &&
-        pesoMassimo.value.trim() != "" &&
-        inizio.value.trim() != "" &&
-        fine.value.trim() != "" &&
         cap.value.match(regexCap)
     ) {
 
@@ -178,8 +192,8 @@ function checkCampi() {
 }
 
 
-
-btnInvioRichiestaScalaElevatore.addEventListener('click', checkCampi);
+btnInvioRichiestaDeposito.addEventListener('click', checkCampi);
 
 cap.addEventListener('keyup', capCheck);
+mq.addEventListener('keyup', mqCheck);
 document.addEventListener('input', inizioCheck)

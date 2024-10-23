@@ -8,14 +8,14 @@ let indirizzo = document.querySelector('.indirizzo');
 let indirizzoDue = document.querySelector('.indirizzoDue');
 let cap = document.querySelector('.cap');
 let note = document.querySelector('.note');
-let imballi1 = document.querySelector('.imballi1');
-let imballi2 = document.querySelector('.imballi2');
-let imballi3 = document.querySelector('.imballi3');
-let imballi4 = document.querySelector('.imballi4');
+let facchini = document.querySelector('.facchini');
+let autisti = document.querySelector('.autisti');
+let montatori = document.querySelector('.montatori');
+let falegnami = document.querySelector('.falegnami');
 
-let btnInvioRichiestaImballi = document.querySelector('.btnInvioRichiestaImballi');
+let btnInvioRichiestaImballi = document.querySelector('.btnInvioRichiestaPersonale');
 
-class Imballi {
+class Personale {
     constructor(regione,
         provincia,
         comune,
@@ -23,10 +23,10 @@ class Imballi {
         indirizzoDue,
         cap,
         note,
-        imballi1,
-        imballi2,
-        imballi3,
-        imballi4,
+        facchini,
+        autisti,
+        montatori,
+        falegnami,
         azienda_id) {
 
         (this.regione = regione),
@@ -36,10 +36,10 @@ class Imballi {
             (this.indirizzoDue = indirizzoDue),
             (this.cap = cap),
             (this.note = note),
-            (this.imballi1 = imballi1),
-            (this.imballi2 = imballi2),
-            (this.imballi3 = imballi3),
-            (this.imballi4 = imballi4),
+            (this.facchini = facchini),
+            (this.autisti = autisti),
+            (this.montatori = montatori),
+            (this.falegnami = falegnami),
             (this.azienda_id = azienda_id)
     }
 }
@@ -51,7 +51,7 @@ function inviaRichiesta() {
     console.log(azienda_id);
 
 
-    let nuovaRichiestaImballi = new Imballi(
+    let nuovaRichiestaPersonale = new Personale(
         regione.value,
         provincia.value,
         comune.value,
@@ -59,24 +59,24 @@ function inviaRichiesta() {
         indirizzoDue.value,
         cap.value,
         note.value,
-        imballi1.value,
-        imballi2.value,
-        imballi3.value,
-        imballi4.value,
+        facchini.value,
+        autisti.value,
+        montatori.value,
+        falegnami.value,
         azienda_id
     );
 
 
 
-    console.log(nuovaRichiestaImballi);
+    console.log(nuovaRichiestaPersonale);
 
 
-    fetch(`${azienda_id}`, { //Inserire qui la rotta
+    fetch(`${azienda_id}`, {  //Inserire qui la rotta
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(nuovaRichiestaImballi),
+        body: JSON.stringify(nuovaRichiestaPersonale),
 
     })
 
@@ -122,6 +122,7 @@ function checkCampi() {
         inviaRichiesta();
 
     } else {
+        
         blankCamp.innerHTML = 'riempi i campi mancanti o incompleti!';
     }
 
@@ -129,6 +130,6 @@ function checkCampi() {
 }
 
 
-btnInvioRichiestaImballi.addEventListener('click', checkCampi);
+btnInvioRichiestaPersonale.addEventListener('click', checkCampi);
 
 cap.addEventListener('keyup', controllaValiditaCampi);

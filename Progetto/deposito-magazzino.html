@@ -31,15 +31,15 @@
         <form class="row g-3 formRow">
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-3">
-                    <label for="regioni" class="form-label">Seleziona Regione</label>
-                    <select id="regioni" class="form-select">
+                    <label for="regioni" class="form-label">Regione</label>
+                    <select id="regioni" class="form-select regione">
                         <option value="" disabled selected>Seleziona Regione</option>
 
                     </select>
                 </div>
                 <div class="col-md-3">
-                    <label for="province" class="form-label">Seleziona Provincia</label>
-                    <select id="province" class="form-select">
+                    <label for="province" class="form-label">Provincia</label>
+                    <select id="province" class="form-select provincia">
                         <option value="" disabled selected>Seleziona Provincia</option>
 
                     </select>
@@ -48,8 +48,8 @@
 
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-3">
-                    <label for="comuni" class="form-label">Seleziona Comune</label>
-                    <select id="comuni" class="form-select">
+                    <label for="comuni" class="form-label">Comune</label>
+                    <select id="comuni" class="form-select comune">
                         <option value="" disabled selected>Seleziona Comune</option>
 
                     </select>
@@ -58,8 +58,8 @@
 
                 <div class="col-md-3">
 
-                    <label for="validationCustom07" class="form-label">Indirizzo</label>
-                    <input type="text" class="form-control richiesti" id="validationCustom07" placeholder="Indirizzo"
+                    <label class="form-label">Indirizzo</label>
+                    <input type="text" class="form-control richiesti indirizzo" placeholder="Indirizzo"
                         maxLength="50" required>
                 </div>
             </div>
@@ -68,15 +68,20 @@
 
                 <div class="col-md-3">
 
-                    <label for="validationCustom07" class="form-label">CAP</label>
-                    <input type="text" class="form-control richiesti" id="validationCustom07" placeholder="CAP"
+                    <label class="form-label">CAP</label>
+                    <input type="text" class="form-control richiesti cap" placeholder="CAP"
                         maxLength="5" required>
+                    <div class="d-flex justify-content-end">
+                    <div class="invalidCap text-danger"></div>
+                    </div>
                 </div>
+                
+
                 <div class="col-md-3">
-                    <label for="validationCustom09" class="form-label">Indica M2</label>
-                    <input type="text" class="form-control richiesti" id="validationCustom09" placeholder="Inserisci M2"
+                    <label class="form-label">Indica M2</label>
+                    <input type="text" class="form-control richiesti mq" placeholder="Inserisci M2"
                         required>
-                    <div class="invalidM2 text-danger">
+                    <div class="invalidMq text-danger">
 
                     </div>
                 </div>
@@ -85,27 +90,24 @@
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-3">
 
-                    <label for="validationCustom08" class="form-label">Inizio</label>
-                    <input type="date" class="form-control richiesti" id="validationCustom08" required>
-                    <div class="invalidNumber text-danger">
+                    <label class="form-label">Inizio</label>
+                    <input type="date" min="" max="" class="form-control richiesti inizio" onkeydown="return false" required>
+                    <div class="invalidInizio text-danger">
 
                     </div>
                 </div>
 
                 <div class="col-md-3">
-                    <label for="validationCustom10" class="form-label">Fine</label>
-                    <input type="date" class="form-control richiesti" id="validationCustom10" required>
-                    <div class="invalid text-danger">
+                    <label class="form-label">Fine</label>
+                    <input type="date" min="" max="" class="form-control richiesti fine" onkeydown="return false" required disabled>
+                    <div class="invalidFine text-danger">
 
                     </div>
                 </div>
 
             </div>
 
-
-
         </form>
-
 
         <div class="container">
 
@@ -186,7 +188,7 @@
             align-items: center;">
                     <div data-mdb-input-init class="form-outline">
                         <h3 class="titoliResp">Note</h3>
-                        <textarea class="form-control" id="textAreaExample1" rows="11"
+                        <textarea class="form-control note" rows="11"
                             placeholder="Esigenze particolari..."></textarea>
                     </div>
                 </div>
@@ -199,17 +201,17 @@
                             <li class="list-group-item d-flex justify-content-between align-items-center list-group-item list-group-item-dark"
                                 id="autista">
                                 Mobilio
-                                <span class="badge text-bg-dark rounded-pill " id="autista-summary">0</span>
+                                <span class="badge text-bg-dark rounded-pill mobilio" id="autista-summary">0</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center list-group-item list-group-item-dark"
                                 id="montatore">
                                 Pedane
-                                <span class="badge text-bg-dark rounded-pill" id="montatore-summary">0</span>
+                                <span class="badge text-bg-dark rounded-pill pedane" id="montatore-summary">0</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center list-group-item list-group-item-dark"
                                 id="falegname">
                                 Altro
-                                <span class="badge text-bg-dark rounded-pill" id="falegname-summary">0</span>
+                                <span class="badge text-bg-dark rounded-pill altro" id="falegname-summary">0</span>
                             </li>
 
                         </ul>
@@ -220,10 +222,13 @@
             </div>
             <div class="d-flex justify-content-end mt-4">
                 <div class="d-flex justify-content-end mt-4">
-                    <button class="btn btn-success mx-2 bottonozzo" onclick="submitRequest()"
-                        id="btnInvioRichiesta">Invio Richiesta</button>
+                    <button class="btn btn-success mx-2 bottonozzo btnInvioRichiestaDeposito"
+                        id="btnInvioRichiestaDeposito">Invio Richiesta</button>
                 </div>
 
+            </div>
+            <div class="d-flex justify-content-end">
+                <div class="text-danger blankCamp"></div>
             </div>
 
 
@@ -232,22 +237,6 @@
     </div>
 
 
-    <!-- <div class="modal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Ordine Confermato #<span class="numOrdine"></span></h5>
-                    </div>
-                    <div class="modal-body">
-                        <p>Grazie per aver acquistato su TruckwaY!</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary close" data-dismiss="modal">Continua ad
-                            acquistare</button>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </div>
 
 
@@ -260,6 +249,7 @@
     <script src="../Progetto/js/homepagejs.js"></script>
     <script src="../Progetto/js/imballi.js"></script>
     <script src="../Progetto/js/deposito.js"></script>
+    <script src="../Progetto/js/richiestaDeposito.js"></script>
 
 
 </body>
