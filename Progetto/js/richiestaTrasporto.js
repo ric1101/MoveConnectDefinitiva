@@ -180,7 +180,7 @@ let regexCap = /^[0-9]{5}$/;
 let regexMq = /^[1-9][0-9]?$/;
 
 
-function controllaValiditaCampi() {
+function capPartenzaCheck() {
 
 
     if (!capPartenza.value.match(regexCap)) {
@@ -188,6 +188,9 @@ function controllaValiditaCampi() {
     } else {
         invalidCapPartenza.innerHTML = '';
     }
+}
+
+function capArrivoCheck() {
 
     if (!capArrivo.value.match(regexCap)) {
         invalidCapArrivo.innerHTML = 'cap non valido';
@@ -195,11 +198,20 @@ function controllaValiditaCampi() {
         invalidCapArrivo.innerHTML = '';
     }
 
+}
+
+function mqCheck() {
+
+
     if (!mq.value.match(regexMq)) {
         invalidMq.innerHTML = 'mq non validi';
     } else {
         invalidMq.innerHTML = '';
     }
+}
+
+
+function caricoCheck() {
 
 
     if (carico.value != '') {
@@ -214,10 +226,10 @@ function controllaValiditaCampi() {
 
     }
 
-
-
-
 }
+
+
+
 
 
 
@@ -238,7 +250,7 @@ function checkCampi() {
         capArrivo.value.trim() != "" &&
         carico.value.trim() != "" &&
         scarico.value.trim() != "" &&
-        mq.value.match(regexMq) && 
+        mq.value.match(regexMq) &&
         capArrivo.value.match(regexCap) &&
         capPartenza.value.match(regexCap)
     ) {
@@ -248,7 +260,9 @@ function checkCampi() {
         inviaRichiesta();
 
     } else {
+
         blankCamp.innerHTML = 'riempi i campi mancanti o incompleti!';
+
     }
 
 
@@ -259,4 +273,7 @@ function checkCampi() {
 btnInvioRichiestaTrasporto.addEventListener('click', checkCampi);
 
 
-document.addEventListener('input', controllaValiditaCampi);
+capPartenza.addEventListener('keyup', capPartenzaCheck);
+capArrivo.addEventListener('keyup', capArrivoCheck)
+mq.addEventListener('keyup', mqCheck)
+document.addEventListener('input', caricoCheck)
