@@ -39,55 +39,63 @@
 
                                     <label for="nomeAzienda" class="form-label">Nome Azienda</label>
                                     <input type="text" class="form-control richiesti" id="nomeAzienda"
-                                    placeholder="es: Terzi S.p.A" aria-label="nomeAzienda" maxLength="50" required>
+                                        placeholder="es: Terzi S.p.A" aria-label="nomeAzienda" maxLength="50" required>
                                     <!-- <p class="text-danger" id="usernameError"></p> -->
-                                    <div class="invalid-feedback">
-                                        Nome Azienda richiesto
+                                    <div class="invalidNomeAzienda">
+
                                     </div>
                                 </div>
 
                                 <div class="mb-3">
+
                                     <label for="immagine" class="form-label">Inserisci un logo</label>
                                     <input type="file" class="form-control richiesti" id="immagine"
                                         aria-label="Inserisci foto" maxLength="40" required>
-                                    <div class="invalid-feedback">
-                                        Foto logo richiesta
-                                    </div>
+
                                 </div>
 
                                 <div class="mb-3">
+
                                     <label for="regioni" class="form-label">Regione</label>
                                     <select id="regioni" class="form-select richiesti regione">
                                         <option value="" disabled selected>Seleziona Regione</option>
 
                                     </select>
                                 </div>
+
                                 <div class="mb-3">
+
                                     <label for="province" class="form-label">Provincia</label>
                                     <select id="province" class="form-select richiesti provincia">
                                         <option value="" disabled selected>Seleziona Provincia</option>
 
                                     </select>
                                 </div>
+
                                 <div class="mb-3">
+
                                     <label for="comuni" class="form-label">Comune</label>
                                     <select id="comuni" class="form-select richiesti comune">
                                         <option value="" disabled selected>Seleziona Comune</option>
 
                                     </select>
                                 </div>
+
                                 <div class="mb-3">
+
                                     <label for="indirizzo" class="form-label">Indirizzo</label>
                                     <input type="text" class="form-control richiesti indirizzo"
                                         placeholder="es: Via Roma 3" maxLength="50" required>
                                 </div>
+
                                 <div class="mb-3">
+
                                     <label class="form-label">CAP</label>
                                     <input type="text" class="form-control richiesti cap" placeholder="es. 00015"
-                                        required>
-                                    <div class="invalidCap text-danger">
+                                    maxlength="5" required>
+                                </div>
+                                <div class="invalidCap text-danger" >
 
-                                    </div>
                                 </div>
 
                                 <div class="mb-3">
@@ -96,15 +104,32 @@
                                     <input type="text" class="form-control richiesti" id="partitaIva"
                                         aria-label="partitaIva" maxLength="11" placeholder="es. 86334519757" required>
                                     <!-- <p class="text-danger" id="usernameError"></p> -->
-                                    <div class="invalidPiva text-danger">
-                                        
+                                    <div class="invalidPIva text-danger">
+
                                     </div>
                                 </div>
 
                                 <div class="mb-3">
+
                                     <label for="emailAziendale" class="form-label">Email Aziendale</label>
-                                    <input type="email" class="form-control richiesti" id="emailAziendale" placeholder="es: terzi@gmail.com" required>
-                                    
+                                    <input type="email" class="form-control richiesti" id="emailAziendale"
+                                        placeholder="es: terzi@gmail.com" required>
+
+                                    <div class="invalidEmailAz">
+
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+
+                                    <label for="numeroTelefono" class="form-label">Numero di telefono Aziendale</label>
+                                    <input type="text" class="form-control richiesti" id="numeroTelefonoAziendale"
+                                        aria-label="Numero di telefono" maxLength="10" placeholder="es: 327171717"
+                                        required>
+
+                                    <div class="invalidNumAz">
+
+                                    </div>
                                 </div>
 
                                 <div class="mb-3">
@@ -113,35 +138,51 @@
                                     <input type="text" class="form-control richiesti" id="nome" aria-label="Nome"
                                         maxLength="50" placeholder="es: mario" required>
                                     <!-- <p class="text-danger" id="usernameError"></p> -->
-                                    
+
                                 </div>
 
                                 <div class="mb-3">
+
                                     <label for="cognome" class="form-label">Cognome</label>
                                     <input type="text" class="form-control richiesti" id="cognome" aria-label="Cognome"
                                         maxLength="40" placeholder="es: rossi" required>
-                                    
+
                                 </div>
 
                                 <div class="mb-3">
+
                                     <label for="dataNascita" class="form-label">Data di nascita</label>
                                     <input type="date" class="form-control richiesti" id="dataNascita" required>
-                                    
+
+                                    <div class="invalidDataNascita">
+
+                                    </div>
                                 </div>
 
                                 <div class="mb-3">
+
                                     <label for="numeroTelefono" class="form-label">Numero di telefono</label>
-                                    <input type="number" class="form-control richiesti" id="numeroTelefono"
-                                        aria-label="Numero di telefono" maxLength="40" placeholder="es: 327171717" required>
-                                    
+                                    <input type="text" class="form-control richiesti" id="numeroTelefono"
+                                        aria-label="Numero di telefono" maxLength="10" placeholder="es: 327171717"
+                                        required>
+
+                                    <div class="invalidNum">
+
+                                    </div>
                                 </div>
 
 
                                 <div class="mb-3">
+
                                     <label for="emailDipendente" class="form-label">Email Dipendente</label>
-                                    <input type="email" class="form-control richiesti" id="emailDipendente" placeholder="es: mariorossi@gmail.com" required>
-                                    
+                                    <input type="email" class="form-control richiesti" id="emailDipendente"
+                                        placeholder="es: mariorossi@gmail.com" required>
+
+                                    <div class="invalidEmailDip">
+
+                                    </div>
                                 </div>
+
 
 
                                 <div class="mb-3 password">
@@ -149,11 +190,16 @@
                                     <div class="position-relative">
                                         <label for="password" class="form-label">Password</label>
                                         <input type="password" class="form-control richiesti" id="password" required>
-                                        
+
                                         <i class="fa-regular fa-eye" id="showPassword" style="right: 14px;"></i>
                                     </div>
                                     <ul id="listaErrori" class="text-danger"></ul>
-
+                                    <div class="erroreLunghezzaMin text-danger"></div>
+                                    <div class="erroreLunghezzaMax text-danger"></div>
+                                    <div class="erroreMaiuscola text-danger"></div>
+                                    <div class="erroreMinuscola text-danger"></div>
+                                    <div class="erroreCarattereSpec text-danger"></div>
+                                    <div class="erroreNumero text-danger"></div>
                                 </div>
 
                                 <div class="row g-3 justify-content-evenly">
