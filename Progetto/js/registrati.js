@@ -356,6 +356,7 @@ function controlloDati() {
       nonInviato.innerHTML = '';
       registrazioneAzienda();
       
+      location.reload();
       
     } else {
       
