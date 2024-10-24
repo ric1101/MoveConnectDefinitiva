@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../Progetto/css/index.css">
     <link rel="stylesheet" href="../Progetto/css/css01.css">
     <link rel="stylesheet" href="../Progetto/css/normalize.css">
+    <link rel="stylesheet" href="/Progetto/css/cardAziendeRegioni.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -27,19 +28,15 @@
 <body>
 
     <div class="navbarMain"></div>
-
-
     <div class="row home d-flex justify-content-center p-5 mt-5" style="background-color: #1b202311;">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 p-5 align-content-center"
-            style="height: auto; font-size: 1.5rem;">
-            <h1>Le nostre aziende</h1>
-            <h5>Lazio</h5>
-            <ul>
-                <li>Samsung</li>
-                <li>Ipercarni</li>
-                <li>Conad</li>
-            </ul>
+       
+        
+        <div class="col-12 col-md-12 col-lg-5 col-xl-5 p-5 align-content-center" style="height: 500px; overflow-y: auto;" id="aziende-container">
+            <h1 class="mb-4" style="color: #191a20f5;">Le nostre aziende</h1>
+            
         </div>
+
+    
 
         <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 p-3 containerMappa">
             <div class="computer-container">
@@ -54,6 +51,8 @@
 
     <div class="footer"></div>
 
+
+    <script src="/Progetto/js/cardAziendaRegioni.js"></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
