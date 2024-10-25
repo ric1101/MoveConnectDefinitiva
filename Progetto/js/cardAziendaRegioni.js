@@ -1,23 +1,30 @@
+function getAziendeByRegione() {
+    const regione = localStorage.getItem('regione'); 
+    if (!regione) {
+        console.error('Regione non trovata nel localStorage');
+        return;
+    }
+
+    const container = document.getElementById('aziende-container');
+    container.innerHTML = ''; 
 
     
-    document.addEventListener("DOMContentLoaded", () => {
-         fetch("http://localhost:8080/api/azienda/tutteLeAziende") 
-            .then(  response => response.json())
-            .then(data => {
-                generateCards(data);
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    });
+    fetch(`http://localhost:8080/api/azienda/${regione}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Errore nel recupero delle aziende');
+            }
+            return response.json();
+        })
+        .then(data => {
+            
+            data.forEach(azienda => {
+                
+                const card = document.createElement('div');
+                card.classList.add('card', "mb-3");
 
-getAllAziende();
-function generateCards(aziende) {
-    const container = document.getElementById("aziende-container");
-    aziende.forEach(azienda => {
-        const card = document.createElement("div");
-        card.classList.add("card", "mb-3");
-        
-        card.innerHTML = `
-            <div class="row g-0 align-items-center">
+                card.innerHTML = `
+                   <div class="row g-0 align-items-center">
                 <div class="col-md-4 d-flex justify-content-center p-3">
                     <img src="${azienda.logo}" alt=" Logo" class="img-fluid rounded-start" style="max-height: 100px;">
                 </div>
@@ -29,8 +36,18 @@ function generateCards(aziende) {
                     </div>
                 </div>
             </div>
-        `;
+                `;
 
-        container.appendChild(card);
-    });
+                
+                container.appendChild(card);
+            });
+        })
+        .catch(error => {
+            console.error('Errore:', error);
+        });
 }
+
+
+window.onload = function() {
+    getAziendeByRegione();
+};

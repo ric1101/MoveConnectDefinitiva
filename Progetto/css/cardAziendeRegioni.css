@@ -28,17 +28,24 @@
         object-fit: cover; 
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
     }
     
-    /* scroll bar */
     #aziende-container {
-       margin-top: 5rem;
-        padding: 20px;
+        margin-top: 50px;
+        padding-left: 20px;
+        padding-right: 28px; /* 20px originali + 8px della scrollbar */
+        padding-bottom: 20px;
         border-radius: 8px;
-        height: 500px;
-        overflow-y: scroll; 
-        scrollbar-width: none; 
+        height: 520px;
+        overflow-y: overlay; 
+        scrollbar-width: 1px; 
     }
+    
+    #aziende-container:hover::-webkit-scrollbar {
+        width: 8px;
+    }
+    
     
     #aziende-container::-webkit-scrollbar {
         width: 0px; 

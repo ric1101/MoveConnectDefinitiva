@@ -9,15 +9,15 @@ let cap = document.querySelector('.cap');
 let mq = document.querySelector('.mq');
 let inizio = document.querySelector('.inizio');
 let fine = document.querySelector('.fine');
+let flexCheck1 = document.querySelector('#flexCheck1');
+let flexCheck2 = document.querySelector('#flexCheck2');
 let note = document.querySelector('.note');
-let mobilio = document.querySelector('.mobilio');
-let pedane = document.querySelector('.pedane');
-let altro = document.querySelector('.altro');
 
 
-let btnInvioRichiestaDeposito = document.querySelector('.btnInvioRichiestaDeposito');
+let btnInvioRichiestaOccSuoloPub = document.querySelector('.btnInvioRichiestaOccSuoloPub');
 
-class Deposito {
+
+class OccSuoloPub {
     constructor(regione,
         provincia,
         comune,
@@ -26,10 +26,9 @@ class Deposito {
         mq,
         inizio,
         fine,
+        flexCheck1,
+        flexCheck2,
         note,
-        mobilio,
-        pedane,
-        altro,
         azienda_id) {
 
         (this.regione = regione),
@@ -40,10 +39,9 @@ class Deposito {
             (this.mq = mq),
             (this.inizio = inizio),
             (this.fine = fine),
+            (this.flexCheck1 = flexCheck1),
+            (this.flexCheck2 = flexCheck2),
             (this.note = note),
-            (this.mobilio = mobilio),
-            (this.pedane = pedane),
-            (this.altro = altro),
             (this.azienda_id = azienda_id)
     }
 }
@@ -55,7 +53,7 @@ function inviaRichiesta() {
     console.log(azienda_id);
 
 
-    let nuovaRichiestaDeposito = new Deposito(
+    let nuovaRichiestaOccSuoloPub = new OccSuoloPub(
         regione.value,
         provincia.value,
         comune.value,
@@ -64,24 +62,23 @@ function inviaRichiesta() {
         mq.value,
         inizio.value,
         fine.value,
+        flexCheck1.value,
+        flexCheck2.value,
         note.value,
-        mobilio.value,
-        pedane.value,
-        altro.value,
         azienda_id
     );
 
 
 
-    console.log(nuovaRichiestaDeposito);
+    console.log(nuovaRichiestaOccSuoloPub);
 
 
-    fetch(`${azienda_id}`, { //Inserire qui la rotta
+    fetch(`http://localhost:8080/api/azienda/nuovaRichiestaSuolo/${azienda_id}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(nuovaRichiestaDeposito),
+        body: JSON.stringify(nuovaRichiestaOccSuoloPub),
 
     })
 
@@ -132,7 +129,6 @@ let regexMq = /^[1-9][0-9]?$/;
 
 function capCheck() {
 
-
     if (!cap.value.match(regexCap)) {
         invalidCap.innerHTML = 'cap non valido';
     } else {
@@ -149,7 +145,9 @@ function mqCheck() {
     } else {
         invalidMq.innerHTML = '';
     }
+
 }
+
 
 function inizioCheck() {
 
@@ -168,8 +166,22 @@ function inizioCheck() {
 }
 
 
-
 function checkCampi() {
+
+    console.log(mq.value);
+    
+
+    
+        console.log(regione.value.trim() != "");
+        console.log(provincia.value.trim() != "");
+        console.log(comune.value.trim() != "");
+        console.log(indirizzo.value.trim() != "");
+        console.log(cap.value.trim() != "" );
+        console.log(cap.value.match(regexCap));
+        console.log(mq.value.trim() != "");
+        console.log(mq.value.match(regexCap));
+        console.log(inizio.value.trim() != "");
+        console.log(fine.value.trim() != "");
 
     event.preventDefault();
     if (regione.value.trim() != "" &&
@@ -180,8 +192,8 @@ function checkCampi() {
         cap.value.match(regexCap) &&
         mq.value.trim() != "" &&
         mq.value.match(regexMq) &&
-        inizio.value.trim() != '' &&
-        fine.value.trim() != ''
+        inizio.value.trim() != "" &&
+        fine.value.trim() != ""
     ) {
 
         blankCamp.innerHTML = '';
@@ -195,7 +207,7 @@ function checkCampi() {
 
 
 }
-btnInvioRichiestaDeposito.addEventListener('click', checkCampi);
+btnInvioRichiestaOccSuoloPub.addEventListener('click', checkCampi);
 
 cap.addEventListener('keyup', capCheck);
 mq.addEventListener('keyup', mqCheck);

@@ -94,23 +94,6 @@ function inviaRichiesta() {
         azienda_id
     );
 
-    // console.log(regionePartenza.value,);
-    // console.log(provinciaPartenza.value,);
-    // console.log(comunePartenza.value,);
-    // console.log(indirizzoPartenza.value,);
-    // console.log(indirizzoDuePartenza.value,);
-    // console.log(capPartenza.value,);
-    // console.log(mq.value,);
-    // console.log(veicolo.value,);
-    // console.log(regioneArrivo.value,);
-    // console.log(provinciaArrivo.value,);
-    // console.log(comuneArrivo.value,);
-    // console.log(indirizzoArrivo.value,);
-    // console.log(indirizzoDueArrivo.value,);
-    // console.log(capArrivo.value,);
-    // console.log(carico.value,);
-    // console.log(scarico.value,);
-    // console.log(note.value);
 
     console.log(nuovaRichiestaTrasporto);
 
