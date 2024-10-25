@@ -9,8 +9,8 @@ let cap = document.querySelector('.cap');
 let mq = document.querySelector('.mq');
 let inizio = document.querySelector('.inizio');
 let fine = document.querySelector('.fine');
-let flexCheck1 = document.querySelector('#flexCheck1');
-let flexCheck2 = document.querySelector('#flexCheck2');
+let chiusuraStrada = document.querySelector('#flexCheck1');
+let cartelli = document.querySelector('#flexCheck2');
 let note = document.querySelector('.note');
 
 
@@ -26,8 +26,8 @@ class OccSuoloPub {
         mq,
         inizio,
         fine,
-        flexCheck1,
-        flexCheck2,
+        chiusuraStrada,
+        cartelli,
         note,
         azienda_id) {
 
@@ -39,8 +39,8 @@ class OccSuoloPub {
             (this.mq = mq),
             (this.inizio = inizio),
             (this.fine = fine),
-            (this.flexCheck1 = flexCheck1),
-            (this.flexCheck2 = flexCheck2),
+            (this.chiusuraStrada = chiusuraStrada),
+            (this.cartelli = cartelli),
             (this.note = note),
             (this.azienda_id = azienda_id)
     }
@@ -62,12 +62,11 @@ function inviaRichiesta() {
         mq.value,
         inizio.value,
         fine.value,
-        flexCheck1.value,
-        flexCheck2.value,
+        chiusuraStrada.value,
+        cartelli.value,
         note.value,
         azienda_id
     );
-
 
 
     console.log(nuovaRichiestaOccSuoloPub);
@@ -168,22 +167,9 @@ function inizioCheck() {
 
 function checkCampi() {
 
-    console.log(mq.value);
-    
-
-    
-        console.log(regione.value.trim() != "");
-        console.log(provincia.value.trim() != "");
-        console.log(comune.value.trim() != "");
-        console.log(indirizzo.value.trim() != "");
-        console.log(cap.value.trim() != "" );
-        console.log(cap.value.match(regexCap));
-        console.log(mq.value.trim() != "");
-        console.log(mq.value.match(regexCap));
-        console.log(inizio.value.trim() != "");
-        console.log(fine.value.trim() != "");
 
     event.preventDefault();
+
     if (regione.value.trim() != "" &&
         provincia.value.trim() != "" &&
         comune.value.trim() != "" &&
@@ -212,3 +198,35 @@ btnInvioRichiestaOccSuoloPub.addEventListener('click', checkCampi);
 cap.addEventListener('keyup', capCheck);
 mq.addEventListener('keyup', mqCheck);
 document.addEventListener('input', inizioCheck)
+
+
+chiusuraStrada.addEventListener('change', () => {
+
+    if (chiusuraStrada.checked) {
+
+        chiusuraStrada.setAttribute('value', 'si');
+        console.log(chiusuraStrada);
+        
+    } else {
+
+        chiusuraStrada.setAttribute('value', 'no');
+        console.log(chiusuraStrada);
+
+    }
+})
+
+
+cartelli.addEventListener('change', () => {
+
+    if (cartelli.checked) {
+
+        cartelli.setAttribute('value', 'si');
+        console.log(cartelli);
+        
+    } else {
+
+        cartelli.setAttribute('value', 'no');
+        console.log(cartelli);
+
+    }
+})

@@ -128,8 +128,6 @@ function checkCampi() {
 
 
 }
-
-
 btnInvioRichiestaPersonale.addEventListener('click', checkCampi);
 
 cap.addEventListener('keyup', controllaValiditaCampi);
