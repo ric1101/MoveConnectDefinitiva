@@ -43,8 +43,8 @@
 
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-3">
-                    <label for="regioni" class="form-label">Seleziona Regione</label>
-                    <select id="regioni" class="form-select richiesti regionePartenza">
+                    <label for="regioni" class="form-label">Regione</label>
+                    <select id="regioni" class="form-select regionePartenza">
                         <option value="" disabled selected>Seleziona Regione</option>
 
                     </select>
@@ -52,8 +52,8 @@
                 </div>
 
                 <div class="col-md-3">
-                    <label for="province" class="form-label">Seleziona Provincia</label>
-                    <select id="province" class="form-select richiesti provinciaPartenza">
+                    <label for="province" class="form-label">Provincia</label>
+                    <select id="province" class="form-select provinciaPartenza">
                         <option value="" disabled selected>Seleziona Provincia</option>
 
                     </select>
@@ -63,8 +63,8 @@
             <div class="row g-3 justify-content-evenly">
 
                 <div class="col-md-3">
-                    <label for="comuni" class="form-label">Seleziona Comune</label>
-                    <select id="comuni" class="form-select richiesti comunePartenza">
+                    <label for="comuni" class="form-label">Comune</label>
+                    <select id="comuni" class="form-select comunePartenza">
                         <option value="" disabled selected>Seleziona Comune</option>
 
                     </select>
@@ -72,8 +72,8 @@
                 </div>
 
                 <div class="col-md-3">
-                    <label for="indirizzoPartenza" class="form-label">Indirizzo</label>
-                    <input type="text" class="form-control richiesti indirizzoPartenza" placeholder="Indirizzo"
+                    <label class="form-label">Indirizzo</label>
+                    <input type="text" class="form-control indirizzoPartenza" placeholder="Via Roma 5"
                         maxLength="50" required>
 
                 </div>
@@ -84,14 +84,14 @@
             <div class="row g-3 justify-content-evenly">
 
                 <div class="col-md-3">
-                    <label for="indirizzoDuePartenza" class="form-label">Indirizzo 2</label>
-                    <input type="text" class="form-control richiesti indirizzoDuePartenza" placeholder="Indirizzo Secondario" maxLength="50" required>
+                    <label class="form-label">Indirizzo Secondario</label>
+                    <input type="text" class="form-control indirizzoDuePartenza" placeholder="Via Milano 8" maxLength="50" required>
 
                 </div>
 
                 <div class="col-md-3">
-                    <label for="capPartenza" class="form-label">CAP</label>
-                    <input type="text" class="form-control richiesti capPartenza" maxLength="5" placeholder="CAP" required>
+                    <label class="form-label">CAP</label>
+                    <input type="text" class="form-control capPartenza" maxLength="5" placeholder="00015" required>
                     <div class="invalidCapPartenza text-danger">
 
                     </div>
@@ -103,7 +103,7 @@
 
                 <div class="col-md-3">
                     <label for="mq" class="form-label">Indica M3</label>
-                    <input type="text" class="form-control richiesti mq" placeholder="Indica M3" maxlength="50"
+                    <input type="text" class="form-control mq" placeholder="Indica M3" maxlength="50"
                         required>
                     <div class="invalidMq text-danger">
 
@@ -112,7 +112,7 @@
 
                 <div class="col-md-3">
                     <label for="veicolo" class="form-label">Tipologia veicolo</label>
-                    <select class="form-select richiesti tipoDiVeicolo">
+                    <select class="form-select tipoDiVeicolo">
                         <option value="" disabled selected>Seleziona tipo di veicolo</option>
                         <option>Ducato</option>
                         <option>Daily 35 quintali</option>
@@ -189,7 +189,7 @@
             <div class="row g-3 justify-content-evenly">
 
                 <div class="col-md-3">
-                    <label for="indirizzoDueArrivo" class="form-label">Indirizzo 2</label>
+                    <label for="indirizzoDueArrivo" class="form-label">Indirizzo Secondario</label>
                     <input type="text" class="form-control richiesti indirizzoDueArrivo"
                         placeholder="Indirizzo Secondario" maxLength="50" required>
 
