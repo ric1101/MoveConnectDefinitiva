@@ -26,7 +26,7 @@ function personale(dati) {
                         <td class="" data-eventoid="1">${element.provincia}</td>
                         <td class="" data-eventoid="1">${element.comune}</td>
                         <td class="" data-eventoid="1">${element.indirizzo}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark" href="">INFO</a></td>
+                        <td class="" data-eventoid="1"><a class="btn btn-dark" href="./infoRichieste.html">INFO</a></td>
                     </tr>`;
 
 

@@ -31,7 +31,7 @@ function suolo(dati) {
                         <td class="" data-eventoid="1">${element.fine}</td>
                         <td class="" data-eventoid="1">${element.chiusuraStrada}</td>
                         <td class="" data-eventoid="1">${element.cartelli}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark" href="">INFO</a></td>
+                        <td class="" data-eventoid="1"><a class="btn btn-dark" href="./infoRichieste.html">INFO</a></td>
                     </tr>`;
 
 

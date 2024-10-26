@@ -31,7 +31,7 @@ function recuperaDatiAzienda(dati) {
                 <td class="" data-eventoid="1">${element.tipoDiVeicolo}</td>
                 <td class="" data-eventoid="1">${element.carico}</td>
                 <td class="" data-eventoid="1">${element.scarico}</td>
-                <td class="" data-eventoid="1"><a class="btn btn-dark" href="">INFO</a></td>
+                <td class="" data-eventoid="1"><a class="btn btn-dark" href="./infoRichieste.html">INFO</a></td>
                 </tr>`;
 
 

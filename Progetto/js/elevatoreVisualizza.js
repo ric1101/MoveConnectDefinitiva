@@ -30,7 +30,7 @@ function elevatore(dati) {
                         <td class="" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="" data-eventoid="1">${element.inizio}</td>
                         <td class="" data-eventoid="1">${element.fine}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark" href="">INFO</a></td>
+                        <td class="" data-eventoid="1"><a class="btn btn-dark" href="./infoRichieste.html">INFO</a></td>
                     </tr>`;
 
 

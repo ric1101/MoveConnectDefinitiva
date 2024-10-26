@@ -30,7 +30,7 @@
     background-color: #fff;
     background-clip: border-box;
     border: 0 solid transparent;
-    border-radius: 0;
+    border-radius: 6px;
     margin-top:20px;
 }
 .text-muted {
@@ -79,4 +79,20 @@ ul.list-style-none li {
 
 .destra1 {
     background-color: #FF7F50;
+}
+
+.containerLogoImg {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: solid 3px coral;
+}
+
+.containerLogoImg img {
+    width: auto;
+    height: 100%;
+    margin-left: -50px;
 }

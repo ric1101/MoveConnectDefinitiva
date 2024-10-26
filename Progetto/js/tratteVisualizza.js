@@ -27,7 +27,7 @@ function tratte(dati) {
                         <td class="" data-eventoid="1">${element.giornoPartenza}</td>
                         <td class="" data-eventoid="1">${element.giornoArrivo}</td>
                         <td class="" data-eventoid="1">${element.tipoVeicolo}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark" href="">INFO</a></td>
+                        <td class="" data-eventoid="1"><a class="btn btn-dark" href="./infoRichieste.html">INFO</a></td>
                     </tr>`;
 
 

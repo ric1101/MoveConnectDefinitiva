@@ -1,137 +1,179 @@
 
 
-let dati = document.querySelector('.dati');
-let feed = document.querySelector('.feed');
-let richieste = document.querySelector('.richieste');
-let messaggi = document.querySelector('.messaggi');
+
 let colonnaInfo = document.querySelector('.colonnaInfo');
-let nomeAzienda = document.querySelector('.nomeAzienda');
-let imgAzienda = document.querySelector('.imgAzienda');
 
 function userView() {
     let idUtente = localStorage.getItem('idUtente');
-    const URLT = `http://localhost:8080/api/azienda/${idUtente}`;
-  
+    const URLT = `http://localhost:8080/api/azienda/azienda/${idUtente}`;
+
     fetch(URLT)
-      .then((res) => res.json())
-      .then((data) => {
-  
-        imgAzienda.setAttribute('src', data.logo);
-        nomeAzienda.innerHTML = data.nomeAzienda;
-        iMieiDati(data);
-        console.log(data);
-        
-      });
-  
-  }
-  userView();
+        .then((res) => res.json())
+        .then((data) => {
+
+            iMieiDati(data);
+            console.log(data);
+
+        });
+
+}
+userView()
 
 function iMieiDati(dati) {
-    
-    let visualizzaDati = `<div class="card-body destra">
-    <div class="row rowDati">
-    <div class="col-sm-3">
-    <h6 class="mb-0">Nome Azienda</h6>
-    </div>
-    <div class="col-sm-9 text-secondary">
-    ${dati.nomeAzienda}
-    </div>
-    </div>
-    <hr>
-    <div class="row rowDati">
-    <div class="col-sm-3">
-    <h6 class="mb-0">Partita IVA</h6>
-    </div>
-    <div class="col-sm-9 text-secondary">
-    ${dati.pIva}
-    </div>
-    </div>
-    <hr>
-    <div class="row rowDati">
-    <div class="col-sm-3">
-    <h6 class="mb-0">Email Aziendale</h6>
-    </div>
-    <div class="col-sm-9 text-secondary">
-    ${dati.emailAziendale}
-    </div>
-    </div>
-    <hr>
-    <div class="row rowDati">
-    <div class="col-sm-3">
-    <h6 class="mb-0">Indirizzo</h6>
-    </div>
-    <div class="col-sm-9 text-secondary">
-    ${dati.indirizzo}
-    </div>
-    </div>
-    <hr>
-    <div class="row rowDati">
-    <div class="col-sm-3">
-    <h6 class="mb-0">Numero di telefono Azienda</h6>
-    </div>
-    <div class="col-sm-9 text-secondary">
-    
-    </div>
-    </div>
-    <hr>
-    <div class="row rowDati">
-    <div class="col-sm-3">
-    <h6 class="mb-0">Nome</h6>
-    </div>
-    <div class="col-sm-9 text-secondary">
-    ${dati.nomeDipendente}
-    </div>
-    </div>
-    <hr>
-    <div class="row rowDati">
-    <div class="col-sm-3">
-    <h6 class="mb-0">Cognome</h6>
-    </div>
-    <div class="col-sm-9 text-secondary">
-    ${dati.cognomeDipendente}
-    </div>
-    </div>
-    <hr>
-    <div class="row rowDati">
-    <div class="col-sm-3">
-    <h6 class="mb-0">Data di nascita</h6>
-    </div>
-    <div class="col-sm-9 text-secondary">
-    ${dati.dataNascita}
-    </div>
-    </div>
-    <hr>
-    <div class="row rowDati">
-    <div class="col-sm-3">
-    <h6 class="mb-0">Numero di telefono Dipendente</h6>
-    </div>
-    <div class="col-sm-9 text-secondary">
-    ${dati.numeroTelefono}
-    </div>
-    </div>
-    <hr>
-    <div class="row rowDati">
-    <div class="col-sm-3">
-    <h6 class="mb-0">Email</h6>
-    </div>
-    <div class="col-sm-9 text-secondary">
-    ${dati.email}
-    </div>
-    </div>
-    </div>`;
-    
-    colonnaInfo.innerHTML = visualizzaDati;
-    
-}
-iMieiDati();
 
-dati.addEventListener('click', iMieiDati);
+    let visualizzaDati = `<div class="row gutters-sm">
+                <div class="col-lg-4 col-md-5 col-sm-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center mt-4">
+                            <div class="containerLogoImg">
+                                <img src="${dati.logo}" alt="UserImg">
+                            </div>
+                                <div class="row mt-4 mb-3">
+                                    <h2 class="col-md-12">${dati.nomeAzienda}</h2> 
+                                        
+                                </div>
+
+
+                            </div>
+                            <div class="row mt-4 mb-3 p-4 rowElenco">
+                                <a class="p-2 dati">
+                                    <h5>I miei dato</h5>
+                                </a>
+                                <a class="p-2 feed">
+                                    <h5>Feedback</h5>
+                                </a>
+                                <a class="p-2 richieste">
+                                    <h5>Visualizza richieste</h5>
+                                </a>
+                                <a class="p-2 messaggi">
+                                    <h5>Messaggi</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-7 col-sm-12 ">
+                    <div class="card mb-3">
+                        <div class="card-body destra">
+                            <div class="row rowDati">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Nome Azienda</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    ${dati.nomeAzienda}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Partita IVA</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    ${dati.pIva}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Email Aziendale</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    ${dati.emailAziendale}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Indirizzo</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    ${dati.indirizzo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Numero Aziendale</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    ${dati.numeroTelefonicoAziendale}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Nome</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    ${dati.nomeDipendente}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Cognome</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    ${dati.cognomeDipendente}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Data di nascita</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    ${dati.dataNascita}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Numero Dipendente</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    ${dati.numeroTelefono}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Email</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    ${dati.email}
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>`;
+
+    colonnaInfo.innerHTML = visualizzaDati;
+
+
+    let dato = document.querySelector('.dati');
+    let feed = document.querySelector('.feed');
+    let richieste = document.querySelector('.richieste');
+    let messaggi = document.querySelector('.messaggi');
+
+}
+
+
+
+
+dato.addEventListener('click', iMieiDati);
 
 
 
 function feedback() {
-    
-    let feedbackVisualizza = `<div class="card-body destra">
+
+    let destra = document.querySelector('.destra');
+
+    let feedbackVisualizza = `<div class="card-body">
     <div class="container">
     <div class="row">
     <div class="col-lg-12">
@@ -292,7 +334,7 @@ function feedback() {
         </div>
         `;
 
-        colonnaInfo.innerHTML = feedbackVisualizza;
+    destra.innerHTML = feedbackVisualizza;
 
 }
 
@@ -392,16 +434,16 @@ function leMieRichieste() {
 
                             `;
 
-                            colonnaInfo.innerHTML = visualizzaRichieste;
+    colonnaInfo.innerHTML = visualizzaRichieste;
 
 }
 
-richieste.addEventListener('click', leMieRichieste);
+// richieste.addEventListener('click', leMieRichieste);
 
 
 
 function iMieiMessaggi() {
-    
+
     let visualizzaMessaggi = `<div class="card-body destra1">
     <section style="background-color: #1B2023">
     <div class="container py-5">
@@ -475,10 +517,10 @@ function iMieiMessaggi() {
   </section>
   </div>`;
 
-  colonnaInfo.innerHTML = visualizzaMessaggi;
+    colonnaInfo.innerHTML = visualizzaMessaggi;
 
 }
 
-messaggi.addEventListener('click', iMieiMessaggi);
+// messaggi.addEventListener('click', iMieiMessaggi);
 
 
