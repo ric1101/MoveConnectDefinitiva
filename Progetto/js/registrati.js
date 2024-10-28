@@ -9,7 +9,7 @@ let indirizzo = document.querySelector(".indirizzo");
 let cap = document.querySelector(".cap");
 let pIva = document.querySelector("#partitaIva");
 let emailAziendale = document.querySelector("#emailAziendale");
-let numeroTelefonoAziendale = document.querySelector("#numeroTelefonoAziendale");
+let numeroTelefonicoAziendale = document.querySelector("#numeroTelefonoAziendale");
 let nomeDipendente = document.querySelector("#nome");
 let cognomeDipendente = document.querySelector("#cognome");
 let dataNascita = document.querySelector("#dataNascita");
@@ -50,7 +50,7 @@ class Azienda {
     cap,
     pIva,
     emailAziendale,
-    numeroTelefonoAziendale,
+    numeroTelefonicoAziendale,
     nomeDipendente,
     cognomeDipendente,
     dataNascita,
@@ -67,7 +67,7 @@ class Azienda {
       (this.cap = cap),
       (this.pIva = pIva),
       (this.emailAziendale = emailAziendale),
-      (this.numeroTelefonoAziendale = numeroTelefonoAziendale),
+      (this.numeroTelefonicoAziendale = numeroTelefonicoAziendale),
       (this.nomeDipendente = nomeDipendente),
       (this.cognomeDipendente = cognomeDipendente),
       (this.dataNascita = dataNascita),
@@ -92,7 +92,7 @@ function registrazioneAzienda() {
     cap.value,
     pIva.value,
     emailAziendale.value,
-    numeroTelefonoAziendale.value,
+    numeroTelefonicoAziendale.value,
     nomeDipendente.value,
     cognomeDipendente.value,
     dataNascita.value,
@@ -276,7 +276,7 @@ function pIvaCheck() {
 
 function numTelAzCheck() {
 
-  if (!numeroTelefonoAziendale.value.match(regexNumTel)) {
+  if (!numeroTelefonicoAziendale.value.match(regexNumTel)) {
     let numAzErr = 'numero aziendale non valido';
     invalidNumTelAz.innerHTML = numAzErr;
   } else {
@@ -336,7 +336,7 @@ function controlloDati() {
     cap.value.trim() != "" &&
     pIva.value.trim() != "" &&
     emailAziendale.value.trim() != "" &&
-    numeroTelefonoAziendale.value.trim() != "" &&
+    numeroTelefonicoAziendale.value.trim() != "" &&
     nomeDipendente.value.trim() != "" &&
     cognomeDipendente.value.trim() != "" &&
     dataNascita.value.trim() != "" &&
@@ -348,7 +348,7 @@ function controlloDati() {
     emailAziendale.value.match(regexEMAIL) &&
     email.value.match(regexEMAIL) &&
     pIva.value.match(regexPIva) &&
-    numeroTelefonoAziendale.value.match(regexNumTel) &&
+    numeroTelefonicoAziendale.value.match(regexNumTel) &&
     numeroTelefono.value.match(regexNumTel) &&
     checkboxPrivacy.checked &&
     checkboxCookie.checked) {
@@ -392,7 +392,7 @@ cap.addEventListener('keyup', capCheck)
 email.addEventListener('keyup', emailDipCheck);
 emailAziendale.addEventListener('keyup', emailAzCheck);
 pIva.addEventListener('keyup', pIvaCheck);
-numeroTelefonoAziendale.addEventListener('keyup', numTelAzCheck);
+numeroTelefonicoAziendale.addEventListener('keyup', numTelAzCheck);
 numeroTelefono.addEventListener('keyup', numTelDipCheck);
 
 
