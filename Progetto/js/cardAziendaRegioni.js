@@ -6,7 +6,7 @@ function getAziendeByRegione() {
     }
 
     const container = document.getElementById('aziende-container');
-    container.innerHTML = ''; 
+    
 
     
     fetch(`http://localhost:8080/api/azienda/${regione}`)

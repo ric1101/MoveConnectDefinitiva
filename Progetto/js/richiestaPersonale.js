@@ -71,7 +71,7 @@ function inviaRichiesta() {
     console.log(nuovaRichiestaPersonale);
 
 
-    fetch(`${azienda_id}`, {  //Inserire qui la rotta
+    fetch(`http://127.0.0.1:8080/api/azienda/personale/${azienda_id}`, {  //Inserire qui la rotta
         method: "POST",
         headers: {
             "Content-Type": "application/json",

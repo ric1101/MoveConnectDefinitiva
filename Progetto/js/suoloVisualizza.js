@@ -9,7 +9,7 @@ fetch(URLB)
 
         console.log(data);
         suolo(data);
-
+        ascolto();
     });
 
 
@@ -31,7 +31,7 @@ function suolo(dati) {
                         <td class="" data-eventoid="1">${element.fine}</td>
                         <td class="" data-eventoid="1">${element.chiusuraStrada}</td>
                         <td class="" data-eventoid="1">${element.cartelli}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark" href="./infoRichieste.html">INFO</a></td>
+                        <td class="" data-eventoid="1"><a class="btn btn-dark linkSuolo" data-evento-id="${element.id}" href="./infoRichiesteSuoloPub.html">INFO</a></td>
                     </tr>`;
 
 
@@ -42,3 +42,19 @@ function suolo(dati) {
 
 }
 
+
+
+
+function ascolto() {
+    
+    let linkSuolo = document.querySelectorAll('.linkSuolo');
+
+    linkSuolo.forEach(element => {
+        element.addEventListener('click', () => {
+            let idElement = element.getAttribute('data-evento-id');
+            localStorage.setItem('data-evento-id', idElement);
+        })
+    });
+
+
+}
