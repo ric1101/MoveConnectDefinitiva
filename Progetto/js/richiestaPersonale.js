@@ -8,10 +8,10 @@ let indirizzo = document.querySelector('.indirizzo');
 let indirizzoDue = document.querySelector('.indirizzoDue');
 let cap = document.querySelector('.cap');
 let note = document.querySelector('.note');
-let facchini = document.querySelector('.facchini');
-let autisti = document.querySelector('.autisti');
-let montatori = document.querySelector('.montatori');
-let falegnami = document.querySelector('.falegnami');
+let operatore = document.querySelector('.facchini');
+let autista = document.querySelector('.autisti');
+let montatore = document.querySelector('.montatori');
+let falegname = document.querySelector('.falegnami');
 
 let btnInvioRichiestaImballi = document.querySelector('.btnInvioRichiestaPersonale');
 
@@ -23,10 +23,10 @@ class Personale {
         indirizzoDue,
         cap,
         note,
-        facchini,
-        autisti,
-        montatori,
-        falegnami,
+        operatore,
+        autista,
+        montatore,
+        falegname,
         azienda_id) {
 
         (this.regione = regione),
@@ -36,10 +36,10 @@ class Personale {
             (this.indirizzoDue = indirizzoDue),
             (this.cap = cap),
             (this.note = note),
-            (this.facchini = facchini),
-            (this.autisti = autisti),
-            (this.montatori = montatori),
-            (this.falegnami = falegnami),
+            (this.operatore = operatore),
+            (this.autista = autista),
+            (this.montatore = montatore),
+            (this.falegname = falegname),
             (this.azienda_id = azienda_id)
     }
 }
@@ -59,10 +59,10 @@ function inviaRichiesta() {
         indirizzoDue.value,
         cap.value,
         note.value,
-        facchini.value,
-        autisti.value,
-        montatori.value,
-        falegnami.value,
+        operatore.value,
+        autista.value,
+        montatore.value,
+        falegname.value,
         azienda_id
     );
 
