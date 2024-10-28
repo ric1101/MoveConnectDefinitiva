@@ -20,15 +20,22 @@ function suoloInfo(dati) {
     let visualizzaInfo = `
     <div class="col-lg-2"></div>
     <div class="col-lg-8">
-                    <div class="card mb-4 flex-row">
-                        <div class="card-body col-lg-6 d-flex flex-column justify-content-center">
+                    <div class="card mb-4 flex-row text-center">
+                        <div class="card-body col-lg-6 flex-column justify-content-center">
                             <div class="containerLogoImg">
                                     <img src="${dati.azienda.logo}" alt="UserImg" class="imgAzienda">
                                 </div>
-                            <h5 class="my-3">${dati.azienda.nomeAzienda}</h5>
+                            <h2 class="my-3 fw-bold">${dati.azienda.nomeAzienda}</h2>
                         </div>
-                         <div class="col-lg-6">
-                            <h5>numero telefono: </h5>
+                         <div class="card-body col-lg-6">
+                            <h5 class="fw-bold mt-3">Numero Telefono: </h5>
+                            <p>${dati.azienda.numeroTelefono}</p>
+                            <h5 class="fw-bold">Email Aziendale: </h5>
+                            <p>${dati.azienda.emailAziendale}</p>
+                            <h5 class="fw-bold">P. Iva: </h5>
+                            <p>${dati.azienda.pIva}</p>
+                            <h5 class="fw-bold">Indirizzo: </h5>
+                            <p>${dati.azienda.indirizzo + ',' + dati.azienda.comune + ',' + dati.azienda.cap }</p>
                         </div>
                     </div>
                        
@@ -42,7 +49,7 @@ function suoloInfo(dati) {
                             <div class="card-body">
                                 <div class="row p-2 mx-5">
                                     <div class=" col-sm-6">
-                                        <p class="mb-0">#</p>
+                                        <p class="mb-0 fw-bold">#ID richiesta</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.id}</p>
@@ -51,7 +58,7 @@ function suoloInfo(dati) {
                                 <hr>
                                 <div class="row p-2 mx-5">
                                     <div class="col-sm-6">
-                                        <p class="mb-0">Regione</p>
+                                        <p class="mb-0 fw-bold">Regione</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.regione}</p>
@@ -60,7 +67,7 @@ function suoloInfo(dati) {
                                 <hr>
                                 <div class="row p-2 mx-5">
                                     <div class="col-sm-6">
-                                        <p class="mb-0">Provincia</p>
+                                        <p class="mb-0 fw-bold">Provincia</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.provincia}</p>
@@ -69,7 +76,7 @@ function suoloInfo(dati) {
                                 <hr>
                                 <div class="row p-2 mx-5">
                                     <div class="col-sm-6">
-                                        <p class="mb-0">Comune</p>
+                                        <p class="mb-0 fw-bold">Comune</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.comune}</p>
@@ -78,7 +85,7 @@ function suoloInfo(dati) {
                                 <hr>
                                 <div class="row p-2 mx-5">
                                     <div class="col-sm-6">
-                                        <p class="mb-0">Indirizzo</p>
+                                        <p class="mb-0 fw-bold">Indirizzo</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.indirizzo}</p>
@@ -87,7 +94,7 @@ function suoloInfo(dati) {
                                 <hr>
                                 <div class="row p-2 mx-5">
                                     <div class="col-sm-6">
-                                        <p class="mb-0">Cap</p>
+                                        <p class="mb-0 fw-bold">Cap</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.cap}</p>
@@ -96,7 +103,7 @@ function suoloInfo(dati) {
                                 <hr>
                                 <div class="row p-2 mx-5">
                                     <div class="col-sm-6">
-                                        <p class="mb-0">Mq</p>
+                                        <p class="mb-0 fw-bold">Mq</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.mq}</p>
@@ -105,7 +112,7 @@ function suoloInfo(dati) {
                                 <hr>
                                 <div class="row p-2 mx-5">
                                     <div class="col-sm-6">
-                                        <p class="mb-0">Inizio</p>
+                                        <p class="mb-0 fw-bold">Inizio</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.inizio}</p>
@@ -114,7 +121,7 @@ function suoloInfo(dati) {
                                 <hr>
                                 <div class="row p-2 mx-5">
                                     <div class="col-sm-6">
-                                        <p class="mb-0">Fine</p>
+                                        <p class="mb-0 fw-bold">Fine</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.fine}</p>
@@ -123,7 +130,7 @@ function suoloInfo(dati) {
                                 <hr>
                                 <div class="row p-2 mx-5">
                                     <div class="col-sm-6">
-                                        <p class="mb-0">Chiusura Strada</p>
+                                        <p class="mb-0 fw-bold">Chiusura Strada</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.chiusuraStrada}</p>
@@ -132,25 +139,36 @@ function suoloInfo(dati) {
                                 <hr>
                                 <div class="row p-2 mx-5">
                                     <div class="col-sm-6">
-                                        <p class="mb-0">Cartelli</p>
+                                        <p class="mb-0 fw-bold">Cartelli</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.cartelli}</p>
                                     </div>
                                 </div>
-                                <hr>
-                                <div class="row p-2 mx-5">
-                                    <div class="col-sm-6">
-                                        <p class="mb-0">Note</p>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+                <div class="row">
+                 <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="card mb-4 mb-md-0">
+                            <div class="card-body">
+                                <div class="row flex-column p-2 mx-5">
+                                    <div class="col-sm-12 p-3">
+                                        <p class="mb-0 fw-bold">Note</p>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12 p-3">
                                         <p class="text-muted mb-0">${dati.note}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2"></div>
+                    <div class="col-md-3"></div>
                 </div>`;
 
                 colonnaInfo.innerHTML = visualizzaInfo;
