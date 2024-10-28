@@ -1,6 +1,13 @@
+userView();
 
 
 
+let dato = document.querySelector('.dati');
+let feed = document.querySelector('.feed');
+let richieste = document.querySelector('.richieste');
+let messaggi = document.querySelector('.messaggi');
+let nomeAzienda = document.querySelector('.nomeAzienda');
+let imgAzienda = document.querySelector('.imgAzienda');
 let colonnaInfo = document.querySelector('.colonnaInfo');
 
 function userView() {
@@ -11,51 +18,21 @@ function userView() {
         .then((res) => res.json())
         .then((data) => {
 
+
+            imgAzienda.setAttribute('src', data.logo);
+            
+            nomeAzienda.innerHTML = data.nomeAzienda;
             iMieiDati(data);
             console.log(data);
 
         });
 
 }
-userView()
+
 
 function iMieiDati(dati) {
 
-    let visualizzaDati = `<div class="row gutters-sm">
-                <div class="col-lg-4 col-md-5 col-sm-12 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex flex-column align-items-center text-center mt-4">
-                            <div class="containerLogoImg">
-                                <img src="${dati.logo}" alt="UserImg">
-                            </div>
-                                <div class="row mt-4 mb-3">
-                                    <h2 class="col-md-12">${dati.nomeAzienda}</h2> 
-                                        
-                                </div>
-
-
-                            </div>
-                            <div class="row mt-4 mb-3 p-4 rowElenco">
-                                <a class="p-2 dati">
-                                    <h5>I miei dato</h5>
-                                </a>
-                                <a class="p-2 feed">
-                                    <h5>Feedback</h5>
-                                </a>
-                                <a class="p-2 richieste">
-                                    <h5>Visualizza richieste</h5>
-                                </a>
-                                <a class="p-2 messaggi">
-                                    <h5>Messaggi</h5>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-7 col-sm-12 ">
-                    <div class="card mb-3">
-                        <div class="card-body destra">
+    let visualizzaDati = `<div class="card-body destra">
                             <div class="row rowDati">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Nome Azienda</h6>
@@ -150,22 +127,25 @@ function iMieiDati(dati) {
 
                     </div>
                 </div>
-            </div>`;
+            </div>`;         
+                            
 
     colonnaInfo.innerHTML = visualizzaDati;
-
-
-    let dato = document.querySelector('.dati');
-    let feed = document.querySelector('.feed');
-    let richieste = document.querySelector('.richieste');
-    let messaggi = document.querySelector('.messaggi');
 
 }
 
 
 
 
-dato.addEventListener('click', iMieiDati);
+document.addEventListener("DOMContentLoaded", function () {
+
+    if (dato) {
+        console.log('ciao');
+
+        dato.addEventListener('click', userView);
+    }
+});
+
 
 
 
@@ -173,7 +153,10 @@ function feedback() {
 
     let destra = document.querySelector('.destra');
 
-    let feedbackVisualizza = `<div class="card-body">
+    console.log('ciao');
+
+
+    let feedbackVisualizza = `<div class="card-body destra">
     <div class="container">
     <div class="row">
     <div class="col-lg-12">
@@ -334,11 +317,17 @@ function feedback() {
         </div>
         `;
 
-    destra.innerHTML = feedbackVisualizza;
+        colonnaInfo.innerHTML = feedbackVisualizza;
 
 }
 
-feed.addEventListener('click', feedback);
+
+
+if (feed) {
+
+    feed.addEventListener('click', feedback);
+}
+
 
 function leMieRichieste() {
 
@@ -438,7 +427,11 @@ function leMieRichieste() {
 
 }
 
-// richieste.addEventListener('click', leMieRichieste);
+if (richieste) {
+
+    richieste.addEventListener('click', leMieRichieste);
+}
+
 
 
 
@@ -521,6 +514,9 @@ function iMieiMessaggi() {
 
 }
 
-// messaggi.addEventListener('click', iMieiMessaggi);
+if (messaggi) {
+
+    messaggi.addEventListener('click', iMieiMessaggi);
+}
 
 
