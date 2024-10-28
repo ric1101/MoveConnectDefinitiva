@@ -1,4 +1,5 @@
 
+
 let bodyTabella = document.querySelector('.bodyTabella');
 console.log(bodyTabella);
 
@@ -10,7 +11,7 @@ fetch(URLB)
 
         recuperaDatiAzienda(data)
         console.log(data);
-
+        ascolto();
 
     });
 
@@ -31,7 +32,7 @@ function recuperaDatiAzienda(dati) {
                 <td class="" data-eventoid="1">${element.tipoDiVeicolo}</td>
                 <td class="" data-eventoid="1">${element.carico}</td>
                 <td class="" data-eventoid="1">${element.scarico}</td>
-                <td class="" data-eventoid="1"><a class="btn btn-dark" href="./infoRichieste.html">INFO</a></td>
+                <td class="" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
                 </tr>`;
 
 
@@ -44,4 +45,16 @@ function recuperaDatiAzienda(dati) {
 }
 
 
+function ascolto() {
+    
+    let linkTrasporto = document.querySelectorAll('.linkTrasporto');
 
+    linkTrasporto.forEach(element => {
+        element.addEventListener('click', () => {
+            let idElement = element.getAttribute('data-evento-id');
+            localStorage.setItem('data-evento-id', idElement);
+        })
+    });
+
+
+}
