@@ -12,7 +12,6 @@ let emailAziendale = document.querySelector("#emailAziendale");
 let numeroTelefonicoAziendale = document.querySelector("#numeroTelefonoAziendale");
 let nomeDipendente = document.querySelector("#nome");
 let cognomeDipendente = document.querySelector("#cognome");
-let dataNascita = document.querySelector("#dataNascita");
 let numeroTelefono = document.querySelector("#numeroTelefono");
 let email = document.querySelector("#emailDipendente");
 let password = document.querySelector("#password");
@@ -53,7 +52,6 @@ class Azienda {
     numeroTelefonicoAziendale,
     nomeDipendente,
     cognomeDipendente,
-    dataNascita,
     numeroTelefono,
     email,
     password
@@ -70,7 +68,6 @@ class Azienda {
       (this.numeroTelefonicoAziendale = numeroTelefonicoAziendale),
       (this.nomeDipendente = nomeDipendente),
       (this.cognomeDipendente = cognomeDipendente),
-      (this.dataNascita = dataNascita),
       (this.numeroTelefono = numeroTelefono),
       (this.email = email),
       (this.password = password);
@@ -95,7 +92,6 @@ function registrazioneAzienda() {
     numeroTelefonicoAziendale.value,
     nomeDipendente.value,
     cognomeDipendente.value,
-    dataNascita.value,
     numeroTelefono.value,
     email.value,
     password.value
@@ -144,31 +140,31 @@ let regexPIva = /^[0-9]{11}$/;
 let regexNumTel = /^[0-9]{6,15}/;
 const regexEMAIL = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-new Date();
-let dat = new Date();
+// new Date();
+// let dat = new Date();
 
-//--------------------------------------//
+// //--------------------------------------//
 
-let ggMin = dat.getDate() + 1;
-let mmMin = (dat.getMonth() + 1);
-let aaMin = dat.getFullYear() - 75;
+// let ggMin = dat.getDate() + 1;
+// let mmMin = (dat.getMonth() + 1);
+// let aaMin = dat.getFullYear() - 75;
 
-let dataMin = aaMin + "-" + mmMin + "-" + ggMin;
-console.log(dataMin);
+// let dataMin = aaMin + "-" + mmMin + "-" + ggMin;
+// console.log(dataMin);
 
-//--------------------------------------//
+// //--------------------------------------//
 
-let ggMax = dat.getDate() + 1;
-let mmMax = (dat.getMonth() + 1);
-let aaMax = dat.getFullYear() - 18;
+// let ggMax = dat.getDate() + 1;
+// let mmMax = (dat.getMonth() + 1);
+// let aaMax = dat.getFullYear() - 18;
 
-let dataMax = aaMax + "-" + mmMax + "-" + ggMax;
-console.log(dataMax);
+// let dataMax = aaMax + "-" + mmMax + "-" + ggMax;
+// console.log(dataMax);
 
-//--------------------------------------//
+// //--------------------------------------//
 
-dataNascita.setAttribute('min', dataMin)
-dataNascita.setAttribute('max', dataMax)
+// dataNascita.setAttribute('min', dataMin)
+// dataNascita.setAttribute('max', dataMax)
 
 
 
@@ -339,7 +335,6 @@ function controlloDati() {
     numeroTelefonicoAziendale.value.trim() != "" &&
     nomeDipendente.value.trim() != "" &&
     cognomeDipendente.value.trim() != "" &&
-    dataNascita.value.trim() != "" &&
     numeroTelefono.value.trim != "" &&
     email.value.trim() != "" &&
     password.value.trim() != "" &&

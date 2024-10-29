@@ -12,6 +12,10 @@ let imballi1 = document.querySelector('.imballi1');
 let imballi2 = document.querySelector('.imballi2');
 let imballi3 = document.querySelector('.imballi3');
 let imballi4 = document.querySelector('.imballi4');
+let imballi5 = document.querySelector('.imballi5');
+let imballi6 = document.querySelector('.imballi6');
+let imballi7 = document.querySelector('.imballi7');
+let imballi8 = document.querySelector('.imballi8');
 
 let btnInvioRichiestaImballi = document.querySelector('.btnInvioRichiestaImballi');
 
@@ -27,6 +31,10 @@ class Imballi {
         imballi2,
         imballi3,
         imballi4,
+        imballi5,
+        imballi6,
+        imballi7,
+        imballi8,
         azienda_id) {
 
         (this.regione = regione),
@@ -40,6 +48,10 @@ class Imballi {
             (this.imballi2 = imballi2),
             (this.imballi3 = imballi3),
             (this.imballi4 = imballi4),
+            (this.imballi5 = imballi5),
+            (this.imballi6 = imballi6),
+            (this.imballi7 = imballi7),
+            (this.imballi8 = imballi8),
             (this.azienda_id = azienda_id)
     }
 }
@@ -63,6 +75,10 @@ function inviaRichiesta() {
         imballi2.value,
         imballi3.value,
         imballi4.value,
+        imballi5.value,
+        imballi6.value,
+        imballi7.value,
+        imballi8.value,
         azienda_id
     );
 
