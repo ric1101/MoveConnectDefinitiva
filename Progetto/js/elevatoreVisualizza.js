@@ -9,7 +9,7 @@ fetch(URLB)
 
         console.log(data);
         elevatore(data);
-
+        ascolto();
     });
 
 
@@ -30,7 +30,7 @@ function elevatore(dati) {
                         <td class="" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="" data-eventoid="1">${element.inizio}</td>
                         <td class="" data-eventoid="1">${element.fine}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark" href="./infoRichieste.html">INFO</a></td>
+                        <td class="" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
                     </tr>`;
 
 
@@ -41,3 +41,16 @@ function elevatore(dati) {
 
 }
 
+function ascolto() {
+    
+    let linkElevatore = document.querySelectorAll('.linkElevatore');
+
+    linkElevatore.forEach(element => {
+        element.addEventListener('click', () => {
+            let idElement = element.getAttribute('data-evento-id');
+            localStorage.setItem('data-evento-id', idElement);
+        })
+    });
+
+
+}

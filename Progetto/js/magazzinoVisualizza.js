@@ -9,7 +9,7 @@ fetch(URLB)
 
         console.log(data);
         magazzino(data);
-
+        ascolto();
     });
 
 
@@ -29,7 +29,7 @@ function magazzino(dati) {
                         <td class="" data-eventoid="1">${element.m2}</td>
                         <td class="" data-eventoid="1">${element.inizio}</td>
                         <td class="" data-eventoid="1">${element.fine}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark" href="./infoRichieste.html">INFO</a></td>
+                        <td class="" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html">INFO</a></td>
                     </tr>`;
 
 
@@ -40,3 +40,17 @@ function magazzino(dati) {
 
 }
 
+
+function ascolto() {
+    
+    let linkDeposito = document.querySelectorAll('.linkDeposito');
+
+    linkDeposito.forEach(element => {
+        element.addEventListener('click', () => {
+            let idElement = element.getAttribute('data-evento-id');
+            localStorage.setItem('data-evento-id', idElement);
+        })
+    });
+
+
+}

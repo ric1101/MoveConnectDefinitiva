@@ -5,16 +5,16 @@ let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
 
 
-fetch(`http://127.0.0.1:8080/api/richiestaSuoloPubblico/richiestaSuolo/${dataEventoId}`)
+fetch(`http://127.0.0.1:8080/api/richiesta/richiestaId/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
         console.log(data);
-        suoloInfo(data);
+        trasportoInfo(data);
 
     });
 
-function suoloInfo(dati) {
+function trasportoInfo(dati) {
     
 
     let visualizzaInfo = `
@@ -35,7 +35,7 @@ function suoloInfo(dati) {
                             <h5 class="fw-bold">P. Iva: </h5>
                             <p>${dati.azienda.pIva}</p>
                             <h5 class="fw-bold">Indirizzo: </h5>
-                            <p>${dati.azienda.indirizzo + ',' + dati.azienda.comune + ',' + dati.azienda.cap }</p>
+                            <p>${dati.azienda.indirizzo + ', ' + dati.azienda.comune + ', ' + dati.azienda.cap }</p>
                         </div>
                     </div>
                        
@@ -58,52 +58,61 @@ function suoloInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Regione</p>
+                                        <p class="mb-0 fw-bold">Regione Partenza</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.regione}</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row p-2 ">
-                                    <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Provincia</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.provincia}</p>
+                                        <p class="text-muted mb-0">${dati.regionePartenza}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Comune</p>
+                                        <p class="mb-0 fw-bold">Provincia Partenza</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.comune}</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row p-2 ">
-                                    <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Indirizzo</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.indirizzo}</p>
+                                        <p class="text-muted mb-0">${dati.provinciaPartenza}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Cap</p>
+                                        <p class="mb-0 fw-bold">Comune Partenza</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.cap}</p>
+                                        <p class="text-muted mb-0">${dati.comunePartenza}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Mq</p>
+                                        <p class="mb-0 fw-bold">Indirizzo Partenza</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.indirizzoPartenza}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Indirizzo Due Partenza</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.indirizzoDuePartenza}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Cap Partenza</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.capPartenza}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">M3</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.mq}</p>
@@ -112,40 +121,84 @@ function suoloInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Inizio</p>
+                                        <p class="mb-0 fw-bold">Tipologia Veicolo</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.inizio}</p>
+                                        <p class="text-muted mb-0">${dati.tipoDiVeicolo}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Fine</p>
+                                        <p class="mb-0 fw-bold">Regione Arrivo</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.fine}</p>
+                                        <p class="text-muted mb-0">${dati.regioneArrivo}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Chiusura Strada</p>
+                                        <p class="mb-0 fw-bold">Provincia Arrivo</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.chiusuraStrada}</p>
+                                        <p class="text-muted mb-0">${dati.provinciaArrivo}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Cartelli</p>
+                                        <p class="mb-0 fw-bold">Comune Arrivo</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.cartelli}</p>
+                                        <p class="text-muted mb-0">${dati.comuneArrivo}</p>
                                     </div>
                                 </div>
-                                
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Indirizzo Arrivo</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.indirizzoArrivo}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Indirizzo Due Arrivo</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.indirizzoDueArrivo}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Cap Arrivo</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.capArrivo}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Carico</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.carico}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Scarico</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.scarico}</p>
+                                    </div>
+                                </div>
                                 
                             </div>
                         </div>
@@ -175,9 +228,5 @@ function suoloInfo(dati) {
 
 
 }
-
-
-
-
 
 

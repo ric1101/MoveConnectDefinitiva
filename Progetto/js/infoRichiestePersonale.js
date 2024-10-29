@@ -5,16 +5,16 @@ let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
 
 
-fetch(`http://127.0.0.1:8080/api/richiestaSuoloPubblico/richiestaSuolo/${dataEventoId}`)
+fetch(`http://127.0.0.1:8080/api/personale/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
         console.log(data);
-        suoloInfo(data);
+        personaleInfo(data);
 
     });
 
-function suoloInfo(dati) {
+function personaleInfo(dati) {
     
 
     let visualizzaInfo = `
@@ -103,46 +103,37 @@ function suoloInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Mq</p>
+                                        <p class="mb-0 fw-bold">Operatori</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.mq}</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row p-2 ">
-                                    <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Inizio</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.inizio}</p>
+                                        <p class="text-muted mb-0">${dati.operatore}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Fine</p>
+                                        <p class="mb-0 fw-bold">Autisti</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.fine}</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row p-2 ">
-                                    <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Chiusura Strada</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.chiusuraStrada}</p>
+                                        <p class="text-muted mb-0">${dati.autista}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Cartelli</p>
+                                        <p class="mb-0 fw-bold">Montatori</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.cartelli}</p>
+                                        <p class="text-muted mb-0">${dati.montatore}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Falegnami</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.falegname}</p>
                                     </div>
                                 </div>
                                 

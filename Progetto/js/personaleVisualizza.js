@@ -9,7 +9,7 @@ fetch(URLB)
 
         console.log(data);
         personale(data);
-
+        ascolto();
     });
 
                               
@@ -26,7 +26,7 @@ function personale(dati) {
                         <td class="" data-eventoid="1">${element.provincia}</td>
                         <td class="" data-eventoid="1">${element.comune}</td>
                         <td class="" data-eventoid="1">${element.indirizzo}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark" href="./infoRichieste.html">INFO</a></td>
+                        <td class="" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}"  href="./infoRichiestePersonale.html">INFO</a></td>
                     </tr>`;
 
 
@@ -37,3 +37,17 @@ function personale(dati) {
 
 }
 
+
+function ascolto() {
+    
+    let linkPersonale = document.querySelectorAll('.linkPersonale');
+
+    linkPersonale.forEach(element => {
+        element.addEventListener('click', () => {
+            let idElement = element.getAttribute('data-evento-id');
+            localStorage.setItem('data-evento-id', idElement);
+        })
+    });
+
+
+}

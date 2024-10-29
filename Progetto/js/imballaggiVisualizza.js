@@ -9,7 +9,7 @@ fetch(URLB)
 
         console.log(data);
         imballaggi(data);
-
+        ascolto();
     });
 
 
@@ -27,7 +27,7 @@ function imballaggi(dati) {
                         <td class="" data-eventoid="1">${element.provincia}</td>
                         <td class="" data-eventoid="1">${element.comune}</td>
                         <td class="" data-eventoid="1">${element.indirizzo}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark" href="./infoRichieste.html">INFO</a></td>
+                        <td class="" data-eventoid="1"><a class="btn btn-dark linkImballi" data-evento-id="${element.id}" href="./infoRichiesteImballi.html">INFO</a></td>
                     </tr>`;
 
 
@@ -38,3 +38,18 @@ function imballaggi(dati) {
 
 }
 
+
+
+function ascolto() {
+    
+    let linkImballi = document.querySelectorAll('.linkImballi');
+
+    linkImballi.forEach(element => {
+        element.addEventListener('click', () => {
+            let idElement = element.getAttribute('data-evento-id');
+            localStorage.setItem('data-evento-id', idElement);
+        })
+    });
+
+
+}

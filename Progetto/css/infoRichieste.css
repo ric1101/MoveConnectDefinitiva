@@ -22,3 +22,17 @@
     margin-left: -50px;
 }
 
+.rowes {
+    display: flex;
+    flex-direction: row;
+}
+
+
+@media (max-width: 768px) {
+    
+    .rowes {
+        display: flex;
+        flex-direction: column;
+    }
+
+}

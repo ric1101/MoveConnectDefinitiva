@@ -5,16 +5,16 @@ let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
 
 
-fetch(`http://127.0.0.1:8080/api/richiestaSuoloPubblico/richiestaSuolo/${dataEventoId}`)
+fetch(`${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
         console.log(data);
-        suoloInfo(data);
+        imballiInfo(data);
 
     });
 
-function suoloInfo(dati) {
+function imballiInfo(dati) {
     
 
     let visualizzaInfo = `
@@ -103,49 +103,40 @@ function suoloInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Mq</p>
+                                        <p class="mb-0 fw-bold">imballo1</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.mq}</p>
+                                        <p class="text-muted mb-0">${dati.imballo1}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Inizio</p>
+                                        <p class="mb-0 fw-bold">imballo2</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.inizio}</p>
+                                        <p class="text-muted mb-0">${dati.imballo2}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Fine</p>
+                                        <p class="mb-0 fw-bold">imballo3</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.fine}</p>
+                                        <p class="text-muted mb-0">${dati.imballo3}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Chiusura Strada</p>
+                                        <p class="mb-0 fw-bold">imballo4</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.chiusuraStrada}</p>
+                                        <p class="text-muted mb-0">${dati.imballo4}</p>
                                     </div>
                                 </div>
-                                <hr>
-                                <div class="row p-2 ">
-                                    <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Cartelli</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.cartelli}</p>
-                                    </div>
-                                </div>
-                                
+            
                                 
                             </div>
                         </div>
@@ -175,9 +166,6 @@ function suoloInfo(dati) {
 
 
 }
-
-
-
 
 
 

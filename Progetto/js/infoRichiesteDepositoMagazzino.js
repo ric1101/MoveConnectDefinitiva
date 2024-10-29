@@ -5,16 +5,16 @@ let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
 
 
-fetch(`http://127.0.0.1:8080/api/richiestaSuoloPubblico/richiestaSuolo/${dataEventoId}`)
+fetch(`${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
         console.log(data);
-        suoloInfo(data);
+        depositoInfo(data);
 
     });
 
-function suoloInfo(dati) {
+function depositoInfo(dati) {
     
 
     let visualizzaInfo = `
@@ -103,7 +103,7 @@ function suoloInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Mq</p>
+                                        <p class="mb-0 fw-bold">MQ</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.mq}</p>
@@ -130,21 +130,31 @@ function suoloInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Chiusura Strada</p>
+                                        <p class="mb-0 fw-bold">Mobilio</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.chiusuraStrada}</p>
+                                        <p class="text-muted mb-0">${dati.mobilio}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Cartelli</p>
+                                        <p class="mb-0 fw-bold">Pedane</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.cartelli}</p>
+                                        <p class="text-muted mb-0">${dati.pedane}</p>
                                     </div>
                                 </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Altro</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.altro}</p>
+                                    </div>
+                                </div>
+                                
                                 
                                 
                             </div>

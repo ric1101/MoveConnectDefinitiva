@@ -5,16 +5,16 @@ let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
 
 
-fetch(`http://127.0.0.1:8080/api/richiestaSuoloPubblico/richiestaSuolo/${dataEventoId}`)
+fetch(`http://127.0.0.1:8080/api/scala/scalaId/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
         console.log(data);
-        suoloInfo(data);
+        elevatoreInfo(data);
 
     });
 
-function suoloInfo(dati) {
+function elevatoreInfo(dati) {
     
 
     let visualizzaInfo = `
@@ -94,6 +94,15 @@ function suoloInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Indirizzo Secondario</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.indirizzoDue}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
                                         <p class="mb-0 fw-bold">Cap</p>
                                     </div>
                                     <div class="col-sm-6">
@@ -103,10 +112,19 @@ function suoloInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Mq</p>
+                                        <p class="mb-0 fw-bold">Tipo Di Scala</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.mq}</p>
+                                        <p class="text-muted mb-0">${dati.tipoDiScala}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Peso Massimo</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.pesoMassimo}</p>
                                     </div>
                                 </div>
                                 <hr>
@@ -125,24 +143,6 @@ function suoloInfo(dati) {
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.fine}</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row p-2 ">
-                                    <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Chiusura Strada</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.chiusuraStrada}</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row p-2 ">
-                                    <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Cartelli</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.cartelli}</p>
                                     </div>
                                 </div>
                                 
@@ -175,9 +175,6 @@ function suoloInfo(dati) {
 
 
 }
-
-
-
 
 
 
