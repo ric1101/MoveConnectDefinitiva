@@ -9,7 +9,7 @@ fetch(URLB)
 
         console.log(data);
         tratte(data);
-
+        ascolto();
     });
 
                               
@@ -27,7 +27,7 @@ function tratte(dati) {
                         <td class="" data-eventoid="1">${element.giornoPartenza}</td>
                         <td class="" data-eventoid="1">${element.giornoArrivo}</td>
                         <td class="" data-eventoid="1">${element.tipoVeicolo}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark" href="./infoRichieste.html">INFO</a></td>
+                        <td class="" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiesteTratte.html">INFO</a></td>
                     </tr>`;
 
 
@@ -38,3 +38,18 @@ function tratte(dati) {
 
 }
 
+
+
+function ascolto() {
+    
+    let linkTratte = document.querySelectorAll('.linkTratte');
+
+    linkTratte.forEach(element => {
+        element.addEventListener('click', () => {
+            let idElement = element.getAttribute('data-evento-id');
+            localStorage.setItem('data-evento-id', idElement);
+        })
+    });
+
+
+}
