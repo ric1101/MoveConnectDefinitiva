@@ -13,7 +13,7 @@ let numeroTelefonicoAziendale = document.querySelector("#numeroTelefonoAziendale
 let nomeDipendente = document.querySelector("#nome");
 let cognomeDipendente = document.querySelector("#cognome");
 let numeroTelefono = document.querySelector("#numeroTelefono");
-let email = document.querySelector("#emailDipendente");
+let username = document.querySelector("#emailDipendente");
 let password = document.querySelector("#password");
 let bottoneRegistrati = document.querySelector("#registrati");
 let showPassword = document.querySelector("#showPassword");
@@ -53,7 +53,7 @@ class Azienda {
     nomeDipendente,
     cognomeDipendente,
     numeroTelefono,
-    email,
+    username,
     password
   ) {
     (this.nomeAzienda = nomeAzienda),
@@ -69,7 +69,7 @@ class Azienda {
       (this.nomeDipendente = nomeDipendente),
       (this.cognomeDipendente = cognomeDipendente),
       (this.numeroTelefono = numeroTelefono),
-      (this.email = email),
+      (this.username = username),
       (this.password = password);
   }
 }
@@ -93,13 +93,13 @@ function registrazioneAzienda() {
     nomeDipendente.value,
     cognomeDipendente.value,
     numeroTelefono.value,
-    email.value,
+    username.value,
     password.value
   );
 
 
 
-  fetch("http://localhost:8080/api/azienda/inserisci", {
+  fetch("http://localhost:8080/api/azienda/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -250,7 +250,7 @@ function emailAzCheck() {
 
 function emailDipCheck() {
 
-  if (!email.value.match(regexEMAIL)) {
+  if (!username.value.match(regexEMAIL)) {
     let emailDipErr = 'email non valida';
     invalidEmailDip.innerHTML = emailDipErr;
   } else {
@@ -336,12 +336,12 @@ function controlloDati() {
     nomeDipendente.value.trim() != "" &&
     cognomeDipendente.value.trim() != "" &&
     numeroTelefono.value.trim != "" &&
-    email.value.trim() != "" &&
+    username.value.trim() != "" &&
     password.value.trim() != "" &&
     password.value.match(regexPASSWORD) &&
     cap.value.match(regexCap) &&
     emailAziendale.value.match(regexEMAIL) &&
-    email.value.match(regexEMAIL) &&
+    username.value.match(regexEMAIL) &&
     pIva.value.match(regexPIva) &&
     numeroTelefonicoAziendale.value.match(regexNumTel) &&
     numeroTelefono.value.match(regexNumTel) &&
@@ -384,7 +384,7 @@ bottoneRegistrati.addEventListener("click", () => {
 
 password.addEventListener("keyup", passwordCheck);
 cap.addEventListener('keyup', capCheck)
-email.addEventListener('keyup', emailDipCheck);
+username.addEventListener('keyup', emailDipCheck);
 emailAziendale.addEventListener('keyup', emailAzCheck);
 pIva.addEventListener('keyup', pIvaCheck);
 numeroTelefonicoAziendale.addEventListener('keyup', numTelAzCheck);

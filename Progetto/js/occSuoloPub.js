@@ -72,7 +72,7 @@ function inviaRichiesta() {
     console.log(nuovaRichiestaOccSuoloPub);
 
 
-    fetch(`http://localhost:8080/api/azienda/nuovaRichiestaSuolo/${azienda_id}`, {
+    fetch(`http://localhost:8080/api/richiesta/inserisciRichiestaSuolo/${azienda_id}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

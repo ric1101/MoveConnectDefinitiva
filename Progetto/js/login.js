@@ -1,6 +1,6 @@
 const URLOG = `http://localhost:8080/api/azienda/authenticateUsers`;
 
-let email = document.querySelector('#email');
+let username = document.querySelector('#email');
 let password = document.querySelector('#password');
 
 let errore = document.querySelector('.errore');
@@ -20,8 +20,8 @@ showPassword.addEventListener('click', toShowPassword);
 
 
 class Utente {
-    constructor(email, password) {
-        (this.email = email),
+    constructor(username, password) {
+        (this.username = username),
             (this.password = password)
     }
 }
@@ -33,7 +33,7 @@ console.log(JSON.stringify(nuovoUtente));
 function logIn() {
     event.preventDefault();
     nuovoUtente = new Utente(
-        email.value,
+        username.value,
         password.value
     );
     console.log(nuovoUtente);
