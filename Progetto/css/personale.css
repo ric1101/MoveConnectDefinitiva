@@ -34,6 +34,15 @@ body {
 #riepilogo{
     
     margin-top: 25px;
+    line-height: 2;
+    background-color: #f0f4f700;
+    border:none;
+    font-size: larger;
+}
+
+#riepilogoPers {
+    
+    margin-top: 25px;
     line-height: 4;
     background-color: #f0f4f700;
     border:none;
