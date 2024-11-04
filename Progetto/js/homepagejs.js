@@ -61,13 +61,13 @@ function navbar() {
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link button1 mx-2 text-white abb" href="abbonamenti.html">Abbonati</a>
+                        <a class="nav-link button1 mx-2 text-white abb d-none" href="abbonamenti.html">Abbonati</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link button1 mx-2 text-white" href="partners.html">Partners</a>
+                        <a class="nav-link button1 mx-2 text-white partners d-none" href="partners.html">Partners</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link button1 mx-2 text-white" href="blog.html">Blog</a>
+                        <a class="nav-link button1 mx-2 text-white blogs d-none" href="blog.html">Blog</a>
                     </li>
                 </ul>
                 <!-- Login/Signup -->
@@ -124,49 +124,70 @@ let signup = document.querySelector('.signup');
 let inserisci = document.querySelector('.inserisci');
 let visualizza = document.querySelector('.visualizza');
 let abb = document.querySelector('.abb');
+let partners = document.querySelector('.partners');
+let blogs = document.querySelector('.blogs');
 
 
 
-
-
-function logged() {
-
+document.addEventListener('DOMContentLoaded', () => {
+    // Nascondi la navbar in base all'accessToken immediatamente
     let accessToken = localStorage.getItem('accessToken');
-    console.log(accessToken);
 
-    if (accessToken != null) {
-        console.log(accessToken);
-        user.classList.remove('d-none');
-        signup.classList.add('d-none');
-        logout.classList.remove('d-none');
-        inserisci.classList.remove('d-none');
-        visualizza.classList.remove('d-none');
-        login.classList.add('d-none');
-        abb.classList.add('d-none');
-
+    if (accessToken) {
+        mostraNavbarLoggata();
+        checkToken(); // Chiama la funzione asincrona per verificare il token
     } else {
-        console.log(55);
-        user.classList.add('d-none');
-        signup.classList.remove('d-none');
-        logout.classList.add('d-none');
-        inserisci.classList.add('d-none');
-        visualizza.classList.add('d-none');
-        login.classList.remove('d-none');
-        abb.classList.remove('d-none');
-
+        mostraNavbarNonLoggata();
     }
+});
 
-
+function mostraNavbarLoggata() {
+    user.classList.remove('d-none');
+    signup.classList.add('d-none');
+    logout.classList.remove('d-none');
+    inserisci.classList.remove('d-none');
+    visualizza.classList.remove('d-none');
+    login.classList.add('d-none');
+    abb.classList.remove('d-none');
+    partners.classList.remove('d-none');
+    blogs.classList.remove('d-none');
 }
-logged();
+
+function mostraNavbarNonLoggata() {
+    user.classList.add('d-none');
+    signup.classList.remove('d-none');
+    logout.classList.add('d-none');
+    inserisci.classList.add('d-none');
+    visualizza.classList.add('d-none');
+    login.classList.remove('d-none');
+    abb.classList.remove('d-none');
+    partners.classList.remove('d-none');
+    blogs.classList.remove('d-none');
+}
+
+function checkToken() {
+    let accessToken = localStorage.getItem('accessToken');
+
+    fetch(`http://localhost:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+            mostraNavbarLoggata();
+        })
+        .catch(error => {
+            console.error("Errore:", error);
+            localStorage.removeItem('accessToken');
+            mostraNavbarNonLoggata();
+            window.location.href = 'index.html';
+        });
+}
 
 function logOut() {
     localStorage.removeItem('accessToken');
-    logged();
-
+    mostraNavbarNonLoggata();
 }
 
 logout.addEventListener('click', logOut);
+
 
 // let arrayCarrello = [];
 // let numeroArticoli = document.querySelector('#numeroArticoli');

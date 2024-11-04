@@ -8,14 +8,14 @@ let indirizzo = document.querySelector('.indirizzo');
 let indirizzoDue = document.querySelector('.indirizzoDue');
 let cap = document.querySelector('.cap');
 let note = document.querySelector('.note');
-let imballi1 = document.querySelector('.imballi1');
-let imballi2 = document.querySelector('.imballi2');
-let imballi3 = document.querySelector('.imballi3');
-let imballi4 = document.querySelector('.imballi4');
-let imballi5 = document.querySelector('.imballi5');
-let imballi6 = document.querySelector('.imballi6');
-let imballi7 = document.querySelector('.imballi7');
-let imballi8 = document.querySelector('.imballi8');
+let imballo1 = document.querySelector('.imballi1');
+let imballo2 = document.querySelector('.imballi2');
+let imballo3 = document.querySelector('.imballi3');
+let imballo4 = document.querySelector('.imballi4');
+let imballo5 = document.querySelector('.imballi5');
+let imballo6 = document.querySelector('.imballi6');
+let imballo7 = document.querySelector('.imballi7');
+let imballo8 = document.querySelector('.imballi8');
 
 let btnInvioRichiestaImballi = document.querySelector('.btnInvioRichiestaImballi');
 
@@ -27,14 +27,14 @@ class Imballi {
         indirizzoDue,
         cap,
         note,
-        imballi1,
-        imballi2,
-        imballi3,
-        imballi4,
-        imballi5,
-        imballi6,
-        imballi7,
-        imballi8,
+        imballo1,
+        imballo2,
+        imballo3,
+        imballo4,
+        imballo5,
+        imballo6,
+        imballo7,
+        imballo8,
         azienda_id) {
 
         (this.regione = regione),
@@ -44,24 +44,52 @@ class Imballi {
             (this.indirizzoDue = indirizzoDue),
             (this.cap = cap),
             (this.note = note),
-            (this.imballi1 = imballi1),
-            (this.imballi2 = imballi2),
-            (this.imballi3 = imballi3),
-            (this.imballi4 = imballi4),
-            (this.imballi5 = imballi5),
-            (this.imballi6 = imballi6),
-            (this.imballi7 = imballi7),
-            (this.imballi8 = imballi8),
+            (this.imballo1 = imballo1),
+            (this.imballo2 = imballo2),
+            (this.imballo3 = imballo3),
+            (this.imballo4 = imballo4),
+            (this.imballo5 = imballo5),
+            (this.imballo6 = imballo6),
+            (this.imballo7 = imballo7),
+            (this.imballo8 = imballo8),
             (this.azienda_id = azienda_id)
     }
 }
 
 
-function inviaRichiesta() {
+function recuperaId() {
+    
+    let accessToken = localStorage.getItem('accessToken');
+    
 
-    let azienda_id = localStorage.getItem('idUtente');
-    console.log(azienda_id);
+    fetch(`http://localhost:8080/api/azienda/fromToken?token=${accessToken}`)
+    .then((res) => res.json())
+    .then((data) => {
 
+
+            inviaRichiesta(data);
+            console.log(data);
+
+        });
+
+
+}
+
+
+
+function inviaRichiesta(dati) {
+
+    let azienda_id = dati.id;
+    console.log(imballo1.value);
+    console.log(imballo2.value);
+    console.log(imballo3.value);
+    console.log(imballo4.value);
+    console.log(imballo5.value);
+    console.log(imballo6.value);
+    console.log(imballo7.value);
+    console.log(imballo8.value);
+    
+    
 
     let nuovaRichiestaImballi = new Imballi(
         regione.value,
@@ -71,14 +99,14 @@ function inviaRichiesta() {
         indirizzoDue.value,
         cap.value,
         note.value,
-        imballi1.value,
-        imballi2.value,
-        imballi3.value,
-        imballi4.value,
-        imballi5.value,
-        imballi6.value,
-        imballi7.value,
-        imballi8.value,
+        imballo1.value,
+        imballo2.value,
+        imballo3.value,
+        imballo4.value,
+        imballo5.value,
+        imballo6.value,
+        imballo7.value,
+        imballo8.value,
         azienda_id
     );
 
@@ -87,7 +115,7 @@ function inviaRichiesta() {
     console.log(nuovaRichiestaImballi);
 
 
-    fetch(`${azienda_id}`, { //Inserire qui la rotta
+    fetch(`http://localhost:8080/api/consegnaImballi/inserisciConsegna/${azienda_id}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -135,7 +163,7 @@ function checkCampi() {
 
         blankCamp.innerHTML = '';
 
-        inviaRichiesta();
+        recuperaId();
 
     } else {
         blankCamp.innerHTML = 'riempi i campi mancanti o incompleti!';
