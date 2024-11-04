@@ -131,11 +131,11 @@ let abb = document.querySelector('.abb');
 
 function logged() {
 
-    let getIdUtente = localStorage.getItem('idUtente');
-    console.log(getIdUtente);
+    let accessToken = localStorage.getItem('accessToken');
+    console.log(accessToken);
 
-    if (getIdUtente != null) {
-        console.log(getIdUtente);
+    if (accessToken != null) {
+        console.log(accessToken);
         user.classList.remove('d-none');
         signup.classList.add('d-none');
         logout.classList.remove('d-none');
@@ -161,7 +161,7 @@ function logged() {
 logged();
 
 function logOut() {
-    localStorage.removeItem('idUtente');
+    localStorage.removeItem('accessToken');
     logged();
 
 }

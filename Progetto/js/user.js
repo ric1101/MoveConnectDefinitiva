@@ -1,7 +1,6 @@
 userView();
 
 
-
 let dato = document.querySelector('.dati');
 let feed = document.querySelector('.feed');
 let richieste = document.querySelector('.richieste');
@@ -10,17 +9,24 @@ let nomeAzienda = document.querySelector('.nomeAzienda');
 let imgAzienda = document.querySelector('.imgAzienda');
 let colonnaInfo = document.querySelector('.colonnaInfo');
 
-function userView() {
-    let idUtente = localStorage.getItem('idUtente');
-    const URLT = `http://localhost:8080/api/azienda/azienda/${idUtente}`;
 
-    fetch(URLT)
-        .then((res) => res.json())
-        .then((data) => {
+
+
+
+function userView() {
+    
+
+    let accessToken = localStorage.getItem('accessToken');
+    
+
+    fetch(`http://localhost:8080/api/azienda/fromToken?token=${accessToken}`)
+    .then((res) => res.json())
+    .then((data) => {
+
 
 
             imgAzienda.setAttribute('src', data.logo);
-            
+
             nomeAzienda.innerHTML = data.nomeAzienda;
             iMieiDati(data);
             console.log(data);
@@ -47,7 +53,7 @@ function iMieiDati(dati) {
                                     <h6 class="mb-0">Partita IVA</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    ${dati.pIva}
+                                    ${dati.piva}
                                 </div>
                             </div>
                             <hr>
@@ -98,15 +104,6 @@ function iMieiDati(dati) {
                             <hr>
                             <div class="row rowDati">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Data di nascita</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    ${dati.dataNascita}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-3">
                                     <h6 class="mb-0">Numero Dipendente</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
@@ -127,8 +124,8 @@ function iMieiDati(dati) {
 
                     </div>
                 </div>
-            </div>`;         
-                            
+            </div>`;
+
 
     colonnaInfo.innerHTML = visualizzaDati;
 
@@ -317,7 +314,7 @@ function feedback() {
         </div>
         `;
 
-        colonnaInfo.innerHTML = feedbackVisualizza;
+    colonnaInfo.innerHTML = feedbackVisualizza;
 
 }
 

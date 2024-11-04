@@ -33,7 +33,7 @@ function personaleInfo(dati) {
                             <h5 class="fw-bold">Email Aziendale: </h5>
                             <p>${dati.azienda.emailAziendale}</p>
                             <h5 class="fw-bold">P. Iva: </h5>
-                            <p>${dati.azienda.pIva}</p>
+                            <p>${dati.azienda.piva}</p>
                             <h5 class="fw-bold">Indirizzo: </h5>
                             <p>${dati.azienda.indirizzo + ',' + dati.azienda.comune + ',' + dati.azienda.cap }</p>
                         </div>

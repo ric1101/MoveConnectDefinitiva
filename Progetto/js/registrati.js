@@ -7,7 +7,7 @@ let provincia = document.querySelector(".provincia");
 let comune = document.querySelector(".comune");
 let indirizzo = document.querySelector(".indirizzo");
 let cap = document.querySelector(".cap");
-let pIva = document.querySelector("#partitaIva");
+let piva = document.querySelector("#partitaIva");
 let emailAziendale = document.querySelector("#emailAziendale");
 let numeroTelefonicoAziendale = document.querySelector("#numeroTelefonoAziendale");
 let nomeDipendente = document.querySelector("#nome");
@@ -47,7 +47,7 @@ class Azienda {
     comune,
     indirizzo,
     cap,
-    pIva,
+    piva,
     emailAziendale,
     numeroTelefonicoAziendale,
     nomeDipendente,
@@ -63,7 +63,7 @@ class Azienda {
       (this.comune = comune),
       (this.indirizzo = indirizzo),
       (this.cap = cap),
-      (this.pIva = pIva),
+      (this.piva = piva),
       (this.emailAziendale = emailAziendale),
       (this.numeroTelefonicoAziendale = numeroTelefonicoAziendale),
       (this.nomeDipendente = nomeDipendente),
@@ -87,7 +87,7 @@ function registrazioneAzienda() {
     comune.value,
     indirizzo.value,
     cap.value,
-    pIva.value,
+    piva.value,
     emailAziendale.value,
     numeroTelefonicoAziendale.value,
     nomeDipendente.value,
@@ -261,7 +261,7 @@ function emailDipCheck() {
 
 function pIvaCheck() {
 
-  if (!pIva.value.match(regexPIva)) {
+  if (!piva.value.match(regexPIva)) {
     let pIvaErr = 'partita Iva non valida';
     invalidPIva.innerHTML = pIvaErr;
   } else {
@@ -321,7 +321,7 @@ function numTelDipCheck() {
 
 function controlloDati() {
 
-  event.preventDefault();
+  // event.preventDefault();
 
   if (nomeAzienda.value.trim() != "" &&
     logo.value.trim() != "" &&
@@ -330,7 +330,7 @@ function controlloDati() {
     comune.value.trim() != "" &&
     indirizzo.value.trim() != "" &&
     cap.value.trim() != "" &&
-    pIva.value.trim() != "" &&
+    piva.value.trim() != "" &&
     emailAziendale.value.trim() != "" &&
     numeroTelefonicoAziendale.value.trim() != "" &&
     nomeDipendente.value.trim() != "" &&
@@ -342,7 +342,7 @@ function controlloDati() {
     cap.value.match(regexCap) &&
     emailAziendale.value.match(regexEMAIL) &&
     username.value.match(regexEMAIL) &&
-    pIva.value.match(regexPIva) &&
+    piva.value.match(regexPIva) &&
     numeroTelefonicoAziendale.value.match(regexNumTel) &&
     numeroTelefono.value.match(regexNumTel) &&
     checkboxPrivacy.checked &&
@@ -386,7 +386,7 @@ password.addEventListener("keyup", passwordCheck);
 cap.addEventListener('keyup', capCheck)
 username.addEventListener('keyup', emailDipCheck);
 emailAziendale.addEventListener('keyup', emailAzCheck);
-pIva.addEventListener('keyup', pIvaCheck);
+piva.addEventListener('keyup', pIvaCheck);
 numeroTelefonicoAziendale.addEventListener('keyup', numTelAzCheck);
 numeroTelefono.addEventListener('keyup', numTelDipCheck);
 

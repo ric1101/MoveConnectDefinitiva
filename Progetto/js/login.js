@@ -1,4 +1,4 @@
-const URLOG = `http://localhost:8080/api/azienda/authenticateUsers`;
+const URLOG = `http://localhost:8080/api/azienda/login`;
 
 let username = document.querySelector('#email');
 let password = document.querySelector('#password');
@@ -30,7 +30,7 @@ let nuovoUtente = {};
 
 console.log(JSON.stringify(nuovoUtente));
 
-function logIn() {
+function logIn(event) {
     event.preventDefault();
     nuovoUtente = new Utente(
         username.value,
@@ -44,35 +44,24 @@ function logIn() {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(nuovoUtente),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.accessToken) {
+            errore.innerHTML = '';
+            console.log(data.accessToken); // Questo dovrebbe mostrare il token
+            localStorage.setItem('accessToken', data.accessToken);
+            window.location.href = 'index.html';
+            
+        }
 
     })
-        .then(response => {
-            console.log(response);
+    .catch(error => {
+        console.error("Errore:", error);
+        errore.innerHTML = 'Email o password errati';
+    });
 
-            if (response.ok) {
-                fetch(`http://localhost:8080/api/azienda/email/${email.value}`)
-
-                    .then((res) => res.json())
-                    .then((data) => {
-                        console.log(data);
-                        window.location.href = 'index.html';
-                        let id = JSON.stringify(data.id);
-                        localStorage.setItem('idUtente', id);
-                        
-                    });
-                    
-                } else {
-                    errore.innerHTML = 'email o password errati';
-                }
-
-
-
-            console.log(nuovoUtente);
-
-        });
+    console.log(nuovoUtente);
 }
+
 button.addEventListener('click', logIn);
-
-
-
-
