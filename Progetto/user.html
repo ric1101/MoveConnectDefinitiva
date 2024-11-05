@@ -15,6 +15,38 @@
 </head>
 
 <body>
+    <style>
+        /* Stile personalizzato per il dropdown */
+        .custom-dropdown {
+            position: relative !important;
+            /* Rende il dropdown un elemento relativo */
+            display: block;
+            /* Lo fa comportare come un blocco normale */
+            margin-top: 0.5rem;
+            /* Aggiusta il margine superiore se necessario */
+            background-color: #e4e4e490 !important;
+        }
+
+        /* Per nascondere il dropdown fino a quando viene aperto */
+        .dropdown-menu:not(.show) {
+            display: none;
+
+        }
+
+        /* Visualizza il dropdown come blocco quando aperto */
+        .dropdown-menu.show {
+            display: block;
+            transform: none !important;
+        }
+
+        .custom-dropdown li a {
+            color: black !important;
+        }
+
+        #menu-products:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
 
     <header>
         <div class="navbarMain">
@@ -22,7 +54,7 @@
         </div>
     </header>
 
-    <div class="container mt-5">
+    <div class="container mt-5 mb-5">
         <div class="main-body">
 
             <div class="row gutters-sm">
@@ -41,58 +73,61 @@
 
                             </div>
                             <div class="row p-4 rowElenco">
-                                <a class="p-2 dati">
-                                    <h5>I miei dati</h5>
-                                </a>
-                                <a class="p-2 feed">
-                                    <h5>Feedback</h5>
-                                </a>
-                                <a class="p-2 richieste">
-                                    <h5>Visualizza richieste</h5>
-                                </a>
-                                <a class="p-2 messaggi">
-                                    <h5>Messaggi</h5>
-                                </a>
+                                <ul class="list-unstyled">
+
+                                    <li class="p-2">
+                                        <a class="dati">
+                                            <h4>I miei dati</h4>
+                                        </a>
+                                    </li>
+
+                                    <li class="p-2">
+                                        <a class="feed">
+                                            <h4>Feedback</h4>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item dropdown inserisci p-2" id="menu-products1">
+                                        <a class="nav-link dropdown-toggle button1 text-black"
+                                            style="font-size:1.5rem; margin-bottom:.5rem; line-height:1.2" href="#"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="">
+                                            Visualizza richieste
+
+                                        </a>
+                                        <ul class="dropdown-menu drop1 custom-dropdown">
+                                            <li><a class="dropdown-item text-black richiesteOccSuoloPub">Richieste Occ Suolo P.</a></li>
+                                            <li><a class="dropdown-item text-black richiesteTrasporto">Richieste Trasporto</a></li>
+                                            <li><a class="dropdown-item text-black richiesteScalaElevatore">Richieste Scala</a></li>
+                                            <li><a class="dropdown-item text-black richiesteConsegnaImballi">Richieste Imballi</a></li>
+                                            <li><a class="dropdown-item text-black richiestePersonaleSpec">Richieste Personale</a></li>
+                                            <li><a class="dropdown-item text-black richiesteDepositoMagazzino">Richieste Deposito</a></li>
+                                            <li><a class="dropdown-item text-black richiesteTratta">Richieste Tratta</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="p-2">
+                                        <a class="messaggi">
+                                            <h4>Messaggi</h4>
+                                        </a>
+                                    </li>
+
+
+                                </ul>
+
                             </div>
                         </div>
-                        
+
                     </div>
-                    <div class="card mb-4 mb-lg-0">
-                        <div class="card-body p-0">
-                            <ul class="list-group list-group-flush rounded-3">
-                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                                    <i class="fas fa-globe fa-lg text-warning"></i>
-                                    <p class="mb-0">https://mdbootstrap.com</p>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                                    <i class="fab fa-github fa-lg text-body"></i>
-                                    <p class="mb-0">mdbootstrap</p>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                                    <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
-                                    <p class="mb-0">@mdbootstrap</p>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                                    <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
-                                    <p class="mb-0">mdbootstrap</p>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                                    <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
-                                    <p class="mb-0">mdbootstrap</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="col-md-7 col-sm-12 col-lg-8">
                     <div class="card mb-3 colonnaInfo">
 
 
-
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 

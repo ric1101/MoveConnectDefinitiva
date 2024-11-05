@@ -5,7 +5,7 @@ let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
 
 
-fetch(`http://127.0.0.1:8080/api/richiesta/richiestaId/${dataEventoId}`)
+fetch(`http://127.0.0.1:8080/api/tratta/tratte/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -115,7 +115,7 @@ function tratteInfo(dati) {
                                         <p class="mb-0 fw-bold">Partenza</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.partenza}</p>
+                                        <p class="text-muted mb-0">${dati.dataPartenza}</p>
                                     </div>
                                 </div>
                                 <hr>
@@ -187,7 +187,7 @@ function tratteInfo(dati) {
                                         <p class="mb-0 fw-bold">Arrivo</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.arrivo}</p>
+                                        <p class="text-muted mb-0">${dati.dataArrivo}</p>
                                     </div>
                                 </div>
                                 

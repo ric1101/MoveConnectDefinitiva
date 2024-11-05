@@ -5,7 +5,7 @@ let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
 
 
-fetch(`http://127.0.0.1:8080/api/richiesta/richiestaId/${dataEventoId}`)
+fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/richiestaId/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 

@@ -18,6 +18,7 @@
 
 .rowDati {
     align-items: center;
+    line-height: 61px;
 }
 
 
@@ -96,3 +97,23 @@ ul.list-style-none li {
     height: 100%;
     margin-left: -50px;
 }
+
+
+.horizontal-card{
+    display: flex;
+    border:1px solid gray;
+    margin-bottom:1rem;
+    img{
+      width: 200px;
+      height: 100px;
+      border-bottom: 2px solid red;
+  
+    }
+    .horizontal-card-body{
+      display: flex;
+      flex-direction: column;
+      margin-left:1rem;
+    }
+  
+  
+  }

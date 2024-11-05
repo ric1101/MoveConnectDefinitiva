@@ -5,7 +5,7 @@ let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
 
 
-fetch(`${dataEventoId}`)
+fetch(`http://127.0.0.1:8080/api/consegnaImballi/consegnas/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -35,7 +35,7 @@ function imballiInfo(dati) {
                             <h5 class="fw-bold">P. Iva: </h5>
                             <p>${dati.azienda.piva}</p>
                             <h5 class="fw-bold">Indirizzo: </h5>
-                            <p>${dati.azienda.indirizzo + ',' + dati.azienda.comune + ',' + dati.azienda.cap }</p>
+                            <p>${dati.azienda.indirizzo + ', ' + dati.azienda.comune + ', ' + dati.azienda.cap }</p>
                         </div>
                     </div>
                        
@@ -103,7 +103,7 @@ function imballiInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">imballo1</p>
+                                        <p class="mb-0 fw-bold">Imballo tipo 1</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.imballo1}</p>
@@ -112,7 +112,7 @@ function imballiInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">imballo2</p>
+                                        <p class="mb-0 fw-bold">Imballo tipo 2</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.imballo2}</p>
@@ -121,7 +121,7 @@ function imballiInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">imballo3</p>
+                                        <p class="mb-0 fw-bold">Imballo tipo 3</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.imballo3}</p>
@@ -130,10 +130,46 @@ function imballiInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">imballo4</p>
+                                        <p class="mb-0 fw-bold">Imballo tipo 4</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.imballo4}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Imballo tipo 5</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                    <p class="text-muted mb-0">${dati.imballo5}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Imballo tipo 6</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.imballo6}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Imballo tipo 7</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.imballo7}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Imballo tipo 8</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.imballo8}</p>
                                     </div>
                                 </div>
             

@@ -3,7 +3,13 @@ userView();
 
 let dato = document.querySelector('.dati');
 let feed = document.querySelector('.feed');
-let richieste = document.querySelector('.richieste');
+let richiesteOccSuoloPub = document.querySelector('.richiesteOccSuoloPub');
+let richiesteTrasporto = document.querySelector('.richiesteTrasporto');
+let richiesteScalaElevatore = document.querySelector('.richiesteScalaElevatore');
+let richiesteConsegnaImballi = document.querySelector('.richiesteConsegnaImballi');
+let richiestePersonaleSpec = document.querySelector('.richiestePersonaleSpec');
+let richiesteDepositoMagazzino = document.querySelector('.richiesteDepositoMagazzino');
+let richiesteTratta = document.querySelector('.richiesteTratta');
 let messaggi = document.querySelector('.messaggi');
 let nomeAzienda = document.querySelector('.nomeAzienda');
 let imgAzienda = document.querySelector('.imgAzienda');
@@ -14,14 +20,14 @@ let colonnaInfo = document.querySelector('.colonnaInfo');
 
 
 function userView() {
-    
+
 
     let accessToken = localStorage.getItem('accessToken');
-    
+
 
     fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-    .then((res) => res.json())
-    .then((data) => {
+        .then((res) => res.json())
+        .then((data) => {
 
 
 
@@ -40,82 +46,82 @@ function iMieiDati(dati) {
 
     let visualizzaDati = `<div class="card-body destra">
                             <div class="row rowDati">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Nome Azienda</h6>
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Nome Azienda</h6>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
                                     ${dati.nomeAzienda}
                                 </div>
                             </div>
                             <hr>
                             <div class="row rowDati">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Partita IVA</h6>
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Partita IVA</h6>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
                                     ${dati.piva}
                                 </div>
                             </div>
                             <hr>
                             <div class="row rowDati">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Email Aziendale</h6>
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Email Aziendale</h6>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
                                     ${dati.emailAziendale}
                                 </div>
                             </div>
                             <hr>
                             <div class="row rowDati">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Indirizzo</h6>
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo</h6>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
                                     ${dati.indirizzo}
                                 </div>
                             </div>
                             <hr>
                             <div class="row rowDati">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Numero Aziendale</h6>
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Numero Aziendale</h6>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
                                     ${dati.numeroTelefonicoAziendale}
                                 </div>
                             </div>
                             <hr>
                             <div class="row rowDati">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Nome</h6>
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Nome</h6>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
                                     ${dati.nomeDipendente}
                                 </div>
                             </div>
                             <hr>
                             <div class="row rowDati">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Cognome</h6>
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Cognome</h6>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
                                     ${dati.cognomeDipendente}
                                 </div>
                             </div>
                             <hr>
                             <div class="row rowDati">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Numero Dipendente</h6>
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Numero Dipendente</h6>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
                                     ${dati.numeroTelefono}
                                 </div>
                             </div>
                             <hr>
                             <div class="row rowDati">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Email</h6>
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Email</h6>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
                                     ${dati.username}
                                 </div>
                             </div>
@@ -326,97 +332,33 @@ if (feed) {
 }
 
 
-function leMieRichieste() {
+function visualizzaRichiesteOccSuoloPub() {
 
     let visualizzaRichieste = `<div class="card-body destra">
-    <div class="row rowRichieste">
-                                <div class="col-sm-4">
-                                    <h6 class="mb-0"> <i class="fa-solid fa-envelope"></i> Richiesta nr. #<span class="numeroRichiesta">2345637</span></h6>
-                                </div>
-                                <div class="col-sm-6 testo">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam repellendus, dignissimos nisi fugit, error saepe iusto enim expedita possimus sed vero quam! Eius blanditiis deserunt fugit! Quaerat repellendus ipsum, quae officia nisi autem laboriosam eligendi delectus
-                                    </p>
-                                </div>
+                                <div class="row rowRichieste">
+                                <div class="container pb-4">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="horizontal-card">
 
-                            </div>
-                            <hr>
-                            <div class="row rowRichieste">
-                                <div class="col-sm-4">
-                                    <h6 class="mb-0"> <i class="fa-solid fa-envelope"></i> Richiesta nr. #<span class="numeroRichiesta">2345637</span></h6>
-                                </div>
-                                <div class="col-sm-6 testo">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam repellendus, dignissimos nisi fugit, error saepe iusto enim expedita possimus sed vero quam! Eius blanditiis deserunt fugit! Quaerat repellendus ipsum, quae officia nisi autem laboriosam eligendi delectus
-                                    </p>
-                                </div>
+        <img src=""/>
+        <div class="horizontal-card-body">
+          <span class="card-text">Regione</span>
+          <h4 class="card-title">Title</h4>
+          <span class="card-text">Subtitle</span>
+        </div>
+          <div class="horizontal-card-footer">
+          <span>Image Title</span>
+          <a class="card-text status">#View</a>
+          <a class="card-text status">#Save</a>
 
-                            </div>
-                            <hr>
-                            <div class="row rowRichieste">
-                                <div class="col-sm-4">
-                                    <h6 class="mb-0"> <i class="fa-solid fa-envelope"></i> Richiesta nr. #<span class="numeroRichiesta">2345637</span></h6>
-                                </div>
-                                <div class="col-sm-6 testo">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam repellendus, dignissimos nisi fugit, error saepe iusto enim expedita possimus sed vero quam! Eius blanditiis deserunt fugit! Quaerat repellendus ipsum, quae officia nisi autem laboriosam eligendi delectus
-                                    </p>
-                                </div>
+        </div>
 
-                            </div>
-                            <hr>
-                            <div class="row rowRichieste">
-                                <div class="col-sm-4">
-                                    <h6 class="mb-0"> <i class="fa-solid fa-envelope"></i> Richiesta nr. #<span class="numeroRichiesta">2345637</span></h6>
-                                </div>
-                                <div class="col-sm-6 testo">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam repellendus, dignissimos nisi fugit, error saepe iusto enim expedita possimus sed vero quam! Eius blanditiis deserunt fugit! Quaerat repellendus ipsum, quae officia nisi autem laboriosam eligendi delectus
-                                    </p>
-                                </div>
 
-                            </div>
-                            <hr>
-                            <div class="row rowRichieste">
-                                <div class="col-sm-4">
-                                    <h6 class="mb-0"> <i class="fa-solid fa-envelope"></i> Richiesta nr. #<span class="numeroRichiesta">2345637</span></h6>
-                                </div>
-                                <div class="col-sm-6 testo">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam repellendus, dignissimos nisi fugit, error saepe iusto enim expedita possimus sed vero quam! Eius blanditiis deserunt fugit! Quaerat repellendus ipsum, quae officia nisi autem laboriosam eligendi delectus
-                                    </p>
-                                </div>
-
-                            </div>
-                            <hr>
-                            <div class="row rowRichieste">
-                                <div class="col-sm-4">
-                                    <h6 class="mb-0"> <i class="fa-solid fa-envelope"></i> Richiesta nr. #<span class="numeroRichiesta">2345637</span></h6>
-                                </div>
-                                <div class="col-sm-6 testo">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam repellendus, dignissimos nisi fugit, error saepe iusto enim expedita possimus sed vero quam! Eius blanditiis deserunt fugit! Quaerat repellendus ipsum, quae officia nisi autem laboriosam eligendi delectus
-                                    </p>
-                                </div>
-
-                            </div>
-                            <hr>
-                            <div class="row rowRichieste">
-                                <div class="col-sm-4">
-                                    <h6 class="mb-0"> <i class="fa-solid fa-envelope"></i> Richiesta nr. #<span class="numeroRichiesta">2345637</span></h6>
-                                </div>
-                                <div class="col-sm-6 testo">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam repellendus, dignissimos nisi fugit, error saepe iusto enim expedita possimus sed vero quam! Eius blanditiis deserunt fugit! Quaerat repellendus ipsum, quae officia nisi autem laboriosam eligendi delectus
-                                    </p>
-                                </div>
-
-                            </div>
-                            <hr>
-                            <div class="row rowRichieste">
-                                <div class="col-sm-4">
-                                    <h6 class="mb-0"> <i class="fa-solid fa-envelope"></i> Richiesta nr. #<span class="numeroRichiesta">2345637</span></h6>
-                                </div>
-                                <div class="col-sm-6 testo">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam repellendus, dignissimos nisi fugit, error saepe iusto enim expedita possimus sed vero quam! Eius blanditiis deserunt fugit! Quaerat repellendus ipsum, quae officia nisi autem laboriosam eligendi delectus
-                                    </p>
-                                </div>
-
-                            </div>
-                            </div>
+      </div>
+      </div>
+      </div>
+      </div>
 
                             `;
 
@@ -424,9 +366,11 @@ function leMieRichieste() {
 
 }
 
-if (richieste) {
 
-    richieste.addEventListener('click', leMieRichieste);
+
+if (richiesteOccSuoloPub) {
+
+    richiesteOccSuoloPub.addEventListener('click', visualizzaRichiesteOccSuoloPub);
 }
 
 

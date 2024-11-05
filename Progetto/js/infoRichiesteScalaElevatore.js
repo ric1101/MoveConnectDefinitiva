@@ -5,7 +5,7 @@ let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
 
 
-fetch(`http://127.0.0.1:8080/api/scala/scalaId/${dataEventoId}`)
+fetch(`http://127.0.0.1:8080/api/scalaElevatore/scalaId/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -35,7 +35,7 @@ function elevatoreInfo(dati) {
                             <h5 class="fw-bold">P. Iva: </h5>
                             <p>${dati.azienda.piva}</p>
                             <h5 class="fw-bold">Indirizzo: </h5>
-                            <p>${dati.azienda.indirizzo + ',' + dati.azienda.comune + ',' + dati.azienda.cap }</p>
+                            <p>${dati.azienda.indirizzo + ', ' + dati.azienda.comune + ', ' + dati.azienda.cap }</p>
                         </div>
                     </div>
                        
