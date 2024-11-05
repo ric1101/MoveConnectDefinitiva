@@ -44,7 +44,7 @@ closeBtn.addEventListener("click", closeModal);
 
 async function getAllBlog() {
     try {
-        const response = await fetch("http://localhost:8080/api/blog/tutti")
+        const response = await fetch("http://127.0.0.1:8080/api/blog/tutti")
         const blog = await response.json();
         console.log("CIAO");
         arrayBlog = blog;
@@ -190,7 +190,7 @@ async function confermaEliminazione() {
     console.log("ID da eliminare:", eventoSelezionato); // Check the ID
     if(eventoSelezionato) { // Make sure the ID is not empty
         try {
-            const response = await fetch(`http://localhost:8080/api/blog/eliminaBlog/${eventoSelezionato}`, {
+            const response = await fetch(`http://127.0.0.1:8080/api/blog/eliminaBlog/${eventoSelezionato}`, {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json" },
             });
@@ -266,7 +266,7 @@ bottoneConfermaEliminazione.addEventListener("click", confermaEliminazione);
                 console.log(BlogCreato); // Log the created object
         
                 // Send a POST request
-                fetch('http://localhost:8080/api/blog/inserisciBlog', {
+                fetch('http://127.0.0.1:8080/api/blog/inserisciBlog', {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -295,7 +295,7 @@ bottoneConfermaEliminazione.addEventListener("click", confermaEliminazione);
 
         function modificaAzienda(oggettoAziendaModificata) {
             console.log('Dati inviati per la modifica:', oggettoAziendaModificata); // Verifica i dati qui
-            fetch('http://localhost:8080/api/blog/modificaBlog', {
+            fetch('http://127.0.0.1:8080/api/blog/modificaBlog', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

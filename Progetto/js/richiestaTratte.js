@@ -7,7 +7,7 @@ let comunePartenza = document.querySelector('.comunePartenza');
 let indirizzoPartenza = document.querySelector('.indirizzoPartenza');
 let indirizzoDuePartenza = document.querySelector('.indirizzoDuePartenza');
 let capPartenza = document.querySelector('.capPartenza');
-let partenza = document.querySelector('.partenza');
+let dataPartenza = document.querySelector('.partenza');
 let tipoDiVeicolo = document.querySelector('.tipoDiVeicolo');
 
 
@@ -17,7 +17,7 @@ let comuneArrivo = document.querySelector('.comuneArrivo');
 let indirizzoArrivo = document.querySelector('.indirizzoArrivo');
 let indirizzoDueArrivo = document.querySelector('.indirizzoDueArrivo');
 let capArrivo = document.querySelector('.capArrivo');
-let arrivo = document.querySelector('.arrivo');
+let dataArrivo = document.querySelector('.arrivo');
 
 let note = document.querySelector('.note');
 
@@ -30,7 +30,7 @@ class Tratte {
         indirizzoPartenza,
         indirizzoDuePartenza,
         capPartenza,
-        partenza,
+        dataPartenza,
         tipoDiVeicolo,
         regioneArrivo,
         provinciaArrivo,
@@ -38,7 +38,7 @@ class Tratte {
         indirizzoArrivo,
         indirizzoDueArrivo,
         capArrivo,
-        arrivo,
+        dataArrivo,
         note,
         azienda_id) {
 
@@ -48,7 +48,7 @@ class Tratte {
             (this.indirizzoPartenza = indirizzoPartenza),
             (this.indirizzoDuePartenza = indirizzoDuePartenza),
             (this.capPartenza = capPartenza),
-            (this.partenza = partenza),
+            (this.dataPartenza = dataPartenza),
             (this.tipoDiVeicolo = tipoDiVeicolo),
             (this.regioneArrivo = regioneArrivo),
             (this.provinciaArrivo = provinciaArrivo),
@@ -56,17 +56,38 @@ class Tratte {
             (this.indirizzoArrivo = indirizzoArrivo),
             (this.indirizzoDueArrivo = indirizzoDueArrivo),
             (this.capArrivo = capArrivo),
-            (this.arrivo = arrivo),
+            (this.dataArrivo = dataArrivo),
             (this.note = note),
             (this.azienda_id = azienda_id)
     }
 }
 
 
-function inviaRichiesta() {
+function recuperaId() {
+    
+    let accessToken = localStorage.getItem('accessToken');
+    
 
-    let azienda_id = localStorage.getItem('idUtente');
-    console.log(azienda_id);
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    .then((res) => res.json())
+    .then((data) => {
+
+
+            inviaRichiesta(data);
+            console.log(data);
+
+
+        });
+
+
+}
+
+
+
+function inviaRichiesta(dati) {
+
+
+    let azienda_id = dati.id;
 
 
     let nuovaRichiestaTratte = new Tratte(
@@ -76,7 +97,7 @@ function inviaRichiesta() {
         indirizzoPartenza.value,
         indirizzoDuePartenza.value,
         capPartenza.value,
-        partenza.value,
+        dataPartenza.value,
         tipoDiVeicolo.value,
         regioneArrivo.value,
         provinciaArrivo.value,
@@ -84,7 +105,7 @@ function inviaRichiesta() {
         indirizzoArrivo.value,
         indirizzoDueArrivo.value,
         capArrivo.value,
-        arrivo.value,
+        dataArrivo.value,
         note.value,
         azienda_id
     );
@@ -96,7 +117,7 @@ function inviaRichiesta() {
 
 
 
-    fetch(`http://localhost:8080/api/azienda/nuovaRichiestaTrasporto/${azienda_id}`, {
+    fetch(`http://127.0.0.1:8080/api/tratta/inserisciTratta/${azienda_id}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -144,8 +165,8 @@ console.log(dataMaxPartenza);
 
 //--------------------------------------//
 
-partenza.setAttribute('min', dataMinPartenza)
-partenza.setAttribute('max', dataMaxPartenza)
+dataPartenza.setAttribute('min', dataMinPartenza)
+dataPartenza.setAttribute('max', dataMaxPartenza)
 // scarico.setAttribute('min', dataMin)
 // scarico.setAttribute('max', dataMax)
 
@@ -179,12 +200,12 @@ function capArrivoCheck() {
 function partenzaCheck() {
 
 
-    if (partenza.value != '') {
+    if (dataPartenza.value != '') {
 
         console.log('hello');
-        arrivo.removeAttribute('disabled');
-        arrivo.setAttribute('min', partenza.value)
-        arrivo.setAttribute('max', dataMaxPartenza)
+        dataArrivo.removeAttribute('disabled');
+        dataArrivo.setAttribute('min', dataPartenza.value)
+        dataArrivo.setAttribute('max', dataMaxPartenza)
 
     } else {
         console.log('ciao');
@@ -212,15 +233,15 @@ function checkCampi() {
         comuneArrivo.value.trim() != "" &&
         indirizzoArrivo.value.trim() != "" &&
         capArrivo.value.trim() != "" &&
-        partenza.value.trim() != "" &&
-        arrivo.value.trim() != "" &&
+        dataPartenza.value.trim() != "" &&
+        dataArrivo.value.trim() != "" &&
         capArrivo.value.match(regexCap) &&
         capPartenza.value.match(regexCap)
     ) {
 
         blankCamp.innerHTML = '';
 
-        inviaRichiesta();
+        recuperaId();
 
     } else {
 

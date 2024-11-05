@@ -2,7 +2,7 @@
 let bodyTabella = document.querySelector('.bodyTabella');
 
 
-let URLB = ``;
+let URLB = `http://127.0.0.1:8080/api/tratta/tutteLeTratte`;
 fetch(URLB)
     .then((res) => res.json())
     .then((data) => {
@@ -24,9 +24,9 @@ function tratte(dati) {
                         <td class="">${element.id}</td>
                         <td class="" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="" data-eventoid="1">${element.regioneArrivo}</td>
-                        <td class="" data-eventoid="1">${element.giornoPartenza}</td>
-                        <td class="" data-eventoid="1">${element.giornoArrivo}</td>
-                        <td class="" data-eventoid="1">${element.tipoVeicolo}</td>
+                        <td class="" data-eventoid="1">${element.dataPartenza}</td>
+                        <td class="" data-eventoid="1">${element.dataArrivo}</td>
+                        <td class="" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiesteTratte.html">INFO</a></td>
                     </tr>`;
 

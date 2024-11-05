@@ -45,10 +45,29 @@ class Personale {
 }
 
 
-function inviaRichiesta() {
+function recuperaId() {
+    
+    let accessToken = localStorage.getItem('accessToken');
+    
 
-    let azienda_id = localStorage.getItem('idUtente');
-    console.log(azienda_id);
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    .then((res) => res.json())
+    .then((data) => {
+
+
+            inviaRichiesta(data);
+            console.log(data);
+
+
+        });
+
+
+}
+
+
+function inviaRichiesta(dati) {
+
+    let azienda_id = dati.id;
 
 
     let nuovaRichiestaPersonale = new Personale(
@@ -59,10 +78,10 @@ function inviaRichiesta() {
         indirizzoDue.value,
         cap.value,
         note.value,
-        operatore.value,
-        autista.value,
-        montatore.value,
-        falegname.value,
+        operatore.textContent,
+        autista.textContent,
+        montatore.textContent,
+        falegname.textContent,
         azienda_id
     );
 
@@ -71,7 +90,7 @@ function inviaRichiesta() {
     console.log(nuovaRichiestaPersonale);
 
 
-    fetch(`http://127.0.0.1:8080/api/azienda/personale/${azienda_id}`, {  //Inserire qui la rotta
+    fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/inserisciPersonale/${azienda_id}`, {  //Inserire qui la rotta
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -119,7 +138,7 @@ function checkCampi() {
 
         blankCamp.innerHTML = '';
 
-        inviaRichiesta();
+        recuperaId();
 
     } else {
         
@@ -128,6 +147,8 @@ function checkCampi() {
 
 
 }
+
+
 btnInvioRichiestaPersonale.addEventListener('click', checkCampi);
 
 cap.addEventListener('keyup', controllaValiditaCampi);

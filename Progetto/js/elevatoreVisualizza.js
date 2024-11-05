@@ -2,7 +2,7 @@
 let bodyTabella = document.querySelector('.bodyTabella');
 
 
-let URLB = `http://localhost:8080/api/scala/tutteLeScale`;
+let URLB = `http://127.0.0.1:8080/api/scalaElevatore/tutteLeScale`;
 fetch(URLB)
     .then((res) => res.json())
     .then((data) => {

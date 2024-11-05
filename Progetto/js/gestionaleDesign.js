@@ -20,7 +20,7 @@ let arrayBlog = [];
 
 async function getAllBlog() {
     try {
-        const response = await fetch("http://localhost:8080/api/design/tutti")
+        const response = await fetch("http://127.0.0.1:8080/api/design/tutti")
         const blog = await response.json();
         console.log("CIAO");
         arrayBlog = blog;
@@ -166,7 +166,7 @@ async function confermaEliminazione() {
     console.log("ID da eliminare:", eventoSelezionato); // Check the ID
     if(eventoSelezionato) { // Make sure the ID is not empty
         try {
-            const response = await fetch(`http://localhost:8080/api/design/eliminaDesign/${eventoSelezionato}`, {
+            const response = await fetch(`http://127.0.0.1:8080/api/design/eliminaDesign/${eventoSelezionato}`, {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json" },
             });
@@ -207,7 +207,7 @@ bottoneConfermaEliminazione.addEventListener("click", confermaEliminazione);
         async function modificaAzienda(oggettoAziendaModificata) {
             console.log('Dati inviati per la modifica:', oggettoAziendaModificata); 
             try {
-                const response = await fetch('http://localhost:8080/api/design/modificaDesign', {
+                const response = await fetch('http://127.0.0.1:8080/api/design/modificaDesign', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'

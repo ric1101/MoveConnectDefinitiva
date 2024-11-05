@@ -11,7 +11,7 @@ let arraySecondini = [];
 
 async function getAllSecondini() {
     try {
-        const response = await fetch("http://localhost:8080/api/secondari/tuttiGliUtentiSecondari")
+        const response = await fetch("http://127.0.0.1:8080/api/secondari/tuttiGliUtentiSecondari")
         const aziende = await response.json();
         arrayAziende = aziende;
         console.log(aziende);

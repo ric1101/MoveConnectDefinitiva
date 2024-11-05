@@ -8,14 +8,14 @@ let indirizzo = document.querySelector('.indirizzo');
 let indirizzoDue = document.querySelector('.indirizzoDue');
 let cap = document.querySelector('.cap');
 let note = document.querySelector('.note');
-let imballo1 = document.querySelector('.imballi1');
-let imballo2 = document.querySelector('.imballi2');
-let imballo3 = document.querySelector('.imballi3');
-let imballo4 = document.querySelector('.imballi4');
-let imballo5 = document.querySelector('.imballi5');
-let imballo6 = document.querySelector('.imballi6');
-let imballo7 = document.querySelector('.imballi7');
-let imballo8 = document.querySelector('.imballi8');
+let imballo1 = document.querySelector('#imballo1-summary');
+let imballo2 = document.querySelector('#imballo2-summary');
+let imballo3 = document.querySelector('#imballo3-summary');
+let imballo4 = document.querySelector('#imballo4-summary');
+let imballo5 = document.querySelector('#imballo5-summary');
+let imballo6 = document.querySelector('#imballo6-summary');
+let imballo7 = document.querySelector('#imballo7-summary');
+let imballo8 = document.querySelector('#imballo8-summary');
 
 let btnInvioRichiestaImballi = document.querySelector('.btnInvioRichiestaImballi');
 
@@ -62,7 +62,7 @@ function recuperaId() {
     let accessToken = localStorage.getItem('accessToken');
     
 
-    fetch(`http://localhost:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -80,16 +80,7 @@ function recuperaId() {
 function inviaRichiesta(dati) {
 
     let azienda_id = dati.id;
-    console.log(imballo1.value);
-    console.log(imballo2.value);
-    console.log(imballo3.value);
-    console.log(imballo4.value);
-    console.log(imballo5.value);
-    console.log(imballo6.value);
-    console.log(imballo7.value);
-    console.log(imballo8.value);
-    
-    
+
 
     let nuovaRichiestaImballi = new Imballi(
         regione.value,
@@ -99,14 +90,14 @@ function inviaRichiesta(dati) {
         indirizzoDue.value,
         cap.value,
         note.value,
-        imballo1.value,
-        imballo2.value,
-        imballo3.value,
-        imballo4.value,
-        imballo5.value,
-        imballo6.value,
-        imballo7.value,
-        imballo8.value,
+        imballo1.textContent,
+        imballo2.textContent,
+        imballo3.textContent,
+        imballo4.textContent,
+        imballo5.textContent,
+        imballo6.textContent,
+        imballo7.textContent,
+        imballo8.textContent,
         azienda_id
     );
 
@@ -115,7 +106,7 @@ function inviaRichiesta(dati) {
     console.log(nuovaRichiestaImballi);
 
 
-    fetch(`http://localhost:8080/api/consegnaImballi/inserisciConsegna/${azienda_id}`, {
+    fetch(`http://127.0.0.1:8080/api/consegnaImballi/inserisciConsegna/${azienda_id}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -166,6 +157,7 @@ function checkCampi() {
         recuperaId();
 
     } else {
+        
         blankCamp.innerHTML = 'riempi i campi mancanti o incompleti!';
     }
 

@@ -48,11 +48,30 @@ class Deposito {
     }
 }
 
+function recuperaId() {
+    
+    let accessToken = localStorage.getItem('accessToken');
+    
 
-function inviaRichiesta() {
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    .then((res) => res.json())
+    .then((data) => {
 
-    let azienda_id = localStorage.getItem('idUtente');
-    console.log(azienda_id);
+
+            inviaRichiesta(data);
+            console.log(data);
+
+
+        });
+
+
+}
+
+
+
+function inviaRichiesta(dati) {
+
+    let azienda_id = dati.id;
 
 
     let nuovaRichiestaDeposito = new Deposito(
@@ -65,9 +84,9 @@ function inviaRichiesta() {
         inizio.value,
         fine.value,
         note.value,
-        mobilio.value,
-        pedane.value,
-        altro.value,
+        mobilio.textContent,
+        pedane.textContent,
+        altro.textContent,
         azienda_id
     );
 
@@ -76,7 +95,7 @@ function inviaRichiesta() {
     console.log(nuovaRichiestaDeposito);
 
 
-    fetch(`${azienda_id}`, { //Inserire qui la rotta
+    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/inserisciMagazzino/${azienda_id}`, { //Inserire qui la rotta
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -186,7 +205,7 @@ function checkCampi() {
 
         blankCamp.innerHTML = '';
 
-        inviaRichiesta();
+        recuperaId();
 
     } else {
 

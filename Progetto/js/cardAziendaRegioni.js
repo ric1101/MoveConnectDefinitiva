@@ -9,7 +9,7 @@ function getAziendeByRegione() {
     
 
     
-    fetch(`http://localhost:8080/api/azienda/${regione}`)
+    fetch(`http://127.0.0.1:8080/api/azienda/${regione}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Errore nel recupero delle aziende');

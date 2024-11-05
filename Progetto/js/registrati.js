@@ -99,7 +99,7 @@ function registrazioneAzienda() {
 
 
 
-  fetch("http://localhost:8080/api/azienda/register", {
+  fetch("http://127.0.0.1:8080/api/azienda/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -297,7 +297,7 @@ function numTelDipCheck() {
 
 //   let emailLive = email.value;
 
-//   fetch(`http://localhost:8080/registrati?email=${emailLive}`)
+//   fetch(`http://127.0.0.1:8080/registrati?email=${emailLive}`)
 
 //     .then((res) => res.json())
 //     .then((data) => {

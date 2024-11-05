@@ -67,10 +67,31 @@ class Trasporto {
 }
 
 
-function inviaRichiesta() {
+function recuperaId() {
+    
+    let accessToken = localStorage.getItem('accessToken');
+    
 
-    let azienda_id = localStorage.getItem('idUtente');
-    console.log(azienda_id);
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    .then((res) => res.json())
+    .then((data) => {
+
+
+            inviaRichiesta(data);
+            console.log(data);
+
+
+        });
+
+
+}
+
+
+
+function inviaRichiesta(dati) {
+
+
+    let azienda_id = dati.id;
 
 
     let nuovaRichiestaTrasporto = new Trasporto(
@@ -101,7 +122,7 @@ function inviaRichiesta() {
 
 
 
-    fetch(`http://localhost:8080/api/azienda/nuovaRichiestaTrasporto/${azienda_id}`, {
+    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/aggiungiRichiestaTrasporto/${azienda_id}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -240,7 +261,7 @@ function checkCampi() {
 
         blankCamp.innerHTML = '';
 
-        inviaRichiesta();
+        recuperaId();
 
     } else {
 

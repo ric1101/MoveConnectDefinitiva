@@ -144,7 +144,7 @@
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-3">
                     <label for="regioni1" class="form-label">Regione</label>
-                    <select id="regioni1" class="form-select">
+                    <select id="regioni1" class="form-select regioneArrivo">
                         <option value="" disabled selected>Seleziona Regione</option>
 
                     </select>
@@ -152,7 +152,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="province1" class="form-label">Provincia</label>
-                    <select id="province1" class="form-select">
+                    <select id="province1" class="form-select provinciaArrivo">
                         <option value="" disabled selected>Seleziona Provincia</option>
 
                     </select>
@@ -164,7 +164,7 @@
 
                 <div class="col-md-3">
                     <label for="comuni1" class="form-label">Comune</label>
-                    <select id="comuni1" class="form-select">
+                    <select id="comuni1" class="form-select comuneArrivo">
                         <option value="" disabled selected>Seleziona Comune</option>
 
                     </select>
@@ -185,14 +185,14 @@
 
                 <div class="col-md-3">
                     <label class="form-label">Indirizzo Secondario</label>
-                    <input type="text" class="form-control indirizzoArrivoDue" placeholder="Via Milano 8" maxLength="50"
+                    <input type="text" class="form-control indirizzoDueArrivo" placeholder="Via Milano 8" maxLength="50"
                         required>
 
                 </div>
 
                 <div class="col-md-3">
                     <label class="form-label">CAP</label>
-                    <input type="text" class="form-control capArrivo" placeholder="00030" required>
+                    <input type="text" class="form-control capArrivo" placeholder="00030" maxlength="5" required>
                     <div class="invalidCapArrivo text-danger">
 
                     </div>
@@ -204,7 +204,7 @@
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-3">
                     <label class="form-label">Arrivo</label>
-                    <input type="date" class="form-control richiesti" required>
+                    <input type="date" class="form-control arrivo" min="" max="" onkeydown="return false" required disabled>
                     <div class="invalidArrivo text-danger">
 
                     </div>

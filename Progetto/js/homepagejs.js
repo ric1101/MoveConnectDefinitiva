@@ -168,7 +168,7 @@ function mostraNavbarNonLoggata() {
 function checkToken() {
     let accessToken = localStorage.getItem('accessToken');
 
-    fetch(`http://localhost:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
             mostraNavbarLoggata();
@@ -221,7 +221,7 @@ logout.addEventListener('click', logOut);
 
 //   if (idUtente !== null) {
 
-//     fetch(`http://localhost:8080/api/utenti/${idUtente}`)
+//     fetch(`http://127.0.0.1:8080/api/utenti/${idUtente}`)
 //       .then((res) => res.json())
 //       .then((data) => {
 //         console.log(data.ruolo);
