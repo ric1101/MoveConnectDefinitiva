@@ -126,6 +126,7 @@ let visualizza = document.querySelector('.visualizza');
 let abb = document.querySelector('.abb');
 let partners = document.querySelector('.partners');
 let blogs = document.querySelector('.blogs');
+let multiRegione = document.querySelector('.multiRegione');
 
 
 
@@ -151,6 +152,7 @@ function mostraNavbarLoggata() {
     abb.classList.remove('d-none');
     partners.classList.remove('d-none');
     blogs.classList.remove('d-none');
+    multiRegione.classList.remove('d-none');
 }
 
 function mostraNavbarNonLoggata() {
@@ -163,6 +165,8 @@ function mostraNavbarNonLoggata() {
     abb.classList.remove('d-none');
     partners.classList.remove('d-none');
     blogs.classList.remove('d-none');
+    multiRegione.classList.add('d-none');
+    
 }
 
 function checkToken() {

@@ -25,17 +25,18 @@
     </div>
     <div class="container p-5">
         <div>
-            <h1 class="text-center mb-4">SELEZIONA I PROFESSIONISTI NECESSARI &nbsp;<i
+            <h1 class="text-center mb-4">PERSONALE &nbsp;<i
                     class="fa-solid fa-helmet-safety"></i></h1>
+                    <h5 class="pb-2">Seleziona il personale necessario:</h5>
         </div>
         <div class="row text-center">
             <!-- Facchino -->
-            <div class="col-md-3 mb-4">
+            <div class="col-md-6 col-lg-3 mb-4">
                 <div class="card professional-card">
                     <img src="./imgs/facchino.jpg" alt="Facchino">
                     <div class="card-body">
-                        <h5 class="card-title">Operatore Generico</h5>
-                        <p class="card-text">Operatore</p>
+                        <h5 class="card-title">Operatore</h5>
+                        <p class="card-text">Scarico/Carico</p>
                         <div class="counter">
                             <button class="btn btn-danger" onclick="decrement('facchino')">
                                 <i class="fas fa-minus"></i>
@@ -50,7 +51,7 @@
             </div>
 
             <!-- Autista -->
-            <div class="col-md-3 mb-4">
+            <div class="col-md-6 col-lg-3 mb-4">
                 <div class="card professional-card">
                     <img src="./imgs/autista.jpg" alt="Autista">
                     <div class="card-body">
@@ -70,7 +71,7 @@
             </div>
 
             <!-- Montatore -->
-            <div class="col-md-3 mb-4">
+            <div class="col-md-6 col-lg-3 mb-4">
                 <div class="card professional-card">
                     <img src="./imgs/montatore.jpg" alt="Montatore">
                     <div class="card-body">
@@ -90,7 +91,7 @@
             </div>
 
             <!-- Falegname -->
-            <div class="col-md-3 mb-4">
+            <div class="col-md-6 col-lg-3 mb-4">
                 <div class="card professional-card">
                     <img src="./imgs/falegname.jpg" alt="Falegname">
                     <div class="card-body">
@@ -118,7 +119,7 @@
                 <h3 class="col-md-4">Riepilogo</h3>
             </div>
             <!-- form indirizzo -->
-            <div class="richiesta col-md-4" id="richiesta">
+            <div class="richiesta col-md-12 col-lg-4" id="richiesta">
                 <h3 class="titoliResp">Dettagli Richiesta</h3>
                 <form>
                     <!-- Selezione regione -->
@@ -177,7 +178,7 @@
                 </form>
             </div>
 
-            <div class="card text col-md-4 col-sm-12" style="background-color: #f0f4f700; border: none; margin-top: 25px;
+            <div class="card text col-md-12 col-lg-4" style="background-color: #f0f4f700; border: none; margin-top: 25px;
             align-items: center;">
                 <div data-mdb-input-init class="form-outline">
                     <h3 class="titoliResp">Note</h3>
@@ -187,26 +188,26 @@
             </div>
 
 
-            <div class="card text col-md-4 col-sm-12" id="riepilogoPers">
+            <div class="card text col-md-12 col-lg-4" id="riepilogoPers">
                 <h3 class="titoliResp">Riepilogo</h3>
                 <div class="lista">
                 <ul class="list-group">
-                    <li class="list-group-item d-flex justify-content-between align-items-center list-group-item list-group-item-dark"
+                    <li class="list-group-item d-flex justify-content-between align-items-center list-group-item"
                         id="facchino">
                         Facchini
                         <span class="badge text-bg-dark rounded-pill facchini" id="facchino-summary">0</span>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center list-group-item list-group-item-dark"
+                    <li class="list-group-item d-flex justify-content-between align-items-center list-group-item"
                         id="autista">
                         Autisti
                         <span class="badge text-bg-dark rounded-pill autisti" id="autista-summary">0</span>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center list-group-item list-group-item-dark"
+                    <li class="list-group-item d-flex justify-content-between align-items-center list-group-item"
                         id="montatore">
                         Montatori
                         <span class="badge text-bg-dark rounded-pill montatori" id="montatore-summary">0</span>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center list-group-item list-group-item-dark"
+                    <li class="list-group-item d-flex justify-content-between align-items-center list-group-item"
                         id="falegname">
                         Falegnami
                         <span class="badge text-bg-dark rounded-pill falegnami" id="falegname-summary">0</span>

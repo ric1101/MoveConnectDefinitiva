@@ -26,8 +26,14 @@ body {
     justify-content: center;
     align-items: center;
     padding: 30px;
-    background-color: #6c757dc8 !important;
-    border-radius: 1rem;
+    background-color: #6c757d87 !important;
+    border-radius: 0.375rem!important;
+    border: solid 1px black;
+}
+
+.card-body {
+    background-color: #6c757d87;
+    border-top: solid 1px black;
 }
 
 
@@ -54,10 +60,7 @@ body {
     height: 100%;
 }
 
-.list-group{
-    background-color: #f0f4f700 !important;
-    border: none;
-}
+
 /* #facchino{
     background-color: #f0f4f700 !important;
 } */
@@ -79,14 +82,15 @@ body {
 }
 .professional-card{
     background-color: rgba(255, 255, 255, 0.306) !important;
-    border: solid 3px #1B2023 !important;
+    border: solid 1px #1B2023 !important;
 }
 
 .professional-card img{
-    border-radius: var(--bs-card-border-radius);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 992px) {
 
     .titoli {
         display: none !important;
@@ -94,10 +98,16 @@ body {
 
 }
 
-@media (min-width: 767px) {
+@media (min-width: 992px) {
 
     .titoliResp {
         display: none !important;
     }
 
+}
+
+
+.lista {
+    border-radius: 0.400rem;
+    /* border: solid 1px black !important; */
 }

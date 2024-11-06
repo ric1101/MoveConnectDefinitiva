@@ -208,18 +208,15 @@ header {
 
 
 .white-line {
-    width: 30%;
-    height: 5px;
-    /* Puoi regolare l'altezza della linea */
-    background: repeating-linear-gradient(90deg,
-            white,
-            white 30px,
-            /* Segmento bianco più lungo */
-            #D3A034 30px,
-            /* Grigio più scuro per maggiore contrasto */
-            #D3A034 60px
-            /* Lunghezza totale del pattern */
-        );
+    width: 20%;
+    height: 6px; /* Puoi regolare l'altezza della linea */
+    background: repeating-linear-gradient(
+      90deg,
+      rgb(145, 145, 145),
+      rgb(145, 145, 145) 30px, /* Segmento bianco più lungo */
+      #000000 30px, /* Grigio più scuro per maggiore contrasto */
+      #000000 60px /* Lunghezza totale del pattern */
+    );
     background-size: 200% 100%;
     animation: moveLine 5s linear infinite;
     /* Animazione leggermente più veloce */
