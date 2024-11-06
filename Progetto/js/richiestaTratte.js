@@ -23,6 +23,9 @@ let note = document.querySelector('.note');
 
 let btnInvioRichiestaTratte = document.querySelector('.btnInvioRichiestaTratte');
 
+
+
+
 class Tratte {
     constructor(regionePartenza,
         provinciaPartenza,
@@ -112,8 +115,6 @@ function inviaRichiesta(dati) {
 
 
     console.log(nuovaRichiestaTratte);
-
-
 
 
 
