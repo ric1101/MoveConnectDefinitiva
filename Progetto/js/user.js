@@ -34,9 +34,9 @@ async function userView() {
             imgAzienda.setAttribute('src', data.logo);
             nomeAzienda.innerHTML = data.nomeAzienda;
             iMieiDati(data);
-            
+
             console.log(data);
-            
+
 
 
         });
@@ -337,14 +337,14 @@ if (feed) {
 
 
 function visualizzaRichiesteOccSuoloPub(suolo) {
-    
+
 
     colonnaInfo.innerHTML = '';
 
     suolo.richiestaSuoloPubblico.forEach(element => {
 
 
-    let visualizzaRichieste = `
+        let visualizzaRichieste = `
     <div class="card-body destra mb-4">
         <div class="row rowRichieste">
             <div class="container">
@@ -478,8 +478,8 @@ function visualizzaRichiesteOccSuoloPub(suolo) {
 
     </div>`;
 
-    
-    colonnaInfo.innerHTML += visualizzaRichieste;
+
+        colonnaInfo.innerHTML += visualizzaRichieste;
 
     });
 
@@ -495,11 +495,11 @@ async function fetchSuoloPub() {
     await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
-    
+
             visualizzaRichiesteOccSuoloPub(data);
-            
+
             console.log(data);
-            
+
 
         });
 
@@ -519,14 +519,14 @@ if (richiesteOccSuoloPub) {
 
 
 function visualizzaRichiesteCarico(suolo) {
-    
+
 
     colonnaInfo.innerHTML = '';
 
     suolo.richiesteTrasporti.forEach(element => {
 
 
-    let visualizzaRichieste = `
+        let visualizzaRichieste = `
     <div class="card-body destra mb-4">
         <div class="row rowRichieste">
             <div class="container">
@@ -552,7 +552,7 @@ function visualizzaRichiesteCarico(suolo) {
                             <hr>
                             <div class="row rowDati">
                                 <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Provincia</h6>
+                                    <h6 class="mb-0" style="font-size: 18px;">Provincia Partenza</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
                                 ${element.provinciaPartenza}
@@ -561,7 +561,7 @@ function visualizzaRichiesteCarico(suolo) {
                             <hr>
                             <div class="row rowDati">
                                 <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Comune</h6>
+                                    <h6 class="mb-0" style="font-size: 18px;">Comune Partenza</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
                                 ${element.comunePartenza}
@@ -570,7 +570,7 @@ function visualizzaRichiesteCarico(suolo) {
                             <hr>
                             <div class="row rowDati">
                                 <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo</h6>
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo Partenza</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
                                 ${element.indirizzoPartenza}
@@ -579,10 +579,245 @@ function visualizzaRichiesteCarico(suolo) {
                             <hr>
                             <div class="row rowDati">
                                 <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo Due Partenza</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzoDuePartenza}&nbsp;
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Cap Partenza</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.capPartenza}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">M3</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.mq}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Tipo Di Veicolo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.tipoDiVeicolo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Regione Arrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.regioneArrivo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Provincia Arrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.provinciaArrivo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Comune Arrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.comuneArrivo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo Arrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzoArrivo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">IndirizzoDueArrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzoDueArrivo}&nbsp;
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Cap Arrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.capArrivo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Carico</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.carico}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Scarico</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.scarico}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Note</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.note}&nbsp;
+                                </div>
+                            </div>
+                            <hr>
+                            
+                                
+                          </div>
+
+                        </div>
+
+                    </div>
+                        <div class="row">
+                            <div class="col-lg-12 mt-5 d-flex justify-content-end">
+                                <button class="btn btn-danger mx-2">Chiudi</button>
+                                <button class="btn btn-primary mx-2">Modifica</button>
+                            </div>
+                        </div>
+                
+
+            </div>
+
+        </div>
+
+    </div>`;
+
+
+        colonnaInfo.innerHTML += visualizzaRichieste;
+
+    });
+
+}
+
+
+async function fetchCarico() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiesteCarico(data);
+
+            console.log(data);
+
+
+        });
+
+}
+
+
+
+if (richiesteTrasporto) {
+
+    richiesteTrasporto.addEventListener('click', fetchCarico);
+}
+
+
+
+
+
+function visualizzaRichiesteScalaElevatore(suolo) {
+
+
+    colonnaInfo.innerHTML = '';
+
+    suolo.scalaElevatore.forEach(element => {
+
+
+        let visualizzaRichieste = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">
+
+                        <div class="row p-3">
+                            <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
+                                <h4>Richiesta Scala Elevatore numero: #${element.id}</h4>
+                            </div>
+                            
+
+
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Regione</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.regione}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Provincia</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.provincia}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Comune</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.comune}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
                                     <h6 class="mb-0" style="font-size: 18px;">Indirizzo Due</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.indirizzoDuePartenza}
+                                ${element.indirizzoDue}&nbsp;
                                 </div>
                             </div>
                             <hr>
@@ -597,28 +832,19 @@ function visualizzaRichiesteCarico(suolo) {
                             <hr>
                             <div class="row rowDati">
                                 <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">MQ</h6>
+                                    <h6 class="mb-0" style="font-size: 18px;">Tipo Di Scala</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.mq}
+                                ${element.tipoDiScala}
                                 </div>
                             </div>
                             <hr>
                             <div class="row rowDati">
                                 <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Cartelli</h6>
+                                    <h6 class="mb-0" style="font-size: 18px;">Peso Massimo</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.cartelli}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Chiusura Strada</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.chiusuraStrada}
+                                ${element.pesoMassimo}
                                 </div>
                             </div>
                             <hr>
@@ -669,15 +895,15 @@ function visualizzaRichiesteCarico(suolo) {
 
     </div>`;
 
-    
-    colonnaInfo.innerHTML += visualizzaRichieste;
+
+        colonnaInfo.innerHTML += visualizzaRichieste;
 
     });
 
 }
 
 
-async function fetchCarico() {
+async function fetchScalaElevatore() {
 
 
     let accessToken = localStorage.getItem('accessToken');
@@ -686,11 +912,11 @@ async function fetchCarico() {
     await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
-    
-            visualizzaRichiesteCarico(data);
-            
+
+
             console.log(data);
-            
+            visualizzaRichiesteScalaElevatore(data);
+
 
         });
 
@@ -698,9 +924,224 @@ async function fetchCarico() {
 
 
 
-if (richiesteTrasporto) {
+if (richiesteScalaElevatore) {
 
-    richiesteTrasporto.addEventListener('click', fetchCarico);
+    richiesteScalaElevatore.addEventListener('click', fetchScalaElevatore);
+}
+
+
+
+
+function visualizzaRichiesteConsegnaImballi(suolo) {
+
+
+    colonnaInfo.innerHTML = '';
+
+    suolo.consegnaImballi.forEach(element => {
+
+
+        let visualizzaRichieste = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">
+
+                        <div class="row p-3">
+                            <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
+                                <h4>Richiesta Consegna Imballi numero: #${element.id}</h4>
+                            </div>
+                            
+
+
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Regione</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.regione}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Provincia</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.provincia}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Comune</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.comune}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo Due</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzoDue}&nbsp;
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Cap</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.cap}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Imballo 1</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.imballo1}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Imballo 2</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.imballo2}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Imballo 3</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.imballo3}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Imballo 4</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.imballo4}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Imballo 5</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.imballo5}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Imballo 6</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.imballo6}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Imballo 7</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.imballo7}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Imballo 8</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.imballo8}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Note</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.note}&nbsp;
+                                </div>
+                            </div>
+                            <hr>
+                                
+                          </div>
+
+                        </div>
+
+                    </div>
+                        <div class="row">
+                            <div class="col-lg-12 mt-5 d-flex justify-content-end">
+                                <button class="btn btn-danger mx-2">Chiudi</button>
+                                <button class="btn btn-primary mx-2">Modifica</button>
+                            </div>
+                        </div>
+                
+
+            </div>
+
+        </div>
+
+    </div>`;
+
+
+        colonnaInfo.innerHTML += visualizzaRichieste;
+
+    });
+
+}
+
+
+async function fetchConsegnaImballi() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+
+            console.log(data);
+            visualizzaRichiesteConsegnaImballi(data);
+
+
+        });
+
+}
+
+
+
+if (richiesteConsegnaImballi) {
+
+    richiesteConsegnaImballi.addEventListener('click', fetchConsegnaImballi);
 }
 
 
@@ -711,11 +1152,181 @@ if (richiesteTrasporto) {
 
 
 
+function visualizzaRichiestePersonaleSpecializzato(suolo) {
+
+
+    colonnaInfo.innerHTML = '';
+
+    suolo.personaleSpecializzato.forEach(element => {
+
+
+        let visualizzaRichieste = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">
+
+                        <div class="row p-3">
+                            <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
+                                <h4>Richiesta Personale Specializzato numero: #${element.id}</h4>
+                            </div>
+                            
+
+
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Regione</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.regione}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Provincia</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.provincia}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Comune</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.comune}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo Due</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzoDue}&nbsp;
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Cap</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.cap}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Operatori</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.operatore}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Autisti</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.autista}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Montatori</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.montatore}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Falegnami</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.falegname}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Note</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.note}&nbsp;
+                                </div>
+                            </div>
+                            <hr>
+                                
+                          </div>
+
+                        </div>
+
+                    </div>
+                        <div class="row">
+                            <div class="col-lg-12 mt-5 d-flex justify-content-end">
+                                <button class="btn btn-danger mx-2">Chiudi</button>
+                                <button class="btn btn-primary mx-2">Modifica</button>
+                            </div>
+                        </div>
+                
+
+            </div>
+
+        </div>
+
+    </div>`;
+
+
+        colonnaInfo.innerHTML += visualizzaRichieste;
+
+    });
+
+}
+
+
+async function fetchRichiestePersonaleSpecializzato() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+
+            console.log(data);
+            visualizzaRichiestePersonaleSpecializzato(data);
+
+
+        });
+
+}
 
 
 
+if (richiestePersonaleSpec) {
 
-
+    richiestePersonaleSpec.addEventListener('click', fetchRichiestePersonaleSpecializzato);
+}
 
 
 
