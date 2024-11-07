@@ -152,7 +152,11 @@ function mostraNavbarLoggata() {
     abb.classList.remove('d-none');
     partners.classList.remove('d-none');
     blogs.classList.remove('d-none');
-    multiRegione.classList.remove('d-none');
+    if (multiRegione != null) {
+        
+        multiRegione.classList.remove('d-none');
+
+    }
 }
 
 function mostraNavbarNonLoggata() {
@@ -165,7 +169,11 @@ function mostraNavbarNonLoggata() {
     abb.classList.remove('d-none');
     partners.classList.remove('d-none');
     blogs.classList.remove('d-none');
-    multiRegione.classList.add('d-none');
+    if (multiRegione != null) {
+        
+        multiRegione.classList.add('d-none');
+        
+    }
     
 }
 
