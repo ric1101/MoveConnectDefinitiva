@@ -103,7 +103,7 @@ function imballiInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Imballo tipo 1</p>
+                                        <p class="mb-0 fw-bold">Cartone</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.imballo1}</p>
@@ -112,7 +112,7 @@ function imballiInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Imballo tipo 2</p>
+                                        <p class="mb-0 fw-bold">Cartone Appendiabiti</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.imballo2}</p>
@@ -121,7 +121,7 @@ function imballiInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Imballo tipo 3</p>
+                                        <p class="mb-0 fw-bold">Pluriball</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.imballo3}</p>
@@ -130,7 +130,7 @@ function imballiInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Imballo tipo 4</p>
+                                        <p class="mb-0 fw-bold">Pellicola</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.imballo4}</p>
@@ -139,7 +139,7 @@ function imballiInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Imballo tipo 5</p>
+                                        <p class="mb-0 fw-bold">Buste Pluriball</p>
                                     </div>
                                     <div class="col-sm-6">
                                     <p class="text-muted mb-0">${dati.imballo5}</p>
@@ -148,7 +148,7 @@ function imballiInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Imballo tipo 6</p>
+                                        <p class="mb-0 fw-bold">Nastro Avana</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.imballo6}</p>
@@ -157,7 +157,7 @@ function imballiInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Imballo tipo 7</p>
+                                        <p class="mb-0 fw-bold">Nastro Bianco</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.imballo7}</p>
@@ -166,7 +166,7 @@ function imballiInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Imballo tipo 8</p>
+                                        <p class="mb-0 fw-bold">Pluriball Cartonato</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.imballo8}</p>

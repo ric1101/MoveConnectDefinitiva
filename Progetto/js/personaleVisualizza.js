@@ -1,24 +1,44 @@
 
 let bodyTabella = document.querySelector('.bodyTabella');
 
+let accessToken = localStorage.getItem('accessToken');
 
-let URLB = `http://127.0.0.1:8080/api/personaleSpecializzato/tuttiIPersonaliConAzienda`;
-fetch(URLB)
+fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
 
-        console.log(data);
-        personale(data);
-        ascolto();
+        fetchPersonale(data.id);
+        console.log(data.id);
+        
     });
 
-                              
-function personale(dati) {
+
+
+function fetchPersonale(id) {
+
+
+    let URLB = `http://127.0.0.1:8080/api/personaleSpecializzato/tuttiIPersonaliConAzienda`;
+    fetch(URLB)
+        .then((res) => res.json())
+        .then((data) => {
+
+            console.log(data);
+            personale(data, id);
+            ascolto();
+        });
+
+}
+
+
+function personale(dati, id) {
 
     dati.forEach(element => {
 
+        if (element.azienda.id != id) {
 
-        let tabella = `<tr>
+
+
+            let tabella = `<tr>
                         <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
                         <td class="">${element.azienda.nomeAzienda}</td>
                         <td class="">${element.id}</td>
@@ -30,7 +50,8 @@ function personale(dati) {
                     </tr>`;
 
 
-        bodyTabella.innerHTML += tabella;
+            bodyTabella.innerHTML += tabella;
+        }
 
     });
 
@@ -39,7 +60,7 @@ function personale(dati) {
 
 
 function ascolto() {
-    
+
     let linkPersonale = document.querySelectorAll('.linkPersonale');
 
     linkPersonale.forEach(element => {

@@ -354,7 +354,7 @@ function visualizzaRichiesteOccSuoloPub(suolo) {
 
                         <div class="row p-3">
                             <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
-                                <h4>Richiesta Suolo Pubblico numero: #${element.id}</h4>
+                                <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Suolo Pubblico numero: #${element.id}</h4>
                             </div>
                             
 
@@ -536,7 +536,7 @@ function visualizzaRichiesteCarico(suolo) {
 
                         <div class="row p-3">
                             <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
-                                <h4>Richiesta Carico numero: #${element.id}</h4>
+                                <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Carico numero: #${element.id}</h4>
                             </div>
                             
 
@@ -771,7 +771,7 @@ function visualizzaRichiesteScalaElevatore(suolo) {
 
                         <div class="row p-3">
                             <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
-                                <h4>Richiesta Scala Elevatore numero: #${element.id}</h4>
+                                <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Scala Elevatore numero: #${element.id}</h4>
                             </div>
                             
 
@@ -950,7 +950,7 @@ function visualizzaRichiesteConsegnaImballi(suolo) {
 
                         <div class="row p-3">
                             <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
-                                <h4>Richiesta Consegna Imballi numero: #${element.id}</h4>
+                                <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Consegna Imballi numero: #${element.id}</h4>
                             </div>
                             
 
@@ -1170,7 +1170,7 @@ function visualizzaRichiestePersonaleSpecializzato(suolo) {
 
                         <div class="row p-3">
                             <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
-                                <h4>Richiesta Personale Specializzato numero: #${element.id}</h4>
+                                <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Personale Specializzato numero: #${element.id}</h4>
                             </div>
                             
 
@@ -1355,7 +1355,7 @@ function visualizzaRichiesteDepositoMagazzino(suolo) {
 
                         <div class="row p-3">
                             <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
-                                <h4>Richiesta Personale Specializzato numero: #${element.id}</h4>
+                                <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Personale Specializzato numero: #${element.id}</h4>
                             </div>
                             
 
@@ -1548,7 +1548,7 @@ function visualizzaRichiesteTratte(suolo) {
 
                         <div class="row p-3">
                             <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
-                                <h4>Richiesta Carico numero: #${element.id}</h4>
+                                <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Carico numero: #${element.id}</h4>
                             </div>
                             
 

@@ -351,8 +351,9 @@ function controlloDati() {
       nonInviato.innerHTML = '';
       registrazioneAzienda();
       
-      location.reload();
-      
+      localStorage.setItem('emailUtente', username.value);
+      window.location.href = 'codice.html';
+
     } else {
       
       nonInviato.innerHTML = 'riempi i campi mancanti o incompleti!';
