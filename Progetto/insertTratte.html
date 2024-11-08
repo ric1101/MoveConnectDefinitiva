@@ -20,7 +20,7 @@
     <div class="navbarMain"></div>
 
 
-    <div class="container p-5">
+    <div class="container mt-5 mb-5" style="border-radius: 4px; border: solid 2px black;">
 
 
         <div>
@@ -34,15 +34,15 @@
             <!--                                  Partenza                               -->
             <!-- ----------------------------------------------------------------------- -->
             <div class="row g-3 justify-content-evenly">
-                <div class="col-md-3">
+                <div class="col-md-4 col-lg-3">
                     <h3 class="d-flex justify-content">Partenza</h3>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4 col-lg-3">
                 </div>
             </div>
 
             <div class="row g-3 justify-content-evenly">
-                <div class="col-md-3">
+                <div class="col-md-4 col-lg-3">
                     <label for="regioni" class="form-label">Regione</label>
                     <select id="regioni" class="form-select regionePartenza">
                         <option value="" disabled selected>Seleziona Regione</option>
@@ -51,7 +51,7 @@
 
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-4 col-lg-3">
                     <label for="province" class="form-label">Provincia</label>
                     <select id="province" class="form-select provinciaPartenza">
                         <option value="" disabled selected>Seleziona Provincia</option>
@@ -62,7 +62,7 @@
 
             <div class="row g-3 justify-content-evenly">
 
-                <div class="col-md-3">
+                <div class="col-md-4 col-lg-3">
                     <label for="comuni" class="form-label">Comune</label>
                     <select id="comuni" class="form-select comunePartenza">
                         <option value="" disabled selected>Seleziona Comune</option>
@@ -71,7 +71,7 @@
 
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-4 col-lg-3">
                     <label class="form-label">Indirizzo</label>
                     <input type="text" class="form-control indirizzoPartenza" placeholder="Via Roma 5" maxLength="50"
                         required>
@@ -82,14 +82,14 @@
 
             <div class="row g-3 justify-content-evenly">
 
-                <div class="col-md-3">
+                <div class="col-md-4 col-lg-3">
                     <label class="form-label">Indirizzo Secondario</label>
                     <input type="text" class="form-control indirizzoDuePartenza" placeholder="Via Milano 8"
                         maxLength="50">
 
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-4 col-lg-3">
                     <label class="form-label">CAP</label>
                     <input type="text" class="form-control capPartenza" placeholder="00015" maxLength="5" required>
                     <div class="invalidCapPartenza text-danger">
@@ -99,8 +99,8 @@
 
             </div>
 
-            <div class="row g-3 justify-content-evenly">
-                <div class="col-md-3">
+            <div class="row g-3 justify-content-evenly mb-5">
+                <div class="col-md-4 col-lg-3">
                     <label class="form-label">Partenza</label>
                     <input type="date" min="" max="" class="form-control partenza" onkeydown="return false" required>
                     <div class="invalidPartenza text-danger">
@@ -109,15 +109,15 @@
                 </div>
 
 
-                <div class="col-md-3">
+                <div class="col-md-4 col-lg-3">
                     <label for="veicolo" class="form-label">Tipologia veicolo</label>
                     <select id="veicolo" class="form-select tipoDiVeicolo">
-                        <option value="" disabled selected>Seleziona tipo di veicolo</option>
+                        <option value="" disabled selected>Seleziona veicolo</option>
                         <option value="Ducato">Ducato</option>
-                        <option value="Daily35">Daily 35 quintali</option>
-                        <option value="Daily75">Daily 75 quintali</option>
-                        <option value="Camion100">Camion 100 quintali</option>
-                        <option value="Camion180">Camion 180 quintali</option>
+                        <option value="Daily 35 q">Daily 35 quintali</option>
+                        <option value="Daily 75 q">Daily 75 quintali</option>
+                        <option value="Camion 100 q">Camion 100 quintali</option>
+                        <option value="Camion 180 q">Camion 180 quintali</option>
                         <option value="Bilico">Bilico</option>
                     </select>
                 </div>
@@ -129,20 +129,20 @@
             <!-- ----------------------------------------------------------------------- -->
 
 
-            <hr class="separazione">
+            <hr class="separazione mt-3">
             <div class="row g-3 justify-content-evenly">
-                <div class="col-md-3">
+                <div class="col-md-4 col-lg-3">
                     <h3 class="d-flex justify-content">Arrivo</h3>
 
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-4 col-lg-3">
 
                 </div>
             </div>
 
             <div class="row g-3 justify-content-evenly">
-                <div class="col-md-3">
+                <div class="col-md-4 col-lg-3">
                     <label for="regioni1" class="form-label">Regione</label>
                     <select id="regioni1" class="form-select regioneArrivo">
                         <option value="" disabled selected>Seleziona Regione</option>
@@ -150,7 +150,7 @@
                     </select>
 
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4 col-lg-3">
                     <label for="province1" class="form-label">Provincia</label>
                     <select id="province1" class="form-select provinciaArrivo">
                         <option value="" disabled selected>Seleziona Provincia</option>
@@ -162,7 +162,7 @@
 
             <div class="row g-3 justify-content-evenly">
 
-                <div class="col-md-3">
+                <div class="col-md-4 col-lg-3">
                     <label for="comuni1" class="form-label">Comune</label>
                     <select id="comuni1" class="form-select comuneArrivo">
                         <option value="" disabled selected>Seleziona Comune</option>
@@ -171,7 +171,7 @@
 
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-4 col-lg-3">
                     <label class="form-label">Indirizzo *</label>
                     <input type="text" class="form-control indirizzoArrivo" placeholder="Via Roma 5" maxLength="50"
                         required>
@@ -183,14 +183,14 @@
 
             <div class="row g-3 justify-content-evenly">
 
-                <div class="col-md-3">
+                <div class="col-md-4 col-lg-3">
                     <label class="form-label">Indirizzo Secondario</label>
                     <input type="text" class="form-control indirizzoDueArrivo" placeholder="Via Milano 8" maxLength="50" >
                   
 
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-4 col-lg-3">
                     <label class="form-label">CAP</label>
                     <input type="text" class="form-control capArrivo" placeholder="00030" maxlength="5" required>
                     <div class="invalidCapArrivo text-danger">
@@ -202,7 +202,7 @@
             </div>
 
             <div class="row g-3 justify-content-evenly">
-                <div class="col-md-3">
+                <div class="col-md-4 col-lg-3">
                     <label class="form-label">Arrivo</label>
                     <input type="date" class="form-control arrivo" min="" max="" onkeydown="return false" required disabled>
                     <div class="invalidArrivo text-danger">
@@ -210,13 +210,13 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-4 col-lg-3">
                     <div data-mdb-input-init class="form-outline">
                         <label class="form-label" for="textAreaExample">Note</label>
                         <textarea class="form-control note" rows="1" 
                            placeholder="Esigenze particolari..."></textarea>
                     </div>
-                    <div class="d-flex justify-content-end mt-4">
+                    <div class="d-flex justify-content-end mt-4 mb-4">
                         <div class="d-flex justify-content-end mt-4">
                             <button class="btn btn-success mx-2 bottonozzo btnInvioRichiestaTratte"
                                 id="btnInvioRichiestaTratte">Invio Richiesta</button>

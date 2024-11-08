@@ -146,30 +146,25 @@ let blankCamp = document.querySelector('.blankCamp');
 new Date();
 let dat = new Date();
 
-//--------------------------------------//
+function padToTwoDigits(number) {
+    return number.toString().padStart(2, '0');
+}
 
-let ggMin = dat.getDate() + 1;
-let mmMin = (dat.getMonth() + 1);
+let ggMin = padToTwoDigits(dat.getDate() + 1);
+let mmMin = padToTwoDigits(dat.getMonth() + 1);
 let aaMin = dat.getFullYear();
+let dataMinPartenza = `${aaMin}-${mmMin}-${ggMin}`;
 
-let dataMinPartenza = aaMin + "-" + mmMin + "-" + ggMin;
-console.log(dataMinPartenza);
-
-//--------------------------------------//
-
-let ggMax = dat.getDate() + 1;
-let mmMax = (dat.getMonth() + 1);
+let ggMax = padToTwoDigits(dat.getDate() + 1);
+let mmMax = padToTwoDigits(dat.getMonth() + 1);
 let aaMax = dat.getFullYear() + 1;
-let dataMaxPartenza = aaMax + "-" + mmMax + "-" + ggMax;
+let dataMaxPartenza = `${aaMax}-${mmMax}-${ggMax}`;
 
+console.log(dataMinPartenza);
 console.log(dataMaxPartenza);
 
-//--------------------------------------//
-
-dataPartenza.setAttribute('min', dataMinPartenza)
-dataPartenza.setAttribute('max', dataMaxPartenza)
-// scarico.setAttribute('min', dataMin)
-// scarico.setAttribute('max', dataMax)
+dataPartenza.setAttribute('min', dataMinPartenza);
+dataPartenza.setAttribute('max', dataMaxPartenza);
 
 
 let regexCap = /^[0-9]{5}$/;

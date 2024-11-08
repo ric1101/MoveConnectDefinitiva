@@ -2,7 +2,7 @@
 let bodyTabella = document.querySelector('.bodyTabella');
 
 
-let URLB = `http://127.0.0.1:8080/api/tratta/tutteLeTratte`;
+let URLB = `http://localhost:8080/api/tratta/tuttLeTratteConAzienda`;
 fetch(URLB)
     .then((res) => res.json())
     .then((data) => {

@@ -2,7 +2,7 @@
 let bodyTabella = document.querySelector('.bodyTabella');
 
 
-let URLB = `http://127.0.0.1:8080/api/consegnaImballi/tutteLeRichiesteConsegna`;
+let URLB = `http://127.0.0.1:8080/api/consegnaImballi/tutteLeConsegneConAzienda`;
 fetch(URLB)
     .then((res) => res.json())
     .then((data) => {

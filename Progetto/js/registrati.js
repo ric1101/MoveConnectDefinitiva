@@ -99,7 +99,7 @@ function registrazioneAzienda() {
 
 
 
-  fetch("http://127.0.0.1:8080/api/azienda/register", {
+  fetch("http://127.0.0.1:8080/api/azienda/signUp", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

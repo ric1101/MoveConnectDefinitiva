@@ -4,7 +4,7 @@ let bodyTabella = document.querySelector('.bodyTabella');
 console.log(bodyTabella);
 
 
-let URLB = `http://127.0.0.1:8080/api/richiestaTrasporto/tutteLeRichiesteTrasporto`;
+let URLB = `http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAzienda`;
 fetch(URLB)
     .then((res) => res.json())
     .then((data) => {

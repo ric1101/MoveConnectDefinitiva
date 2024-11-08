@@ -353,8 +353,12 @@ ul {
 
 .separazione {
   
-  border: solid 5px coral;
+  border: solid 1px black;
 
+}
+
+hr {
+  box-sizing: inherit !important;
 }
 
 .titolo {

@@ -121,7 +121,7 @@ function trasportoInfo(dati) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Tipologia Veicolo</p>
+                                        <p class="mb-0 fw-bold">Tipologia Merce</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.tipoDiVeicolo}</p>
