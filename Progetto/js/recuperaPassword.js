@@ -3,26 +3,26 @@ let modal = document.querySelector('.modal');
 let username = localStorage.getItem('emailRecupera');
 let newPassword = document.querySelector('.newPassword');
 let newPasswordConferma = document.querySelector('.newPasswordConferma');
-let codice = document.querySelector('.codice');
+let codiceVerificaRecuperoPassword = document.querySelector('.codice');
 let btnInvio = document.querySelector('.btn-invio');
 let errore = document.querySelector('.errore');
 
 class Azienda {
-    constructor(username, codice) {
+    constructor(username, codiceVerificaRecuperoPassword) {
         (this.username = username),
-            (this.codice = codice)
+            (this.codiceVerificaRecuperoPassword = codiceVerificaRecuperoPassword)
 
     }
 }
 
 function verificaCodice() {
 
-    let nuovaAzienda = new Azienda(username, codice.value);
+    let nuovaAzienda = new Azienda(username, codiceVerificaRecuperoPassword.value);
     console.log(username, codice.value);
 
 
 
-    fetch(`http://127.0.0.1:8080/api/azienda/verifyCodePassChange/`, {
+    fetch(`http://127.0.0.1:8080/api/azienda/verifyCodePassChange`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
