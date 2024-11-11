@@ -17,12 +17,14 @@ class Verifica {
 
 function fetchInvio() {
 
+  event.preventDefault();
 
   let nuovoUtente = new Verifica(username, codice.value);
+  console.log(username, codice.value);
+  
 
-
-  fetch("http://127.0.0.1:8080/api/azienda/verify", {
-    method: "POST",
+  fetch(`http://127.0.0.1:8080/api/azienda/verify-azienda?username=${username}&verificationCode=${codice.value}`, {
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },

@@ -99,7 +99,7 @@ function registrazioneAzienda() {
 
 
 
-  fetch("http://127.0.0.1:8080/api/azienda/signUp", {
+  fetch("http://127.0.0.1:8080/api/azienda/registerSerio", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -321,7 +321,7 @@ function numTelDipCheck() {
 
 function controlloDati() {
 
-  // event.preventDefault();
+  event.preventDefault();
 
   if (nomeAzienda.value.trim() != "" &&
     logo.value.trim() != "" &&
@@ -352,7 +352,10 @@ function controlloDati() {
       registrazioneAzienda();
       
       localStorage.setItem('emailUtente', username.value);
+      location.reload();
       window.location.href = 'codice.html';
+      console.log('ciao');
+      
 
     } else {
       
