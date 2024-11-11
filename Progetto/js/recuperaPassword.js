@@ -17,12 +17,13 @@ class Azienda {
 
 function verificaCodice() {
 
+    
     let nuovaAzienda = new Azienda(username, codiceVerificaRecuperoPassword.value);
-    console.log(username, codice.value);
+    console.log(nuovaAzienda);
 
 
 
-    fetch(`http://127.0.0.1:8080/api/azienda/verifyCodePassChange`, {
+    fetch(`http://localhost:8080/api/azienda/verifyCodePassChange`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -46,11 +47,11 @@ btnInvio.addEventListener('click', verificaCodice);
 
 
 function cambiaPassword() {
-
+    event.preventDefault();
 
     if (newPassword.value === newPasswordConferma.value) {
 
-        fetch(`http://127.0.0.1:8080/api/azienda/verify-pass-change?username=${username}`, {
+        fetch(`http://127.0.0.1:8080/api/azienda/set-password?username=${username}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
