@@ -1,5 +1,5 @@
 
-
+let modal = document.querySelector('.modal');
 let username = localStorage.getItem('emailRecupera');
 let newPassword = document.querySelector('.newPassword');
 let newPasswordConferma = document.querySelector('.newPasswordConferma');
@@ -57,6 +57,10 @@ function cambiaPassword() {
             },
             body: JSON.stringify(newPassword),
         })
+
+        modal.classList.remove('d-none');
+        modal.classList.add('d-block');
+
 
     }
 
