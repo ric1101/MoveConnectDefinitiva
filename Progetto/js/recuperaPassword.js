@@ -33,7 +33,7 @@ function verificaCodice() {
         .then((response) => {
             if (response.ok) {
                 errore.innerHTML = '';
-                cambiaPassword();
+                fetchInvioNuovaPassword();
             }else{
 
                 errore.innerHTML = 'codice errato o scaduto';
@@ -44,28 +44,42 @@ function verificaCodice() {
 
 }
 
-btnInvio.addEventListener('click', verificaCodice);
 
 
 
 function cambiaPassword() {
-
-
+    
+    
     if (newPassword.value === newPasswordConferma.value) {
         console.log(newPassword);
         
-        fetch(`http://localhost:8080/api/azienda/set-password?username=${username}&newPassword=${newPassword.value}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-                
-            },
-            body: JSON.stringify(newPassword.value),
-        })
+        verificaCodice();
+        
+    } else {
 
-        window.location.href = 'passwordCambiata.html';
-
+        errore.innerHTML = 'le password non corrispondono';
 
     }
+
+    
+}
+
+btnInvio.addEventListener('click', cambiaPassword);
+
+
+
+function fetchInvioNuovaPassword() {
+    
+
+    fetch(`http://localhost:8080/api/azienda/set-password?username=${username}&newPassword=${newPassword.value}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            
+        },
+        body: JSON.stringify(newPassword.value),
+    })
+    
+    window.location.href = 'passwordCambiata.html';
 
 }

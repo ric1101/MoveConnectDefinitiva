@@ -61,7 +61,7 @@ function navbar() {
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link button1 mx-2 text-white abb d-none" href="abbonamenti.html">Abbonati</a>
+                        <a class="nav-link button1 mx-2 text-white abb d-none" href="abbonamenti.html">Subscribe</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link button1 mx-2 text-white partners d-none" href="partners.html">Partners</a>
