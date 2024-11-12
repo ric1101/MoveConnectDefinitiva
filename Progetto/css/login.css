@@ -57,8 +57,21 @@
     position: absolute;
     top: 43px;
   }
-  
 
+  #showPassword1 {
+    position: absolute;
+    top: 43px;
+  }
+
+  #showPassword2 {
+    position: absolute;
+    top: 43px;
+  }
+  
+  #timer {
+    font-size: 2em;
+    font-weight: bold;
+}
   
 /* Stile per il modal */
 .modal {

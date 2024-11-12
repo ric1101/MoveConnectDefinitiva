@@ -208,34 +208,102 @@ header {
 
 
 .white-line {
-    width: 20%;
-    height: 6px; /* Puoi regolare l'altezza della linea */
+    width: 30%;
+    height: 5px; /* Puoi regolare l'altezza della linea */
     background: repeating-linear-gradient(
       90deg,
-      rgb(145, 145, 145),
-      rgb(145, 145, 145) 30px, /* Segmento bianco più lungo */
+      rgb(255, 255, 255),
+      rgb(255, 255, 255) 30px, /* Segmento bianco più lungo */
       #000000 30px, /* Grigio più scuro per maggiore contrasto */
       #000000 60px /* Lunghezza totale del pattern */
+    );
+    background-size: 60px 100%;
+    animation: moveLine 1s linear infinite;
+    /* Animazione leggermente più veloce */
+}
+
+
+.black-line1 {
+    width: 30%;
+    height: 20px; /* Puoi regolare l'altezza della linea */
+    background: repeating-linear-gradient(
+      90deg,
+      rgb(0, 0, 0),
+      rgb(0, 0, 0) 30px, /* Segmento bianco più lungo */
+      #000000 30px, /* Grigio più scuro per maggiore contrasto */
+      #000000 30px /* Lunghezza totale del pattern */
     );
     background-size: 200% 100%;
     animation: moveLine 5s linear infinite;
     /* Animazione leggermente più veloce */
 }
 
+.black-line2 {
+    width: 30%;
+    height: 20px; /* Puoi regolare l'altezza della linea */
+    background: repeating-linear-gradient(
+      90deg,
+      rgb(0, 0, 0),
+      rgb(0, 0, 0) 30px, /* Segmento bianco più lungo */
+      #000000 30px, /* Grigio più scuro per maggiore contrasto */
+      #000000 30px /* Lunghezza totale del pattern */
+    );
+    background-size: 200% 100%;
+    animation: moveLine 5s linear infinite;
+    /* Animazione leggermente più veloce */
+}
+
+.animated-logo {
+    animation: wobble 5s ease-in-out infinite;
+  }
+  
+  @keyframes wobble {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-2px) rotate(-2deg);
+    }
+    50% {
+      transform: translateX(2px) rotate(2deg);
+    }
+    75% {
+      transform: translateX(-2px) rotate(-2deg);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+.strada {
+    position: relative; /* Imposta la sezione strada come riferimento */
+    padding-top: 158px;
+}
+/* 
+.banner {
+    margin-top: 35px;
+} */
+
+.animated-logo {
+    position: absolute !important; /* Sovrappone l'immagine */
+    top: 13% !important;
+    left: 40%; /* Aggiusta la posizione verticale */
+    z-index: 2; /* Assicura che l'immagine sia sopra */
+}
+
 @keyframes moveLine {
     0% {
-        background-position: 0% 0%;
+        background-position: 0 0;
     }
-
     100% {
-        background-position: 200% 0%;
+        background-position: -60px 0; /* La stessa lunghezza del pattern */
     }
 }
 
 
 @media (max-width: 768px) {
     .white-line {
-        animation: moveLine 3s linear infinite;
+        animation: moveLine 5s linear infinite;
         /* Aumenta la velocità su schermi più piccoli */
     }
 }

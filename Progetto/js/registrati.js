@@ -129,7 +129,7 @@ function registrazioneAzienda() {
 // console.log(nuovaAzienda);
 
 
-const regexPASSWORD = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/;
+const regexPASSWORD = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/;
 
 const regexPasswordMaiuscola = /(?=.*[A-Z])/;
 const regexPasswordMinuscola = /(?=.*[a-z])/;
@@ -180,8 +180,8 @@ function passwordCheck() {
 
   }
 
-  if (password.value.length > 10) {
-    let lunghezzaMax = `<li> Massimo 10 caratteri</li>`;
+  if (password.value.length > 15) {
+    let lunghezzaMax = `<li> Massimo 15 caratteri</li>`;
     erroreLunghezzaMax.innerHTML = lunghezzaMax;
   } else {
     erroreLunghezzaMax.innerHTML = "";
