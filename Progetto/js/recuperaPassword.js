@@ -47,7 +47,7 @@ btnInvio.addEventListener('click', verificaCodice);
 
 
 function cambiaPassword() {
-    event.preventDefault();
+   
 
     if (newPassword.value === newPasswordConferma.value) {
 
@@ -55,6 +55,7 @@ function cambiaPassword() {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
+                "newPassword": newPassword
             },
             body: JSON.stringify(newPassword),
         })
