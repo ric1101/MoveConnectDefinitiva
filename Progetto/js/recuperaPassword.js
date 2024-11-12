@@ -34,8 +34,10 @@ function verificaCodice() {
             if (response.ok) {
                 errore.innerHTML = '';
                 cambiaPassword();
+            }else{
+
+                errore.innerHTML = 'codice errato o scaduto';
             }
-            errore.innerHTML = 'codice errato o scaduto';
         })
 
 
@@ -61,7 +63,7 @@ function cambiaPassword() {
             body: JSON.stringify(newPassword.value),
         })
 
-        errore.innerHTML = "";
+        
         modal.classList.remove('d-none');
         modal.classList.add('d-block');
 
