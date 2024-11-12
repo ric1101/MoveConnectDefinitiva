@@ -63,9 +63,7 @@ function cambiaPassword() {
             body: JSON.stringify(newPassword.value),
         })
 
-        
-        modal.classList.remove('d-none');
-        modal.classList.add('d-block');
+        window.location.href = 'passwordCambiata.html';
 
 
     }
