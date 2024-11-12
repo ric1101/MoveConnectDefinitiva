@@ -20,8 +20,10 @@ function inviaMail() {
   })
   
     if (username.match(regexEMAIL)) {
+        errore.innerHTML = '';
         window.location.href = 'recuperaPassword.html';
         localStorage.setItem('emailRecupera', username);
+
       } else {
           errore.innerHTML = 'email non valida';
 
