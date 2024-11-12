@@ -50,16 +50,18 @@ function cambiaPassword() {
 
 
     if (newPassword.value === newPasswordConferma.value) {
-
-        fetch(`http://127.0.0.1:8080/api/azienda/set-password?username=${username}`, {
+        console.log(newPassword);
+        
+        fetch(`http://localhost:8080/api/azienda/set-password?username=${username}&newPassword=${newPassword.value}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                "newPassword": newPassword
+                
             },
-            body: JSON.stringify(newPassword),
+            body: JSON.stringify(newPassword.value),
         })
 
+        errore.innerHTML = "";
         modal.classList.remove('d-none');
         modal.classList.add('d-block');
 
