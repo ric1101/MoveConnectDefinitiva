@@ -17,11 +17,10 @@ class Azienda {
 
 function verificaCodice() {
 
-    
+    event.preventDefault();
+
     let nuovaAzienda = new Azienda(username, codiceVerificaRecuperoPassword.value);
     console.log(nuovaAzienda);
-
-
 
     fetch(`http://localhost:8080/api/azienda/verifyCodePassChange`, {
         method: "POST",
@@ -33,6 +32,7 @@ function verificaCodice() {
     })
         .then((response) => {
             if (response.ok) {
+                errore.innerHTML = '';
                 cambiaPassword();
             }
             errore.innerHTML = 'codice errato o scaduto';
@@ -47,7 +47,7 @@ btnInvio.addEventListener('click', verificaCodice);
 
 
 function cambiaPassword() {
-   
+
 
     if (newPassword.value === newPasswordConferma.value) {
 
