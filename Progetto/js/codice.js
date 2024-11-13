@@ -33,15 +33,14 @@ function fetchInvio() {
   .then((response) => {
       if (response.ok) {
           window.location.href = 'login.html';
-        }
+        } else {
+          
           errore.innerHTML = 'codice errato o scaduto';
+        }
       })
     
 
 
 }
-
-
-
 
 btnInvio.addEventListener('click', fetchInvio);
