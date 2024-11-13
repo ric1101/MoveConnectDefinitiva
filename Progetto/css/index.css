@@ -117,8 +117,8 @@
 
 header {
     min-height: 100vh !important;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url(../imgs/grande.png) center/cover no-repeat fixed !important;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url(../imgs/sfondo.png) center/cover no-repeat fixed !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: stretch !important;
@@ -169,6 +169,8 @@ header {
     font-weight: bold !important;
     line-height: 1.2;
     align-items: center;
+    text-shadow: 8px 2px 5px black;
+
 }
 
 
@@ -199,7 +201,7 @@ header {
 
 
 .white-line {
-    width: 30%;
+    width: 100%;
     height: 5px;
     /* Puoi regolare l'altezza della linea */
     background: repeating-linear-gradient(90deg,
@@ -221,7 +223,7 @@ header {
 
 
 .black-line1 {
-    width: 30%;
+    width: 100%;
     height: 20px;
     /* Puoi regolare l'altezza della linea */
     background: repeating-linear-gradient(90deg,
@@ -245,7 +247,7 @@ header {
 }
 
 .black-line2 {
-    width: 30%;
+    width: 100%;
     height: 20px;
     /* Puoi regolare l'altezza della linea */
     background:  repeating-linear-gradient(90deg,
@@ -265,7 +267,15 @@ header {
     /* border-bottom: solid 2px rgb(73, 73, 73);
     border-right: solid 2px rgb(73, 73, 73);
     border-left: solid 2px rgb(73, 73, 73); */
-    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.8);
+    
+}
+
+.righe {
+    box-shadow: 0px 0px 10px 1px rgba(200, 150, 2, 0.349);
+    padding-right: 0;
+    width: 30%;
+    border-radius: 8px;
+    border: solid 0.1rem #FAAD06;
 }
 
 
@@ -273,6 +283,7 @@ header {
     position: relative;
     /* Imposta la sezione strada come riferimento */
     padding-top: 158px;
+    
 }
 
 
@@ -287,6 +298,54 @@ header {
 
 }
 
+.animated-stripes {
+    position: absolute;
+    top: 58%;  /* Posiziona al centro verticale rispetto al contenitore */
+    left: 35%;
+    width: 30%;
+    height: 40px;  /* Altezza regolabile per sovrapporre le righe al logo */
+    overflow: hidden;
+    z-index: 2;  /* Più alto del logo per sovrapporsi a esso */
+    pointer-events: none;  /* Per evitare interferenze con altre interazioni */
+}
+
+.stripe {
+    position: absolute;
+    width: 20%;
+    height: 4px; /* Altezza della riga */
+    background-color: #C99701;
+    opacity: 0;  /* Le righe sono invisibili all'inizio */
+    animation: slideStripes 3s linear infinite;
+}
+
+/* Posizioni delle righe con ritardo */
+.stripe:nth-child(1) {
+    top: 2px;
+    animation-delay: 0s;
+}
+.stripe:nth-child(2) {
+    top: 8px;
+    animation-delay: 0.5s;
+}
+.stripe:nth-child(3) {
+    top: 14px;
+    animation-delay: 1s;
+}
+
+@keyframes slideStripes {
+    0% {
+        transform: translateX(100%);  /* Inizia dal vuoto a destra */
+        opacity: 1;  /* Completamente visibile mentre entra */
+    }
+    80% {
+        transform: translateX(0);  /* La riga è visibile al centro */
+        opacity: 1;  /* Rimane visibile */
+    }
+    100% {
+        transform: translateX(-100%);  /* Fuori dal margine sinistro */
+        opacity: 0;  /* Scompare immediatamente quando raggiunge il margine sinistro */
+    }
+}
 
 @keyframes moveLine {
     0% {
@@ -330,17 +389,11 @@ header {
         left: 30% !important;
     }
 
-    .white-line {
-        width: 40%;
+    .righe {
+        width: 50%;
     }
 
-    .black-line1 {
-        width: 40%;
-    }
-
-    .black-line2 {
-        width: 40%;
-    }
+    
 
 
 }
@@ -351,6 +404,8 @@ header {
        display: none;
     }
 
+
+
 }
 
 
@@ -358,15 +413,14 @@ header {
 
 @media (max-width: 540px) {
 
+
     .strada {
         padding-top: 0px;
     }
 
-
     .imgPiccola {
         display: block;
-     }
-
+    }
 
     .animated-logo {
        display: none;
@@ -381,6 +435,14 @@ header {
     }
 
     .black-line2 {
+        display: none;
+    }
+
+    .righe {
+        display: none !important;
+    }
+
+    .allineaRighe {
         display: none;
     }
 
@@ -394,16 +456,12 @@ header {
         left: 21% !important;
     }
 
-    .white-line {
-        width: 60%;
+    .righe{
+        width: 70%;
     }
 
-    .black-line1 {
-        width: 60%;
-    }
-
-    .black-line2 {
-        width: 60%;
+    .bi-globe2 {
+        font-size: 30px;
     }
 
 
@@ -420,20 +478,7 @@ header {
 } */
 
 
-
-@media screen and (max-width: 768px) {
-
-
-    .bi-globe2 {
-        font-size: 30px;
-    }
-
-
-}
-
-
-
-@media screen and (max-width: 424px) {
+@media screen and (max-width: 438px) {
 
     .banner-title {
         font-size: 2rem !important;
@@ -441,6 +486,10 @@ header {
 
     .bi-globe2 {
         font-size: 20px;
+    }
+
+    .righe{
+        width: 100%;
     }
 
 

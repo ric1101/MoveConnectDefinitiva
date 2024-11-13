@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scia Animata con Scomparsa Immediata</title>
+    <style>
+        .container {
+            position: relative;
+            width: 500px;
+            height: 150px;
+            overflow: hidden; /* Nasconde la parte che esce dal contenitore */
+            background-color: #fff; /* Sfondo bianco */
+        }
+
+        .stripes {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+        }
+
+        .stripe {
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            background-color: #aaa;
+            opacity: 1;
+            animation: slideStripes 3s linear infinite;
+        }
+
+        /* Posizionamento casuale delle righe */
+        .stripe:nth-child(1) {
+            top: 10px;
+            animation-delay: 0s; /* Prima riga parte subito */
+        }
+
+        .stripe:nth-child(2) {
+            top: 50px;
+            animation-delay: 0.5s; /* Seconda riga parte dopo 0.5s */
+        }
+
+        .stripe:nth-child(3) {
+            top: 100px;
+            animation-delay: 1s; /* Terza riga parte dopo 1s */
+        }
+
+        @keyframes slideStripes {
+            0% {
+                transform: translateX(100%);  /* La riga parte completamente a destra */
+                opacity: 1;  /* Completamente visibile */
+            }
+            80% {
+                transform: translateX(-100%); /* La riga è quasi completamente a sinistra */
+                opacity: 1;  /* La riga rimane visibile */
+            }
+            90% {
+                opacity: 0;  /* La riga scompare istantaneamente */
+            }
+            100% {
+                transform: translateX(100%); /* La riga ricomincia da destra (senza ritorno!) */
+                opacity: 1;  /* La riga è visibile di nuovo */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="stripes">
+            <!-- Tre righe orizzontali posizionate in modo non regolare -->
+            <div class="stripe"></div>
+            <div class="stripe"></div>
+            <div class="stripe"></div>
+        </div>
+    </div>
+</body>
+</html>
