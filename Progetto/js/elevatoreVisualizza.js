@@ -54,3 +54,73 @@ function ascolto() {
 
 
 }
+
+
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function () {
+    output.innerHTML = this.value;
+}
+
+
+
+let regLink = document.querySelectorAll('.regLink');
+let scalaLink = document.querySelectorAll('.scalaLink');
+let pesoLink = document.querySelectorAll('.pesoLink');
+let simboloReg = document.querySelector('.simboloReg');
+let simboloScala = document.querySelector('.simboloScala');
+let simboloPeso = document.querySelector('.simboloPeso');
+
+
+regLink.forEach(element => {
+
+    element.addEventListener('click', () => {
+
+        if (simboloReg.classList.contains('fa-plus')) {
+            simboloReg.classList.remove('fa-plus');
+            simboloReg.classList.add('fa-minus');
+        } else {
+            simboloReg.classList.remove('fa-minus');
+            simboloReg.classList.add('fa-plus');
+        }
+
+    })
+
+});
+
+
+scalaLink.forEach(element => {
+
+    element.addEventListener('click', () => {
+
+        if (simboloScala.classList.contains('fa-plus')) {
+            simboloScala.classList.remove('fa-plus');
+            simboloScala.classList.add('fa-minus');
+        } else {
+            simboloScala.classList.remove('fa-minus');
+            simboloScala.classList.add('fa-plus');
+        }
+
+    })
+
+});
+
+
+pesoLink.forEach(element => {
+
+    element.addEventListener('click', () => {
+
+        if (simboloPeso.classList.contains('fa-plus')) {
+            simboloPeso.classList.remove('fa-plus');
+            simboloPeso.classList.add('fa-minus');
+        } else {
+            simboloPeso.classList.remove('fa-minus');
+            simboloPeso.classList.add('fa-plus');
+        }
+
+    })
+
+});

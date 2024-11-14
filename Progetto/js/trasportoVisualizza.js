@@ -46,7 +46,7 @@ function recuperaDatiAzienda(dati) {
 
 
 function ascolto() {
-    
+
     let linkTrasporto = document.querySelectorAll('.linkTrasporto');
 
     linkTrasporto.forEach(element => {
@@ -58,3 +58,72 @@ function ascolto() {
 
 
 }
+
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function () {
+    output.innerHTML = this.value;
+}
+
+
+
+let regParLink = document.querySelectorAll('.regParLink');
+let regArrLink = document.querySelectorAll('.regArrLink');
+let m3Link = document.querySelectorAll('.m3Link');
+let simboloPar = document.querySelector('.simboloPar');
+let simboloArr = document.querySelector('.simboloArr');
+let simboloM3 = document.querySelector('.simboloM3');
+
+
+regParLink.forEach(element => {
+
+    element.addEventListener('click', () => {
+
+        if (simboloPar.classList.contains('fa-plus')) {
+            simboloPar.classList.remove('fa-plus');
+            simboloPar.classList.add('fa-minus');
+        } else {
+            simboloPar.classList.remove('fa-minus');
+            simboloPar.classList.add('fa-plus');
+        }
+
+    })
+
+});
+
+
+regArrLink.forEach(element => {
+
+    element.addEventListener('click', () => {
+
+        if (simboloArr.classList.contains('fa-plus')) {
+            simboloArr.classList.remove('fa-plus');
+            simboloArr.classList.add('fa-minus');
+        } else {
+            simboloArr.classList.remove('fa-minus');
+            simboloArr.classList.add('fa-plus');
+        }
+
+    })
+
+});
+
+
+m3Link.forEach(element => {
+
+    element.addEventListener('click', () => {
+
+        if (simboloM3.classList.contains('fa-plus')) {
+            simboloM3.classList.remove('fa-plus');
+            simboloM3.classList.add('fa-minus');
+        } else {
+            simboloM3.classList.remove('fa-minus');
+            simboloM3.classList.add('fa-plus');
+        }
+
+    })
+
+});

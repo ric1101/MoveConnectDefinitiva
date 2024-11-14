@@ -23,7 +23,7 @@ function trasportoInfo(dati) {
                     <div class="card mb-4 text-center rowes">
                         <div class="card-body col-lg-6 flex-column justify-content-center">
                             <div class="containerLogoImg">
-                                    <img src="${dati.azienda.logo}" alt="UserImg" class="imgAzienda">
+                                    <img src="${dati.azienda.logo}" alt="" class="imgAzienda">
                                 </div>
                             <h2 class="my-3 fw-bold">${dati.azienda.nomeAzienda}</h2>
                         </div>
