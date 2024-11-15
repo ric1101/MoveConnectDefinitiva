@@ -5,6 +5,7 @@ console.log(bodyTabella);
 
 let accessToken = localStorage.getItem('accessToken');
 
+
 fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
@@ -15,7 +16,6 @@ fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
     });
 
 
-
 function fetchTrasporto(id) {
 
 
@@ -24,8 +24,7 @@ function fetchTrasporto(id) {
         .then((res) => res.json())
         .then((data) => {
 
-            trasporto(data)
-            console.log(data, id);
+            trasporto(data, id)
             ascolto();
 
         });
@@ -40,9 +39,9 @@ function trasporto(dati, id) {
 
         if (element.azienda.id != id) {
 
-        console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
+            console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
-        let tabella = `<tr>
+            let tabella = `<tr>
                 <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
                 <td class="">${element.azienda.nomeAzienda}</td>
                 <td class="">${element.id}</td>
@@ -56,7 +55,7 @@ function trasporto(dati, id) {
                 </tr>`;
 
 
-        bodyTabella.innerHTML += tabella;
+            bodyTabella.innerHTML += tabella;
 
         }
 
@@ -153,27 +152,115 @@ m3Link.forEach(element => {
 let regioniPartenza = document.querySelectorAll('.regioniPartenza');
 let regioniArrivo = document.querySelectorAll('.regioniArrivo');
 let demo = document.querySelector('.demo');
+let reg1 = 0;
+console.log(regioniPartenza);
 
+console.log(reg1);
 
 regioniPartenza.forEach(element => {
-    
-    element.addEventListener('click', filtriRegionePartenza(element.value));
+
+    element.addEventListener('click', () => {
+        reg1 = 1;
+        if (reg2) {
+            
+        }
+        fetchRegioniPartenza(element.value)
+    });
 
 
 });
 
-function filtriRegionePartenza(regione) {
-    
 
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regione}`)
+
+ 
+
+// regioniArrivo.forEach(element => {
+
+//     element.addEventListener('click', () => {
+//         fetchRegioniArrivo(element.value)
+//     });
+
+
+// });
+
+
+function fetchRegioniPartenza(regione) {
+    console.log(reg1);
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
-            trasporto(data)
+            filtriRegionePartenza(regione, data.id);
+            console.log(data.id);
+            console.log(regione);
+
+        });
+}
+
+function filtriRegionePartenza(regione, id) {
+
+    console.log(regione);
+
+    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaPerRegionePartenza/${regione}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            trasportoFiltroSoloRegionePartenza(data, id)
             console.log(data);
+            console.log(id);
             ascolto();
 
         });
-    
 
 }
+
+
+function trasportoFiltroSoloRegionePartenza(dati, id) {
+
+    console.log(dati);
+    console.log(id);
+    
+
+    if (dati.length != 0) {
+
+        
+
+        dati.forEach(element => {
+
+
+
+            if (element.azienda.id != id) {
+
+                console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
+
+                let tabella = `<tr>
+                <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
+                <td class="">${element.azienda.nomeAzienda}</td>
+                <td class="">${element.id}</td>
+                <td class="" data-eventoid="1">${element.comunePartenza}</td>
+                <td class="" data-eventoid="1">${element.comuneArrivo}</td>
+                <td class="" data-eventoid="1">${element.mq}</td>
+                <td class="" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                <td class="" data-eventoid="1">${element.carico}</td>
+                <td class="" data-eventoid="1">${element.scarico}</td>
+                <td class="" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                </tr>`;
+
+
+                bodyTabella.innerHTML = tabella;
+
+            } else {
+                bodyTabella.innerHTML = 'Non ci sono corrispondenze!';
+            }
+
+        });
+
+    } else {
+        bodyTabella.innerHTML = 'Non ci sono corrispondenze!';
+    }
+
+}
+
+
+
+
