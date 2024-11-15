@@ -1,27 +1,44 @@
 
 let bodyTabella = document.querySelector('.bodyTabella');
 
+let accessToken = localStorage.getItem('accessToken');
 
-let URLB = `http://127.0.0.1:8080/api/scalaElevatore/tutteScaleConAzienda`;
-fetch(URLB)
+fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
 
-        console.log(data);
-        elevatore(data);
-        ascolto();
+        fetchElevatore(data.id);
+        console.log(data.id);
+
     });
 
 
 
-function elevatore(dati) {
+function fetchElevatore(id) {
+
+    let URLB = `http://127.0.0.1:8080/api/scalaElevatore/tutteScaleConAzienda`;
+    fetch(URLB)
+        .then((res) => res.json())
+        .then((data) => {
+
+            console.log(data);
+            elevatore(data, id);
+            ascolto();
+        });
+
+}
+
+
+function elevatore(dati, id) {
 
     dati.forEach(element => {
 
+        if (element.azienda.id != id) {
 
-        console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
-        let tabella = `<tr>
+            console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
+
+            let tabella = `<tr>
                         <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
                         <td class="">${element.azienda.nomeAzienda}</td>
                         <td class="">${element.id}</td>
@@ -34,7 +51,9 @@ function elevatore(dati) {
                     </tr>`;
 
 
-        bodyTabella.innerHTML += tabella;
+            bodyTabella.innerHTML += tabella;
+
+        }
 
     });
 
@@ -42,7 +61,7 @@ function elevatore(dati) {
 }
 
 function ascolto() {
-    
+
     let linkElevatore = document.querySelectorAll('.linkElevatore');
 
     linkElevatore.forEach(element => {
@@ -53,16 +72,6 @@ function ascolto() {
     });
 
 
-}
-
-
-
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value;
-
-slider.oninput = function () {
-    output.innerHTML = this.value;
 }
 
 

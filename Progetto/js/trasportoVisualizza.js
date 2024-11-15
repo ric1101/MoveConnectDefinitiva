@@ -3,22 +3,42 @@
 let bodyTabella = document.querySelector('.bodyTabella');
 console.log(bodyTabella);
 
+let accessToken = localStorage.getItem('accessToken');
 
-let URLB = `http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAzienda`;
-fetch(URLB)
+fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
 
-        recuperaDatiAzienda(data)
-        console.log(data);
-        ascolto();
+        fetchTrasporto(data.id);
+        console.log(data.id);
 
     });
 
-function recuperaDatiAzienda(dati) {
+
+
+function fetchTrasporto(id) {
+
+
+    let URLB = `http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAzienda`;
+    fetch(URLB)
+        .then((res) => res.json())
+        .then((data) => {
+
+            trasporto(data)
+            console.log(data, id);
+            ascolto();
+
+        });
+
+}
+
+
+
+function trasporto(dati, id) {
 
     dati.forEach(element => {
 
+        if (element.azienda.id != id) {
 
         console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
@@ -38,7 +58,7 @@ function recuperaDatiAzienda(dati) {
 
         bodyTabella.innerHTML += tabella;
 
-
+        }
 
     });
 
@@ -127,3 +147,33 @@ m3Link.forEach(element => {
     })
 
 });
+
+
+
+let regioniPartenza = document.querySelectorAll('.regioniPartenza');
+let regioniArrivo = document.querySelectorAll('.regioniArrivo');
+let demo = document.querySelector('.demo');
+
+
+regioniPartenza.forEach(element => {
+    
+    element.addEventListener('click', filtriRegionePartenza(element.value));
+
+
+});
+
+function filtriRegionePartenza(regione) {
+    
+
+    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regione}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            trasporto(data)
+            console.log(data);
+            ascolto();
+
+        });
+    
+
+}

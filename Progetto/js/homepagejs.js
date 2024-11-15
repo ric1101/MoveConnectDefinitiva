@@ -19,7 +19,7 @@ function navbar() {
             aria-labelledby="offcanvasNavbarLabel">
             <!-- SideBar Header -->
             <div class="offcanvas-header text-black border-bottom"
-                style="background-color: #1B2023;border-bottom: solid 0.3rem coral !important;">
+                style="background-color: #1B2023;border-bottom: solid 0.3rem #FAAD06 !important;">
                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img class="logo" src="../Progetto/imgs/img2.png"
                         alt=""></h5>
                 <div class="icon ms-auto">
@@ -79,7 +79,7 @@ function navbar() {
                     <a href="index.html" class="text-white text-decoration-none logout d-none"><i
                             class="fa-solid fa-arrow-right-from-bracket"></i> &nbsp;Logout </a>
                     <a href="registrati.html" class="text-black text-decoration-none px-3 py-1 rounded-4 signup"
-                        style="background-color: coral; ">Sign Up&nbsp; <i class="fa-solid fa-pen"></i></a>
+                        style="background-color: #FAAD06; ">Sign Up&nbsp; <i class="fa-solid fa-pen"></i></a>
                     
                 </div>
 

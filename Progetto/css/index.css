@@ -46,7 +46,7 @@
 }
 
 .titles-item a {
-    color: coral;
+    color: #FAAD06;
     text-decoration: none;
     font-size: 30px;
 }
@@ -549,7 +549,7 @@ header {
 @media screen and (max-width: 450px) {
 
     .map-container {
-        border: solid 5px coral;
+        border: solid 5px #FAAD06;
     }
 
     .computer-container {
@@ -563,7 +563,7 @@ header {
 .bottone-abbonamento:hover {
     position: relative;
     display: inline-block;
-    color: coral;
+    color: #FAAD06;
     text-decoration: none;
     transition: color 0.3s ease;
 }

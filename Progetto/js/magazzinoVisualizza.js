@@ -1,25 +1,45 @@
 
 let bodyTabella = document.querySelector('.bodyTabella');
 
+let accessToken = localStorage.getItem('accessToken');
 
-let URLB = `http://127.0.0.1:8080/api/depositoMagazzino/tuttiIMagazziniConAzienda`;
-fetch(URLB)
+
+fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
 
-        console.log(data);
-        magazzino(data);
-        ascolto();
+        fetchMagazzino(data.id);
+        console.log(data.id);
+
     });
 
 
+function fetchMagazzino(id) {
 
-function magazzino(dati) {
+
+    let URLB = `http://127.0.0.1:8080/api/depositoMagazzino/tuttiIMagazziniConAzienda`;
+    fetch(URLB)
+        .then((res) => res.json())
+        .then((data) => {
+
+            console.log(data);
+            magazzino(data, id);
+            ascolto();
+        });
+
+}
+
+
+
+function magazzino(dati, id) {
 
     dati.forEach(element => {
 
 
-        let tabella = `<tr>
+        if (element.azienda.id != id) {
+
+
+            let tabella = `<tr>
                         <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
                         <td class="">${element.azienda.nomeAzienda}</td>
                         <td class="">${element.id}</td>
@@ -33,16 +53,17 @@ function magazzino(dati) {
                     </tr>`;
 
 
-        bodyTabella.innerHTML += tabella;
+            bodyTabella.innerHTML += tabella;
+
+        }
 
     });
-
 
 }
 
 
 function ascolto() {
-    
+
     let linkDeposito = document.querySelectorAll('.linkDeposito');
 
     linkDeposito.forEach(element => {

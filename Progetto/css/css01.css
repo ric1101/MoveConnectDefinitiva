@@ -91,7 +91,7 @@ body {
 
 
 .button1:hover {
-  color: coral !important;
+  color: #FAAD06 !important;
 
 }
 
@@ -110,7 +110,7 @@ body {
 }
 
 .dropdown-menu li a:hover {
-  background-color: coral !important;
+  background-color: #FAAD06 !important;
 }
 
 @media(max-width: 577px) {
@@ -138,7 +138,7 @@ body {
 
 
 .immagineFinale img {
-  border: solid 0.3rem coral;
+  border: solid 0.3rem #FAAD06;
 }
 
 
@@ -154,7 +154,7 @@ ul {
 }
 
 .single-cta i {
-  color: #ff5e14;
+  color: #FAAD06;
   font-size: 30px;
   float: left;
   margin-top: 8px;
@@ -256,7 +256,7 @@ ul {
   bottom: -15px;
   height: 2px;
   width: 50px;
-  background: #ff5e14;
+  background: #FAAD06;
 }
 
 .footer-widget ul li {
@@ -267,7 +267,7 @@ ul {
 }
 
 .footer-widget ul li a:hover {
-  color: #ff5e14;
+  color: #FAAD06;
 }
 
 .footer-widget ul li a {
@@ -291,9 +291,9 @@ ul {
 .subscribe-form button {
   position: absolute;
   right: 0;
-  background: coral;
+  background: #FAAD06;
   padding: 13px 20px;
-  border: 1px solid coral;
+  border: 1px solid #FAAD06;
   top: 0;
 }
 
@@ -306,7 +306,7 @@ ul {
 .copyright-area {
   background-color: #c0c0c00d;
   padding: 25px 0;
-  border-top: solid 3px coral;
+  border-top: solid 3px #FAAD06;
 }
 
 .copyright-text p {
@@ -316,7 +316,7 @@ ul {
 }
 
 .copyright-text p a {
-  color: #ff5e14;
+  color: #FAAD06;
 }
 
 .footer-menu li {
@@ -325,7 +325,7 @@ ul {
 }
 
 .footer-menu li:hover a {
-  color: #ff5e14;
+  color: #FAAD06;
 }
 
 .footer-menu li a {
@@ -347,7 +347,7 @@ ul {
 }
 
 .bottonozzo {
-  background-color: coral !important;
+  background-color: #FAAD06 !important;
   color: #000000;
 }
 
@@ -408,7 +408,7 @@ hr {
   display: flex;
   justify-content: center;
   background-color: #1B2023;
-  border: 0.3rem solid coral;
+  border: 0.3rem solid #FAAD06;
   margin-bottom: 2rem;
 }
 
@@ -419,7 +419,7 @@ hr {
   font-weight: 500;
   font-size: 4rem;
   text-decoration: none;
-  color: coral;
+  color: #FAAD06;
   margin-top: 1rem !important;
   padding: 10px;
 }
@@ -431,7 +431,7 @@ hr {
     font-weight: 600;
     font-size: 3rem;
     text-decoration: none;
-    color: coral;
+    color: #FAAD06;
   }
 }
 
