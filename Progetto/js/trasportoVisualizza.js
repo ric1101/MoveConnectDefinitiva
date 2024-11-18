@@ -1,21 +1,25 @@
-
-
+let c = false;
+let c1 = false;
 let bodyTabella = document.querySelector('.bodyTabella');
 console.log(bodyTabella);
+
+let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
+<p>Non ci sono Corrispondenze!</p>
+</div>`;
 
 let accessToken = localStorage.getItem('accessToken');
 
 function predefinito() {
-    
 
-fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-    .then((res) => res.json())
-    .then((data) => {
 
-        fetchTrasporto(data.id);
-        console.log(data.id);
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
 
-    });
+            fetchTrasporto(data.id);
+            console.log(data.id);
+
+        });
 }
 predefinito();
 
@@ -173,7 +177,6 @@ regioniPartenza.forEach(element => {
 
     element.addEventListener('click', () => {
         localStorage.setItem('regionePartenza', element.value);
-        let regionePartenzaLocal = localStorage.getItem('regionePartenza');
         let regioneArrivoLocal = localStorage.getItem('regioneArrivo');
         reg1 = 1;
 
@@ -183,15 +186,15 @@ regioniPartenza.forEach(element => {
 
         } else if (reg2 == 1 && reg1 == 1 && reg3 == 0) {
 
-            fetchRegioniDoppie(regionePartenzaLocal, regioneArrivoLocal);
+            fetchRegioniDoppie(element.value, regioneArrivoLocal);
 
         } else if (reg2 == 0 && reg1 == 1 && reg3 == 1) {
 
-            fetchRegioniMq(regionePartenzaLocal, demo.textContent);
+            fetchRegioniMq(element.value, demo.textContent);
 
         } else if (reg2 == 1 && reg1 == 1 && reg3 == 1) {
 
-            fetchRegionePartenzaArrivoMq(regionePartenzaLocal, regioneArrivoLocal, demo.textContent);
+            fetchRegionePartenzaArrivoMq(element.value, regioneArrivoLocal, demo.textContent);
 
         }
     });
@@ -231,8 +234,10 @@ function filtriRegionePartenza(regione, id) {
 }
 
 
-function trasportoFiltroSoloRegionePartenza(dati, id) {
 
+function trasportoFiltroSoloRegionePartenza(dati, id) {
+    c = false;
+    c1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -263,16 +268,30 @@ function trasportoFiltroSoloRegionePartenza(dati, id) {
                 </tr>`;
 
 
+
+                c = true;
+                if (c1 == true) {
+                    bodyTabella.innerHTML = '';
+                }
+
+
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                bodyTabella.innerHTML = 'Non ci sono corrispondenze!';
+                if (c) {
+
+                } else {
+
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    c1 = true;
+
+                }
             }
 
         });
 
     } else {
-        bodyTabella.innerHTML = 'Non ci sono corrispondenze!';
+        bodyTabella.innerHTML = nessunaCorrispondenza;
     }
 
 }
@@ -286,7 +305,6 @@ regioniArrivo.forEach(element => {
     element.addEventListener('click', () => {
         localStorage.setItem('regioneArrivo', element.value);
         let regionePartenzaLocal = localStorage.getItem('regionePartenza');
-        let regioneArrivoLocal = localStorage.getItem('regioneArrivo');
         reg2 = 1;
 
         if (reg2 == 1 && reg1 == 0 && reg3 == 0) {
@@ -296,15 +314,15 @@ regioniArrivo.forEach(element => {
         } else if (reg2 == 1 && reg1 == 1 && reg3 == 0) {
 
 
-            fetchRegioniDoppie(regionePartenzaLocal, regioneArrivoLocal);
+            fetchRegioniDoppie(regionePartenzaLocal, element.value);
 
         } else if (reg2 == 1 && reg1 == 0 && reg3 == 1) {
 
-            fetchRegioniMq(regioneArrivoLocal, demo.textContent);
+            fetchRegioniMq(element.value, demo.textContent);
 
         } else if (reg2 == 1 && reg1 == 1 && reg3 == 1) {
 
-            fetchRegionePartenzaArrivoMq(regionePartenzaLocal, regioneArrivoLocal, demo.textContent);
+            fetchRegionePartenzaArrivoMq(regionePartenzaLocal, element.value, demo.textContent);
 
         }
     });
@@ -331,7 +349,7 @@ function filtriRegioneArrivo(regione, id) {
 
     console.log(regione);
 
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaPerRegionePartenza/${regione}`)
+    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaPerRegioneArrivo/${regione}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -347,7 +365,8 @@ function filtriRegioneArrivo(regione, id) {
 
 
 function trasportoFiltroSoloRegioneArrivo(dati, id) {
-
+    c = false;
+    c1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -377,17 +396,29 @@ function trasportoFiltroSoloRegioneArrivo(dati, id) {
                 <td class="" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
                 </tr>`;
 
+                c = true;
+                if (c1 == true) {
+                    bodyTabella.innerHTML = '';
+                }
+
 
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                bodyTabella.innerHTML = 'Non ci sono corrispondenze!';
+                if (c) {
+
+                } else {
+
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    c1 = true;
+
+                }
             }
 
         });
 
     } else {
-        bodyTabella.innerHTML = 'Non ci sono corrispondenze!';
+        bodyTabella.innerHTML = nessunaCorrispondenza;
     }
 
 }
@@ -429,7 +460,8 @@ function filtriRegioniDoppie(regionePartenza, regioneArrivo, id) {
 
 
 function trasportoFiltroRegioniDoppie(dati, id) {
-
+    c = false;
+    c1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -460,17 +492,30 @@ function trasportoFiltroRegioniDoppie(dati, id) {
                 </tr>`;
 
 
+                c = true;
+                if (c1 == true) {
+                    bodyTabella.innerHTML = '';
+                }
+
+
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                bodyTabella.innerHTML = 'Non ci sono corrispondenze!';
+                if (c) {
+
+                } else {
+
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    c1 = true;
+
+                }
             }
 
         });
 
     } else {
 
-        bodyTabella.innerHTML = 'Non ci sono corrispondenze!';
+        bodyTabella.innerHTML = nessunaCorrispondenza;
     }
 
 
@@ -482,7 +527,7 @@ sliderDemo.addEventListener('change', () => {
     let regionePartenzaLocal = localStorage.getItem('regionePartenza');
     let regioneArrivoLocal = localStorage.getItem('regioneArrivo');
     console.log('cambiato');
-    
+
     reg3 = 1;
     if (reg2 == 0 && reg1 == 0 && reg3 == 1) {
 
@@ -491,7 +536,7 @@ sliderDemo.addEventListener('change', () => {
     } else if (reg2 == 1 && reg1 == 1 && reg3 == 1) {
 
         fetchRegionePartenzaArrivoMq(regionePartenzaLocal, regioneArrivoLocal, demo.textContent);
-    
+
 
     } else if (reg2 == 0 && reg1 == 1 && reg3 == 1) {
 
@@ -525,28 +570,32 @@ function filtriRegioniMq(regione, mq, id) {
     let rottaArrivo = `http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regioneArrivo=${regione}&mq=${mq}`
 
     if (reg1 == 0) {
+        console.log('ciaoneeee');
+        
         fetch(rottaArrivo)
-        .then((res) => res.json())
-        .then((data) => {
+            .then((res) => res.json())
+            .then((data) => {
 
-            trasportoFiltroRegioniMq(data, id)
-            console.log(data);
-            console.log(id);
-            ascolto();
+                trasportoFiltroRegioniMq(data, id)
+                console.log(data);
+                console.log(id);
+                ascolto();
 
-        });
+            });
 
     } else {
+        console.log('66');
+    
         fetch(rottaPartenza)
-        .then((res) => res.json())
-        .then((data) => {
+            .then((res) => res.json())
+            .then((data) => {
 
-            trasportoFiltroRegioniMq(data, id)
-            console.log(data);
-            console.log(id);
-            ascolto();
+                trasportoFiltroRegioniMq(data, id)
+                console.log(data);
+                console.log(id);
+                ascolto();
 
-        });
+            });
 
     }
 
@@ -555,7 +604,8 @@ function filtriRegioniMq(regione, mq, id) {
 
 
 function trasportoFiltroRegioniMq(dati, id) {
-
+    c = false;
+    c1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -586,17 +636,30 @@ function trasportoFiltroRegioniMq(dati, id) {
                     </tr>`;
 
 
+                c = true;
+                if (c1 == true) {
+                    bodyTabella.innerHTML = '';
+                }
+
+
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                bodyTabella.innerHTML = 'Non ci sono corrispondenze!';
+                if (c) {
+
+                } else {
+
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    c1 = true;
+
+                }
             }
 
         });
 
     } else {
 
-        bodyTabella.innerHTML = 'Non ci sono corrispondenze!';
+        bodyTabella.innerHTML = nessunaCorrispondenza;
     }
 
 
@@ -636,7 +699,8 @@ function filtriRegioniDoppieMq(regionePartenza, regioneArrivo, mq, id) {
 
 
 function trasportoFiltroRegioniDoppieMq(dati, id) {
-
+    c = false;
+    c1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -667,17 +731,30 @@ function trasportoFiltroRegioniDoppieMq(dati, id) {
                 </tr>`;
 
 
+                c = true;
+                if (c1 == true) {
+                    bodyTabella.innerHTML = '';
+                }
+
+
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                bodyTabella.innerHTML = 'Non ci sono corrispondenze!';
+                if (c) {
+
+                } else {
+
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    c1 = true;
+
+                }
             }
 
         });
 
     } else {
 
-        bodyTabella.innerHTML = 'Non ci sono corrispondenze!';
+        bodyTabella.innerHTML = nessunaCorrispondenza;
     }
 
 
@@ -718,7 +795,8 @@ function filtriDemo(mq, id) {
 
 
 function trasportoFiltroDemo(dati, id) {
-
+    c = false;
+    c1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -747,16 +825,29 @@ function trasportoFiltroDemo(dati, id) {
                 </tr>`;
 
 
+                c = true;
+                if (c1 == true) {
+                    bodyTabella.innerHTML = '';
+                }
+
+
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                bodyTabella.innerHTML = 'Non ci sono corrispondenze!';
+                if (c) {
+
+                } else {
+
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    c1 = true;
+
+                }
             }
 
         });
 
     } else {
-        bodyTabella.innerHTML = 'Non ci sono corrispondenze!';
+        bodyTabella.innerHTML = nessunaCorrispondenza;
     }
 
 }

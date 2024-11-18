@@ -67,3 +67,8 @@ td {
 .fa-plus {
     padding-right: 5px;
 }
+
+
+tr td img {
+  border-radius: 5%;
+}
