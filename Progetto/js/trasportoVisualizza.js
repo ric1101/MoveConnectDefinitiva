@@ -571,7 +571,7 @@ function filtriRegioniMq(regione, mq, id) {
 
     if (reg1 == 0) {
         console.log('ciaoneeee');
-        
+
         fetch(rottaArrivo)
             .then((res) => res.json())
             .then((data) => {
@@ -585,7 +585,7 @@ function filtriRegioniMq(regione, mq, id) {
 
     } else {
         console.log('66');
-    
+
         fetch(rottaPartenza)
             .then((res) => res.json())
             .then((data) => {

@@ -159,11 +159,11 @@ regioniScala.forEach(element => {
 
     element.addEventListener('click', () => {
         localStorage.setItem('regioneScala', element.value);
-        let scale = localStorage.getItem('scale');
+        let scale = localStorage.getItem('scala');
         let peso = localStorage.getItem('peso');
         reg1 = 1;
         console.log(element.value);
-        
+
 
         if (reg2 == 0 && reg1 == 1 && reg3 == 0) {
 
@@ -239,7 +239,6 @@ function elevatoreFiltroSoloRegione(dati, id) {
 
             if (element.azienda.id != id) {
 
-                console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
                 let tabella = `<tr>
                         <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
@@ -361,7 +360,6 @@ function elevatoreFiltroScala(dati, id) {
 
             if (element.azienda.id != id) {
 
-                console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
                 let tabella = `<tr>
                         <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
@@ -454,7 +452,6 @@ function elevatoreFiltroRegioniScala(dati, id) {
 
             if (element.azienda.id != id) {
 
-                console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
                 let tabella = `<tr>
                         <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
@@ -500,8 +497,10 @@ function elevatoreFiltroRegioniScala(dati, id) {
 pesoMax.forEach(element => {
 
     element.addEventListener('click', () => {
+        console.log(element.value);
+
         localStorage.setItem('peso', element.value);
-        let scale = localStorage.getItem('scale');
+        let scale = localStorage.getItem('scala');
         let regioneScala = localStorage.getItem('regioneScala');
         reg3 = 1;
 
@@ -520,6 +519,7 @@ pesoMax.forEach(element => {
         } else if (reg2 == 1 && reg1 == 1 && reg3 == 1) {
 
             fetchRegioneScalaPeso(regioneScala, scale, element.value);
+            console.log(regioneScala, scale, element.value);
 
         }
     });
@@ -575,7 +575,6 @@ function elevatoreFiltroPeso(dati, id) {
 
             if (element.azienda.id != id) {
 
-                console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
                 let tabella = `<tr>
                         <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
@@ -667,7 +666,6 @@ function elevatoreFiltroRegioniPeso(dati, id) {
 
             if (element.azienda.id != id) {
 
-                console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
                 let tabella = `<tr>
                         <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
@@ -733,6 +731,7 @@ function filtriRegioniScalaPeso(regione, scala, peso, id) {
             elevatoreFiltroRegioniScalaPeso(data, id)
             console.log(data);
             console.log(id);
+            console.log(peso);
             ascolto();
 
         });
@@ -758,7 +757,6 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
 
             if (element.azienda.id != id) {
 
-                console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
                 let tabella = `<tr>
                         <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
@@ -776,8 +774,8 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
                 c = true;
                 if (c1 == true) {
                     bodyTabella.innerHTML = '';
-                }
 
+                }
 
                 bodyTabella.innerHTML += tabella;
 
@@ -796,6 +794,7 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
+
     }
 
 }
@@ -839,8 +838,8 @@ function elevatoreFiltroScalaPeso(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
-    
-    
+
+
     if (dati.length != 0) {
 
 
@@ -851,7 +850,6 @@ function elevatoreFiltroScalaPeso(dati, id) {
 
             if (element.azienda.id != id) {
 
-                console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
                 let tabella = `<tr>
                         <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
@@ -869,6 +867,7 @@ function elevatoreFiltroScalaPeso(dati, id) {
                 c = true;
                 if (c1 == true) {
                     bodyTabella.innerHTML = '';
+
                 }
 
 
@@ -889,6 +888,7 @@ function elevatoreFiltroScalaPeso(dati, id) {
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
+
     }
 
 }

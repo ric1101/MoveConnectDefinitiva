@@ -36,7 +36,7 @@ function navbar() {
                             Inserisci servizio
                         </a>
                         <ul class="dropdown-menu drop1">
-                            <li><a class="dropdown-item" href="occSuoloPub.html">Occupazione solo pubblico</a></li>
+                            <li><a class="dropdown-item d-none" href="occSuoloPub.html">Occupazione solo pubblico</a></li>
                             <li><a class="dropdown-item" href="richiestaTrasporto.html">Inserisci Carico</a></li>
                             <li><a class="dropdown-item" href="scala-elevatore.html">Scala elevatore</a></li>
                             <li><a class="dropdown-item" href="imballi.html">Consegna imballi</a></li>
@@ -51,7 +51,7 @@ function navbar() {
                             Visualizza richieste
                         </a>
                         <ul class="dropdown-menu drop2">
-                            <li><a class="dropdown-item" href="suoloPubVisualizza.html">Occupazione solo pubblico</a></li>
+                            <li><a class="dropdown-item d-none" href="suoloPubVisualizza.html">Occupazione solo pubblico</a></li>
                             <li><a class="dropdown-item" href="trasportoVisualizza.html">Carico</a></li>
                             <li><a class="dropdown-item" href="elevatoreVisualizza.html">Scala elevatore</a></li>
                             <li><a class="dropdown-item" href="imballaggiVisualizza.html">Consegna imballi</a></li>

@@ -20,19 +20,148 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/Progetto/css/liste.css">
+    <link rel="stylesheet" href="/Progetto/css/liste2.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
 </head>
 
 <body>
 
     <div class="navbarMain"></div>
 
-    <div class="containerLista">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="table-responsive rounded tabellozza">
-                    <table class="data-table table mb-0 tbl-server-info">
-                        <thead class="bg-white text-uppercase">
+    <div class="containerLista row d-flex flex-row align-items-start">
+
+        <div class="row d-flex">
+            <div class="col-xl-2 d-flex">
+                <h4 class="mb-2 scrittaFiltri">Filtri <i class="bi bi-filter"></i></h4>
+
+                <button class="btn btn-danger bottoneReset mb-2">Reset</button>
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-12 card">
+            <div class="row d-flex justify-content-center">
+                <div class="row p-0">
+                    <div class="col-lg-9 col-11 pt-4">
+                        <a class="text-black regLink" data-bs-toggle="collapse" href="#collapseExample" role=""
+                            aria-expanded="false" aria-controls="collapseExample">
+                            <h6 class="m-0">Regione </h6>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-1 d-flex justify-content-center"
+                        style="padding-top: 10px; font-size: 30px;">
+                        <a class="text-black regLink" data-bs-toggle="collapse" href="#collapseExample" role=""
+                            aria-expanded="false" aria-controls="collapseExample"><i
+                                class="fa-solid fa-plus simboloReg"></i></a>
+                    </div>
+
+                </div>
+
+                <div class="collapse regCol" id="collapseExample">
+
+                    <div class="row">
+                        <form>
+                            <label><input type="radio" class="regioniImballi" name="regione" value="Abruzzo">
+                                Abruzzo</label><br>
+                            <label><input type="radio" class="regioniImballi" name="regione" value="Basilicata">
+                                Basilicata</label><br>
+                            <label><input type="radio" class="regioniImballi" name="regione" value="Calabria">
+                                Calabria</label><br>
+                            <label><input type="radio" class="regioniImballi" name="regione" value="Campania">
+                                Campania</label><br>
+                            <label><input type="radio" class="regioniImballi" name="regione" value="Emilia-Romagna">
+                                Emilia</label><br>
+                            <label><input type="radio" class="regioniImballi" name="regione"
+                                    value="Friuli-Venezia Giulia"> Friuli</label><br>
+                            <label><input type="radio" class="regioniImballi" name="regione" value="Lazio">
+                                Lazio</label><br>
+                            <label><input type="radio" class="regioniImballi" name="regione" value="Liguria">
+                                Liguria</label><br>
+                            <label><input type="radio" class="regioniImballi" name="regione" value="Lombardia">
+                                Lombardia</label><br>
+                            <label><input type="radio" class="regioniImballi" name="regione" value="Marche">
+                                Marche</label><br>
+                            <label><input type="radio" class="regioniImballi" name="regione" value="Molise">
+                                Molise</label><br>
+                            <label><input type="radio" class="regioniImballi" name="regione" value="Piemonte">
+                                Piemonte</label><br>
+                            <label><input type="radio" class="regioniImballi" name="regione" value="Puglia">
+                                Puglia</label><br>
+                            <label><input type="radio" class="regioniImballi" name="regione" value="Sardegna">
+                                Sardegna</label><br>
+                            <label><input type="radio" class="regioniImballi" name="regione" value="Sicilia">
+                                Sicilia</label><br>
+                            <label><input type="radio" class="regioniImballi" name="regione" value="Toscana">
+                                Toscana</label><br>
+                            <label><input type="radio" class="regioniImballi" name="regione"
+                                    value="Trentino-Alto Adige">
+                                Trentino</label><br>
+                            <label><input type="radio" class="regioniImballi" name="regione" value="Umbria">
+                                Umbria</label><br>
+                            <label><input type="radio" class="regioniImballi" name="regione" value="Valle d'Aosta">
+                                Valle
+                                d'Aosta</label><br>
+                            <label><input type="radio" class="regioniImballi" name="regione" value="Veneto">
+                                Veneto</label><br>
+                        </form>
+
+                    </div>
+                </div>
+
+
+
+                <div class="row p-0">
+                    <div class="col-lg-9 col-11 pt-4">
+                        <a class="text-black imballiLink" data-bs-toggle="collapse" href="#collapseExample1" role=""
+                            aria-expanded="false" aria-controls="collapseExample">
+                            <h6 class="m-0">Tipo di Imballi </h6>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-1 d-flex justify-content-center"
+                        style="padding-top: 10px; font-size: 30px;">
+                        <a class="text-black imballiLink" data-bs-toggle="collapse" href="#collapseExample1" role=""
+                            aria-expanded="false" aria-controls="collapseExample"><i
+                                class="fa-solid fa-plus simboloImballi"></i></a>
+                    </div>
+
+                </div>
+
+                <div class="collapse imballiCol" id="collapseExample1">
+                    <div class="row">
+                        <form class="mb-3">
+
+                            <label><input type="checkbox" class="tipiImballi" name="imballi" value="Cartone">
+                                Cartone</label><br>
+                            <label><input type="checkbox" class="tipiImballi" name="imballi"
+                                    value="Cartone Appendiabiti"> Cartone Appendiabiti</label><br>
+                            <label><input type="checkbox" class="tipiImballi" name="imballi" value="Pluriball">
+                                Pluriball</label><br>
+                            <label><input type="checkbox" class="tipiImballi" name="imballi" value="Pellicola">
+                                Pellicola</label><br>
+                            <label><input type="checkbox" class="tipiImballi" name="imballi" value="Buste Pluriball">
+                                Buste Pluriball</label><br>
+                            <label><input type="checkbox" class="tipiImballi" name="imballi" value="Nastro Avana">
+                                Nastro Avana</label><br>
+                            <label><input type="checkbox" class="tipiImballi" name="imballi" value="Nastro Avana">
+                                Nastro Bianco</label><br>
+                            <label><input type="checkbox" class="tipiImballi" name="imballi" value="Nastro Avana">
+                                Pluriball Cartonato</label><br>
+
+                        </form>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <div class="col-lg-10 col-12 px-4 visualTable">
+            <div class="">
+                <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info" style="border: solid 1px;">
+                        <thead class="text-uppercase">
                             <tr class="ligth ligth-data">
                                 <th>Logo</th>
                                 <th>Azienda</th>
@@ -45,8 +174,8 @@
                             </tr>
                         </thead>
                         <tbody class="bodyTabella">
-                            
-                            
+
+
                         </tbody>
                     </table>
                 </div>

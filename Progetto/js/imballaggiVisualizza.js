@@ -71,3 +71,44 @@ function ascolto() {
 
 
 }
+
+
+let regLink = document.querySelectorAll('.regLink');
+let imballiLink = document.querySelectorAll('.imballiLink');
+let simboloReg = document.querySelector('.simboloReg');
+let simboloImballi = document.querySelector('.simboloImballi');
+
+
+regLink.forEach(element => {
+
+    element.addEventListener('click', () => {
+
+        if (simboloReg.classList.contains('fa-plus')) {
+            simboloReg.classList.remove('fa-plus');
+            simboloReg.classList.add('fa-minus');
+        } else {
+            simboloReg.classList.remove('fa-minus');
+            simboloReg.classList.add('fa-plus');
+        }
+
+    })
+
+});
+
+
+
+imballiLink.forEach(element => {
+
+    element.addEventListener('click', () => {
+
+        if (simboloImballi.classList.contains('fa-plus')) {
+            simboloImballi.classList.remove('fa-plus');
+            simboloImballi.classList.add('fa-minus');
+        } else {
+            simboloImballi.classList.remove('fa-minus');
+            simboloImballi.classList.add('fa-plus');
+        }
+
+    })
+
+});
