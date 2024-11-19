@@ -29,12 +29,13 @@
     <div class="navbarMain"></div>
 
     <div class="containerLista row d-flex flex-row align-items-start">
-        
-        <div class="row d-flex justify-content-start flex-row">
-            <div class="col-xl-1">
-                <h4 class="mb-2">Filtri <i class="bi bi-filter"></i></h4>
+
+        <div class="row d-flex">
+            <div class="col-xl-2 d-flex">
+                <h4 class="mb-2 scrittaFiltri">Filtri <i class="bi bi-filter"></i></h4>
+
+                <button class="btn btn-danger bottoneReset mb-2">Reset</button>
             </div>
-            <div class="col-xl-1"><button class="btn btn-danger bottoneReset mb-2">Reset</button></div>
         </div>
         <div class="col-lg-2 col-12 card">
             <div class="row d-flex justify-content-center">
@@ -186,8 +187,13 @@
 
                 <div class="collapse colaM3" id="collapseExample2">
                     <div class="row">
-                        <p>Scegli la quantità:</p>
-
+                        <h6>Scegli la quantità:</h6>
+                        <ul class="mb-2" style="list-style-type: none;">
+                            <li>- Da 1 a 25</li>
+                            <li>- Da 26 a 50</li>
+                            <li>- Da 51 a 75</li>
+                            <li>- Da 76 a 99</li>
+                        </ul>
                         <div class="slidecontainer">
                             <input type="range" min="0" max="99" value="0" class="slider" id="myRange">
                             <p>Numero: <span id="demo" class="demo"></span></p>
@@ -219,9 +225,9 @@
                             </tr>
                         </thead>
                         <tbody class="bodyTabella">
-                            
-                                
-                            
+
+
+
 
                         </tbody>
                     </table>
