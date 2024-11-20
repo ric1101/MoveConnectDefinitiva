@@ -21,7 +21,7 @@ function fetchInvio() {
 
   let nuovoUtente = new Verifica(username, codice.value);
   console.log(username, codice.value);
-  
+
 
   fetch(`http://127.0.0.1:8080/api/azienda/verify-azienda?username=${username}&verificationCode=${codice.value}`, {
     method: "PUT",
@@ -30,15 +30,16 @@ function fetchInvio() {
     },
     body: JSON.stringify(nuovoUtente),
   })
-  .then((response) => {
+    .then((response) => {
       if (response.ok) {
-          window.location.href = 'login.html';
-        } else {
-          
-          errore.innerHTML = 'codice errato o scaduto';
-        }
-      })
-    
+        window.location.href = 'login.html';
+
+      } else {
+
+        errore.innerHTML = 'codice errato o scaduto';
+      }
+    })
+
 
 
 }
