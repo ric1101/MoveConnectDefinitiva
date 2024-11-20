@@ -12,7 +12,6 @@ let richiesteDepositoMagazzino = document.querySelector('.richiesteDepositoMagaz
 let richiesteTratta = document.querySelector('.richiesteTratta');
 let messaggi = document.querySelector('.messaggi');
 let nomeAzienda = document.querySelector('.nomeAzienda');
-let imgAzienda = document.querySelector('.imgAzienda');
 let colonnaInfo = document.querySelector('.colonnaInfo');
 
 
@@ -30,8 +29,7 @@ async function userView() {
         .then((data) => {
 
 
-
-            imgAzienda.setAttribute('src', data.logo);
+            fetchImg(data.id);
             nomeAzienda.innerHTML = data.nomeAzienda;
             iMieiDati(data);
 
@@ -43,6 +41,30 @@ async function userView() {
 
 }
 
+
+function fetchImg(id) {
+
+    let imgAzienda = document.querySelector('.imgAzienda');
+
+    fetch(`http://127.0.0.1:8080/api/azienda/logo/${id}`)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Errore nel recupero del logo");
+            }
+            return response.blob();
+        })
+        .then((blob) => {
+            const logoUrl = URL.createObjectURL(blob);
+            imgAzienda.setAttribute('src', logoUrl);
+        })
+        .catch((error) => {
+            console.error("Errore nel caricamento del logo:", error);
+            imgAzienda.setAttribute(
+                'src',
+                './img/default-logo.png'
+            );
+        });
+}
 
 
 

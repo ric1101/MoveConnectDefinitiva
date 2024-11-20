@@ -1,7 +1,13 @@
-
+let c = false;
+let c1 = false;
 let bodyTabella = document.querySelector('.bodyTabella');
 
 let accessToken = localStorage.getItem('accessToken');
+
+let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
+<p>Non ci sono Corrispondenze!</p>
+</div>`;
+
 
 fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
@@ -37,7 +43,7 @@ function imballaggi(dati, id) {
         if (element.azienda.id != id) {
 
             let tabella = `<tr>
-                        <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
+                        
                         <td class="">${element.azienda.nomeAzienda}</td>
                         <td class="">${element.id}</td>
                         <td class="" data-eventoid="1">${element.regione}</td>
@@ -134,7 +140,7 @@ regioniImballi.forEach(element => {
 
     element.addEventListener('click', () => {
         localStorage.setItem('regioneImballi', element.value);
-        
+
         reg1 = 1;
         console.log(element.value);
 
@@ -177,7 +183,7 @@ function filtriRegioneImballi(regione, id) {
 
     console.log(regione);
 
-    fetch(``) //ci va la rotta nuova
+    fetch(`http://127.0.0.1:8080/api/consegnaImballi/tutteLeConsegneConAziendaPerRegione/${regione}`) //ci va la rotta nuova
         .then((res) => res.json())
         .then((data) => {
 
@@ -211,7 +217,7 @@ function imballaggiFiltroRegioneImballi(dati, id) {
 
 
                 let tabella = `<tr>
-                        <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
+                        
                         <td class="">${element.azienda.nomeAzienda}</td>
                         <td class="">${element.id}</td>
                         <td class="" data-eventoid="1">${element.regione}</td>
@@ -271,7 +277,7 @@ function filtriRegioneTipiImballi(regione, imballo1, imballo2, imballo3, imballo
 
     console.log(regione);
 
-    fetch(``) //ci va la rotta nuova
+    fetch(`http://127.0.0.1:8080/api/consegnaImballi/tuttiGliImballiConAziendaTutto?regione=${regione}&imballo1=${imballo1}&imballo2=${imballo2}&imballo3=${imballo3}&imballo4=${imballo4}&imballo5=${imballo5}&imballo6=${imballo6}&imballo7=${imballo7}&imballo8=${imballo8}`) //ci va la rotta nuova
         .then((res) => res.json())
         .then((data) => {
 
@@ -305,7 +311,7 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
 
 
                 let tabella = `<tr>
-                        <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
+                        
                         <td class="">${element.azienda.nomeAzienda}</td>
                         <td class="">${element.id}</td>
                         <td class="" data-eventoid="1">${element.regione}</td>
@@ -355,9 +361,9 @@ tipiImballi.forEach(element => {
         console.log(element.value);
 
 
-        if (reg2 == 0 && reg1 == 1) {
+        if (reg2 == 1 && reg1 == 0) {
 
-            fetchRegioniImballi(regioneImballi);
+            fetchTipiImballi(element.value);
 
         } else if (reg2 == 1 && reg1 == 1) {
 
@@ -370,4 +376,177 @@ tipiImballi.forEach(element => {
 });
 
 
-//imposta valore uno quando clicchi il filtro singolo
+
+
+function fetchTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8) {
+
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            filtriTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8, data.id);
+            console.log(data.id);
+
+        });
+}
+
+
+
+
+function filtriTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8, id) {
+
+
+    fetch(`http://127.0.0.1:8080/api/consegnaImballi/tuttiGliImballiConAziendaTutto?imballo1=${imballo1}&imballo2=${imballo2}&imballo3=${imballo3}&imballo4=${imballo4}&imballo5=${imballo5}&imballo6=${imballo6}&imballo7=${imballo7}&imballo8=${imballo8}`) //ci va la rotta nuova
+        .then((res) => res.json())
+        .then((data) => {
+
+            imballaggiFiltroTipiImballi(data, id)
+            console.log(data);
+            console.log(id);
+            ascolto();
+
+        });
+
+}
+
+
+
+function imballaggiFiltroTipiImballi(dati, id) {
+    c = false;
+    c1 = false;
+    console.log(dati);
+    console.log(id);
+    bodyTabella.innerHTML = '';
+
+    if (dati.length != 0) {
+
+
+
+        dati.forEach(element => {
+
+
+
+            if (element.azienda.id != id) {
+
+
+                let tabella = `<tr>
+                        
+                        <td class="">${element.azienda.nomeAzienda}</td>
+                        <td class="">${element.id}</td>
+                        <td class="" data-eventoid="1">${element.regione}</td>
+                        <td class="" data-eventoid="1">${element.provincia}</td>
+                        <td class="" data-eventoid="1">${element.comune}</td>
+                        <td class="" data-eventoid="1">${element.indirizzo}</td>
+                        <td class="" data-eventoid="1"><a class="btn btn-dark linkImballi" data-evento-id="${element.id}" href="./infoRichiesteImballi.html">INFO</a></td>
+                    </tr>`;
+
+
+                c = true;
+                if (c1 == true) {
+                    bodyTabella.innerHTML = '';
+                }
+
+
+                bodyTabella.innerHTML += tabella;
+
+            } else {
+                if (c) {
+
+                } else {
+
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    c1 = true;
+
+                }
+            }
+
+        });
+
+    } else {
+        bodyTabella.innerHTML = nessunaCorrispondenza;
+    }
+
+}
+
+
+
+
+tipoImballo1.addEventListener('click', () => {
+    if (tipoImballo1.value == 0) {
+        tipoImballo1.setAttribute('value', 1);
+    } else {
+        tipoImballo1.setAttribute('value', 0);
+    }
+})
+
+
+tipoImballo2.addEventListener('click', () => {
+    if (tipoImballo2.value == 0) {
+        tipoImballo2.setAttribute('value', 1);
+    } else {
+        tipoImballo2.setAttribute('value', 0);
+    }
+})
+
+
+tipoImballo3.addEventListener('click', () => {
+    if (tipoImballo3.value == 0) {
+        tipoImballo3.setAttribute('value', 1);
+    } else {
+        tipoImballo3.setAttribute('value', 0);
+    }
+})
+
+
+tipoImballo4.addEventListener('click', () => {
+    if (tipoImballo4.value == 0) {
+        tipoImballo4.setAttribute('value', 1);
+    } else {
+        tipoImballo4.setAttribute('value', 0);
+    }
+})
+
+
+tipoImballo5.addEventListener('click', () => {
+    if (tipoImballo5.value == 0) {
+        tipoImballo5.setAttribute('value', 1);
+    } else {
+        tipoImballo5.setAttribute('value', 0);
+    }
+})
+
+
+tipoImballo6.addEventListener('click', () => {
+    if (tipoImballo6.value == 0) {
+        tipoImballo6.setAttribute('value', 1);
+    } else {
+        tipoImballo6.setAttribute('value', 0);
+    }
+})
+
+
+tipoImballo7.addEventListener('click', () => {
+    if (tipoImballo7.value == 0) {
+        tipoImballo7.setAttribute('value', 1);
+    } else {
+        tipoImballo7.setAttribute('value', 0);
+    }
+})
+
+
+tipoImballo8.addEventListener('click', () => {
+    if (tipoImballo8.value == 0) {
+        tipoImballo8.setAttribute('value', 1);
+    } else {
+        tipoImballo8.setAttribute('value', 0);
+    }
+})
+
+
+
+
+let bottoneReset = document.querySelector('.bottoneReset');
+
+bottoneReset.addEventListener('click', () => {
+    location.reload();
+});

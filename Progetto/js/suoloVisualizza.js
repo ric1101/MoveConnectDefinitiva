@@ -39,7 +39,7 @@ function suolo(dati, id) {
 
 
             let tabella = `<tr>
-                        <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
+                        
                         <td class="">${element.azienda.nomeAzienda}</td>
                         <td class="">${element.id}</td>
                         <td class="" data-eventoid="1">${element.regione}</td>

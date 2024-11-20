@@ -50,7 +50,7 @@ function elevatore(dati, id) {
             console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
             let tabella = `<tr>
-                        <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
+                        
                         <td class="">${element.azienda.nomeAzienda}</td>
                         <td class="">${element.id}</td>
                         <td class="" data-eventoid="1">${element.comune}</td>
@@ -241,7 +241,7 @@ function elevatoreFiltroSoloRegione(dati, id) {
 
 
                 let tabella = `<tr>
-                        <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
+                        
                         <td class="">${element.azienda.nomeAzienda}</td>
                         <td class="">${element.id}</td>
                         <td class="" data-eventoid="1">${element.comune}</td>
@@ -362,7 +362,7 @@ function elevatoreFiltroScala(dati, id) {
 
 
                 let tabella = `<tr>
-                        <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
+                        
                         <td class="">${element.azienda.nomeAzienda}</td>
                         <td class="">${element.id}</td>
                         <td class="" data-eventoid="1">${element.comune}</td>
@@ -454,7 +454,7 @@ function elevatoreFiltroRegioniScala(dati, id) {
 
 
                 let tabella = `<tr>
-                        <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
+                        
                         <td class="">${element.azienda.nomeAzienda}</td>
                         <td class="">${element.id}</td>
                         <td class="" data-eventoid="1">${element.comune}</td>
@@ -577,7 +577,7 @@ function elevatoreFiltroPeso(dati, id) {
 
 
                 let tabella = `<tr>
-                        <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
+                        
                         <td class="">${element.azienda.nomeAzienda}</td>
                         <td class="">${element.id}</td>
                         <td class="" data-eventoid="1">${element.comune}</td>
@@ -668,7 +668,7 @@ function elevatoreFiltroRegioniPeso(dati, id) {
 
 
                 let tabella = `<tr>
-                        <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
+                        
                         <td class="">${element.azienda.nomeAzienda}</td>
                         <td class="">${element.id}</td>
                         <td class="" data-eventoid="1">${element.comune}</td>
@@ -759,7 +759,7 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
 
 
                 let tabella = `<tr>
-                        <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
+                        
                         <td class="">${element.azienda.nomeAzienda}</td>
                         <td class="">${element.id}</td>
                         <td class="" data-eventoid="1">${element.comune}</td>
@@ -852,7 +852,7 @@ function elevatoreFiltroScalaPeso(dati, id) {
 
 
                 let tabella = `<tr>
-                        <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
+                        
                         <td class="">${element.azienda.nomeAzienda}</td>
                         <td class="">${element.id}</td>
                         <td class="" data-eventoid="1">${element.comune}</td>

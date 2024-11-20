@@ -53,7 +53,7 @@ function trasporto(dati, id) {
             console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
             let tabella = `<tr>
-                <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
+                
                 <td class="">${element.azienda.nomeAzienda}</td>
                 <td class="">${element.id}</td>
                 <td class="" data-eventoid="1">${element.comunePartenza}</td>
@@ -255,7 +255,7 @@ function trasportoFiltroSoloRegionePartenza(dati, id) {
                 console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
                 let tabella = `<tr>
-                <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
+                
                 <td class="">${element.azienda.nomeAzienda}</td>
                 <td class="">${element.id}</td>
                 <td class="" data-eventoid="1">${element.comunePartenza}</td>
@@ -384,7 +384,7 @@ function trasportoFiltroSoloRegioneArrivo(dati, id) {
                 console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
                 let tabella = `<tr>
-                <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
+                
                 <td class="">${element.azienda.nomeAzienda}</td>
                 <td class="">${element.id}</td>
                 <td class="" data-eventoid="1">${element.comunePartenza}</td>
@@ -479,7 +479,7 @@ function trasportoFiltroRegioniDoppie(dati, id) {
                 console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
                 let tabella = `<tr>
-                <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
+                
                 <td class="">${element.azienda.nomeAzienda}</td>
                 <td class="">${element.id}</td>
                 <td class="" data-eventoid="1">${element.comunePartenza}</td>
@@ -623,7 +623,7 @@ function trasportoFiltroRegioniMq(dati, id) {
                 console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
                 let tabella = `<tr>
-                    <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
+                    
                     <td class="">${element.azienda.nomeAzienda}</td>
                     <td class="">${element.id}</td>
                     <td class="" data-eventoid="1">${element.comunePartenza}</td>
@@ -718,7 +718,7 @@ function trasportoFiltroRegioniDoppieMq(dati, id) {
                 console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
                 let tabella = `<tr>
-                <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
+                
                 <td class="">${element.azienda.nomeAzienda}</td>
                 <td class="">${element.id}</td>
                 <td class="" data-eventoid="1">${element.comunePartenza}</td>
@@ -812,7 +812,6 @@ function trasportoFiltroDemo(dati, id) {
                 console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
                 let tabella = `<tr>
-                <td class=""><img src="${element.azienda.logo}" style="height: 100px; width: 150px;" alt="img"></td>
                 <td class="">${element.azienda.nomeAzienda}</td>
                 <td class="">${element.id}</td>
                 <td class="" data-eventoid="1">${element.comunePartenza}</td>

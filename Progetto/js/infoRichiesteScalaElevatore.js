@@ -10,12 +10,43 @@ fetch(`http://127.0.0.1:8080/api/scalaElevatore/scalaId/${dataEventoId}`)
     .then((data) => {
 
         console.log(data);
-        elevatoreInfo(data);
+        fetchImg(data, data.azienda.id);
 
     });
 
-function elevatoreInfo(dati) {
-    
+
+
+function fetchImg(dati, id) {
+
+    let imgAzienda = document.querySelector('.imgAzienda');
+
+    fetch(`http://127.0.0.1:8080/api/azienda/logo/${id}`)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Errore nel recupero del logo");
+            }
+            return response.blob();
+        })
+        .then((blob) => {
+            const logoUrl = URL.createObjectURL(blob);
+
+
+            elevatoreInfo(dati, logoUrl);
+        })
+        .catch((error) => {
+            console.error("Errore nel caricamento del logo:", error);
+            imgAzienda.setAttribute(
+                'src',
+                './img/default-logo.png'
+            );
+        });
+}
+
+
+
+
+function elevatoreInfo(dati, img) {
+
 
     let visualizzaInfo = `
     <div class="col-lg-2"></div>
@@ -23,7 +54,7 @@ function elevatoreInfo(dati) {
                     <div class="card mb-4 text-center rowes">
                         <div class="card-body col-lg-6 flex-column justify-content-center">
                             <div class="containerLogoImg">
-                                    <img src="${dati.azienda.logo}" alt="UserImg" class="imgAzienda">
+                                    <img src="${img}" alt="UserImg" class="imgAzienda">
                                 </div>
                             <h2 class="my-3 fw-bold">${dati.azienda.nomeAzienda}</h2>
                         </div>
@@ -35,7 +66,7 @@ function elevatoreInfo(dati) {
                             <h5 class="fw-bold">P. Iva: </h5>
                             <p>${dati.azienda.piva}</p>
                             <h5 class="fw-bold">Indirizzo: </h5>
-                            <p>${dati.azienda.indirizzo + ', ' + dati.azienda.comune + ', ' + dati.azienda.cap }</p>
+                            <p>${dati.azienda.indirizzo + ', ' + dati.azienda.comune + ', ' + dati.azienda.cap}</p>
                         </div>
                     </div>
                        
@@ -171,7 +202,7 @@ function elevatoreInfo(dati) {
                     <div class="col-md-3"></div>
                 </div>`;
 
-                colonnaInfo.innerHTML = visualizzaInfo;
+    colonnaInfo.innerHTML = visualizzaInfo;
 
 
 }

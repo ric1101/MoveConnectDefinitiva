@@ -10,11 +10,42 @@ fetch(`http://127.0.0.1:8080/api/consegnaImballi/consegnas/${dataEventoId}`)
     .then((data) => {
 
         console.log(data);
-        imballiInfo(data);
+        fetchImg(data, data.azienda.id);
 
     });
 
-function imballiInfo(dati) {
+
+
+    function fetchImg(dati, id) {
+
+        let imgAzienda = document.querySelector('.imgAzienda');
+    
+        fetch(`http://127.0.0.1:8080/api/azienda/logo/${id}`)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Errore nel recupero del logo");
+                }
+                return response.blob();
+            })
+            .then((blob) => {
+                const logoUrl = URL.createObjectURL(blob);
+                
+
+                imballiInfo(dati, logoUrl);
+            })
+            .catch((error) => {
+                console.error("Errore nel caricamento del logo:", error);
+                imgAzienda.setAttribute(
+                    'src',
+                    './img/default-logo.png'
+                );
+            });
+    }
+
+
+
+
+function imballiInfo(dati, img) {
     
 
     let visualizzaInfo = `
@@ -23,7 +54,7 @@ function imballiInfo(dati) {
                     <div class="card mb-4 text-center rowes">
                         <div class="card-body col-lg-6 flex-column justify-content-center">
                             <div class="containerLogoImg">
-                                    <img src="${dati.azienda.logo}" alt="UserImg" class="imgAzienda">
+                                    <img src="${img}" alt="UserImg" class="imgAzienda">
                                 </div>
                             <h2 class="my-3 fw-bold">${dati.azienda.nomeAzienda}</h2>
                         </div>
