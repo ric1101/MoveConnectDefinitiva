@@ -50,19 +50,18 @@ function trasporto(dati, id) {
 
         if (element.azienda.id != id) {
 
-            console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
             let tabella = `<tr>
                 
-                <td class="">${element.azienda.nomeAzienda}</td>
-                <td class="">${element.id}</td>
-                <td class="" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="" data-eventoid="1">${element.mq}</td>
-                <td class="" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="" data-eventoid="1">${element.carico}</td>
-                <td class="" data-eventoid="1">${element.scarico}</td>
-                <td class="" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                <td class="text-center">${element.azienda.nomeAzienda}</td>
+                <td class="text-center">${element.id}</td>
+                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                <td class="text-center" data-eventoid="1">${element.mq}</td>
+                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                <td class="text-center" data-eventoid="1">${element.carico}</td>
+                <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
                 </tr>`;
 
 
@@ -106,13 +105,16 @@ let m3Link = document.querySelectorAll('.m3Link');
 let simboloPar = document.querySelector('.simboloPar');
 let simboloArr = document.querySelector('.simboloArr');
 let simboloM3 = document.querySelector('.simboloM3');
+let collassaRegionePartenza = document.querySelector('.collassaRegionePartenza');
+let collassaRegioneArrivo = document.querySelector('.collassaRegioneArrivo');
+let collassaM3 = document.querySelector('.collassaM3');
 
 
 regParLink.forEach(element => {
 
     element.addEventListener('click', () => {
 
-        if (simboloPar.classList.contains('fa-plus')) {
+        if (!collassaRegionePartenza.classList.contains('collapsed')) {
             simboloPar.classList.remove('fa-plus');
             simboloPar.classList.add('fa-minus');
         } else {
@@ -129,7 +131,7 @@ regArrLink.forEach(element => {
 
     element.addEventListener('click', () => {
 
-        if (simboloArr.classList.contains('fa-plus')) {
+        if (!collassaRegioneArrivo.classList.contains('collapsed')) {
             simboloArr.classList.remove('fa-plus');
             simboloArr.classList.add('fa-minus');
         } else {
@@ -146,7 +148,7 @@ m3Link.forEach(element => {
 
     element.addEventListener('click', () => {
 
-        if (simboloM3.classList.contains('fa-plus')) {
+        if (!collassaM3.classList.contains('collapsed')) {
             simboloM3.classList.remove('fa-plus');
             simboloM3.classList.add('fa-minus');
         } else {
@@ -252,19 +254,18 @@ function trasportoFiltroSoloRegionePartenza(dati, id) {
 
             if (element.azienda.id != id) {
 
-                console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
                 let tabella = `<tr>
                 
-                <td class="">${element.azienda.nomeAzienda}</td>
-                <td class="">${element.id}</td>
-                <td class="" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="" data-eventoid="1">${element.mq}</td>
-                <td class="" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="" data-eventoid="1">${element.carico}</td>
-                <td class="" data-eventoid="1">${element.scarico}</td>
-                <td class="" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                <td class="text-center">${element.azienda.nomeAzienda}</td>
+                <td class="text-center">${element.id}</td>
+                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                <td class="text-center" data-eventoid="1">${element.mq}</td>
+                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                <td class="text-center" data-eventoid="1">${element.carico}</td>
+                <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
                 </tr>`;
 
 
@@ -381,19 +382,18 @@ function trasportoFiltroSoloRegioneArrivo(dati, id) {
 
             if (element.azienda.id != id) {
 
-                console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
                 let tabella = `<tr>
                 
-                <td class="">${element.azienda.nomeAzienda}</td>
-                <td class="">${element.id}</td>
-                <td class="" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="" data-eventoid="1">${element.mq}</td>
-                <td class="" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="" data-eventoid="1">${element.carico}</td>
-                <td class="" data-eventoid="1">${element.scarico}</td>
-                <td class="" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                <td class="text-center">${element.azienda.nomeAzienda}</td>
+                <td class="text-center">${element.id}</td>
+                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                <td class="text-center" data-eventoid="1">${element.mq}</td>
+                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                <td class="text-center" data-eventoid="1">${element.carico}</td>
+                <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
                 </tr>`;
 
                 c = true;
@@ -476,19 +476,18 @@ function trasportoFiltroRegioniDoppie(dati, id) {
 
             if (element.azienda.id != id) {
 
-                console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
                 let tabella = `<tr>
                 
-                <td class="">${element.azienda.nomeAzienda}</td>
-                <td class="">${element.id}</td>
-                <td class="" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="" data-eventoid="1">${element.mq}</td>
-                <td class="" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="" data-eventoid="1">${element.carico}</td>
-                <td class="" data-eventoid="1">${element.scarico}</td>
-                <td class="" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                <td class="text-center">${element.azienda.nomeAzienda}</td>
+                <td class="text-center">${element.id}</td>
+                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                <td class="text-center" data-eventoid="1">${element.mq}</td>
+                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                <td class="text-center" data-eventoid="1">${element.carico}</td>
+                <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
                 </tr>`;
 
 
@@ -620,19 +619,18 @@ function trasportoFiltroRegioniMq(dati, id) {
 
             if (element.azienda.id != id) {
 
-                console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
                 let tabella = `<tr>
                     
-                    <td class="">${element.azienda.nomeAzienda}</td>
-                    <td class="">${element.id}</td>
-                    <td class="" data-eventoid="1">${element.comunePartenza}</td>
-                    <td class="" data-eventoid="1">${element.comuneArrivo}</td>
-                    <td class="" data-eventoid="1">${element.mq}</td>
-                    <td class="" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                    <td class="" data-eventoid="1">${element.carico}</td>
-                    <td class="" data-eventoid="1">${element.scarico}</td>
-                    <td class="" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                    <td class="text-center">${element.azienda.nomeAzienda}</td>
+                    <td class="text-center">${element.id}</td>
+                    <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                    <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                    <td class="text-center" data-eventoid="1">${element.mq}</td>
+                    <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                    <td class="text-center" data-eventoid="1">${element.carico}</td>
+                    <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                    <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
                     </tr>`;
 
 
@@ -715,19 +713,18 @@ function trasportoFiltroRegioniDoppieMq(dati, id) {
 
             if (element.azienda.id != id) {
 
-                console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
                 let tabella = `<tr>
                 
-                <td class="">${element.azienda.nomeAzienda}</td>
-                <td class="">${element.id}</td>
-                <td class="" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="" data-eventoid="1">${element.mq}</td>
-                <td class="" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="" data-eventoid="1">${element.carico}</td>
-                <td class="" data-eventoid="1">${element.scarico}</td>
-                <td class="" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                <td class="text-center">${element.azienda.nomeAzienda}</td>
+                <td class="text-center">${element.id}</td>
+                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                <td class="text-center" data-eventoid="1">${element.mq}</td>
+                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                <td class="text-center" data-eventoid="1">${element.carico}</td>
+                <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
                 </tr>`;
 
 
@@ -809,18 +806,17 @@ function trasportoFiltroDemo(dati, id) {
 
             if (element.azienda.id != id) {
 
-                console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
                 let tabella = `<tr>
-                <td class="">${element.azienda.nomeAzienda}</td>
-                <td class="">${element.id}</td>
-                <td class="" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="" data-eventoid="1">${element.mq}</td>
-                <td class="" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="" data-eventoid="1">${element.carico}</td>
-                <td class="" data-eventoid="1">${element.scarico}</td>
-                <td class="" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                <td class="text-center">${element.azienda.nomeAzienda}</td>
+                <td class="text-center">${element.id}</td>
+                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                <td class="text-center" data-eventoid="1">${element.mq}</td>
+                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                <td class="text-center" data-eventoid="1">${element.carico}</td>
+                <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
                 </tr>`;
 
 

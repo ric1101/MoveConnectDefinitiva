@@ -38,14 +38,14 @@ function tratte(dati, id) {
 
             let tabella = `<tr>
                         
-                        <td class="">${element.azienda.nomeAzienda}</td>
-                        <td class="">${element.id}</td>
-                        <td class="" data-eventoid="1">${element.regionePartenza}</td>
-                        <td class="" data-eventoid="1">${element.regioneArrivo}</td>
-                        <td class="" data-eventoid="1">${element.dataPartenza}</td>
-                        <td class="" data-eventoid="1">${element.dataArrivo}</td>
-                        <td class="" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.dataPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
                     </tr>`;
 
 

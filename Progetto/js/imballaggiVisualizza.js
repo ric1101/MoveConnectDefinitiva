@@ -20,11 +20,11 @@ fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
 
 
 
-function fetchImballaggi(id) {
+async function fetchImballaggi(id) {
 
 
     let URLB = `http://127.0.0.1:8080/api/consegnaImballi/tutteLeConsegneConAzienda`;
-    fetch(URLB)
+    await fetch(URLB)
         .then((res) => res.json())
         .then((data) => {
 
@@ -44,13 +44,13 @@ function imballaggi(dati, id) {
 
             let tabella = `<tr>
                         
-                        <td class="">${element.azienda.nomeAzienda}</td>
-                        <td class="">${element.id}</td>
-                        <td class="" data-eventoid="1">${element.regione}</td>
-                        <td class="" data-eventoid="1">${element.provincia}</td>
-                        <td class="" data-eventoid="1">${element.comune}</td>
-                        <td class="" data-eventoid="1">${element.indirizzo}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark linkImballi" data-evento-id="${element.id}" href="./infoRichiesteImballi.html">INFO</a></td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.regione}</td>
+                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
+                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" data-evento-id="${element.id}" href="./infoRichiesteImballi.html">INFO</a></td>
                     </tr>`;
 
 
@@ -83,20 +83,23 @@ let regLink = document.querySelectorAll('.regLink');
 let imballiLink = document.querySelectorAll('.imballiLink');
 let simboloReg = document.querySelector('.simboloReg');
 let simboloImballi = document.querySelector('.simboloImballi');
+let collassaRegioni = document.querySelector('.collassaRegioni');
+let collassaImballi = document.querySelector('.collassaImballi');
 
 
 regLink.forEach(element => {
 
     element.addEventListener('click', () => {
 
-        if (simboloReg.classList.contains('fa-plus')) {
-            simboloReg.classList.remove('fa-plus');
-            simboloReg.classList.add('fa-minus');
-        } else {
-            simboloReg.classList.remove('fa-minus');
-            simboloReg.classList.add('fa-plus');
-        }
-
+       
+            if (!collassaRegioni.classList.contains('collapsed')) {
+                simboloReg.classList.remove('fa-plus');
+                simboloReg.classList.add('fa-minus');
+            } else {
+                simboloReg.classList.remove('fa-minus');
+                simboloReg.classList.add('fa-plus');
+            }
+        
     })
 
 });
@@ -107,17 +110,20 @@ imballiLink.forEach(element => {
 
     element.addEventListener('click', () => {
 
-        if (simboloImballi.classList.contains('fa-plus')) {
-            simboloImballi.classList.remove('fa-plus');
-            simboloImballi.classList.add('fa-minus');
-        } else {
-            simboloImballi.classList.remove('fa-minus');
-            simboloImballi.classList.add('fa-plus');
-        }
+   
+            if (!collassaImballi.classList.contains('collapsed')) {
+                simboloImballi.classList.remove('fa-plus');
+                simboloImballi.classList.add('fa-minus');
+            } else {
+                simboloImballi.classList.remove('fa-minus');
+                simboloImballi.classList.add('fa-plus');
+            }
+   
 
     })
 
 });
+
 
 
 
@@ -138,12 +144,9 @@ let reg2 = 0;
 
 
 
+async function fetchRegioniImballi(regione) {
 
-
-
-function fetchRegioniImballi(regione) {
-
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -157,11 +160,11 @@ function fetchRegioniImballi(regione) {
 
 
 
-function filtriRegioneImballi(regione, id) {
+async function filtriRegioneImballi(regione, id) {
 
     console.log(regione);
 
-    fetch(`http://127.0.0.1:8080/api/consegnaImballi/tutteLeConsegneConAziendaPerRegione/${regione}`) //ci va la rotta nuova
+    await fetch(`http://127.0.0.1:8080/api/consegnaImballi/tutteLeConsegneConAziendaPerRegione/${regione}`) //ci va la rotta nuova
         .then((res) => res.json())
         .then((data) => {
 
@@ -196,13 +199,13 @@ function imballaggiFiltroRegioneImballi(dati, id) {
 
                 let tabella = `<tr>
                         
-                        <td class="">${element.azienda.nomeAzienda}</td>
-                        <td class="">${element.id}</td>
-                        <td class="" data-eventoid="1">${element.regione}</td>
-                        <td class="" data-eventoid="1">${element.provincia}</td>
-                        <td class="" data-eventoid="1">${element.comune}</td>
-                        <td class="" data-eventoid="1">${element.indirizzo}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark linkImballi" data-evento-id="${element.id}" href="./infoRichiesteImballi.html">INFO</a></td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.regione}</td>
+                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
+                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" data-evento-id="${element.id}" href="./infoRichiesteImballi.html">INFO</a></td>
                     </tr>`;
 
 
@@ -254,17 +257,17 @@ async function filtriRegioneTipiImballi(regione, imballo1, imballo2, imballo3, i
 
 
     await fetch(`http://localhost:8080/api/consegnaImballi/tuttiGliImballiConAziendaTutto?regione=${regione}&imballo1=${imballo1}&imballo2=${imballo2}&imballo3=${imballo3}&imballo4=${imballo4}&imballo5=${imballo5}&imballo6=${imballo6}&imballo7=${imballo7}&imballo8=${imballo8}`)
-    .then((res) => {
-        if (!res.ok) {
-            throw new Error(`Errore nella risposta: ${res.status} - ${res.statusText}`);
-        }
-        return res.json();
-    })
-    .then((data) => {
-        imballaggiFiltroRegioneTipiImballi(data, id);
-        console.log('Dati ricevuti:', data);
-    })
-    
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error(`Errore nella risposta: ${res.status} - ${res.statusText}`);
+            }
+            return res.json();
+        })
+        .then((data) => {
+            imballaggiFiltroRegioneTipiImballi(data, id);
+            console.log('Dati ricevuti:', data);
+        })
+
 
 
 }
@@ -291,13 +294,13 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
 
                 let tabella = `<tr>
                         
-                        <td class="">${element.azienda.nomeAzienda}</td>
-                        <td class="">${element.id}</td>
-                        <td class="" data-eventoid="1">${element.regione}</td>
-                        <td class="" data-eventoid="1">${element.provincia}</td>
-                        <td class="" data-eventoid="1">${element.comune}</td>
-                        <td class="" data-eventoid="1">${element.indirizzo}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark linkImballi" data-evento-id="${element.id}" href="./infoRichiesteImballi.html">INFO</a></td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.regione}</td>
+                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
+                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" data-evento-id="${element.id}" href="./infoRichiesteImballi.html">INFO</a></td>
                     </tr>`;
 
 
@@ -332,9 +335,9 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
 
 
 
-function fetchTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8) {
+async function fetchTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -348,10 +351,10 @@ function fetchTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo5, imba
 
 
 
-function filtriTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8, id) {
+async function filtriTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8, id) {
 
 
-    fetch(`http://localhost:8080/api/consegnaImballi/tuttiGliImballiConAziendaTutto?imballo1=${imballo1}&imballo2=${imballo2}&imballo3=${imballo3}&imballo4=${imballo4}&imballo5=${imballo5}&imballo6=${imballo6}&imballo7=${imballo7}&imballo8=${imballo8}`) //ci va la rotta nuova
+    await fetch(`http://localhost:8080/api/consegnaImballi/tuttiGliImballiConAziendaTutto?imballo1=${imballo1}&imballo2=${imballo2}&imballo3=${imballo3}&imballo4=${imballo4}&imballo5=${imballo5}&imballo6=${imballo6}&imballo7=${imballo7}&imballo8=${imballo8}`) //ci va la rotta nuova
         .then((res) => res.json())
         .then((data) => {
 
@@ -388,13 +391,13 @@ function imballaggiFiltroTipiImballi(dati, id) {
 
                 let tabella = `<tr>
                         
-                        <td class="">${element.azienda.nomeAzienda}</td>
-                        <td class="">${element.id}</td>
-                        <td class="" data-eventoid="1">${element.regione}</td>
-                        <td class="" data-eventoid="1">${element.provincia}</td>
-                        <td class="" data-eventoid="1">${element.comune}</td>
-                        <td class="" data-eventoid="1">${element.indirizzo}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark linkImballi" data-evento-id="${element.id}" href="./infoRichiesteImballi.html">INFO</a></td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.regione}</td>
+                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
+                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" data-evento-id="${element.id}" href="./infoRichiesteImballi.html">INFO</a></td>
                     </tr>`;
 
 
@@ -433,6 +436,7 @@ regioniImballi.forEach(element => {
         reg1 = 1;
         console.log(element.value);
 
+
         let num1 = parseInt(tipoImballo1.value);
         let num2 = parseInt(tipoImballo2.value);
         let num3 = parseInt(tipoImballo3.value);
@@ -450,7 +454,7 @@ regioniImballi.forEach(element => {
 
             fetchRegioniTipiImballi(element.value, num1, num2, num3, num4, num5, num6, num7, num8);
             console.log(element.value, num1, num2, num3, num4, num5, num6, num7, num8);
-            
+
         }
     });
 
@@ -465,12 +469,19 @@ tipiImballi.forEach(element => {
 
         let regioneImballi = localStorage.getItem('regioneImballi');
         reg2 = 1;
-        if (element.value == 0) {
+        if (element.hasAttribute('checked')) {
+            element.removeAttribute('checked');
+        } else {
+            element.setAttribute('checked', true);
+        }
+        console.log(element.value);
+
+        if (element.hasAttribute('checked')) {
             element.setAttribute('value', 1);
         } else {
             element.setAttribute('value', 0);
+
         }
-        console.log(element.value);
 
         let num1 = parseInt(tipoImballo1.value);
         let num2 = parseInt(tipoImballo2.value);
@@ -481,8 +492,8 @@ tipiImballi.forEach(element => {
         let num7 = parseInt(tipoImballo7.value);
         let num8 = parseInt(tipoImballo8.value);
 
-        console.log(typeof(num1));
-        
+        console.log(typeof (num1));
+
         if (reg2 == 1 && reg1 == 0) {
             console.log('parte questa');
 

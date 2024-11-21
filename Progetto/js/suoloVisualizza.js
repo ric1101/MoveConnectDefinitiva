@@ -40,17 +40,17 @@ function suolo(dati, id) {
 
             let tabella = `<tr>
                         
-                        <td class="">${element.azienda.nomeAzienda}</td>
-                        <td class="">${element.id}</td>
-                        <td class="" data-eventoid="1">${element.regione}</td>
-                        <td class="" data-eventoid="1">${element.provincia}</td>
-                        <td class="" data-eventoid="1">${element.comune}</td>
-                        <td class="" data-eventoid="1">${element.mq}</td>
-                        <td class="" data-eventoid="1">${element.inizio}</td>
-                        <td class="" data-eventoid="1">${element.fine}</td>
-                        <td class="" data-eventoid="1">${element.chiusuraStrada}</td>
-                        <td class="" data-eventoid="1">${element.cartelli}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark linkSuolo" data-evento-id="${element.id}" href="./infoRichiesteSuoloPub.html">INFO</a></td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.regione}</td>
+                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
+                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.mq}</td>
+                        <td class="text-center" data-eventoid="1">${element.inizio}</td>
+                        <td class="text-center" data-eventoid="1">${element.fine}</td>
+                        <td class="text-center" data-eventoid="1">${element.chiusuraStrada}</td>
+                        <td class="text-center" data-eventoid="1">${element.cartelli}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkSuolo" data-evento-id="${element.id}" href="./infoRichiesteSuoloPub.html">INFO</a></td>
                     </tr>`;
 
 

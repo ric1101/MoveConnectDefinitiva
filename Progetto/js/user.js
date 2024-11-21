@@ -234,7 +234,7 @@ function feedback() {
                                 <div class="col-sm-12 col-lg-8 border-left">
                                     <div class="card-body">
                                         <ul class="list-style-none">
-                                            <li class="">
+                                            <li>
                                                 <div class="d-flex align-items-center">
                                                     <i class="fa-solid fa-star display-5 "
                                                         style="color: #FFD43B;"></i><i

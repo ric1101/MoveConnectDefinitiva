@@ -1,7 +1,7 @@
 
 
 let nomeAzienda = document.querySelector("#nomeAzienda");
-let logo = document.querySelector("#immagine");
+// let logo = document.querySelector("#immagine");
 let regione = document.querySelector(".regione");
 let provincia = document.querySelector(".provincia");
 let comune = document.querySelector(".comune");
@@ -41,7 +41,6 @@ let invalidNumTelDip = document.querySelector('.invalidNumTelDip');
 class Azienda {
   constructor(
     nomeAzienda,
-    logo,
     regione,
     provincia,
     comune,
@@ -57,7 +56,6 @@ class Azienda {
     password
   ) {
     (this.nomeAzienda = nomeAzienda),
-      (this.logo = logo),
       (this.regione = regione),
       (this.provincia = provincia),
       (this.comune = comune),
@@ -81,7 +79,6 @@ function registrazioneAzienda() {
 
   let nuovaAzienda = new Azienda(
     nomeAzienda.value,
-    logo.value,
     regione.value,
     provincia.value,
     comune.value,
@@ -324,7 +321,7 @@ function controlloDati() {
   event.preventDefault();
 
   if (nomeAzienda.value.trim() != "" &&
-    logo.value.trim() != "" &&
+    // logo.value.trim() != "" &&
     regione.value.trim() != "" &&
     provincia.value.trim() != "" &&
     comune.value.trim() != "" &&

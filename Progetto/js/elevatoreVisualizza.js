@@ -47,18 +47,17 @@ function elevatore(dati, id) {
 
         if (element.azienda.id != id) {
 
-            console.log(element.azienda.logo, element.azienda.nomeAzienda, element.azienda.azienda_id);
 
             let tabella = `<tr>
                         
-                        <td class="">${element.azienda.nomeAzienda}</td>
-                        <td class="">${element.id}</td>
-                        <td class="" data-eventoid="1">${element.comune}</td>
-                        <td class="" data-eventoid="1">${element.tipoDiScala}</td>
-                        <td class="" data-eventoid="1">${element.pesoMassimo}</td>
-                        <td class="" data-eventoid="1">${element.inizio}</td>
-                        <td class="" data-eventoid="1">${element.fine}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
+                        <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
+                        <td class="text-center" data-eventoid="1">${element.inizio}</td>
+                        <td class="text-center" data-eventoid="1">${element.fine}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
                     </tr>`;
 
 
@@ -92,13 +91,15 @@ let pesoLink = document.querySelectorAll('.pesoLink');
 let simboloReg = document.querySelector('.simboloReg');
 let simboloScala = document.querySelector('.simboloScala');
 let simboloPeso = document.querySelector('.simboloPeso');
-
+let collassaRegione = document.querySelector('.collassaRegione');
+let collassaScala = document.querySelector('.collassaScala');
+let collassaPeso = document.querySelector('.collassaPeso');
 
 regLink.forEach(element => {
 
     element.addEventListener('click', () => {
 
-        if (simboloReg.classList.contains('fa-plus')) {
+        if (!collassaRegione.classList.contains('collapsed')) {
             simboloReg.classList.remove('fa-plus');
             simboloReg.classList.add('fa-minus');
         } else {
@@ -115,7 +116,7 @@ scalaLink.forEach(element => {
 
     element.addEventListener('click', () => {
 
-        if (simboloScala.classList.contains('fa-plus')) {
+        if (!collassaScala.classList.contains('collapsed')) {
             simboloScala.classList.remove('fa-plus');
             simboloScala.classList.add('fa-minus');
         } else {
@@ -132,7 +133,7 @@ pesoLink.forEach(element => {
 
     element.addEventListener('click', () => {
 
-        if (simboloPeso.classList.contains('fa-plus')) {
+        if (!collassaPeso.classList.contains('collapsed')) {
             simboloPeso.classList.remove('fa-plus');
             simboloPeso.classList.add('fa-minus');
         } else {
@@ -242,14 +243,14 @@ function elevatoreFiltroSoloRegione(dati, id) {
 
                 let tabella = `<tr>
                         
-                        <td class="">${element.azienda.nomeAzienda}</td>
-                        <td class="">${element.id}</td>
-                        <td class="" data-eventoid="1">${element.comune}</td>
-                        <td class="" data-eventoid="1">${element.tipoDiScala}</td>
-                        <td class="" data-eventoid="1">${element.pesoMassimo}</td>
-                        <td class="" data-eventoid="1">${element.inizio}</td>
-                        <td class="" data-eventoid="1">${element.fine}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
+                        <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
+                        <td class="text-center" data-eventoid="1">${element.inizio}</td>
+                        <td class="text-center" data-eventoid="1">${element.fine}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
                     </tr>`;
 
 
@@ -363,14 +364,14 @@ function elevatoreFiltroScala(dati, id) {
 
                 let tabella = `<tr>
                         
-                        <td class="">${element.azienda.nomeAzienda}</td>
-                        <td class="">${element.id}</td>
-                        <td class="" data-eventoid="1">${element.comune}</td>
-                        <td class="" data-eventoid="1">${element.tipoDiScala}</td>
-                        <td class="" data-eventoid="1">${element.pesoMassimo}</td>
-                        <td class="" data-eventoid="1">${element.inizio}</td>
-                        <td class="" data-eventoid="1">${element.fine}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
+                        <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
+                        <td class="text-center" data-eventoid="1">${element.inizio}</td>
+                        <td class="text-center" data-eventoid="1">${element.fine}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
                     </tr>`;
 
 
@@ -455,14 +456,14 @@ function elevatoreFiltroRegioniScala(dati, id) {
 
                 let tabella = `<tr>
                         
-                        <td class="">${element.azienda.nomeAzienda}</td>
-                        <td class="">${element.id}</td>
-                        <td class="" data-eventoid="1">${element.comune}</td>
-                        <td class="" data-eventoid="1">${element.tipoDiScala}</td>
-                        <td class="" data-eventoid="1">${element.pesoMassimo}</td>
-                        <td class="" data-eventoid="1">${element.inizio}</td>
-                        <td class="" data-eventoid="1">${element.fine}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
+                        <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
+                        <td class="text-center" data-eventoid="1">${element.inizio}</td>
+                        <td class="text-center" data-eventoid="1">${element.fine}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
                     </tr>`;
 
 
@@ -578,14 +579,14 @@ function elevatoreFiltroPeso(dati, id) {
 
                 let tabella = `<tr>
                         
-                        <td class="">${element.azienda.nomeAzienda}</td>
-                        <td class="">${element.id}</td>
-                        <td class="" data-eventoid="1">${element.comune}</td>
-                        <td class="" data-eventoid="1">${element.tipoDiScala}</td>
-                        <td class="" data-eventoid="1">${element.pesoMassimo}</td>
-                        <td class="" data-eventoid="1">${element.inizio}</td>
-                        <td class="" data-eventoid="1">${element.fine}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
+                        <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
+                        <td class="text-center" data-eventoid="1">${element.inizio}</td>
+                        <td class="text-center" data-eventoid="1">${element.fine}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
                     </tr>`;
 
 
@@ -669,14 +670,14 @@ function elevatoreFiltroRegioniPeso(dati, id) {
 
                 let tabella = `<tr>
                         
-                        <td class="">${element.azienda.nomeAzienda}</td>
-                        <td class="">${element.id}</td>
-                        <td class="" data-eventoid="1">${element.comune}</td>
-                        <td class="" data-eventoid="1">${element.tipoDiScala}</td>
-                        <td class="" data-eventoid="1">${element.pesoMassimo}</td>
-                        <td class="" data-eventoid="1">${element.inizio}</td>
-                        <td class="" data-eventoid="1">${element.fine}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
+                        <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
+                        <td class="text-center" data-eventoid="1">${element.inizio}</td>
+                        <td class="text-center" data-eventoid="1">${element.fine}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
                     </tr>`;
 
 
@@ -760,14 +761,14 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
 
                 let tabella = `<tr>
                         
-                        <td class="">${element.azienda.nomeAzienda}</td>
-                        <td class="">${element.id}</td>
-                        <td class="" data-eventoid="1">${element.comune}</td>
-                        <td class="" data-eventoid="1">${element.tipoDiScala}</td>
-                        <td class="" data-eventoid="1">${element.pesoMassimo}</td>
-                        <td class="" data-eventoid="1">${element.inizio}</td>
-                        <td class="" data-eventoid="1">${element.fine}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
+                        <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
+                        <td class="text-center" data-eventoid="1">${element.inizio}</td>
+                        <td class="text-center" data-eventoid="1">${element.fine}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
                     </tr>`;
 
 
@@ -853,14 +854,14 @@ function elevatoreFiltroScalaPeso(dati, id) {
 
                 let tabella = `<tr>
                         
-                        <td class="">${element.azienda.nomeAzienda}</td>
-                        <td class="">${element.id}</td>
-                        <td class="" data-eventoid="1">${element.comune}</td>
-                        <td class="" data-eventoid="1">${element.tipoDiScala}</td>
-                        <td class="" data-eventoid="1">${element.pesoMassimo}</td>
-                        <td class="" data-eventoid="1">${element.inizio}</td>
-                        <td class="" data-eventoid="1">${element.fine}</td>
-                        <td class="" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
+                        <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
+                        <td class="text-center" data-eventoid="1">${element.inizio}</td>
+                        <td class="text-center" data-eventoid="1">${element.fine}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
                     </tr>`;
 
 
