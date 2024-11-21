@@ -122,7 +122,7 @@ imballiLink.forEach(element => {
 
 
 let regioniImballi = document.querySelectorAll('.regioniImballi');
-let tipiImballi = document.querySelectorAll('.tipiImballi');
+let tipiImballi = document.querySelectorAll('.tipoImballi');
 
 let tipoImballo1 = document.querySelector('.tipoImballo1');
 let tipoImballo2 = document.querySelector('.tipoImballo2');
@@ -136,28 +136,6 @@ let tipoImballo8 = document.querySelector('.tipoImballo8');
 let reg1 = 0;
 let reg2 = 0;
 
-regioniImballi.forEach(element => {
-
-    element.addEventListener('click', () => {
-        localStorage.setItem('regioneImballi', element.value);
-
-        reg1 = 1;
-        console.log(element.value);
-
-
-        if (reg2 == 0 && reg1 == 1) {
-
-            fetchRegioniImballi(element.value);
-
-        } else if (reg2 == 1 && reg1 == 1) {
-
-            fetchRegioniTipiImballi(element.value, tipoImballo1.value, tipoImballo2.value, tipoImballo3.value, tipoImballo4.value, tipoImballo5.value, tipoImballo6.value, tipoImballo7.value, tipoImballo8.value);
-
-        }
-    });
-
-
-});
 
 
 
@@ -257,15 +235,14 @@ function imballaggiFiltroRegioneImballi(dati, id) {
 
 
 
-function fetchRegioniTipiImballi(regione, imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8) {
+async function fetchRegioniTipiImballi(regione, imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
             filtriRegioneTipiImballi(regione, imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8, data.id);
-            console.log(data.id);
-            console.log(regione);
+            console.log(regione, imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8, data.id);
 
         });
 }
@@ -273,20 +250,22 @@ function fetchRegioniTipiImballi(regione, imballo1, imballo2, imballo3, imballo4
 
 
 
-function filtriRegioneTipiImballi(regione, imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8, id) {
+async function filtriRegioneTipiImballi(regione, imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8, id) {
 
-    console.log(regione);
 
-    fetch(`http://127.0.0.1:8080/api/consegnaImballi/tuttiGliImballiConAziendaTutto?regione=${regione}&imballo1=${imballo1}&imballo2=${imballo2}&imballo3=${imballo3}&imballo4=${imballo4}&imballo5=${imballo5}&imballo6=${imballo6}&imballo7=${imballo7}&imballo8=${imballo8}`) //ci va la rotta nuova
-        .then((res) => res.json())
-        .then((data) => {
+    await fetch(`http://localhost:8080/api/consegnaImballi/tuttiGliImballiConAziendaTutto?regione=${regione}&imballo1=${imballo1}&imballo2=${imballo2}&imballo3=${imballo3}&imballo4=${imballo4}&imballo5=${imballo5}&imballo6=${imballo6}&imballo7=${imballo7}&imballo8=${imballo8}`)
+    .then((res) => {
+        if (!res.ok) {
+            throw new Error(`Errore nella risposta: ${res.status} - ${res.statusText}`);
+        }
+        return res.json();
+    })
+    .then((data) => {
+        imballaggiFiltroRegioneTipiImballi(data, id);
+        console.log('Dati ricevuti:', data);
+    })
+    
 
-            imballaggiFiltroRegioneTipiImballi(data, id)
-            console.log(data);
-            console.log(id);
-            ascolto();
-
-        });
 
 }
 
@@ -352,31 +331,6 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
 
 
 
-tipiImballi.forEach(element => {
-
-    element.addEventListener('click', () => {
-
-        let regioneImballi = localStorage.getItem('regioneImballi');
-        reg1 = 1;
-        console.log(element.value);
-
-
-        if (reg2 == 1 && reg1 == 0) {
-
-            fetchTipiImballi(element.value);
-
-        } else if (reg2 == 1 && reg1 == 1) {
-
-            fetchRegioniTipiImballi(regioneImballi, tipoImballo1.value, tipoImballo2.value, tipoImballo3.value, tipoImballo4.value, tipoImballo5.value, tipoImballo6.value, tipoImballo7.value, tipoImballo8.value);
-
-        }
-    });
-
-
-});
-
-
-
 
 function fetchTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8) {
 
@@ -385,7 +339,8 @@ function fetchTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo5, imba
         .then((data) => {
 
             filtriTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8, data.id);
-            console.log(data.id);
+            console.log(imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8, data.id);
+
 
         });
 }
@@ -396,7 +351,7 @@ function fetchTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo5, imba
 function filtriTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/consegnaImballi/tuttiGliImballiConAziendaTutto?imballo1=${imballo1}&imballo2=${imballo2}&imballo3=${imballo3}&imballo4=${imballo4}&imballo5=${imballo5}&imballo6=${imballo6}&imballo7=${imballo7}&imballo8=${imballo8}`) //ci va la rotta nuova
+    fetch(`http://localhost:8080/api/consegnaImballi/tuttiGliImballiConAziendaTutto?imballo1=${imballo1}&imballo2=${imballo2}&imballo3=${imballo3}&imballo4=${imballo4}&imballo5=${imballo5}&imballo6=${imballo6}&imballo7=${imballo7}&imballo8=${imballo8}`) //ci va la rotta nuova
         .then((res) => res.json())
         .then((data) => {
 
@@ -408,6 +363,8 @@ function filtriTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo5, imb
         });
 
 }
+
+
 
 
 
@@ -468,80 +425,84 @@ function imballaggiFiltroTipiImballi(dati, id) {
 
 }
 
+regioniImballi.forEach(element => {
+
+    element.addEventListener('click', () => {
+        localStorage.setItem('regioneImballi', element.value);
+
+        reg1 = 1;
+        console.log(element.value);
+
+        let num1 = parseInt(tipoImballo1.value);
+        let num2 = parseInt(tipoImballo2.value);
+        let num3 = parseInt(tipoImballo3.value);
+        let num4 = parseInt(tipoImballo4.value);
+        let num5 = parseInt(tipoImballo5.value);
+        let num6 = parseInt(tipoImballo6.value);
+        let num7 = parseInt(tipoImballo7.value);
+        let num8 = parseInt(tipoImballo8.value);
+
+        if (reg2 == 0 && reg1 == 1) {
+
+            fetchRegioniImballi(element.value);
+
+        } else if (reg2 == 1 && reg1 == 1) {
+
+            fetchRegioniTipiImballi(element.value, num1, num2, num3, num4, num5, num6, num7, num8);
+            console.log(element.value, num1, num2, num3, num4, num5, num6, num7, num8);
+            
+        }
+    });
 
 
-
-tipoImballo1.addEventListener('click', () => {
-    if (tipoImballo1.value == 0) {
-        tipoImballo1.setAttribute('value', 1);
-    } else {
-        tipoImballo1.setAttribute('value', 0);
-    }
-})
+});
 
 
-tipoImballo2.addEventListener('click', () => {
-    if (tipoImballo2.value == 0) {
-        tipoImballo2.setAttribute('value', 1);
-    } else {
-        tipoImballo2.setAttribute('value', 0);
-    }
-})
+tipiImballi.forEach(element => {
+
+    element.addEventListener('click', () => {
 
 
-tipoImballo3.addEventListener('click', () => {
-    if (tipoImballo3.value == 0) {
-        tipoImballo3.setAttribute('value', 1);
-    } else {
-        tipoImballo3.setAttribute('value', 0);
-    }
-})
+        let regioneImballi = localStorage.getItem('regioneImballi');
+        reg2 = 1;
+        if (element.value == 0) {
+            element.setAttribute('value', 1);
+        } else {
+            element.setAttribute('value', 0);
+        }
+        console.log(element.value);
+
+        let num1 = parseInt(tipoImballo1.value);
+        let num2 = parseInt(tipoImballo2.value);
+        let num3 = parseInt(tipoImballo3.value);
+        let num4 = parseInt(tipoImballo4.value);
+        let num5 = parseInt(tipoImballo5.value);
+        let num6 = parseInt(tipoImballo6.value);
+        let num7 = parseInt(tipoImballo7.value);
+        let num8 = parseInt(tipoImballo8.value);
+
+        console.log(typeof(num1));
+        
+        if (reg2 == 1 && reg1 == 0) {
+            console.log('parte questa');
+
+            fetchTipiImballi(num1, num2, num3, num4, num5, num6, num7, num8);
 
 
-tipoImballo4.addEventListener('click', () => {
-    if (tipoImballo4.value == 0) {
-        tipoImballo4.setAttribute('value', 1);
-    } else {
-        tipoImballo4.setAttribute('value', 0);
-    }
-})
+            console.log(num1);
+
+        } else if (reg2 == 1 && reg1 == 1) {
+            console.log('no questa');
+
+            console.log(regioneImballi, num1, num2, num3, num4, num5, num6, num7, num8);
+            fetchRegioniTipiImballi(regioneImballi, num1, num2, num3, num4, num5, num6, num7, num8);
 
 
-tipoImballo5.addEventListener('click', () => {
-    if (tipoImballo5.value == 0) {
-        tipoImballo5.setAttribute('value', 1);
-    } else {
-        tipoImballo5.setAttribute('value', 0);
-    }
-})
+        }
+    });
 
 
-tipoImballo6.addEventListener('click', () => {
-    if (tipoImballo6.value == 0) {
-        tipoImballo6.setAttribute('value', 1);
-    } else {
-        tipoImballo6.setAttribute('value', 0);
-    }
-})
-
-
-tipoImballo7.addEventListener('click', () => {
-    if (tipoImballo7.value == 0) {
-        tipoImballo7.setAttribute('value', 1);
-    } else {
-        tipoImballo7.setAttribute('value', 0);
-    }
-})
-
-
-tipoImballo8.addEventListener('click', () => {
-    if (tipoImballo8.value == 0) {
-        tipoImballo8.setAttribute('value', 1);
-    } else {
-        tipoImballo8.setAttribute('value', 0);
-    }
-})
-
+});
 
 
 
