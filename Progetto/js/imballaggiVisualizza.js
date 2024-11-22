@@ -81,8 +81,10 @@ function ascolto() {
 
 let regLink = document.querySelectorAll('.regLink');
 let imballiLink = document.querySelectorAll('.imballiLink');
+
 let simboloReg = document.querySelector('.simboloReg');
 let simboloImballi = document.querySelector('.simboloImballi');
+
 let collassaRegioni = document.querySelector('.collassaRegioni');
 let collassaImballi = document.querySelector('.collassaImballi');
 

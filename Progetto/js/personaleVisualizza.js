@@ -1,7 +1,13 @@
-
+let c = false;
+let c1 = false;
 let bodyTabella = document.querySelector('.bodyTabella');
 
 let accessToken = localStorage.getItem('accessToken');
+
+let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
+<p>Non ci sono Corrispondenze!</p>
+</div>`;
+
 
 fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
@@ -9,7 +15,7 @@ fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
 
         fetchPersonale(data.id);
         console.log(data.id);
-        
+
     });
 
 
@@ -72,3 +78,439 @@ function ascolto() {
 
 
 }
+
+
+let regLink = document.querySelectorAll('.regLink');
+let personaleLink = document.querySelectorAll('.personaleLink');
+
+let simboloReg = document.querySelector('.simboloReg');
+let simboloPersonale = document.querySelector('.simboloPersonale');
+
+let collassaRegioni = document.querySelector('.collassaRegioni');
+let collassaPersonale = document.querySelector('.collassaPersonale');
+
+
+
+regLink.forEach(element => {
+
+    element.addEventListener('click', () => {
+
+
+        if (!collassaRegioni.classList.contains('collapsed')) {
+            simboloReg.classList.remove('fa-plus');
+            simboloReg.classList.add('fa-minus');
+        } else {
+            simboloReg.classList.remove('fa-minus');
+            simboloReg.classList.add('fa-plus');
+        }
+
+    })
+
+});
+
+
+
+personaleLink.forEach(element => {
+
+    element.addEventListener('click', () => {
+
+
+        if (!collassaPersonale.classList.contains('collapsed')) {
+            simboloPersonale.classList.remove('fa-plus');
+            simboloPersonale.classList.add('fa-minus');
+        } else {
+            simboloPersonale.classList.remove('fa-minus');
+            simboloPersonale.classList.add('fa-plus');
+        }
+
+    })
+
+});
+
+
+
+
+let reg1 = 0;
+let reg2 = 0;
+
+
+
+async function fetchRegioniPersonale(regione) {
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            filtriRegionePersonale(regione, data.id);
+            console.log(data.id);
+            console.log(regione);
+
+        });
+}
+
+
+
+
+async function filtriRegionePersonale(regione, id) {
+
+    console.log(regione);
+
+    await fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/${regione}`) //ci va la rotta nuova
+        .then((res) => res.json())
+        .then((data) => {
+
+            personaleFiltroRegione(data, id)
+            console.log(data);
+            console.log(id);
+            ascolto();
+
+        });
+
+}
+
+
+
+function personaleFiltroRegione(dati, id) {
+    c = false;
+    c1 = false;
+    console.log(dati);
+    console.log(id);
+    bodyTabella.innerHTML = '';
+
+    if (dati.length != 0) {
+
+
+
+        dati.forEach(element => {
+
+
+
+            if (element.azienda.id != id) {
+
+
+                let tabella = `<tr>
+                        
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.regione}</td>
+                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
+                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}"  href="./infoRichiestePersonale.html">INFO</a></td>
+                    </tr>`;
+
+
+                c = true;
+                if (c1 == true) {
+                    bodyTabella.innerHTML = '';
+                }
+
+
+                bodyTabella.innerHTML += tabella;
+
+            } else {
+                if (c) {
+
+                } else {
+
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    c1 = true;
+
+                }
+            }
+
+        });
+
+    } else {
+        bodyTabella.innerHTML = nessunaCorrispondenza;
+    }
+
+}
+
+
+
+async function fetchRegioniTipiPersonale(regione, autista, falegname, montatore, operatore,) {
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            filtriRegioneTipiPersonale(regione, autista, falegname, montatore, operatore, data.id);
+            console.log(regione, autista, falegname, montatore, operatore);
+
+        });
+}
+
+
+
+
+async function filtriRegioneTipiPersonale(regione, autista, falegname, montatore, operatore, id) {
+
+
+    await fetch(`http://localhost:8080/api/personaleSpecializzato/tuttoIlPersonaleConAziendaTutto?regione=${regione}&autista=${autista}&falegname=${falegname}&montatore=${montatore}&operatore=${operatore}`)
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error(`Errore nella risposta: ${res.status} - ${res.statusText}`);
+            }
+            return res.json();
+        })
+        .then((data) => {
+            personaleFiltroRegioneTipiPersonale(data, id);
+            console.log('Dati ricevuti:', data);
+        })
+
+
+
+}
+
+
+
+function personaleFiltroRegioneTipiPersonale(dati, id) {
+    c = false;
+    c1 = false;
+    console.log(dati);
+    console.log(id);
+    bodyTabella.innerHTML = '';
+
+    if (dati.length != 0) {
+
+
+
+        dati.forEach(element => {
+
+
+
+            if (element.azienda.id != id) {
+
+
+                let tabella = `<tr>
+                        
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.regione}</td>
+                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
+                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}"  href="./infoRichiestePersonale.html">INFO</a></td>
+                    </tr>`;
+
+
+                c = true;
+                if (c1 == true) {
+                    bodyTabella.innerHTML = '';
+                }
+
+
+                bodyTabella.innerHTML += tabella;
+
+            } else {
+                if (c) {
+
+                } else {
+
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    c1 = true;
+
+                }
+            }
+
+        });
+
+    } else {
+        bodyTabella.innerHTML = nessunaCorrispondenza;
+    }
+
+}
+
+
+
+
+
+async function fetchTipiPersonale(autista, falegname, montatore, operatore) {
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            filtriTipiPersonale(autista, falegname, montatore, operatore, data.id);
+            console.log(autista, falegname, montatore, operatore, data.id);
+
+
+        });
+}
+
+
+
+
+async function filtriTipiPersonale(autista, falegname, montatore, operatore, id) {
+
+
+    await fetch(`http://localhost:8080/api/personaleSpecializzato/tuttoIlPersonaleConAziendaTutto?autista=${autista}&falegname=${falegname}&montatore=${montatore}&operatore=${operatore}`) //ci va la rotta nuova
+        .then((res) => res.json())
+        .then((data) => {
+
+            personaleFiltroTipiPersonale(data, id)
+            console.log(data);
+            console.log(id);
+            ascolto();
+
+        });
+
+}
+
+
+
+
+
+function personaleFiltroTipiPersonale(dati, id) {
+    c = false;
+    c1 = false;
+    console.log(dati);
+    console.log(id);
+    bodyTabella.innerHTML = '';
+
+    if (dati.length != 0) {
+
+
+
+        dati.forEach(element => {
+
+
+
+            if (element.azienda.id != id) {
+
+
+                let tabella = `<tr>
+                        
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.regione}</td>
+                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
+                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}"  href="./infoRichiestePersonale.html">INFO</a></td>
+                    </tr>`;
+
+
+                c = true;
+                if (c1 == true) {
+                    bodyTabella.innerHTML = '';
+                }
+
+
+                bodyTabella.innerHTML += tabella;
+
+            } else {
+                if (c) {
+
+                } else {
+
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    c1 = true;
+
+                }
+            }
+
+        });
+
+    } else {
+        bodyTabella.innerHTML = nessunaCorrispondenza;
+    }
+
+}
+
+
+
+let tipoPersonale = document.querySelectorAll('.tipoPersonale');
+let personale1 = document.querySelector('.personale1');
+let personale2 = document.querySelector('.personale2');
+let personale3 = document.querySelector('.personale3');
+let personale4 = document.querySelector('.personale4');
+let regioniPersonale = document.querySelectorAll('.regioniPersonale');
+
+
+regioniPersonale.forEach(element => {
+
+    element.addEventListener('click', () => {
+        localStorage.setItem('regionePersonale', element.value);
+
+        reg1 = 1;
+        console.log(element.value);
+
+
+        let num1 = parseInt(personale1.value);
+        let num2 = parseInt(personale2.value);
+        let num3 = parseInt(personale3.value);
+        let num4 = parseInt(personale4.value);
+
+        if (reg2 == 0 && reg1 == 1) {
+
+            fetchRegioniPersonale(element.value);
+
+        } else if (reg2 == 1 && reg1 == 1) {
+
+            fetchRegioniTipiPersonale(element.value, num1, num2, num3, num4);
+            console.log(element.value, num1, num2, num3, num4);
+
+        }
+    });
+
+
+});
+
+
+tipoPersonale.forEach(element => {
+
+    element.addEventListener('click', () => {
+
+        let regionePersonale = localStorage.getItem('regionePersonale');
+
+        reg2 = 1;
+        if (element.hasAttribute('checked')) {
+            element.removeAttribute('checked');
+        } else {
+            element.setAttribute('checked', true);
+        }
+        console.log(element.value);
+
+        if (element.hasAttribute('checked')) {
+            element.setAttribute('value', 1);
+        } else {
+            element.setAttribute('value', 0);
+
+        }
+
+        let num1 = parseInt(personale1.value);
+        let num2 = parseInt(personale2.value);
+        let num3 = parseInt(personale3.value);
+        let num4 = parseInt(personale4.value);
+
+        console.log(typeof (num1));
+
+        if (reg2 == 1 && reg1 == 0) {
+            console.log('parte questa');
+
+            fetchTipiPersonale(num1, num2, num3, num4);
+
+            console.log(num1);
+
+        } else if (reg2 == 1 && reg1 == 1) {
+            console.log('no questa');
+
+            fetchRegioniTipiPersonale(regionePersonale, num1, num2, num3, num4);
+            
+            console.log(regionePersonale, num1, num2, num3, num4);
+
+
+        }
+    });
+
+
+});
+
+
+let bottoneReset = document.querySelector('.bottoneReset');
+
+bottoneReset.addEventListener('click', () => {
+    location.reload();
+});
