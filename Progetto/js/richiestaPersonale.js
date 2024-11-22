@@ -23,10 +23,10 @@ class Personale {
         indirizzoDue,
         cap,
         note,
-        operatore,
         autista,
-        montatore,
         falegname,
+        montatore,
+        operatore,
         azienda_id) {
 
         (this.regione = regione),
@@ -36,10 +36,10 @@ class Personale {
             (this.indirizzoDue = indirizzoDue),
             (this.cap = cap),
             (this.note = note),
-            (this.operatore = operatore),
             (this.autista = autista),
-            (this.montatore = montatore),
             (this.falegname = falegname),
+            (this.montatore = montatore),
+            (this.operatore = operatore),
             (this.azienda_id = azienda_id)
     }
 }
@@ -78,10 +78,10 @@ function inviaRichiesta(dati) {
         indirizzoDue.value,
         cap.value,
         note.value,
-        operatore.textContent,
         autista.textContent,
-        montatore.textContent,
         falegname.textContent,
+        montatore.textContent,
+        operatore.textContent,
         azienda_id
     );
 
