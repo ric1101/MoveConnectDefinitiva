@@ -438,10 +438,10 @@ regioniPersonale.forEach(element => {
         console.log(element.value);
 
 
-        let num1 = parseInt(personale1.value);
-        let num2 = parseInt(personale2.value);
-        let num3 = parseInt(personale3.value);
-        let num4 = parseInt(personale4.value);
+        let autistaParsato = parseInt(personale2.value);
+        let falegnameParsato = parseInt(personale4.value);
+        let montatoreParsato = parseInt(personale3.value);
+        let operatoreParsato = parseInt(personale1.value);
 
         if (reg2 == 0 && reg1 == 1) {
 
@@ -449,8 +449,8 @@ regioniPersonale.forEach(element => {
 
         } else if (reg2 == 1 && reg1 == 1) {
 
-            fetchRegioniTipiPersonale(element.value, num1, num2, num3, num4);
-            console.log(element.value, num1, num2, num3, num4);
+            fetchRegioniTipiPersonale(element.value, autistaParsato, falegnameParsato, montatoreParsato, operatoreParsato);
+            console.log(element.value, autistaParsato, falegnameParsato, montatoreParsato, operatoreParsato);
 
         }
     });
@@ -480,26 +480,25 @@ tipoPersonale.forEach(element => {
 
         }
 
-        let num1 = parseInt(personale1.value);
-        let num2 = parseInt(personale2.value);
-        let num3 = parseInt(personale3.value);
-        let num4 = parseInt(personale4.value);
+        let autistaParsato = parseInt(personale2.value);
+        let falegnameParsato = parseInt(personale4.value);
+        let montatoreParsato = parseInt(personale3.value);
+        let operatoreParsato = parseInt(personale1.value);
 
-        console.log(typeof (num1));
+        
 
         if (reg2 == 1 && reg1 == 0) {
             console.log('parte questa');
 
-            fetchTipiPersonale(num1, num2, num3, num4);
+            fetchTipiPersonale(autistaParsato, falegnameParsato, montatoreParsato, operatoreParsato);
 
-            console.log(num1);
+            
 
         } else if (reg2 == 1 && reg1 == 1) {
             console.log('no questa');
 
-            fetchRegioniTipiPersonale(regionePersonale, num1, num2, num3, num4);
-            
-            console.log(regionePersonale, num1, num2, num3, num4);
+           fetchRegioniTipiPersonale(regionePersonale, autistaParsato, falegnameParsato, montatoreParsato, operatoreParsato);
+            console.log(regionePersonale, autistaParsato, falegnameParsato, montatoreParsato, operatoreParsato);
 
 
         }
