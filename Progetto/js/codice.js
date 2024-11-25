@@ -30,15 +30,17 @@ function fetchInvio() {
     },
     body: JSON.stringify(nuovoUtente),
   })
-    .then((response) => {
-      if (response.ok) {
-        window.location.href = 'login.html';
+  .then((response) => {
+    if (response.ok) {
 
-      } else {
+      window.location.href = 'login.html';
+      // console.log('codice giusto');
 
-        errore.innerHTML = 'codice errato o scaduto';
-      }
-    })
+    } else {
+
+      errore.innerHTML = 'codice errato o scaduto';
+    }
+  })
 
 
 
