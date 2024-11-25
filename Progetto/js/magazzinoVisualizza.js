@@ -82,12 +82,12 @@ function ascolto() {
 
 
 
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo1");
-output.innerHTML = slider.value;
+var slider1 = document.getElementById("myRange1");
+var output1 = document.getElementById("demo1");
+output1.innerHTML = slider1.value;
 
-slider.oninput = function () {
-    output.innerHTML = this.value;
+slider1.oninput = function () {
+    output1.innerHTML = this.value;
 }
 
 
@@ -163,7 +163,7 @@ let deposito1 = document.querySelector('.deposito1');
 let deposito2 = document.querySelector('.deposito2');
 let deposito3 = document.querySelector('.deposito3');
 let demo1 = document.querySelector('.demo1');
-let sliderDemo1 = document.querySelector('.slider');
+let sliderDemo1 = document.querySelector('.slider1');
 let mag1 = 0;
 let mag2 = 0;
 let mag3 = 0;
