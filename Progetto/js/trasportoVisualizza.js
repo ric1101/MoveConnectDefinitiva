@@ -102,9 +102,11 @@ slider.oninput = function () {
 let regParLink = document.querySelectorAll('.regParLink');
 let regArrLink = document.querySelectorAll('.regArrLink');
 let m3Link = document.querySelectorAll('.m3Link');
+
 let simboloPar = document.querySelector('.simboloPar');
 let simboloArr = document.querySelector('.simboloArr');
 let simboloM3 = document.querySelector('.simboloM3');
+
 let collassaRegionePartenza = document.querySelector('.collassaRegionePartenza');
 let collassaRegioneArrivo = document.querySelector('.collassaRegioneArrivo');
 let collassaM3 = document.querySelector('.collassaM3');
