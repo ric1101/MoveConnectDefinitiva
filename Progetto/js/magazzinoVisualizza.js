@@ -178,118 +178,7 @@ bottoneReset.addEventListener('click', () => {
 
 
 
-regioniDeposito.forEach(element => {
 
-    element.addEventListener('click', () => {
-        localStorage.setItem('regioniDeposito', element.value);
-
-        mag1 = 1;
-
-        let mobilioParsato = parseInt(deposito1.value);
-        let pedaneParsato = parseInt(deposito2.value);
-        let altroParsato = parseInt(deposito3.value);
-
-        if (mag2 == 0 && mag1 == 1 && mag3 == 0) {
-
-            fetchRegioniDeposito(element.value);
-
-        } else if (mag2 == 1 && mag1 == 1 && mag3 == 0) {
-
-            fetchRegioniTipoDeposito(element.value, mobilioParsato, pedaneParsato, altroParsato);
-
-        } else if (mag2 == 0 && mag1 == 1 && mag3 == 1) {
-
-            fetchRegioniDepositoMq(element.value, demo1.textContent);
-
-        } else if (mag2 == 1 && mag1 == 1 && mag3 == 1) {
-
-            fetchRegioneTipoDepositoMq(element.value, mobilioParsato, pedaneParsato, altroParsato, demo1.textContent);
-
-        }
-    });
-
-
-});
-
-
-
-tipoDeposito.forEach(element => {
-    let regioniDeposito = localStorage.getItem('regioniDeposito');
-
-    element.addEventListener('click', () => {
-
-        mag2 = 1;
-
-        if (element.hasAttribute('checked')) {
-            element.removeAttribute('checked');
-        } else {
-            element.setAttribute('checked', true);
-        }
-        console.log(element.value);
-
-        if (element.hasAttribute('checked')) {
-            element.setAttribute('value', 1);
-        } else {
-            element.setAttribute('value', 0);
-
-        }
-
-        let mobilioParsato = parseInt(deposito1.value);
-        let pedaneParsato = parseInt(deposito2.value);
-        let altroParsato = parseInt(deposito3.value);
-
-        if (mag2 == 1 && mag1 == 0 && mag3 == 0) {
-
-            fetchTipoDeposito(mobilioParsato, pedaneParsato, altroParsato);
-
-        } else if (mag2 == 1 && mag1 == 1 && mag3 == 0) {
-
-            fetchRegioniTipoDeposito(regioniDeposito, mobilioParsato, pedaneParsato, altroParsato);
-
-        } else if (mag2 == 1 && mag1 == 0 && mag3 == 1) {
-
-            fetchTipoDepositoMq(mobilioParsato, pedaneParsato, altroParsato, demo1.textContent);
-
-        } else if (mag2 == 1 && mag1 == 1 && mag3 == 1) {
-
-            fetchRegioneTipoDepositoMq(regioniDeposito, mobilioParsato, pedaneParsato, altroParsato, demo1.textContent);
-
-        }
-    });
-
-
-});
-
-
-
-sliderDemo1.addEventListener('change', () => {
-    let regioniDeposito = localStorage.getItem('regioniDeposito');
-    console.log('cambiato');
-
-    mag3 = 1;
-
-    let mobilioParsato = parseInt(deposito1.value);
-    let pedaneParsato = parseInt(deposito2.value);
-    let altroParsato = parseInt(deposito3.value);
-
-    if (mag2 == 0 && mag1 == 0 && mag3 == 1) {
-
-        fetchDemoDeposito(demo1.textContent);
-
-    } else if (mag2 == 1 && mag1 == 1 && mag3 == 1) {
-
-        fetchRegioneTipoDepositoMq(regioniDeposito, mobilioParsato, pedaneParsato, altroParsato, demo1.textContent);
-
-    } else if (mag2 == 0 && mag1 == 1 && mag3 == 1) {
-
-        fetchRegioniDepositoMq(regioniDeposito, demo1.textContent);
-
-    } else if (mag2 == 1 && mag1 == 0 && mag3 == 1) {
-
-        fetchTipoDepositoMq(mobilioParsato, pedaneParsato, altroParsato, demo1.textContent);
-
-    }
-});
 
 
 
@@ -954,3 +843,115 @@ function depositoFiltroDemoDeposito(dati, id) {
 
 
 
+regioniDeposito.forEach(element => {
+
+    element.addEventListener('click', () => {
+        localStorage.setItem('regioniDeposito', element.value);
+
+        mag1 = 1;
+
+        let mobilioParsato = parseInt(deposito1.value);
+        let pedaneParsato = parseInt(deposito2.value);
+        let altroParsato = parseInt(deposito3.value);
+
+        if (mag2 == 0 && mag1 == 1 && mag3 == 0) {
+
+            fetchRegioniDeposito(element.value);
+
+        } else if (mag2 == 1 && mag1 == 1 && mag3 == 0) {
+
+            fetchRegioniTipoDeposito(element.value, mobilioParsato, pedaneParsato, altroParsato);
+
+        } else if (mag2 == 0 && mag1 == 1 && mag3 == 1) {
+
+            fetchRegioniDepositoMq(element.value, demo1.textContent);
+
+        } else if (mag2 == 1 && mag1 == 1 && mag3 == 1) {
+
+            fetchRegioneTipoDepositoMq(element.value, mobilioParsato, pedaneParsato, altroParsato, demo1.textContent);
+
+        }
+    });
+
+
+});
+
+
+
+tipoDeposito.forEach(element => {
+    let regioniDeposito = localStorage.getItem('regioniDeposito');
+
+    element.addEventListener('click', () => {
+
+        mag2 = 1;
+
+        if (element.hasAttribute('checked')) {
+            element.removeAttribute('checked');
+        } else {
+            element.setAttribute('checked', true);
+        }
+        console.log(element.value);
+
+        if (element.hasAttribute('checked')) {
+            element.setAttribute('value', 1);
+        } else {
+            element.setAttribute('value', 0);
+
+        }
+
+        let mobilioParsato = parseInt(deposito1.value);
+        let pedaneParsato = parseInt(deposito2.value);
+        let altroParsato = parseInt(deposito3.value);
+
+        if (mag2 == 1 && mag1 == 0 && mag3 == 0) {
+
+            fetchTipoDeposito(mobilioParsato, pedaneParsato, altroParsato);
+
+        } else if (mag2 == 1 && mag1 == 1 && mag3 == 0) {
+
+            fetchRegioniTipoDeposito(regioniDeposito, mobilioParsato, pedaneParsato, altroParsato);
+
+        } else if (mag2 == 1 && mag1 == 0 && mag3 == 1) {
+
+            fetchTipoDepositoMq(mobilioParsato, pedaneParsato, altroParsato, demo1.textContent);
+
+        } else if (mag2 == 1 && mag1 == 1 && mag3 == 1) {
+
+            fetchRegioneTipoDepositoMq(regioniDeposito, mobilioParsato, pedaneParsato, altroParsato, demo1.textContent);
+
+        }
+    });
+
+
+});
+
+
+
+sliderDemo1.addEventListener('change', () => {
+    let regioniDeposito = localStorage.getItem('regioniDeposito');
+    console.log('cambiato');
+
+    mag3 = 1;
+
+    let mobilioParsato = parseInt(deposito1.value);
+    let pedaneParsato = parseInt(deposito2.value);
+    let altroParsato = parseInt(deposito3.value);
+
+    if (mag2 == 0 && mag1 == 0 && mag3 == 1) {
+
+        fetchDemoDeposito(demo1.textContent);
+
+    } else if (mag2 == 1 && mag1 == 1 && mag3 == 1) {
+
+        fetchRegioneTipoDepositoMq(regioniDeposito, mobilioParsato, pedaneParsato, altroParsato, demo1.textContent);
+
+    } else if (mag2 == 0 && mag1 == 1 && mag3 == 1) {
+
+        fetchRegioniDepositoMq(regioniDeposito, demo1.textContent);
+
+    } else if (mag2 == 1 && mag1 == 0 && mag3 == 1) {
+
+        fetchTipoDepositoMq(mobilioParsato, pedaneParsato, altroParsato, demo1.textContent);
+
+    }
+});
