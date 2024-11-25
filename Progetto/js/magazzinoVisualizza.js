@@ -220,6 +220,20 @@ tipoDeposito.forEach(element => {
 
         mag2 = 1;
 
+        if (element.hasAttribute('checked')) {
+            element.removeAttribute('checked');
+        } else {
+            element.setAttribute('checked', true);
+        }
+        console.log(element.value);
+
+        if (element.hasAttribute('checked')) {
+            element.setAttribute('value', 1);
+        } else {
+            element.setAttribute('value', 0);
+
+        }
+
         let mobilioParsato = parseInt(deposito1.value);
         let pedaneParsato = parseInt(deposito2.value);
         let altroParsato = parseInt(deposito3.value);

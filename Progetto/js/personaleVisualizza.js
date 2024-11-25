@@ -1,5 +1,5 @@
-let c = false;
-let c1 = false;
+let p = false;
+let p1 = false;
 let bodyTabella = document.querySelector('.bodyTabella');
 
 let accessToken = localStorage.getItem('accessToken');
@@ -171,8 +171,8 @@ async function filtriRegionePersonale(regione, id) {
 
 
 function personaleFiltroRegione(dati, id) {
-    c = false;
-    c1 = false;
+    p = false;
+    p1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -200,8 +200,8 @@ function personaleFiltroRegione(dati, id) {
                     </tr>`;
 
 
-                c = true;
-                if (c1 == true) {
+                p = true;
+                if (p1 == true) {
                     bodyTabella.innerHTML = '';
                 }
 
@@ -209,12 +209,12 @@ function personaleFiltroRegione(dati, id) {
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                if (c) {
+                if (p) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    c1 = true;
+                    p1 = true;
 
                 }
             }
@@ -266,8 +266,8 @@ async function filtriRegioneTipiPersonale(regione, autista, falegname, montatore
 
 
 function personaleFiltroRegioneTipiPersonale(dati, id) {
-    c = false;
-    c1 = false;
+    p = false;
+    p1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -295,8 +295,8 @@ function personaleFiltroRegioneTipiPersonale(dati, id) {
                     </tr>`;
 
 
-                c = true;
-                if (c1 == true) {
+                p = true;
+                if (p1 == true) {
                     bodyTabella.innerHTML = '';
                 }
 
@@ -304,12 +304,12 @@ function personaleFiltroRegioneTipiPersonale(dati, id) {
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                if (c) {
+                if (p) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    c1 = true;
+                    p1 = true;
 
                 }
             }
@@ -363,8 +363,8 @@ async function filtriTipiPersonale(autista, falegname, montatore, operatore, id)
 
 
 function personaleFiltroTipiPersonale(dati, id) {
-    c = false;
-    c1 = false;
+    p = false;
+    p1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -392,8 +392,8 @@ function personaleFiltroTipiPersonale(dati, id) {
                     </tr>`;
 
 
-                c = true;
-                if (c1 == true) {
+                p = true;
+                if (p1 == true) {
                     bodyTabella.innerHTML = '';
                 }
 
@@ -401,12 +401,12 @@ function personaleFiltroTipiPersonale(dati, id) {
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                if (c) {
+                if (p) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    c1 = true;
+                    p1 = true;
 
                 }
             }
