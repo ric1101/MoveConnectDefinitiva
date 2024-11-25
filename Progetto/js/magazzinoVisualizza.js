@@ -757,13 +757,13 @@ function fetchDemoDeposito(mq) {
         .then((res) => res.json())
         .then((data) => {
 
-            filtriTipoDepositoMq(mq, data.id);
+            filtriDemoDepositoMq(mq, data.id);
             console.log(data.id);
 
         });
 }
 
-function filtriDemoDeposito(mq, id) {
+function filtriDemoDepositoMq(mq, id) {
 
     let rottaPerSoliMQ = `http://localhost:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?mq=${mq}`;
 
