@@ -765,8 +765,11 @@ function fetchDemoDeposito(mq) {
 
 function filtriDemoDeposito(mq, id) {
 
+    let rottaPerSoliMQ = `http://localhost:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?mq=${mq}`;
 
-    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?mq=${mq}`)
+    console.log(rottaPerSoliMQ);
+
+    fetch(rottaPerSoliMQ)
         .then((res) => res.json())
         .then((data) => {
 
@@ -943,6 +946,8 @@ sliderDemo1.addEventListener('change', () => {
     let mq = parseInt(demo1.textContent);
 
     if (mag2 == 0 && mag1 == 0 && mag3 == 1) {
+
+        console.log(mq);
 
         fetchDemoDeposito(mq);
 
