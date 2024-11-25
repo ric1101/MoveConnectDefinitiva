@@ -853,6 +853,8 @@ regioniDeposito.forEach(element => {
         let mobilioParsato = parseInt(deposito1.value);
         let pedaneParsato = parseInt(deposito2.value);
         let altroParsato = parseInt(deposito3.value);
+        let mq = parseInt(demo1.textContent);
+
 
         if (mag2 == 0 && mag1 == 1 && mag3 == 0) {
 
@@ -864,11 +866,11 @@ regioniDeposito.forEach(element => {
 
         } else if (mag2 == 0 && mag1 == 1 && mag3 == 1) {
 
-            fetchRegioniDepositoMq(element.value, demo1.textContent);
+            fetchRegioniDepositoMq(element.value, mq);
 
         } else if (mag2 == 1 && mag1 == 1 && mag3 == 1) {
 
-            fetchRegioneTipoDepositoMq(element.value, mobilioParsato, pedaneParsato, altroParsato, demo1.textContent);
+            fetchRegioneTipoDepositoMq(element.value, mobilioParsato, pedaneParsato, altroParsato, mq);
 
         }
     });
@@ -902,6 +904,8 @@ tipoDeposito.forEach(element => {
         let mobilioParsato = parseInt(deposito1.value);
         let pedaneParsato = parseInt(deposito2.value);
         let altroParsato = parseInt(deposito3.value);
+        let mq = parseInt(demo1.textContent);
+
 
         if (mag2 == 1 && mag1 == 0 && mag3 == 0) {
 
@@ -913,11 +917,11 @@ tipoDeposito.forEach(element => {
 
         } else if (mag2 == 1 && mag1 == 0 && mag3 == 1) {
 
-            fetchTipoDepositoMq(mobilioParsato, pedaneParsato, altroParsato, demo1.textContent);
+            fetchTipoDepositoMq(mobilioParsato, pedaneParsato, altroParsato, mq);
 
         } else if (mag2 == 1 && mag1 == 1 && mag3 == 1) {
 
-            fetchRegioneTipoDepositoMq(regioniDeposito, mobilioParsato, pedaneParsato, altroParsato, demo1.textContent);
+            fetchRegioneTipoDepositoMq(regioniDeposito, mobilioParsato, pedaneParsato, altroParsato, mq);
 
         }
     });
@@ -936,25 +940,26 @@ sliderDemo1.addEventListener('change', () => {
     let mobilioParsato = parseInt(deposito1.value);
     let pedaneParsato = parseInt(deposito2.value);
     let altroParsato = parseInt(deposito3.value);
+    let mq = parseInt(demo1.textContent);
 
     if (mag2 == 0 && mag1 == 0 && mag3 == 1) {
 
-        fetchDemoDeposito(demo1.textContent);
-        console.log(demo1.textContent);
+        fetchDemoDeposito(mq);
+
         console.log('sto qui dentro');
-        
+
 
     } else if (mag2 == 1 && mag1 == 1 && mag3 == 1) {
 
-        fetchRegioneTipoDepositoMq(regioniDeposito, mobilioParsato, pedaneParsato, altroParsato, demo1.textContent);
+        fetchRegioneTipoDepositoMq(regioniDeposito, mobilioParsato, pedaneParsato, altroParsato, mq);
 
     } else if (mag2 == 0 && mag1 == 1 && mag3 == 1) {
 
-        fetchRegioniDepositoMq(regioniDeposito, demo1.textContent);
+        fetchRegioniDepositoMq(regioniDeposito, mq);
 
     } else if (mag2 == 1 && mag1 == 0 && mag3 == 1) {
 
-        fetchTipoDepositoMq(mobilioParsato, pedaneParsato, altroParsato, demo1.textContent);
+        fetchTipoDepositoMq(mobilioParsato, pedaneParsato, altroParsato, mq);
 
     }
 });
