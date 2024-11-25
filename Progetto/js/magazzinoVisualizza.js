@@ -940,6 +940,9 @@ sliderDemo1.addEventListener('change', () => {
     if (mag2 == 0 && mag1 == 0 && mag3 == 1) {
 
         fetchDemoDeposito(demo1.textContent);
+        console.log(demo1.textContent);
+        console.log('sto qui dentro');
+        
 
     } else if (mag2 == 1 && mag1 == 1 && mag3 == 1) {
 
