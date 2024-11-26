@@ -929,7 +929,7 @@ tipoMerce.forEach(element => {
         }
 
 
-        
+
     });
 
 
@@ -1183,7 +1183,7 @@ function fetchRegioneArrivoMerce(regioneArrivo, merce) {
     fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
-            
+
             filtriRegioneArrivoMerce(regioneArrivo, merce, data.id);
             console.log(data.id);
 
@@ -1275,7 +1275,7 @@ function fetchRegionePartenzaArrivoMerce(regionePartenza, regioneArrivo, merce) 
     fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
-            
+
             filtriRegionePartenzaArrivoMerce(regionePartenza, regioneArrivo, merce, data.id);
             console.log(data.id);
 
@@ -1369,7 +1369,7 @@ function fetchRegionePartenzaArrivoMerceMq(regionePartenza, regioneArrivo, merce
     fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
-            
+
             filtriRegionePartenzaArrivoMerceMq(regionePartenza, regioneArrivo, merce, mq, data.id);
             console.log(data.id);
 
@@ -1450,3 +1450,288 @@ function trasportoFiltroRegionePartenzaArrivoMerceMq(dati, id) {
     }
 
 }
+
+
+
+
+
+
+function fetchRegionePartenzaMerceMq(regionePartenza, merce, mq) {
+
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            filtriRegionePartenzaMerceMq(regionePartenza, merce, mq, data.id);
+            console.log(data.id);
+
+        });
+}
+
+
+function filtriRegionePartenzaMerceMq(regionePartenza, merce, mq, id) {
+
+
+    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regionePartenza}&tipoDiVeicolo=${merce}&mq=${mq}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            trasportoFiltroRegionePartenzaMerceMq(data, id)
+            console.log(data);
+            console.log(id);
+            ascolto();
+
+        });
+
+}
+
+
+
+function trasportoFiltroRegionePartenzaMerceMq(dati, id) {
+    t = false;
+    t1 = false;
+    console.log(dati);
+    console.log(id);
+    bodyTabella.innerHTML = '';
+
+    if (dati.length != 0) {
+
+
+        dati.forEach(element => {
+
+
+            if (element.azienda.id != id) {
+
+
+                let tabella = `<tr>
+                <td class="text-center">${element.azienda.nomeAzienda}</td>
+                <td class="text-center">${element.id}</td>
+                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                <td class="text-center" data-eventoid="1">${element.mq}</td>
+                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                <td class="text-center" data-eventoid="1">${element.carico}</td>
+                <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                </tr>`;
+
+
+                t = true;
+                if (t1 == true) {
+                    bodyTabella.innerHTML = '';
+                }
+
+
+                bodyTabella.innerHTML += tabella;
+
+            } else {
+                if (t) {
+
+                } else {
+
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    t1 = true;
+
+                }
+            }
+
+        });
+
+    } else {
+        bodyTabella.innerHTML = nessunaCorrispondenza;
+    }
+
+}
+
+
+
+
+
+
+
+function fetchRegioneArrivoMerceMq(regioneArrivo, merce, mq) {
+
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            filtriRegioneArrivoMerceMq(regioneArrivo, merce, mq, data.id);
+            console.log(data.id);
+
+        });
+}
+
+
+function filtriRegioneArrivoMerceMq(regioneArrivo, merce, mq, id) {
+
+
+    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regioneArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}&mq=${mq}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            trasportoFiltroRegioneArrivoMerceMq(data, id)
+            console.log(data);
+            console.log(id);
+            ascolto();
+
+        });
+
+}
+
+
+
+function trasportoFiltroRegioneArrivoMerceMq(dati, id) {
+    t = false;
+    t1 = false;
+    console.log(dati);
+    console.log(id);
+    bodyTabella.innerHTML = '';
+
+    if (dati.length != 0) {
+
+
+        dati.forEach(element => {
+
+
+            if (element.azienda.id != id) {
+
+
+                let tabella = `<tr>
+                <td class="text-center">${element.azienda.nomeAzienda}</td>
+                <td class="text-center">${element.id}</td>
+                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                <td class="text-center" data-eventoid="1">${element.mq}</td>
+                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                <td class="text-center" data-eventoid="1">${element.carico}</td>
+                <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                </tr>`;
+
+
+                t = true;
+                if (t1 == true) {
+                    bodyTabella.innerHTML = '';
+                }
+
+
+                bodyTabella.innerHTML += tabella;
+
+            } else {
+                if (t) {
+
+                } else {
+
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    t1 = true;
+
+                }
+            }
+
+        });
+
+    } else {
+        bodyTabella.innerHTML = nessunaCorrispondenza;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+function fetchMerceMq(merce, mq) {
+
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            filtriMerceMq(merce, mq, data.id);
+            console.log(data.id);
+
+        });
+}
+
+
+function filtriMerceMq(merce, mq, id) {
+
+
+    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?tipoDiVeicolo=${merce}&mq=${mq}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            trasportoFiltroMerceMq(data, id)
+            console.log(data);
+            console.log(id);
+            ascolto();
+
+        });
+        
+
+}
+
+
+
+function trasportoFiltroMerceMq(dati, id) {
+    t = false;
+    t1 = false;
+    console.log(dati);
+    console.log(id);
+    bodyTabella.innerHTML = '';
+
+    if (dati.length != 0) {
+
+
+        dati.forEach(element => {
+
+
+            if (element.azienda.id != id) {
+
+
+                let tabella = `<tr>
+                <td class="text-center">${element.azienda.nomeAzienda}</td>
+                <td class="text-center">${element.id}</td>
+                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                <td class="text-center" data-eventoid="1">${element.mq}</td>
+                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                <td class="text-center" data-eventoid="1">${element.carico}</td>
+                <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                </tr>`;
+
+
+                t = true;
+                if (t1 == true) {
+                    bodyTabella.innerHTML = '';
+                }
+
+
+                bodyTabella.innerHTML += tabella;
+
+            } else {
+                if (t) {
+
+                } else {
+
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    t1 = true;
+
+                }
+            }
+
+        });
+
+    } else {
+        bodyTabella.innerHTML = nessunaCorrispondenza;
+    }
+
+}
+
+
+
+
