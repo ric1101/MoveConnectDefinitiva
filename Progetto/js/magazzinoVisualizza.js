@@ -182,7 +182,6 @@ bottoneReset.addEventListener('click', () => {
 
 
 
-
 function fetchRegioniDeposito(regione) {
 
     fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
