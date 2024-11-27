@@ -355,6 +355,12 @@ function elevatoreFiltroScala(dati, id) {
 
 
 
+
+
+
+
+
+
         dati.forEach(element => {
 
 
@@ -379,7 +385,7 @@ function elevatoreFiltroScala(dati, id) {
                 if (e1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                e1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -401,6 +407,15 @@ function elevatoreFiltroScala(dati, id) {
     }
 
 }
+
+
+
+
+
+
+
+
+
 
 
 
