@@ -11,6 +11,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/css01.css">
     <link rel="stylesheet" href="./css/user.css">
+    <link rel="stylesheet" href="./css/caricaImmagine.css">
 
 </head>
 
@@ -67,7 +68,7 @@
                                 </div>
                                 <div class="row mt-4 mb-3">
                                     <h2 class="col-md-12 nomeAzienda"></h2>
-                                         <!-- nome -->
+                                    <!-- nome -->
                                 </div>
 
 
@@ -82,6 +83,12 @@
                                     </li>
 
                                     <li class="p-2">
+                                        <a class="logo">
+                                            <h4>Carica Logo</h4>
+                                        </a>
+                                    </li>
+
+                                    <li class="p-2">
                                         <a class="feed">
                                             <h4>Feedback</h4>
                                         </a>
@@ -91,23 +98,48 @@
                                         <a class="nav-link dropdown-toggle button1 text-black"
                                             style="font-size:1.5rem; margin-bottom:.5rem; line-height:1.2" href="#"
                                             role="button" data-bs-toggle="dropdown" aria-expanded="">
-                                            Visualizza richieste
+                                            Richieste in uscita
 
                                         </a>
                                         <ul class="dropdown-menu drop1 custom-dropdown">
-                                            <li><a class="dropdown-item text-black richiesteOccSuoloPub">Richieste Occ
+                                            <li><a class="dropdown-item text-black richiesteOccSuoloPubUscita">Richieste Occ
                                                     Suolo P.</a></li>
-                                            <li><a class="dropdown-item text-black richiesteTrasporto">Richieste
+                                            <li><a class="dropdown-item text-black richiesteTrasportoUscita">Richieste
                                                     Carico</a></li>
-                                            <li><a class="dropdown-item text-black richiesteScalaElevatore">Richieste
+                                            <li><a class="dropdown-item text-black richiesteScalaElevatoreUscita">Richieste
                                                     Scala</a></li>
-                                            <li><a class="dropdown-item text-black richiesteConsegnaImballi">Richieste
+                                            <li><a class="dropdown-item text-black richiesteConsegnaImballiUscita">Richieste
                                                     Imballi</a></li>
-                                            <li><a class="dropdown-item text-black richiestePersonaleSpec">Richieste
+                                            <li><a class="dropdown-item text-black richiestePersonaleSpecUscita">Richieste
                                                     Personale</a></li>
-                                            <li><a class="dropdown-item text-black richiesteDepositoMagazzino">Richieste
+                                            <li><a class="dropdown-item text-black richiesteDepositoMagazzinoUscita">Richieste
                                                     Deposito</a></li>
-                                            <li><a class="dropdown-item text-black richiesteTratta">Richieste Tratta</a>
+                                            <li><a class="dropdown-item text-black richiesteTrattaUscita">Richieste Tratta</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item dropdown inserisci p-2" id="menu-products2">
+                                        <a class="nav-link dropdown-toggle button1 text-black"
+                                            style="font-size:1.5rem; margin-bottom:.5rem; line-height:1.2" href="#"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="">
+                                            Richieste in entrata
+
+                                        </a>
+                                        <ul class="dropdown-menu drop1 custom-dropdown">
+                                            <li><a class="dropdown-item text-black richiesteOccSuoloPubEntrata">Richieste Occ
+                                                    Suolo P.</a></li>
+                                            <li><a class="dropdown-item text-black richiesteTrasportoEntrata">Richieste
+                                                    Carico</a></li>
+                                            <li><a class="dropdown-item text-black richiesteScalaElevatoreEntrata">Richieste
+                                                    Scala</a></li>
+                                            <li><a class="dropdown-item text-black richiesteConsegnaImballiEntrata">Richieste
+                                                    Imballi</a></li>
+                                            <li><a class="dropdown-item text-black richiestePersonaleSpecEntrata">Richieste
+                                                    Personale</a></li>
+                                            <li><a class="dropdown-item text-black richiesteDepositoMagazzinoEntrata">Richieste
+                                                    Deposito</a></li>
+                                            <li><a class="dropdown-item text-black richiesteTrattaEntrata">Richieste Tratta</a>
                                             </li>
                                         </ul>
                                     </li>

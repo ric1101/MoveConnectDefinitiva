@@ -2,14 +2,26 @@ userView();
 
 
 let dato = document.querySelector('.dati');
+let logo = document.querySelector('.logo');
 let feed = document.querySelector('.feed');
-let richiesteOccSuoloPub = document.querySelector('.richiesteOccSuoloPub');
-let richiesteTrasporto = document.querySelector('.richiesteTrasporto');
-let richiesteScalaElevatore = document.querySelector('.richiesteScalaElevatore');
-let richiesteConsegnaImballi = document.querySelector('.richiesteConsegnaImballi');
-let richiestePersonaleSpec = document.querySelector('.richiestePersonaleSpec');
-let richiesteDepositoMagazzino = document.querySelector('.richiesteDepositoMagazzino');
-let richiesteTratta = document.querySelector('.richiesteTratta');
+let accessToken = localStorage.getItem('accessToken');
+
+let richiesteOccSuoloPubUscita = document.querySelector('.richiesteOccSuoloPubUscita');
+let richiesteTrasportoUscita = document.querySelector('.richiesteTrasportoUscita');
+let richiesteScalaElevatoreUscita = document.querySelector('.richiesteScalaElevatoreUscita');
+let richiesteConsegnaImballiUscita = document.querySelector('.richiesteConsegnaImballiUscita');
+let richiestePersonaleSpecUscita = document.querySelector('.richiestePersonaleSpecUscita');
+let richiesteDepositoMagazzinoUscita = document.querySelector('.richiesteDepositoMagazzinoUscita');
+let richiesteTrattaUscita = document.querySelector('.richiesteTrattaUscita');
+
+let richiesteOccSuoloPubEntrata = document.querySelector('.richiesteOccSuoloPubEntrata');
+let richiesteTrasportoEntrata = document.querySelector('.richiesteTrasportoEntrata');
+let richiesteScalaElevatoreEntrata = document.querySelector('.richiesteScalaElevatoreEntrata');
+let richiesteConsegnaImballiEntrata = document.querySelector('.richiesteConsegnaImballiEntrata');
+let richiestePersonaleSpecEntrata = document.querySelector('.richiestePersonaleSpecEntrata');
+let richiesteDepositoMagazzinoEntrata = document.querySelector('.richiesteDepositoMagazzinoEntrata');
+let richiesteTrattaEntrata = document.querySelector('.richiesteTrattaEntrata');
+
 let messaggi = document.querySelector('.messaggi');
 let nomeAzienda = document.querySelector('.nomeAzienda');
 let colonnaInfo = document.querySelector('.colonnaInfo');
@@ -174,6 +186,163 @@ document.addEventListener("DOMContentLoaded", function () {
         dato.addEventListener('click', userView);
     }
 });
+
+
+
+
+
+
+
+function caricaLogo() {
+
+    let destra = document.querySelector('.destra');
+
+    console.log('ciao');
+
+
+    let caricaLogoVisualizza = `<div class="card-body destra">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-sm-12 col-lg-4">
+                                    <div class="">
+                                        <div class="mb-3">
+                                            <h2 class="p-3">Carica il logo</h2>
+                                            <div class="profile-picture">
+                                                  <h1 class="upload-icon">
+                                                    <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                                                  </h1>
+                                                  <input
+                                                    class="file-uploader"
+                                                    type="file"
+                                                    onchange="upload()"
+                                                    accept="image/*"/>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row d-flex justify-content-end">
+                            <div class="col-md-2">
+                            <button class="btn btn-success bottonozzo inviaIlLogo mx-2 ">Carica</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        `;
+
+    colonnaInfo.innerHTML = caricaLogoVisualizza;
+
+}
+
+
+
+function fetchInviaImmagine() {
+
+
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            inviaImmagine(data.id);
+
+            console.log(data);
+
+
+        });
+
+}
+
+
+
+function inviaImmagine(id) {
+    let fileUploader = document.querySelector('.file-uploader');
+
+    let img = fileUploader.value;
+    console.log(img);
+
+    fetch(`http://127.0.0.1:8080/api/azienda/uploadlogo/${id}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "multipart/form-data",
+
+        },
+        body: JSON.stringify(img),
+
+    })
+
+}
+
+
+if (logo) {
+
+    logo.addEventListener('click', caricaLogo);
+}
+
+
+document.addEventListener('click', () => {
+    console.log('fattot');
+    let btn = document.querySelector('.inviaIlLogo');
+
+
+    if (btn) {
+        console.log('fatto');
+
+        btn.addEventListener('click', fetchInviaImmagine);
+    }
+
+})
+
+
+
+
+
+
+
+
+function upload() {
+
+    const fileUploadInput = document.querySelector('.file-uploader');
+
+    /// Validations ///
+
+    if (!fileUploadInput.value) {
+        return;
+    }
+
+    // using index [0] to take the first file from the array
+    const image = fileUploadInput.files[0];
+
+    // check if the file selected is not an image file
+    if (!image.type.includes('image')) {
+        return alert('Only images are allowed!');
+    }
+
+    // check if size (in bytes) exceeds 10 MB
+    if (image.size > 10_000_000) {
+        return alert('Maximum upload size is 10MB!');
+    }
+
+    /// Display the image on the screen ///
+
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(image);
+
+    fileReader.onload = (fileReaderEvent) => {
+        const profilePicture = document.querySelector('.profile-picture');
+        profilePicture.style.backgroundImage = `url(${fileReaderEvent.target.result})`;
+    }
+
+    // upload image to the server or the cloud
+}
+
 
 
 
@@ -358,7 +527,7 @@ if (feed) {
 }
 
 
-function visualizzaRichiesteOccSuoloPub(suolo) {
+function visualizzaRichiesteOccSuoloPubUscita(suolo) {
 
 
     colonnaInfo.innerHTML = '';
@@ -508,7 +677,7 @@ function visualizzaRichiesteOccSuoloPub(suolo) {
 }
 
 
-async function fetchSuoloPub() {
+async function fetchSuoloPubUscita() {
 
 
     let accessToken = localStorage.getItem('accessToken');
@@ -518,7 +687,7 @@ async function fetchSuoloPub() {
         .then((res) => res.json())
         .then((data) => {
 
-            visualizzaRichiesteOccSuoloPub(data);
+            visualizzaRichiesteOccSuoloPubUscita(data);
 
             console.log(data);
 
@@ -529,9 +698,9 @@ async function fetchSuoloPub() {
 
 
 
-if (richiesteOccSuoloPub) {
+if (richiesteOccSuoloPubUscita) {
 
-    richiesteOccSuoloPub.addEventListener('click', fetchSuoloPub);
+    richiesteOccSuoloPubUscita.addEventListener('click', fetchSuoloPubUscita);
 }
 
 
@@ -540,7 +709,7 @@ if (richiesteOccSuoloPub) {
 
 
 
-function visualizzaRichiesteCarico(suolo) {
+function visualizzaRichiesteCaricoUscita(suolo) {
 
 
     colonnaInfo.innerHTML = '';
@@ -745,7 +914,7 @@ function visualizzaRichiesteCarico(suolo) {
 }
 
 
-async function fetchCarico() {
+async function fetchCaricoUscita() {
 
 
     let accessToken = localStorage.getItem('accessToken');
@@ -755,7 +924,7 @@ async function fetchCarico() {
         .then((res) => res.json())
         .then((data) => {
 
-            visualizzaRichiesteCarico(data);
+            visualizzaRichiesteCaricoUscita(data);
 
             console.log(data);
 
@@ -766,16 +935,16 @@ async function fetchCarico() {
 
 
 
-if (richiesteTrasporto) {
+if (richiesteTrasportoUscita) {
 
-    richiesteTrasporto.addEventListener('click', fetchCarico);
+    richiesteTrasportoUscita.addEventListener('click', fetchCaricoUscita);
 }
 
 
 
 
 
-function visualizzaRichiesteScalaElevatore(suolo) {
+function visualizzaRichiesteScalaElevatoreUscita(suolo) {
 
 
     colonnaInfo.innerHTML = '';
@@ -925,7 +1094,7 @@ function visualizzaRichiesteScalaElevatore(suolo) {
 }
 
 
-async function fetchScalaElevatore() {
+async function fetchScalaElevatoreUscita() {
 
 
     let accessToken = localStorage.getItem('accessToken');
@@ -937,7 +1106,7 @@ async function fetchScalaElevatore() {
 
 
             console.log(data);
-            visualizzaRichiesteScalaElevatore(data);
+            visualizzaRichiesteScalaElevatoreUscita(data);
 
 
         });
@@ -946,15 +1115,15 @@ async function fetchScalaElevatore() {
 
 
 
-if (richiesteScalaElevatore) {
+if (richiesteScalaElevatoreUscita) {
 
-    richiesteScalaElevatore.addEventListener('click', fetchScalaElevatore);
+    richiesteScalaElevatoreUscita.addEventListener('click', fetchScalaElevatoreUscita);
 }
 
 
 
 
-function visualizzaRichiesteConsegnaImballi(suolo) {
+function visualizzaRichiesteConsegnaImballiUscita(suolo) {
 
 
     colonnaInfo.innerHTML = '';
@@ -1140,7 +1309,7 @@ function visualizzaRichiesteConsegnaImballi(suolo) {
 }
 
 
-async function fetchConsegnaImballi() {
+async function fetchConsegnaImballiUscita() {
 
 
     let accessToken = localStorage.getItem('accessToken');
@@ -1152,7 +1321,7 @@ async function fetchConsegnaImballi() {
 
 
             console.log(data);
-            visualizzaRichiesteConsegnaImballi(data);
+            visualizzaRichiesteConsegnaImballiUscita(data);
 
 
         });
@@ -1161,9 +1330,9 @@ async function fetchConsegnaImballi() {
 
 
 
-if (richiesteConsegnaImballi) {
+if (richiesteConsegnaImballiUscita) {
 
-    richiesteConsegnaImballi.addEventListener('click', fetchConsegnaImballi);
+    richiesteConsegnaImballiUscita.addEventListener('click', fetchConsegnaImballiUscita);
 }
 
 
@@ -1174,7 +1343,7 @@ if (richiesteConsegnaImballi) {
 
 
 
-function visualizzaRichiestePersonaleSpecializzato(suolo) {
+function visualizzaRichiestePersonaleSpecializzatoUscita(suolo) {
 
 
     colonnaInfo.innerHTML = '';
@@ -1324,7 +1493,7 @@ function visualizzaRichiestePersonaleSpecializzato(suolo) {
 }
 
 
-async function fetchRichiestePersonaleSpecializzato() {
+async function fetchRichiestePersonaleSpecializzatoUscita() {
 
 
     let accessToken = localStorage.getItem('accessToken');
@@ -1336,7 +1505,7 @@ async function fetchRichiestePersonaleSpecializzato() {
 
 
             console.log(data);
-            visualizzaRichiestePersonaleSpecializzato(data);
+            visualizzaRichiestePersonaleSpecializzatoUscita(data);
 
 
         });
@@ -1345,9 +1514,9 @@ async function fetchRichiestePersonaleSpecializzato() {
 
 
 
-if (richiestePersonaleSpec) {
+if (richiestePersonaleSpecUscita) {
 
-    richiestePersonaleSpec.addEventListener('click', fetchRichiestePersonaleSpecializzato);
+    richiestePersonaleSpecUscita.addEventListener('click', fetchRichiestePersonaleSpecializzatoUscita);
 }
 
 
@@ -1359,7 +1528,7 @@ if (richiestePersonaleSpec) {
 
 
 
-function visualizzaRichiesteDepositoMagazzino(suolo) {
+function visualizzaRichiesteDepositoMagazzinoUscita(suolo) {
 
 
     colonnaInfo.innerHTML = '';
@@ -1518,7 +1687,7 @@ function visualizzaRichiesteDepositoMagazzino(suolo) {
 }
 
 
-async function fetchRichiesteDepositoMagazzino() {
+async function fetchRichiesteDepositoMagazzinoUscita() {
 
 
     let accessToken = localStorage.getItem('accessToken');
@@ -1530,7 +1699,7 @@ async function fetchRichiesteDepositoMagazzino() {
 
 
             console.log(data);
-            visualizzaRichiesteDepositoMagazzino(data);
+            visualizzaRichiesteDepositoMagazzinoUscita(data);
 
 
         });
@@ -1539,20 +1708,15 @@ async function fetchRichiesteDepositoMagazzino() {
 
 
 
-if (richiesteDepositoMagazzino) {
+if (richiesteDepositoMagazzinoUscita) {
 
-    richiesteDepositoMagazzino.addEventListener('click', fetchRichiesteDepositoMagazzino);
+    richiesteDepositoMagazzinoUscita.addEventListener('click', fetchRichiesteDepositoMagazzinoUscita);
 }
 
 
 
 
-
-
-
-
-
-function visualizzaRichiesteTratte(suolo) {
+function visualizzaRichiesteTratteUscita(suolo) {
 
 
     colonnaInfo.innerHTML = '';
@@ -1748,7 +1912,7 @@ function visualizzaRichiesteTratte(suolo) {
 }
 
 
-async function fetchTratte() {
+async function fetchTratteUscita() {
 
 
     let accessToken = localStorage.getItem('accessToken');
@@ -1758,7 +1922,7 @@ async function fetchTratte() {
         .then((res) => res.json())
         .then((data) => {
 
-            visualizzaRichiesteTratte(data);
+            visualizzaRichiesteTratteUscita(data);
 
             console.log(data);
 
@@ -1769,9 +1933,9 @@ async function fetchTratte() {
 
 
 
-if (richiesteTratta) {
+if (richiesteTrattaUscita) {
 
-    richiesteTratta.addEventListener('click', fetchTratte);
+    richiesteTrattaUscita.addEventListener('click', fetchTratteUscita);
 }
 
 
