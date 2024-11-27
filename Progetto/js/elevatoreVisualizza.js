@@ -1,5 +1,5 @@
-let c = false;
-let c1 = false;
+let e = false;
+let e1 = false;
 let bodyTabella = document.querySelector('.bodyTabella');
 
 let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
@@ -224,8 +224,8 @@ function filtriRegione(regione, id) {
 
 
 function elevatoreFiltroSoloRegione(dati, id) {
-    c = false;
-    c1 = false;
+    e = false;
+    e1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -254,8 +254,8 @@ function elevatoreFiltroSoloRegione(dati, id) {
                     </tr>`;
 
 
-                c = true;
-                if (c1 == true) {
+                e = true;
+                if (e1 == true) {
                     bodyTabella.innerHTML = '';
                 }
 
@@ -263,12 +263,12 @@ function elevatoreFiltroSoloRegione(dati, id) {
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                if (c) {
+                if (e) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    c1 = true;
+                    e1 = true;
 
                 }
             }
@@ -345,8 +345,8 @@ function filtriScala(scala, id) {
 
 
 function elevatoreFiltroScala(dati, id) {
-    c = false;
-    c1 = false;
+    e = false;
+    e1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -375,8 +375,8 @@ function elevatoreFiltroScala(dati, id) {
                     </tr>`;
 
 
-                c = true;
-                if (c1 == true) {
+                e = true;
+                if (e1 == true) {
                     bodyTabella.innerHTML = '';
                 }
 
@@ -384,12 +384,12 @@ function elevatoreFiltroScala(dati, id) {
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                if (c) {
+                if (e) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    c1 = true;
+                    e1 = true;
 
                 }
             }
@@ -437,8 +437,8 @@ function filtriRegioniScala(regione, scala, id) {
 
 
 function elevatoreFiltroRegioniScala(dati, id) {
-    c = false;
-    c1 = false;
+    e = false;
+    e1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -467,8 +467,8 @@ function elevatoreFiltroRegioniScala(dati, id) {
                     </tr>`;
 
 
-                c = true;
-                if (c1 == true) {
+                e = true;
+                if (e1 == true) {
                     bodyTabella.innerHTML = '';
                 }
 
@@ -476,12 +476,12 @@ function elevatoreFiltroRegioniScala(dati, id) {
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                if (c) {
+                if (e) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    c1 = true;
+                    e1 = true;
 
                 }
             }
@@ -560,8 +560,8 @@ function filtriPeso(peso, id) {
 
 
 function elevatoreFiltroPeso(dati, id) {
-    c = false;
-    c1 = false;
+    e = false;
+    e1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -590,8 +590,8 @@ function elevatoreFiltroPeso(dati, id) {
                     </tr>`;
 
 
-                c = true;
-                if (c1 == true) {
+                e = true;
+                if (e1 == true) {
                     bodyTabella.innerHTML = '';
                 }
 
@@ -599,12 +599,12 @@ function elevatoreFiltroPeso(dati, id) {
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                if (c) {
+                if (e) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    c1 = true;
+                    e1 = true;
 
                 }
             }
@@ -651,8 +651,8 @@ function filtriRegioniPeso(regione, peso, id) {
 
 
 function elevatoreFiltroRegioniPeso(dati, id) {
-    c = false;
-    c1 = false;
+    e = false;
+    e1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -681,8 +681,8 @@ function elevatoreFiltroRegioniPeso(dati, id) {
                     </tr>`;
 
 
-                c = true;
-                if (c1 == true) {
+                e = true;
+                if (e1 == true) {
                     bodyTabella.innerHTML = '';
                 }
 
@@ -690,12 +690,12 @@ function elevatoreFiltroRegioniPeso(dati, id) {
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                if (c) {
+                if (e) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    c1 = true;
+                    e1 = true;
 
                 }
             }
@@ -742,8 +742,8 @@ function filtriRegioniScalaPeso(regione, scala, peso, id) {
 
 
 function elevatoreFiltroRegioniScalaPeso(dati, id) {
-    c = false;
-    c1 = false;
+    e = false;
+    e1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -772,8 +772,8 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
                     </tr>`;
 
 
-                c = true;
-                if (c1 == true) {
+                e = true;
+                if (e1 == true) {
                     bodyTabella.innerHTML = '';
 
                 }
@@ -781,12 +781,12 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                if (c) {
+                if (e) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    c1 = true;
+                    e1 = true;
 
                 }
             }
@@ -834,8 +834,8 @@ function filtriScalaPeso(scala, peso, id) {
 
 
 function elevatoreFiltroScalaPeso(dati, id) {
-    c = false;
-    c1 = false;
+    e = false;
+    e1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -865,8 +865,8 @@ function elevatoreFiltroScalaPeso(dati, id) {
                     </tr>`;
 
 
-                c = true;
-                if (c1 == true) {
+                e = true;
+                if (e1 == true) {
                     bodyTabella.innerHTML = '';
 
                 }
@@ -875,12 +875,12 @@ function elevatoreFiltroScalaPeso(dati, id) {
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                if (c) {
+                if (e) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    c1 = true;
+                    e1 = true;
 
                 }
             }

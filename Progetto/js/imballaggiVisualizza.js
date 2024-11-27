@@ -1,5 +1,5 @@
-let c = false;
-let c1 = false;
+let i = false;
+let i1 = false;
 let bodyTabella = document.querySelector('.bodyTabella');
 
 let accessToken = localStorage.getItem('accessToken');
@@ -141,8 +141,8 @@ let tipoImballo6 = document.querySelector('.tipoImballo6');
 let tipoImballo7 = document.querySelector('.tipoImballo7');
 let tipoImballo8 = document.querySelector('.tipoImballo8');
 
-let reg1 = 0;
-let reg2 = 0;
+let imb1 = 0;
+let imb2 = 0;
 
 
 
@@ -182,8 +182,8 @@ async function filtriRegioneImballi(regione, id) {
 
 
 function imballaggiFiltroRegioneImballi(dati, id) {
-    c = false;
-    c1 = false;
+    i = false;
+    i1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -211,8 +211,8 @@ function imballaggiFiltroRegioneImballi(dati, id) {
                     </tr>`;
 
 
-                c = true;
-                if (c1 == true) {
+                i = true;
+                if (i1 == true) {
                     bodyTabella.innerHTML = '';
                 }
 
@@ -220,12 +220,12 @@ function imballaggiFiltroRegioneImballi(dati, id) {
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                if (c) {
+                if (i) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    c1 = true;
+                    i1 = true;
 
                 }
             }
@@ -277,8 +277,8 @@ async function filtriRegioneTipiImballi(regione, imballo1, imballo2, imballo3, i
 
 
 function imballaggiFiltroRegioneTipiImballi(dati, id) {
-    c = false;
-    c1 = false;
+    i = false;
+    i1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -306,8 +306,8 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
                     </tr>`;
 
 
-                c = true;
-                if (c1 == true) {
+                i = true;
+                if (i1 == true) {
                     bodyTabella.innerHTML = '';
                 }
 
@@ -315,12 +315,12 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                if (c) {
+                if (i) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    c1 = true;
+                    i1 = true;
 
                 }
             }
@@ -374,8 +374,8 @@ async function filtriTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo
 
 
 function imballaggiFiltroTipiImballi(dati, id) {
-    c = false;
-    c1 = false;
+    i = false;
+    i1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -403,8 +403,8 @@ function imballaggiFiltroTipiImballi(dati, id) {
                     </tr>`;
 
 
-                c = true;
-                if (c1 == true) {
+                i = true;
+                if (i1 == true) {
                     bodyTabella.innerHTML = '';
                 }
 
@@ -412,12 +412,12 @@ function imballaggiFiltroTipiImballi(dati, id) {
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                if (c) {
+                if (i) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    c1 = true;
+                    i1 = true;
 
                 }
             }
@@ -435,7 +435,7 @@ regioniImballi.forEach(element => {
     element.addEventListener('click', () => {
         localStorage.setItem('regioneImballi', element.value);
 
-        reg1 = 1;
+        imb1 = 1;
         console.log(element.value);
 
 
@@ -448,11 +448,11 @@ regioniImballi.forEach(element => {
         let num7 = parseInt(tipoImballo7.value);
         let num8 = parseInt(tipoImballo8.value);
 
-        if (reg2 == 0 && reg1 == 1) {
+        if (imb2 == 0 && imb1 == 1) {
 
             fetchRegioniImballi(element.value);
 
-        } else if (reg2 == 1 && reg1 == 1) {
+        } else if (imb2 == 1 && imb1 == 1) {
 
             fetchRegioniTipiImballi(element.value, num1, num2, num3, num4, num5, num6, num7, num8);
             console.log(element.value, num1, num2, num3, num4, num5, num6, num7, num8);
@@ -470,7 +470,7 @@ tipiImballi.forEach(element => {
 
 
         let regioneImballi = localStorage.getItem('regioneImballi');
-        reg2 = 1;
+        imb2 = 1;
         if (element.hasAttribute('checked')) {
             element.removeAttribute('checked');
         } else {
@@ -496,7 +496,7 @@ tipiImballi.forEach(element => {
 
         console.log(typeof (num1));
 
-        if (reg2 == 1 && reg1 == 0) {
+        if (imb2 == 1 && imb1 == 0) {
             console.log('parte questa');
 
             fetchTipiImballi(num1, num2, num3, num4, num5, num6, num7, num8);
@@ -504,7 +504,7 @@ tipiImballi.forEach(element => {
 
             console.log(num1);
 
-        } else if (reg2 == 1 && reg1 == 1) {
+        } else if (imb2 == 1 && imb1 == 1) {
             console.log('no questa');
 
             console.log(regioneImballi, num1, num2, num3, num4, num5, num6, num7, num8);

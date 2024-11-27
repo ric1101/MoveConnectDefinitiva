@@ -1,8 +1,8 @@
-let d = false;
-let d1 = false;
+let m = false;
+let m1 = false;
 let bodyTabella = document.querySelector('.bodyTabella');
 
-let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
+let nessunaCorrispondenza = `<div class="m-flex justify-content-center mt-3">
 <p>Non ci sono Corrispondenze!</p>
 </div>`;
 
@@ -215,8 +215,8 @@ function filtriRegioneDeposito(regione, id) {
 
 
 function depositoFiltroSoloRegione(dati, id) {
-    d = false;
-    d1 = false;
+    m = false;
+    m1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -247,8 +247,8 @@ function depositoFiltroSoloRegione(dati, id) {
 
 
 
-                d = true;
-                if (d1 == true) {
+                m = true;
+                if (m1 == true) {
                     bodyTabella.innerHTML = '';
                 }
 
@@ -256,12 +256,12 @@ function depositoFiltroSoloRegione(dati, id) {
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                if (d) {
+                if (m) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    d1 = true;
+                    m1 = true;
 
                 }
             }
@@ -310,8 +310,8 @@ function filtriRegioneTipoDeposito(regione, mobilio, pedane, altro, id) {
 
 
 function depositoFiltroRegioneTipoDeposito(dati, id) {
-    d = false;
-    d1 = false;
+    m = false;
+    m1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -342,8 +342,8 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
 
 
 
-                d = true;
-                if (d1 == true) {
+                m = true;
+                if (m1 == true) {
                     bodyTabella.innerHTML = '';
                 }
 
@@ -351,12 +351,12 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                if (d) {
+                if (m) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    d1 = true;
+                    m1 = true;
 
                 }
             }
@@ -405,8 +405,8 @@ function filtriRegioneDepositoMq(regione, mq, id) {
 
 
 function depositoFiltroRegioneDepositoMq(dati, id) {
-    d = false;
-    d1 = false;
+    m = false;
+    m1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -437,8 +437,8 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
 
 
 
-                d = true;
-                if (d1 == true) {
+                m = true;
+                if (m1 == true) {
                     bodyTabella.innerHTML = '';
                 }
 
@@ -446,12 +446,12 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                if (d) {
+                if (m) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    d1 = true;
+                    m1 = true;
 
                 }
             }
@@ -500,8 +500,8 @@ function filtriRegioneTipoDepositoMq(regione, mobilio, pedane, altro, mq, id) {
 
 
 function depositoFiltroRegioneTipoDepositoMq(dati, id) {
-    d = false;
-    d1 = false;
+    m = false;
+    m1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -532,8 +532,8 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
 
 
 
-                d = true;
-                if (d1 == true) {
+                m = true;
+                if (m1 == true) {
                     bodyTabella.innerHTML = '';
                 }
 
@@ -541,12 +541,12 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                if (d) {
+                if (m) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    d1 = true;
+                    m1 = true;
 
                 }
             }
@@ -593,8 +593,8 @@ function filtriTipoDeposito(mobilio, pedane, altro, id) {
 
 
 function depositoFiltroTipoDeposito(dati, id) {
-    d = false;
-    d1 = false;
+    m = false;
+    m1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -625,8 +625,8 @@ function depositoFiltroTipoDeposito(dati, id) {
 
 
 
-                d = true;
-                if (d1 == true) {
+                m = true;
+                if (m1 == true) {
                     bodyTabella.innerHTML = '';
                 }
 
@@ -634,12 +634,12 @@ function depositoFiltroTipoDeposito(dati, id) {
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                if (d) {
+                if (m) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    d1 = true;
+                    m1 = true;
 
                 }
             }
@@ -687,8 +687,8 @@ function filtriTipoDepositoMq(mobilio, pedane, altro, mq, id) {
 
 
 function depositoFiltroTipoDepositoMq(dati, id) {
-    d = false;
-    d1 = false;
+    m = false;
+    m1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -719,8 +719,8 @@ function depositoFiltroTipoDepositoMq(dati, id) {
 
 
 
-                d = true;
-                if (d1 == true) {
+                m = true;
+                if (m1 == true) {
                     bodyTabella.innerHTML = '';
                 }
 
@@ -728,12 +728,12 @@ function depositoFiltroTipoDepositoMq(dati, id) {
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                if (d) {
+                if (m) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    d1 = true;
+                    m1 = true;
 
                 }
             }
@@ -784,8 +784,8 @@ function filtriDemoDepositoMq(mq, id) {
 
 
 function depositoFiltroDemoDeposito(dati, id) {
-    d = false;
-    d1 = false;
+    m = false;
+    m1 = false;
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
@@ -816,8 +816,8 @@ function depositoFiltroDemoDeposito(dati, id) {
 
 
 
-                d = true;
-                if (d1 == true) {
+                m = true;
+                if (m1 == true) {
                     bodyTabella.innerHTML = '';
                 }
 
@@ -825,12 +825,12 @@ function depositoFiltroDemoDeposito(dati, id) {
                 bodyTabella.innerHTML += tabella;
 
             } else {
-                if (d) {
+                if (m) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    d1 = true;
+                    m1 = true;
 
                 }
             }

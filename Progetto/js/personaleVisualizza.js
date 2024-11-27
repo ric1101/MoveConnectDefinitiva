@@ -130,8 +130,8 @@ personaleLink.forEach(element => {
 
 
 
-let reg1 = 0;
-let reg2 = 0;
+let pers1 = 0;
+let pers2 = 0;
 
 
 
@@ -434,7 +434,7 @@ regioniPersonale.forEach(element => {
     element.addEventListener('click', () => {
         localStorage.setItem('regionePersonale', element.value);
 
-        reg1 = 1;
+        pers1 = 1;
         console.log(element.value);
 
 
@@ -443,11 +443,11 @@ regioniPersonale.forEach(element => {
         let montatoreParsato = parseInt(personale3.value);
         let operatoreParsato = parseInt(personale1.value);
 
-        if (reg2 == 0 && reg1 == 1) {
+        if (pers2 == 0 && pers1 == 1) {
 
             fetchRegioniPersonale(element.value);
 
-        } else if (reg2 == 1 && reg1 == 1) {
+        } else if (pers2 == 1 && pers1 == 1) {
 
             fetchRegioniTipiPersonale(element.value, autistaParsato, falegnameParsato, montatoreParsato, operatoreParsato);
             console.log(element.value, autistaParsato, falegnameParsato, montatoreParsato, operatoreParsato);
@@ -465,7 +465,7 @@ tipoPersonale.forEach(element => {
 
         let regionePersonale = localStorage.getItem('regionePersonale');
 
-        reg2 = 1;
+        pers2 = 1;
         if (element.hasAttribute('checked')) {
             element.removeAttribute('checked');
         } else {
@@ -487,14 +487,14 @@ tipoPersonale.forEach(element => {
 
         
 
-        if (reg2 == 1 && reg1 == 0) {
+        if (pers2 == 1 && pers1 == 0) {
             console.log('parte questa');
 
             fetchTipiPersonale(autistaParsato, falegnameParsato, montatoreParsato, operatoreParsato);
 
             
 
-        } else if (reg2 == 1 && reg1 == 1) {
+        } else if (pers2 == 1 && pers1 == 1) {
             console.log('no questa');
 
            fetchRegioniTipiPersonale(regionePersonale, autistaParsato, falegnameParsato, montatoreParsato, operatoreParsato);

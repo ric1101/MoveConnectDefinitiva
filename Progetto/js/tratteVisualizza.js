@@ -57,7 +57,7 @@ function tratte(dati, id) {
             bodyTabella.innerHTML += tabella;
 
         }
-        
+
     });
 
 
@@ -231,7 +231,7 @@ tipoVeicolo.forEach(element => {
         localStorage.setItem('tipoVeicolo', element.value);
         let regioniArrivoLocal = localStorage.getItem('regioniArrivo');
         let regioniPartenzaLocal = localStorage.getItem('regioniPartenza');
-        tra1 = 1;
+        tra3 = 1;
 
         console.log(element.value);
 
@@ -239,18 +239,26 @@ tipoVeicolo.forEach(element => {
         if (tra2 == 0 && tra1 == 0 && tra3 == 1) {
 
             fetchVeicolo(element.value);
+            console.log('hey');
+            
 
         } else if (tra2 == 0 && tra1 == 1 && tra3 == 1) {
 
             fetchRegionePartenzaVeicolo(regioniPartenzaLocal, element.value);
+            console.log('hey');
+
 
         } else if (tra2 == 1 && tra1 == 0 && tra3 == 1) {
 
             fetchRegioneArrivoVeicolo(regioniArrivoLocal, element.value);
+            console.log('hey');
+
 
         } else if (tra2 == 1 && tra1 == 1 && tra3 == 1) {
 
             fetchRegioniPartenzaArrivoVeicolo(regioniPartenzaLocal, regioniArrivoLocal, element.value);
+            console.log('parte quella a 3');
+
 
         }
     });
@@ -276,7 +284,7 @@ function filtriRegionePartenza(regione, id) {
 
     console.log(regione);
 
-    fetch(`http://127.0.0.1:8080/api/tratta/tuttiLeTratteConAziendaPerRegionePartenza/${regione}`)
+    fetch(`http://127.0.0.1:8080/api/tratta/tutteLeTratteConAziendaPerRegionePartenza/${regione}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -310,17 +318,16 @@ function tratteFiltroSoloRegionePartenza(dati, id) {
 
 
                 let tabella = `<tr>
-                
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+                        
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.dataPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
+                    </tr>`;
 
 
 
@@ -360,7 +367,7 @@ function fetchRegionePartenzaArrivo(regionePartenza, regioneArrivo) {
 
             filtriRegionePartenzaArrivo(regionePartenza, regioneArrivo, data.id);
             console.log(data.id);
-            
+
 
         });
 }
@@ -402,17 +409,16 @@ function tratteFiltroRegionePartenzaArrivo(dati, id) {
 
 
                 let tabella = `<tr>
-                
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+                        
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.dataPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
+                    </tr>`;
 
 
 
@@ -452,9 +458,9 @@ function fetchRegioniPartenzaArrivoVeicolo(regionePartenza, regioneArrivo, veico
         .then((res) => res.json())
         .then((data) => {
 
-            filtriRegionePartenzaArrivo(regionePartenza, regioneArrivo, veicolo, data.id);
+            filtriRegionePartenzaArrivoVeicolo(regionePartenza, regioneArrivo, veicolo, data.id);
             console.log(data.id);
-            
+
 
         });
 }
@@ -496,17 +502,16 @@ function tratteFiltroRegionePartenzaArrivoVeicolo(dati, id) {
 
 
                 let tabella = `<tr>
-                
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+                        
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.dataPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
+                    </tr>`;
 
 
 
@@ -550,7 +555,7 @@ function fetchRegionePartenzaVeicolo(regionePartenza, veicolo) {
 
             filtriRegionePartenzaVeicolo(regionePartenza, veicolo, data.id);
             console.log(data.id);
-            
+
 
         });
 }
@@ -592,17 +597,16 @@ function tratteFiltroRegionePartenzaVeicolo(dati, id) {
 
 
                 let tabella = `<tr>
-                
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+                        
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.dataPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
+                    </tr>`;
 
 
 
@@ -642,7 +646,7 @@ function fetchRegioneArrivoVeicolo(regioneArrivo, veicolo) {
 
             filtriRegioneArrivoVeicolo(regioneArrivo, veicolo, data.id);
             console.log(data.id);
-            
+
 
         });
 }
@@ -684,17 +688,16 @@ function tratteFiltroRegioneArrivoVeicolo(dati, id) {
 
 
                 let tabella = `<tr>
-                
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+                        
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.dataPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
+                    </tr>`;
 
 
 
@@ -729,26 +732,26 @@ function tratteFiltroRegioneArrivoVeicolo(dati, id) {
 
 
 
-function fetchRegioneArrivoVeicolo(regioneArrivo, veicolo) {
+function fetchRegioneArrivo(regioneArrivo) {
     fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
-            filtriRegioneArrivoVeicolo(regioneArrivo, veicolo, data.id);
+            filtriRegioneArrivo(regioneArrivo, data.id);
             console.log(data.id);
-            
+
 
         });
 }
 
-function filtriRegioneArrivoVeicolo(regioneArrivo, veicolo, id) {
+function filtriRegioneArrivo(regioneArrivo, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?regioneArrivo=${regioneArrivo}&tipoDiVeicolo=${veicolo}`)
+    fetch(`http://127.0.0.1:8080/api/tratta/tutteLeTratteConAziendaPerRegioneArrivo/${regioneArrivo}`)
         .then((res) => res.json())
         .then((data) => {
 
-            tratteFiltroRegioneArrivoVeicolo(data, id)
+            tratteFiltroRegioneArrivo(data, id)
             console.log(data);
             console.log(id);
             ascolto();
@@ -759,7 +762,7 @@ function filtriRegioneArrivoVeicolo(regioneArrivo, veicolo, id) {
 
 
 
-function tratteFiltroRegioneArrivoVeicolo(dati, id) {
+function tratteFiltroRegioneArrivo(dati, id) {
     tt = false;
     tt1 = false;
     console.log(dati);
@@ -778,17 +781,16 @@ function tratteFiltroRegioneArrivoVeicolo(dati, id) {
 
 
                 let tabella = `<tr>
-                
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+                        
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.dataPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
+                    </tr>`;
 
 
 
@@ -830,7 +832,7 @@ function fetchVeicolo(veicolo) {
 
             filtriVeicolo(veicolo, data.id);
             console.log(data.id);
-            
+
 
         });
 }
@@ -871,17 +873,16 @@ function tratteFiltroVeicolo(dati, id) {
 
 
                 let tabella = `<tr>
-                
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+                        
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.dataPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
+                    </tr>`;
 
 
 
@@ -911,3 +912,11 @@ function tratteFiltroVeicolo(dati, id) {
     }
 
 }
+
+
+
+let bottoneReset = document.querySelector('.bottoneReset');
+
+bottoneReset.addEventListener('click', () => {
+    location.reload();
+});
