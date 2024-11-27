@@ -972,7 +972,7 @@ sliderDemo.addEventListener('change', () => {
 
     } else if (reg2 == 1 && reg1 == 1 && reg3 == 1 && reg4 == 1) {
 
-        fetchRegioneArrivoPartenzaMerceMq(regioneArrivoLocal, regionePartenzaLocal, merce, demo.textContent);
+        fetchRegionePartenzaArrivoMerceMq(regionePartenzaLocal, regioneArrivoLocal, merce, demo.textContent);
 
     } else if (reg2 == 0 && reg1 == 0 && reg3 == 1 && reg4 == 1) {
 
