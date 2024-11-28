@@ -31,14 +31,14 @@
         <form class="row g-3 formRow">
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-4 col-lg-3">
-                    <label for="regioni" class="form-label">Regione</label>
+                    <label for="regioni" class="form-label">Regione *</label>
                     <select id="regioni" class="form-select regione">
                         <option value="" disabled selected>Seleziona Regione</option>
 
                     </select>
                 </div>
                 <div class="col-md-4 col-lg-3">
-                    <label for="province" class="form-label">Provincia</label>
+                    <label for="province" class="form-label">Provincia *</label>
                     <select id="province" class="form-select provincia">
                         <option value="" disabled selected>Seleziona Provincia</option>
 
@@ -48,7 +48,7 @@
 
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-4 col-lg-3">
-                    <label for="comuni" class="form-label">Comune</label>
+                    <label for="comuni" class="form-label">Comune *</label>
                     <select id="comuni" class="form-select comune">
                         <option value="" disabled selected>Seleziona Comune</option>
 
@@ -58,7 +58,7 @@
 
                 <div class="col-md-4 col-lg-3">
 
-                    <label class="form-label">Indirizzo</label>
+                    <label class="form-label">Indirizzo *</label>
                     <input type="text" class="form-control indirizzo" placeholder="Via Roma 5" maxLength="50"
                         required>
                 </div>
@@ -68,7 +68,7 @@
 
                 <div class="col-md-4 col-lg-3">
 
-                    <label class="form-label">CAP</label>
+                    <label class="form-label">CAP *</label>
                     <input type="text" class="form-control cap" placeholder="00015" maxLength="5" required>
                     <div class="invalidCap text-danger">
 
@@ -77,7 +77,7 @@
 
 
                 <div class="col-md-4 col-lg-3">
-                    <label class="form-label">Indica MQ</label>
+                    <label class="form-label">Indica MQ *</label>
                     <input type="text" class="form-control mq" placeholder="12" required>
                     <div class="invalidMq text-danger">
 
@@ -88,7 +88,7 @@
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-4 col-lg-3">
 
-                    <label class="form-label">Inizio</label>
+                    <label class="form-label">Inizio *</label>
                     <input type="date" min="" max="" class="form-control inizio" onkeydown="return false"
                         required>
                     <div class="invalidInizio text-danger">
@@ -97,7 +97,7 @@
                 </div>
 
                 <div class="col-md-4 col-lg-3">
-                    <label class="form-label">Fine</label>
+                    <label class="form-label">Fine *</label>
                     <input type="date" min="" max="" class="form-control fine" onkeydown="return false"
                         required disabled>
                     <div class="invalidFine text-danger">

@@ -34,14 +34,14 @@
         <form class="row g-3 formRow">
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-3">
-                    <label for="regioni" class="form-label">Regione</label>
+                    <label for="regioni" class="form-label">Regione *</label>
                     <select id="regioni" class="form-select regione">
                         <option value="" disabled selected>Seleziona Regione</option>
 
                     </select>
                 </div>
                 <div class="col-md-3">
-                    <label for="province" class="form-label">Provincia</label>
+                    <label for="province" class="form-label">Provincia *</label>
                     <select id="province" class="form-select provincia">
                         <option value="" disabled selected>Seleziona Provincia</option>
 
@@ -52,7 +52,7 @@
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-3">
 
-                    <label for="comuni" class="form-label">Comune</label>
+                    <label for="comuni" class="form-label">Comune *</label>
                     <select id="comuni" class="form-select comune">
                         <option value="" disabled selected>Seleziona Comune</option>
 
@@ -64,8 +64,8 @@
                 <div class="col-md-3">
 
 
-                    <label class="form-label">Indirizzo</label>
-                    <input type="text" class="form-control richiesti indirizzo" placeholder="Indirizzo" maxLength="50"
+                    <label class="form-label">Indirizzo *</label>
+                    <input type="text" class="form-control richiesti indirizzo" placeholder="Via Roma 5" maxLength="50"
                         required>
 
 
@@ -75,8 +75,8 @@
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-3">
 
-                    <label class="form-label">Indirizzo 2</label>
-                    <input type="text" class="form-control richiesti indirizzoDue" placeholder="Indirizzo Secondario"
+                    <label class="form-label">Indirizzo Secondario</label>
+                    <input type="text" class="form-control richiesti indirizzoDue" placeholder="Via Milano 8"
                         maxLength="50" required>
 
                 </div>
@@ -84,8 +84,8 @@
 
                 <div class="col-md-3">
 
-                    <label class="form-label">CAP</label>
-                    <input type="text" class="form-control richiesti cap" placeholder="CAP" maxLength="5" required>
+                    <label class="form-label">CAP *</label>
+                    <input type="text" class="form-control richiesti cap" placeholder="00015" maxLength="5" required>
                     <div class="invalidCap text-danger">
 
                     </div>
@@ -98,7 +98,7 @@
 
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-3">
-                    <label for="scala" class="form-label">Tipologia di scala</label>
+                    <label for="scala" class="form-label">Tipologia di scala *</label>
                     <select id="scala" class="form-select tipoDiScala">
                         <option value="" disabled selected>Seleziona tipo</option>
                         <option value="Componibile">Componibile</option>
@@ -113,7 +113,7 @@
 
 
                 <div class="col-md-3">
-                    <label for="peso" class="form-label">Peso massimo</label>
+                    <label for="peso" class="form-label">Peso massimo *</label>
                     <select id="peso" class="form-select pesoMassimo">
                         <option value="" disabled selected>Seleziona peso massimo</option>
                         <option value="200kg">200kg</option>
@@ -125,7 +125,7 @@
 
             <div class="row g-3 justify-content-evenly">
                 <div class="col-md-3">
-                    <label class="form-label">Inizio</label>
+                    <label class="form-label">Inizio *</label>
                     <input type="date" min="" max="" class="form-control richiesti inizio" onkeydown="return false"
                         required>
                     <div class="invalidInizio text-danger">
@@ -134,7 +134,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <label class="form-label">Fine</label>
+                    <label class="form-label">Fine *</label>
                     <input type="date" min="" max="" class="form-control richiesti fine" onkeydown="return false"
                         required disabled>
                     <div class="invalidFine text-danger">

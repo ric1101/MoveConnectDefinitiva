@@ -527,194 +527,215 @@ if (feed) {
 }
 
 
-function visualizzaRichiesteOccSuoloPubUscita(suolo) {
+// function visualizzaRichiesteOccSuoloPubUscita(suolo) {
+
+
+//     colonnaInfo.innerHTML = '';
+
+//     suolo.richiestaSuoloPubblico.forEach(element => {
+
+
+//         let visualizzaRichieste = `
+//     <div class="card-body destra mb-4">
+//         <div class="row rowRichieste">
+//             <div class="container">
+//                 <div class="row">
+
+//                     <div class="col-lg-12 col-xl-12">
+
+//                         <div class="row p-3">
+//                             <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
+//                                 <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Suolo Pubblico numero: #${element.id}</h4>
+//                             </div>
+
+
+
+//                             <div class="row rowDati">
+//                                 <div class="col-sm-5">
+//                                     <h6 class="mb-0" style="font-size: 18px;">Regione</h6>
+//                                 </div>
+//                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+//                                 ${element.regione}
+//                                 </div>
+//                             </div>
+//                             <hr>
+//                             <div class="row rowDati">
+//                                 <div class="col-sm-5">
+//                                     <h6 class="mb-0" style="font-size: 18px;">Provincia</h6>
+//                                 </div>
+//                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+//                                 ${element.provincia}
+//                                 </div>
+//                             </div>
+//                             <hr>
+//                             <div class="row rowDati">
+//                                 <div class="col-sm-5">
+//                                     <h6 class="mb-0" style="font-size: 18px;">Comune</h6>
+//                                 </div>
+//                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+//                                 ${element.comune}
+//                                 </div>
+//                             </div>
+//                             <hr>
+//                             <div class="row rowDati">
+//                                 <div class="col-sm-5">
+//                                     <h6 class="mb-0" style="font-size: 18px;">Indirizzo</h6>
+//                                 </div>
+//                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+//                                 ${element.indirizzo}
+//                                 </div>
+//                             </div>
+//                             <hr>
+//                             <div class="row rowDati">
+//                                 <div class="col-sm-5">
+//                                     <h6 class="mb-0" style="font-size: 18px;">Cap</h6>
+//                                 </div>
+//                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+//                                 ${element.cap}
+//                                 </div>
+//                             </div>
+//                             <hr>
+//                             <div class="row rowDati">
+//                                 <div class="col-sm-5">
+//                                     <h6 class="mb-0" style="font-size: 18px;">MQ</h6>
+//                                 </div>
+//                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+//                                 ${element.mq}
+//                                 </div>
+//                             </div>
+//                             <hr>
+//                             <div class="row rowDati">
+//                                 <div class="col-sm-5">
+//                                     <h6 class="mb-0" style="font-size: 18px;">Cartelli</h6>
+//                                 </div>
+//                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+//                                 ${element.cartelli}
+//                                 </div>
+//                             </div>
+//                             <hr>
+//                             <div class="row rowDati">
+//                                 <div class="col-sm-5">
+//                                     <h6 class="mb-0" style="font-size: 18px;">Chiusura Strada</h6>
+//                                 </div>
+//                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+//                                 ${element.chiusuraStrada}
+//                                 </div>
+//                             </div>
+//                             <hr>
+//                             <div class="row rowDati">
+//                                 <div class="col-sm-5">
+//                                     <h6 class="mb-0" style="font-size: 18px;">Inizio</h6>
+//                                 </div>
+//                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+//                                 ${element.inizio}
+//                                 </div>
+//                             </div>
+//                             <hr>
+//                             <div class="row rowDati">
+//                                 <div class="col-sm-5">
+//                                     <h6 class="mb-0" style="font-size: 18px;">Fine</h6>
+//                                 </div>
+//                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+//                                 ${element.fine}
+//                                 </div>
+//                             </div>
+//                             <hr>
+//                             <div class="row rowDati">
+//                                 <div class="col-sm-5">
+//                                     <h6 class="mb-0" style="font-size: 18px;">Note</h6>
+//                                 </div>
+//                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+//                                 ${element.note}&nbsp;
+//                                 </div>
+//                             </div>
+//                             <hr>
+
+//                           </div>
+
+//                         </div>
+
+//                     </div>
+//                         <div class="row">
+//                             <div class="col-lg-12 mt-5 d-flex justify-content-end">
+//                                 <button class="btn btn-danger mx-2" onclick="deleteSuolo(${element.id})">Elimina</button>
+//                                 <button class="btn btn-primary mx-2" onclick="putSuolo(${element.id})">Modifica</button>
+//                             </div>
+//                         </div>
+
+
+//             </div>
+
+//         </div>
+
+//     </div>`;
+
+
+//         colonnaInfo.innerHTML += visualizzaRichieste;
+
+//     });
+
+// }
+
+
+// async function fetchSuoloPubUscita() {
+
+
+//     let accessToken = localStorage.getItem('accessToken');
+
+
+//     await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+//         .then((res) => res.json())
+//         .then((data) => {
+
+//             visualizzaRichiesteOccSuoloPubUscita(data);
+
+//             console.log(data);
+
+
+//         });
+
+// }
+
+
+// if (richiesteOccSuoloPubUscita) {
+
+//     richiesteOccSuoloPubUscita.addEventListener('click', fetchSuoloPubUscita);
+// }
+
+
+
+// function deleteSuolo(id) {
+
+//     fetch(`http://127.0.0.1:8080/api/richiesta/eliminaRichiesta/${id}`, {
+//         method: "DELETE",
+//         headers: {
+//             "Content-Type": "application/json",
+//         }//,
+//         // body: JSON.stringify(),
+//     })
+
+//     fetchSuoloPubUscita();
+
+// }
+
+
+// function putSuolo(id) {
+
+
+
+// }
+
+
+
+
+
+
+function visualizzaRichiesteCaricoUscita(carico) {
 
 
     colonnaInfo.innerHTML = '';
 
-    suolo.richiestaSuoloPubblico.forEach(element => {
-
-
-        let visualizzaRichieste = `
-    <div class="card-body destra mb-4">
-        <div class="row rowRichieste">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-12 col-xl-12">
-
-                        <div class="row p-3">
-                            <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
-                                <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Suolo Pubblico numero: #${element.id}</h4>
-                            </div>
-                            
-
-
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Regione</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.regione}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Provincia</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.provincia}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Comune</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.comune}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.indirizzo}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Cap</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.cap}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">MQ</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.mq}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Cartelli</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.cartelli}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Chiusura Strada</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.chiusuraStrada}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Inizio</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.inizio}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Fine</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.fine}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Note</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.note}&nbsp;
-                                </div>
-                            </div>
-                            <hr>
-                                
-                          </div>
-
-                        </div>
-
-                    </div>
-                        <div class="row">
-                            <div class="col-lg-12 mt-5 d-flex justify-content-end">
-                                <button class="btn btn-danger mx-2">Chiudi</button>
-                                <button class="btn btn-primary mx-2">Modifica</button>
-                            </div>
-                        </div>
-                
-
-            </div>
-
-        </div>
-
-    </div>`;
-
-
-        colonnaInfo.innerHTML += visualizzaRichieste;
-
-    });
-
-}
-
-
-async function fetchSuoloPubUscita() {
-
-
-    let accessToken = localStorage.getItem('accessToken');
-
-
-    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-        .then((res) => res.json())
-        .then((data) => {
-
-            visualizzaRichiesteOccSuoloPubUscita(data);
-
-            console.log(data);
-
-
-        });
-
-}
-
-
-
-if (richiesteOccSuoloPubUscita) {
-
-    richiesteOccSuoloPubUscita.addEventListener('click', fetchSuoloPubUscita);
-}
-
-
-
-
-
-
-
-function visualizzaRichiesteCaricoUscita(suolo) {
-
-
-    colonnaInfo.innerHTML = '';
-
-    suolo.richiesteTrasporti.forEach(element => {
+    carico.richiesteTrasporti.forEach(element => {
 
 
         let visualizzaRichieste = `
@@ -894,8 +915,8 @@ function visualizzaRichiesteCaricoUscita(suolo) {
                     </div>
                         <div class="row">
                             <div class="col-lg-12 mt-5 d-flex justify-content-end">
-                                <button class="btn btn-danger mx-2">Chiudi</button>
-                                <button class="btn btn-primary mx-2">Modifica</button>
+                                <button class="btn btn-danger mx-2" onclick="deleteCarico(${element.id})">Elimina</button>
+                                <button class="btn btn-primary mx-2" onclick="putCarico(${element.id})">Modifica</button>
                             </div>
                         </div>
                 
@@ -940,6 +961,29 @@ if (richiesteTrasportoUscita) {
     richiesteTrasportoUscita.addEventListener('click', fetchCaricoUscita);
 }
 
+
+
+
+function deleteCarico(id) {
+
+    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/eliminaRichiesta/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }//,
+        // body: JSON.stringify(),
+    })
+
+    fetchCaricoUscita();
+
+}
+
+
+// function putCarico(id) {
+
+
+
+// }
 
 
 
@@ -1074,8 +1118,8 @@ function visualizzaRichiesteScalaElevatoreUscita(suolo) {
                     </div>
                         <div class="row">
                             <div class="col-lg-12 mt-5 d-flex justify-content-end">
-                                <button class="btn btn-danger mx-2">Chiudi</button>
-                                <button class="btn btn-primary mx-2">Modifica</button>
+                                <button class="btn btn-danger mx-2" onclick="deleteScala(${element.id})">Elimina</button>
+                                <button class="btn btn-primary mx-2" onclick="putScala(${element.id})">Modifica</button>
                             </div>
                         </div>
                 
@@ -1120,6 +1164,28 @@ if (richiesteScalaElevatoreUscita) {
     richiesteScalaElevatoreUscita.addEventListener('click', fetchScalaElevatoreUscita);
 }
 
+
+
+function deleteScala(id) {
+
+    fetch(`http://127.0.0.1:8080/api/scalaElevatore/eliminaScala/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }//,
+        // body: JSON.stringify(),
+    })
+
+    fetchScalaElevatoreUscita();
+
+}
+
+
+// function putScala(id) {
+
+
+
+// }
 
 
 
@@ -1289,8 +1355,8 @@ function visualizzaRichiesteConsegnaImballiUscita(suolo) {
                     </div>
                         <div class="row">
                             <div class="col-lg-12 mt-5 d-flex justify-content-end">
-                                <button class="btn btn-danger mx-2">Chiudi</button>
-                                <button class="btn btn-primary mx-2">Modifica</button>
+                                <button class="btn btn-danger mx-2" onclick="deleteImballi(${element.id})">Elimina</button>
+                                <button class="btn btn-primary mx-2" onclick="putImballi(${element.id})">Modifica</button>
                             </div>
                         </div>
                 
@@ -1337,7 +1403,26 @@ if (richiesteConsegnaImballiUscita) {
 
 
 
+function deleteImballi(id) {
 
+    fetch(`http://127.0.0.1:8080/api/consegnaImballi/eliminaconsegna/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }//,
+        // body: JSON.stringify(),
+    })
+
+    fetchConsegnaImballiUscita();
+
+}
+
+
+// function putImballi(id) {
+
+
+
+// }
 
 
 
@@ -1473,8 +1558,8 @@ function visualizzaRichiestePersonaleSpecializzatoUscita(suolo) {
                     </div>
                         <div class="row">
                             <div class="col-lg-12 mt-5 d-flex justify-content-end">
-                                <button class="btn btn-danger mx-2">Chiudi</button>
-                                <button class="btn btn-primary mx-2">Modifica</button>
+                                <button class="btn btn-danger mx-2" onclick="deletePersonale(${element.id})">Elimina</button>
+                                <button class="btn btn-primary mx-2" onclick="putPersonale(${element.id})">Modifica</button>
                             </div>
                         </div>
                 
@@ -1520,9 +1605,26 @@ if (richiestePersonaleSpecUscita) {
 }
 
 
+function deletePersonale(id) {
+
+    fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/eliminaRichiesta/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }//,
+        // body: JSON.stringify(),
+    })
+
+    fetchRichiestePersonaleSpecializzatoUscita();
+
+}
+
+
+// function putPersonale(id) {
 
 
 
+// }
 
 
 
@@ -1533,10 +1635,14 @@ function visualizzaRichiesteDepositoMagazzinoUscita(suolo) {
 
     colonnaInfo.innerHTML = '';
 
-    suolo.depositoMagazzino.forEach(element => {
 
 
-        let visualizzaRichieste = `
+    if (suolo.length != 0) {
+
+        suolo.depositoMagazzino.forEach(element => {
+
+
+            let visualizzaRichieste = `
     <div class="card-body destra mb-4">
         <div class="row rowRichieste">
             <div class="container">
@@ -1546,7 +1652,7 @@ function visualizzaRichiesteDepositoMagazzinoUscita(suolo) {
 
                         <div class="row p-3">
                             <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
-                                <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Personale Specializzato numero: #${element.id}</h4>
+                                <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Deposito Magazzino numero: #${element.id}</h4>
                             </div>
                             
 
@@ -1667,8 +1773,8 @@ function visualizzaRichiesteDepositoMagazzinoUscita(suolo) {
                     </div>
                         <div class="row">
                             <div class="col-lg-12 mt-5 d-flex justify-content-end">
-                                <button class="btn btn-danger mx-2">Chiudi</button>
-                                <button class="btn btn-primary mx-2">Modifica</button>
+                                <button class="btn btn-danger mx-2" onclick="deleteMagazzino(${element.id})">Elimina</button>
+                                <button class="btn btn-primary mx-2" onclick="putMagazzino(${element.id})">Modifica</button>
                             </div>
                         </div>
                 
@@ -1680,9 +1786,13 @@ function visualizzaRichiesteDepositoMagazzinoUscita(suolo) {
     </div>`;
 
 
-        colonnaInfo.innerHTML += visualizzaRichieste;
+            colonnaInfo.innerHTML += visualizzaRichieste;
 
-    });
+        });
+
+    } else {
+        colonnaInfo.innerHTML = '';
+    }
 
 }
 
@@ -1716,6 +1826,32 @@ if (richiesteDepositoMagazzinoUscita) {
 
 
 
+function deleteMagazzino(id) {
+
+    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/eliminaMagazzino/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }//,
+        // body: JSON.stringify(),
+    })
+
+    fetchRichiesteDepositoMagazzinoUscita();
+
+}
+
+
+// function putMagazzino(id) {
+
+
+
+// }
+
+
+
+
+
+
 function visualizzaRichiesteTratteUscita(suolo) {
 
 
@@ -1734,7 +1870,7 @@ function visualizzaRichiesteTratteUscita(suolo) {
 
                         <div class="row p-3">
                             <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
-                                <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Carico numero: #${element.id}</h4>
+                                <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Tratta numero: #${element.id}</h4>
                             </div>
                             
 
@@ -1892,8 +2028,8 @@ function visualizzaRichiesteTratteUscita(suolo) {
                     </div>
                         <div class="row">
                             <div class="col-lg-12 mt-5 d-flex justify-content-end">
-                                <button class="btn btn-danger mx-2">Chiudi</button>
-                                <button class="btn btn-primary mx-2">Modifica</button>
+                                <button class="btn btn-danger mx-2" onclick="deleteTratta(${element.id})">Elimina</button>
+                                <button class="btn btn-primary mx-2" onclick="putTratta(${element.id})">Modifica</button>
                             </div>
                         </div>
                 
@@ -1940,15 +2076,30 @@ if (richiesteTrattaUscita) {
 
 
 
+function deleteTratta(id) {
+
+    fetch(`http://127.0.0.1:8080/api/tratta/eliminaRichiesta/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }//,
+        // body: JSON.stringify(),
+    })
+
+    fetchTratteUscita();
+
+}
+
+
+
+function putTratta(id) {
+
+    
 
 
 
 
-
-
-
-
-
+}
 
 
 
