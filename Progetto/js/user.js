@@ -2094,8 +2094,10 @@ function deleteTratta(id) {
 
 function putTratta(id) {
 
-    
+    localStorage.setItem('modificaTratta', id);
 
+    window.location.href = 'modificaTratta.html';
+    
 
 
 
