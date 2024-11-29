@@ -158,7 +158,7 @@ function inviaRichiesta(dati) {
 
 
 
-    fetch(`http://127.0.0.1:8080/api/tratta/inserisciTratta/${azienda_id}`, {
+    fetch(`http://127.0.0.1:8080/api/tratta/modificaTratta/${idTratta}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -167,7 +167,7 @@ function inviaRichiesta(dati) {
 
     })
 
-    location.reload();
+    window.location.href = 'user.html';
 
 
 

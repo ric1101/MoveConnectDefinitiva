@@ -183,10 +183,13 @@ function checkToken() {
     fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
+            console.log(data);
+            
             mostraNavbarLoggata();
         })
         .catch(error => {
-            console.error("Errore:", error);
+            console.log(error);
+            
             localStorage.removeItem('accessToken');
             mostraNavbarNonLoggata();
             window.location.href = 'index.html';
