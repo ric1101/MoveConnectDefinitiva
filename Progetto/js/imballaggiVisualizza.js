@@ -215,7 +215,7 @@ function imballaggiFiltroRegioneImballi(dati, id) {
                 if (i1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                i1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -310,7 +310,7 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
                 if (i1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                i1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -407,7 +407,7 @@ function imballaggiFiltroTipiImballi(dati, id) {
                 if (i1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                i1 = false;
 
                 bodyTabella.innerHTML += tabella;
 

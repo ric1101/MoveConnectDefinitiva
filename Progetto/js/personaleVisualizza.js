@@ -205,7 +205,7 @@ function personaleFiltroRegione(dati, id) {
                     bodyTabella.innerHTML = '';
                 }
 
-
+                p1 = false;
                 bodyTabella.innerHTML += tabella;
 
             } else {
@@ -300,7 +300,7 @@ function personaleFiltroRegioneTipiPersonale(dati, id) {
                     bodyTabella.innerHTML = '';
                 }
 
-
+                p1 = false;
                 bodyTabella.innerHTML += tabella;
 
             } else {
@@ -397,7 +397,7 @@ function personaleFiltroTipiPersonale(dati, id) {
                     bodyTabella.innerHTML = '';
                 }
 
-
+                p1 = false;
                 bodyTabella.innerHTML += tabella;
 
             } else {

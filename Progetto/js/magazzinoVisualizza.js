@@ -251,7 +251,7 @@ function depositoFiltroSoloRegione(dati, id) {
                 if (m1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                m1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -283,7 +283,7 @@ function fetchRegioniTipoDeposito(regione, mobilio, pedane, altro) {
         .then((res) => res.json())
         .then((data) => {
 
-            filtriRegioneDeposito(regione, mobilio, pedane, altro, data.id);
+            filtriRegioneTipoDeposito(regione, mobilio, pedane, altro, data.id);
             console.log(data.id);
             console.log(regione);
 
@@ -346,7 +346,7 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
                 if (m1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                m1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -441,7 +441,7 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
                 if (m1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                m1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -536,7 +536,7 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
                 if (m1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                m1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -629,7 +629,7 @@ function depositoFiltroTipoDeposito(dati, id) {
                 if (m1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                m1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -723,7 +723,7 @@ function depositoFiltroTipoDepositoMq(dati, id) {
                 if (m1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                m1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -821,7 +821,7 @@ function depositoFiltroDemoDeposito(dati, id) {
                     bodyTabella.innerHTML = '';
                 }
 
-
+                m1 = false;
                 bodyTabella.innerHTML += tabella;
 
             } else {

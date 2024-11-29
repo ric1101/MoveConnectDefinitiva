@@ -258,7 +258,7 @@ function elevatoreFiltroSoloRegione(dati, id) {
                 if (e1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                e1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -486,7 +486,7 @@ function elevatoreFiltroRegioniScala(dati, id) {
                 if (e1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                e1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -610,7 +610,7 @@ function elevatoreFiltroPeso(dati, id) {
                     bodyTabella.innerHTML = '';
                 }
 
-
+                e1 = false;
                 bodyTabella.innerHTML += tabella;
 
             } else {
@@ -700,7 +700,7 @@ function elevatoreFiltroRegioniPeso(dati, id) {
                 if (e1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                e1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -792,6 +792,7 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
                     bodyTabella.innerHTML = '';
 
                 }
+                e1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -885,7 +886,7 @@ function elevatoreFiltroScalaPeso(dati, id) {
                     bodyTabella.innerHTML = '';
 
                 }
-
+                e1 = false;
 
                 bodyTabella.innerHTML += tabella;
 

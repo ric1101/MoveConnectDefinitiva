@@ -335,7 +335,7 @@ function tratteFiltroSoloRegionePartenza(dati, id) {
                 if (tt1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                tt1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -426,7 +426,7 @@ function tratteFiltroRegionePartenzaArrivo(dati, id) {
                 if (tt1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                tt1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -519,7 +519,7 @@ function tratteFiltroRegionePartenzaArrivoVeicolo(dati, id) {
                 if (tt1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                tt1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -614,7 +614,7 @@ function tratteFiltroRegionePartenzaVeicolo(dati, id) {
                 if (tt1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                tt1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -705,7 +705,7 @@ function tratteFiltroRegioneArrivoVeicolo(dati, id) {
                 if (tt1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                tt1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -798,7 +798,7 @@ function tratteFiltroRegioneArrivo(dati, id) {
                 if (tt1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                tt1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -890,7 +890,7 @@ function tratteFiltroVeicolo(dati, id) {
                 if (tt1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                tt1 = false;
 
                 bodyTabella.innerHTML += tabella;
 

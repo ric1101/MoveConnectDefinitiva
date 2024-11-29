@@ -271,7 +271,7 @@ function trasportoFiltroSoloRegionePartenza(dati, id) {
                 if (t1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                t1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -365,7 +365,7 @@ function trasportoFiltroSoloRegioneArrivo(dati, id) {
                 if (t1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                t1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -460,7 +460,7 @@ function trasportoFiltroRegioniDoppie(dati, id) {
                 if (t1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                t1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -578,7 +578,7 @@ function trasportoFiltroRegioniMq(dati, id) {
                 if (t1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                t1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -672,7 +672,7 @@ function trasportoFiltroRegioniDoppieMq(dati, id) {
                 if (t1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                t1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -708,6 +708,8 @@ function fetchDemo(mq) {
 
             filtriDemo(mq, data.id);
             console.log(data.id);
+            console.log("SONO QUI");
+            
 
         });
 }
@@ -720,9 +722,11 @@ function filtriDemo(mq, id) {
         .then((res) => res.json())
         .then((data) => {
 
+            console.log("POI ENTRO QUI");
             trasportoFiltroDemo(data, id)
             console.log(data);
             console.log(id);
+            
             ascolto();
 
         });
@@ -764,7 +768,7 @@ function trasportoFiltroDemo(dati, id) {
                 if (t1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                t1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -949,6 +953,8 @@ sliderDemo.addEventListener('change', () => {
     if (reg2 == 0 && reg1 == 0 && reg3 == 0 && reg4 == 1) {
 
         fetchDemo(demo.textContent);
+        console.log(demo.textContent);
+        
 
     } else if (reg2 == 1 && reg1 == 1 && reg3 == 0 && reg4 == 1) {
 
@@ -998,14 +1004,14 @@ function fetchMerce(merce) {
         .then((res) => res.json())
         .then((data) => {
 
-            filtriDemo(merce, data.id);
+            filtriMerce(merce, data.id);
             console.log(data.id);
 
         });
 }
 
 
-function filtriDemo(merce, id) {
+function filtriMerce(merce, id) {
 
 
     fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?tipoDiVeicolo=${merce}`)
@@ -1056,7 +1062,7 @@ function trasportoFiltroMerce(dati, id) {
                 if (t1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                t1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -1145,7 +1151,7 @@ function trasportoFiltroRegionePartenzaMerce(dati, id) {
                 if (t1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                t1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -1237,7 +1243,7 @@ function trasportoFiltroRegioneArrivoMerce(dati, id) {
                 if (t1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                t1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -1329,7 +1335,7 @@ function trasportoFiltroRegionePartenzaArrivoMerce(dati, id) {
                 if (t1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                t1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -1423,7 +1429,7 @@ function trasportoFiltroRegionePartenzaArrivoMerceMq(dati, id) {
                 if (t1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                t1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -1515,7 +1521,7 @@ function trasportoFiltroRegionePartenzaMerceMq(dati, id) {
                 if (t1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                t1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -1608,7 +1614,7 @@ function trasportoFiltroRegioneArrivoMerceMq(dati, id) {
                 if (t1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                t1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
@@ -1704,7 +1710,7 @@ function trasportoFiltroMerceMq(dati, id) {
                 if (t1 == true) {
                     bodyTabella.innerHTML = '';
                 }
-
+                t1 = false;
 
                 bodyTabella.innerHTML += tabella;
 
