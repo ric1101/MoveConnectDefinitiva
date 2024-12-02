@@ -8,19 +8,18 @@ let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
 
 let accessToken = localStorage.getItem('accessToken');
 
-function predefinito() {
 
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-        .then((res) => res.json())
-        .then((data) => {
 
-            fetchElevatore(data.id);
-            console.log(data.id);
+fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    .then((res) => res.json())
+    .then((data) => {
 
-        });
-}
-predefinito();
+        console.log(data.id);
+        fetchElevatore(data.id);
+
+    });
+
 
 
 
@@ -40,15 +39,28 @@ function fetchElevatore(id) {
 
 
 function elevatore(dati, id) {
-
+    e = false;
+    e1 = false;
+    console.log(dati);
+    console.log(id);
     bodyTabella.innerHTML = '';
 
-    dati.forEach(element => {
-
-        if (element.azienda.id != id) {
+    if (dati.length != 0) {
 
 
-            let tabella = `<tr>
+
+        if (dati.stato == null) {
+
+
+
+            dati.forEach(element => {
+
+
+
+                if (element.azienda.id != id) {
+
+
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -61,11 +73,41 @@ function elevatore(dati, id) {
                     </tr>`;
 
 
-            bodyTabella.innerHTML += tabella;
+                    e = true;
+                    if (e1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    e1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (e) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        e1 = true;
+
+                    }
+                }
+
+            });
+        } else {
+            if (e) {
+
+            } else {
+
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                e1 = true;
+
+            }
 
         }
 
-    });
+    } else {
+        bodyTabella.innerHTML = nessunaCorrispondenza;
+    }
 
 }
 
@@ -234,14 +276,18 @@ function elevatoreFiltroSoloRegione(dati, id) {
 
 
 
-        dati.forEach(element => {
+        if (dati.stato == null) {
 
 
 
-            if (element.azienda.id != id) {
+            dati.forEach(element => {
 
 
-                let tabella = `<tr>
+
+                if (element.azienda.id != id) {
+
+
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -254,26 +300,37 @@ function elevatoreFiltroSoloRegione(dati, id) {
                     </tr>`;
 
 
-                e = true;
-                if (e1 == true) {
-                    bodyTabella.innerHTML = '';
-                }
-                e1 = false;
+                    e = true;
+                    if (e1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    e1 = false;
 
-                bodyTabella.innerHTML += tabella;
-
-            } else {
-                if (e) {
+                    bodyTabella.innerHTML += tabella;
 
                 } else {
+                    if (e) {
 
-                    bodyTabella.innerHTML = nessunaCorrispondenza;
-                    e1 = true;
+                    } else {
 
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        e1 = true;
+
+                    }
                 }
+
+            });
+        } else {
+            if (e) {
+
+            } else {
+
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                e1 = true;
+
             }
 
-        });
+        }
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -355,20 +412,18 @@ function elevatoreFiltroScala(dati, id) {
 
 
 
+        if (dati.stato == null) {
 
 
 
+            dati.forEach(element => {
 
 
 
-        dati.forEach(element => {
+                if (element.azienda.id != id) {
 
 
-
-            if (element.azienda.id != id) {
-
-
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -381,26 +436,37 @@ function elevatoreFiltroScala(dati, id) {
                     </tr>`;
 
 
-                e = true;
-                if (e1 == true) {
-                    bodyTabella.innerHTML = '';
-                }
-                e1 = false;
+                    e = true;
+                    if (e1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    e1 = false;
 
-                bodyTabella.innerHTML += tabella;
-
-            } else {
-                if (e) {
+                    bodyTabella.innerHTML += tabella;
 
                 } else {
+                    if (e) {
 
-                    bodyTabella.innerHTML = nessunaCorrispondenza;
-                    e1 = true;
+                    } else {
 
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        e1 = true;
+
+                    }
                 }
+
+            });
+        } else {
+            if (e) {
+
+            } else {
+
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                e1 = true;
+
             }
 
-        });
+        }
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -461,15 +527,17 @@ function elevatoreFiltroRegioniScala(dati, id) {
     if (dati.length != 0) {
 
 
-
-        dati.forEach(element => {
-
+        if (dati.stato == null) {
 
 
-            if (element.azienda.id != id) {
+            dati.forEach(element => {
 
 
-                let tabella = `<tr>
+
+                if (element.azienda.id != id) {
+
+
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -482,26 +550,38 @@ function elevatoreFiltroRegioniScala(dati, id) {
                     </tr>`;
 
 
-                e = true;
-                if (e1 == true) {
-                    bodyTabella.innerHTML = '';
-                }
-                e1 = false;
+                    e = true;
+                    if (e1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    e1 = false;
 
-                bodyTabella.innerHTML += tabella;
-
-            } else {
-                if (e) {
+                    bodyTabella.innerHTML += tabella;
 
                 } else {
+                    if (e) {
 
-                    bodyTabella.innerHTML = nessunaCorrispondenza;
-                    e1 = true;
+                    } else {
 
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        e1 = true;
+
+                    }
                 }
+
+            });
+        } else {
+            if (e) {
+
+            } else {
+
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                e1 = true;
+
             }
 
-        });
+        }
+
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -585,14 +665,17 @@ function elevatoreFiltroPeso(dati, id) {
 
 
 
-        dati.forEach(element => {
+        if (dati.stato == null) {
+
+
+            dati.forEach(element => {
 
 
 
-            if (element.azienda.id != id) {
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -605,26 +688,37 @@ function elevatoreFiltroPeso(dati, id) {
                     </tr>`;
 
 
-                e = true;
-                if (e1 == true) {
-                    bodyTabella.innerHTML = '';
-                }
+                    e = true;
+                    if (e1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
 
-                e1 = false;
-                bodyTabella.innerHTML += tabella;
-
-            } else {
-                if (e) {
+                    e1 = false;
+                    bodyTabella.innerHTML += tabella;
 
                 } else {
+                    if (e) {
 
-                    bodyTabella.innerHTML = nessunaCorrispondenza;
-                    e1 = true;
+                    } else {
 
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        e1 = true;
+
+                    }
                 }
+
+            });
+        } else {
+            if (e) {
+
+            } else {
+
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                e1 = true;
+
             }
 
-        });
+        }
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -675,15 +769,17 @@ function elevatoreFiltroRegioniPeso(dati, id) {
     if (dati.length != 0) {
 
 
-
-        dati.forEach(element => {
-
+        if (dati.stato == null) {
 
 
-            if (element.azienda.id != id) {
+            dati.forEach(element => {
 
 
-                let tabella = `<tr>
+
+                if (element.azienda.id != id) {
+
+
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -696,26 +792,37 @@ function elevatoreFiltroRegioniPeso(dati, id) {
                     </tr>`;
 
 
-                e = true;
-                if (e1 == true) {
-                    bodyTabella.innerHTML = '';
-                }
-                e1 = false;
+                    e = true;
+                    if (e1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    e1 = false;
 
-                bodyTabella.innerHTML += tabella;
-
-            } else {
-                if (e) {
+                    bodyTabella.innerHTML += tabella;
 
                 } else {
+                    if (e) {
 
-                    bodyTabella.innerHTML = nessunaCorrispondenza;
-                    e1 = true;
+                    } else {
 
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        e1 = true;
+
+                    }
                 }
+
+            });
+        } else {
+            if (e) {
+
+            } else {
+
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                e1 = true;
+
             }
 
-        });
+        }
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -767,14 +874,17 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
 
 
 
-        dati.forEach(element => {
+        if (dati.stato == null) {
+
+
+            dati.forEach(element => {
 
 
 
-            if (element.azienda.id != id) {
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -787,27 +897,38 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
                     </tr>`;
 
 
-                e = true;
-                if (e1 == true) {
-                    bodyTabella.innerHTML = '';
+                    e = true;
+                    if (e1 == true) {
+                        bodyTabella.innerHTML = '';
 
-                }
-                e1 = false;
+                    }
+                    e1 = false;
 
-                bodyTabella.innerHTML += tabella;
-
-            } else {
-                if (e) {
+                    bodyTabella.innerHTML += tabella;
 
                 } else {
+                    if (e) {
 
-                    bodyTabella.innerHTML = nessunaCorrispondenza;
-                    e1 = true;
+                    } else {
 
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        e1 = true;
+
+                    }
                 }
+
+            });
+        } else {
+            if (e) {
+
+            } else {
+
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                e1 = true;
+
             }
 
-        });
+        }
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -861,14 +982,18 @@ function elevatoreFiltroScalaPeso(dati, id) {
 
 
 
-        dati.forEach(element => {
+        if (dati.stato == null) {
 
 
 
-            if (element.azienda.id != id) {
+            dati.forEach(element => {
 
 
-                let tabella = `<tr>
+
+                if (element.azienda.id != id) {
+
+
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -881,27 +1006,38 @@ function elevatoreFiltroScalaPeso(dati, id) {
                     </tr>`;
 
 
-                e = true;
-                if (e1 == true) {
-                    bodyTabella.innerHTML = '';
+                    e = true;
+                    if (e1 == true) {
+                        bodyTabella.innerHTML = '';
 
-                }
-                e1 = false;
+                    }
+                    e1 = false;
 
-                bodyTabella.innerHTML += tabella;
-
-            } else {
-                if (e) {
+                    bodyTabella.innerHTML += tabella;
 
                 } else {
+                    if (e) {
 
-                    bodyTabella.innerHTML = nessunaCorrispondenza;
-                    e1 = true;
+                    } else {
 
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        e1 = true;
+
+                    }
                 }
+
+            });
+        } else {
+            if (e) {
+
+            } else {
+
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                e1 = true;
+
             }
 
-        });
+        }
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;

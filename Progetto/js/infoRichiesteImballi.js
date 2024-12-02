@@ -16,37 +16,52 @@ fetch(`http://127.0.0.1:8080/api/consegnaImballi/consegnas/${dataEventoId}`)
 
 
 
-    function fetchImg(dati, id) {
+function fetchImg(dati, id) {
 
-        let imgAzienda = document.querySelector('.imgAzienda');
-    
-        fetch(`http://127.0.0.1:8080/api/azienda/logo/${id}`)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Errore nel recupero del logo");
-                }
-                return response.blob();
-            })
-            .then((blob) => {
-                const logoUrl = URL.createObjectURL(blob);
-                
+    let imgAzienda = document.querySelector('.imgAzienda');
 
-                imballiInfo(dati, logoUrl);
-            })
-            .catch((error) => {
-                console.error("Errore nel caricamento del logo:", error);
-                imgAzienda.setAttribute(
-                    'src',
-                    './img/default-logo.png'
-                );
-            });
-    }
+    fetch(`http://127.0.0.1:8080/api/azienda/logo/${id}`)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Errore nel recupero del logo");
+            }
+            return response.blob();
+        })
+        .then((blob) => {
+            const logoUrl = URL.createObjectURL(blob);
 
 
+            recuperaToken(dati, logoUrl);
+        })
+        .catch((error) => {
+            console.error("Errore nel caricamento del logo:", error);
+            imgAzienda.setAttribute(
+                'src',
+                './img/default-logo.png'
+            );
+        });
+}
 
 
-function imballiInfo(dati, img) {
-    
+function recuperaToken(dati, img) {
+
+    let accessToken = localStorage.getItem('accessToken');
+
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+
+            imballiInfo(dati, img, data.id)
+
+
+        });
+}
+
+
+
+function imballiInfo(dati, img, id) {
+
 
     let visualizzaInfo = `
     <div class="col-lg-2"></div>
@@ -66,7 +81,7 @@ function imballiInfo(dati, img) {
                             <h5 class="fw-bold">P. Iva: </h5>
                             <p>${dati.azienda.piva}</p>
                             <h5 class="fw-bold">Indirizzo: </h5>
-                            <p>${dati.azienda.indirizzo + ', ' + dati.azienda.comune + ', ' + dati.azienda.cap }</p>
+                            <p>${dati.azienda.indirizzo + ', ' + dati.azienda.comune + ', ' + dati.azienda.cap}</p>
                         </div>
                     </div>
                        
@@ -211,7 +226,7 @@ function imballiInfo(dati, img) {
                     <div class="col-lg-2"></div>
                 </div>
                 <div class="row">
-                 <div class="col-md-3"></div>
+                 <div class="col-md-2"></div>
                     <div class="col-md-6">
                         <div class="card mb-4 mb-md-0">
                             <div class="card-body">
@@ -226,13 +241,27 @@ function imballiInfo(dati, img) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3"></div>
+                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoImballi(${dati.id}, ${id})">Interessato</button></div>
+                    <div class="col-md-2"</div>
                 </div>`;
 
-                colonnaInfo.innerHTML = visualizzaInfo;
+    colonnaInfo.innerHTML = visualizzaInfo;
 
 
 }
 
 
 
+function interessamentoImballi(richiestaId, aziendaId) {
+
+    fetch(`http://127.0.0.1:8080/api/consegnaImballi/modificaImballiIdRichiesta/${richiestaId}/${aziendaId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    window.location.href = 'imballaggiVisualizza.html';
+
+
+}

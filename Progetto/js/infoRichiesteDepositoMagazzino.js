@@ -30,7 +30,7 @@ fetch(`http://127.0.0.1:8080/api/depositoMagazzino/magazzino/${dataEventoId}`)
                 const logoUrl = URL.createObjectURL(blob);
                 
 
-                depositoInfo(dati, logoUrl);
+                recuperaToken(dati, logoUrl);
             })
             .catch((error) => {
                 console.error("Errore nel caricamento del logo:", error);
@@ -42,10 +42,24 @@ fetch(`http://127.0.0.1:8080/api/depositoMagazzino/magazzino/${dataEventoId}`)
     }
 
 
+    function recuperaToken(dati, img) {
+
+        let accessToken = localStorage.getItem('accessToken');
+    
+        fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+            .then((res) => res.json())
+            .then((data) => {
+    
+    
+                depositoInfo(dati, img, data.id)
+    
+    
+            });
+    }
 
 
 
-function depositoInfo(dati, img) {
+function depositoInfo(dati, img, id) {
     
 
     let visualizzaInfo = `
@@ -194,7 +208,7 @@ function depositoInfo(dati, img) {
                     <div class="col-lg-2"></div>
                 </div>
                 <div class="row">
-                 <div class="col-md-3"></div>
+                 <div class="col-md-2"></div>
                     <div class="col-md-6">
                         <div class="card mb-4 mb-md-0">
                             <div class="card-body">
@@ -209,8 +223,10 @@ function depositoInfo(dati, img) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3"></div>
-                </div>`;
+                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoDeposito(${dati.id}, ${id})">Interessato</button></div>
+                    <div class="col-md-2"</div>
+                </div>
+                `;
 
                 colonnaInfo.innerHTML = visualizzaInfo;
 
@@ -221,4 +237,16 @@ function depositoInfo(dati, img) {
 
 
 
+function interessamentoDeposito(richiestaId, aziendaId) {
 
+    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/modificaMagazzinoIdRichiesta/${richiestaId}/${aziendaId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    window.location.href = 'magazzinoVisualizza.html';
+
+
+}
