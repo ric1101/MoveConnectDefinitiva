@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richiesta Groupage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/css01.css">
+    <link rel="icon" href="./imgs/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="navbarMain"></div>
+
+
+    <div class="container p-5">
+
+
+        <div>
+            <h1 class="text-center">GROUPAGE &nbsp;<i class="fa-solid fa-truck-fast"></i></h1>
+        </div>
+
+
+        <form class="row g-3 formRow">
+
+            <!-- ----------------------------------------------------------------------- -->
+            <!--                                  Partenza                               -->
+            <!-- ----------------------------------------------------------------------- -->
+            <div class="row g-3 justify-content-evenly">
+                <div class="col-md-3">
+                    <h3 class="d-flex justify-content">Partenza</h3>
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+
+            <div class="row g-3 justify-content-evenly">
+                <div class="col-md-4 col-lg-3">
+                    <label for="regioni" class="form-label">Regione *</label>
+                    <select id="regioni" class="form-select regionePartenza">
+                        <option value="" disabled selected>Seleziona Regione</option>
+
+                    </select>
+                    <p class="opzioneRegione"></p>
+
+                </div>
+
+                <div class="col-md-4 col-lg-3">
+                    <label for="province" class="form-label">Provincia *</label>
+                    <select id="province" class="form-select provinciaPartenza">
+                        <option value="" disabled selected>Seleziona Provincia</option>
+
+                    </select>
+                    <p class="opzioneProvincia"></p>
+
+                </div>
+            </div>
+
+            <div class="row g-3 justify-content-evenly">
+
+                <div class="col-md-4 col-lg-3">
+                    <label for="comuni" class="form-label">Comune *</label>
+                    <select id="comuni" class="form-select comunePartenza">
+                        <option value="" disabled selected>Seleziona Comune</option>
+
+                    </select>
+                    <p class="opzioneComune"></p>
+
+                </div>
+
+                <div class="col-md-4 col-lg-3">
+                    <label class="form-label">Indirizzo *</label>
+                    <input type="text" class="form-control indirizzoPartenza" placeholder="Via Roma 5"
+                        maxLength="50" required>
+
+                </div>
+
+
+            </div>
+
+            <div class="row g-3 justify-content-evenly">
+
+                <div class="col-md-4 col-lg-3">
+                    <label class="form-label">Indirizzo Secondario</label>
+                    <input type="text" class="form-control indirizzoDuePartenza" placeholder="Via Milano 8" maxLength="50" required>
+
+                </div>
+
+                <div class="col-md-4 col-lg-3">
+                    <label class="form-label">CAP *</label>
+                    <input type="text" class="form-control capPartenza" maxLength="5" placeholder="00015" required>
+                    <div class="invalidCapPartenza text-danger">
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row g-3 justify-content-evenly">
+
+                <div class="col-md-4 col-lg-3">
+                    <label for="mq" class="form-label">Indica M3 *</label>
+                    <input type="text" class="form-control mq" placeholder="Indica M3" maxlength="50"
+                        required>
+                    <div class="invalidMq text-danger">
+
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-3">
+                    <label for="veicolo" class="form-label">Tipologia merce *</label>
+                    <select class="form-select tipoDiVeicolo">
+                        <option value="" disabled selected>Seleziona tipo di merce</option>
+                        <option>Bancali</option>
+                        <option>Arredo</option>
+                        <option>Materiale Cartaceo</option>
+                        <option>Effetti Personali</option>
+                        <option>Altro</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+
+            <!-- ----------------------------------------------------------------------- -->
+            <!--                                  Arrivo                                 -->
+            <!-- ----------------------------------------------------------------------- -->
+
+
+            <hr class="separazione">
+            <div class="row g-3 justify-content-evenly">
+                <div class="col-md-3">
+                    <h3 class="d-flex justify-content">Arrivo</h3>
+
+                </div>
+
+                <div class="col-md-3">
+
+                </div>
+            </div>
+
+            <div class="row g-3 justify-content-evenly">
+                <div class="col-md-4 col-lg-3">
+                    <label for="regioni1" class="form-label">Regione *</label>
+                    <select id="regioni1" class="form-select richiesti regioneArrivo">
+                        <option value="" disabled selected>Seleziona Regione</option>
+
+                    </select>
+                    <p class="opzioneRegione2"></p>
+
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <label for="province1" class="form-label">Provincia *</label>
+                    <select id="province1" class="form-select richiesti provinciaArrivo">
+                        <option value="" disabled selected>Seleziona Provincia</option>
+
+                    </select>
+                    <p class="opzioneProvincia2"></p>
+
+                </div>
+            </div>
+
+            <div class="row g-3 justify-content-evenly">
+
+                <div class="col-md-4 col-lg-3">
+                    <label for="comuni1" class="form-label">Comune *</label>
+                    <select id="comuni1" class="form-select richiesti comuneArrivo">
+                        <option value="" disabled selected>Seleziona Comune</option>
+
+                    </select>
+                    <p class="opzioneComune2"></p>
+
+                </div>
+
+                <div class="col-md-4 col-lg-3">
+                    <label for="indirizzoArrivo" class="form-label">Indirizzo *</label>
+                    <input type="text" class="form-control richiesti indirizzoArrivo" placeholder="Indirizzo"
+                        maxLength="50" required>
+
+                </div>
+
+
+            </div>
+
+            <div class="row g-3 justify-content-evenly">
+
+                <div class="col-md-4 col-lg-3">
+                    <label for="indirizzoDueArrivo" class="form-label">Indirizzo Secondario</label>
+                    <input type="text" class="form-control richiesti indirizzoDueArrivo"
+                        placeholder="Indirizzo Secondario" maxLength="50" required>
+
+                </div>
+
+                <div class="col-md-4 col-lg-3">
+                    <label for="capArrivo" class="form-label">CAP *</label>
+                    <input type="text" class="form-control richiesti capArrivo" maxLength="5" placeholder="CAP" required>
+                    <div class="invalidCapArrivo text-danger">
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- ----------------------------------------------------------------------- -->
+            <!--                                  Carico/Scarico                         -->
+            <!-- ----------------------------------------------------------------------- -->
+
+
+            <hr class="separazione">
+            <div class="row g-3 justify-content-evenly">
+                <div class="col-md-3">
+                    <h3 class="d-flex justify-content">Carico/Scarico</h3>
+
+                </div>
+
+                <div class="col-md-3">
+
+                </div>
+            </div>
+
+            <div class="row g-3 justify-content-evenly">
+                <div class="col-md-4 col-lg-3">
+                    <label for="carico" class="form-label">Carico *</label>
+                    <input type="date" min="" max="" class="form-control richiesti carico" onkeydown="return false" required>
+                    <div class="invalidCarico text-danger">
+
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-4 col-lg-3">
+                    <label for="scarico" class="form-label">Scarico *</label>
+                    <input type="date" min="" max="" class="form-control richiesti scarico" onkeydown="return false" required>
+                    <div class="invalidScarico text-danger">
+
+                    </div>
+                </div>
+            </div>
+            <div class="row g-3 justify-content-evenly">
+                <div class="col-md-4 col-lg-3">
+                    <div data-mdb-input-init class="form-outline">
+                        <label class="form-label" for="note">Note</label>
+                        <textarea class="form-control note" rows="4"
+                            placeholder="Esigenze particolari..."></textarea>
+                    </div>
+                    <div class="d-flex justify-content-end mt-4">
+                        <div class="d-flex justify-content-end mt-4">
+                            <button class="btn btn-success mx-2 bottonozzo btnInvioRichiestaTrasporto"
+                                id="btnInvioRichiestaTrasporto">Invio Richiesta</button>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <div class="text-danger blankCamp"></div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+
+
+    <div class="footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="../Progetto/js/homepagejs.js"></script>
+    <script src="../Progetto/js/footer.js"></script>
+    <script src="../Progetto/js/imballi.js"></script>
+    <script src="../Progetto/js/imballi1.js"></script>
+    <script src="../Progetto/js/richiestaTrasportoModifica.js"></script>
+
+</body>
+
+</html>

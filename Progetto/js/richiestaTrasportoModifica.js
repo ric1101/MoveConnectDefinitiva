@@ -1,11 +1,13 @@
 
+
 let regionePartenza = document.querySelector('.regionePartenza');
 let provinciaPartenza = document.querySelector('.provinciaPartenza');
 let comunePartenza = document.querySelector('.comunePartenza');
 let indirizzoPartenza = document.querySelector('.indirizzoPartenza');
 let indirizzoDuePartenza = document.querySelector('.indirizzoDuePartenza');
 let capPartenza = document.querySelector('.capPartenza');
-let dataPartenza = document.querySelector('.partenza');
+let carico = document.querySelector('.carico');
+let mq = document.querySelector('.mq');
 let tipoDiVeicolo = document.querySelector('.tipoDiVeicolo');
 
 
@@ -15,27 +17,28 @@ let comuneArrivo = document.querySelector('.comuneArrivo');
 let indirizzoArrivo = document.querySelector('.indirizzoArrivo');
 let indirizzoDueArrivo = document.querySelector('.indirizzoDueArrivo');
 let capArrivo = document.querySelector('.capArrivo');
-let dataArrivo = document.querySelector('.arrivo');
 
+
+let scarico = document.querySelector('.scarico');
 let note = document.querySelector('.note');
 
-let btnInvioRichiestaTratte = document.querySelector('.btnInvioRichiestaTratte');
+let btnInvioRichiestaTrasporto = document.querySelector('.btnInvioRichiestaTrasporto');
 
 
-let idTratta = localStorage.getItem('modificaTratta');
+let idTrasporto = localStorage.getItem('modificaCarico');
 
-fetch(`http://127.0.0.1:8080/api/tratta/tratte/${idTratta}`)
+fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/richiestaId/${idTrasporto}`)
     .then((res) => res.json())
     .then((data) => {
 
 
-        ripopolaRichiestaTratte(data);
+        ripopolaRichiestaTrasporto(data);
 
 
     });
 
 
-function ripopolaRichiestaTratte(dati) {
+function ripopolaRichiestaTrasporto(dati) {
 
     let opzioneRegione = document.querySelector('.opzioneRegione');
     let opzioneProvincia = document.querySelector('.opzioneProvincia');
@@ -54,26 +57,27 @@ function ripopolaRichiestaTratte(dati) {
     indirizzoPartenza.value = dati.indirizzoPartenza;
     indirizzoDuePartenza.value = dati.indirizzoDuePartenza;
     capPartenza.value = dati.capPartenza;
-    dataPartenza.value = dati.dataPartenza;
+    mq.value = dati.mq;
+    carico.value = dati.carico;
     tipoDiVeicolo.value = dati.tipoDiVeicolo;
     indirizzoArrivo.value = dati.indirizzoArrivo;
     indirizzoDueArrivo.value = dati.indirizzoDueArrivo;
     capArrivo.value = dati.capArrivo;
-    dataArrivo.value = dati.dataArrivo;
+    scarico.value = dati.scarico;
     note.value = dati.note;
 
 }
 
 
 
-class Tratte {
+class Trasporto {
     constructor(regionePartenza,
         provinciaPartenza,
         comunePartenza,
         indirizzoPartenza,
         indirizzoDuePartenza,
         capPartenza,
-        dataPartenza,
+        mq,
         tipoDiVeicolo,
         regioneArrivo,
         provinciaArrivo,
@@ -81,7 +85,8 @@ class Tratte {
         indirizzoArrivo,
         indirizzoDueArrivo,
         capArrivo,
-        dataArrivo,
+        carico,
+        scarico,
         note,
         azienda_id) {
 
@@ -91,7 +96,7 @@ class Tratte {
             (this.indirizzoPartenza = indirizzoPartenza),
             (this.indirizzoDuePartenza = indirizzoDuePartenza),
             (this.capPartenza = capPartenza),
-            (this.dataPartenza = dataPartenza),
+            (this.mq = mq),
             (this.tipoDiVeicolo = tipoDiVeicolo),
             (this.regioneArrivo = regioneArrivo),
             (this.provinciaArrivo = provinciaArrivo),
@@ -99,7 +104,8 @@ class Tratte {
             (this.indirizzoArrivo = indirizzoArrivo),
             (this.indirizzoDueArrivo = indirizzoDueArrivo),
             (this.capArrivo = capArrivo),
-            (this.dataArrivo = dataArrivo),
+            (this.carico = carico),
+            (this.scarico = scarico),
             (this.note = note),
             (this.azienda_id = azienda_id)
     }
@@ -133,14 +139,14 @@ function inviaRichiesta(dati) {
     let azienda_id = dati.id;
 
 
-    let nuovaRichiestaTratte = new Tratte(
+    let nuovaRichiestaTrasporto = new Trasporto(
         regionePartenza.value,
         provinciaPartenza.value,
         comunePartenza.value,
         indirizzoPartenza.value,
         indirizzoDuePartenza.value,
         capPartenza.value,
-        dataPartenza.value,
+        mq.value,
         tipoDiVeicolo.value,
         regioneArrivo.value,
         provinciaArrivo.value,
@@ -148,26 +154,29 @@ function inviaRichiesta(dati) {
         indirizzoArrivo.value,
         indirizzoDueArrivo.value,
         capArrivo.value,
-        dataArrivo.value,
+        carico.value,
+        scarico.value,
         note.value,
         azienda_id
     );
 
 
-    console.log(nuovaRichiestaTratte);
+    console.log(nuovaRichiestaTrasporto);
 
 
 
-    fetch(`http://127.0.0.1:8080/api/tratta/modificaTratta/${idTratta}`, {
+    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/modificaTrasporto/${idTrasporto}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(nuovaRichiestaTratte),
+        body: JSON.stringify(nuovaRichiestaTrasporto),
 
     })
 
     window.location.href = 'user.html';
+
+
 
 
 }
@@ -176,33 +185,42 @@ function inviaRichiesta(dati) {
 let invalidCapPartenza = document.querySelector('.invalidCapPartenza');
 let invalidCapArrivo = document.querySelector('.invalidCapArrivo');
 let invalidMq = document.querySelector('.invalidMq');
-let invalidArrivo = document.querySelector('.invalidArrivo');
-let invalidPartenza = document.querySelector('.invalidPartenza');
+let invalidCarico = document.querySelector('.invalidCarico');
+let invalidScarico = document.querySelector('.invalidScarico');
 let blankCamp = document.querySelector('.blankCamp');
 
 
 new Date();
 let dat = new Date();
 
-function padToTwoDigits(number) {
-    return number.toString().padStart(2, '0');
-}
+//--------------------------------------//
 
-let ggMin = padToTwoDigits(dat.getDate() + 1);
-let mmMin = padToTwoDigits(dat.getMonth() + 1);
+let ggMin = dat.getDate() + 1;
+let mmMin = (dat.getMonth() + 1);
 let aaMin = dat.getFullYear();
-let dataMinPartenza = `${aaMin}-${mmMin}-${ggMin}`;
 
-let ggMax = padToTwoDigits(dat.getDate() + 1);
-let mmMax = padToTwoDigits(dat.getMonth() + 1);
+let dataMinCarico = aaMin + "-" + mmMin + "-" + ggMin;
+console.log(dataMinCarico);
+
+//--------------------------------------//
+
+let ggMax = dat.getDate() + 1;
+let mmMax = (dat.getMonth() + 1);
 let aaMax = dat.getFullYear() + 1;
-let dataMaxPartenza = `${aaMax}-${mmMax}-${ggMax}`;
+let dataMaxCarico = aaMax + "-" + mmMax + "-" + ggMax;
 
-console.log(dataMinPartenza);
-console.log(dataMaxPartenza);
+console.log(dataMaxCarico);
 
-dataPartenza.setAttribute('min', dataMinPartenza);
-dataPartenza.setAttribute('max', dataMaxPartenza);
+//--------------------------------------//
+
+carico.setAttribute('min', dataMinCarico)
+carico.setAttribute('max', dataMaxCarico)
+// scarico.setAttribute('min', dataMin)
+// scarico.setAttribute('max', dataMax)
+
+
+
+
 
 
 let regexCap = /^[0-9]{5}$/;
@@ -229,17 +247,26 @@ function capArrivoCheck() {
 
 }
 
+function mqCheck() {
 
 
-function partenzaCheck() {
+    if (!mq.value.match(regexMq)) {
+        invalidMq.innerHTML = 'mq non validi';
+    } else {
+        invalidMq.innerHTML = '';
+    }
+}
 
 
-    if (dataPartenza.value != '') {
+function caricoCheck() {
+
+
+    if (carico.value != '') {
 
         console.log('hello');
-        dataArrivo.removeAttribute('disabled');
-        dataArrivo.setAttribute('min', dataPartenza.value)
-        dataArrivo.setAttribute('max', dataMaxPartenza)
+        scarico.removeAttribute('disabled');
+        scarico.setAttribute('min', carico.value)
+        scarico.setAttribute('max', dataMaxCarico)
 
     } else {
         console.log('ciao');
@@ -247,6 +274,8 @@ function partenzaCheck() {
     }
 
 }
+
+
 
 
 
@@ -259,14 +288,16 @@ function checkCampi() {
         comunePartenza.value.trim() != "" &&
         indirizzoPartenza.value.trim() != "" &&
         capPartenza.value.trim() != "" &&
+        mq.value.trim() != "" &&
         tipoDiVeicolo.value.trim() != "" &&
         regioneArrivo.value.trim() != "" &&
         provinciaArrivo.value.trim() != "" &&
         comuneArrivo.value.trim() != "" &&
         indirizzoArrivo.value.trim() != "" &&
         capArrivo.value.trim() != "" &&
-        dataPartenza.value.trim() != "" &&
-        dataArrivo.value.trim() != "" &&
+        carico.value.trim() != "" &&
+        scarico.value.trim() != "" &&
+        mq.value.match(regexMq) &&
         capArrivo.value.match(regexCap) &&
         capPartenza.value.match(regexCap)
     ) {
@@ -286,9 +317,10 @@ function checkCampi() {
 
 
 
-btnInvioRichiestaTratte.addEventListener('click', checkCampi);
+btnInvioRichiestaTrasporto.addEventListener('click', checkCampi);
 
 
 capPartenza.addEventListener('keyup', capPartenzaCheck);
 capArrivo.addEventListener('keyup', capArrivoCheck)
-document.addEventListener('input', partenzaCheck)
+mq.addEventListener('keyup', mqCheck)
+document.addEventListener('input', caricoCheck)

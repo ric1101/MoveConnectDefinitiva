@@ -979,11 +979,20 @@ function deleteCarico(id) {
 }
 
 
-// function putCarico(id) {
+function putCarico(id) {
+    
+
+        localStorage.setItem('modificaCarico', id);
+    
+        window.location.href = 'modificaTrasporto.html';
+        
+    
+    
+    
+    }
 
 
 
-// }
 
 
 
@@ -1181,11 +1190,13 @@ function deleteScala(id) {
 }
 
 
-// function putScala(id) {
+function putScala(id) {
 
+    localStorage.setItem('modificaScala', id);
+    
+    window.location.href = 'modificaScala.html';
 
-
-// }
+}
 
 
 
@@ -1418,13 +1429,15 @@ function deleteImballi(id) {
 }
 
 
-// function putImballi(id) {
+
+function putImballi(id) {
+
+    localStorage.setItem('modificaImballi', id);
+    
+    window.location.href = 'modificaImballi.html';
 
 
-
-// }
-
-
+}
 
 
 
@@ -1620,11 +1633,15 @@ function deletePersonale(id) {
 }
 
 
-// function putPersonale(id) {
+function putPersonale(id) {
 
 
+    localStorage.setItem('modificaPersonale', id);
+    
+    window.location.href = 'modificaPersonale.html';
 
-// }
+
+}
 
 
 
@@ -1841,11 +1858,15 @@ function deleteMagazzino(id) {
 }
 
 
-// function putMagazzino(id) {
+function putMagazzino(id) {
+
+    localStorage.setItem('modificaMagazzino', id);
+    
+    window.location.href = 'modificaMagazzino.html';
 
 
 
-// }
+}
 
 
 
