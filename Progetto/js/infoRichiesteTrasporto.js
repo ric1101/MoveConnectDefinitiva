@@ -291,7 +291,7 @@ function interessamentoTrasporto(richiestaId, aziendaId) {
         }),
     })
 
-    window.location.href = 'trasportoVisualizza.html';
+    window.location.href = 'interesseMostrato.html';
     
 
 }

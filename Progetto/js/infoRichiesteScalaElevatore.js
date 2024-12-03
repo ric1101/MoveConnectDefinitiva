@@ -234,10 +234,14 @@ function interessamentoElevatore(richiestaId, aziendaId) {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
-        }
+        }, 
+        body: JSON.stringify({
+
+        }),
     })
 
-    window.location.href = 'elevatoreVisualizza.html';
+    window.location.href = 'interesseMostrato.html';
+
 
 
 }

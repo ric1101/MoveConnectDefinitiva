@@ -258,10 +258,14 @@ function interessamentoImballi(richiestaId, aziendaId) {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
-        }
+        }, 
+        body: JSON.stringify({
+
+        }),
     })
 
-    window.location.href = 'imballaggiVisualizza.html';
+    window.location.href = 'interesseMostrato.html';
+
 
 
 }

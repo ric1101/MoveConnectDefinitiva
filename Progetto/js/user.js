@@ -734,11 +734,14 @@ function visualizzaRichiesteCaricoUscita(carico) {
 
 
     colonnaInfo.innerHTML = '';
+    let visualizzaRichieste = '';
 
     carico.richiesteTrasporti.forEach(element => {
 
 
-        let visualizzaRichieste = `
+        if (element.stato == '') {
+
+            visualizzaRichieste = `
     <div class="card-body destra mb-4">
         <div class="row rowRichieste">
             <div class="container">
@@ -927,7 +930,218 @@ function visualizzaRichiesteCaricoUscita(carico) {
 
     </div>`;
 
+        } else {
 
+            visualizzaRichieste = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">
+
+                        <div class="row p-3">
+                            <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
+                                <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Carico numero: #${element.id}</h4>
+                            </div>
+                            
+
+
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Regione Partenza</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.regionePartenza}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Provincia Partenza</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.provinciaPartenza}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Comune Partenza</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.comunePartenza}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo Partenza</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzoPartenza}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo Due Partenza</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzoDuePartenza}&nbsp;
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Cap Partenza</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.capPartenza}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">M3</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.mq}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Tipo Di Veicolo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.tipoDiVeicolo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Regione Arrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.regioneArrivo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Provincia Arrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.provinciaArrivo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Comune Arrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.comuneArrivo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo Arrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzoArrivo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">IndirizzoDueArrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzoDueArrivo}&nbsp;
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Cap Arrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.capArrivo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Carico</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.carico}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Scarico</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.scarico}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Note</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.note}&nbsp;
+                                </div>
+                            </div>
+                            <hr>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Stato</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.stato}&nbsp;
+                                </div>
+                            </div>
+                            <hr>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Azienda Interessata</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${ottieniNomeAzienda(element.id_azienda_richiedente)}&nbsp;
+                                </div>
+                            </div>
+                            <hr>
+                            
+                                
+                          </div>
+
+                        </div>
+
+                    </div>
+                        <div class="row">
+                            <div class="col-lg-12 mt-5 d-flex justify-content-end">
+                                <button class="btn btn-danger mx-2" onclick="deleteCarico(${element.id})">Rifiuta</button>
+                                <button class="btn btn-primary mx-2" onclick="putCarico(${element.id})">Accetta</button>
+                            </div>
+                        </div>
+                
+
+            </div>
+
+        </div>
+
+    </div>`;
+
+        }
         colonnaInfo.innerHTML += visualizzaRichieste;
 
     });
@@ -970,8 +1184,7 @@ function deleteCarico(id) {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
-        }//,
-        // body: JSON.stringify(),
+        }
     })
 
     fetchCaricoUscita();
@@ -980,16 +1193,34 @@ function deleteCarico(id) {
 
 
 function putCarico(id) {
-    
 
-        localStorage.setItem('modificaCarico', id);
+
+    localStorage.setItem('modificaCarico', id);
+
+    window.location.href = 'modificaTrasporto.html';
+
+
+}
+
+
+
+
+
+function ottieniNomeAzienda(id) {
     
-        window.location.href = 'modificaTrasporto.html';
-        
-    
-    
-    
-    }
+    fetch(`http://127.0.0.1:8080/api/azienda/aziendaPerID/${id}}`)
+    .then((res) => res.json())
+    .then((data) => {
+
+        return data.nomeAzienda;
+
+    });
+
+
+}
+
+
+
 
 
 
@@ -1193,7 +1424,7 @@ function deleteScala(id) {
 function putScala(id) {
 
     localStorage.setItem('modificaScala', id);
-    
+
     window.location.href = 'modificaScala.html';
 
 }
@@ -1433,7 +1664,7 @@ function deleteImballi(id) {
 function putImballi(id) {
 
     localStorage.setItem('modificaImballi', id);
-    
+
     window.location.href = 'modificaImballi.html';
 
 
@@ -1637,7 +1868,7 @@ function putPersonale(id) {
 
 
     localStorage.setItem('modificaPersonale', id);
-    
+
     window.location.href = 'modificaPersonale.html';
 
 
@@ -1861,7 +2092,7 @@ function deleteMagazzino(id) {
 function putMagazzino(id) {
 
     localStorage.setItem('modificaMagazzino', id);
-    
+
     window.location.href = 'modificaMagazzino.html';
 
 
@@ -2118,7 +2349,7 @@ function putTratta(id) {
     localStorage.setItem('modificaTratta', id);
 
     window.location.href = 'modificaTratta.html';
-    
+
 
 
 

@@ -243,10 +243,13 @@ function interessamentoDeposito(richiestaId, aziendaId) {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
-        }
+        }, 
+        body: JSON.stringify({
+
+        }),
     })
 
-    window.location.href = 'magazzinoVisualizza.html';
+    window.location.href = 'interesseMostrato.html';
 
 
 }
