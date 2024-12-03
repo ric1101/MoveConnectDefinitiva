@@ -49,12 +49,10 @@ function elevatore(dati, id) {
 
 
 
-        if (dati.stato == null) {
+        dati.forEach(element => {
 
 
-
-            dati.forEach(element => {
-
+            if (element.stato == '') {
 
 
                 if (element.azienda.id != id) {
@@ -91,19 +89,18 @@ function elevatore(dati, id) {
 
                     }
                 }
-
-            });
-        } else {
-            if (e) {
-
             } else {
+                if (e) {
 
-                bodyTabella.innerHTML = nessunaCorrispondenza;
-                e1 = true;
+                } else {
 
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    e1 = true;
+
+                }
             }
+        });
 
-        }
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -276,12 +273,10 @@ function elevatoreFiltroSoloRegione(dati, id) {
 
 
 
-        if (dati.stato == null) {
+        dati.forEach(element => {
 
 
-
-            dati.forEach(element => {
-
+            if (element.stato == '') {
 
 
                 if (element.azienda.id != id) {
@@ -318,19 +313,18 @@ function elevatoreFiltroSoloRegione(dati, id) {
 
                     }
                 }
-
-            });
-        } else {
-            if (e) {
-
             } else {
+                if (e) {
 
-                bodyTabella.innerHTML = nessunaCorrispondenza;
-                e1 = true;
+                } else {
 
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    e1 = true;
+
+                }
             }
+        });
 
-        }
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -412,12 +406,10 @@ function elevatoreFiltroScala(dati, id) {
 
 
 
-        if (dati.stato == null) {
+        dati.forEach(element => {
 
 
-
-            dati.forEach(element => {
-
+            if (element.stato == '') {
 
 
                 if (element.azienda.id != id) {
@@ -454,19 +446,18 @@ function elevatoreFiltroScala(dati, id) {
 
                     }
                 }
-
-            });
-        } else {
-            if (e) {
-
             } else {
+                if (e) {
 
-                bodyTabella.innerHTML = nessunaCorrispondenza;
-                e1 = true;
+                } else {
 
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    e1 = true;
+
+                }
             }
+        });
 
-        }
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -527,11 +518,11 @@ function elevatoreFiltroRegioniScala(dati, id) {
     if (dati.length != 0) {
 
 
-        if (dati.stato == null) {
+
+        dati.forEach(element => {
 
 
-            dati.forEach(element => {
-
+            if (element.stato == '') {
 
 
                 if (element.azienda.id != id) {
@@ -568,19 +559,17 @@ function elevatoreFiltroRegioniScala(dati, id) {
 
                     }
                 }
-
-            });
-        } else {
-            if (e) {
-
             } else {
+                if (e) {
 
-                bodyTabella.innerHTML = nessunaCorrispondenza;
-                e1 = true;
+                } else {
 
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    e1 = true;
+
+                }
             }
-
-        }
+        });
 
 
     } else {
@@ -665,11 +654,10 @@ function elevatoreFiltroPeso(dati, id) {
 
 
 
-        if (dati.stato == null) {
+        dati.forEach(element => {
 
 
-            dati.forEach(element => {
-
+            if (element.stato == '') {
 
 
                 if (element.azienda.id != id) {
@@ -692,8 +680,8 @@ function elevatoreFiltroPeso(dati, id) {
                     if (e1 == true) {
                         bodyTabella.innerHTML = '';
                     }
-
                     e1 = false;
+
                     bodyTabella.innerHTML += tabella;
 
                 } else {
@@ -706,19 +694,18 @@ function elevatoreFiltroPeso(dati, id) {
 
                     }
                 }
-
-            });
-        } else {
-            if (e) {
-
             } else {
+                if (e) {
 
-                bodyTabella.innerHTML = nessunaCorrispondenza;
-                e1 = true;
+                } else {
 
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    e1 = true;
+
+                }
             }
+        });
 
-        }
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -769,11 +756,11 @@ function elevatoreFiltroRegioniPeso(dati, id) {
     if (dati.length != 0) {
 
 
-        if (dati.stato == null) {
+
+        dati.forEach(element => {
 
 
-            dati.forEach(element => {
-
+            if (element.stato == '') {
 
 
                 if (element.azienda.id != id) {
@@ -810,19 +797,18 @@ function elevatoreFiltroRegioniPeso(dati, id) {
 
                     }
                 }
-
-            });
-        } else {
-            if (e) {
-
             } else {
+                if (e) {
 
-                bodyTabella.innerHTML = nessunaCorrispondenza;
-                e1 = true;
+                } else {
 
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    e1 = true;
+
+                }
             }
+        });
 
-        }
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -874,11 +860,10 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
 
 
 
-        if (dati.stato == null) {
+        dati.forEach(element => {
 
 
-            dati.forEach(element => {
-
+            if (element.stato == '') {
 
 
                 if (element.azienda.id != id) {
@@ -900,7 +885,6 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
                     e = true;
                     if (e1 == true) {
                         bodyTabella.innerHTML = '';
-
                     }
                     e1 = false;
 
@@ -916,23 +900,21 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
 
                     }
                 }
-
-            });
-        } else {
-            if (e) {
-
             } else {
+                if (e) {
 
-                bodyTabella.innerHTML = nessunaCorrispondenza;
-                e1 = true;
+                } else {
 
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    e1 = true;
+
+                }
             }
+        });
 
-        }
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
-
     }
 
 }
@@ -977,17 +959,14 @@ function elevatoreFiltroScalaPeso(dati, id) {
     console.log(id);
     bodyTabella.innerHTML = '';
 
-
     if (dati.length != 0) {
 
 
 
-        if (dati.stato == null) {
+        dati.forEach(element => {
 
 
-
-            dati.forEach(element => {
-
+            if (element.stato == '') {
 
 
                 if (element.azienda.id != id) {
@@ -1009,7 +988,6 @@ function elevatoreFiltroScalaPeso(dati, id) {
                     e = true;
                     if (e1 == true) {
                         bodyTabella.innerHTML = '';
-
                     }
                     e1 = false;
 
@@ -1025,23 +1003,21 @@ function elevatoreFiltroScalaPeso(dati, id) {
 
                     }
                 }
-
-            });
-        } else {
-            if (e) {
-
             } else {
+                if (e) {
 
-                bodyTabella.innerHTML = nessunaCorrispondenza;
-                e1 = true;
+                } else {
 
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    e1 = true;
+
+                }
             }
+        });
 
-        }
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
-
     }
 
 }

@@ -37,14 +37,26 @@ function fetchMagazzino(id) {
 
 
 function magazzino(dati, id) {
+    m = false;
+    m1 = false;
+    console.log(dati);
+    console.log(id);
+    bodyTabella.innerHTML = '';
 
-    dati.forEach(element => {
+    if (dati.length != 0) {
 
 
-        if (element.azienda.id != id) {
+
+        dati.forEach(element => {
 
 
-            let tabella = `<tr>
+            if (element.stato == '') {
+
+
+                if (element.azienda.id != id) {
+
+
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -58,11 +70,41 @@ function magazzino(dati, id) {
                     </tr>`;
 
 
-            bodyTabella.innerHTML += tabella;
 
-        }
+                    m = true;
+                    if (m1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    m1 = false;
 
-    });
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (m) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        m1 = true;
+
+                    }
+                }
+
+            } else {
+                if (m) {
+
+                } else {
+
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    m1 = true;
+
+                }
+            }
+        });
+
+    } else {
+        bodyTabella.innerHTML = nessunaCorrispondenza;
+    }
 
 }
 
@@ -228,11 +270,13 @@ function depositoFiltroSoloRegione(dati, id) {
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
+
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -247,13 +291,24 @@ function depositoFiltroSoloRegione(dati, id) {
 
 
 
-                m = true;
-                if (m1 == true) {
-                    bodyTabella.innerHTML = '';
-                }
-                m1 = false;
+                    m = true;
+                    if (m1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    m1 = false;
 
-                bodyTabella.innerHTML += tabella;
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (m) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        m1 = true;
+
+                    }
+                }
 
             } else {
                 if (m) {
@@ -265,7 +320,6 @@ function depositoFiltroSoloRegione(dati, id) {
 
                 }
             }
-
         });
 
     } else {
@@ -323,11 +377,13 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
+
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -342,13 +398,24 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
 
 
 
-                m = true;
-                if (m1 == true) {
-                    bodyTabella.innerHTML = '';
-                }
-                m1 = false;
+                    m = true;
+                    if (m1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    m1 = false;
 
-                bodyTabella.innerHTML += tabella;
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (m) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        m1 = true;
+
+                    }
+                }
 
             } else {
                 if (m) {
@@ -360,7 +427,6 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
 
                 }
             }
-
         });
 
     } else {
@@ -418,11 +484,13 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
+
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -437,13 +505,24 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
 
 
 
-                m = true;
-                if (m1 == true) {
-                    bodyTabella.innerHTML = '';
-                }
-                m1 = false;
+                    m = true;
+                    if (m1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    m1 = false;
 
-                bodyTabella.innerHTML += tabella;
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (m) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        m1 = true;
+
+                    }
+                }
 
             } else {
                 if (m) {
@@ -455,7 +534,6 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
 
                 }
             }
-
         });
 
     } else {
@@ -513,11 +591,13 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
+
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -532,13 +612,24 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
 
 
 
-                m = true;
-                if (m1 == true) {
-                    bodyTabella.innerHTML = '';
-                }
-                m1 = false;
+                    m = true;
+                    if (m1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    m1 = false;
 
-                bodyTabella.innerHTML += tabella;
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (m) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        m1 = true;
+
+                    }
+                }
 
             } else {
                 if (m) {
@@ -550,7 +641,6 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
 
                 }
             }
-
         });
 
     } else {
@@ -606,11 +696,13 @@ function depositoFiltroTipoDeposito(dati, id) {
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
+
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -625,13 +717,24 @@ function depositoFiltroTipoDeposito(dati, id) {
 
 
 
-                m = true;
-                if (m1 == true) {
-                    bodyTabella.innerHTML = '';
-                }
-                m1 = false;
+                    m = true;
+                    if (m1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    m1 = false;
 
-                bodyTabella.innerHTML += tabella;
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (m) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        m1 = true;
+
+                    }
+                }
 
             } else {
                 if (m) {
@@ -643,7 +746,6 @@ function depositoFiltroTipoDeposito(dati, id) {
 
                 }
             }
-
         });
 
     } else {
@@ -700,11 +802,13 @@ function depositoFiltroTipoDepositoMq(dati, id) {
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
+
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -719,13 +823,24 @@ function depositoFiltroTipoDepositoMq(dati, id) {
 
 
 
-                m = true;
-                if (m1 == true) {
-                    bodyTabella.innerHTML = '';
-                }
-                m1 = false;
+                    m = true;
+                    if (m1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    m1 = false;
 
-                bodyTabella.innerHTML += tabella;
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (m) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        m1 = true;
+
+                    }
+                }
 
             } else {
                 if (m) {
@@ -737,7 +852,6 @@ function depositoFiltroTipoDepositoMq(dati, id) {
 
                 }
             }
-
         });
 
     } else {
@@ -797,11 +911,13 @@ function depositoFiltroDemoDeposito(dati, id) {
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
+
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -816,13 +932,24 @@ function depositoFiltroDemoDeposito(dati, id) {
 
 
 
-                m = true;
-                if (m1 == true) {
-                    bodyTabella.innerHTML = '';
-                }
+                    m = true;
+                    if (m1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    m1 = false;
 
-                m1 = false;
-                bodyTabella.innerHTML += tabella;
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (m) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        m1 = true;
+
+                    }
+                }
 
             } else {
                 if (m) {
@@ -834,7 +961,6 @@ function depositoFiltroDemoDeposito(dati, id) {
 
                 }
             }
-
         });
 
     } else {

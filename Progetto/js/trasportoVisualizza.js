@@ -43,33 +43,74 @@ function fetchTrasporto(id) {
 
 
 function trasporto(dati, id) {
-
+    t = false;
+    t1 = false;
+    console.log(dati);
+    console.log(id);
     bodyTabella.innerHTML = '';
 
-    dati.forEach(element => {
-
-        if (element.azienda.id != id) {
+    if (dati.length != 0) {
 
 
-            let tabella = `<tr>
-                
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+        dati.forEach(element => {
 
 
-            bodyTabella.innerHTML += tabella;
+            if (element.stato == '') {
 
-        }
 
-    });
+                if (element.azienda.id != id) {
+
+
+                    let tabella = `<tr>
+                    
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.mq}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1">${element.carico}</td>
+                        <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                    </tr>`;
+
+
+
+                    t = true;
+                    if (t1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    t1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (t) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        t1 = true;
+
+                    }
+                }
+            } else {
+                if (t) {
+
+                } else {
+
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    t1 = true;
+
+                }
+            }
+
+        });
+
+
+    } else {
+        bodyTabella.innerHTML = nessunaCorrispondenza;
+    }
 
 }
 
@@ -244,37 +285,48 @@ function trasportoFiltroSoloRegionePartenza(dati, id) {
     if (dati.length != 0) {
 
 
-
         dati.forEach(element => {
 
 
-
-            if (element.azienda.id != id) {
-
-
-                let tabella = `<tr>
-                
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+            if (element.stato == '') {
 
 
+                if (element.azienda.id != id) {
 
-                t = true;
-                if (t1 == true) {
-                    bodyTabella.innerHTML = '';
+
+                    let tabella = `<tr>
+                    
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.mq}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1">${element.carico}</td>
+                        <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                    </tr>`;
+
+
+
+                    t = true;
+                    if (t1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    t1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (t) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        t1 = true;
+
+                    }
                 }
-                t1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (t) {
 
@@ -287,6 +339,7 @@ function trasportoFiltroSoloRegionePartenza(dati, id) {
             }
 
         });
+
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -340,35 +393,48 @@ function trasportoFiltroSoloRegioneArrivo(dati, id) {
     if (dati.length != 0) {
 
 
-
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
+
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
-                
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+                    let tabella = `<tr>
+                    
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.mq}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1">${element.carico}</td>
+                        <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                    </tr>`;
 
-                t = true;
-                if (t1 == true) {
-                    bodyTabella.innerHTML = '';
+
+
+                    t = true;
+                    if (t1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    t1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (t) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        t1 = true;
+
+                    }
                 }
-                t1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (t) {
 
@@ -381,6 +447,7 @@ function trasportoFiltroSoloRegioneArrivo(dati, id) {
             }
 
         });
+
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -434,36 +501,48 @@ function trasportoFiltroRegioniDoppie(dati, id) {
     if (dati.length != 0) {
 
 
-
         dati.forEach(element => {
 
 
-
-            if (element.azienda.id != id) {
-
-
-                let tabella = `<tr>
-                
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+            if (element.stato == '') {
 
 
-                t = true;
-                if (t1 == true) {
-                    bodyTabella.innerHTML = '';
+                if (element.azienda.id != id) {
+
+
+                    let tabella = `<tr>
+                    
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.mq}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1">${element.carico}</td>
+                        <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                    </tr>`;
+
+
+
+                    t = true;
+                    if (t1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    t1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (t) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        t1 = true;
+
+                    }
                 }
-                t1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (t) {
 
@@ -477,11 +556,10 @@ function trasportoFiltroRegioniDoppie(dati, id) {
 
         });
 
-    } else {
 
+    } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
     }
-
 
 }
 
@@ -552,36 +630,48 @@ function trasportoFiltroRegioniMq(dati, id) {
     if (dati.length != 0) {
 
 
-
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
+
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                     
-                    <td class="text-center">${element.azienda.nomeAzienda}</td>
-                    <td class="text-center">${element.id}</td>
-                    <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                    <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                    <td class="text-center" data-eventoid="1">${element.mq}</td>
-                    <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                    <td class="text-center" data-eventoid="1">${element.carico}</td>
-                    <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                    <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.mq}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1">${element.carico}</td>
+                        <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
                     </tr>`;
 
 
-                t = true;
-                if (t1 == true) {
-                    bodyTabella.innerHTML = '';
+
+                    t = true;
+                    if (t1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    t1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (t) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        t1 = true;
+
+                    }
                 }
-                t1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (t) {
 
@@ -595,11 +685,10 @@ function trasportoFiltroRegioniMq(dati, id) {
 
         });
 
-    } else {
 
+    } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
     }
-
 
 }
 
@@ -646,36 +735,48 @@ function trasportoFiltroRegioniDoppieMq(dati, id) {
     if (dati.length != 0) {
 
 
-
         dati.forEach(element => {
 
 
-
-            if (element.azienda.id != id) {
-
-
-                let tabella = `<tr>
-                
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+            if (element.stato == '') {
 
 
-                t = true;
-                if (t1 == true) {
-                    bodyTabella.innerHTML = '';
+                if (element.azienda.id != id) {
+
+
+                    let tabella = `<tr>
+                    
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.mq}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1">${element.carico}</td>
+                        <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                    </tr>`;
+
+
+
+                    t = true;
+                    if (t1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    t1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (t) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        t1 = true;
+
+                    }
                 }
-                t1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (t) {
 
@@ -689,11 +790,10 @@ function trasportoFiltroRegioniDoppieMq(dati, id) {
 
         });
 
-    } else {
 
+    } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
     }
-
 
 }
 
@@ -709,7 +809,7 @@ function fetchDemo(mq) {
             filtriDemo(mq, data.id);
             console.log(data.id);
             console.log("SONO QUI");
-            
+
 
         });
 }
@@ -726,7 +826,7 @@ function filtriDemo(mq, id) {
             trasportoFiltroDemo(data, id)
             console.log(data);
             console.log(id);
-            
+
             ascolto();
 
         });
@@ -748,30 +848,45 @@ function trasportoFiltroDemo(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.azienda.id != id) {
+            if (element.stato == '') {
 
 
-                let tabella = `<tr>
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+                if (element.azienda.id != id) {
 
 
-                t = true;
-                if (t1 == true) {
-                    bodyTabella.innerHTML = '';
+                    let tabella = `<tr>
+                    
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.mq}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1">${element.carico}</td>
+                        <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                    </tr>`;
+
+
+
+                    t = true;
+                    if (t1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    t1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (t) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        t1 = true;
+
+                    }
                 }
-                t1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (t) {
 
@@ -784,6 +899,7 @@ function trasportoFiltroDemo(dati, id) {
             }
 
         });
+
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -954,7 +1070,7 @@ sliderDemo.addEventListener('change', () => {
 
         fetchDemo(demo.textContent);
         console.log(demo.textContent);
-        
+
 
     } else if (reg2 == 1 && reg1 == 1 && reg3 == 0 && reg4 == 1) {
 
@@ -1042,30 +1158,45 @@ function trasportoFiltroMerce(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.azienda.id != id) {
+            if (element.stato == '') {
 
 
-                let tabella = `<tr>
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+                if (element.azienda.id != id) {
 
 
-                t = true;
-                if (t1 == true) {
-                    bodyTabella.innerHTML = '';
+                    let tabella = `<tr>
+                    
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.mq}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1">${element.carico}</td>
+                        <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                    </tr>`;
+
+
+
+                    t = true;
+                    if (t1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    t1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (t) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        t1 = true;
+
+                    }
                 }
-                t1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (t) {
 
@@ -1078,6 +1209,7 @@ function trasportoFiltroMerce(dati, id) {
             }
 
         });
+
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -1131,30 +1263,45 @@ function trasportoFiltroRegionePartenzaMerce(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.azienda.id != id) {
+            if (element.stato == '') {
 
 
-                let tabella = `<tr>
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+                if (element.azienda.id != id) {
 
 
-                t = true;
-                if (t1 == true) {
-                    bodyTabella.innerHTML = '';
+                    let tabella = `<tr>
+                    
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.mq}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1">${element.carico}</td>
+                        <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                    </tr>`;
+
+
+
+                    t = true;
+                    if (t1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    t1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (t) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        t1 = true;
+
+                    }
                 }
-                t1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (t) {
 
@@ -1167,6 +1314,7 @@ function trasportoFiltroRegionePartenzaMerce(dati, id) {
             }
 
         });
+
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -1223,30 +1371,45 @@ function trasportoFiltroRegioneArrivoMerce(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.azienda.id != id) {
+            if (element.stato == '') {
 
 
-                let tabella = `<tr>
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+                if (element.azienda.id != id) {
 
 
-                t = true;
-                if (t1 == true) {
-                    bodyTabella.innerHTML = '';
+                    let tabella = `<tr>
+                    
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.mq}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1">${element.carico}</td>
+                        <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                    </tr>`;
+
+
+
+                    t = true;
+                    if (t1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    t1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (t) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        t1 = true;
+
+                    }
                 }
-                t1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (t) {
 
@@ -1259,6 +1422,7 @@ function trasportoFiltroRegioneArrivoMerce(dati, id) {
             }
 
         });
+
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -1315,30 +1479,45 @@ function trasportoFiltroRegionePartenzaArrivoMerce(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.azienda.id != id) {
+            if (element.stato == '') {
 
 
-                let tabella = `<tr>
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+                if (element.azienda.id != id) {
 
 
-                t = true;
-                if (t1 == true) {
-                    bodyTabella.innerHTML = '';
+                    let tabella = `<tr>
+                    
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.mq}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1">${element.carico}</td>
+                        <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                    </tr>`;
+
+
+
+                    t = true;
+                    if (t1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    t1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (t) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        t1 = true;
+
+                    }
                 }
-                t1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (t) {
 
@@ -1351,6 +1530,7 @@ function trasportoFiltroRegionePartenzaArrivoMerce(dati, id) {
             }
 
         });
+
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -1409,30 +1589,45 @@ function trasportoFiltroRegionePartenzaArrivoMerceMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.azienda.id != id) {
+            if (element.stato == '') {
 
 
-                let tabella = `<tr>
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+                if (element.azienda.id != id) {
 
 
-                t = true;
-                if (t1 == true) {
-                    bodyTabella.innerHTML = '';
+                    let tabella = `<tr>
+                    
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.mq}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1">${element.carico}</td>
+                        <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                    </tr>`;
+
+
+
+                    t = true;
+                    if (t1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    t1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (t) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        t1 = true;
+
+                    }
                 }
-                t1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (t) {
 
@@ -1445,6 +1640,7 @@ function trasportoFiltroRegionePartenzaArrivoMerceMq(dati, id) {
             }
 
         });
+
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -1501,30 +1697,45 @@ function trasportoFiltroRegionePartenzaMerceMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.azienda.id != id) {
+            if (element.stato == '') {
 
 
-                let tabella = `<tr>
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+                if (element.azienda.id != id) {
 
 
-                t = true;
-                if (t1 == true) {
-                    bodyTabella.innerHTML = '';
+                    let tabella = `<tr>
+                    
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.mq}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1">${element.carico}</td>
+                        <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                    </tr>`;
+
+
+
+                    t = true;
+                    if (t1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    t1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (t) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        t1 = true;
+
+                    }
                 }
-                t1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (t) {
 
@@ -1537,6 +1748,7 @@ function trasportoFiltroRegionePartenzaMerceMq(dati, id) {
             }
 
         });
+
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -1594,30 +1806,45 @@ function trasportoFiltroRegioneArrivoMerceMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.azienda.id != id) {
+            if (element.stato == '') {
 
 
-                let tabella = `<tr>
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+                if (element.azienda.id != id) {
 
 
-                t = true;
-                if (t1 == true) {
-                    bodyTabella.innerHTML = '';
+                    let tabella = `<tr>
+                    
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.mq}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1">${element.carico}</td>
+                        <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                    </tr>`;
+
+
+
+                    t = true;
+                    if (t1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    t1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (t) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        t1 = true;
+
+                    }
                 }
-                t1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (t) {
 
@@ -1630,6 +1857,7 @@ function trasportoFiltroRegioneArrivoMerceMq(dati, id) {
             }
 
         });
+
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -1671,7 +1899,7 @@ function filtriMerceMq(merce, mq, id) {
             ascolto();
 
         });
-        
+
 
 }
 
@@ -1690,30 +1918,45 @@ function trasportoFiltroMerceMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.azienda.id != id) {
+            if (element.stato == '') {
 
 
-                let tabella = `<tr>
-                <td class="text-center">${element.azienda.nomeAzienda}</td>
-                <td class="text-center">${element.id}</td>
-                <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
-                <td class="text-center" data-eventoid="1">${element.mq}</td>
-                <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                <td class="text-center" data-eventoid="1">${element.carico}</td>
-                <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                </tr>`;
+                if (element.azienda.id != id) {
 
 
-                t = true;
-                if (t1 == true) {
-                    bodyTabella.innerHTML = '';
+                    let tabella = `<tr>
+                    
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.mq}</td>
+                        <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
+                        <td class="text-center" data-eventoid="1">${element.carico}</td>
+                        <td class="text-center" data-eventoid="1">${element.scarico}</td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                    </tr>`;
+
+
+
+                    t = true;
+                    if (t1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    t1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (t) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        t1 = true;
+
+                    }
                 }
-                t1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (t) {
 
@@ -1726,6 +1969,7 @@ function trasportoFiltroMerceMq(dati, id) {
             }
 
         });
+
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;

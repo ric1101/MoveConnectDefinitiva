@@ -37,12 +37,27 @@ async function fetchImballaggi(id) {
 
 
 function imballaggi(dati, id) {
+    i = false;
+    i1 = false;
+    console.log(dati);
+    console.log(id);
+    bodyTabella.innerHTML = '';
 
-    dati.forEach(element => {
+    if (dati.length != 0) {
 
-        if (element.azienda.id != id) {
 
-            let tabella = `<tr>
+
+        dati.forEach(element => {
+
+
+            if (element.stato == '') {
+
+
+
+                if (element.azienda.id != id) {
+
+
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -54,11 +69,39 @@ function imballaggi(dati, id) {
                     </tr>`;
 
 
-            bodyTabella.innerHTML += tabella;
+                    i = true;
+                    if (i1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    i1 = false;
 
-        }
+                    bodyTabella.innerHTML += tabella;
 
-    });
+                } else {
+                    if (i) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        i1 = true;
+
+                    }
+                }
+            } else {
+                if (i) {
+
+                } else {
+
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    i1 = true;
+
+                }
+            }
+        });
+
+    } else {
+        bodyTabella.innerHTML = nessunaCorrispondenza;
+    }
 
 }
 
@@ -93,15 +136,15 @@ regLink.forEach(element => {
 
     element.addEventListener('click', () => {
 
-       
-            if (!collassaRegioni.classList.contains('collapsed')) {
-                simboloReg.classList.remove('fa-plus');
-                simboloReg.classList.add('fa-minus');
-            } else {
-                simboloReg.classList.remove('fa-minus');
-                simboloReg.classList.add('fa-plus');
-            }
-        
+
+        if (!collassaRegioni.classList.contains('collapsed')) {
+            simboloReg.classList.remove('fa-plus');
+            simboloReg.classList.add('fa-minus');
+        } else {
+            simboloReg.classList.remove('fa-minus');
+            simboloReg.classList.add('fa-plus');
+        }
+
     })
 
 });
@@ -112,15 +155,15 @@ imballiLink.forEach(element => {
 
     element.addEventListener('click', () => {
 
-   
-            if (!collassaImballi.classList.contains('collapsed')) {
-                simboloImballi.classList.remove('fa-plus');
-                simboloImballi.classList.add('fa-minus');
-            } else {
-                simboloImballi.classList.remove('fa-minus');
-                simboloImballi.classList.add('fa-plus');
-            }
-   
+
+        if (!collassaImballi.classList.contains('collapsed')) {
+            simboloImballi.classList.remove('fa-plus');
+            simboloImballi.classList.add('fa-minus');
+        } else {
+            simboloImballi.classList.remove('fa-minus');
+            simboloImballi.classList.add('fa-plus');
+        }
+
 
     })
 
@@ -195,11 +238,14 @@ function imballaggiFiltroRegioneImballi(dati, id) {
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                if (element.azienda.id != id) {
+
+
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -211,14 +257,24 @@ function imballaggiFiltroRegioneImballi(dati, id) {
                     </tr>`;
 
 
-                i = true;
-                if (i1 == true) {
-                    bodyTabella.innerHTML = '';
+                    i = true;
+                    if (i1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    i1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (i) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        i1 = true;
+
+                    }
                 }
-                i1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (i) {
 
@@ -229,7 +285,6 @@ function imballaggiFiltroRegioneImballi(dati, id) {
 
                 }
             }
-
         });
 
     } else {
@@ -290,11 +345,14 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                if (element.azienda.id != id) {
+
+
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -306,14 +364,24 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
                     </tr>`;
 
 
-                i = true;
-                if (i1 == true) {
-                    bodyTabella.innerHTML = '';
+                    i = true;
+                    if (i1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    i1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (i) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        i1 = true;
+
+                    }
                 }
-                i1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (i) {
 
@@ -324,7 +392,6 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
 
                 }
             }
-
         });
 
     } else {
@@ -387,11 +454,13 @@ function imballaggiFiltroTipiImballi(dati, id) {
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
+
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -403,25 +472,34 @@ function imballaggiFiltroTipiImballi(dati, id) {
                     </tr>`;
 
 
-                i = true;
-                if (i1 == true) {
-                    bodyTabella.innerHTML = '';
+                    i = true;
+                    if (i1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    i1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (i) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        i1 = true;
+
+                    }
                 }
-                i1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
-                if (i) {
+                if (e) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    i1 = true;
+                    e1 = true;
 
                 }
             }
-
         });
 
     } else {
@@ -429,6 +507,10 @@ function imballaggiFiltroTipiImballi(dati, id) {
     }
 
 }
+
+
+
+
 
 regioniImballi.forEach(element => {
 

@@ -37,14 +37,26 @@ function fetchPersonale(id) {
 
 
 function personale(dati, id) {
+    p = false;
+    p1 = false;
+    console.log(dati);
+    console.log(id);
+    bodyTabella.innerHTML = '';
 
-    dati.forEach(element => {
-
-        if (element.azienda.id != id) {
+    if (dati.length != 0) {
 
 
 
-            let tabella = `<tr>
+        dati.forEach(element => {
+
+
+            if (element.stato == '') {
+
+
+                if (element.azienda.id != id) {
+
+
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -56,11 +68,40 @@ function personale(dati, id) {
                     </tr>`;
 
 
-            bodyTabella.innerHTML += tabella;
-        }
+                    p = true;
+                    if (p1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
 
-    });
+                    p1 = false;
+                    bodyTabella.innerHTML += tabella;
 
+                } else {
+                    if (p) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        p1 = true;
+
+                    }
+                }
+
+            } else {
+                if (p) {
+
+                } else {
+
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    p1 = true;
+
+                }
+            }
+        });
+
+    } else {
+        bodyTabella.innerHTML = nessunaCorrispondenza;
+    }
 
 }
 
@@ -184,11 +225,13 @@ function personaleFiltroRegione(dati, id) {
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
+
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -200,13 +243,24 @@ function personaleFiltroRegione(dati, id) {
                     </tr>`;
 
 
-                p = true;
-                if (p1 == true) {
-                    bodyTabella.innerHTML = '';
-                }
+                    p = true;
+                    if (p1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
 
-                p1 = false;
-                bodyTabella.innerHTML += tabella;
+                    p1 = false;
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (p) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        p1 = true;
+
+                    }
+                }
 
             } else {
                 if (p) {
@@ -218,7 +272,6 @@ function personaleFiltroRegione(dati, id) {
 
                 }
             }
-
         });
 
     } else {
@@ -275,15 +328,16 @@ function personaleFiltroRegioneTipiPersonale(dati, id) {
     if (dati.length != 0) {
 
 
-
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
+
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -295,13 +349,24 @@ function personaleFiltroRegioneTipiPersonale(dati, id) {
                     </tr>`;
 
 
-                p = true;
-                if (p1 == true) {
-                    bodyTabella.innerHTML = '';
-                }
+                    p = true;
+                    if (p1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
 
-                p1 = false;
-                bodyTabella.innerHTML += tabella;
+                    p1 = false;
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (p) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        p1 = true;
+
+                    }
+                }
 
             } else {
                 if (p) {
@@ -313,7 +378,6 @@ function personaleFiltroRegioneTipiPersonale(dati, id) {
 
                 }
             }
-
         });
 
     } else {
@@ -372,15 +436,16 @@ function personaleFiltroTipiPersonale(dati, id) {
     if (dati.length != 0) {
 
 
-
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
+
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -392,13 +457,24 @@ function personaleFiltroTipiPersonale(dati, id) {
                     </tr>`;
 
 
-                p = true;
-                if (p1 == true) {
-                    bodyTabella.innerHTML = '';
-                }
+                    p = true;
+                    if (p1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
 
-                p1 = false;
-                bodyTabella.innerHTML += tabella;
+                    p1 = false;
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (p) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        p1 = true;
+
+                    }
+                }
 
             } else {
                 if (p) {
@@ -410,7 +486,6 @@ function personaleFiltroTipiPersonale(dati, id) {
 
                 }
             }
-
         });
 
     } else {
@@ -485,19 +560,19 @@ tipoPersonale.forEach(element => {
         let montatoreParsato = parseInt(personale3.value);
         let operatoreParsato = parseInt(personale1.value);
 
-        
+
 
         if (pers2 == 1 && pers1 == 0) {
             console.log('parte questa');
 
             fetchTipiPersonale(autistaParsato, falegnameParsato, montatoreParsato, operatoreParsato);
 
-            
+
 
         } else if (pers2 == 1 && pers1 == 1) {
             console.log('no questa');
 
-           fetchRegioniTipiPersonale(regionePersonale, autistaParsato, falegnameParsato, montatoreParsato, operatoreParsato);
+            fetchRegioniTipiPersonale(regionePersonale, autistaParsato, falegnameParsato, montatoreParsato, operatoreParsato);
             console.log(regionePersonale, autistaParsato, falegnameParsato, montatoreParsato, operatoreParsato);
 
 

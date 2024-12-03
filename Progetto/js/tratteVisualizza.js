@@ -33,15 +33,29 @@ function fetchTratte(id) {
         });
 }
 
+
+
 function tratte(dati, id) {
+    tt = false;
+    tt1 = false;
+    console.log(dati);
+    console.log(id);
+    bodyTabella.innerHTML = '';
 
-    dati.forEach(element => {
+    if (dati.length != 0) {
 
 
-        if (element.azienda.id != id) {
+
+        dati.forEach(element => {
 
 
-            let tabella = `<tr>
+            if (element.stato == '') {
+
+
+                if (element.azienda.id != id) {
+
+
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -54,12 +68,40 @@ function tratte(dati, id) {
                     </tr>`;
 
 
-            bodyTabella.innerHTML += tabella;
 
-        }
+                    tt = true;
+                    if (tt1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    tt1 = false;
 
-    });
+                    bodyTabella.innerHTML += tabella;
 
+                } else {
+                    if (tt) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        tt1 = true;
+
+                    }
+                }
+            } else {
+                if (tt) {
+
+                } else {
+
+                    bodyTabella.innerHTML = nessunaCorrispondenza;
+                    tt1 = true;
+
+                }
+            }
+        });
+
+    } else {
+        bodyTabella.innerHTML = nessunaCorrispondenza;
+    }
 
 }
 
@@ -143,7 +185,6 @@ veicoloLink.forEach(element => {
     })
 
 });
-
 
 
 
@@ -240,7 +281,7 @@ tipoVeicolo.forEach(element => {
 
             fetchVeicolo(element.value);
             console.log('hey');
-            
+
 
         } else if (tra2 == 0 && tra1 == 1 && tra3 == 1) {
 
@@ -313,11 +354,13 @@ function tratteFiltroSoloRegionePartenza(dati, id) {
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
+
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -331,14 +374,24 @@ function tratteFiltroSoloRegionePartenza(dati, id) {
 
 
 
-                tt = true;
-                if (tt1 == true) {
-                    bodyTabella.innerHTML = '';
+                    tt = true;
+                    if (tt1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    tt1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (tt) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        tt1 = true;
+
+                    }
                 }
-                tt1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (tt) {
 
@@ -349,7 +402,6 @@ function tratteFiltroSoloRegionePartenza(dati, id) {
 
                 }
             }
-
         });
 
     } else {
@@ -400,15 +452,16 @@ function tratteFiltroRegionePartenzaArrivo(dati, id) {
     if (dati.length != 0) {
 
 
-
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
+
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -422,14 +475,24 @@ function tratteFiltroRegionePartenzaArrivo(dati, id) {
 
 
 
-                tt = true;
-                if (tt1 == true) {
-                    bodyTabella.innerHTML = '';
+                    tt = true;
+                    if (tt1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    tt1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (tt) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        tt1 = true;
+
+                    }
                 }
-                tt1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (tt) {
 
@@ -440,7 +503,6 @@ function tratteFiltroRegionePartenzaArrivo(dati, id) {
 
                 }
             }
-
         });
 
     } else {
@@ -493,15 +555,16 @@ function tratteFiltroRegionePartenzaArrivoVeicolo(dati, id) {
     if (dati.length != 0) {
 
 
-
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
+
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -515,14 +578,24 @@ function tratteFiltroRegionePartenzaArrivoVeicolo(dati, id) {
 
 
 
-                tt = true;
-                if (tt1 == true) {
-                    bodyTabella.innerHTML = '';
+                    tt = true;
+                    if (tt1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    tt1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (tt) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        tt1 = true;
+
+                    }
                 }
-                tt1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (tt) {
 
@@ -533,7 +606,6 @@ function tratteFiltroRegionePartenzaArrivoVeicolo(dati, id) {
 
                 }
             }
-
         });
 
     } else {
@@ -592,11 +664,13 @@ function tratteFiltroRegionePartenzaVeicolo(dati, id) {
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
+
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -610,14 +684,24 @@ function tratteFiltroRegionePartenzaVeicolo(dati, id) {
 
 
 
-                tt = true;
-                if (tt1 == true) {
-                    bodyTabella.innerHTML = '';
+                    tt = true;
+                    if (tt1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    tt1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (tt) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        tt1 = true;
+
+                    }
                 }
-                tt1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (tt) {
 
@@ -628,7 +712,6 @@ function tratteFiltroRegionePartenzaVeicolo(dati, id) {
 
                 }
             }
-
         });
 
     } else {
@@ -683,11 +766,13 @@ function tratteFiltroRegioneArrivoVeicolo(dati, id) {
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
+
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -701,14 +786,24 @@ function tratteFiltroRegioneArrivoVeicolo(dati, id) {
 
 
 
-                tt = true;
-                if (tt1 == true) {
-                    bodyTabella.innerHTML = '';
+                    tt = true;
+                    if (tt1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    tt1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (tt) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        tt1 = true;
+
+                    }
                 }
-                tt1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (tt) {
 
@@ -719,7 +814,6 @@ function tratteFiltroRegioneArrivoVeicolo(dati, id) {
 
                 }
             }
-
         });
 
     } else {
@@ -776,11 +870,13 @@ function tratteFiltroRegioneArrivo(dati, id) {
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
+
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -794,14 +890,24 @@ function tratteFiltroRegioneArrivo(dati, id) {
 
 
 
-                tt = true;
-                if (tt1 == true) {
-                    bodyTabella.innerHTML = '';
+                    tt = true;
+                    if (tt1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    tt1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (tt) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        tt1 = true;
+
+                    }
                 }
-                tt1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (tt) {
 
@@ -812,7 +918,6 @@ function tratteFiltroRegioneArrivo(dati, id) {
 
                 }
             }
-
         });
 
     } else {
@@ -865,14 +970,17 @@ function tratteFiltroVeicolo(dati, id) {
     if (dati.length != 0) {
 
 
+
         dati.forEach(element => {
 
 
+            if (element.stato == '') {
 
-            if (element.azienda.id != id) {
+
+                if (element.azienda.id != id) {
 
 
-                let tabella = `<tr>
+                    let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -886,14 +994,24 @@ function tratteFiltroVeicolo(dati, id) {
 
 
 
-                tt = true;
-                if (tt1 == true) {
-                    bodyTabella.innerHTML = '';
+                    tt = true;
+                    if (tt1 == true) {
+                        bodyTabella.innerHTML = '';
+                    }
+                    tt1 = false;
+
+                    bodyTabella.innerHTML += tabella;
+
+                } else {
+                    if (tt) {
+
+                    } else {
+
+                        bodyTabella.innerHTML = nessunaCorrispondenza;
+                        tt1 = true;
+
+                    }
                 }
-                tt1 = false;
-
-                bodyTabella.innerHTML += tabella;
-
             } else {
                 if (tt) {
 
@@ -904,7 +1022,6 @@ function tratteFiltroVeicolo(dati, id) {
 
                 }
             }
-
         });
 
     } else {
