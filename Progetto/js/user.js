@@ -732,7 +732,7 @@ if (feed) {
 
 function visualizzaRichiesteCaricoUscita(carico) {
 
-
+    let controlloCarico = false;
     colonnaInfo.innerHTML = '';
     let visualizzaRichieste = '';
 
@@ -821,7 +821,7 @@ function visualizzaRichiesteCaricoUscita(carico) {
                             <hr>
                             <div class="row rowDati">
                                 <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Tipo Di Veicolo</h6>
+                                    <h6 class="mb-0" style="font-size: 18px;">Tipo Di Merce</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
                                 ${element.tipoDiVeicolo}
@@ -932,6 +932,7 @@ function visualizzaRichiesteCaricoUscita(carico) {
 
         } else {
 
+            controlloCarico = true;
             visualizzaRichieste = `
     <div class="card-body destra mb-4">
         <div class="row rowRichieste">
@@ -1012,7 +1013,7 @@ function visualizzaRichiesteCaricoUscita(carico) {
                             <hr>
                             <div class="row rowDati">
                                 <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Tipo Di Veicolo</h6>
+                                    <h6 class="mb-0" style="font-size: 18px;">Tipo Di Merce</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
                                 ${element.tipoDiVeicolo}
@@ -1100,7 +1101,6 @@ function visualizzaRichiesteCaricoUscita(carico) {
                                 </div>
                             </div>
                             <hr>
-                            <hr>
                             <div class="row rowDati">
                                 <div class="col-sm-5">
                                     <h6 class="mb-0" style="font-size: 18px;">Stato</h6>
@@ -1110,13 +1110,12 @@ function visualizzaRichiesteCaricoUscita(carico) {
                                 </div>
                             </div>
                             <hr>
-                            <hr>
                             <div class="row rowDati">
                                 <div class="col-sm-5">
                                     <h6 class="mb-0" style="font-size: 18px;">Azienda Interessata</h6>
                                 </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${ottieniNomeAzienda(element.id_azienda_richiedente)}&nbsp;
+                                <div class="col-sm-7 text-secondary nomeAz" style="font-size: 18px;">
+                                &nbsp;
                                 </div>
                             </div>
                             <hr>
@@ -1130,7 +1129,7 @@ function visualizzaRichiesteCaricoUscita(carico) {
                         <div class="row">
                             <div class="col-lg-12 mt-5 d-flex justify-content-end">
                                 <button class="btn btn-danger mx-2" onclick="deleteCarico(${element.id})">Rifiuta</button>
-                                <button class="btn btn-primary mx-2" onclick="putCarico(${element.id})">Accetta</button>
+                                <button class="btn btn-success mx-2" onclick="putCarico(${element.id})">Accetta</button>
                             </div>
                         </div>
                 
@@ -1142,7 +1141,14 @@ function visualizzaRichiesteCaricoUscita(carico) {
     </div>`;
 
         }
+
+
         colonnaInfo.innerHTML += visualizzaRichieste;
+
+        if (controlloCarico) {
+            console.log(element.id_azienda_richiedente);
+            ottieniNomeAzienda(element.id_azienda_richiedente);
+        }
 
     });
 
@@ -1207,14 +1213,21 @@ function putCarico(id) {
 
 
 function ottieniNomeAzienda(id) {
-    
-    fetch(`http://127.0.0.1:8080/api/azienda/aziendaPerID/${id}}`)
-    .then((res) => res.json())
-    .then((data) => {
 
-        return data.nomeAzienda;
+    console.log(id);
+    let nomeAz = document.querySelector('.nomeAz');
 
-    });
+    fetch(`http://127.0.0.1:8080/api/azienda/aziendaPerID/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(nomeAz);
+
+            console.log(data.nomeAzienda);
+            let nomeAzienda = data.nomeAzienda;
+
+            nomeAz.innerHTML = nomeAzienda;
+
+        });
 
 
 }
