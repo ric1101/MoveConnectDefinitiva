@@ -205,29 +205,41 @@ function caricaLogo() {
     <div class="row">
     <div class="col-lg-12">
                         <div class="card">
+                        <div class="row">
+                                            <h2 class="p-3">Carica il logo</h2>
+                                        </div>
                             <div class="row d-flex justify-content-center">
-                                <div class="col-sm-12 col-lg-4">
+                                <div class="col-sm-12 col-lg-12">
                                     <div class="">
                                         <div class="mb-3">
-                                            <h2 class="p-3">Carica il logo</h2>
+                                        
                                             <div class="profile-picture">
                                                   <h1 class="upload-icon">
                                                     <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
                                                   </h1>
+                                                  <form id="uploadLogoForm">
                                                   <input
                                                     class="file-uploader"
                                                     type="file"
                                                     onchange="upload()"
                                                     accept="image/*"/>
+                                                    </form>
                                             </div>
 
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row d-flex justify-content-end">
+                            <div class="row d-flex justify-content-end pt-3">
+                            <div class="col-md-7">
+                            <p class="text-black">Non deve superare 1MB di dimensione.</p>
+                            </div>
+                            <div class="col-md-3">
+                            <p class="result"> </p>
+                            </div>
+                            
                             <div class="col-md-2">
-                            <button class="btn btn-success bottonozzo inviaIlLogo mx-2 ">Carica</button>
+                            <button class="btn btn-success bottonozzo inviaIlLogo mx-2">Carica</button>
                             </div>
                             </div>
                         </div>
@@ -262,21 +274,44 @@ function fetchInviaImmagine() {
 
 
 
-function inviaImmagine(id) {
-    let fileUploader = document.querySelector('.file-uploader');
+async function inviaImmagine(id) {
 
-    let img = fileUploader.value;
-    console.log(img);
+    let fileUploader = document.querySelector('.file-uploader').files[0];
+    let result = document.querySelector('.result');
 
-    fetch(`http://127.0.0.1:8080/api/azienda/uploadlogo/${id}`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "multipart/form-data",
+    const formData = new FormData();
+    formData.append("id", id);
+    formData.append("logo", fileUploader);
+    console.log(formData);
 
-        },
-        body: JSON.stringify(img),
+    result.classList.remove('text-danger');
+    result.classList.remove('text-success');
+    result.classList.add('text-primary');
+    result.innerHTML = 'stiamo caricando il tuo logo!';
 
-    })
+    try {
+        const response = await fetch(`http://127.0.0.1:8080/api/azienda/uploadlogo/${id}`, {
+            method: "POST",
+            body: formData,
+
+        });
+        if (response.ok) {
+
+            result.classList.remove('text-primary');
+            result.classList.remove('text-danger');
+            result.classList.add('text-success');
+            result.innerHTML = "Logo caricato con successo!";
+        } else {
+            result.classList.remove('text-primary');
+            result.classList.remove('text-success');
+            result.classList.add('text-danger');
+            result.innerHTML = "Logo non caricato!";
+
+        }
+    } catch (error) {
+        console.error("Errore:", error);
+        alert("Errore durante il caricamento.");
+    }
 
 }
 
