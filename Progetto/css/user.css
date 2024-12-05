@@ -21,6 +21,10 @@
     line-height: 61px;
 }
 
+.rowData {
+    align-items: center;
+    line-height: 31px;
+}
 
 .card {
     position: relative;
@@ -117,4 +121,24 @@ ul.list-style-none li {
 
 .cb1 {
     border: solid 2px black;
+}
+
+
+.feed:hover {
+    color: #FAAD06;
+}
+
+
+.dati:hover {
+    color: #FAAD06;
+}
+
+
+.logo:hover {
+    color: #FAAD06;
+}
+
+
+.messaggi:hover {
+    color: #FAAD06;
 }

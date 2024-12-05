@@ -14,6 +14,14 @@ let richiestePersonaleSpecUscita = document.querySelector('.richiestePersonaleSp
 let richiesteDepositoMagazzinoUscita = document.querySelector('.richiesteDepositoMagazzinoUscita');
 let richiesteTrattaUscita = document.querySelector('.richiesteTrattaUscita');
 
+let richiesteOccSuoloPubInteresse = document.querySelector('.richiesteOccSuoloPubInteresse');
+let richiesteTrasportoInteresse = document.querySelector('.richiesteTrasportoInteresse');
+let richiesteScalaElevatoreInteresse = document.querySelector('.richiesteScalaElevatoreInteresse');
+let richiesteConsegnaImballiInteresse = document.querySelector('.richiesteConsegnaImballiInteresse');
+let richiestePersonaleSpecInteresse = document.querySelector('.richiestePersonaleSpecInteresse');
+let richiesteDepositoMagazzinoInteresse = document.querySelector('.richiesteDepositoMagazzinoInteresse');
+let richiesteTrattaInteresse = document.querySelector('.richiesteTrattaInteresse');
+
 let richiesteOccSuoloPubEntrata = document.querySelector('.richiesteOccSuoloPubEntrata');
 let richiesteTrasportoEntrata = document.querySelector('.richiesteTrasportoEntrata');
 let richiesteScalaElevatoreEntrata = document.querySelector('.richiesteScalaElevatoreEntrata');
@@ -46,7 +54,6 @@ async function userView() {
             iMieiDati(data);
 
             console.log(data);
-
 
 
         });
@@ -83,7 +90,12 @@ function fetchImg(id) {
 function iMieiDati(dati) {
 
     let visualizzaDati = `<div class="card-body destra">
-                            <div class="row rowDati">
+                            <div class="row rowDati d-flex justify-content-center">
+                            <div class="row p-3">
+                            <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
+                                <h4 style="font-size: 2rem;"><i class="fa-solid fa-address-card" ></i> I miei dati</h4>
+                            </div>
+                            </div>
                                 <div class="col-sm-5">
                                     <h6 class="mb-0" style="font-size: 18px;">Nome Azienda</h6>
                                 </div>
@@ -767,7 +779,6 @@ if (feed) {
 
 function visualizzaRichiesteCaricoUscita(carico) {
 
-    let controlloCarico = false;
     colonnaInfo.innerHTML = '';
     let visualizzaRichieste = '';
 
@@ -965,225 +976,226 @@ function visualizzaRichiesteCaricoUscita(carico) {
 
     </div>`;
 
-        } else {
-
-            controlloCarico = true;
-            visualizzaRichieste = `
-    <div class="card-body destra mb-4">
-        <div class="row rowRichieste">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-12 col-xl-12">
-
-                        <div class="row p-3">
-                            <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
-                                <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Carico numero: #${element.id}</h4>
-                            </div>
-                            
-
-
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Regione Partenza</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.regionePartenza}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Provincia Partenza</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.provinciaPartenza}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Comune Partenza</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.comunePartenza}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo Partenza</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.indirizzoPartenza}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo Due Partenza</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.indirizzoDuePartenza}&nbsp;
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Cap Partenza</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.capPartenza}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">M3</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.mq}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Tipo Di Merce</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.tipoDiVeicolo}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Regione Arrivo</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.regioneArrivo}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Provincia Arrivo</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.provinciaArrivo}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Comune Arrivo</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.comuneArrivo}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo Arrivo</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.indirizzoArrivo}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">IndirizzoDueArrivo</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.indirizzoDueArrivo}&nbsp;
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Cap Arrivo</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.capArrivo}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Carico</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.carico}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Scarico</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.scarico}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Note</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.note}&nbsp;
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Stato</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.stato}&nbsp;
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row rowDati">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Azienda Interessata</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary nomeAz" style="font-size: 18px;">
-                                &nbsp;
-                                </div>
-                            </div>
-                            <hr>
-                            
-                                
-                          </div>
-
-                        </div>
-
-                    </div>
-                        <div class="row">
-                            <div class="col-lg-12 mt-5 d-flex justify-content-end">
-                                <button class="btn btn-danger mx-2" onclick="deleteCarico(${element.id})">Rifiuta</button>
-                                <button class="btn btn-success mx-2" onclick="putCarico(${element.id})">Accetta</button>
-                            </div>
-                        </div>
-                
-
-            </div>
-
-        </div>
-
-    </div>`;
+            colonnaInfo.innerHTML += visualizzaRichieste;
 
         }
 
 
-        colonnaInfo.innerHTML += visualizzaRichieste;
+        //         visualizzaRichieste = `
+        // <div class="card-body destra mb-4">
+        //     <div class="row rowRichieste">
+        //         <div class="container">
+        //             <div class="row">
 
-        if (controlloCarico) {
-            console.log(element.id_azienda_richiedente);
-            ottieniNomeAzienda(element.id_azienda_richiedente);
-        }
+        //                 <div class="col-lg-12 col-xl-12">
+
+        //                     <div class="row p-3">
+        //                         <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
+        //                             <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Carico numero: #${element.id}</h4>
+        //                         </div>
+
+
+
+        //                         <div class="row rowDati">
+        //                             <div class="col-sm-5">
+        //                                 <h6 class="mb-0" style="font-size: 18px;">Regione Partenza</h6>
+        //                             </div>
+        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+        //                             ${element.regionePartenza}
+        //                             </div>
+        //                         </div>
+        //                         <hr>
+        //                         <div class="row rowDati">
+        //                             <div class="col-sm-5">
+        //                                 <h6 class="mb-0" style="font-size: 18px;">Provincia Partenza</h6>
+        //                             </div>
+        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+        //                             ${element.provinciaPartenza}
+        //                             </div>
+        //                         </div>
+        //                         <hr>
+        //                         <div class="row rowDati">
+        //                             <div class="col-sm-5">
+        //                                 <h6 class="mb-0" style="font-size: 18px;">Comune Partenza</h6>
+        //                             </div>
+        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+        //                             ${element.comunePartenza}
+        //                             </div>
+        //                         </div>
+        //                         <hr>
+        //                         <div class="row rowDati">
+        //                             <div class="col-sm-5">
+        //                                 <h6 class="mb-0" style="font-size: 18px;">Indirizzo Partenza</h6>
+        //                             </div>
+        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+        //                             ${element.indirizzoPartenza}
+        //                             </div>
+        //                         </div>
+        //                         <hr>
+        //                         <div class="row rowDati">
+        //                             <div class="col-sm-5">
+        //                                 <h6 class="mb-0" style="font-size: 18px;">Indirizzo Due Partenza</h6>
+        //                             </div>
+        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+        //                             ${element.indirizzoDuePartenza}&nbsp;
+        //                             </div>
+        //                         </div>
+        //                         <hr>
+        //                         <div class="row rowDati">
+        //                             <div class="col-sm-5">
+        //                                 <h6 class="mb-0" style="font-size: 18px;">Cap Partenza</h6>
+        //                             </div>
+        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+        //                             ${element.capPartenza}
+        //                             </div>
+        //                         </div>
+        //                         <hr>
+        //                         <div class="row rowDati">
+        //                             <div class="col-sm-5">
+        //                                 <h6 class="mb-0" style="font-size: 18px;">M3</h6>
+        //                             </div>
+        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+        //                             ${element.mq}
+        //                             </div>
+        //                         </div>
+        //                         <hr>
+        //                         <div class="row rowDati">
+        //                             <div class="col-sm-5">
+        //                                 <h6 class="mb-0" style="font-size: 18px;">Tipo Di Merce</h6>
+        //                             </div>
+        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+        //                             ${element.tipoDiVeicolo}
+        //                             </div>
+        //                         </div>
+        //                         <hr>
+        //                         <div class="row rowDati">
+        //                             <div class="col-sm-5">
+        //                                 <h6 class="mb-0" style="font-size: 18px;">Regione Arrivo</h6>
+        //                             </div>
+        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+        //                             ${element.regioneArrivo}
+        //                             </div>
+        //                         </div>
+        //                         <hr>
+        //                         <div class="row rowDati">
+        //                             <div class="col-sm-5">
+        //                                 <h6 class="mb-0" style="font-size: 18px;">Provincia Arrivo</h6>
+        //                             </div>
+        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+        //                             ${element.provinciaArrivo}
+        //                             </div>
+        //                         </div>
+        //                         <hr>
+        //                         <div class="row rowDati">
+        //                             <div class="col-sm-5">
+        //                                 <h6 class="mb-0" style="font-size: 18px;">Comune Arrivo</h6>
+        //                             </div>
+        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+        //                             ${element.comuneArrivo}
+        //                             </div>
+        //                         </div>
+        //                         <hr>
+        //                         <div class="row rowDati">
+        //                             <div class="col-sm-5">
+        //                                 <h6 class="mb-0" style="font-size: 18px;">Indirizzo Arrivo</h6>
+        //                             </div>
+        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+        //                             ${element.indirizzoArrivo}
+        //                             </div>
+        //                         </div>
+        //                         <hr>
+        //                         <div class="row rowDati">
+        //                             <div class="col-sm-5">
+        //                                 <h6 class="mb-0" style="font-size: 18px;">IndirizzoDueArrivo</h6>
+        //                             </div>
+        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+        //                             ${element.indirizzoDueArrivo}&nbsp;
+        //                             </div>
+        //                         </div>
+        //                         <hr>
+        //                         <div class="row rowDati">
+        //                             <div class="col-sm-5">
+        //                                 <h6 class="mb-0" style="font-size: 18px;">Cap Arrivo</h6>
+        //                             </div>
+        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+        //                             ${element.capArrivo}
+        //                             </div>
+        //                         </div>
+        //                         <hr>
+        //                         <div class="row rowDati">
+        //                             <div class="col-sm-5">
+        //                                 <h6 class="mb-0" style="font-size: 18px;">Carico</h6>
+        //                             </div>
+        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+        //                             ${element.carico}
+        //                             </div>
+        //                         </div>
+        //                         <hr>
+        //                         <div class="row rowDati">
+        //                             <div class="col-sm-5">
+        //                                 <h6 class="mb-0" style="font-size: 18px;">Scarico</h6>
+        //                             </div>
+        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+        //                             ${element.scarico}
+        //                             </div>
+        //                         </div>
+        //                         <hr>
+        //                         <div class="row rowDati">
+        //                             <div class="col-sm-5">
+        //                                 <h6 class="mb-0" style="font-size: 18px;">Note</h6>
+        //                             </div>
+        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+        //                             ${element.note}&nbsp;
+        //                             </div>
+        //                         </div>
+        //                         <hr>
+        //                         <div class="row rowDati">
+        //                             <div class="col-sm-5">
+        //                                 <h6 class="mb-0" style="font-size: 18px;">Stato</h6>
+        //                             </div>
+        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+        //                             ${element.stato}&nbsp;
+        //                             </div>
+        //                         </div>
+        //                         <hr>
+        //                         <div class="row rowDati">
+        //                             <div class="col-sm-5">
+        //                                 <h6 class="mb-0" style="font-size: 18px;">Azienda Interessata</h6>
+        //                             </div>
+        //                             <div class="col-sm-7 text-secondary nomeAz" style="font-size: 18px;">
+        //                             &nbsp;
+        //                             </div>
+        //                         </div>
+        //                         <hr>
+
+
+        //                       </div>
+
+        //                     </div>
+
+        //                 </div>
+        //                     <div class="row">
+        //                         <div class="col-lg-12 mt-5 d-flex justify-content-end">
+        //                             <button class="btn btn-danger mx-2" onclick="deleteCarico(${element.id})">Rifiuta</button>
+        //                             <button class="btn btn-success mx-2" onclick="putCarico(${element.id})">Accetta</button>
+        //                         </div>
+        //                     </div>
+
+
+        //         </div>
+
+        //     </div>
+
+        // </div>`;
+
+        // }
+
+
+
+        // if (controlloCarico) {
+        //     console.log(element.id_azienda_richiedente);
+        //     ottieniNomeAzienda(element.id_azienda_richiedente);
+
 
     });
 
@@ -1247,25 +1259,32 @@ function putCarico(id) {
 
 
 
-function ottieniNomeAzienda(id) {
+// function ottieniNomeAzienda(id) {
 
-    console.log(id);
-    let nomeAz = document.querySelector('.nomeAz');
+//     console.log(id);
+//     let nomeAz = document.querySelector('.nomeAz');
 
-    fetch(`http://127.0.0.1:8080/api/azienda/aziendaPerID/${id}`)
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(nomeAz);
+//     fetch(`http://127.0.0.1:8080/api/azienda/aziendaPerID/${id}`)
+//         .then((res) => res.json())
+//         .then((data) => {
+//             console.log(nomeAz);
 
-            console.log(data.nomeAzienda);
-            let nomeAzienda = data.nomeAzienda;
+//             console.log(data.nomeAzienda);
+//             let nomeAzienda = data.nomeAzienda;
 
-            nomeAz.innerHTML = nomeAzienda;
+//             nomeAz.innerHTML = nomeAzienda;
 
-        });
+//         });
 
 
-}
+// }
+
+
+
+
+
+
+
 
 
 
@@ -2499,3 +2518,104 @@ if (messaggi) {
 }
 
 
+
+
+
+
+
+
+
+
+function visualizzaRichiesteCaricoInteresse(carico) {
+
+    colonnaInfo.innerHTML = '';
+    let visualizzaRichieste = '';
+
+    carico.richiesteTrasporti.forEach(element => {
+
+
+        if (element.stato == 'INTERESSATA') {
+
+            visualizzaRichieste = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">                        
+
+                            <div class="row rowData">
+                            <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+                                <th class="text-center">Azienda Richiedente</th>
+                                <th class="text-center">Richiesta numero #ID</th>
+                                <th class="text-center">Gestisci</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+                                <tr>
+                                    <td class="text-center nomeAz">&nbsp;</td>
+                                    <td class="text-center">${element.id}</td>
+                                    <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" data-function=""><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" data-function=""><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkTrasporto px-2" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                                </tr>
+
+                        </tbody>
+                    </table>
+                </div>`;
+
+                colonnaInfo.innerHTML += visualizzaRichieste;
+                ottieniNomeAzienda(element.id_azienda_richiedente);
+
+        }
+
+    });
+
+}
+
+
+
+async function fetchCaricoInteresse() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiesteCaricoInteresse(data);
+
+            console.log(data);
+
+
+        });
+
+}
+
+if (richiesteTrasportoInteresse) {
+
+    richiesteTrasportoInteresse.addEventListener('click', fetchCaricoInteresse);
+}
+
+function ottieniNomeAzienda(id) {
+
+    console.log(id);
+    let nomeAz = document.querySelector('.nomeAz');
+    console.log(nomeAz);
+
+    fetch(`http://127.0.0.1:8080/api/azienda/aziendaPerID/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            console.log(data.nomeAzienda);
+            let nomeAzie = data.nomeAzienda;
+
+            nomeAz.innerHTML = nomeAzie;
+
+        });
+
+
+}
