@@ -61,6 +61,10 @@ async function userView() {
 }
 
 
+/* -------------------------------------------------------------------------- */
+/*                            visualizzazione logo                            */
+/* -------------------------------------------------------------------------- */
+
 function fetchImg(id) {
 
     let imgAzienda = document.querySelector('.imgAzienda');
@@ -84,6 +88,11 @@ function fetchImg(id) {
             );
         });
 }
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 i miei dati                                */
+/* -------------------------------------------------------------------------- */
 
 
 
@@ -201,7 +210,291 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+/* -------------------------------------------------------------------------- */
+/*                                  feedback                                  */
+/* -------------------------------------------------------------------------- */
 
+
+
+function feedback() {
+
+    let destra = document.querySelector('.destra');
+
+    console.log('ciao');
+
+
+    let feedbackVisualizza = `<div class="card-body destra">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-4">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Recensioni</h4>
+                                        <h5 class="card-subtitle">Riepilogo</h5>
+                                        <h2 class="font-medium mt-5 mb-0">25426</h2>
+                                        <span class="text-muted">Questo mese ci sono 346 nuove
+                                            recensioni </span>
+                                        <div class="image-box mt-4 mb-4">
+                                            <a href="#" class="mr-2" data-toggle="tooltip"
+                                                data-placement="top" title=""
+                                                data-original-title="Simmons"><img
+                                                    src="../Progetto/imgs/4.png" class="rounded-circle"
+                                                    width="45" alt="user"></a>
+                                            <a href="#" class="mr-2" data-toggle="tooltip"
+                                                data-placement="top" title=""
+                                                data-original-title="Fitz"><img
+                                                    src="../Progetto/imgs/3.png" class="rounded-circle"
+                                                    width="45" alt="user"></a>
+                                            <a href="#" class="mr-2" data-toggle="tooltip"
+                                                data-placement="top" title=""
+                                                data-original-title="Phil"><img
+                                                    src="../Progetto/imgs/2.png" class="rounded-circle"
+                                                    width="45" alt="user"></a>
+                                            <a href="#" class="mr-2" data-toggle="tooltip"
+                                                data-placement="top" title=""
+                                                data-original-title="Melinda"><img
+                                                    src="../Progetto/imgs/1.png" class="rounded-circle"
+                                                    width="45" alt="user"></a>
+                                        </div>
+
+                                    </div>
+                                    <div class="media">
+                                        <div class="row" style="display: flex; align-items: center;">
+                                            <h6>Media</h6>
+                                            <h1 style="font-size: 50px;">4.5<i
+                                                    class="fa-solid fa-star display-5"
+                                                    style="color: #FFD43B;"></i></h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-lg-8 border-left">
+                                    <div class="card-body">
+                                        <ul class="list-style-none">
+                                            <li>
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fa-solid fa-star display-5 "
+                                                        style="color: #FFD43B;"></i><i
+                                                        class="fa-solid fa-star display-5 "
+                                                        style="color: #FFD43B;"></i><i
+                                                        class="fa-solid fa-star display-5 "
+                                                        style="color: #FFD43B;"></i><i
+                                                        class="fa-solid fa-star display-5 "
+                                                        style="color: #FFD43B;"></i><i
+                                                        class="fa-solid fa-star display-5 "
+                                                        style="color: #FFD43B;"></i>
+                                                    <div class="ml-2 p-3">
+                                                        <h5 class="mb-0">Recensioni 5 stelle</h5>
+                                                        <span class="text-muted">25547 Recensioni</span>
+                                                    </div>
+                                                </div>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-success"
+                                                        role="progressbar" style="width: 40%"
+                                                        aria-valuenow="47" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                            </li>
+                                            <li class="mt-2">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fa-solid fa-star display-5"
+                                                        style="color: #FFD43B;"></i><i
+                                                        class="fa-solid fa-star display-5 "
+                                                        style="color: #FFD43B;"></i><i
+                                                        class="fa-solid fa-star display-5"
+                                                        style="color: #FFD43B;"></i><i
+                                                        class="fa-solid fa-star display-5 "
+                                                        style="color: #FFD43B;"></i>
+                                                    <div class="ml-2 p-3">
+                                                        <h5 class="mb-0">Recensioni 4 stelle</h5>
+                                                        <span class="text-muted">5547 Reviews</span>
+                                                    </div>
+                                                </div>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-orange"
+                                                        role="progressbar" style="width: 30%"
+                                                        aria-valuenow="33" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                            </li>
+                                            <li class="mt-2 mb-2">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fa-solid fa-star display-5"
+                                                        style="color: #FFD43B;"></i><i
+                                                        class="fa-solid fa-star display-5 "
+                                                        style="color: #FFD43B;"></i><i
+                                                        class="fa-solid fa-star display-5"
+                                                        style="color: #FFD43B;"></i>
+                                                    <div class="ml-2 p-3">
+                                                        <h5 class="mb-0">Recensioni 3 stelle</h5>
+                                                        <span class="text-muted">547 Reviews</span>
+                                                    </div>
+                                                </div>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-info" role="progressbar"
+                                                        style="width: 10%" aria-valuenow="20"
+                                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </li>
+                                            <li class="mt-2">
+                                                <div class="d-flex align-items-center">
+
+                                                    <i class="fa-solid fa-star display-5"
+                                                        style="color: #FFD43B;"></i><i
+                                                        class="fa-solid fa-star display-5 "
+                                                        style="color: #FFD43B;"></i>
+                                                    <div class="ml-2 p-3">
+                                                        <h5 class="mb-0">Recensioni 2 stelle</h5>
+                                                        <span class="text-muted">25547 Recensioni</span>
+                                                    </div>
+                                                </div>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-success"
+                                                        role="progressbar" style="width: 5%"
+                                                        aria-valuenow="47" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                            </li>
+                                            <li class="mt-2">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fa-solid fa-star display-5 "
+                                                        style="color: #FFD43B;"></i>
+                                                    <div class="ml-2 p-3">
+                                                        <h5 class="mb-0">Recensioni 1 stella</h5>
+                                                        <span class="text-muted">25547 Recensioni</span>
+                                                    </div>
+                                                </div>
+                                                <div class="progress mb-4">
+                                                    <div class="progress-bar bg-success"
+                                                        role="progressbar" style="width: 5%"
+                                                        aria-valuenow="47" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        `;
+
+    colonnaInfo.innerHTML = feedbackVisualizza;
+
+}
+
+
+
+if (feed) {
+
+    feed.addEventListener('click', feedback);
+}
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                               i miei messaggi                              */
+/* -------------------------------------------------------------------------- */
+
+
+
+function iMieiMessaggi() {
+
+    let visualizzaMessaggi = `<div class="card-body destra1">
+    <section style="background-color: #1B2023">
+    <div class="container py-5">
+  
+      <div class="row">
+                            
+        <div class="col-md-12 col-lg-12 col-xl-12">
+  
+          <ul class="list-unstyled">
+            <li class="d-flex justify-content-between mb-4">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp" alt="avatar"
+                class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60">
+              <div class="card">
+                <div class="card-header d-flex justify-content-between p-3">
+                  <p class="fw-bold mb-0">Brad Pitt</p>
+                  <p class="text-muted small mb-0"><i class="far fa-clock"></i> 12 mins ago</p>
+                </div>
+                <div class="card-body">
+                  <p class="mb-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="d-flex justify-content-between mb-4">
+              <div class="card w-100">
+                <div class="card-header d-flex justify-content-between p-3">
+                  <p class="fw-bold mb-0">Lara Croft</p>
+                  <p class="text-muted small mb-0"><i class="far fa-clock"></i> 13 mins ago</p>
+                </div>
+                <div class="card-body">
+                  <p class="mb-0">
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                    laudantium.
+                  </p>
+                </div>
+              </div>
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp" alt="avatar"
+                class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong" width="60">
+            </li>
+            <li class="d-flex justify-content-between mb-4">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp" alt="avatar"
+                class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60">
+              <div class="card">
+                <div class="card-header d-flex justify-content-between p-3">
+                  <p class="fw-bold mb-0">Brad Pitt</p>
+                  <p class="text-muted small mb-0"><i class="far fa-clock"></i> 10 mins ago</p>
+                </div>
+                <div class="card-body">
+                  <p class="mb-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="mb-3">
+              <div data-mdb-input-init class="form-outline">
+                <textarea class="form-control bg-body-tertiary" id="textAreaExample2" rows="4"></textarea>
+              </div>
+            </li>
+            <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-info btn-rounded float-end">Send</button>
+          </ul>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  </section>
+  </div>`;
+
+    colonnaInfo.innerHTML = visualizzaMessaggi;
+
+}
+
+if (messaggi) {
+
+    messaggi.addEventListener('click', iMieiMessaggi);
+}
+
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                              caricamento logo                              */
+/* -------------------------------------------------------------------------- */
 
 
 
@@ -392,186 +685,12 @@ function upload() {
 
 
 
+/* ------------------------- Richieste tutte uscita ------------------------- */
 
 
-function feedback() {
-
-    let destra = document.querySelector('.destra');
-
-    console.log('ciao');
-
-
-    let feedbackVisualizza = `<div class="card-body destra">
-    <div class="container">
-    <div class="row">
-    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="row">
-                                <div class="col-sm-12 col-lg-4">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Recensioni</h4>
-                                        <h5 class="card-subtitle">Riepilogo</h5>
-                                        <h2 class="font-medium mt-5 mb-0">25426</h2>
-                                        <span class="text-muted">Questo mese ci sono 346 nuove
-                                            recensioni </span>
-                                        <div class="image-box mt-4 mb-4">
-                                            <a href="#" class="mr-2" data-toggle="tooltip"
-                                                data-placement="top" title=""
-                                                data-original-title="Simmons"><img
-                                                    src="../Progetto/imgs/4.png" class="rounded-circle"
-                                                    width="45" alt="user"></a>
-                                            <a href="#" class="mr-2" data-toggle="tooltip"
-                                                data-placement="top" title=""
-                                                data-original-title="Fitz"><img
-                                                    src="../Progetto/imgs/3.png" class="rounded-circle"
-                                                    width="45" alt="user"></a>
-                                            <a href="#" class="mr-2" data-toggle="tooltip"
-                                                data-placement="top" title=""
-                                                data-original-title="Phil"><img
-                                                    src="../Progetto/imgs/2.png" class="rounded-circle"
-                                                    width="45" alt="user"></a>
-                                            <a href="#" class="mr-2" data-toggle="tooltip"
-                                                data-placement="top" title=""
-                                                data-original-title="Melinda"><img
-                                                    src="../Progetto/imgs/1.png" class="rounded-circle"
-                                                    width="45" alt="user"></a>
-                                        </div>
-
-                                    </div>
-                                    <div class="media">
-                                        <div class="row" style="display: flex; align-items: center;">
-                                            <h6>Media</h6>
-                                            <h1 style="font-size: 50px;">4.5<i
-                                                    class="fa-solid fa-star display-5"
-                                                    style="color: #FFD43B;"></i></h1>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-lg-8 border-left">
-                                    <div class="card-body">
-                                        <ul class="list-style-none">
-                                            <li>
-                                                <div class="d-flex align-items-center">
-                                                    <i class="fa-solid fa-star display-5 "
-                                                        style="color: #FFD43B;"></i><i
-                                                        class="fa-solid fa-star display-5 "
-                                                        style="color: #FFD43B;"></i><i
-                                                        class="fa-solid fa-star display-5 "
-                                                        style="color: #FFD43B;"></i><i
-                                                        class="fa-solid fa-star display-5 "
-                                                        style="color: #FFD43B;"></i><i
-                                                        class="fa-solid fa-star display-5 "
-                                                        style="color: #FFD43B;"></i>
-                                                    <div class="ml-2 p-3">
-                                                        <h5 class="mb-0">Recensioni 5 stelle</h5>
-                                                        <span class="text-muted">25547 Recensioni</span>
-                                                    </div>
-                                                </div>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-success"
-                                                        role="progressbar" style="width: 40%"
-                                                        aria-valuenow="47" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </li>
-                                            <li class="mt-2">
-                                                <div class="d-flex align-items-center">
-                                                    <i class="fa-solid fa-star display-5"
-                                                        style="color: #FFD43B;"></i><i
-                                                        class="fa-solid fa-star display-5 "
-                                                        style="color: #FFD43B;"></i><i
-                                                        class="fa-solid fa-star display-5"
-                                                        style="color: #FFD43B;"></i><i
-                                                        class="fa-solid fa-star display-5 "
-                                                        style="color: #FFD43B;"></i>
-                                                    <div class="ml-2 p-3">
-                                                        <h5 class="mb-0">Recensioni 4 stelle</h5>
-                                                        <span class="text-muted">5547 Reviews</span>
-                                                    </div>
-                                                </div>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-orange"
-                                                        role="progressbar" style="width: 30%"
-                                                        aria-valuenow="33" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </li>
-                                            <li class="mt-2 mb-2">
-                                                <div class="d-flex align-items-center">
-                                                    <i class="fa-solid fa-star display-5"
-                                                        style="color: #FFD43B;"></i><i
-                                                        class="fa-solid fa-star display-5 "
-                                                        style="color: #FFD43B;"></i><i
-                                                        class="fa-solid fa-star display-5"
-                                                        style="color: #FFD43B;"></i>
-                                                    <div class="ml-2 p-3">
-                                                        <h5 class="mb-0">Recensioni 3 stelle</h5>
-                                                        <span class="text-muted">547 Reviews</span>
-                                                    </div>
-                                                </div>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-info" role="progressbar"
-                                                        style="width: 10%" aria-valuenow="20"
-                                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </li>
-                                            <li class="mt-2">
-                                                <div class="d-flex align-items-center">
-
-                                                    <i class="fa-solid fa-star display-5"
-                                                        style="color: #FFD43B;"></i><i
-                                                        class="fa-solid fa-star display-5 "
-                                                        style="color: #FFD43B;"></i>
-                                                    <div class="ml-2 p-3">
-                                                        <h5 class="mb-0">Recensioni 2 stelle</h5>
-                                                        <span class="text-muted">25547 Recensioni</span>
-                                                    </div>
-                                                </div>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-success"
-                                                        role="progressbar" style="width: 5%"
-                                                        aria-valuenow="47" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </li>
-                                            <li class="mt-2">
-                                                <div class="d-flex align-items-center">
-                                                    <i class="fa-solid fa-star display-5 "
-                                                        style="color: #FFD43B;"></i>
-                                                    <div class="ml-2 p-3">
-                                                        <h5 class="mb-0">Recensioni 1 stella</h5>
-                                                        <span class="text-muted">25547 Recensioni</span>
-                                                    </div>
-                                                </div>
-                                                <div class="progress mb-4">
-                                                    <div class="progress-bar bg-success"
-                                                        role="progressbar" style="width: 5%"
-                                                        aria-valuenow="47" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        `;
-
-    colonnaInfo.innerHTML = feedbackVisualizza;
-
-}
-
-
-
-if (feed) {
-
-    feed.addEventListener('click', feedback);
-}
+/* -------------------------------------------------------------------------- */
+/*                            suolo pubblico uscita                           */
+/* -------------------------------------------------------------------------- */
 
 
 // function visualizzaRichiesteOccSuoloPubUscita(suolo) {
@@ -773,8 +892,9 @@ if (feed) {
 // }
 
 
-
-
+/* -------------------------------------------------------------------------- */
+/*                                carico uscita                               */
+/* -------------------------------------------------------------------------- */
 
 
 function visualizzaRichiesteCaricoUscita(carico) {
@@ -981,222 +1101,6 @@ function visualizzaRichiesteCaricoUscita(carico) {
         }
 
 
-        //         visualizzaRichieste = `
-        // <div class="card-body destra mb-4">
-        //     <div class="row rowRichieste">
-        //         <div class="container">
-        //             <div class="row">
-
-        //                 <div class="col-lg-12 col-xl-12">
-
-        //                     <div class="row p-3">
-        //                         <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
-        //                             <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Carico numero: #${element.id}</h4>
-        //                         </div>
-
-
-
-        //                         <div class="row rowDati">
-        //                             <div class="col-sm-5">
-        //                                 <h6 class="mb-0" style="font-size: 18px;">Regione Partenza</h6>
-        //                             </div>
-        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-        //                             ${element.regionePartenza}
-        //                             </div>
-        //                         </div>
-        //                         <hr>
-        //                         <div class="row rowDati">
-        //                             <div class="col-sm-5">
-        //                                 <h6 class="mb-0" style="font-size: 18px;">Provincia Partenza</h6>
-        //                             </div>
-        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-        //                             ${element.provinciaPartenza}
-        //                             </div>
-        //                         </div>
-        //                         <hr>
-        //                         <div class="row rowDati">
-        //                             <div class="col-sm-5">
-        //                                 <h6 class="mb-0" style="font-size: 18px;">Comune Partenza</h6>
-        //                             </div>
-        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-        //                             ${element.comunePartenza}
-        //                             </div>
-        //                         </div>
-        //                         <hr>
-        //                         <div class="row rowDati">
-        //                             <div class="col-sm-5">
-        //                                 <h6 class="mb-0" style="font-size: 18px;">Indirizzo Partenza</h6>
-        //                             </div>
-        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-        //                             ${element.indirizzoPartenza}
-        //                             </div>
-        //                         </div>
-        //                         <hr>
-        //                         <div class="row rowDati">
-        //                             <div class="col-sm-5">
-        //                                 <h6 class="mb-0" style="font-size: 18px;">Indirizzo Due Partenza</h6>
-        //                             </div>
-        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-        //                             ${element.indirizzoDuePartenza}&nbsp;
-        //                             </div>
-        //                         </div>
-        //                         <hr>
-        //                         <div class="row rowDati">
-        //                             <div class="col-sm-5">
-        //                                 <h6 class="mb-0" style="font-size: 18px;">Cap Partenza</h6>
-        //                             </div>
-        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-        //                             ${element.capPartenza}
-        //                             </div>
-        //                         </div>
-        //                         <hr>
-        //                         <div class="row rowDati">
-        //                             <div class="col-sm-5">
-        //                                 <h6 class="mb-0" style="font-size: 18px;">M3</h6>
-        //                             </div>
-        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-        //                             ${element.mq}
-        //                             </div>
-        //                         </div>
-        //                         <hr>
-        //                         <div class="row rowDati">
-        //                             <div class="col-sm-5">
-        //                                 <h6 class="mb-0" style="font-size: 18px;">Tipo Di Merce</h6>
-        //                             </div>
-        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-        //                             ${element.tipoDiVeicolo}
-        //                             </div>
-        //                         </div>
-        //                         <hr>
-        //                         <div class="row rowDati">
-        //                             <div class="col-sm-5">
-        //                                 <h6 class="mb-0" style="font-size: 18px;">Regione Arrivo</h6>
-        //                             </div>
-        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-        //                             ${element.regioneArrivo}
-        //                             </div>
-        //                         </div>
-        //                         <hr>
-        //                         <div class="row rowDati">
-        //                             <div class="col-sm-5">
-        //                                 <h6 class="mb-0" style="font-size: 18px;">Provincia Arrivo</h6>
-        //                             </div>
-        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-        //                             ${element.provinciaArrivo}
-        //                             </div>
-        //                         </div>
-        //                         <hr>
-        //                         <div class="row rowDati">
-        //                             <div class="col-sm-5">
-        //                                 <h6 class="mb-0" style="font-size: 18px;">Comune Arrivo</h6>
-        //                             </div>
-        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-        //                             ${element.comuneArrivo}
-        //                             </div>
-        //                         </div>
-        //                         <hr>
-        //                         <div class="row rowDati">
-        //                             <div class="col-sm-5">
-        //                                 <h6 class="mb-0" style="font-size: 18px;">Indirizzo Arrivo</h6>
-        //                             </div>
-        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-        //                             ${element.indirizzoArrivo}
-        //                             </div>
-        //                         </div>
-        //                         <hr>
-        //                         <div class="row rowDati">
-        //                             <div class="col-sm-5">
-        //                                 <h6 class="mb-0" style="font-size: 18px;">IndirizzoDueArrivo</h6>
-        //                             </div>
-        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-        //                             ${element.indirizzoDueArrivo}&nbsp;
-        //                             </div>
-        //                         </div>
-        //                         <hr>
-        //                         <div class="row rowDati">
-        //                             <div class="col-sm-5">
-        //                                 <h6 class="mb-0" style="font-size: 18px;">Cap Arrivo</h6>
-        //                             </div>
-        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-        //                             ${element.capArrivo}
-        //                             </div>
-        //                         </div>
-        //                         <hr>
-        //                         <div class="row rowDati">
-        //                             <div class="col-sm-5">
-        //                                 <h6 class="mb-0" style="font-size: 18px;">Carico</h6>
-        //                             </div>
-        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-        //                             ${element.carico}
-        //                             </div>
-        //                         </div>
-        //                         <hr>
-        //                         <div class="row rowDati">
-        //                             <div class="col-sm-5">
-        //                                 <h6 class="mb-0" style="font-size: 18px;">Scarico</h6>
-        //                             </div>
-        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-        //                             ${element.scarico}
-        //                             </div>
-        //                         </div>
-        //                         <hr>
-        //                         <div class="row rowDati">
-        //                             <div class="col-sm-5">
-        //                                 <h6 class="mb-0" style="font-size: 18px;">Note</h6>
-        //                             </div>
-        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-        //                             ${element.note}&nbsp;
-        //                             </div>
-        //                         </div>
-        //                         <hr>
-        //                         <div class="row rowDati">
-        //                             <div class="col-sm-5">
-        //                                 <h6 class="mb-0" style="font-size: 18px;">Stato</h6>
-        //                             </div>
-        //                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-        //                             ${element.stato}&nbsp;
-        //                             </div>
-        //                         </div>
-        //                         <hr>
-        //                         <div class="row rowDati">
-        //                             <div class="col-sm-5">
-        //                                 <h6 class="mb-0" style="font-size: 18px;">Azienda Interessata</h6>
-        //                             </div>
-        //                             <div class="col-sm-7 text-secondary nomeAz" style="font-size: 18px;">
-        //                             &nbsp;
-        //                             </div>
-        //                         </div>
-        //                         <hr>
-
-
-        //                       </div>
-
-        //                     </div>
-
-        //                 </div>
-        //                     <div class="row">
-        //                         <div class="col-lg-12 mt-5 d-flex justify-content-end">
-        //                             <button class="btn btn-danger mx-2" onclick="deleteCarico(${element.id})">Rifiuta</button>
-        //                             <button class="btn btn-success mx-2" onclick="putCarico(${element.id})">Accetta</button>
-        //                         </div>
-        //                     </div>
-
-
-        //         </div>
-
-        //     </div>
-
-        // </div>`;
-
-        // }
-
-
-
-        // if (controlloCarico) {
-        //     console.log(element.id_azienda_richiedente);
-        //     ottieniNomeAzienda(element.id_azienda_richiedente);
-
-
     });
 
 }
@@ -1257,50 +1161,18 @@ function putCarico(id) {
 
 
 
-
-
-// function ottieniNomeAzienda(id) {
-
-//     console.log(id);
-//     let nomeAz = document.querySelector('.nomeAz');
-
-//     fetch(`http://127.0.0.1:8080/api/azienda/aziendaPerID/${id}`)
-//         .then((res) => res.json())
-//         .then((data) => {
-//             console.log(nomeAz);
-
-//             console.log(data.nomeAzienda);
-//             let nomeAzienda = data.nomeAzienda;
-
-//             nomeAz.innerHTML = nomeAzienda;
-
-//         });
-
-
-// }
+/* -------------------------------------------------------------------------- */
+/*                           scala elevatore uscita                           */
+/* -------------------------------------------------------------------------- */
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function visualizzaRichiesteScalaElevatoreUscita(suolo) {
+function visualizzaRichiesteScalaElevatoreUscita(scala) {
 
 
     colonnaInfo.innerHTML = '';
 
-    suolo.scalaElevatore.forEach(element => {
+    scala.scalaElevatore.forEach(element => {
 
 
         let visualizzaRichieste = `
@@ -1498,12 +1370,18 @@ function putScala(id) {
 
 
 
-function visualizzaRichiesteConsegnaImballiUscita(suolo) {
+/* -------------------------------------------------------------------------- */
+/*                           consegna imballi uscita                          */
+/* -------------------------------------------------------------------------- */
+
+
+
+function visualizzaRichiesteConsegnaImballiUscita(imballi) {
 
 
     colonnaInfo.innerHTML = '';
 
-    suolo.consegnaImballi.forEach(element => {
+    imballi.consegnaImballi.forEach(element => {
 
 
         let visualizzaRichieste = `
@@ -1739,12 +1617,18 @@ function putImballi(id) {
 
 
 
-function visualizzaRichiestePersonaleSpecializzatoUscita(suolo) {
+/* -------------------------------------------------------------------------- */
+/*                       personale specializzato uscita                       */
+/* -------------------------------------------------------------------------- */
+
+
+
+function visualizzaRichiestePersonaleSpecializzatoUscita(personale) {
 
 
     colonnaInfo.innerHTML = '';
 
-    suolo.personaleSpecializzato.forEach(element => {
+    personale.personaleSpecializzato.forEach(element => {
 
 
         let visualizzaRichieste = `
@@ -1943,18 +1827,21 @@ function putPersonale(id) {
 
 
 
+/* -------------------------------------------------------------------------- */
+/*                          deposito magazzino uscita                         */
+/* -------------------------------------------------------------------------- */
 
 
-function visualizzaRichiesteDepositoMagazzinoUscita(suolo) {
+function visualizzaRichiesteDepositoMagazzinoUscita(deposito) {
 
 
     colonnaInfo.innerHTML = '';
 
 
 
-    if (suolo.length != 0) {
+    if (deposito.length != 0) {
 
-        suolo.depositoMagazzino.forEach(element => {
+        deposito.depositoMagazzino.forEach(element => {
 
 
             let visualizzaRichieste = `
@@ -2106,7 +1993,26 @@ function visualizzaRichiesteDepositoMagazzinoUscita(suolo) {
         });
 
     } else {
-        colonnaInfo.innerHTML = '';
+        visualizzaRichieste = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">
+
+                        <div class="row p-3">
+                            <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
+                                <h4><i class="fa-solid fa-paper-plane"></i> Nessuna richiesta</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`;
+
+    colonnaInfo.innerHTML += visualizzaRichieste;
     }
 
 }
@@ -2167,16 +2073,18 @@ function putMagazzino(id) {
 }
 
 
+/* -------------------------------------------------------------------------- */
+/*                                tratte uscita                               */
+/* -------------------------------------------------------------------------- */
 
 
 
-
-function visualizzaRichiesteTratteUscita(suolo) {
+function visualizzaRichiesteTratteUscita(tratte) {
 
 
     colonnaInfo.innerHTML = '';
 
-    suolo.tratta.forEach(element => {
+    tratte.tratta.forEach(element => {
 
 
         let visualizzaRichieste = `
@@ -2427,116 +2335,23 @@ function putTratta(id) {
 
 
 
+/* ------------------------ Richieste tutte interesse ----------------------- */
 
 
-
-
-
-
-function iMieiMessaggi() {
-
-    let visualizzaMessaggi = `<div class="card-body destra1">
-    <section style="background-color: #1B2023">
-    <div class="container py-5">
-  
-      <div class="row">
-                            
-        <div class="col-md-12 col-lg-12 col-xl-12">
-  
-          <ul class="list-unstyled">
-            <li class="d-flex justify-content-between mb-4">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp" alt="avatar"
-                class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60">
-              <div class="card">
-                <div class="card-header d-flex justify-content-between p-3">
-                  <p class="fw-bold mb-0">Brad Pitt</p>
-                  <p class="text-muted small mb-0"><i class="far fa-clock"></i> 12 mins ago</p>
-                </div>
-                <div class="card-body">
-                  <p class="mb-0">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua.
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li class="d-flex justify-content-between mb-4">
-              <div class="card w-100">
-                <div class="card-header d-flex justify-content-between p-3">
-                  <p class="fw-bold mb-0">Lara Croft</p>
-                  <p class="text-muted small mb-0"><i class="far fa-clock"></i> 13 mins ago</p>
-                </div>
-                <div class="card-body">
-                  <p class="mb-0">
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                    laudantium.
-                  </p>
-                </div>
-              </div>
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp" alt="avatar"
-                class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong" width="60">
-            </li>
-            <li class="d-flex justify-content-between mb-4">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp" alt="avatar"
-                class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60">
-              <div class="card">
-                <div class="card-header d-flex justify-content-between p-3">
-                  <p class="fw-bold mb-0">Brad Pitt</p>
-                  <p class="text-muted small mb-0"><i class="far fa-clock"></i> 10 mins ago</p>
-                </div>
-                <div class="card-body">
-                  <p class="mb-0">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua.
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li class="mb-3">
-              <div data-mdb-input-init class="form-outline">
-                <textarea class="form-control bg-body-tertiary" id="textAreaExample2" rows="4"></textarea>
-              </div>
-            </li>
-            <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-info btn-rounded float-end">Send</button>
-          </ul>
-  
-        </div>
-  
-      </div>
-  
-    </div>
-  </section>
-  </div>`;
-
-    colonnaInfo.innerHTML = visualizzaMessaggi;
-
-}
-
-if (messaggi) {
-
-    messaggi.addEventListener('click', iMieiMessaggi);
-}
-
-
-
-
-
-
-
+/* -------------------------------------------------------------------------- */
+/*                              carico interesse                              */
+/* -------------------------------------------------------------------------- */
 
 
 
 function visualizzaRichiesteCaricoInteresse(carico) {
 
     colonnaInfo.innerHTML = '';
+    let visualizzaTabella = '';
     let visualizzaRichieste = '';
 
-    carico.richiesteTrasporti.forEach(element => {
 
-
-        if (element.stato == 'INTERESSATA') {
-
-            visualizzaRichieste = `
+    visualizzaTabella = `
     <div class="card-body destra mb-4">
         <div class="row rowRichieste">
             <div class="container">
@@ -2555,25 +2370,39 @@ function visualizzaRichiesteCaricoInteresse(carico) {
                             </tr>
                         </thead>
                         <tbody class="bodyTabella">
-                                <tr>
-                                    <td class="text-center nomeAz">&nbsp;</td>
-                                    <td class="text-center">${element.id}</td>
-                                    <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" data-function=""><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" data-function=""><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkTrasporto px-2" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                                </tr>
+                                
 
                         </tbody>
                     </table>
                 </div>`;
 
-                colonnaInfo.innerHTML += visualizzaRichieste;
-                ottieniNomeAzienda(element.id_azienda_richiedente);
+    colonnaInfo.innerHTML = visualizzaTabella;
+
+    let body = document.querySelector('.bodyTabella');
+
+    carico.richiesteTrasporti.forEach(element => {
+
+
+        if (element.stato == 'INTERESSATA') {
+
+            
+
+            visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz"></td>
+            <td class="text-center">${element.id}</td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" data-function=""><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" data-function=""><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkTrasporto px-2" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+            </tr>`;
+
+            body.innerHTML += visualizzaRichieste;
+
+
+            // ottieniNomeAzienda(element.id_azienda_richiedente);
 
         }
 
     });
 
 }
-
 
 
 async function fetchCaricoInteresse() {
@@ -2595,27 +2424,112 @@ async function fetchCaricoInteresse() {
 
 }
 
+
+
 if (richiesteTrasportoInteresse) {
 
     richiesteTrasportoInteresse.addEventListener('click', fetchCaricoInteresse);
 }
 
-function ottieniNomeAzienda(id) {
 
-    console.log(id);
-    let nomeAz = document.querySelector('.nomeAz');
-    console.log(nomeAz);
 
-    fetch(`http://127.0.0.1:8080/api/azienda/aziendaPerID/${id}`)
+
+/* -------------------------------------------------------------------------- */
+/*                               scala interesse                              */
+/* -------------------------------------------------------------------------- */
+
+
+
+function visualizzaRichiesteScalaInteresse(scala) {
+
+    colonnaInfo.innerHTML = '';
+    let visualizzaTabella = '';
+    let visualizzaRichieste = '';
+
+
+    visualizzaTabella = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">                        
+
+                            <div class="row rowData">
+                            <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+                                <th class="text-center">Azienda Richiedente</th>
+                                <th class="text-center">Richiesta numero #ID</th>
+                                <th class="text-center">Gestisci</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+                                
+
+                        </tbody>
+                    </table>
+                </div>`;
+
+    colonnaInfo.innerHTML = visualizzaTabella;
+
+    let body = document.querySelector('.bodyTabella');
+
+    scala.scalaElevatore.forEach(element => {
+
+
+        if (element.stato == 'INTERESSATA') {
+
+            
+
+            visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz"></td>
+            <td class="text-center">${element.id}</td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" data-function=""><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" data-function=""><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkTrasporto px-2" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+            </tr>`;
+
+            body.innerHTML += visualizzaRichieste;
+
+
+            // ottieniNomeAzienda(element.id_azienda_richiedente);
+
+        }
+
+    });
+
+}
+
+
+
+async function fetchScalaInteresse() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
-            console.log(data.nomeAzienda);
-            let nomeAzie = data.nomeAzienda;
+            visualizzaRichiesteScalaInteresse(data);
 
-            nomeAz.innerHTML = nomeAzie;
+            console.log(data);
+
 
         });
 
-
 }
+
+
+
+if (richiesteScalaElevatoreInteresse) {
+
+    richiesteScalaElevatoreInteresse.addEventListener('click', fetchScalaInteresse);
+}
+
+
+
+
+
+//vedere bene deposito if
