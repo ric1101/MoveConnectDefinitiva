@@ -55,7 +55,7 @@ function trasporto(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -288,7 +288,7 @@ function trasportoFiltroSoloRegionePartenza(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -396,7 +396,7 @@ function trasportoFiltroSoloRegioneArrivo(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -504,7 +504,7 @@ function trasportoFiltroRegioniDoppie(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -633,7 +633,7 @@ function trasportoFiltroRegioniMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -738,7 +738,7 @@ function trasportoFiltroRegioniDoppieMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -848,7 +848,7 @@ function trasportoFiltroDemo(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -1158,7 +1158,7 @@ function trasportoFiltroMerce(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -1263,7 +1263,7 @@ function trasportoFiltroRegionePartenzaMerce(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -1371,7 +1371,7 @@ function trasportoFiltroRegioneArrivoMerce(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -1479,7 +1479,7 @@ function trasportoFiltroRegionePartenzaArrivoMerce(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -1589,7 +1589,7 @@ function trasportoFiltroRegionePartenzaArrivoMerceMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -1697,7 +1697,7 @@ function trasportoFiltroRegionePartenzaMerceMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -1806,7 +1806,7 @@ function trasportoFiltroRegioneArrivoMerceMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -1918,7 +1918,7 @@ function trasportoFiltroMerceMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {

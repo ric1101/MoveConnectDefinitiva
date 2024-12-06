@@ -50,7 +50,7 @@ function personale(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -225,7 +225,7 @@ function personaleFiltroRegione(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -331,7 +331,7 @@ function personaleFiltroRegioneTipiPersonale(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -439,7 +439,7 @@ function personaleFiltroTipiPersonale(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {

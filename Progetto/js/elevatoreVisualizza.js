@@ -52,7 +52,7 @@ function elevatore(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -276,7 +276,7 @@ function elevatoreFiltroSoloRegione(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -409,7 +409,7 @@ function elevatoreFiltroScala(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -522,7 +522,7 @@ function elevatoreFiltroRegioniScala(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -657,7 +657,7 @@ function elevatoreFiltroPeso(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -760,7 +760,7 @@ function elevatoreFiltroRegioniPeso(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -863,7 +863,7 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -966,7 +966,7 @@ function elevatoreFiltroScalaPeso(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {

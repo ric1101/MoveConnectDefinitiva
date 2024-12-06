@@ -50,7 +50,7 @@ function magazzino(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -270,7 +270,7 @@ function depositoFiltroSoloRegione(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -377,7 +377,7 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -484,7 +484,7 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -591,7 +591,7 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -696,7 +696,7 @@ function depositoFiltroTipoDeposito(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -802,7 +802,7 @@ function depositoFiltroTipoDepositoMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -911,7 +911,7 @@ function depositoFiltroDemoDeposito(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {

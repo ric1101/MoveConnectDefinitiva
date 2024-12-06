@@ -49,7 +49,7 @@ function tratte(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -354,7 +354,7 @@ function tratteFiltroSoloRegionePartenza(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -455,7 +455,7 @@ function tratteFiltroRegionePartenzaArrivo(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -558,7 +558,7 @@ function tratteFiltroRegionePartenzaArrivoVeicolo(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -664,7 +664,7 @@ function tratteFiltroRegionePartenzaVeicolo(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -766,7 +766,7 @@ function tratteFiltroRegioneArrivoVeicolo(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -870,7 +870,7 @@ function tratteFiltroRegioneArrivo(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
@@ -974,7 +974,7 @@ function tratteFiltroVeicolo(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == '') {
+            if (element.stato == 'APERTA') {
 
 
                 if (element.azienda.id != id) {
