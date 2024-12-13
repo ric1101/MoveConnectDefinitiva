@@ -191,6 +191,10 @@ ul {
   background-position: 100% 100%;
 }
 
+
+ 
+
+
 .footer-logo img {
   max-width: 200px;
 }
@@ -214,7 +218,7 @@ ul {
 .footer-social-icon a {
   color: #fff;
   font-size: 16px;
-  margin-right: 15px;
+  margin-right: 2px;
 }
 
 .footer-social-icon i {
@@ -225,12 +229,17 @@ ul {
   border-radius: 50%;
 }
 
+.footer-social-icon i:hover {
+  
+  color: #FAAD06 !important;
+}
+
 .facebook-bg {
   background: #3B5998;
 }
 
 .twitter-bg {
-  background: #55ACEE;
+  background: #000000;
 }
 
 .instagram-bg {
@@ -239,6 +248,10 @@ ul {
 
 .tiktok-bg {
   background: #05092a;
+}
+
+.youtube-bg {
+  background: red;
 }
 
 .footer-widget-heading h3 {
