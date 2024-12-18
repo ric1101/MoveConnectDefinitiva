@@ -491,12 +491,12 @@ function imballaggiFiltroTipiImballi(dati, id) {
                     }
                 }
             } else {
-                if (e) {
+                if (i) {
 
                 } else {
 
                     bodyTabella.innerHTML = nessunaCorrispondenza;
-                    e1 = true;
+                    i1 = true;
 
                 }
             }
