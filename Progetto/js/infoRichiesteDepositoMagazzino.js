@@ -223,7 +223,7 @@ function depositoInfo(dati, img, id) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoDeposito(${dati.id}, ${id})">Interessato</button></div>
+                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoDeposito(${dati.id}, ${id}, '${dati.azienda.email}')">Interessato</button></div>
                     <div class="col-md-2"</div>
                 </div>
                 `;
@@ -237,7 +237,7 @@ function depositoInfo(dati, img, id) {
 
 
 
-function interessamentoDeposito(richiestaId, aziendaId) {
+function interessamentoDeposito(richiestaId, aziendaId, emailAziendale) {
 
     fetch(`http://127.0.0.1:8080/api/depositoMagazzino/modificaMagazzinoIdRichiesta/${richiestaId}/${aziendaId}`, {
         method: "PUT",
@@ -249,6 +249,10 @@ function interessamentoDeposito(richiestaId, aziendaId) {
         }),
     })
 
+    const subject= "Richiesta Moveconnect";
+    const body= " Salve ho visto la richiesta sul portale Moveconnect e sarei interessato ";
+    const MailToLink= `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href=MailToLink;
     window.location.href = 'interesseMostrato.html';
 
 

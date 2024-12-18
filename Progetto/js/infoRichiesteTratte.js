@@ -259,7 +259,7 @@ function tratteInfo(dati, img, id) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoTratte(${dati.id}, ${id})">Interessato</button></div>
+                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoTratte(${dati.id}, ${id}, '${dati.azienda.emailAziendale}' )">Interessato</button></div>
                     <div class="col-md-2"</div>
                 </div>`;
 
@@ -270,7 +270,9 @@ function tratteInfo(dati, img, id) {
 
 
 
-function interessamentoTratte(richiestaId, aziendaId) {
+
+
+function interessamentoTratte(richiestaId, aziendaId, emailAziendale) {
 
     fetch(`http://127.0.0.1:8080/api/tratta/modificaTrattaIdRichiesta/${richiestaId}/${aziendaId}`, {
         method: "PUT",
@@ -281,7 +283,10 @@ function interessamentoTratte(richiestaId, aziendaId) {
 
         }),
     })
-
+    const subject= "Richiesta Moveconnect";
+    const body= " Salve ho visto la richiesta sul portale Moveconnect e sarei interessato ";
+    const MailToLink= `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href=MailToLink;
     window.location.href = 'interesseMostrato.html';
 
 
