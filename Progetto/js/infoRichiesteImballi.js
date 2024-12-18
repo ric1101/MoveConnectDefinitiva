@@ -241,7 +241,7 @@ function imballiInfo(dati, img, id) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoImballi(${dati.id}, ${id})">Interessato</button></div>
+                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoImballi(${dati.id}, ${id},'${dati.azienda.emailAziendale}')">Interessato</button></div>
                     <div class="col-md-2"</div>
                 </div>`;
 
@@ -252,7 +252,7 @@ function imballiInfo(dati, img, id) {
 
 
 
-function interessamentoImballi(richiestaId, aziendaId) {
+function interessamentoImballi(richiestaId, aziendaId, emailAziendale) {
 
     fetch(`http://127.0.0.1:8080/api/consegnaImballi/modificaImballiIdRichiesta/${richiestaId}/${aziendaId}`, {
         method: "PUT",
@@ -263,6 +263,12 @@ function interessamentoImballi(richiestaId, aziendaId) {
 
         }),
     })
+    
+    const subject="Richiesta Moveconnect";
+    const body="Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
+    const MailToLink= `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href=MailToLink;
+
 
     window.location.href = 'interesseMostrato.html';
 
