@@ -6,6 +6,19 @@ let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
 <p>Non ci sono Corrispondenze!</p>
 </div>`;
 
+
+
+function inviaMailTratte(emailAziendale) {
+
+    const subject="Richiesta Moveconnect";
+    const body="Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
+    const MailToLink= `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href=MailToLink;
+
+}
+
+
+
 let accessToken = localStorage.getItem('accessToken');
 
 fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
@@ -65,6 +78,8 @@ function tratte(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                    
                     </tr>`;
 
 
