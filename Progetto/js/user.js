@@ -22,6 +22,14 @@ let richiestePersonaleSpecInteresse = document.querySelector('.richiestePersonal
 let richiesteDepositoMagazzinoInteresse = document.querySelector('.richiesteDepositoMagazzinoInteresse');
 let richiesteTrattaInteresse = document.querySelector('.richiesteTrattaInteresse');
 
+let richiesteOccSuoloPubRelazione = document.querySelector('.richiesteOccSuoloPubRelazione');
+let richiesteTrasportoRelazione = document.querySelector('.richiesteTrasportoRelazione');
+let richiesteScalaElevatoreRelazione = document.querySelector('.richiesteScalaElevatoreRelazione');
+let richiesteConsegnaImballiRelazione = document.querySelector('.richiesteConsegnaImballiRelazione');
+let richiestePersonaleSpecRelazione = document.querySelector('.richiestePersonaleSpecRelazione');
+let richiesteDepositoMagazzinoRelazione = document.querySelector('.richiesteDepositoMagazzinoRelazione');
+let richiesteTrattaRelazione = document.querySelector('.richiesteTrattaRelazione');
+
 let richiesteOccSuoloPubEntrata = document.querySelector('.richiesteOccSuoloPubEntrata');
 let richiesteTrasportoEntrata = document.querySelector('.richiesteTrasportoEntrata');
 let richiesteScalaElevatoreEntrata = document.querySelector('.richiesteScalaElevatoreEntrata');
@@ -905,7 +913,7 @@ function visualizzaRichiesteCaricoUscita(carico) {
     carico.richiesteTrasporti.forEach(element => {
 
 
-        if (element.stato == '') {
+        if (element.stato == 'APERTA') {
 
             visualizzaRichieste = `
     <div class="card-body destra mb-4">
@@ -1174,8 +1182,10 @@ function visualizzaRichiesteScalaElevatoreUscita(scala) {
 
     scala.scalaElevatore.forEach(element => {
 
+        if (element.stato == 'APERTA') {
 
-        let visualizzaRichieste = `
+
+            let visualizzaRichieste = `
     <div class="card-body destra mb-4">
         <div class="row rowRichieste">
             <div class="container">
@@ -1310,8 +1320,9 @@ function visualizzaRichiesteScalaElevatoreUscita(scala) {
     </div>`;
 
 
-        colonnaInfo.innerHTML += visualizzaRichieste;
+            colonnaInfo.innerHTML += visualizzaRichieste;
 
+        }
     });
 
 }
@@ -1383,8 +1394,10 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
 
     imballi.consegnaImballi.forEach(element => {
 
+        if (element.stato == 'APERTA') {
 
-        let visualizzaRichieste = `
+
+            let visualizzaRichieste = `
     <div class="card-body destra mb-4">
         <div class="row rowRichieste">
             <div class="container">
@@ -1555,7 +1568,9 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
     </div>`;
 
 
-        colonnaInfo.innerHTML += visualizzaRichieste;
+            colonnaInfo.innerHTML += visualizzaRichieste;
+
+        }
 
     });
 
@@ -1630,8 +1645,10 @@ function visualizzaRichiestePersonaleSpecializzatoUscita(personale) {
 
     personale.personaleSpecializzato.forEach(element => {
 
+        if (element.stato == 'APERTA') {
 
-        let visualizzaRichieste = `
+
+            let visualizzaRichieste = `
     <div class="card-body destra mb-4">
         <div class="row rowRichieste">
             <div class="container">
@@ -1766,8 +1783,8 @@ function visualizzaRichiestePersonaleSpecializzatoUscita(personale) {
     </div>`;
 
 
-        colonnaInfo.innerHTML += visualizzaRichieste;
-
+            colonnaInfo.innerHTML += visualizzaRichieste;
+        }
     });
 
 }
@@ -1843,8 +1860,10 @@ function visualizzaRichiesteDepositoMagazzinoUscita(deposito) {
 
         deposito.depositoMagazzino.forEach(element => {
 
+            if (element.stato == 'APERTA') {
 
-            let visualizzaRichieste = `
+
+                let visualizzaRichieste = `
     <div class="card-body destra mb-4">
         <div class="row rowRichieste">
             <div class="container">
@@ -1988,7 +2007,8 @@ function visualizzaRichiesteDepositoMagazzinoUscita(deposito) {
     </div>`;
 
 
-            colonnaInfo.innerHTML += visualizzaRichieste;
+                colonnaInfo.innerHTML += visualizzaRichieste;
+            }
 
         });
 
@@ -2012,7 +2032,7 @@ function visualizzaRichiesteDepositoMagazzinoUscita(deposito) {
         </div>
     </div>`;
 
-    colonnaInfo.innerHTML += visualizzaRichieste;
+        colonnaInfo.innerHTML += visualizzaRichieste;
     }
 
 }
@@ -2086,8 +2106,10 @@ function visualizzaRichiesteTratteUscita(tratte) {
 
     tratte.tratta.forEach(element => {
 
+        if (element.stato == 'APERTA') {
 
-        let visualizzaRichieste = `
+
+            let visualizzaRichieste = `
     <div class="card-body destra mb-4">
         <div class="row rowRichieste">
             <div class="container">
@@ -2268,8 +2290,8 @@ function visualizzaRichiesteTratteUscita(tratte) {
     </div>`;
 
 
-        colonnaInfo.innerHTML += visualizzaRichieste;
-
+            colonnaInfo.innerHTML += visualizzaRichieste;
+        }
     });
 
 }
@@ -2385,12 +2407,11 @@ function visualizzaRichiesteCaricoInteresse(carico) {
 
         if (element.stato == 'INTERESSATA') {
 
-            
 
             visualizzaRichieste = `<tr>
             <td class="text-center nomeAz"></td>
             <td class="text-center">${element.id}</td>
-            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" data-function=""><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" data-function=""><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkTrasporto px-2" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkTrasporto px-2" data-evento-id="${element.id}" href="./infoRichiesteTrasportoProposta.html">INFO</a></td>
             </tr>`;
 
             body.innerHTML += visualizzaRichieste;
@@ -2481,12 +2502,12 @@ function visualizzaRichiesteScalaInteresse(scala) {
 
         if (element.stato == 'INTERESSATA') {
 
-            
+
 
             visualizzaRichieste = `<tr>
             <td class="text-center nomeAz"></td>
             <td class="text-center">${element.id}</td>
-            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" data-function=""><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" data-function=""><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkTrasporto px-2" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" data-function=""><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" data-function=""><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkScala px-2" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatoreProposta.html">INFO</a></td>
             </tr>`;
 
             body.innerHTML += visualizzaRichieste;
@@ -2526,6 +2547,292 @@ async function fetchScalaInteresse() {
 if (richiesteScalaElevatoreInteresse) {
 
     richiesteScalaElevatoreInteresse.addEventListener('click', fetchScalaInteresse);
+}
+
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                              imballi interesse                             */
+/* -------------------------------------------------------------------------- */
+
+
+
+
+function visualizzaRichiesteImballiInteresse(imballo) {
+
+    colonnaInfo.innerHTML = '';
+    let visualizzaTabella = '';
+    let visualizzaRichieste = '';
+
+
+    visualizzaTabella = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">                        
+
+                            <div class="row rowData">
+                            <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+                                <th class="text-center">Azienda Richiedente</th>
+                                <th class="text-center">Richiesta numero #ID</th>
+                                <th class="text-center">Gestisci</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+                                
+
+                        </tbody>
+                    </table>
+                </div>`;
+
+    colonnaInfo.innerHTML = visualizzaTabella;
+
+    let body = document.querySelector('.bodyTabella');
+
+    imballo.forEach(element => {
+
+
+        visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
+            <td class="text-center">${element.consegnaDTO.id}</td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaProposta(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaProposta(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkImballi px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteImballiProposta.html">INFO</a></td>
+            </tr>`;
+
+        body.innerHTML += visualizzaRichieste;
+        ascoltoImballi()
+
+        // ottieniNomeAzienda(element.id_azienda_richiedente);
+
+    });
+
+}
+
+function ascoltoImballi() {
+
+    let linkImballi = document.querySelectorAll('.linkImballi');
+
+    linkImballi.forEach(element => {
+        element.addEventListener('click', () => {
+            let idElement = element.getAttribute('data-evento-id');
+            localStorage.setItem('data-evento-id', idElement);
+        })
+    });
+
+
+}
+
+function eliminaProposta(id) {
+
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/eliminaProposta/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchImballiInteresse();
+
+}
+
+function accettaProposta(idR, consegnaImballiId, consegnaImballiAziendaId, propostaAccettataId) {
+
+    let id = idR;
+
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/accettaRichiestaImballi/${idR}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+    })
+
+    let consegnaImballiID = consegnaImballiId;
+    let consegnaImballiAziendaID = consegnaImballiAziendaId;
+    let propostaAccettataID = propostaAccettataId;
+
+    class Relazione {
+        constructor(consegnaImballiId, consegnaImballiAziendaId, propostaAccettataId) {
+            (this.consegnaImballiId = consegnaImballiId),
+                (this.consegnaImballiAziendaId = consegnaImballiAziendaId),
+                (this.propostaAccettataId = propostaAccettataId)
+
+        }
+    }
+
+    let newRelazione = new Relazione(consegnaImballiID, consegnaImballiAziendaID, propostaAccettataID);
+
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/relazioneImballi`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newRelazione)
+    })
+
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/eliminaProposte/${consegnaImballiId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    location.reload();
+
+}
+
+
+async function fetchImballiInteresse() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            recuperaProposte(data.id);
+
+            console.log(data.id);
+
+
+        });
+
+
+}
+
+
+function recuperaProposte(id) {
+
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/byAziendaRichiedente?aziendaRichiedente=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiesteImballiInteresse(data);
+
+
+        });
+
+}
+
+
+
+if (richiesteConsegnaImballiInteresse) {
+
+    richiesteConsegnaImballiInteresse.addEventListener('click', fetchImballiInteresse);
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                              imballi relazione                             */
+/* -------------------------------------------------------------------------- */
+
+
+
+
+function visualizzaRichiesteImballiRelazione(imballo) {
+
+    colonnaInfo.innerHTML = '';
+    let visualizzaTabella = '';
+    let visualizzaRichieste = '';
+
+
+    visualizzaTabella = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">                        
+
+                            <div class="row rowData">
+                            <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+                                <th class="text-center">Azienda Richiedente</th>
+                                <th class="text-center">Richiesta numero #ID</th>
+                                <th class="text-center">Gestisci</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+                                
+
+                        </tbody>
+                    </table>
+                </div>`;
+
+    colonnaInfo.innerHTML = visualizzaTabella;
+
+    let body = document.querySelector('.bodyTabella');
+
+    imballo.forEach(element => {
+
+
+        visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
+            <td class="text-center"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="annullaRelazione(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="evadiRelazione(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a></td>
+            </tr>`;
+
+        body.innerHTML += visualizzaRichieste;
+        ascoltoImballi()
+
+        // ottieniNomeAzienda(element.id_azienda_richiedente);
+
+    });
+
+}
+
+
+
+async function fetchImballiRelazione() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            recuperaRelazione(data.id);
+
+            console.log(data.id);
+
+
+        });
+
+
+}
+
+
+function recuperaRelazione(id) {
+
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/byAziendaRelazioneRichiedente?consegnaImballiAziendaId=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiesteImballiRelazione(data);
+
+
+        });
+
+}
+
+
+
+if (richiesteConsegnaImballiRelazione) {
+
+    richiesteConsegnaImballiRelazione.addEventListener('click', fetchImballiRelazione);
 }
 
 

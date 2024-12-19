@@ -241,7 +241,7 @@ function imballiInfo(dati, img, id) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoImballi(${dati.id}, ${id},'${dati.azienda.emailAziendale}', ${dati.azienda.id})">Interessato</button></div>
+                    <div class="col-md-2 align-self-center text-center"><a class="btn btn-secondary p-3" href="./user.html"><i class="fa-solid fa-reply"></i></a></div>
                     <div class="col-md-2"</div>
                 </div>`;
 
@@ -251,49 +251,3 @@ function imballiInfo(dati, img, id) {
 }
 
 
-
-function interessamentoImballi(richiestaId, aziendaIdAccesso, emailAziendale, idAzienda) {
-
-    fetch(`http://127.0.0.1:8080/api/consegnaImballi/modificaImballiIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        }, 
-        body: JSON.stringify({
-
-        }),
-    })
-
-    let idRichiedente = aziendaIdAccesso;
-    let idRichiesta = richiestaId;
-    let idAziendaEmittente = idAzienda;
-    class Proposta {
-        constructor(azienda, consegnaImballiId, aziendaRichiedente) {
-            (this.azienda = azienda),
-            (this.consegnaImballiId = consegnaImballiId),
-            (this.aziendaRichiedente = aziendaRichiedente)
-
-        }
-    }
-
-    let newProposta = new Proposta(idRichiedente, idRichiesta, idAziendaEmittente);
-
-    fetch(`http://127.0.0.1:8080/api/propostaImballi/interessataPropostaImballi`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        }, 
-        body: JSON.stringify(newProposta),
-    })
-    
-    const subject="Richiesta Moveconnect";
-    const body="Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
-    const MailToLink= `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href=MailToLink;
-
-
-    window.location.href = 'interesseMostrato.html';
-
-
-
-}

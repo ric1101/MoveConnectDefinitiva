@@ -50,7 +50,7 @@ function imballaggi(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
 
@@ -238,7 +238,7 @@ function imballaggiFiltroRegioneImballi(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
 
@@ -345,7 +345,7 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
 
@@ -454,7 +454,7 @@ function imballaggiFiltroTipiImballi(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
