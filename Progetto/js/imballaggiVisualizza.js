@@ -66,7 +66,9 @@ function imballaggi(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" data-evento-id="${element.id}" href="./infoRichiesteImballi.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailImballi('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
+                    
 
 
                     i = true;
@@ -254,6 +256,8 @@ function imballaggiFiltroRegioneImballi(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" data-evento-id="${element.id}" href="./infoRichiesteImballi.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailImballi('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                    
                     </tr>`;
 
 
@@ -361,6 +365,8 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" data-evento-id="${element.id}" href="./infoRichiesteImballi.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailImballi('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+
                     </tr>`;
 
 
@@ -469,6 +475,8 @@ function imballaggiFiltroTipiImballi(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" data-evento-id="${element.id}" href="./infoRichiesteImballi.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailImballi('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+
                     </tr>`;
 
 
@@ -606,3 +614,13 @@ let bottoneReset = document.querySelector('.bottoneReset');
 bottoneReset.addEventListener('click', () => {
     location.reload();
 });
+
+
+function inviaMailImballi(emailAziendale) {
+
+    const subject="Richiesta Moveconnect";
+    const body="Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
+    const MailToLink= `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href=MailToLink;
+
+}
