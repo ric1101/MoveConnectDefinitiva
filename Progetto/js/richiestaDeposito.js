@@ -104,7 +104,7 @@ function inviaRichiesta(dati) {
 
     })
 
-    location.reload();
+    window.location.href = 'inviataConSuccesso.html';
 
 
 }
