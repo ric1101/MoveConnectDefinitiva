@@ -2676,12 +2676,12 @@ function accettaProposta(idR, consegnaImballiId, consegnaImballiAziendaId, propo
         body: JSON.stringify(newRelazione)
     })
 
-    fetch(`http://127.0.0.1:8080/api/propostaImballi/eliminaProposte/${consegnaImballiId}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-        }
-    })
+    // fetch(`http://127.0.0.1:8080/api/propostaImballi/eliminaProposte/${consegnaImballiId}`, {
+    //     method: "DELETE",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     }
+    // })
 
     location.reload();
 
@@ -2760,6 +2760,8 @@ function visualizzaRichiesteImballiRelazione(imballo) {
                             <tr class="ligth ligth-data">
                                 <th class="text-center">Azienda Richiedente</th>
                                 <th class="text-center">Richiesta numero #ID</th>
+                                <th class="text-center">Data Inizio</th>
+                                <th class="text-center">Stato</th>
                                 <th class="text-center">Gestisci</th>
                             </tr>
                         </thead>
@@ -2778,15 +2780,16 @@ function visualizzaRichiesteImballiRelazione(imballo) {
 
 
         visualizzaRichieste = `<tr>
-            <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
+            <td class="text-center nomeAz">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="annullaRelazione(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="evadiRelazione(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a></td>
+            <td class="text-center">${element.dataInizio}</td>
+            <td class="text-center">${element.stato}</td>
+            <td class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-danger px-1 bottoniAnnulla" style="margin-bottom:5px;" data-id-annulla="${element.id}" onclick="annullaRelazione(${element.id})">Annulla <i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-1 bottoniEvadi" data-id-evadi="${element.id}" onclick="evadiRelazione(${element.id})">Evadi <i class="fa-solid fa-check"></i></a></td>
             </tr>`;
 
         body.innerHTML += visualizzaRichieste;
         ascoltoImballi()
 
-        // ottieniNomeAzienda(element.id_azienda_richiedente);
 
     });
 
@@ -2815,7 +2818,40 @@ async function fetchImballiRelazione() {
 }
 
 
+function annullaRelazione(id) {
+
+
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/annullataRelazioneImballi/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+    })
+
+    recensisci(id);
+
+}
+
+
+function evadiRelazione(id) {
+    
+
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/evasaRelazioneImballi/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+    })
+
+    recensisci(id);
+
+}
+
+
 function recuperaRelazione(id) {
+
 
     fetch(`http://127.0.0.1:8080/api/propostaImballi/byAziendaRelazioneRichiedente?consegnaImballiAziendaId=${id}`)
         .then((res) => res.json())
@@ -2837,6 +2873,15 @@ if (richiesteConsegnaImballiRelazione) {
 
 
 
+function recensisci(id) {
+
+
+    let idRecensione = id;
+    localStorage.setItem('idRecensione', idRecensione);
+
+    window.location.href = 'recensione.html';
+
+}
 
 
 //vedere bene deposito if
