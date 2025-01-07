@@ -20,17 +20,16 @@ fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
 
 
 
-async function fetchImballaggi(id) {
+function fetchImballaggi(id) {
 
 
     let URLB = `http://127.0.0.1:8080/api/consegnaImballi/tutteLeConsegneConAzienda`;
-    await fetch(URLB)
+    fetch(URLB)
         .then((res) => res.json())
         .then((data) => {
 
             console.log(data);
             imballaggi(data, id);
-            ascolto();
         });
 
 }
@@ -42,12 +41,16 @@ function imballaggi(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
 
 
         dati.forEach(element => {
+
+            console.log(dati);
 
 
             if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
@@ -56,8 +59,54 @@ function imballaggi(dati, id) {
 
                 if (element.azienda.id != id) {
 
+                    
 
-                    let tabella = `<tr>
+                    fetch(`http://127.0.0.1:8080/api/propostaImballi/byAziendaRichiesta?consegnaImballiId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -65,19 +114,26 @@ function imballaggi(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" data-evento-id="${element.id}" href="./infoRichiesteImballi.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" href="./infoRichiesteImballi.html" data-evento-id="${element.id}" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailImballi('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
-                    </tr>`;
-                    
+
+                        </tr>`;
 
 
-                    i = true;
-                    if (i1 == true) {
-                        bodyTabella.innerHTML = '';
+                        i = true;
+                        if (i1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        i1 = false;
+
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
                     }
-                    i1 = false;
 
-                    bodyTabella.innerHTML += tabella;
 
                 } else {
                     if (i) {
@@ -109,19 +165,7 @@ function imballaggi(dati, id) {
 
 
 
-function ascolto() {
 
-    let linkImballi = document.querySelectorAll('.linkImballi');
-
-    linkImballi.forEach(element => {
-        element.addEventListener('click', () => {
-            let idElement = element.getAttribute('data-evento-id');
-            localStorage.setItem('data-evento-id', idElement);
-        })
-    });
-
-
-}
 
 
 let regLink = document.querySelectorAll('.regLink');
@@ -232,12 +276,16 @@ function imballaggiFiltroRegioneImballi(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
 
 
         dati.forEach(element => {
+
+            console.log(dati);
 
 
             if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
@@ -246,8 +294,54 @@ function imballaggiFiltroRegioneImballi(dati, id) {
 
                 if (element.azienda.id != id) {
 
+                    
 
-                    let tabella = `<tr>
+                    fetch(`http://127.0.0.1:8080/api/propostaImballi/byAziendaRichiesta?consegnaImballiId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -255,19 +349,26 @@ function imballaggiFiltroRegioneImballi(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" data-evento-id="${element.id}" href="./infoRichiesteImballi.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" href="./infoRichiesteImballi.html" data-evento-id="${element.id}" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailImballi('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
-                    
-                    </tr>`;
+
+                        </tr>`;
 
 
-                    i = true;
-                    if (i1 == true) {
-                        bodyTabella.innerHTML = '';
+                        i = true;
+                        if (i1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        i1 = false;
+
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
                     }
-                    i1 = false;
 
-                    bodyTabella.innerHTML += tabella;
 
                 } else {
                     if (i) {
@@ -294,7 +395,6 @@ function imballaggiFiltroRegioneImballi(dati, id) {
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
     }
-
 }
 
 
@@ -341,12 +441,16 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
 
 
         dati.forEach(element => {
+
+            console.log(dati);
 
 
             if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
@@ -355,8 +459,54 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
 
                 if (element.azienda.id != id) {
 
+                    
 
-                    let tabella = `<tr>
+                    fetch(`http://127.0.0.1:8080/api/propostaImballi/byAziendaRichiesta?consegnaImballiId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -364,19 +514,26 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" data-evento-id="${element.id}" href="./infoRichiesteImballi.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" href="./infoRichiesteImballi.html" data-evento-id="${element.id}" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailImballi('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
 
-                    </tr>`;
+                        </tr>`;
 
 
-                    i = true;
-                    if (i1 == true) {
-                        bodyTabella.innerHTML = '';
+                        i = true;
+                        if (i1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        i1 = false;
+
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
                     }
-                    i1 = false;
 
-                    bodyTabella.innerHTML += tabella;
 
                 } else {
                     if (i) {
@@ -452,6 +609,8 @@ function imballaggiFiltroTipiImballi(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -459,14 +618,63 @@ function imballaggiFiltroTipiImballi(dati, id) {
 
         dati.forEach(element => {
 
+            console.log(dati);
+
 
             if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
+
                 if (element.azienda.id != id) {
 
+                    
 
-                    let tabella = `<tr>
+                    fetch(`http://127.0.0.1:8080/api/propostaImballi/byAziendaRichiesta?consegnaImballiId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
                         <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
@@ -474,19 +682,26 @@ function imballaggiFiltroTipiImballi(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" data-evento-id="${element.id}" href="./infoRichiesteImballi.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" href="./infoRichiesteImballi.html" data-evento-id="${element.id}" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailImballi('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
 
-                    </tr>`;
+                        </tr>`;
 
 
-                    i = true;
-                    if (i1 == true) {
-                        bodyTabella.innerHTML = '';
+                        i = true;
+                        if (i1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        i1 = false;
+
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
                     }
-                    i1 = false;
 
-                    bodyTabella.innerHTML += tabella;
 
                 } else {
                     if (i) {
@@ -618,9 +833,25 @@ bottoneReset.addEventListener('click', () => {
 
 function inviaMailImballi(emailAziendale) {
 
-    const subject="Richiesta Moveconnect";
-    const body="Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
-    const MailToLink= `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href=MailToLink;
+    const subject = "Richiesta Moveconnect";
+    const body = "Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
+    const MailToLink = `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href = MailToLink;
+
+}
+
+function ascolto() {
+
+    let linkImballi = document.querySelectorAll('.linkImballi');
+    console.log(linkImballi);
+
+
+    linkImballi.forEach(element => {
+        element.addEventListener('click', () => {
+            let idElement = element.getAttribute('data-evento-id');
+            localStorage.setItem('data-evento-id', idElement);
+        })
+    });
+
 
 }

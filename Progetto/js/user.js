@@ -1,5 +1,44 @@
 userView();
+let nessunaCorrispondenzaProposta = `<div class="d-flex justify-content-center mt-3">
+<p>Non ci sono Proposte!</p>
+</div>`;
 
+let nessunaCorrispondenzaRelazione = `<div class="d-flex justify-content-center mt-3">
+<p>Non ci sono Servizi!</p>
+</div>`;
+
+let nessunaCorrispondenzaImballiEmessi = `
+    <div class="card-body destra mb-5" style="padding: 80px !important">
+        <div class="row rowRichieste">
+            <div class="container">
+                
+
+                    
+
+        <div>
+
+            <div class="row d-flex justify-content-center">
+                
+                <div class="col-md-8 d-flex justify-content-center">
+                    <p class="text-center">Non hai ancora emesso nessuna richiesta Imballi!</p>
+                </div>
+                
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 d-flex justify-content-center">
+                    <a class="btn btn-primary" href="imballi.html">Inserisci richiesta Imballi</a>
+                </div>
+            </div>
+
+        </div>
+
+                    
+
+            </div>
+
+        </div>
+
+    </div>`;
 
 let dato = document.querySelector('.dati');
 let logo = document.querySelector('.logo');
@@ -565,6 +604,8 @@ function caricaLogo() {
 
     colonnaInfo.innerHTML = caricaLogoVisualizza;
 
+    
+
 }
 
 
@@ -614,6 +655,12 @@ async function inviaImmagine(id) {
             result.classList.remove('text-danger');
             result.classList.add('text-success');
             result.innerHTML = "Logo caricato con successo!";
+            setTimeout(() => {
+
+                location.reload();
+                
+            }, 1000);
+            
         } else {
             result.classList.remove('text-primary');
             result.classList.remove('text-success');
@@ -1392,12 +1439,22 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
 
     colonnaInfo.innerHTML = '';
 
-    imballi.consegnaImballi.forEach(element => {
+    console.log(imballi);
+    
+    if (imballi.consegnaImballi.length == 0) {
 
-        if (element.stato == 'APERTA') {
+        colonnaInfo.innerHTML = nessunaCorrispondenzaImballiEmessi;
+
+    } else {
 
 
-            let visualizzaRichieste = `
+
+        imballi.consegnaImballi.forEach(element => {
+
+            if (element.stato == 'APERTA') {
+
+
+                let visualizzaRichieste = `
     <div class="card-body destra mb-4">
         <div class="row rowRichieste">
             <div class="container">
@@ -1568,11 +1625,13 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
     </div>`;
 
 
-            colonnaInfo.innerHTML += visualizzaRichieste;
+                colonnaInfo.innerHTML += visualizzaRichieste;
 
-        }
+            }
 
-    });
+        });
+
+    }
 
 }
 
@@ -1605,9 +1664,9 @@ if (richiesteConsegnaImballiUscita) {
 
 
 
-function deleteImballi(id) {
+async function deleteImballi(id) {
 
-    fetch(`http://127.0.0.1:8080/api/consegnaImballi/eliminaconsegna/${id}`, {
+    await fetch(`http://127.0.0.1:8080/api/consegnaImballi/eliminaconsegna/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -1615,6 +1674,7 @@ function deleteImballi(id) {
         // body: JSON.stringify(),
     })
 
+    
     fetchConsegnaImballiUscita();
 
 }
@@ -2596,22 +2656,31 @@ function visualizzaRichiesteImballiInteresse(imballo) {
 
     let body = document.querySelector('.bodyTabella');
 
-    imballo.forEach(element => {
+    console.log(imballo);
+
+    if (imballo.length == 0) {
+
+        body.innerHTML = nessunaCorrispondenzaProposta;
+
+    } else {
+
+        imballo.forEach(element => {
 
 
-        visualizzaRichieste = `<tr>
+            visualizzaRichieste = `<tr>
             <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
             <td class="text-center">${element.consegnaDTO.id}</td>
             <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaProposta(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaProposta(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkImballi px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteImballiProposta.html">INFO</a></td>
             </tr>`;
 
-        body.innerHTML += visualizzaRichieste;
-        ascoltoImballi()
+            body.innerHTML += visualizzaRichieste;
+            ascoltoImballi()
 
-        // ottieniNomeAzienda(element.id_azienda_richiedente);
 
-    });
 
+        });
+
+    }
 }
 
 function ascoltoImballi() {
@@ -2653,6 +2722,21 @@ function accettaProposta(idR, consegnaImballiId, consegnaImballiAziendaId, propo
         body: JSON.stringify(id)
     })
 
+    let cid = consegnaImballiId;
+
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/inCorsoRichiestaImballi/${consegnaImballiId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            "id": cid
+        })
+
+
+    })
+
+
     let consegnaImballiID = consegnaImballiId;
     let consegnaImballiAziendaID = consegnaImballiAziendaId;
     let propostaAccettataID = propostaAccettataId;
@@ -2676,14 +2760,15 @@ function accettaProposta(idR, consegnaImballiId, consegnaImballiAziendaId, propo
         body: JSON.stringify(newRelazione)
     })
 
-    // fetch(`http://127.0.0.1:8080/api/propostaImballi/eliminaProposte/${consegnaImballiId}`, {
-    //     method: "DELETE",
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //     }
-    // })
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/eliminaProposte/${consegnaImballiId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
 
-    location.reload();
+    fetchImballiInteresse();
+
 
 }
 
@@ -2758,11 +2843,11 @@ function visualizzaRichiesteImballiRelazione(imballo) {
                     <table class="data-table table mb-0 tbl-server-info">
                         <thead class="text-uppercase">
                             <tr class="ligth ligth-data">
-                                <th class="text-center">Azienda Richiedente</th>
-                                <th class="text-center">Richiesta numero #ID</th>
-                                <th class="text-center">Data Inizio</th>
-                                <th class="text-center">Stato</th>
-                                <th class="text-center">Gestisci</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Data Inizio</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Stato</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Gestisci</th>
                             </tr>
                         </thead>
                         <tbody class="bodyTabella">
@@ -2776,22 +2861,50 @@ function visualizzaRichiesteImballiRelazione(imballo) {
 
     let body = document.querySelector('.bodyTabella');
 
-    imballo.forEach(element => {
+    console.log(imballo);
+
+    if (imballo == 0) {
+
+        body.innerHTML = nessunaCorrispondenzaRelazione;
+
+    } else {
+
+        imballo.forEach(element => {
+
+            if (element.stato == 'IN CORSO') {
 
 
-        visualizzaRichieste = `<tr>
-            <td class="text-center nomeAz">${element.aziendaAccettataDTO.nomeAzienda}</td>
-            <td class="text-center"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center">${element.dataInizio}</td>
-            <td class="text-center">${element.stato}</td>
-            <td class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-danger px-1 bottoniAnnulla" style="margin-bottom:5px;" data-id-annulla="${element.id}" onclick="annullaRelazione(${element.id})">Annulla <i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-1 bottoniEvadi" data-id-evadi="${element.id}" onclick="evadiRelazione(${element.id})">Evadi <i class="fa-solid fa-check"></i></a></td>
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazione(${element.id})">Evadi <i class="fa-solid fa-check"></i></a><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazione(${element.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
+            </td>
             </tr>`;
 
-        body.innerHTML += visualizzaRichieste;
-        ascoltoImballi()
+                body.innerHTML += visualizzaRichieste;
+                ascoltoImballi()
+
+            } else {
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td class="text-center" style="vertical-align: middle !important;"></td>
+            </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+
+            }
 
 
-    });
+
+        });
+
+    }
 
 }
 
@@ -2835,7 +2948,7 @@ function annullaRelazione(id) {
 
 
 function evadiRelazione(id) {
-    
+
 
     fetch(`http://127.0.0.1:8080/api/propostaImballi/evasaRelazioneImballi/${id}`, {
         method: "PUT",

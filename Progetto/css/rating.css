@@ -1,0 +1,45 @@
+/* style.css */
+.centrato {
+    display: flex;
+    justify-content: center;
+}
+
+
+.card {
+    max-width: 33rem;
+    background: #fff;
+    margin: 0 1rem;
+    padding: 1rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+
+}
+
+.star {
+    font-size: 10vh;
+    cursor: pointer;
+}
+
+.one {
+    color: #DC3545;
+}
+
+.two {
+    color: #FAAD06;
+}
+
+.three {
+    color: rgb(255, 255, 0);
+
+}
+
+.four {
+    color: rgb(177, 225, 44);
+}
+
+.five {
+    color: rgb(24, 159, 14);
+}
