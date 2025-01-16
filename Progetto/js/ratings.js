@@ -63,8 +63,8 @@ function riempiDatiRecensione(dati) {
     idProponente.innerHTML = dati.aziendaProponente.id;
     idAccettata.innerHTML = dati.aziendaAccettata.id;
     idRec.innerHTML = dati.id;
-    nomeAziendaDaRecensire.innerHTML = dati.aziendaProponente.nomeAzienda;
-    nomeAziendaDaRecensireDesc.innerHTML = dati.aziendaProponente.nomeAzienda;
+    nomeAziendaDaRecensire.innerHTML = dati.aziendaAccettata.nomeAzienda;
+    nomeAziendaDaRecensireDesc.innerHTML = dati.aziendaAccettata.nomeAzienda;
 
 
 }
@@ -147,6 +147,20 @@ function inviaRecensione() {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(newRecensione),
+
+    })
+
+    
+    let idRel = localStorage.getItem('idRecensione');
+
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/recensitaRelazioneImballi/${idRel}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+
+        }),
 
     })
 

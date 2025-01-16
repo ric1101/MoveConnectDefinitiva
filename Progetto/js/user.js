@@ -45,6 +45,7 @@ let logo = document.querySelector('.logo');
 let feed = document.querySelector('.feed');
 let accessToken = localStorage.getItem('accessToken');
 
+// richieste emesse in *uscita*
 let richiesteOccSuoloPubUscita = document.querySelector('.richiesteOccSuoloPubUscita');
 let richiesteTrasportoUscita = document.querySelector('.richiesteTrasportoUscita');
 let richiesteScalaElevatoreUscita = document.querySelector('.richiesteScalaElevatoreUscita');
@@ -53,6 +54,7 @@ let richiestePersonaleSpecUscita = document.querySelector('.richiestePersonaleSp
 let richiesteDepositoMagazzinoUscita = document.querySelector('.richiesteDepositoMagazzinoUscita');
 let richiesteTrattaUscita = document.querySelector('.richiesteTrattaUscita');
 
+// proposte ricevute
 let richiesteOccSuoloPubInteresse = document.querySelector('.richiesteOccSuoloPubInteresse');
 let richiesteTrasportoInteresse = document.querySelector('.richiesteTrasportoInteresse');
 let richiesteScalaElevatoreInteresse = document.querySelector('.richiesteScalaElevatoreInteresse');
@@ -61,6 +63,7 @@ let richiestePersonaleSpecInteresse = document.querySelector('.richiestePersonal
 let richiesteDepositoMagazzinoInteresse = document.querySelector('.richiesteDepositoMagazzinoInteresse');
 let richiesteTrattaInteresse = document.querySelector('.richiesteTrattaInteresse');
 
+// relazioni create in *uscita*
 let richiesteOccSuoloPubRelazione = document.querySelector('.richiesteOccSuoloPubRelazione');
 let richiesteTrasportoRelazione = document.querySelector('.richiesteTrasportoRelazione');
 let richiesteScalaElevatoreRelazione = document.querySelector('.richiesteScalaElevatoreRelazione');
@@ -69,13 +72,14 @@ let richiestePersonaleSpecRelazione = document.querySelector('.richiestePersonal
 let richiesteDepositoMagazzinoRelazione = document.querySelector('.richiesteDepositoMagazzinoRelazione');
 let richiesteTrattaRelazione = document.querySelector('.richiesteTrattaRelazione');
 
-let richiesteOccSuoloPubEntrata = document.querySelector('.richiesteOccSuoloPubEntrata');
-let richiesteTrasportoEntrata = document.querySelector('.richiesteTrasportoEntrata');
-let richiesteScalaElevatoreEntrata = document.querySelector('.richiesteScalaElevatoreEntrata');
-let richiesteConsegnaImballiEntrata = document.querySelector('.richiesteConsegnaImballiEntrata');
-let richiestePersonaleSpecEntrata = document.querySelector('.richiestePersonaleSpecEntrata');
-let richiesteDepositoMagazzinoEntrata = document.querySelector('.richiesteDepositoMagazzinoEntrata');
-let richiesteTrattaEntrata = document.querySelector('.richiesteTrattaEntrata');
+
+let richiesteOccSuoloPubInteresseEntrata = document.querySelector('.richiesteOccSuoloPubInteresseEntrata');
+let richiesteTrasportoInteresseEntrata = document.querySelector('.richiesteTrasportoInteresseEntrata');
+let richiesteScalaElevatoreInteresseEntrata = document.querySelector('.richiesteScalaElevatoreInteresseEntrata');
+let richiesteConsegnaImballiInteresseEntrata = document.querySelector('.richiesteConsegnaImballiInteresseEntrata');
+let richiestePersonaleSpecInteresseEntrata = document.querySelector('.richiestePersonaleSpecInteresseEntrata');
+let richiesteDepositoMagazzinoInteresseEntrata = document.querySelector('.richiesteDepositoMagazzinoInteresseEntrata');
+let richiesteTrattaInteresseEntrata = document.querySelector('.richiesteTrattaInteresseEntrata');
 
 let messaggi = document.querySelector('.messaggi');
 let nomeAzienda = document.querySelector('.nomeAzienda');
@@ -604,7 +608,7 @@ function caricaLogo() {
 
     colonnaInfo.innerHTML = caricaLogoVisualizza;
 
-    
+
 
 }
 
@@ -658,9 +662,9 @@ async function inviaImmagine(id) {
             setTimeout(() => {
 
                 location.reload();
-                
+
             }, 1000);
-            
+
         } else {
             result.classList.remove('text-primary');
             result.classList.remove('text-success');
@@ -1435,12 +1439,13 @@ function putScala(id) {
 
 
 function visualizzaRichiesteConsegnaImballiUscita(imballi) {
-
+    let net = false;
+    let net1 = false;
 
     colonnaInfo.innerHTML = '';
 
     console.log(imballi);
-    
+
     if (imballi.consegnaImballi.length == 0) {
 
         colonnaInfo.innerHTML = nessunaCorrispondenzaImballiEmessi;
@@ -1624,8 +1629,198 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
 
     </div>`;
 
+                net = true;
+                if (net1) {
+                    colonnaInfo.innerHTML = '';
+                }
 
                 colonnaInfo.innerHTML += visualizzaRichieste;
+
+            } if (element.stato == 'INTERESSATA') {
+
+
+                let visualizzaRichieste = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">
+
+                        <div class="row p-3">
+                            <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
+                                <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Consegna Imballi numero: #${element.id}</h4>
+                            </div>
+                            
+
+
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Regione</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.regione}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Provincia</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.provincia}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Comune</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.comune}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo Due</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzoDue}&nbsp;
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Cap</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.cap}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Imballo 1</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.imballo1}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Imballo 2</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.imballo2}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Imballo 3</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.imballo3}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Imballo 4</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.imballo4}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Imballo 5</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.imballo5}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Imballo 6</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.imballo6}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Imballo 7</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.imballo7}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Imballo 8</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.imballo8}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Note</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.note}&nbsp;
+                                </div>
+                            </div>
+                            <hr>
+                                
+                          </div>
+
+                        </div>
+
+                    </div>
+                        <div class="row">
+                            <div class="col-lg-12 mt-5 d-flex justify-content-end">
+                                <button class="btn btn-danger mx-2" onclick="deleteImballiProposte(${element.id})">Elimina</button>
+                            </div>
+                        </div>
+                
+            </div>
+
+        </div>
+
+    </div>`;
+
+                net = true;
+                if (net1) {
+                    colonnaInfo.innerHTML = '';
+                }
+                colonnaInfo.innerHTML += visualizzaRichieste;
+
+            } else {
+
+                if (net) {
+
+                } else {
+                    net1 = true;
+                    colonnaInfo.innerHTML = nessunaCorrispondenzaImballiEmessi;
+                }
 
             }
 
@@ -1674,10 +1869,36 @@ async function deleteImballi(id) {
         // body: JSON.stringify(),
     })
 
-    
+
     fetchConsegnaImballiUscita();
 
 }
+
+
+async function deleteImballiProposte(id) {
+
+
+    await fetch(`http://127.0.0.1:8080/api/propostaImballi/eliminaProposte/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }//,
+        // body: JSON.stringify(),
+    })
+
+
+    await fetch(`http://127.0.0.1:8080/api/consegnaImballi/eliminaconsegna/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }//,
+        // body: JSON.stringify(),
+    })
+
+    fetchConsegnaImballiUscita();
+
+}
+
 
 
 
@@ -2714,13 +2935,7 @@ function accettaProposta(idR, consegnaImballiId, consegnaImballiAziendaId, propo
 
     let id = idR;
 
-    fetch(`http://127.0.0.1:8080/api/propostaImballi/accettaRichiestaImballi/${idR}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(id)
-    })
+
 
     let cid = consegnaImballiId;
 
@@ -2815,6 +3030,8 @@ if (richiesteConsegnaImballiInteresse) {
 }
 
 
+/* ------------------------ Richieste tutte relazione ----------------------- */
+
 
 /* -------------------------------------------------------------------------- */
 /*                              imballi relazione                             */
@@ -2886,7 +3103,7 @@ function visualizzaRichiesteImballiRelazione(imballo) {
                 body.innerHTML += visualizzaRichieste;
                 ascoltoImballi()
 
-            } else {
+            } else if (element.stato == 'RECENSITA') {
 
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
@@ -2897,6 +3114,23 @@ function visualizzaRichiesteImballiRelazione(imballo) {
             </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
+                ascoltoImballi()
+
+
+            } else {
+
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisci(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
+            </td>
+            </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoImballi()
 
             }
 
@@ -2958,6 +3192,14 @@ function evadiRelazione(id) {
         body: JSON.stringify(id)
     })
 
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/evasaRelazioneImballi/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+    })
+
     recensisci(id);
 
 }
@@ -2997,4 +3239,257 @@ function recensisci(id) {
 }
 
 
-//vedere bene deposito if
+
+
+/* ------------------------ Richieste tutte entrata interesse ----------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                              imballi interesse entrata                     */
+/* -------------------------------------------------------------------------- */
+
+
+function visualizzaRichiesteImballiInteresseEntrata(imballo) {
+
+    colonnaInfo.innerHTML = '';
+    let visualizzaTabella = '';
+    let visualizzaRichieste = '';
+
+
+    visualizzaTabella = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">                        
+
+                            <div class="row rowData">
+                            <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+                                <th class="text-center">Azienda Di Interesse</th>
+                                <th class="text-center">Richiesta numero #ID</th>
+                                <th class="text-center">Gestisci</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+                                
+
+                        </tbody>
+                    </table>
+                </div>`;
+
+    colonnaInfo.innerHTML = visualizzaTabella;
+
+    let body = document.querySelector('.bodyTabella');
+
+    console.log(imballo);
+
+    if (imballo.length == 0) {
+
+        body.innerHTML = nessunaCorrispondenzaProposta;
+
+    } else {
+
+        imballo.forEach(element => {
+
+
+            visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
+            <td class="text-center">${element.consegnaDTO.id}</td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaImballiInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a>
+            </tr>`;
+
+            body.innerHTML += visualizzaRichieste;
+            ascoltoImballi()
+
+
+
+        });
+
+    }
+
+}
+
+
+
+function eliminaPropostaImballiInteresseEntrata(id) {
+
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/eliminaProposta/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchImballiInteresseEntrata();
+
+}
+
+
+
+async function fetchImballiInteresseEntrata() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            recuperaProposteImballiInteresseEntrata(data.id);
+
+            console.log(data.id);
+
+
+        });
+
+}
+
+
+function recuperaProposteImballiInteresseEntrata(id) {
+
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/byAziendaPropostaProponenteInUscita?azienda=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiesteImballiInteresseEntrata(data);
+
+
+        });
+
+}
+
+
+if (richiesteConsegnaImballiInteresseEntrata) {
+
+    richiesteConsegnaImballiInteresseEntrata.addEventListener('click', fetchImballiInteresseEntrata);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                              imballi interesse entrata                     */
+/* -------------------------------------------------------------------------- */
+
+
+// function visualizzaRichiesteImballiInteresseEntrata(imballo) {
+
+//     colonnaInfo.innerHTML = '';
+//     let visualizzaTabella = '';
+//     let visualizzaRichieste = '';
+
+
+//     visualizzaTabella = `
+//     <div class="card-body destra mb-4">
+//         <div class="row rowRichieste">
+//             <div class="container">
+//                 <div class="row">
+
+//                     <div class="col-lg-12 col-xl-12">                        
+
+//                             <div class="row rowData">
+//                             <div class="table-responsive tabellozza">
+//                     <table class="data-table table mb-0 tbl-server-info">
+//                         <thead class="text-uppercase">
+//                             <tr class="ligth ligth-data">
+//                                 <th class="text-center">Azienda Di Interesse</th>
+//                                 <th class="text-center">Richiesta numero #ID</th>
+//                                 <th class="text-center">Gestisci</th>
+//                             </tr>
+//                         </thead>
+//                         <tbody class="bodyTabella">
+                                
+
+//                         </tbody>
+//                     </table>
+//                 </div>`;
+
+//     colonnaInfo.innerHTML = visualizzaTabella;
+
+//     let body = document.querySelector('.bodyTabella');
+
+//     console.log(imballo);
+
+//     if (imballo.length == 0) {
+
+//         body.innerHTML = nessunaCorrispondenzaProposta;
+
+//     } else {
+
+//         imballo.forEach(element => {
+
+
+//             visualizzaRichieste = `<tr>
+//             <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
+//             <td class="text-center">${element.consegnaDTO.id}</td>
+//             <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaImballiInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a>
+//             </tr>`;
+
+//             body.innerHTML += visualizzaRichieste;
+//             ascoltoImballi()
+
+
+
+//         });
+
+//     }
+
+// }
+
+
+
+// function eliminaPropostaImballiInteresseEntrata(id) {
+
+//     fetch(`http://127.0.0.1:8080/api/propostaImballi/eliminaProposta/${id}`, {
+//         method: "DELETE",
+//         headers: {
+//             "Content-Type": "application/json",
+//         }
+//     })
+
+//     fetchImballiInteresseEntrata();
+
+// }
+
+
+
+// async function fetchTrasportoInteresseEntrata() {
+
+
+//     let accessToken = localStorage.getItem('accessToken');
+
+
+//     await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+//         .then((res) => res.json())
+//         .then((data) => {
+
+//             recuperaTrasportoInteresseEntrata(data.id);
+
+//             console.log(data.id);
+
+
+//         });
+
+// }
+
+
+// function recuperaTrasportoInteresseEntrata(id) {
+
+//     fetch(`http://127.0.0.1:8080/api/propostaImballi/byAziendaPropostaProponenteInUscita?azienda=${id}`)
+//         .then((res) => res.json())
+//         .then((data) => {
+
+//             visualizzaRichiesteImballiInteresseEntrata(data);
+
+
+//         });
+
+// }
+
+
+// if (richiesteTrasportoInteresseEntrata) {
+
+//     richiesteTrasportoInteresseEntrata.addEventListener('click', fetchTrasportoInteresseEntrata);
+// }
