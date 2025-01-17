@@ -40,6 +40,108 @@ let nessunaCorrispondenzaImballiEmessi = `
 
     </div>`;
 
+
+let nessunaCorrispondenzaCaricoEmessi = `
+    <div class="card-body destra mb-5" style="padding: 80px !important">
+        <div class="row rowRichieste">
+            <div class="container">
+                
+
+                    
+
+        <div>
+
+            <div class="row d-flex justify-content-center">
+                
+                <div class="col-md-8 d-flex justify-content-center">
+                    <p class="text-center">Non hai ancora emesso nessuna richiesta Groupage!</p>
+                </div>
+                
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 d-flex justify-content-center">
+                    <a class="btn btn-primary" href="richiestaTrasporto.html">Inserisci richiesta Groupage</a>
+                </div>
+            </div>
+
+        </div>
+
+                    
+
+            </div>
+
+        </div>
+
+    </div>`;
+
+
+let nessunaCorrispondenzaScalaEmessi = `
+    <div class="card-body destra mb-5" style="padding: 80px !important">
+        <div class="row rowRichieste">
+            <div class="container">
+                
+
+                    
+
+        <div>
+
+            <div class="row d-flex justify-content-center">
+                
+                <div class="col-md-8 d-flex justify-content-center">
+                    <p class="text-center">Non hai ancora emesso nessuna richiesta Scala Elevatore!</p>
+                </div>
+                
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 d-flex justify-content-center">
+                    <a class="btn btn-primary" href="scala-elevatore.html">Inserisci richiesta Scala Elevatore</a>
+                </div>
+            </div>
+
+        </div>
+
+                    
+
+            </div>
+
+        </div>
+
+    </div>`;
+
+
+    let nessunaCorrispondenzaPersonaleEmessi = `
+    <div class="card-body destra mb-5" style="padding: 80px !important">
+        <div class="row rowRichieste">
+            <div class="container">
+                
+
+                    
+
+        <div>
+
+            <div class="row d-flex justify-content-center">
+                
+                <div class="col-md-8 d-flex justify-content-center">
+                    <p class="text-center">Non hai ancora emesso nessuna richiesta Personale!</p>
+                </div>
+                
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 d-flex justify-content-center">
+                    <a class="btn btn-primary" href="personale.html">Inserisci richiesta Personale</a>
+                </div>
+            </div>
+
+        </div>
+
+                    
+
+            </div>
+
+        </div>
+
+    </div>`;
+
 let dato = document.querySelector('.dati');
 let logo = document.querySelector('.logo');
 let feed = document.querySelector('.feed');
@@ -957,16 +1059,230 @@ function upload() {
 
 
 function visualizzaRichiesteCaricoUscita(carico) {
+    let net = false;
+    let net1 = false;
 
     colonnaInfo.innerHTML = '';
     let visualizzaRichieste = '';
 
-    carico.richiesteTrasporti.forEach(element => {
+    console.log(carico);
+
+    if (carico.length == 0) {
+
+        colonnaInfo.innerHTML = nessunaCorrispondenzaCaricoEmessi;
+
+    } else {
 
 
-        if (element.stato == 'APERTA') {
 
-            visualizzaRichieste = `
+        carico.forEach(element => {
+            console.log(element.stato);
+            
+
+            if (element.stato == 'APERTA') {
+
+
+                visualizzaRichieste = `
+                <div class="card-body destra mb-4">
+                    <div class="row rowRichieste">
+                        <div class="container">
+                            <div class="row">
+            
+                                <div class="col-lg-12 col-xl-12">
+            
+                                    <div class="row p-3">
+                                        <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
+                                            <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Carico numero: #${element.id}</h4>
+                                        </div>
+                                        
+            
+            
+                                        <div class="row rowDati">
+                                            <div class="col-sm-5">
+                                                <h6 class="mb-0" style="font-size: 18px;">Regione Partenza</h6>
+                                            </div>
+                                            <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                            ${element.regionePartenza}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row rowDati">
+                                            <div class="col-sm-5">
+                                                <h6 class="mb-0" style="font-size: 18px;">Provincia Partenza</h6>
+                                            </div>
+                                            <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                            ${element.provinciaPartenza}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row rowDati">
+                                            <div class="col-sm-5">
+                                                <h6 class="mb-0" style="font-size: 18px;">Comune Partenza</h6>
+                                            </div>
+                                            <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                            ${element.comunePartenza}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row rowDati">
+                                            <div class="col-sm-5">
+                                                <h6 class="mb-0" style="font-size: 18px;">Indirizzo Partenza</h6>
+                                            </div>
+                                            <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                            ${element.indirizzoPartenza}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row rowDati">
+                                            <div class="col-sm-5">
+                                                <h6 class="mb-0" style="font-size: 18px;">Indirizzo Due Partenza</h6>
+                                            </div>
+                                            <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                            ${element.indirizzoDuePartenza}&nbsp;
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row rowDati">
+                                            <div class="col-sm-5">
+                                                <h6 class="mb-0" style="font-size: 18px;">Cap Partenza</h6>
+                                            </div>
+                                            <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                            ${element.capPartenza}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row rowDati">
+                                            <div class="col-sm-5">
+                                                <h6 class="mb-0" style="font-size: 18px;">M3</h6>
+                                            </div>
+                                            <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                            ${element.mq}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row rowDati">
+                                            <div class="col-sm-5">
+                                                <h6 class="mb-0" style="font-size: 18px;">Tipo Di Merce</h6>
+                                            </div>
+                                            <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                            ${element.tipoDiVeicolo}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row rowDati">
+                                            <div class="col-sm-5">
+                                                <h6 class="mb-0" style="font-size: 18px;">Regione Arrivo</h6>
+                                            </div>
+                                            <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                            ${element.regioneArrivo}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row rowDati">
+                                            <div class="col-sm-5">
+                                                <h6 class="mb-0" style="font-size: 18px;">Provincia Arrivo</h6>
+                                            </div>
+                                            <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                            ${element.provinciaArrivo}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row rowDati">
+                                            <div class="col-sm-5">
+                                                <h6 class="mb-0" style="font-size: 18px;">Comune Arrivo</h6>
+                                            </div>
+                                            <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                            ${element.comuneArrivo}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row rowDati">
+                                            <div class="col-sm-5">
+                                                <h6 class="mb-0" style="font-size: 18px;">Indirizzo Arrivo</h6>
+                                            </div>
+                                            <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                            ${element.indirizzoArrivo}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row rowDati">
+                                            <div class="col-sm-5">
+                                                <h6 class="mb-0" style="font-size: 18px;">IndirizzoDueArrivo</h6>
+                                            </div>
+                                            <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                            ${element.indirizzoDueArrivo}&nbsp;
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row rowDati">
+                                            <div class="col-sm-5">
+                                                <h6 class="mb-0" style="font-size: 18px;">Cap Arrivo</h6>
+                                            </div>
+                                            <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                            ${element.capArrivo}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row rowDati">
+                                            <div class="col-sm-5">
+                                                <h6 class="mb-0" style="font-size: 18px;">Carico</h6>
+                                            </div>
+                                            <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                            ${element.carico}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row rowDati">
+                                            <div class="col-sm-5">
+                                                <h6 class="mb-0" style="font-size: 18px;">Scarico</h6>
+                                            </div>
+                                            <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                            ${element.scarico}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row rowDati">
+                                            <div class="col-sm-5">
+                                                <h6 class="mb-0" style="font-size: 18px;">Note</h6>
+                                            </div>
+                                            <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                            ${element.note}&nbsp;
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        
+                                            
+                                      </div>
+            
+                                    </div>
+            
+                                </div>
+                                    <div class="row">
+                                        <div class="col-lg-12 mt-5 d-flex justify-content-end">
+                                            <button class="btn btn-danger mx-2" onclick="deleteCarico(${element.id})">Elimina</button>
+                                            <button class="btn btn-primary mx-2" onclick="putCarico(${element.id})">Modifica</button>
+                                        </div>
+                                    </div>
+                            
+            
+                        </div>
+            
+                    </div>
+            
+                </div>`;
+            
+                                
+                net = true;
+                if (net1) {
+                    colonnaInfo.innerHTML = '';
+                }
+
+                colonnaInfo.innerHTML += visualizzaRichieste;
+
+            } if (element.stato == 'INTERESSATA') {
+
+
+                visualizzaRichieste = `
     <div class="card-body destra mb-4">
         <div class="row rowRichieste">
             <div class="container">
@@ -1143,8 +1459,7 @@ function visualizzaRichiesteCaricoUscita(carico) {
                     </div>
                         <div class="row">
                             <div class="col-lg-12 mt-5 d-flex justify-content-end">
-                                <button class="btn btn-danger mx-2" onclick="deleteCarico(${element.id})">Elimina</button>
-                                <button class="btn btn-primary mx-2" onclick="putCarico(${element.id})">Modifica</button>
+                                <button class="btn btn-danger mx-2" onclick="deleteCaricoProposte(${element.id})">Elimina</button>
                             </div>
                         </div>
                 
@@ -1155,23 +1470,56 @@ function visualizzaRichiesteCaricoUscita(carico) {
 
     </div>`;
 
-            colonnaInfo.innerHTML += visualizzaRichieste;
+                net = true;
+                if (net1) {
+                    colonnaInfo.innerHTML = '';
+                }
+                colonnaInfo.innerHTML += visualizzaRichieste;
 
-        }
+            } else {
 
+                if (net) {
 
-    });
+                } else {
+                    net1 = true;
+                    colonnaInfo.innerHTML = nessunaCorrispondenzaCaricoEmessi;
+                }
+
+            }
+
+        });
+
+    }
 
 }
 
 
-async function fetchCaricoUscita() {
+
+
+
+async function fetchIdCaricoUscita() {
 
 
     let accessToken = localStorage.getItem('accessToken');
 
 
     await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            fetchCaricoUscita(data.id);
+            console.log(data);
+
+
+        });
+
+}
+
+
+async function fetchCaricoUscita(id) {
+
+
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tutteLeConsegneConAziendaTrasportoId/${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1188,22 +1536,45 @@ async function fetchCaricoUscita() {
 
 if (richiesteTrasportoUscita) {
 
-    richiesteTrasportoUscita.addEventListener('click', fetchCaricoUscita);
+    richiesteTrasportoUscita.addEventListener('click', fetchIdCaricoUscita);
 }
 
 
 
 
-function deleteCarico(id) {
+async function deleteCarico(id) {
 
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/eliminaRichiesta/${id}`, {
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/eliminaRichiesta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
         }
     })
 
-    fetchCaricoUscita();
+    fetchIdCaricoUscita();
+
+}
+
+
+async function deleteCaricoProposte(id) {
+
+
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/eliminaRichiesta/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+
+    await fetch(`http://127.0.0.1:8080/api/trasporto/eliminaProposte/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchIdCaricoUscita();
 
 }
 
@@ -1227,16 +1598,31 @@ function putCarico(id) {
 
 
 function visualizzaRichiesteScalaElevatoreUscita(scala) {
-
+    let net = false;
+    let net1 = false;
 
     colonnaInfo.innerHTML = '';
+    let visualizzaRichieste = '';
 
-    scala.scalaElevatore.forEach(element => {
+    
+
+    if (scala.length == 0) {
+
+        colonnaInfo.innerHTML = nessunaCorrispondenzaScalaEmessi;
+
+    } else {
+
+
+
+    scala.forEach(element => {
+
+        console.log(element.stato);
+
 
         if (element.stato == 'APERTA') {
 
 
-            let visualizzaRichieste = `
+            visualizzaRichieste = `
     <div class="card-body destra mb-4">
         <div class="row rowRichieste">
             <div class="container">
@@ -1371,15 +1757,175 @@ function visualizzaRichiesteScalaElevatoreUscita(scala) {
     </div>`;
 
 
+            net = true;
+            if (net1) {
+                colonnaInfo.innerHTML = '';
+            }
+        
+            colonnaInfo.innerHTML += visualizzaRichieste;
+        
+        } if (element.stato == 'INTERESSATA') {
+
+
+            visualizzaRichieste = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">
+
+                        <div class="row p-3">
+                            <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
+                                <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Scala Elevatore numero: #${element.id}</h4>
+                            </div>
+                            
+
+
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Regione</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.regione}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Provincia</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.provincia}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Comune</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.comune}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo Due</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzoDue}&nbsp;
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Cap</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.cap}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Tipo Di Scala</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.tipoDiScala}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Peso Massimo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.pesoMassimo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Inizio</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.inizio}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Fine</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.fine}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Note</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.note}&nbsp;
+                                </div>
+                            </div>
+                            <hr>
+                                
+                          </div>
+
+                        </div>
+
+                    </div>
+                        <div class="row">
+                            <div class="col-lg-12 mt-5 d-flex justify-content-end">
+                                <button class="btn btn-danger mx-2" onclick="deleteScalaProposte(${element.id})">Elimina</button>
+                            </div>
+                        </div>
+                
+
+            </div>
+
+        </div>
+
+    </div>`;
+
+
+            net = true;
+            if (net1) {
+                colonnaInfo.innerHTML = '';
+            }
             colonnaInfo.innerHTML += visualizzaRichieste;
 
+        } else {
+
+            if (net) {
+
+            } else {
+                net1 = true;
+                colonnaInfo.innerHTML = nessunaCorrispondenzaScalaEmessi;
+            }
+
         }
+
     });
+
+    }
 
 }
 
 
-async function fetchScalaElevatoreUscita() {
+async function fetchScalaElevatoreIdUscita() {
 
 
     let accessToken = localStorage.getItem('accessToken');
@@ -1390,8 +1936,8 @@ async function fetchScalaElevatoreUscita() {
         .then((data) => {
 
 
+            fetchScalaElevatoreUscita(data.id);
             console.log(data);
-            visualizzaRichiesteScalaElevatoreUscita(data);
 
 
         });
@@ -1400,33 +1946,75 @@ async function fetchScalaElevatoreUscita() {
 
 
 
+async function fetchScalaElevatoreUscita(id) {
+
+
+
+    await fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeConsegneConAziendaScalaId/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+
+            visualizzaRichiesteScalaElevatoreUscita(data);
+
+            console.log(data);
+
+
+        });
+
+}
+
+
 if (richiesteScalaElevatoreUscita) {
 
-    richiesteScalaElevatoreUscita.addEventListener('click', fetchScalaElevatoreUscita);
+    richiesteScalaElevatoreUscita.addEventListener('click', fetchScalaElevatoreIdUscita);
 }
 
 
 
-function deleteScala(id) {
+async function deleteScala(id) {
 
-    fetch(`http://127.0.0.1:8080/api/scalaElevatore/eliminaScala/${id}`, {
+    await fetch(`http://127.0.0.1:8080/api/scalaElevatore/eliminaScala/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
-        }//,
-        // body: JSON.stringify(),
+        }
     })
 
-    fetchScalaElevatoreUscita();
+    fetchScalaElevatoreIdUscita();
 
 }
+
+
+async function deleteScalaProposte(id) {
+
+    await fetch(`http://127.0.0.1:8080/api/scalaElevatore/eliminaScala/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    await fetch(`http://127.0.0.1:8080/api/scala/eliminaProposte/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchScalaElevatoreIdUscita();
+
+}
+
 
 
 function putScala(id) {
 
+
     localStorage.setItem('modificaScala', id);
 
     window.location.href = 'modificaScala.html';
+
 
 }
 
@@ -1443,10 +2031,11 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
     let net1 = false;
 
     colonnaInfo.innerHTML = '';
+    let visualizzaRichieste = '';
 
     console.log(imballi);
 
-    if (imballi.consegnaImballi.length == 0) {
+    if (imballi.length == 0) {
 
         colonnaInfo.innerHTML = nessunaCorrispondenzaImballiEmessi;
 
@@ -1454,12 +2043,15 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
 
 
 
-        imballi.consegnaImballi.forEach(element => {
+        imballi.forEach(element => {
+            
+            console.log(element.stato);
+            
 
             if (element.stato == 'APERTA') {
 
 
-                let visualizzaRichieste = `
+                visualizzaRichieste = `
     <div class="card-body destra mb-4">
         <div class="row rowRichieste">
             <div class="container">
@@ -1629,6 +2221,7 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
 
     </div>`;
 
+                
                 net = true;
                 if (net1) {
                     colonnaInfo.innerHTML = '';
@@ -1639,7 +2232,7 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
             } if (element.stato == 'INTERESSATA') {
 
 
-                let visualizzaRichieste = `
+                visualizzaRichieste = `
     <div class="card-body destra mb-4">
         <div class="row rowRichieste">
             <div class="container">
@@ -1831,7 +2424,7 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
 }
 
 
-async function fetchConsegnaImballiUscita() {
+async function fetchConsegnaImballiIdUscita() {
 
 
     let accessToken = localStorage.getItem('accessToken');
@@ -1842,8 +2435,26 @@ async function fetchConsegnaImballiUscita() {
         .then((data) => {
 
 
+            fetchConsegnaImballiUscita(data.id);
             console.log(data);
+
+
+        });
+
+}
+
+
+async function fetchConsegnaImballiUscita(id) {
+
+
+
+    await fetch(`http://127.0.0.1:8080/api/consegnaImballi/tutteLeConsegneConAziendaId/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
             visualizzaRichiesteConsegnaImballiUscita(data);
+            
+            console.log(data);
 
 
         });
@@ -1854,7 +2465,7 @@ async function fetchConsegnaImballiUscita() {
 
 if (richiesteConsegnaImballiUscita) {
 
-    richiesteConsegnaImballiUscita.addEventListener('click', fetchConsegnaImballiUscita);
+    richiesteConsegnaImballiUscita.addEventListener('click', fetchConsegnaImballiIdUscita);
 }
 
 
@@ -1865,12 +2476,10 @@ async function deleteImballi(id) {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
-        }//,
-        // body: JSON.stringify(),
+        }
     })
 
-
-    fetchConsegnaImballiUscita();
+    fetchConsegnaImballiIdUscita();
 
 }
 
@@ -1882,8 +2491,7 @@ async function deleteImballiProposte(id) {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
-        }//,
-        // body: JSON.stringify(),
+        }
     })
 
 
@@ -1891,11 +2499,10 @@ async function deleteImballiProposte(id) {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
-        }//,
-        // body: JSON.stringify(),
+        }
     })
 
-    fetchConsegnaImballiUscita();
+    fetchConsegnaImballiIdUscita();
 
 }
 
@@ -1920,16 +2527,30 @@ function putImballi(id) {
 
 
 function visualizzaRichiestePersonaleSpecializzatoUscita(personale) {
-
+    let net = false;
+    let net1 = false;
 
     colonnaInfo.innerHTML = '';
+    let visualizzaRichieste = '';
 
-    personale.personaleSpecializzato.forEach(element => {
+
+    if (personale.length == 0) {
+
+        colonnaInfo.innerHTML = nessunaCorrispondenzaPersonaleEmessi;
+
+    } else {
+
+
+
+    personale.forEach(element => {
+
+        console.log(element.stato);
+
 
         if (element.stato == 'APERTA') {
 
 
-            let visualizzaRichieste = `
+            visualizzaRichieste = `
     <div class="card-body destra mb-4">
         <div class="row rowRichieste">
             <div class="container">
@@ -2064,14 +2685,175 @@ function visualizzaRichiestePersonaleSpecializzatoUscita(personale) {
     </div>`;
 
 
+            net = true;
+            if (net1) {
+                colonnaInfo.innerHTML = '';
+            }
+        
             colonnaInfo.innerHTML += visualizzaRichieste;
+
+        } if (element.stato == 'INTERESSATA') {
+
+
+            visualizzaRichieste = `
+            <div class="card-body destra mb-4">
+                <div class="row rowRichieste">
+                    <div class="container">
+                        <div class="row">
+        
+                            <div class="col-lg-12 col-xl-12">
+        
+                                <div class="row p-3">
+                                    <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
+                                        <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Personale Specializzato numero: #${element.id}</h4>
+                                    </div>
+                                    
+        
+        
+                                    <div class="row rowDati">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0" style="font-size: 18px;">Regione</h6>
+                                        </div>
+                                        <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                        ${element.regione}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row rowDati">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0" style="font-size: 18px;">Provincia</h6>
+                                        </div>
+                                        <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                        ${element.provincia}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row rowDati">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0" style="font-size: 18px;">Comune</h6>
+                                        </div>
+                                        <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                        ${element.comune}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row rowDati">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0" style="font-size: 18px;">Indirizzo</h6>
+                                        </div>
+                                        <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                        ${element.indirizzo}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row rowDati">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0" style="font-size: 18px;">Indirizzo Due</h6>
+                                        </div>
+                                        <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                        ${element.indirizzoDue}&nbsp;
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row rowDati">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0" style="font-size: 18px;">Cap</h6>
+                                        </div>
+                                        <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                        ${element.cap}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row rowDati">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0" style="font-size: 18px;">Operatori</h6>
+                                        </div>
+                                        <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                        ${element.operatore}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row rowDati">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0" style="font-size: 18px;">Autisti</h6>
+                                        </div>
+                                        <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                        ${element.autista}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row rowDati">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0" style="font-size: 18px;">Montatori</h6>
+                                        </div>
+                                        <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                        ${element.montatore}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row rowDati">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0" style="font-size: 18px;">Falegnami</h6>
+                                        </div>
+                                        <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                        ${element.falegname}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row rowDati">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0" style="font-size: 18px;">Note</h6>
+                                        </div>
+                                        <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                        ${element.note}&nbsp;
+                                        </div>
+                                    </div>
+                                    <hr>
+                                        
+                                  </div>
+        
+                                </div>
+        
+                            </div>
+                                <div class="row">
+                                    <div class="col-lg-12 mt-5 d-flex justify-content-end">
+                                        <button class="btn btn-danger mx-2" onclick="deletePersonaleProposte(${element.id})">Elimina</button>
+                                    </div>
+                                </div>
+                        
+        
+                    </div>
+        
+                </div>
+        
+            </div>`;
+
+            net = true;
+            if (net1) {
+                colonnaInfo.innerHTML = '';
+            }
+            colonnaInfo.innerHTML += visualizzaRichieste;
+
+        } else {
+
+            if (net) {
+
+            } else {
+                net1 = true;
+                colonnaInfo.innerHTML = nessunaCorrispondenzaPersonaleEmessi;
+            }
+
         }
+
+
     });
+
+    }
 
 }
 
 
-async function fetchRichiestePersonaleSpecializzatoUscita() {
+async function fetchRichiestePersonaleSpecializzatoIdUscita() {
 
 
     let accessToken = localStorage.getItem('accessToken');
@@ -2082,8 +2864,26 @@ async function fetchRichiestePersonaleSpecializzatoUscita() {
         .then((data) => {
 
 
+            fetchRichiestePersonaleSpecializzatoUscita(data.id);
             console.log(data);
+
+
+        });
+
+}
+
+
+async function fetchRichiestePersonaleSpecializzatoUscita(id) {
+
+
+
+    await fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/tutteLeConsegneConAziendaPersonaleId/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+
             visualizzaRichiestePersonaleSpecializzatoUscita(data);
+            console.log(data);
 
 
         });
@@ -2094,21 +2894,41 @@ async function fetchRichiestePersonaleSpecializzatoUscita() {
 
 if (richiestePersonaleSpecUscita) {
 
-    richiestePersonaleSpecUscita.addEventListener('click', fetchRichiestePersonaleSpecializzatoUscita);
+    richiestePersonaleSpecUscita.addEventListener('click', fetchRichiestePersonaleSpecializzatoIdUscita);
 }
 
 
-function deletePersonale(id) {
+async function deletePersonale(id) {
 
-    fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/eliminaRichiesta/${id}`, {
+    await fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/eliminaRichiesta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
-        }//,
-        // body: JSON.stringify(),
+        }
     })
 
-    fetchRichiestePersonaleSpecializzatoUscita();
+    fetchRichiestePersonaleSpecializzatoIdUscita();
+
+}
+
+
+async function deletePersonaleProposte(id) {
+
+    await fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/eliminaRichiesta/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    await fetch(`http://127.0.0.1:8080/api/personale/eliminaProposte/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchRichiestePersonaleSpecializzatoIdUscita();
 
 }
 
