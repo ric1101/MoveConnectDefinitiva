@@ -104,7 +104,7 @@ function inviaRichiesta(dati) {
 
     })
 
-    window.location.href = 'inviataConSuccesso.html';
+    window.location.href = 'inviataConSuccessoDeposito.html';
 
 
 }

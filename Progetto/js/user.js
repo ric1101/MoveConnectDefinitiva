@@ -109,7 +109,7 @@ let nessunaCorrispondenzaScalaEmessi = `
     </div>`;
 
 
-    let nessunaCorrispondenzaPersonaleEmessi = `
+let nessunaCorrispondenzaPersonaleEmessi = `
     <div class="card-body destra mb-5" style="padding: 80px !important">
         <div class="row rowRichieste">
             <div class="container">
@@ -141,6 +141,74 @@ let nessunaCorrispondenzaScalaEmessi = `
         </div>
 
     </div>`;
+
+    
+let nessunaCorrispondenzaDepositoEmessi = `
+    <div class="card-body destra mb-5" style="padding: 80px !important">
+        <div class="row rowRichieste">
+            <div class="container">
+                
+
+                    
+
+        <div>
+
+            <div class="row d-flex justify-content-center">
+                
+                <div class="col-md-8 d-flex justify-content-center">
+                    <p class="text-center">Non hai ancora emesso nessuna richiesta Deposito!</p>
+                </div>
+                
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 d-flex justify-content-center">
+                    <a class="btn btn-primary" href="deposito-magazzino.html">Inserisci richiesta Deposito</a>
+                </div>
+            </div>
+
+        </div>
+
+                    
+
+            </div>
+
+        </div>
+
+    </div>`;
+
+    
+let nessunaCorrispondenzaTratteEmessi = `
+    <div class="card-body destra mb-5" style="padding: 80px !important">
+        <div class="row rowRichieste">
+            <div class="container">
+                
+
+                    
+
+        <div>
+
+            <div class="row d-flex justify-content-center">
+                
+                <div class="col-md-8 d-flex justify-content-center">
+                    <p class="text-center">Non hai ancora emesso nessuna richiesta Tratte!</p>
+                </div>
+                
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 d-flex justify-content-center">
+                    <a class="btn btn-primary" href="insertTratte.html">Inserisci richiesta Tratte</a>
+                </div>
+            </div>
+
+        </div>
+
+                    
+
+        </div>
+
+    </div>
+
+</div>`;
 
 let dato = document.querySelector('.dati');
 let logo = document.querySelector('.logo');
@@ -846,7 +914,7 @@ function upload() {
 
 
 
-/* ------------------------- Richieste tutte uscita ------------------------- */
+/* ------------------------- Richieste tutteLeConsegneConAziendaMagazzinoId/ uscita ------------------------- */
 
 
 /* -------------------------------------------------------------------------- */
@@ -1605,7 +1673,6 @@ function visualizzaRichiesteScalaElevatoreUscita(scala) {
     let visualizzaRichieste = '';
 
     
-
     if (scala.length == 0) {
 
         colonnaInfo.innerHTML = nessunaCorrispondenzaScalaEmessi;
@@ -1613,8 +1680,8 @@ function visualizzaRichiesteScalaElevatoreUscita(scala) {
     } else {
 
 
-
     scala.forEach(element => {
+
 
         console.log(element.stato);
 
@@ -1945,7 +2012,6 @@ async function fetchScalaElevatoreIdUscita() {
 }
 
 
-
 async function fetchScalaElevatoreUscita(id) {
 
 
@@ -1956,7 +2022,6 @@ async function fetchScalaElevatoreUscita(id) {
 
 
             visualizzaRichiesteScalaElevatoreUscita(data);
-
             console.log(data);
 
 
@@ -2507,8 +2572,6 @@ async function deleteImballiProposte(id) {
 }
 
 
-
-
 function putImballi(id) {
 
     localStorage.setItem('modificaImballi', id);
@@ -2951,20 +3014,30 @@ function putPersonale(id) {
 
 
 function visualizzaRichiesteDepositoMagazzinoUscita(deposito) {
-
+    let net = false;
+    let net1 = false;
 
     colonnaInfo.innerHTML = '';
+    let visualizzaRichieste = '';
 
 
+    if (deposito.length == 0) {
 
-    if (deposito.length != 0) {
+        colonnaInfo.innerHTML = nessunaCorrispondenzaDepositoEmessi;
 
-        deposito.depositoMagazzino.forEach(element => {
+    } else {
+
+
+    deposito.forEach(element => {
+
+
+        console.log(element.stato);
+
 
             if (element.stato == 'APERTA') {
 
 
-                let visualizzaRichieste = `
+                visualizzaRichieste = `
     <div class="card-body destra mb-4">
         <div class="row rowRichieste">
             <div class="container">
@@ -3107,14 +3180,17 @@ function visualizzaRichiesteDepositoMagazzinoUscita(deposito) {
 
     </div>`;
 
-
-                colonnaInfo.innerHTML += visualizzaRichieste;
+            net = true;
+            if (net1) {
+                colonnaInfo.innerHTML = '';
             }
 
-        });
+                colonnaInfo.innerHTML += visualizzaRichieste;
+            
+            } if (element.stato == 'INTERESSATA') {
 
-    } else {
-        visualizzaRichieste = `
+
+                visualizzaRichieste = `
     <div class="card-body destra mb-4">
         <div class="row rowRichieste">
             <div class="container">
@@ -3124,22 +3200,163 @@ function visualizzaRichiesteDepositoMagazzinoUscita(deposito) {
 
                         <div class="row p-3">
                             <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
-                                <h4><i class="fa-solid fa-paper-plane"></i> Nessuna richiesta</h4>
+                                <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Deposito Magazzino numero: #${element.id}</h4>
+                            </div>
+                            
+
+
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Regione</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.regione}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Provincia</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.provincia}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Comune</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.comune}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Cap</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.cap}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">MQ</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.mq}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Inizio</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.inizio}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Fine</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.fine}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Mobilio</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.mobilio}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Pedane</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.pedane}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Altro</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.altro}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Note</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.note}&nbsp;
+                                </div>
+                            </div>
+                            <hr>
+                                
+                          </div>
+
+                        </div>
+
+                    </div>
+                        <div class="row">
+                            <div class="col-lg-12 mt-5 d-flex justify-content-end">
+                                <button class="btn btn-danger mx-2" onclick="deleteMagazzinoProposte(${element.id})">Elimina</button>
                             </div>
                         </div>
-                    </div>
-                </div>
+                
+
             </div>
+
         </div>
+
     </div>`;
 
-        colonnaInfo.innerHTML += visualizzaRichieste;
+            net = true;
+            if (net1) {
+                colonnaInfo.innerHTML = '';
+            }
+            colonnaInfo.innerHTML += visualizzaRichieste;
+
+        } else {
+
+            if (net) {
+
+            } else {
+                net1 = true;
+                colonnaInfo.innerHTML = nessunaCorrispondenzaDepositoEmessi;
+            }
+
+        }
+
+    });
+
     }
 
 }
 
 
-async function fetchRichiesteDepositoMagazzinoUscita() {
+async function fetchRichiesteDepositoMagazzinoIdUscita() {
 
 
     let accessToken = localStorage.getItem('accessToken');
@@ -3150,8 +3367,26 @@ async function fetchRichiesteDepositoMagazzinoUscita() {
         .then((data) => {
 
 
+            fetchRichiesteDepositoMagazzinoUscita(data.id);
             console.log(data);
+
+
+        });
+
+}
+
+
+async function fetchRichiesteDepositoMagazzinoUscita(id) {
+
+
+
+    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tutteLeConsegneConAziendaMagazzinoId/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+
             visualizzaRichiesteDepositoMagazzinoUscita(data);
+            console.log(data);
 
 
         });
@@ -3162,23 +3397,43 @@ async function fetchRichiesteDepositoMagazzinoUscita() {
 
 if (richiesteDepositoMagazzinoUscita) {
 
-    richiesteDepositoMagazzinoUscita.addEventListener('click', fetchRichiesteDepositoMagazzinoUscita);
+    richiesteDepositoMagazzinoUscita.addEventListener('click', fetchRichiesteDepositoMagazzinoIdUscita);
 }
 
 
 
 
-function deleteMagazzino(id) {
+async function deleteMagazzino(id) {
 
-    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/eliminaMagazzino/${id}`, {
+    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/eliminaMagazzino/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
-        }//,
-        // body: JSON.stringify(),
+        }
     })
 
-    fetchRichiesteDepositoMagazzinoUscita();
+    fetchRichiesteDepositoMagazzinoIdUscita();
+
+}
+
+
+async function deleteMagazzinoProposte(id) {
+
+    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/eliminaMagazzino/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    await fetch(`http://127.0.0.1:8080/api/propostaMagazzino/eliminaProposte/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchRichiesteDepositoMagazzinoIdUscita();
 
 }
 
@@ -3201,16 +3456,31 @@ function putMagazzino(id) {
 
 
 function visualizzaRichiesteTratteUscita(tratte) {
-
+    let net = false;
+    let net1 = false;
 
     colonnaInfo.innerHTML = '';
+    let visualizzaRichieste = '';
 
-    tratte.tratta.forEach(element => {
+    console.log(tratte);
+
+    if (tratte.length == 0) {
+
+        colonnaInfo.innerHTML = nessunaCorrispondenzaTratteEmessi;
+
+    } else {
+
+
+
+    tratte.forEach(element => {
+
+        console.log(element.stato);
+
 
         if (element.stato == 'APERTA') {
 
 
-            let visualizzaRichieste = `
+            visualizzaRichieste = `
     <div class="card-body destra mb-4">
         <div class="row rowRichieste">
             <div class="container">
@@ -3390,15 +3660,220 @@ function visualizzaRichiesteTratteUscita(tratte) {
 
     </div>`;
 
+            net = true;
+            if (net1) {
+                colonnaInfo.innerHTML = '';
+            }
 
             colonnaInfo.innerHTML += visualizzaRichieste;
+
+        } if (element.stato == 'INTERESSATA') {
+
+
+            visualizzaRichieste = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">
+
+                        <div class="row p-3">
+                            <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
+                                <h4><i class="fa-solid fa-paper-plane"></i> Richiesta Tratta numero: #${element.id}</h4>
+                            </div>
+                            
+
+
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Regione Partenza</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.regionePartenza}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Provincia Partenza</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.provinciaPartenza}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Comune Partenza</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.comunePartenza}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo Partenza</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzoPartenza}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo Due Partenza</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzoDuePartenza}&nbsp;
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Cap Partenza</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.capPartenza}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Partenza</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.dataPartenza}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Tipo Di Veicolo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.tipoDiVeicolo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Regione Arrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.regioneArrivo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Provincia Arrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.provinciaArrivo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Comune Arrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.comuneArrivo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo Arrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzoArrivo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">IndirizzoDueArrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzoDueArrivo}&nbsp;
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Cap Arrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.capArrivo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Arrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.dataArrivo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Note</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.note}&nbsp;
+                                </div>
+                            </div>
+                            <hr>
+                            
+                                
+                          </div>
+
+                        </div>
+
+                    </div>
+                        <div class="row">
+                            <div class="col-lg-12 mt-5 d-flex justify-content-end">
+                                <button class="btn btn-danger mx-2" onclick="deleteTrattaProposte(${element.id})">Elimina</button>
+                            </div>
+                        </div>
+                
+
+            </div>
+
+        </div>
+
+    </div>`;
+
+            net = true;
+            if (net1) {
+                colonnaInfo.innerHTML = '';
+            }
+            colonnaInfo.innerHTML += visualizzaRichieste;
+
+        } else {
+
+            if (net) {
+
+            } else {
+                net1 = true;
+                colonnaInfo.innerHTML = nessunaCorrispondenzaTratteEmessi;
+            }
+
         }
+
     });
+
+    }
 
 }
 
 
-async function fetchTratteUscita() {
+async function fetchTratteIdUscita() {
 
 
     let accessToken = localStorage.getItem('accessToken');
@@ -3408,7 +3883,7 @@ async function fetchTratteUscita() {
         .then((res) => res.json())
         .then((data) => {
 
-            visualizzaRichiesteTratteUscita(data);
+            fetchTratteUscita(data.id);
 
             console.log(data);
 
@@ -3418,28 +3893,66 @@ async function fetchTratteUscita() {
 }
 
 
+async function fetchTratteUscita(id) {
+
+
+
+    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLeConsegneConAziendaTrattaId/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiesteTratteUscita(data);
+            
+            console.log(data);
+
+
+        });
+
+}
+
 
 if (richiesteTrattaUscita) {
 
-    richiesteTrattaUscita.addEventListener('click', fetchTratteUscita);
+    richiesteTrattaUscita.addEventListener('click', fetchTratteIdUscita);
 }
 
 
 
-function deleteTratta(id) {
+async function deleteTratta(id) {
 
-    fetch(`http://127.0.0.1:8080/api/tratta/eliminaRichiesta/${id}`, {
+    await fetch(`http://127.0.0.1:8080/api/tratta/eliminaRichiesta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
-        }//,
-        // body: JSON.stringify(),
+        }
     })
 
-    fetchTratteUscita();
+    fetchTratteIdUscita();
 
 }
 
+
+async function deleteTrattaProposte(id) {
+
+
+    await fetch(`http://127.0.0.1:8080/api/tratta/eliminaRichiesta/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+
+    await fetch(`http://127.0.0.1:8080/api/trattazza/eliminaProposte/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchTratteIdUscita();
+
+}
 
 
 function putTratta(id) {
@@ -3458,7 +3971,7 @@ function putTratta(id) {
 
 
 
-/* ------------------------ Richieste tutte interesse ----------------------- */
+/* ------------------------ Richieste tutteLeConsegneConAziendaMagazzinoId/ interesse ----------------------- */
 
 
 /* -------------------------------------------------------------------------- */
@@ -3850,7 +4363,7 @@ if (richiesteConsegnaImballiInteresse) {
 }
 
 
-/* ------------------------ Richieste tutte relazione ----------------------- */
+/* ------------------------ Richieste tutteLeConsegneConAziendaMagazzinoId/ relazione ----------------------- */
 
 
 /* -------------------------------------------------------------------------- */
@@ -4061,7 +4574,7 @@ function recensisci(id) {
 
 
 
-/* ------------------------ Richieste tutte entrata interesse ----------------------- */
+/* ------------------------ Richieste tutteLeConsegneConAziendaMagazzinoId/ entrata interesse ----------------------- */
 
 /* -------------------------------------------------------------------------- */
 /*                              imballi interesse entrata                     */
