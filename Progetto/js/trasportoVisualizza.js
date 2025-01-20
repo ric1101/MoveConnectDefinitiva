@@ -72,6 +72,7 @@ function trasporto(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -126,6 +127,16 @@ function ascolto() {
         })
     });
 
+
+}
+
+
+function inviaMailTrasporto(emailAziendale) {
+
+    const subject = "Richiesta Moveconnect";
+    const body = "Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
+    const MailToLink = `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href = MailToLink;
 
 }
 
@@ -305,6 +316,7 @@ function trasportoFiltroSoloRegionePartenza(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -413,6 +425,7 @@ function trasportoFiltroSoloRegioneArrivo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -521,6 +534,7 @@ function trasportoFiltroRegioniDoppie(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -650,6 +664,7 @@ function trasportoFiltroRegioniMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -755,6 +770,7 @@ function trasportoFiltroRegioniDoppieMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -865,6 +881,7 @@ function trasportoFiltroDemo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -1175,6 +1192,7 @@ function trasportoFiltroMerce(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -1280,6 +1298,7 @@ function trasportoFiltroRegionePartenzaMerce(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -1388,6 +1407,7 @@ function trasportoFiltroRegioneArrivoMerce(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -1496,6 +1516,7 @@ function trasportoFiltroRegionePartenzaArrivoMerce(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -1606,6 +1627,7 @@ function trasportoFiltroRegionePartenzaArrivoMerceMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -1714,6 +1736,7 @@ function trasportoFiltroRegionePartenzaMerceMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -1823,6 +1846,7 @@ function trasportoFiltroRegioneArrivoMerceMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -1935,6 +1959,7 @@ function trasportoFiltroMerceMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
