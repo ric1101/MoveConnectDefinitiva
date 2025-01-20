@@ -7,6 +7,7 @@ let nessunaCorrispondenzaRelazione = `<div class="d-flex justify-content-center 
 <p>Non ci sono Servizi!</p>
 </div>`;
 
+
 let nessunaCorrispondenzaImballiEmessi = `
     <div class="card-body destra mb-5" style="padding: 80px !important">
         <div class="row rowRichieste">
@@ -914,7 +915,7 @@ function upload() {
 
 
 
-/* ------------------------- Richieste tutteLeConsegneConAziendaMagazzinoId/ uscita ------------------------- */
+/* ------------------------- Richieste uscita ------------------------- */
 
 
 /* -------------------------------------------------------------------------- */
@@ -3971,7 +3972,7 @@ function putTratta(id) {
 
 
 
-/* ------------------------ Richieste tutteLeConsegneConAziendaMagazzinoId/ interesse ----------------------- */
+/* ------------------------ Richieste interesse ----------------------- */
 
 
 /* -------------------------------------------------------------------------- */
@@ -4111,31 +4112,116 @@ function visualizzaRichiesteScalaInteresse(scala) {
 
     let body = document.querySelector('.bodyTabella');
 
-    scala.scalaElevatore.forEach(element => {
+    console.log(scala);
+
+    if (scala.length == 0) {
+
+        body.innerHTML = nessunaCorrispondenzaProposta;
+
+    } else {
+
+    scala.forEach(element => {
 
 
-        if (element.stato == 'INTERESSATA') {
-
-
-
-            visualizzaRichieste = `<tr>
-            <td class="text-center nomeAz"></td>
-            <td class="text-center">${element.id}</td>
-            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" data-function=""><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" data-function=""><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkScala px-2" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatoreProposta.html">INFO</a></td>
-            </tr>`;
+        visualizzaRichieste = `<tr>
+        <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
+        <td class="text-center">${element.consegnaDTO.id}</td>
+        <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaScala(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaScala(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkScala px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteScalaProposta.html">INFO</a></td>
+        </tr>`;
 
             body.innerHTML += visualizzaRichieste;
+            ascoltoScala();
 
 
-            // ottieniNomeAzienda(element.id_azienda_richiedente);
-
-        }
-
-    });
+        });
+        
+    }
 
 }
 
 
+function ascoltoScala() {
+
+    let linkScala = document.querySelectorAll('.linkScala');
+
+    linkScala.forEach(element => {
+        element.addEventListener('click', () => {
+            let idElement = element.getAttribute('data-evento-id');
+            localStorage.setItem('data-evento-id', idElement);
+        })
+    });
+
+
+}
+
+function eliminaPropostaScala(id) {
+
+    fetch(`http://127.0.0.1:8080/api/scala/eliminaProposta/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchScalaInteresse();
+
+}
+
+function accettaPropostaScala(idR, scalaId, scalaAziendaId, propostaAccettataId) {
+
+    let id = idR;
+
+
+
+    let cid = scalaId;
+
+    fetch(`http://127.0.0.1:8080/api/scala/inCorsoRichiestaScala/${cid}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            "id": cid
+        })
+
+
+    })
+
+
+    let scalaID = scalaId;
+    let scalaAziendaID = scalaAziendaId;
+    let propostaAccettataID = propostaAccettataId;
+
+    class Relazione {
+        constructor(scalaElevatoreId, scalaElevatoreAziendaId, propostaAccettataScalaId) {
+            (this.scalaElevatoreId = scalaElevatoreId),
+                (this.scalaElevatoreAziendaId = scalaElevatoreAziendaId),
+                (this.propostaAccettataScalaId = propostaAccettataScalaId)
+
+        }
+    }
+
+    let newRelazione = new Relazione(scalaID, scalaAziendaID, propostaAccettataID);
+
+    fetch(`http://127.0.0.1:8080/api/scala/relazioneScala`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newRelazione)
+    })
+
+    fetch(`http://127.0.0.1:8080/api/scala/eliminaProposte/${scalaID}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchScalaInteresse();
+
+
+}
 
 async function fetchScalaInteresse() {
 
@@ -4147,9 +4233,23 @@ async function fetchScalaInteresse() {
         .then((res) => res.json())
         .then((data) => {
 
-            visualizzaRichiesteScalaInteresse(data);
+            recuperaProposteScala(data.id);
 
-            console.log(data);
+            console.log(data.id);
+
+
+        });
+
+}
+
+
+function recuperaProposteScala(id) {
+
+    fetch(`http://127.0.0.1:8080/api/scala/byAziendaRichiedente?aziendaRichiedente=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiesteScalaInteresse(data);
 
 
         });
@@ -4224,11 +4324,11 @@ function visualizzaRichiesteImballiInteresse(imballo) {
             visualizzaRichieste = `<tr>
             <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
             <td class="text-center">${element.consegnaDTO.id}</td>
-            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaProposta(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaProposta(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkImballi px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteImballiProposta.html">INFO</a></td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaImballi(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaImballi(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkImballi px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteImballiProposta.html">INFO</a></td>
             </tr>`;
 
             body.innerHTML += visualizzaRichieste;
-            ascoltoImballi()
+            ascoltoImballi();
 
 
 
@@ -4251,7 +4351,7 @@ function ascoltoImballi() {
 
 }
 
-function eliminaProposta(id) {
+function eliminaPropostaImballi(id) {
 
     fetch(`http://127.0.0.1:8080/api/propostaImballi/eliminaProposta/${id}`, {
         method: "DELETE",
@@ -4264,7 +4364,7 @@ function eliminaProposta(id) {
 
 }
 
-function accettaProposta(idR, consegnaImballiId, consegnaImballiAziendaId, propostaAccettataId) {
+function accettaPropostaImballi(idR, consegnaImballiId, consegnaImballiAziendaId, propostaAccettataId) {
 
     let id = idR;
 
@@ -4331,7 +4431,7 @@ async function fetchImballiInteresse() {
         .then((res) => res.json())
         .then((data) => {
 
-            recuperaProposte(data.id);
+            recuperaProposteImballi(data.id);
 
             console.log(data.id);
 
@@ -4342,7 +4442,7 @@ async function fetchImballiInteresse() {
 }
 
 
-function recuperaProposte(id) {
+function recuperaProposteImballi(id) {
 
     fetch(`http://127.0.0.1:8080/api/propostaImballi/byAziendaRichiedente?aziendaRichiedente=${id}`)
         .then((res) => res.json())
