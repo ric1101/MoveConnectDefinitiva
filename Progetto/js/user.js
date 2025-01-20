@@ -4192,7 +4192,7 @@ function accettaPropostaScala(idR, scalaId, scalaAziendaId, propostaAccettataId)
     let scalaAziendaID = scalaAziendaId;
     let propostaAccettataID = propostaAccettataId;
 
-    class Relazione {
+    class RelazioneScala {
         constructor(scalaElevatoreId, scalaElevatoreAziendaId, propostaAccettataScalaId) {
             (this.scalaElevatoreId = scalaElevatoreId),
                 (this.scalaElevatoreAziendaId = scalaElevatoreAziendaId),
@@ -4201,7 +4201,7 @@ function accettaPropostaScala(idR, scalaId, scalaAziendaId, propostaAccettataId)
         }
     }
 
-    let newRelazione = new Relazione(scalaID, scalaAziendaID, propostaAccettataID);
+    let newRelazione = new RelazioneScala(scalaID, scalaAziendaID, propostaAccettataID);
 
     fetch(`http://127.0.0.1:8080/api/scala/relazioneScala`, {
         method: "POST",
@@ -4389,7 +4389,7 @@ function accettaPropostaImballi(idR, consegnaImballiId, consegnaImballiAziendaId
     let consegnaImballiAziendaID = consegnaImballiAziendaId;
     let propostaAccettataID = propostaAccettataId;
 
-    class Relazione {
+    class RelazioneImballi {
         constructor(consegnaImballiId, consegnaImballiAziendaId, propostaAccettataId) {
             (this.consegnaImballiId = consegnaImballiId),
                 (this.consegnaImballiAziendaId = consegnaImballiAziendaId),
@@ -4398,7 +4398,7 @@ function accettaPropostaImballi(idR, consegnaImballiId, consegnaImballiAziendaId
         }
     }
 
-    let newRelazione = new Relazione(consegnaImballiID, consegnaImballiAziendaID, propostaAccettataID);
+    let newRelazione = new RelazioneImballi(consegnaImballiID, consegnaImballiAziendaID, propostaAccettataID);
 
     fetch(`http://127.0.0.1:8080/api/propostaImballi/relazioneImballi`, {
         method: "POST",
@@ -4463,7 +4463,7 @@ if (richiesteConsegnaImballiInteresse) {
 }
 
 
-/* ------------------------ Richieste tutteLeConsegneConAziendaMagazzinoId/ relazione ----------------------- */
+/* ------------------------ Richieste relazione ----------------------- */
 
 
 /* -------------------------------------------------------------------------- */
