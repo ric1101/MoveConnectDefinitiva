@@ -217,65 +217,11 @@ function elevatoreInfo(dati, img, id) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoElevatore(${dati.id}, ${id}, '${dati.azienda.emailAziendale}',  ${dati.azienda.id})">Interessato</button></div>
+                    <div class="col-md-2 align-self-center text-center"><a class="btn btn-secondary p-3" href="./user.html"><i class="fa-solid fa-reply"></i></a></div>
                     <div class="col-md-2"</div>
                 </div>`;
 
     colonnaInfo.innerHTML = visualizzaInfo;
-
-
-}
-
-
-
-function interessamentoElevatore(richiestaId, aziendaIdAccesso, emailAziendale, idAzienda) {
-
-    fetch(`http://127.0.0.1:8080/api/scalaElevatore/modificaScalaIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        }, 
-        body: JSON.stringify({
-
-        }),
-    })
-
-
-    let idRichiedente = aziendaIdAccesso;
-    let idRichiesta = richiestaId;
-    let idAziendaEmittente = idAzienda;
-
-    console.log(idRichiedente, idRichiesta, idAziendaEmittente);
-    
-    class PropostaScala {
-        constructor(aziendaIdProponenteScala, scalaElevatoreId, aziendaIdRichiedenteScala) {
-            (this.aziendaIdProponenteScala = aziendaIdProponenteScala),
-            (this.scalaElevatoreId = scalaElevatoreId),
-            (this.aziendaIdRichiedenteScala = aziendaIdRichiedenteScala)
-
-        }
-    }
-
-    let newPropostaScala = new PropostaScala(idRichiedente, idRichiesta, idAziendaEmittente);
-    console.log(newPropostaScala);
-    
-
-    fetch(`http://127.0.0.1:8080/api/scala/interessataPropostaScala`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        }, 
-        body: JSON.stringify(newPropostaScala),
-        
-    })
-    const subject="Richiesta Moveconnect";
-    const body="Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
-    const MailToLink= `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href=MailToLink;
-
-
-    window.location.href = 'interesseMostrato.html';
-
 
 
 }
