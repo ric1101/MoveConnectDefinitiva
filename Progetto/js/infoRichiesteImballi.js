@@ -267,7 +267,7 @@ function interessamentoImballi(richiestaId, aziendaIdAccesso, emailAziendale, id
     let idRichiedente = aziendaIdAccesso;
     let idRichiesta = richiestaId;
     let idAziendaEmittente = idAzienda;
-    class Proposta {
+    class PropostaImballi {
         constructor(azienda, consegnaImballiId, aziendaRichiedente) {
             (this.azienda = azienda),
             (this.consegnaImballiId = consegnaImballiId),
@@ -276,14 +276,14 @@ function interessamentoImballi(richiestaId, aziendaIdAccesso, emailAziendale, id
         }
     }
 
-    let newProposta = new Proposta(idRichiedente, idRichiesta, idAziendaEmittente);
+    let newPropostaImballi = new PropostaImballi(idRichiedente, idRichiesta, idAziendaEmittente);
 
     fetch(`http://127.0.0.1:8080/api/propostaImballi/interessataPropostaImballi`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         }, 
-        body: JSON.stringify(newProposta),
+        body: JSON.stringify(newPropostaImballi),
     })
     
     const subject="Richiesta Moveconnect";
