@@ -5,12 +5,12 @@ let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
 
 
-fetch(`http://127.0.0.1:8080/api/tratta/tratte/${dataEventoId}`)
+fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/personale/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
         console.log(data);
-        fetchImg(data, data.aziendaDTO.id)
+        fetchImg(data, data.aziendaDTO.id);
 
     });
 
@@ -43,6 +43,7 @@ fetch(`http://127.0.0.1:8080/api/tratta/tratte/${dataEventoId}`)
 
 
 
+
     function recuperaToken(dati, img) {
 
         let accessToken = localStorage.getItem('accessToken');
@@ -52,15 +53,16 @@ fetch(`http://127.0.0.1:8080/api/tratta/tratte/${dataEventoId}`)
             .then((data) => {
     
     
-                tratteInfo(dati, img, data.id)
+                personaleInfo(dati, img, data.id)
     
     
             });
     }
+    
 
 
 
-function tratteInfo(dati, img, id) {
+function personaleInfo(dati, img, id) {
     
 
     let visualizzaInfo = `
@@ -80,7 +82,7 @@ function tratteInfo(dati, img, id) {
                             <p>${dati.aziendaDTO.emailAziendale}</p>
                             <h5 class="fw-bold">P. Iva: </h5>
                             <p>${dati.aziendaDTO.piva}</p>
-                            <h5 class="fw-bold">Indirizzo: </h5>aziendaDTO
+                            <h5 class="fw-bold">Indirizzo: </h5>
                             <p>${dati.aziendaDTO.indirizzo + ', ' + dati.aziendaDTO.comune + ', ' + dati.aziendaDTO.cap }</p>
                         </div>
                     </div>
@@ -104,136 +106,82 @@ function tratteInfo(dati, img, id) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Regione Partenza</p>
+                                        <p class="mb-0 fw-bold">Regione</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.regionePartenza}</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row p-2 ">
-                                    <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Provincia Partenza</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.provinciaPartenza}</p>
+                                        <p class="text-muted mb-0">${dati.regione}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Comune Partenza</p>
+                                        <p class="mb-0 fw-bold">Provincia</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.comunePartenza}</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row p-2 ">
-                                    <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Indirizzo Partenza</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.indirizzoPartenza}</p>
+                                        <p class="text-muted mb-0">${dati.provincia}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Indirizzo Due Partenza</p>
+                                        <p class="mb-0 fw-bold">Comune</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.indirizzoDuePartenza}</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row p-2 ">
-                                    <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Cap Partenza</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.capPartenza}</p>
+                                        <p class="text-muted mb-0">${dati.comune}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Partenza</p>
+                                        <p class="mb-0 fw-bold">Indirizzo</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.dataPartenza}</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row p-2 ">
-                                    <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Tipologia Veicolo</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.tipoDiVeicolo}</p>
+                                        <p class="text-muted mb-0">${dati.indirizzo}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Regione Arrivo</p>
+                                        <p class="mb-0 fw-bold">Cap</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.regioneArrivo}</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row p-2 ">
-                                    <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Provincia Arrivo</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.provinciaArrivo}</p>
+                                        <p class="text-muted mb-0">${dati.cap}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Comune Arrivo</p>
+                                        <p class="mb-0 fw-bold">Operatori</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.comuneArrivo}</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row p-2 ">
-                                    <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Indirizzo Arrivo</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.indirizzoArrivo}</p>
+                                        <p class="text-muted mb-0">${dati.operatore}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Indirizzo Due Arrivo</p>
+                                        <p class="mb-0 fw-bold">Autisti</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.indirizzoDueArrivo}</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row p-2 ">
-                                    <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Cap Arrivo</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.capArrivo}</p>
+                                        <p class="text-muted mb-0">${dati.autista}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Arrivo</p>
+                                        <p class="mb-0 fw-bold">Montatori</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.dataArrivo}</p>
+                                        <p class="text-muted mb-0">${dati.montatore}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Falegnami</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.falegname}</p>
                                     </div>
                                 </div>
                                 
@@ -259,7 +207,7 @@ function tratteInfo(dati, img, id) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoTratte(${dati.id}, ${id}, '${dati.aziendaDTO.emailAziendale}', ${dati.aziendaDTO.id})">Interessato</button></div>
+<div class="col-md-2 align-self-center text-center"><a class="btn btn-secondary p-3" href="./user.html"><i class="fa-solid fa-reply"></i></a></div>
                     <div class="col-md-2"</div>
                 </div>`;
 
@@ -272,45 +220,4 @@ function tratteInfo(dati, img, id) {
 
 
 
-function interessamentoTratte(richiestaId, aziendaIdAccesso, emailAziendale, idAzienda) {
 
-    fetch(`http://127.0.0.1:8080/api/tratta/modificaTrattaIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        }, 
-        body: JSON.stringify({
-
-        }),
-    })
-
-    let idRichiedente = aziendaIdAccesso;
-    let idRichiesta = richiestaId;
-    let idAziendaEmittente = idAzienda;
-    class PropostaTratte {
-        constructor(aziendaIdProponenteTratta, trattaId, aziendaIdRichiedente) {
-            (this.aziendaIdProponenteTratta = aziendaIdProponenteTratta),
-            (this.trattaId = trattaId),
-            (this.aziendaIdRichiedente = aziendaIdRichiedente)
-
-        }
-    }
-
-    let newPropostaTratte = new PropostaTratte(idRichiedente, idRichiesta, idAziendaEmittente);
-
-    fetch(`http://127.0.0.1:8080/api/trattazza/interessataPropostaTratta`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        }, 
-        body: JSON.stringify(newPropostaTratte),
-    })
-
-    const subject= "Richiesta Moveconnect";
-    const body= " Salve ho visto la richiesta sul portale Moveconnect e sarei interessato ";
-    const MailToLink= `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href=MailToLink;
-    window.location.href = 'interesseMostrato.html';
-
-
-}

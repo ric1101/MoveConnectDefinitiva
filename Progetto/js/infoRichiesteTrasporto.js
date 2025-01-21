@@ -10,7 +10,7 @@ fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/richiestaId/${dataEventoId}`
     .then((data) => {
 
         console.log(data);
-        fetchImg(data, data.azienda.id);
+        fetchImg(data, data.aziendaDTO.id);
 
     });
 
@@ -71,17 +71,17 @@ function trasportoInfo(dati, img, id) {
                             <div class="containerLogoImg">
                                     <img src="${img}" alt="" class="imgAzienda">
                                 </div>
-                            <h2 class="my-3 fw-bold">${dati.azienda.nomeAzienda}</h2>
+                            <h2 class="my-3 fw-bold">${dati.aziendaDTO.nomeAzienda}</h2>
                         </div>
                          <div class="card-body col-lg-6">
                             <h5 class="fw-bold mt-3">Numero Telefono: </h5>
-                            <p>${dati.azienda.numeroTelefono}</p>
+                            <p>${dati.aziendaDTO.numeroTelefono}</p>
                             <h5 class="fw-bold">Email Aziendale: </h5>
-                            <p>${dati.azienda.emailAziendale}</p>
+                            <p>${dati.aziendaDTO.emailAziendale}</p>
                             <h5 class="fw-bold">P. Iva: </h5>
-                            <p>${dati.azienda.piva}</p>
+                            <p>${dati.aziendaDTO.piva}</p>
                             <h5 class="fw-bold">Indirizzo: </h5>
-                            <p>${dati.azienda.indirizzo + ', ' + dati.azienda.comune + ', ' + dati.azienda.cap }</p>
+                            <p>${dati.aziendaDTO.indirizzo + ', ' + dati.aziendaDTO.comune + ', ' + dati.aziendaDTO.cap }</p>
                         </div>
                     </div>
                        
@@ -267,7 +267,7 @@ function trasportoInfo(dati, img, id) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoTrasporto(${dati.id}, ${id}, '${dati.azienda.emailAziendale}' , ${dati.azienda.id})">Interessato</button></div>
+                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoTrasporto(${dati.id}, ${id}, '${dati.aziendaDTO.emailAziendale}' , ${dati.aziendaDTO.id})">Interessato</button></div>
                     <div class="col-md-2"</div>
                 </div>`;
 
@@ -303,14 +303,14 @@ function interessamentoTrasporto(richiestaId, aziendaIdAccesso, emailAziendale, 
         }
     }
 
-    let newPropostaImballi = new PropostaCarico(idRichiedente, idRichiesta, idAziendaEmittente);
+    let newPropostaTrasporto = new PropostaCarico(idRichiedente, idRichiesta, idAziendaEmittente);
 
     fetch(`http://127.0.0.1:8080/api/trasporto/interessataPropostaTrasporto`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         }, 
-        body: JSON.stringify(newPropostaImballi),
+        body: JSON.stringify(newPropostaTrasporto),
     })
     
     const subject= "Richiesta Moveconnect";

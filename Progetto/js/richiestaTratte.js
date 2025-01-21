@@ -127,7 +127,7 @@ function inviaRichiesta(dati) {
 
     })
 
-    window.location.href = 'inviataConSuccessoTratte.html';
+    window.location.href = 'inviataConSuccessoTratta.html';
 
 
 

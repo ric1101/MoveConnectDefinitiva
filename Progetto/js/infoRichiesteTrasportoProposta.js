@@ -5,12 +5,12 @@ let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
 
 
-fetch(`http://127.0.0.1:8080/api/tratta/tratte/${dataEventoId}`)
+fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/richiestaId/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
         console.log(data);
-        fetchImg(data, data.aziendaDTO.id)
+        fetchImg(data, data.aziendaDTO.id);
 
     });
 
@@ -41,8 +41,7 @@ fetch(`http://127.0.0.1:8080/api/tratta/tratte/${dataEventoId}`)
             });
     }
 
-
-
+    
     function recuperaToken(dati, img) {
 
         let accessToken = localStorage.getItem('accessToken');
@@ -52,15 +51,16 @@ fetch(`http://127.0.0.1:8080/api/tratta/tratte/${dataEventoId}`)
             .then((data) => {
     
     
-                tratteInfo(dati, img, data.id)
+                trasportoInfo(dati, img, data.id)
     
     
             });
     }
+    
 
 
 
-function tratteInfo(dati, img, id) {
+function trasportoInfo(dati, img, id) {
     
 
     let visualizzaInfo = `
@@ -69,7 +69,7 @@ function tratteInfo(dati, img, id) {
                     <div class="card mb-4 text-center rowes">
                         <div class="card-body col-lg-6 flex-column justify-content-center">
                             <div class="containerLogoImg">
-                                    <img src="${img}" alt="UserImg" class="imgAzienda">
+                                    <img src="${img}" alt="" class="imgAzienda">
                                 </div>
                             <h2 class="my-3 fw-bold">${dati.aziendaDTO.nomeAzienda}</h2>
                         </div>
@@ -80,7 +80,7 @@ function tratteInfo(dati, img, id) {
                             <p>${dati.aziendaDTO.emailAziendale}</p>
                             <h5 class="fw-bold">P. Iva: </h5>
                             <p>${dati.aziendaDTO.piva}</p>
-                            <h5 class="fw-bold">Indirizzo: </h5>aziendaDTO
+                            <h5 class="fw-bold">Indirizzo: </h5>
                             <p>${dati.aziendaDTO.indirizzo + ', ' + dati.aziendaDTO.comune + ', ' + dati.aziendaDTO.cap }</p>
                         </div>
                     </div>
@@ -158,16 +158,16 @@ function tratteInfo(dati, img, id) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Partenza</p>
+                                        <p class="mb-0 fw-bold">M3</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.dataPartenza}</p>
+                                        <p class="text-muted mb-0">${dati.mq}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Tipologia Veicolo</p>
+                                        <p class="mb-0 fw-bold">Tipo Di Merce</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.tipoDiVeicolo}</p>
@@ -230,13 +230,21 @@ function tratteInfo(dati, img, id) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Arrivo</p>
+                                        <p class="mb-0 fw-bold">Carico</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.dataArrivo}</p>
+                                        <p class="text-muted mb-0">${dati.carico}</p>
                                     </div>
                                 </div>
-                                
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Scarico</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.scarico}</p>
+                                    </div>
+                                </div>
                                 
                             </div>
                         </div>
@@ -259,7 +267,7 @@ function tratteInfo(dati, img, id) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoTratte(${dati.id}, ${id}, '${dati.aziendaDTO.emailAziendale}', ${dati.aziendaDTO.id})">Interessato</button></div>
+                    <div class="col-md-2 align-self-center text-center"><a class="btn btn-secondary p-3" href="./user.html"><i class="fa-solid fa-reply"></i></a></div>
                     <div class="col-md-2"</div>
                 </div>`;
 
@@ -271,46 +279,3 @@ function tratteInfo(dati, img, id) {
 
 
 
-
-function interessamentoTratte(richiestaId, aziendaIdAccesso, emailAziendale, idAzienda) {
-
-    fetch(`http://127.0.0.1:8080/api/tratta/modificaTrattaIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        }, 
-        body: JSON.stringify({
-
-        }),
-    })
-
-    let idRichiedente = aziendaIdAccesso;
-    let idRichiesta = richiestaId;
-    let idAziendaEmittente = idAzienda;
-    class PropostaTratte {
-        constructor(aziendaIdProponenteTratta, trattaId, aziendaIdRichiedente) {
-            (this.aziendaIdProponenteTratta = aziendaIdProponenteTratta),
-            (this.trattaId = trattaId),
-            (this.aziendaIdRichiedente = aziendaIdRichiedente)
-
-        }
-    }
-
-    let newPropostaTratte = new PropostaTratte(idRichiedente, idRichiesta, idAziendaEmittente);
-
-    fetch(`http://127.0.0.1:8080/api/trattazza/interessataPropostaTratta`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        }, 
-        body: JSON.stringify(newPropostaTratte),
-    })
-
-    const subject= "Richiesta Moveconnect";
-    const body= " Salve ho visto la richiesta sul portale Moveconnect e sarei interessato ";
-    const MailToLink= `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href=MailToLink;
-    window.location.href = 'interesseMostrato.html';
-
-
-}
