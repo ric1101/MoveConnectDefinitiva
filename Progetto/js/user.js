@@ -4758,8 +4758,209 @@ if (richiestePersonaleSpecInteresse) {
 }
 
 
+/* -------------------------------------------------------------------------- */
+/*                              tratte interesse                              */
+/* -------------------------------------------------------------------------- */
 
-/* ------------------------ Richieste relazione ----------------------- */
+
+
+function visualizzaRichiesteTratteInteresse(tratta) {
+
+    colonnaInfo.innerHTML = '';
+    let visualizzaTabella = '';
+    let visualizzaRichieste = '';
+
+
+    visualizzaTabella = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">                        
+
+                            <div class="row rowData">
+                            <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+                                <th class="text-center">Azienda Richiedente</th>
+                                <th class="text-center">Richiesta numero #ID</th>
+                                <th class="text-center">Gestisci</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+                                
+
+                        </tbody>
+                    </table>
+                </div>`;
+
+    colonnaInfo.innerHTML = visualizzaTabella;
+
+    let body = document.querySelector('.bodyTabella');
+
+    console.log(tratta);
+
+    if (tratta.length == 0) {
+
+        body.innerHTML = nessunaCorrispondenzaProposta;
+
+    } else {
+
+        tratta.forEach(element => {
+
+
+            visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
+            <td class="text-center">${element.consegnaDTO.id}</td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaTratte(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaTratte(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkTratte px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteTratteProposta.html">INFO</a></td>
+            </tr>`;
+
+            body.innerHTML += visualizzaRichieste;
+            ascoltoTratte();
+
+
+
+        });
+
+    }
+}
+
+
+
+function ascoltoTratte() {
+
+    let linkTratte = document.querySelectorAll('.linkTratte');
+
+    linkTratte.forEach(element => {
+        element.addEventListener('click', () => {
+            let idElement = element.getAttribute('data-evento-id');
+            localStorage.setItem('data-evento-id', idElement);
+        })
+    });
+
+
+}
+
+
+
+function eliminaPropostaTratte(id) {
+
+    fetch(`http://127.0.0.1:8080/api/trattazza/eliminaProposta/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchTratteInteresse();
+
+}
+
+
+function accettaPropostaTratte(idR, tratteId, tratteAziendaId, propostaAccettataId) {
+
+    let id = idR;
+
+
+    let cid = tratteId;
+
+    fetch(`http://127.0.0.1:8080/api/trattazza/inCorsoRichiestaImballi/${cid}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            "id": cid
+        })
+
+
+    })
+
+
+    let tratteID = tratteId;
+    let tratteAziendaID = tratteAziendaId;
+    let propostaAccettataID = propostaAccettataId;
+
+    class RelazioneTratte {
+        constructor(trattaId, depositoMTrattaAziendaId, propostaAccettataIdTratta) {
+            (this.trattaId = trattaId),
+                (this.depositoMTrattaAziendaId = depositoMTrattaAziendaId),
+                (this.propostaAccettataIdTratta = propostaAccettataIdTratta)
+
+        }
+    }
+
+
+    let newRelazioneTratte = new RelazioneTratte(tratteID, tratteAziendaID, propostaAccettataID);
+
+    fetch(`http://127.0.0.1:8080/api/trattazza/relazioneTratta`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newRelazioneTratte)
+    })
+
+    fetch(`http://127.0.0.1:8080/api/trattazza/eliminaProposte/${cid}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchTratteInteresse();
+
+
+}
+
+
+async function fetchTratteInteresse() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            recuperaProposteTratte(data.id);
+
+            console.log(data.id);
+
+
+        });
+
+
+}
+
+
+function recuperaProposteTratte(id) {
+
+    fetch(`http://127.0.0.1:8080/api/trattazza/byAziendaRichiedente?aziendaRichiedente=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiesteTratteInteresse(data);
+
+
+        });
+
+}
+
+
+
+if (richiesteTrattaInteresse) {
+
+    richiesteTrattaInteresse.addEventListener('click', fetchTratteInteresse);
+}
+
+
+
+
+/* ----------------------------- Richieste relazione ------------------------ */
 
 
 /* -------------------------------------------------------------------------- */
