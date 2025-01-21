@@ -4463,6 +4463,200 @@ if (richiesteConsegnaImballiInteresse) {
 }
 
 
+/* -------------------------------------------------------------------------- */
+/*                              personale interesse                           */
+/* -------------------------------------------------------------------------- */
+
+function visualizzaRichiestePersonaleInteresse(personale) {
+
+    colonnaInfo.innerHTML = '';
+    let visualizzaTabella = '';
+    let visualizzaRichieste = '';
+
+
+    visualizzaTabella = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">                        
+
+                            <div class="row rowData">
+                            <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+                                <th class="text-center">Azienda Richiedente</th>
+                                <th class="text-center">Richiesta numero #ID</th>
+                                <th class="text-center">Gestisci</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+                                
+
+                        </tbody>
+                    </table>
+                </div>`;
+
+    colonnaInfo.innerHTML = visualizzaTabella;
+
+    let body = document.querySelector('.bodyTabella');
+
+    console.log(personale);
+
+    if (personale.length == 0) {
+
+        body.innerHTML = nessunaCorrispondenzaProposta;
+
+    } else {
+
+        personale.forEach(element => {
+
+
+            visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
+            <td class="text-center">${element.consegnaDTO.id}</td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaPersonale(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaPersonale(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkPersonale px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiestePersonaleProposta.html">INFO</a></td>
+            </tr>`;
+
+            body.innerHTML += visualizzaRichieste;
+            ascoltoPersonale();
+
+
+
+        });
+
+    }
+}
+
+function ascoltoPersonale() {
+
+    let linkPersonale = document.querySelectorAll('.linkPersonale');
+
+    linkPersonale.forEach(element => {
+        element.addEventListener('click', () => {
+            let idElement = element.getAttribute('data-evento-id');
+            localStorage.setItem('data-evento-id', idElement);
+        })
+    });
+
+
+}
+
+function eliminaPropostaPersonale(id) {
+
+    fetch(`http://127.0.0.1:8080/api/personale/eliminaProposta/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchImballiPersonale();
+
+}
+
+function accettaPropostaImballi(idR, consegnaPersonaleId, consegnaPersonaleAziendaId, propostaAccettataId) {
+
+    let id = idR;
+
+
+
+    let cid = consegnaPersonaleId;
+
+    fetch(`http://127.0.0.1:8080/api/personale/inCorsoRichiestaPersonale/${cid}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            "id": cid
+        })
+
+
+    })
+
+
+    let consegnaPersonaleID = consegnaPersonaleId;
+    let consegnaPersonaleAziendaID = consegnaPersonaleAziendaId;
+    let propostaAccettataID = propostaAccettataId;
+
+    class RelazionePersonale {
+        constructor(consegnaPersonaleId, consegnaPersonaleAziendaId, propostaAccettataId) {
+            (this.consegnaPersonaleId = consegnaPersonaleId),
+                (this.consegnaPersonaleAziendaId = consegnaPersonaleAziendaId),
+                (this.propostaAccettataId = propostaAccettataId)
+
+        }
+    }
+
+    let newRelazione = new RelazionePersonale(consegnaPersonaleID, consegnaPersonaleAziendaID, propostaAccettataID);
+
+    fetch(`http://127.0.0.1:8080/api/personale/relazionePersonale`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newRelazione)
+    })
+
+    fetch(`http://127.0.0.1:8080/api/personale/eliminaProposte/${cid}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchPersonaleInteresse();
+
+
+}
+
+
+async function fetchPersonaleInteresse() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            recuperaPropostePersonale(data.id);
+
+            console.log(data.id);
+
+
+        });
+
+
+}
+
+
+function recuperaPropostePersonale(id) {
+
+    fetch(`http://127.0.0.1:8080/api/personale/byAziendaPersonaleRichiedente?aziendaRichiedentePersonale=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiestePersonaleInteresse(data);
+
+
+        });
+
+}
+
+
+
+if (richiestePersonaleSpecInteresse) {
+
+    richiestePersonaleSpecInteresse.addEventListener('click', fetchPersonaleInteresse);
+}
+
+
+
 /* ------------------------ Richieste relazione ----------------------- */
 
 
