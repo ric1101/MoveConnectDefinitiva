@@ -259,7 +259,7 @@ function tratteInfo(dati, img, id) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoTratte(${dati.id}, ${id}, '${dati.azienda.emailAziendale}' )">Interessato</button></div>
+                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoTratte(${dati.id}, ${id}, '${dati.azienda.emailAziendale}', ${dati.azienda.id})">Interessato</button></div>
                     <div class="col-md-2"</div>
                 </div>`;
 
@@ -272,9 +272,9 @@ function tratteInfo(dati, img, id) {
 
 
 
-function interessamentoTratte(richiestaId, aziendaId, emailAziendale) {
+function interessamentoTratte(richiestaId, aziendaIdAccesso, emailAziendale, idAzienda) {
 
-    fetch(`http://127.0.0.1:8080/api/tratta/modificaTrattaIdRichiesta/${richiestaId}/${aziendaId}`, {
+    fetch(`http://127.0.0.1:8080/api/tratta/modificaTrattaIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -283,6 +283,29 @@ function interessamentoTratte(richiestaId, aziendaId, emailAziendale) {
 
         }),
     })
+
+    let idRichiedente = aziendaIdAccesso;
+    let idRichiesta = richiestaId;
+    let idAziendaEmittente = idAzienda;
+    class PropostaTratte {
+        constructor(aziendaIdProponenteTratta, trattaId, aziendaIdRichiedente) {
+            (this.aziendaIdProponenteTratta = aziendaIdProponenteTratta),
+            (this.trattaId = trattaId),
+            (this.aziendaIdRichiedente = aziendaIdRichiedente)
+
+        }
+    }
+
+    let newPropostaTratte = new PropostaTratte(idRichiedente, idRichiesta, idAziendaEmittente);
+
+    fetch(`http://127.0.0.1:8080/api/trattazza/interessataPropostaTratta`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        }, 
+        body: JSON.stringify(newPropostaTratte),
+    })
+
     const subject= "Richiesta Moveconnect";
     const body= " Salve ho visto la richiesta sul portale Moveconnect e sarei interessato ";
     const MailToLink= `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
