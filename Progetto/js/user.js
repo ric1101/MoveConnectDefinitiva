@@ -4017,26 +4017,115 @@ function visualizzaRichiesteCaricoInteresse(carico) {
 
     let body = document.querySelector('.bodyTabella');
 
-    carico.richiesteTrasporti.forEach(element => {
+    if (carico.length == 0) {
+
+        body.innerHTML = nessunaCorrispondenzaProposta;
+
+    } else {
+
+      carico.forEach(element => {
 
 
-        if (element.stato == 'INTERESSATA') {
+      
 
 
-            visualizzaRichieste = `<tr>
-            <td class="text-center nomeAz"></td>
-            <td class="text-center">${element.id}</td>
-            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkTrasporto px-2" data-evento-id="${element.id}" href="./infoRichiesteTrasportoProposta.html">INFO</a></td>
-            </tr>`;
+        visualizzaRichieste = `<tr>
+        <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
+        <td class="text-center">${element.consegnaDTO.id}</td>
+        <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaCarico(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaCarico(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkCarico px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteTrasportoProposta.html">INFO</a></td>
+        </tr>`;
 
             body.innerHTML += visualizzaRichieste;
+            ascoltoCarico();
 
-
-            // ottieniNomeAzienda(element.id_azienda_richiedente);
-
-        }
+           
+        
 
     });
+}
+
+}
+
+function ascoltoCarico() {
+
+    let linkCarico = document.querySelectorAll('.linkCarico');
+
+    linkCarico.forEach(element => {
+        element.addEventListener('click', () => {
+            let idElement = element.getAttribute('data-evento-id');
+            localStorage.setItem('data-evento-id', idElement);
+        })
+    });
+
+
+}
+
+function eliminaPropostaCarico(id) {
+
+    fetch(`http://127.0.0.1:8080/api/trasporto/eliminaProposta/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchCaricoInteresse();
+
+}
+
+function accettaPropostaCarico(idR, consegnaCaricoId, consegnaCaricoAziendaId, propostaAccettataId) {
+
+    let id = idR;
+
+
+
+    let cid = consegnaCaricoId;
+
+    fetch(`http://127.0.0.1:8080/api/trasporto/inCorsoRichiestaTrasporto/${cid}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            "id": cid
+        })
+
+
+    })
+
+
+    let consegnaCaricoID = consegnaCaricoId;
+    let consegnaCaricoAziendaID = consegnaCaricoAziendaId;
+    let propostaAccettataID = propostaAccettataId;
+
+    class RelazioneCarico {
+        constructor(trasportoId, trasportoAziendaId, propostaAccettataTrasportoId) {
+            (this.trasportoId = trasportoId),
+                (this.trasportoAziendaId = trasportoAziendaId),
+                (this.propostaAccettataTrasportoId = propostaAccettataTrasportoId)
+
+        }
+    }
+
+    let newRelazione = new RelazioneCarico(consegnaCaricoID, consegnaCaricoAziendaID, propostaAccettataID);
+
+    fetch(`http://127.0.0.1:8080/api/trasporto/relazioneTrasporto`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newRelazione)
+    })
+
+    fetch(`http://127.0.0.1:8080/api/trasporto/eliminaProposte/${cid}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchCaricoInteresse();
+
 
 }
 
@@ -4051,9 +4140,22 @@ async function fetchCaricoInteresse() {
         .then((res) => res.json())
         .then((data) => {
 
-            visualizzaRichiesteCaricoInteresse(data);
+            recuperaProposteCarico(data.id);
 
-            console.log(data);
+            console.log(data.id);
+
+
+        });
+
+}
+
+function recuperaProposteCarico(id) {
+
+    fetch(`http://127.0.0.1:8080/api/trasporto/byAziendaRichiedente?aziendaRichiedente=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiesteCaricoInteresse(data);
 
 
         });
