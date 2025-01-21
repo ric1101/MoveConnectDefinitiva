@@ -223,7 +223,7 @@ function depositoInfo(dati, img, id) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoDeposito(${dati.id}, ${id}, '${dati.azienda.email}')">Interessato</button></div>
+                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoDeposito(${dati.id}, ${id}, '${dati.azienda.email}' , ${dati.azienda.id}) ">Interessato</button></div>
                     <div class="col-md-2"</div>
                 </div>
                 `;
@@ -237,9 +237,9 @@ function depositoInfo(dati, img, id) {
 
 
 
-function interessamentoDeposito(richiestaId, aziendaId, emailAziendale) {
+function interessamentoDeposito(richiestaId, aziendaIdAccesso, emailAziendale, idAzienda) {
 
-    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/modificaMagazzinoIdRichiesta/${richiestaId}/${aziendaId}`, {
+    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/modificaMagazzinoIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -247,6 +247,29 @@ function interessamentoDeposito(richiestaId, aziendaId, emailAziendale) {
         body: JSON.stringify({
 
         }),
+    })
+
+    let idRichiedente = aziendaIdAccesso;
+    let idRichiesta = richiestaId;
+    let idAziendaEmittente = idAzienda;
+
+    class PropostaDeposito {
+        constructor(aziendaIdProponenteTrasporto, trasportoId, aziendaIdRichiedenteTrasporto) {
+            (this.aziendaIdProponenteTrasporto = aziendaIdProponenteTrasporto),
+            (this.trasportoId = trasportoId),
+            (this.aziendaIdRichiedenteTrasporto = aziendaIdRichiedenteTrasporto)
+
+        }
+    }
+
+    let newPropostaDeposito = new PropostaDeposito(idRichiedente, idRichiesta, idAziendaEmittente);
+
+    fetch(`http://127.0.0.1:8080/api/trasporto/interessataPropostaTrasporto`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        }, 
+        body: JSON.stringify(newPropostaDeposito),
     })
 
     const subject= "Richiesta Moveconnect";
