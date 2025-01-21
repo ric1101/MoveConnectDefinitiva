@@ -3,13 +3,11 @@ let t1 = false;
 let bodyTabella = document.querySelector('.bodyTabella');
 console.log(bodyTabella);
 
+let accessToken = localStorage.getItem('accessToken');
+
 let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
 <p>Non ci sono Corrispondenze!</p>
 </div>`;
-
-let accessToken = localStorage.getItem('accessToken');
-
-function predefinito() {
 
 
     fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
@@ -20,9 +18,6 @@ function predefinito() {
             console.log(data.id);
 
         });
-}
-predefinito();
-
 
 
 function fetchTrasporto(id) {
@@ -34,7 +29,7 @@ function fetchTrasporto(id) {
         .then((data) => {
 
             trasporto(data, id)
-            ascolto();
+         
 
         });
 
@@ -48,6 +43,8 @@ function trasporto(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -55,15 +52,59 @@ function trasporto(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+
+                        console.log(data);
+
+
+                        data.forEach(element => {
+                            if (element.aziendaDTO.id == id) {
+
+
+                                esitoControllo = true;
+
+
+                            } else {
+
+
+
+                            }
+
+
+
+                        })
+                        console.log(esitoControllo);
+                        if (esitoControllo == false) {
+                            console.log('1');
+                            entrata = true;
+                            visualizzaRecord(esitoControllo);
+                            
+                        } else {
+                            console.log('2');
+                            console.log(entrata);
+                            
+                            if (entrata == false) {
+
+                                bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                            }
+                        }
+
+                    });
+
+                function visualizzaRecord() {
+
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTrasporto.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -72,10 +113,8 @@ function trasporto(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.aziendaIdProponenteTrasporto.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
-
-
 
                     t = true;
                     if (t1 == true) {
@@ -85,16 +124,13 @@ function trasporto(dati, id) {
 
                     bodyTabella.innerHTML += tabella;
 
-                } else {
-                    if (t) {
 
-                    } else {
+                    ascolto();
 
-                        bodyTabella.innerHTML = nessunaCorrispondenza;
-                        t1 = true;
 
-                    }
                 }
+
+
             } else {
                 if (t) {
 
@@ -105,40 +141,26 @@ function trasporto(dati, id) {
 
                 }
             }
+        } else {
+            if (t) {
 
-        });
+            } else {
 
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                t1 = true;
 
-    } else {
-        bodyTabella.innerHTML = nessunaCorrispondenza;
-    }
-
-}
-
-
-function ascolto() {
-
-    let linkTrasporto = document.querySelectorAll('.linkTrasporto');
-
-    linkTrasporto.forEach(element => {
-        element.addEventListener('click', () => {
-            let idElement = element.getAttribute('data-evento-id');
-            localStorage.setItem('data-evento-id', idElement);
-        })
+            }
+        }
     });
 
-
+} else {
+    bodyTabella.innerHTML = nessunaCorrispondenza;
+}
+        
 }
 
 
-function inviaMailTrasporto(emailAziendale) {
 
-    const subject = "Richiesta Moveconnect";
-    const body = "Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
-    const MailToLink = `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href = MailToLink;
-
-}
 
 
 var slider = document.getElementById("myRange");
@@ -254,9 +276,9 @@ console.log(reg1);
 
 
 
-function fetchRegioniPartenza(regione) {
+async function fetchRegioniPartenza(regione) {
     console.log(reg1);
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -267,11 +289,11 @@ function fetchRegioniPartenza(regione) {
         });
 }
 
-function filtriRegionePartenza(regione, id) {
+async function filtriRegionePartenza(regione, id) {
 
     console.log(regione);
 
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaPerRegionePartenza/${regione}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaPerRegionePartenza/${regione}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -292,6 +314,8 @@ function trasportoFiltroSoloRegionePartenza(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -299,15 +323,59 @@ function trasportoFiltroSoloRegionePartenza(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+
+                        console.log(data);
+
+
+                        data.forEach(element => {
+                            if (element.aziendaDTO.id == id) {
+
+
+                                esitoControllo = true;
+
+
+                            } else {
+
+
+
+                            }
+
+
+
+                        })
+                        console.log(esitoControllo);
+                        if (esitoControllo == false) {
+                            console.log('1');
+                            entrata = true;
+                            visualizzaRecord(esitoControllo);
+                            
+                        } else {
+                            console.log('2');
+                            console.log(entrata);
+                            
+                            if (entrata == false) {
+
+                                bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                            }
+                        }
+
+                    });
+
+                function visualizzaRecord() {
+
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTrasporto.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -316,10 +384,8 @@ function trasportoFiltroSoloRegionePartenza(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.aziendaIdProponenteTrasporto.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
-
-
 
                     t = true;
                     if (t1 == true) {
@@ -329,16 +395,13 @@ function trasportoFiltroSoloRegionePartenza(dati, id) {
 
                     bodyTabella.innerHTML += tabella;
 
-                } else {
-                    if (t) {
 
-                    } else {
+                    ascolto();
 
-                        bodyTabella.innerHTML = nessunaCorrispondenza;
-                        t1 = true;
 
-                    }
                 }
+
+
             } else {
                 if (t) {
 
@@ -349,22 +412,30 @@ function trasportoFiltroSoloRegionePartenza(dati, id) {
 
                 }
             }
+        } else {
+            if (t) {
 
-        });
+            } else {
 
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                t1 = true;
 
-    } else {
-        bodyTabella.innerHTML = nessunaCorrispondenza;
-    }
+            }
+        }
+    });
+
+} else {
+    bodyTabella.innerHTML = nessunaCorrispondenza;
+}
 
 }
 
 
 
 
-function fetchRegioniArrivo(regione) {
+async function fetchRegioniArrivo(regione) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -376,11 +447,11 @@ function fetchRegioniArrivo(regione) {
 }
 
 
-function filtriRegioneArrivo(regione, id) {
+async function filtriRegioneArrivo(regione, id) {
 
     console.log(regione);
 
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaPerRegioneArrivo/${regione}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaPerRegioneArrivo/${regione}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -401,6 +472,8 @@ function trasportoFiltroSoloRegioneArrivo(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -408,15 +481,59 @@ function trasportoFiltroSoloRegioneArrivo(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+
+                        console.log(data);
+
+
+                        data.forEach(element => {
+                            if (element.aziendaDTO.id == id) {
+
+
+                                esitoControllo = true;
+
+
+                            } else {
+
+
+
+                            }
+
+
+
+                        })
+                        console.log(esitoControllo);
+                        if (esitoControllo == false) {
+                            console.log('1');
+                            entrata = true;
+                            visualizzaRecord(esitoControllo);
+                            
+                        } else {
+                            console.log('2');
+                            console.log(entrata);
+                            
+                            if (entrata == false) {
+
+                                bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                            }
+                        }
+
+                    });
+
+                function visualizzaRecord() {
+
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTrasporto.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -425,10 +542,8 @@ function trasportoFiltroSoloRegioneArrivo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.aziendaIdProponenteTrasporto.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
-
-
 
                     t = true;
                     if (t1 == true) {
@@ -438,16 +553,13 @@ function trasportoFiltroSoloRegioneArrivo(dati, id) {
 
                     bodyTabella.innerHTML += tabella;
 
-                } else {
-                    if (t) {
 
-                    } else {
+                    ascolto();
 
-                        bodyTabella.innerHTML = nessunaCorrispondenza;
-                        t1 = true;
 
-                    }
                 }
+
+
             } else {
                 if (t) {
 
@@ -458,13 +570,21 @@ function trasportoFiltroSoloRegioneArrivo(dati, id) {
 
                 }
             }
+        } else {
+            if (t) {
 
-        });
+            } else {
 
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                t1 = true;
 
-    } else {
-        bodyTabella.innerHTML = nessunaCorrispondenza;
-    }
+            }
+        }
+    });
+
+} else {
+    bodyTabella.innerHTML = nessunaCorrispondenza;
+}
 
 }
 
@@ -473,9 +593,9 @@ function trasportoFiltroSoloRegioneArrivo(dati, id) {
 
 
 
-function fetchRegioniDoppie(regionePartenza, regioneArrivo) {
+async function fetchRegioniDoppie(regionePartenza, regioneArrivo) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -486,10 +606,10 @@ function fetchRegioniDoppie(regionePartenza, regioneArrivo) {
 }
 
 
-function filtriRegioniDoppie(regionePartenza, regioneArrivo, id) {
+async function filtriRegioniDoppie(regionePartenza, regioneArrivo, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regionePartenza}&regioneArrivo=${regioneArrivo}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regionePartenza}&regioneArrivo=${regioneArrivo}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -510,6 +630,8 @@ function trasportoFiltroRegioniDoppie(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -517,15 +639,59 @@ function trasportoFiltroRegioniDoppie(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+
+                        console.log(data);
+
+
+                        data.forEach(element => {
+                            if (element.aziendaDTO.id == id) {
+
+
+                                esitoControllo = true;
+
+
+                            } else {
+
+
+
+                            }
+
+
+
+                        })
+                        console.log(esitoControllo);
+                        if (esitoControllo == false) {
+                            console.log('1');
+                            entrata = true;
+                            visualizzaRecord(esitoControllo);
+                            
+                        } else {
+                            console.log('2');
+                            console.log(entrata);
+                            
+                            if (entrata == false) {
+
+                                bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                            }
+                        }
+
+                    });
+
+                function visualizzaRecord() {
+
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTrasporto.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -534,10 +700,8 @@ function trasportoFiltroRegioniDoppie(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.aziendaIdProponenteTrasporto.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
-
-
 
                     t = true;
                     if (t1 == true) {
@@ -547,16 +711,13 @@ function trasportoFiltroRegioniDoppie(dati, id) {
 
                     bodyTabella.innerHTML += tabella;
 
-                } else {
-                    if (t) {
 
-                    } else {
+                    ascolto();
 
-                        bodyTabella.innerHTML = nessunaCorrispondenza;
-                        t1 = true;
 
-                    }
                 }
+
+
             } else {
                 if (t) {
 
@@ -567,13 +728,21 @@ function trasportoFiltroRegioniDoppie(dati, id) {
 
                 }
             }
+        } else {
+            if (t) {
 
-        });
+            } else {
 
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                t1 = true;
 
-    } else {
-        bodyTabella.innerHTML = nessunaCorrispondenza;
-    }
+            }
+        }
+    });
+
+} else {
+    bodyTabella.innerHTML = nessunaCorrispondenza;
+}
 
 }
 
@@ -582,9 +751,9 @@ function trasportoFiltroRegioniDoppie(dati, id) {
 
 
 
-function fetchRegioniMq(regione, mq) {
+async function fetchRegioniMq(regione, mq) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -595,7 +764,7 @@ function fetchRegioniMq(regione, mq) {
 }
 
 
-function filtriRegioniMq(regione, mq, id) {
+async function filtriRegioniMq(regione, mq, id) {
 
     let rottaPartenza = `http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regione}&mq=${mq}`;
     let rottaArrivo = `http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regioneArrivo=${regione}&mq=${mq}`
@@ -603,7 +772,7 @@ function filtriRegioniMq(regione, mq, id) {
     if (reg1 == 0) {
         console.log('ciaoneeee');
 
-        fetch(rottaArrivo)
+        await fetch(rottaArrivo)
             .then((res) => res.json())
             .then((data) => {
 
@@ -617,7 +786,7 @@ function filtriRegioniMq(regione, mq, id) {
     } else {
         console.log('66');
 
-        fetch(rottaPartenza)
+        await fetch(rottaPartenza)
             .then((res) => res.json())
             .then((data) => {
 
@@ -640,6 +809,8 @@ function trasportoFiltroRegioniMq(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -647,15 +818,59 @@ function trasportoFiltroRegioniMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+
+                        console.log(data);
+
+
+                        data.forEach(element => {
+                            if (element.aziendaDTO.id == id) {
+
+
+                                esitoControllo = true;
+
+
+                            } else {
+
+
+
+                            }
+
+
+
+                        })
+                        console.log(esitoControllo);
+                        if (esitoControllo == false) {
+                            console.log('1');
+                            entrata = true;
+                            visualizzaRecord(esitoControllo);
+                            
+                        } else {
+                            console.log('2');
+                            console.log(entrata);
+                            
+                            if (entrata == false) {
+
+                                bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                            }
+                        }
+
+                    });
+
+                function visualizzaRecord() {
+
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTrasporto.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -664,10 +879,8 @@ function trasportoFiltroRegioniMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.aziendaIdProponenteTrasporto.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
-
-
 
                     t = true;
                     if (t1 == true) {
@@ -677,16 +890,13 @@ function trasportoFiltroRegioniMq(dati, id) {
 
                     bodyTabella.innerHTML += tabella;
 
-                } else {
-                    if (t) {
 
-                    } else {
+                    ascolto();
 
-                        bodyTabella.innerHTML = nessunaCorrispondenza;
-                        t1 = true;
 
-                    }
                 }
+
+
             } else {
                 if (t) {
 
@@ -697,21 +907,29 @@ function trasportoFiltroRegioniMq(dati, id) {
 
                 }
             }
+        } else {
+            if (t) {
 
-        });
+            } else {
 
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                t1 = true;
 
-    } else {
-        bodyTabella.innerHTML = nessunaCorrispondenza;
-    }
+            }
+        }
+    });
+
+} else {
+    bodyTabella.innerHTML = nessunaCorrispondenza;
+}
 
 }
 
 
 
-function fetchRegionePartenzaArrivoMq(regionePartenza, regioneArrivo, mq) {
+async function fetchRegionePartenzaArrivoMq(regionePartenza, regioneArrivo, mq) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -722,10 +940,10 @@ function fetchRegionePartenzaArrivoMq(regionePartenza, regioneArrivo, mq) {
 }
 
 
-function filtriRegioniDoppieMq(regionePartenza, regioneArrivo, mq, id) {
+async function filtriRegioniDoppieMq(regionePartenza, regioneArrivo, mq, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regionePartenza}&regioneArrivo=${regioneArrivo}&mq=${mq}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regionePartenza}&regioneArrivo=${regioneArrivo}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -746,6 +964,8 @@ function trasportoFiltroRegioniDoppieMq(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -753,15 +973,59 @@ function trasportoFiltroRegioniDoppieMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+
+                        console.log(data);
+
+
+                        data.forEach(element => {
+                            if (element.aziendaDTO.id == id) {
+
+
+                                esitoControllo = true;
+
+
+                            } else {
+
+
+
+                            }
+
+
+
+                        })
+                        console.log(esitoControllo);
+                        if (esitoControllo == false) {
+                            console.log('1');
+                            entrata = true;
+                            visualizzaRecord(esitoControllo);
+                            
+                        } else {
+                            console.log('2');
+                            console.log(entrata);
+                            
+                            if (entrata == false) {
+
+                                bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                            }
+                        }
+
+                    });
+
+                function visualizzaRecord() {
+
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTrasporto.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -770,10 +1034,8 @@ function trasportoFiltroRegioniDoppieMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.aziendaIdProponenteTrasporto.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
-
-
 
                     t = true;
                     if (t1 == true) {
@@ -783,16 +1045,13 @@ function trasportoFiltroRegioniDoppieMq(dati, id) {
 
                     bodyTabella.innerHTML += tabella;
 
-                } else {
-                    if (t) {
 
-                    } else {
+                    ascolto();
 
-                        bodyTabella.innerHTML = nessunaCorrispondenza;
-                        t1 = true;
 
-                    }
                 }
+
+
             } else {
                 if (t) {
 
@@ -803,22 +1062,30 @@ function trasportoFiltroRegioniDoppieMq(dati, id) {
 
                 }
             }
+        } else {
+            if (t) {
 
-        });
+            } else {
 
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                t1 = true;
 
-    } else {
-        bodyTabella.innerHTML = nessunaCorrispondenza;
-    }
+            }
+        }
+    });
+
+} else {
+    bodyTabella.innerHTML = nessunaCorrispondenza;
+}
 
 }
 
 
 
 
-function fetchDemo(mq) {
+async function fetchDemo(mq) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -831,10 +1098,10 @@ function fetchDemo(mq) {
 }
 
 
-function filtriDemo(mq, id) {
+async function filtriDemo(mq, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?mq=${mq}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -857,6 +1124,8 @@ function trasportoFiltroDemo(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -864,15 +1133,59 @@ function trasportoFiltroDemo(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+
+                        console.log(data);
+
+
+                        data.forEach(element => {
+                            if (element.aziendaDTO.id == id) {
+
+
+                                esitoControllo = true;
+
+
+                            } else {
+
+
+
+                            }
+
+
+
+                        })
+                        console.log(esitoControllo);
+                        if (esitoControllo == false) {
+                            console.log('1');
+                            entrata = true;
+                            visualizzaRecord(esitoControllo);
+                            
+                        } else {
+                            console.log('2');
+                            console.log(entrata);
+                            
+                            if (entrata == false) {
+
+                                bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                            }
+                        }
+
+                    });
+
+                function visualizzaRecord() {
+
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTrasporto.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -881,10 +1194,8 @@ function trasportoFiltroDemo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.aziendaIdProponenteTrasporto.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
-
-
 
                     t = true;
                     if (t1 == true) {
@@ -894,16 +1205,13 @@ function trasportoFiltroDemo(dati, id) {
 
                     bodyTabella.innerHTML += tabella;
 
-                } else {
-                    if (t) {
 
-                    } else {
+                    ascolto();
 
-                        bodyTabella.innerHTML = nessunaCorrispondenza;
-                        t1 = true;
 
-                    }
                 }
+
+
             } else {
                 if (t) {
 
@@ -914,13 +1222,21 @@ function trasportoFiltroDemo(dati, id) {
 
                 }
             }
+        } else {
+            if (t) {
 
-        });
+            } else {
 
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                t1 = true;
 
-    } else {
-        bodyTabella.innerHTML = nessunaCorrispondenza;
-    }
+            }
+        }
+    });
+
+} else {
+    bodyTabella.innerHTML = nessunaCorrispondenza;
+}
 
 }
 
@@ -1123,17 +1439,12 @@ sliderDemo.addEventListener('change', () => {
 
 
 
-let bottoneReset = document.querySelector('.bottoneReset');
-
-bottoneReset.addEventListener('click', () => {
-    location.reload();
-});
 
 
 
-function fetchMerce(merce) {
+async function fetchMerce(merce) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1144,10 +1455,10 @@ function fetchMerce(merce) {
 }
 
 
-function filtriMerce(merce, id) {
+async function filtriMerce(merce, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?tipoDiVeicolo=${merce}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?tipoDiVeicolo=${merce}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1168,6 +1479,8 @@ function trasportoFiltroMerce(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -1175,15 +1488,59 @@ function trasportoFiltroMerce(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+
+                        console.log(data);
+
+
+                        data.forEach(element => {
+                            if (element.aziendaDTO.id == id) {
+
+
+                                esitoControllo = true;
+
+
+                            } else {
+
+
+
+                            }
+
+
+
+                        })
+                        console.log(esitoControllo);
+                        if (esitoControllo == false) {
+                            console.log('1');
+                            entrata = true;
+                            visualizzaRecord(esitoControllo);
+                            
+                        } else {
+                            console.log('2');
+                            console.log(entrata);
+                            
+                            if (entrata == false) {
+
+                                bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                            }
+                        }
+
+                    });
+
+                function visualizzaRecord() {
+
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTrasporto.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -1192,10 +1549,8 @@ function trasportoFiltroMerce(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.aziendaIdProponenteTrasporto.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
-
-
 
                     t = true;
                     if (t1 == true) {
@@ -1205,16 +1560,13 @@ function trasportoFiltroMerce(dati, id) {
 
                     bodyTabella.innerHTML += tabella;
 
-                } else {
-                    if (t) {
 
-                    } else {
+                    ascolto();
 
-                        bodyTabella.innerHTML = nessunaCorrispondenza;
-                        t1 = true;
 
-                    }
                 }
+
+
             } else {
                 if (t) {
 
@@ -1225,21 +1577,29 @@ function trasportoFiltroMerce(dati, id) {
 
                 }
             }
+        } else {
+            if (t) {
 
-        });
+            } else {
 
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                t1 = true;
 
-    } else {
-        bodyTabella.innerHTML = nessunaCorrispondenza;
-    }
+            }
+        }
+    });
+
+} else {
+    bodyTabella.innerHTML = nessunaCorrispondenza;
+}
 
 }
 
 
 
-function fetchRegionePartenzaMerce(regionePartenza, merce) {
+async function fetchRegionePartenzaMerce(regionePartenza, merce) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1250,10 +1610,10 @@ function fetchRegionePartenzaMerce(regionePartenza, merce) {
 }
 
 
-function filtriRegionePartenzaMerce(regionePartenza, merce, id) {
+async function filtriRegionePartenzaMerce(regionePartenza, merce, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regionePartenza}&tipoDiVeicolo=${merce}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regionePartenza}&tipoDiVeicolo=${merce}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1274,6 +1634,8 @@ function trasportoFiltroRegionePartenzaMerce(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -1281,15 +1643,59 @@ function trasportoFiltroRegionePartenzaMerce(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+
+                        console.log(data);
+
+
+                        data.forEach(element => {
+                            if (element.aziendaDTO.id == id) {
+
+
+                                esitoControllo = true;
+
+
+                            } else {
+
+
+
+                            }
+
+
+
+                        })
+                        console.log(esitoControllo);
+                        if (esitoControllo == false) {
+                            console.log('1');
+                            entrata = true;
+                            visualizzaRecord(esitoControllo);
+                            
+                        } else {
+                            console.log('2');
+                            console.log(entrata);
+                            
+                            if (entrata == false) {
+
+                                bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                            }
+                        }
+
+                    });
+
+                function visualizzaRecord() {
+
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTrasporto.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -1298,10 +1704,8 @@ function trasportoFiltroRegionePartenzaMerce(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.aziendaIdProponenteTrasporto.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
-
-
 
                     t = true;
                     if (t1 == true) {
@@ -1311,16 +1715,13 @@ function trasportoFiltroRegionePartenzaMerce(dati, id) {
 
                     bodyTabella.innerHTML += tabella;
 
-                } else {
-                    if (t) {
 
-                    } else {
+                    ascolto();
 
-                        bodyTabella.innerHTML = nessunaCorrispondenza;
-                        t1 = true;
 
-                    }
                 }
+
+
             } else {
                 if (t) {
 
@@ -1331,14 +1732,21 @@ function trasportoFiltroRegionePartenzaMerce(dati, id) {
 
                 }
             }
+        } else {
+            if (t) {
 
-        });
+            } else {
 
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                t1 = true;
 
-    } else {
-        bodyTabella.innerHTML = nessunaCorrispondenza;
-    }
+            }
+        }
+    });
 
+} else {
+    bodyTabella.innerHTML = nessunaCorrispondenza;
+}
 }
 
 
@@ -1346,9 +1754,9 @@ function trasportoFiltroRegionePartenzaMerce(dati, id) {
 
 
 
-function fetchRegioneArrivoMerce(regioneArrivo, merce) {
+async function fetchRegioneArrivoMerce(regioneArrivo, merce) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1359,10 +1767,10 @@ function fetchRegioneArrivoMerce(regioneArrivo, merce) {
 }
 
 
-function filtriRegioneArrivoMerce(regioneArrivo, merce, id) {
+async function filtriRegioneArrivoMerce(regioneArrivo, merce, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regioneArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regioneArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1383,6 +1791,8 @@ function trasportoFiltroRegioneArrivoMerce(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -1390,15 +1800,59 @@ function trasportoFiltroRegioneArrivoMerce(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+
+                        console.log(data);
+
+
+                        data.forEach(element => {
+                            if (element.aziendaDTO.id == id) {
+
+
+                                esitoControllo = true;
+
+
+                            } else {
+
+
+
+                            }
+
+
+
+                        })
+                        console.log(esitoControllo);
+                        if (esitoControllo == false) {
+                            console.log('1');
+                            entrata = true;
+                            visualizzaRecord(esitoControllo);
+                            
+                        } else {
+                            console.log('2');
+                            console.log(entrata);
+                            
+                            if (entrata == false) {
+
+                                bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                            }
+                        }
+
+                    });
+
+                function visualizzaRecord() {
+
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTrasporto.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -1407,10 +1861,8 @@ function trasportoFiltroRegioneArrivoMerce(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.aziendaIdProponenteTrasporto.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
-
-
 
                     t = true;
                     if (t1 == true) {
@@ -1420,16 +1872,13 @@ function trasportoFiltroRegioneArrivoMerce(dati, id) {
 
                     bodyTabella.innerHTML += tabella;
 
-                } else {
-                    if (t) {
 
-                    } else {
+                    ascolto();
 
-                        bodyTabella.innerHTML = nessunaCorrispondenza;
-                        t1 = true;
 
-                    }
                 }
+
+
             } else {
                 if (t) {
 
@@ -1440,13 +1889,21 @@ function trasportoFiltroRegioneArrivoMerce(dati, id) {
 
                 }
             }
+        } else {
+            if (t) {
 
-        });
+            } else {
 
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                t1 = true;
 
-    } else {
-        bodyTabella.innerHTML = nessunaCorrispondenza;
-    }
+            }
+        }
+    });
+
+} else {
+    bodyTabella.innerHTML = nessunaCorrispondenza;
+}
 
 }
 
@@ -1455,9 +1912,9 @@ function trasportoFiltroRegioneArrivoMerce(dati, id) {
 
 
 
-function fetchRegionePartenzaArrivoMerce(regionePartenza, regioneArrivo, merce) {
+async function fetchRegionePartenzaArrivoMerce(regionePartenza, regioneArrivo, merce) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1468,10 +1925,10 @@ function fetchRegionePartenzaArrivoMerce(regionePartenza, regioneArrivo, merce) 
 }
 
 
-function filtriRegionePartenzaArrivoMerce(regionePartenza, regioneArrivo, merce, id) {
+async function filtriRegionePartenzaArrivoMerce(regionePartenza, regioneArrivo, merce, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regionePartenza}&regioneArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regionePartenza}&regioneArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1492,6 +1949,8 @@ function trasportoFiltroRegionePartenzaArrivoMerce(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -1499,15 +1958,59 @@ function trasportoFiltroRegionePartenzaArrivoMerce(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+
+                        console.log(data);
+
+
+                        data.forEach(element => {
+                            if (element.aziendaDTO.id == id) {
+
+
+                                esitoControllo = true;
+
+
+                            } else {
+
+
+
+                            }
+
+
+
+                        })
+                        console.log(esitoControllo);
+                        if (esitoControllo == false) {
+                            console.log('1');
+                            entrata = true;
+                            visualizzaRecord(esitoControllo);
+                            
+                        } else {
+                            console.log('2');
+                            console.log(entrata);
+                            
+                            if (entrata == false) {
+
+                                bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                            }
+                        }
+
+                    });
+
+                function visualizzaRecord() {
+
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTrasporto.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -1516,10 +2019,8 @@ function trasportoFiltroRegionePartenzaArrivoMerce(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.aziendaIdProponenteTrasporto.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
-
-
 
                     t = true;
                     if (t1 == true) {
@@ -1529,16 +2030,13 @@ function trasportoFiltroRegionePartenzaArrivoMerce(dati, id) {
 
                     bodyTabella.innerHTML += tabella;
 
-                } else {
-                    if (t) {
 
-                    } else {
+                    ascolto();
 
-                        bodyTabella.innerHTML = nessunaCorrispondenza;
-                        t1 = true;
 
-                    }
                 }
+
+
             } else {
                 if (t) {
 
@@ -1549,13 +2047,21 @@ function trasportoFiltroRegionePartenzaArrivoMerce(dati, id) {
 
                 }
             }
+        } else {
+            if (t) {
 
-        });
+            } else {
 
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                t1 = true;
 
-    } else {
-        bodyTabella.innerHTML = nessunaCorrispondenza;
-    }
+            }
+        }
+    });
+
+} else {
+    bodyTabella.innerHTML = nessunaCorrispondenza;
+}
 
 }
 
@@ -1566,9 +2072,9 @@ function trasportoFiltroRegionePartenzaArrivoMerce(dati, id) {
 
 
 
-function fetchRegionePartenzaArrivoMerceMq(regionePartenza, regioneArrivo, merce, mq) {
+async function fetchRegionePartenzaArrivoMerceMq(regionePartenza, regioneArrivo, merce, mq) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1579,10 +2085,10 @@ function fetchRegionePartenzaArrivoMerceMq(regionePartenza, regioneArrivo, merce
 }
 
 
-function filtriRegionePartenzaArrivoMerceMq(regionePartenza, regioneArrivo, merce, mq, id) {
+async function filtriRegionePartenzaArrivoMerceMq(regionePartenza, regioneArrivo, merce, mq, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regionePartenza}&regioneArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}&mq=${mq}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regionePartenza}&regioneArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1603,6 +2109,8 @@ function trasportoFiltroRegionePartenzaArrivoMerceMq(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -1610,15 +2118,59 @@ function trasportoFiltroRegionePartenzaArrivoMerceMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+
+                        console.log(data);
+
+
+                        data.forEach(element => {
+                            if (element.aziendaDTO.id == id) {
+
+
+                                esitoControllo = true;
+
+
+                            } else {
+
+
+
+                            }
+
+
+
+                        })
+                        console.log(esitoControllo);
+                        if (esitoControllo == false) {
+                            console.log('1');
+                            entrata = true;
+                            visualizzaRecord(esitoControllo);
+                            
+                        } else {
+                            console.log('2');
+                            console.log(entrata);
+                            
+                            if (entrata == false) {
+
+                                bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                            }
+                        }
+
+                    });
+
+                function visualizzaRecord() {
+
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTrasporto.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -1627,10 +2179,8 @@ function trasportoFiltroRegionePartenzaArrivoMerceMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.aziendaIdProponenteTrasporto.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
-
-
 
                     t = true;
                     if (t1 == true) {
@@ -1640,16 +2190,13 @@ function trasportoFiltroRegionePartenzaArrivoMerceMq(dati, id) {
 
                     bodyTabella.innerHTML += tabella;
 
-                } else {
-                    if (t) {
 
-                    } else {
+                    ascolto();
 
-                        bodyTabella.innerHTML = nessunaCorrispondenza;
-                        t1 = true;
 
-                    }
                 }
+
+
             } else {
                 if (t) {
 
@@ -1660,14 +2207,21 @@ function trasportoFiltroRegionePartenzaArrivoMerceMq(dati, id) {
 
                 }
             }
+        } else {
+            if (t) {
 
-        });
+            } else {
 
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                t1 = true;
 
-    } else {
-        bodyTabella.innerHTML = nessunaCorrispondenza;
-    }
+            }
+        }
+    });
 
+} else {
+    bodyTabella.innerHTML = nessunaCorrispondenza;
+}
 }
 
 
@@ -1675,9 +2229,9 @@ function trasportoFiltroRegionePartenzaArrivoMerceMq(dati, id) {
 
 
 
-function fetchRegionePartenzaMerceMq(regionePartenza, merce, mq) {
+async function fetchRegionePartenzaMerceMq(regionePartenza, merce, mq) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1688,10 +2242,10 @@ function fetchRegionePartenzaMerceMq(regionePartenza, merce, mq) {
 }
 
 
-function filtriRegionePartenzaMerceMq(regionePartenza, merce, mq, id) {
+async function filtriRegionePartenzaMerceMq(regionePartenza, merce, mq, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regionePartenza}&tipoDiVeicolo=${merce}&mq=${mq}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regionePartenza}&tipoDiVeicolo=${merce}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1712,6 +2266,8 @@ function trasportoFiltroRegionePartenzaMerceMq(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -1719,15 +2275,59 @@ function trasportoFiltroRegionePartenzaMerceMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+
+                        console.log(data);
+
+
+                        data.forEach(element => {
+                            if (element.aziendaDTO.id == id) {
+
+
+                                esitoControllo = true;
+
+
+                            } else {
+
+
+
+                            }
+
+
+
+                        })
+                        console.log(esitoControllo);
+                        if (esitoControllo == false) {
+                            console.log('1');
+                            entrata = true;
+                            visualizzaRecord(esitoControllo);
+                            
+                        } else {
+                            console.log('2');
+                            console.log(entrata);
+                            
+                            if (entrata == false) {
+
+                                bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                            }
+                        }
+
+                    });
+
+                function visualizzaRecord() {
+
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTrasporto.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -1736,10 +2336,8 @@ function trasportoFiltroRegionePartenzaMerceMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.aziendaIdProponenteTrasporto.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
-
-
 
                     t = true;
                     if (t1 == true) {
@@ -1749,16 +2347,13 @@ function trasportoFiltroRegionePartenzaMerceMq(dati, id) {
 
                     bodyTabella.innerHTML += tabella;
 
-                } else {
-                    if (t) {
 
-                    } else {
+                    ascolto();
 
-                        bodyTabella.innerHTML = nessunaCorrispondenza;
-                        t1 = true;
 
-                    }
                 }
+
+
             } else {
                 if (t) {
 
@@ -1769,13 +2364,21 @@ function trasportoFiltroRegionePartenzaMerceMq(dati, id) {
 
                 }
             }
+        } else {
+            if (t) {
 
-        });
+            } else {
 
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                t1 = true;
 
-    } else {
-        bodyTabella.innerHTML = nessunaCorrispondenza;
-    }
+            }
+        }
+    });
+
+} else {
+    bodyTabella.innerHTML = nessunaCorrispondenza;
+}
 
 }
 
@@ -1785,9 +2388,9 @@ function trasportoFiltroRegionePartenzaMerceMq(dati, id) {
 
 
 
-function fetchRegioneArrivoMerceMq(regioneArrivo, merce, mq) {
+async function fetchRegioneArrivoMerceMq(regioneArrivo, merce, mq) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1798,10 +2401,10 @@ function fetchRegioneArrivoMerceMq(regioneArrivo, merce, mq) {
 }
 
 
-function filtriRegioneArrivoMerceMq(regioneArrivo, merce, mq, id) {
+async function filtriRegioneArrivoMerceMq(regioneArrivo, merce, mq, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regioneArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}&mq=${mq}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regioneArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1822,6 +2425,8 @@ function trasportoFiltroRegioneArrivoMerceMq(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -1829,15 +2434,59 @@ function trasportoFiltroRegioneArrivoMerceMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+
+                        console.log(data);
+
+
+                        data.forEach(element => {
+                            if (element.aziendaDTO.id == id) {
+
+
+                                esitoControllo = true;
+
+
+                            } else {
+
+
+
+                            }
+
+
+
+                        })
+                        console.log(esitoControllo);
+                        if (esitoControllo == false) {
+                            console.log('1');
+                            entrata = true;
+                            visualizzaRecord(esitoControllo);
+                            
+                        } else {
+                            console.log('2');
+                            console.log(entrata);
+                            
+                            if (entrata == false) {
+
+                                bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                            }
+                        }
+
+                    });
+
+                function visualizzaRecord() {
+
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTrasporto.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -1846,10 +2495,8 @@ function trasportoFiltroRegioneArrivoMerceMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.aziendaIdProponenteTrasporto.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
-
-
 
                     t = true;
                     if (t1 == true) {
@@ -1859,16 +2506,13 @@ function trasportoFiltroRegioneArrivoMerceMq(dati, id) {
 
                     bodyTabella.innerHTML += tabella;
 
-                } else {
-                    if (t) {
 
-                    } else {
+                    ascolto();
 
-                        bodyTabella.innerHTML = nessunaCorrispondenza;
-                        t1 = true;
 
-                    }
                 }
+
+
             } else {
                 if (t) {
 
@@ -1879,14 +2523,21 @@ function trasportoFiltroRegioneArrivoMerceMq(dati, id) {
 
                 }
             }
+        } else {
+            if (t) {
 
-        });
+            } else {
 
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                t1 = true;
 
-    } else {
-        bodyTabella.innerHTML = nessunaCorrispondenza;
-    }
+            }
+        }
+    });
 
+} else {
+    bodyTabella.innerHTML = nessunaCorrispondenza;
+}
 }
 
 
@@ -1897,9 +2548,9 @@ function trasportoFiltroRegioneArrivoMerceMq(dati, id) {
 
 
 
-function fetchMerceMq(merce, mq) {
+async function fetchMerceMq(merce, mq) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1910,10 +2561,10 @@ function fetchMerceMq(merce, mq) {
 }
 
 
-function filtriMerceMq(merce, mq, id) {
+async function filtriMerceMq(merce, mq, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?tipoDiVeicolo=${merce}&mq=${mq}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?tipoDiVeicolo=${merce}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1935,6 +2586,8 @@ function trasportoFiltroMerceMq(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -1942,15 +2595,59 @@ function trasportoFiltroMerceMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+
+                        console.log(data);
+
+
+                        data.forEach(element => {
+                            if (element.aziendaDTO.id == id) {
+
+
+                                esitoControllo = true;
+
+
+                            } else {
+
+
+
+                            }
+
+
+
+                        })
+                        console.log(esitoControllo);
+                        if (esitoControllo == false) {
+                            console.log('1');
+                            entrata = true;
+                            visualizzaRecord(esitoControllo);
+                            
+                        } else {
+                            console.log('2');
+                            console.log(entrata);
+                            
+                            if (entrata == false) {
+
+                                bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                            }
+                        }
+
+                    });
+
+                function visualizzaRecord() {
+
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTrasporto.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -1959,10 +2656,8 @@ function trasportoFiltroMerceMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.aziendaIdProponenteTrasporto.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
-
-
 
                     t = true;
                     if (t1 == true) {
@@ -1972,16 +2667,13 @@ function trasportoFiltroMerceMq(dati, id) {
 
                     bodyTabella.innerHTML += tabella;
 
-                } else {
-                    if (t) {
 
-                    } else {
+                    ascolto();
 
-                        bodyTabella.innerHTML = nessunaCorrispondenza;
-                        t1 = true;
 
-                    }
                 }
+
+
             } else {
                 if (t) {
 
@@ -1992,15 +2684,55 @@ function trasportoFiltroMerceMq(dati, id) {
 
                 }
             }
+        } else {
+            if (t) {
 
-        });
+            } else {
 
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                t1 = true;
 
-    } else {
-        bodyTabella.innerHTML = nessunaCorrispondenza;
-    }
+            }
+        }
+    });
+
+} else {
+    bodyTabella.innerHTML = nessunaCorrispondenza;
+}
 
 }
+
+
+let bottoneReset = document.querySelector('.bottoneReset');
+
+bottoneReset.addEventListener('click', () => {
+    location.reload();
+});
+
+function inviaMailTrasporto(emailAziendale) {
+
+    const subject = "Richiesta Moveconnect";
+    const body = "Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
+    const MailToLink = `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href = MailToLink;
+
+}
+
+function ascolto() {
+
+    let linkTrasporto = document.querySelectorAll('.linkTrasporto');
+
+    linkTrasporto.forEach(element => {
+        element.addEventListener('click', () => {
+            let idElement = element.getAttribute('data-evento-id');
+            localStorage.setItem('data-evento-id', idElement);
+        })
+    });
+
+
+}
+
+
 
 
 

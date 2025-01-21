@@ -2,12 +2,12 @@ let p = false;
 let p1 = false;
 let bodyTabella = document.querySelector('.bodyTabella');
 
-let accessToken = localStorage.getItem('accessToken');
 
 let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
 <p>Non ci sono Corrispondenze!</p>
 </div>`;
 
+let accessToken = localStorage.getItem('accessToken');
 
 fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
@@ -30,7 +30,7 @@ function fetchPersonale(id) {
 
             console.log(data);
             personale(data, id);
-            ascolto();
+           
         });
 
 }
@@ -42,6 +42,8 @@ function personale(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -50,43 +52,85 @@ function personale(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
 
+                 
+
+                    fetch(`http://127.0.0.1:8080/api/personale/byAziendaPersonale?personaleId=${element.id}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+
+                        console.log(data);
+
+
+                        data.forEach(element => {
+                            if (element.aziendaDTO.id == id) {
+
+
+                                esitoControllo = true;
+
+
+                            } else {
+
+
+
+                            }
+
+
+
+                        })
+                        console.log(esitoControllo);
+                        if (esitoControllo == false) {
+                            console.log('1');
+                            entrata = true;
+                            visualizzaRecord(esitoControllo);
+                            
+                        } else {
+                            console.log('2');
+                            console.log(entrata);
+                            
+                            if (entrata == false) {
+
+                                bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                            }
+                        }
+
+                    });
+
+                function visualizzaRecord() {
+
+
                     let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
-                        <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.regione}</td>
-                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
-                        <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}"  href="./infoRichiestePersonale.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailPersonale('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
-                    </tr>`;
-
+                    <td class="text-center">${element.aziendaIdProponentePersonale.nomeAzienda}</td>
+                    <td class="text-center">${element.id}</td>
+                    <td class="text-center" data-eventoid="1">${element.regione}</td>
+                    <td class="text-center" data-eventoid="1">${element.provincia}</td>
+                    <td class="text-center" data-eventoid="1">${element.comune}</td>
+                    <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
+                    <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}"  href="./infoRichiestePersonale.html">INFO</a></td>
+                    <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailPersonale('${element.aziendaIdProponentePersonale.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                </tr>`;
 
                     p = true;
                     if (p1 == true) {
                         bodyTabella.innerHTML = '';
                     }
-
                     p1 = false;
+
                     bodyTabella.innerHTML += tabella;
 
-                } else {
-                    if (p) {
 
-                    } else {
+                    ascolto();
 
-                        bodyTabella.innerHTML = nessunaCorrispondenza;
-                        p1 = true;
 
-                    }
                 }
+
 
             } else {
                 if (p) {
@@ -98,38 +142,26 @@ function personale(dati, id) {
 
                 }
             }
-        });
+        } else {
+            if (p) {
 
-    } else {
-        bodyTabella.innerHTML = nessunaCorrispondenza;
-    }
+            } else {
 
-}
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                p1 = true;
 
-
-function ascolto() {
-
-    let linkPersonale = document.querySelectorAll('.linkPersonale');
-
-    linkPersonale.forEach(element => {
-        element.addEventListener('click', () => {
-            let idElement = element.getAttribute('data-evento-id');
-            localStorage.setItem('data-evento-id', idElement);
-        })
+            }
+        }
     });
 
-
+} else {
+    bodyTabella.innerHTML = nessunaCorrispondenza;
 }
 
 
-function inviaMailPersonale(emailAziendale) {
-
-    const subject = "Richiesta Moveconnect";
-    const body = "Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
-    const MailToLink = `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href = MailToLink;
 
 }
+
 
 
 let regLink = document.querySelectorAll('.regLink');
@@ -228,6 +260,8 @@ function personaleFiltroRegione(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -236,43 +270,85 @@ function personaleFiltroRegione(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
 
+                 
+
+                    fetch(`http://127.0.0.1:8080/api/personale/byAziendaPersonale?personaleId=${element.id}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+
+                        console.log(data);
+
+
+                        data.forEach(element => {
+                            if (element.aziendaDTO.id == id) {
+
+
+                                esitoControllo = true;
+
+
+                            } else {
+
+
+
+                            }
+
+
+
+                        })
+                        console.log(esitoControllo);
+                        if (esitoControllo == false) {
+                            console.log('1');
+                            entrata = true;
+                            visualizzaRecord(esitoControllo);
+                            
+                        } else {
+                            console.log('2');
+                            console.log(entrata);
+                            
+                            if (entrata == false) {
+
+                                bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                            }
+                        }
+
+                    });
+
+                function visualizzaRecord() {
+
+
                     let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
-                        <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.regione}</td>
-                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
-                        <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}"  href="./infoRichiestePersonale.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailPersonale('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
-                    </tr>`;
-
+                    <td class="text-center">${element.aziendaIdProponentePersonale.nomeAzienda}</td>
+                    <td class="text-center">${element.id}</td>
+                    <td class="text-center" data-eventoid="1">${element.regione}</td>
+                    <td class="text-center" data-eventoid="1">${element.provincia}</td>
+                    <td class="text-center" data-eventoid="1">${element.comune}</td>
+                    <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
+                    <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}"  href="./infoRichiestePersonale.html">INFO</a></td>
+                    <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailPersonale('${element.aziendaIdProponentePersonale.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                </tr>`;
 
                     p = true;
                     if (p1 == true) {
                         bodyTabella.innerHTML = '';
                     }
-
                     p1 = false;
+
                     bodyTabella.innerHTML += tabella;
 
-                } else {
-                    if (p) {
 
-                    } else {
+                    ascolto();
 
-                        bodyTabella.innerHTML = nessunaCorrispondenza;
-                        p1 = true;
 
-                    }
                 }
+
 
             } else {
                 if (p) {
@@ -284,11 +360,21 @@ function personaleFiltroRegione(dati, id) {
 
                 }
             }
-        });
+        } else {
+            if (p) {
 
-    } else {
-        bodyTabella.innerHTML = nessunaCorrispondenza;
-    }
+            } else {
+
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                p1 = true;
+
+            }
+        }
+    });
+
+} else {
+    bodyTabella.innerHTML = nessunaCorrispondenza;
+}
 
 }
 
@@ -336,50 +422,95 @@ function personaleFiltroRegioneTipiPersonale(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
+
 
 
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
 
+                 
+
+                    fetch(`http://127.0.0.1:8080/api/personale/byAziendaPersonale?personaleId=${element.id}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+
+                        console.log(data);
+
+
+                        data.forEach(element => {
+                            if (element.aziendaDTO.id == id) {
+
+
+                                esitoControllo = true;
+
+
+                            } else {
+
+
+
+                            }
+
+
+
+                        })
+                        console.log(esitoControllo);
+                        if (esitoControllo == false) {
+                            console.log('1');
+                            entrata = true;
+                            visualizzaRecord(esitoControllo);
+                            
+                        } else {
+                            console.log('2');
+                            console.log(entrata);
+                            
+                            if (entrata == false) {
+
+                                bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                            }
+                        }
+
+                    });
+
+                function visualizzaRecord() {
+
+
                     let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
-                        <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.regione}</td>
-                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
-                        <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}"  href="./infoRichiestePersonale.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailPersonale('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
-                    </tr>`;
-
+                    <td class="text-center">${element.aziendaIdProponentePersonale.nomeAzienda}</td>
+                    <td class="text-center">${element.id}</td>
+                    <td class="text-center" data-eventoid="1">${element.regione}</td>
+                    <td class="text-center" data-eventoid="1">${element.provincia}</td>
+                    <td class="text-center" data-eventoid="1">${element.comune}</td>
+                    <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
+                    <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}"  href="./infoRichiestePersonale.html">INFO</a></td>
+                    <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailPersonale('${element.aziendaIdProponentePersonale.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                </tr>`;
 
                     p = true;
                     if (p1 == true) {
                         bodyTabella.innerHTML = '';
                     }
-
                     p1 = false;
+
                     bodyTabella.innerHTML += tabella;
 
-                } else {
-                    if (p) {
 
-                    } else {
+                    ascolto();
 
-                        bodyTabella.innerHTML = nessunaCorrispondenza;
-                        p1 = true;
 
-                    }
                 }
+
 
             } else {
                 if (p) {
@@ -391,11 +522,21 @@ function personaleFiltroRegioneTipiPersonale(dati, id) {
 
                 }
             }
-        });
+        } else {
+            if (p) {
 
-    } else {
-        bodyTabella.innerHTML = nessunaCorrispondenza;
-    }
+            } else {
+
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                p1 = true;
+
+            }
+        }
+    });
+
+} else {
+    bodyTabella.innerHTML = nessunaCorrispondenza;
+}
 
 }
 
@@ -445,50 +586,95 @@ function personaleFiltroTipiPersonale(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
+
 
 
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
 
+                 
+
+                    fetch(`http://127.0.0.1:8080/api/personale/byAziendaPersonale?personaleId=${element.id}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+
+                        console.log(data);
+
+
+                        data.forEach(element => {
+                            if (element.aziendaDTO.id == id) {
+
+
+                                esitoControllo = true;
+
+
+                            } else {
+
+
+
+                            }
+
+
+
+                        })
+                        console.log(esitoControllo);
+                        if (esitoControllo == false) {
+                            console.log('1');
+                            entrata = true;
+                            visualizzaRecord(esitoControllo);
+                            
+                        } else {
+                            console.log('2');
+                            console.log(entrata);
+                            
+                            if (entrata == false) {
+
+                                bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                            }
+                        }
+
+                    });
+
+                function visualizzaRecord() {
+
+
                     let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
-                        <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.regione}</td>
-                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
-                        <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}"  href="./infoRichiestePersonale.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailPersonale('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
-                    </tr>`;
-
+                    <td class="text-center">${element.aziendaIdProponentePersonale.nomeAzienda}</td>
+                    <td class="text-center">${element.id}</td>
+                    <td class="text-center" data-eventoid="1">${element.regione}</td>
+                    <td class="text-center" data-eventoid="1">${element.provincia}</td>
+                    <td class="text-center" data-eventoid="1">${element.comune}</td>
+                    <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
+                    <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}"  href="./infoRichiestePersonale.html">INFO</a></td>
+                    <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailPersonale('${element.aziendaIdProponentePersonale.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                </tr>`;
 
                     p = true;
                     if (p1 == true) {
                         bodyTabella.innerHTML = '';
                     }
-
                     p1 = false;
+
                     bodyTabella.innerHTML += tabella;
 
-                } else {
-                    if (p) {
 
-                    } else {
+                    ascolto();
 
-                        bodyTabella.innerHTML = nessunaCorrispondenza;
-                        p1 = true;
 
-                    }
                 }
+
 
             } else {
                 if (p) {
@@ -500,11 +686,21 @@ function personaleFiltroTipiPersonale(dati, id) {
 
                 }
             }
-        });
+        } else {
+            if (p) {
 
-    } else {
-        bodyTabella.innerHTML = nessunaCorrispondenza;
-    }
+            } else {
+
+                bodyTabella.innerHTML = nessunaCorrispondenza;
+                p1 = true;
+
+            }
+        }
+    });
+
+} else {
+    bodyTabella.innerHTML = nessunaCorrispondenza;
+}
 
 }
 
@@ -602,3 +798,26 @@ let bottoneReset = document.querySelector('.bottoneReset');
 bottoneReset.addEventListener('click', () => {
     location.reload();
 });
+
+function inviaMailPersonale(emailAziendale) {
+
+    const subject = "Richiesta Moveconnect";
+    const body = "Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
+    const MailToLink = `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href = MailToLink;
+
+}
+
+function ascolto() {
+
+    let linkPersonale = document.querySelectorAll('.linkPersonale');
+
+    linkPersonale.forEach(element => {
+        element.addEventListener('click', () => {
+            let idElement = element.getAttribute('data-evento-id');
+            localStorage.setItem('data-evento-id', idElement);
+        })
+    });
+
+
+}

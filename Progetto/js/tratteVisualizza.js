@@ -2,24 +2,12 @@ let tt = false;
 let tt1 = false;
 let bodyTabella = document.querySelector('.bodyTabella');
 
+let accessToken = localStorage.getItem('accessToken');
+
 let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
 <p>Non ci sono Corrispondenze!</p>
 </div>`;
 
-
-
-function inviaMailTratte(emailAziendale) {
-
-    const subject="Richiesta Moveconnect";
-    const body="Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
-    const MailToLink= `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href=MailToLink;
-
-}
-
-
-
-let accessToken = localStorage.getItem('accessToken');
 
 fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
@@ -29,6 +17,7 @@ fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         console.log(data.id);
 
     });
+
 
 
 
@@ -54,23 +43,67 @@ function tratte(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
-
-
 
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
 
-                    let tabella = `<tr>
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTratta.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -78,19 +111,25 @@ function tratte(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.aziendaIdProponenteTratta.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     
                     </tr>`;
 
 
+                        tt = true;
+                        if (tt1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        tt1 = false;
 
-                    tt = true;
-                    if (tt1 == true) {
-                        bodyTabella.innerHTML = '';
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
                     }
-                    tt1 = false;
 
-                    bodyTabella.innerHTML += tabella;
 
                 } else {
                     if (tt) {
@@ -122,19 +161,7 @@ function tratte(dati, id) {
 
 
 
-function ascolto() {
 
-    let linkTratte = document.querySelectorAll('.linkTratte');
-
-    linkTratte.forEach(element => {
-        element.addEventListener('click', () => {
-            let idElement = element.getAttribute('data-evento-id');
-            localStorage.setItem('data-evento-id', idElement);
-        })
-    });
-
-
-}
 
 
 
@@ -324,8 +351,8 @@ tipoVeicolo.forEach(element => {
 
 
 
-function fetchRegionePartenza(regione) {
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+async function fetchRegionePartenza(regione) {
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -336,11 +363,11 @@ function fetchRegionePartenza(regione) {
         });
 }
 
-function filtriRegionePartenza(regione, id) {
+async function filtriRegionePartenza(regione, id) {
 
     console.log(regione);
 
-    fetch(`http://127.0.0.1:8080/api/tratta/tutteLeTratteConAziendaPerRegionePartenza/${regione}`)
+    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLeTratteConAziendaPerRegionePartenza/${regione}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -361,23 +388,67 @@ function tratteFiltroSoloRegionePartenza(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
-
-
 
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
 
-                    let tabella = `<tr>
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTratta.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -385,18 +456,25 @@ function tratteFiltroSoloRegionePartenza(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.aziendaIdProponenteTratta.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                    
                     </tr>`;
 
 
+                        tt = true;
+                        if (tt1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        tt1 = false;
 
-                    tt = true;
-                    if (tt1 == true) {
-                        bodyTabella.innerHTML = '';
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
                     }
-                    tt1 = false;
 
-                    bodyTabella.innerHTML += tabella;
 
                 } else {
                     if (tt) {
@@ -428,8 +506,8 @@ function tratteFiltroSoloRegionePartenza(dati, id) {
 
 
 
-function fetchRegionePartenzaArrivo(regionePartenza, regioneArrivo) {
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+async function fetchRegionePartenzaArrivo(regionePartenza, regioneArrivo) {
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -440,10 +518,10 @@ function fetchRegionePartenzaArrivo(regionePartenza, regioneArrivo) {
         });
 }
 
-function filtriRegionePartenzaArrivo(regionePartenza, regioneArrivo, id) {
+async function filtriRegionePartenzaArrivo(regionePartenza, regioneArrivo, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?regionePartenza=${regionePartenza}&regioneArrivo=${regioneArrivo}`)
+    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?regionePartenza=${regionePartenza}&regioneArrivo=${regioneArrivo}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -464,22 +542,67 @@ function tratteFiltroRegionePartenzaArrivo(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
-
 
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
 
-                    let tabella = `<tr>
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTratta.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -487,18 +610,25 @@ function tratteFiltroRegionePartenzaArrivo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.aziendaIdProponenteTratta.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                    
                     </tr>`;
 
 
+                        tt = true;
+                        if (tt1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        tt1 = false;
 
-                    tt = true;
-                    if (tt1 == true) {
-                        bodyTabella.innerHTML = '';
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
                     }
-                    tt1 = false;
 
-                    bodyTabella.innerHTML += tabella;
 
                 } else {
                     if (tt) {
@@ -532,8 +662,8 @@ function tratteFiltroRegionePartenzaArrivo(dati, id) {
 
 
 
-function fetchRegioniPartenzaArrivoVeicolo(regionePartenza, regioneArrivo, veicolo) {
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+async function fetchRegioniPartenzaArrivoVeicolo(regionePartenza, regioneArrivo, veicolo) {
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -544,10 +674,10 @@ function fetchRegioniPartenzaArrivoVeicolo(regionePartenza, regioneArrivo, veico
         });
 }
 
-function filtriRegionePartenzaArrivoVeicolo(regionePartenza, regioneArrivo, veicolo, id) {
+async function filtriRegionePartenzaArrivoVeicolo(regionePartenza, regioneArrivo, veicolo, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?regionePartenza=${regionePartenza}&regioneArrivo=${regioneArrivo}&tipoDiVeicolo=${veicolo}`)
+    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?regionePartenza=${regionePartenza}&regioneArrivo=${regioneArrivo}&tipoDiVeicolo=${veicolo}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -568,22 +698,67 @@ function tratteFiltroRegionePartenzaArrivoVeicolo(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
-
 
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
 
-                    let tabella = `<tr>
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTratta.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -591,18 +766,25 @@ function tratteFiltroRegionePartenzaArrivoVeicolo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.aziendaIdProponenteTratta.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                    
                     </tr>`;
 
 
+                        tt = true;
+                        if (tt1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        tt1 = false;
 
-                    tt = true;
-                    if (tt1 == true) {
-                        bodyTabella.innerHTML = '';
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
                     }
-                    tt1 = false;
 
-                    bodyTabella.innerHTML += tabella;
 
                 } else {
                     if (tt) {
@@ -638,8 +820,8 @@ function tratteFiltroRegionePartenzaArrivoVeicolo(dati, id) {
 
 
 
-function fetchRegionePartenzaVeicolo(regionePartenza, veicolo) {
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+async function fetchRegionePartenzaVeicolo(regionePartenza, veicolo) {
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -650,10 +832,10 @@ function fetchRegionePartenzaVeicolo(regionePartenza, veicolo) {
         });
 }
 
-function filtriRegionePartenzaVeicolo(regionePartenza, veicolo, id) {
+async function filtriRegionePartenzaVeicolo(regionePartenza, veicolo, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?regionePartenza=${regionePartenza}&tipoDiVeicolo=${veicolo}`)
+    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?regionePartenza=${regionePartenza}&tipoDiVeicolo=${veicolo}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -674,23 +856,67 @@ function tratteFiltroRegionePartenzaVeicolo(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
-
-
 
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
 
-                    let tabella = `<tr>
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTratta.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -698,18 +924,25 @@ function tratteFiltroRegionePartenzaVeicolo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.aziendaIdProponenteTratta.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                    
                     </tr>`;
 
 
+                        tt = true;
+                        if (tt1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        tt1 = false;
 
-                    tt = true;
-                    if (tt1 == true) {
-                        bodyTabella.innerHTML = '';
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
                     }
-                    tt1 = false;
 
-                    bodyTabella.innerHTML += tabella;
 
                 } else {
                     if (tt) {
@@ -736,13 +969,12 @@ function tratteFiltroRegionePartenzaVeicolo(dati, id) {
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
     }
-
 }
 
 
 
-function fetchRegioneArrivoVeicolo(regioneArrivo, veicolo) {
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+async function fetchRegioneArrivoVeicolo(regioneArrivo, veicolo) {
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -753,10 +985,10 @@ function fetchRegioneArrivoVeicolo(regioneArrivo, veicolo) {
         });
 }
 
-function filtriRegioneArrivoVeicolo(regioneArrivo, veicolo, id) {
+async function filtriRegioneArrivoVeicolo(regioneArrivo, veicolo, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?regioneArrivo=${regioneArrivo}&tipoDiVeicolo=${veicolo}`)
+    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?regioneArrivo=${regioneArrivo}&tipoDiVeicolo=${veicolo}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -777,23 +1009,67 @@ function tratteFiltroRegioneArrivoVeicolo(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
-
-
 
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
 
-                    let tabella = `<tr>
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTratta.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -801,18 +1077,25 @@ function tratteFiltroRegioneArrivoVeicolo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.aziendaIdProponenteTratta.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                    
                     </tr>`;
 
 
+                        tt = true;
+                        if (tt1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        tt1 = false;
 
-                    tt = true;
-                    if (tt1 == true) {
-                        bodyTabella.innerHTML = '';
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
                     }
-                    tt1 = false;
 
-                    bodyTabella.innerHTML += tabella;
 
                 } else {
                     if (tt) {
@@ -846,8 +1129,8 @@ function tratteFiltroRegioneArrivoVeicolo(dati, id) {
 
 
 
-function fetchRegioneArrivo(regioneArrivo) {
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+async function fetchRegioneArrivo(regioneArrivo) {
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -858,10 +1141,10 @@ function fetchRegioneArrivo(regioneArrivo) {
         });
 }
 
-function filtriRegioneArrivo(regioneArrivo, id) {
+async function filtriRegioneArrivo(regioneArrivo, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/tratta/tutteLeTratteConAziendaPerRegioneArrivo/${regioneArrivo}`)
+    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLeTratteConAziendaPerRegioneArrivo/${regioneArrivo}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -882,23 +1165,67 @@ function tratteFiltroRegioneArrivo(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
-
-
 
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
 
-                    let tabella = `<tr>
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTratta.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -906,18 +1233,25 @@ function tratteFiltroRegioneArrivo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.aziendaIdProponenteTratta.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                    
                     </tr>`;
 
 
+                        tt = true;
+                        if (tt1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        tt1 = false;
 
-                    tt = true;
-                    if (tt1 == true) {
-                        bodyTabella.innerHTML = '';
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
                     }
-                    tt1 = false;
 
-                    bodyTabella.innerHTML += tabella;
 
                 } else {
                     if (tt) {
@@ -951,8 +1285,8 @@ function tratteFiltroRegioneArrivo(dati, id) {
 
 
 
-function fetchVeicolo(veicolo) {
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+async function fetchVeicolo(veicolo) {
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -963,10 +1297,10 @@ function fetchVeicolo(veicolo) {
         });
 }
 
-function filtriVeicolo(veicolo, id) {
+async function filtriVeicolo(veicolo, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?tipoDiVeicolo=${veicolo}`)
+    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?tipoDiVeicolo=${veicolo}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -987,23 +1321,67 @@ function tratteFiltroVeicolo(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
-
-
 
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA'|| element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    fetch(`http://127.0.0.1:8080/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
 
-                    let tabella = `<tr>
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteTratta.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -1011,18 +1389,25 @@ function tratteFiltroVeicolo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.aziendaIdProponenteTratta.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                    
                     </tr>`;
 
 
+                        tt = true;
+                        if (tt1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        tt1 = false;
 
-                    tt = true;
-                    if (tt1 == true) {
-                        bodyTabella.innerHTML = '';
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
                     }
-                    tt1 = false;
 
-                    bodyTabella.innerHTML += tabella;
 
                 } else {
                     if (tt) {
@@ -1049,7 +1434,6 @@ function tratteFiltroVeicolo(dati, id) {
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
     }
-
 }
 
 
@@ -1059,3 +1443,26 @@ let bottoneReset = document.querySelector('.bottoneReset');
 bottoneReset.addEventListener('click', () => {
     location.reload();
 });
+
+function inviaMailTratte(emailAziendale) {
+
+    const subject="Richiesta Moveconnect";
+    const body="Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
+    const MailToLink= `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href=MailToLink;
+
+}
+
+function ascolto() {
+
+    let linkTratte = document.querySelectorAll('.linkTratte');
+
+    linkTratte.forEach(element => {
+        element.addEventListener('click', () => {
+            let idElement = element.getAttribute('data-evento-id');
+            localStorage.setItem('data-evento-id', idElement);
+        })
+    });
+
+
+}
