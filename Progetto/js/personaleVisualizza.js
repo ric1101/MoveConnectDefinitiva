@@ -107,14 +107,14 @@ function personale(dati, id) {
 
                     let tabella = `<tr>
                         
-                    <td class="text-center">${element.aziendaIdProponentePersonale.nomeAzienda}</td>
+                    <td class="text-center">${element.azienda.nomeAzienda}</td>
                     <td class="text-center">${element.id}</td>
                     <td class="text-center" data-eventoid="1">${element.regione}</td>
                     <td class="text-center" data-eventoid="1">${element.provincia}</td>
                     <td class="text-center" data-eventoid="1">${element.comune}</td>
                     <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                     <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}"  href="./infoRichiestePersonale.html">INFO</a></td>
-                    <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailPersonale('${element.aziendaIdProponentePersonale.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                    <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailPersonale('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                 </tr>`;
 
                     p = true;
@@ -325,14 +325,14 @@ function personaleFiltroRegione(dati, id) {
 
                     let tabella = `<tr>
                         
-                    <td class="text-center">${element.aziendaIdProponentePersonale.nomeAzienda}</td>
+                    <td class="text-center">${element.azienda.nomeAzienda}</td>
                     <td class="text-center">${element.id}</td>
                     <td class="text-center" data-eventoid="1">${element.regione}</td>
                     <td class="text-center" data-eventoid="1">${element.provincia}</td>
                     <td class="text-center" data-eventoid="1">${element.comune}</td>
                     <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                     <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}"  href="./infoRichiestePersonale.html">INFO</a></td>
-                    <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailPersonale('${element.aziendaIdProponentePersonale.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                    <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailPersonale('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                 </tr>`;
 
                     p = true;
@@ -487,14 +487,14 @@ function personaleFiltroRegioneTipiPersonale(dati, id) {
 
                     let tabella = `<tr>
                         
-                    <td class="text-center">${element.aziendaIdProponentePersonale.nomeAzienda}</td>
+                    <td class="text-center">${element.azienda.nomeAzienda}</td>
                     <td class="text-center">${element.id}</td>
                     <td class="text-center" data-eventoid="1">${element.regione}</td>
                     <td class="text-center" data-eventoid="1">${element.provincia}</td>
                     <td class="text-center" data-eventoid="1">${element.comune}</td>
                     <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                     <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}"  href="./infoRichiestePersonale.html">INFO</a></td>
-                    <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailPersonale('${element.aziendaIdProponentePersonale.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                    <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailPersonale('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                 </tr>`;
 
                     p = true;
@@ -651,14 +651,14 @@ function personaleFiltroTipiPersonale(dati, id) {
 
                     let tabella = `<tr>
                         
-                    <td class="text-center">${element.aziendaIdProponentePersonale.nomeAzienda}</td>
+                    <td class="text-center">${element.azienda.nomeAzienda}</td>
                     <td class="text-center">${element.id}</td>
                     <td class="text-center" data-eventoid="1">${element.regione}</td>
                     <td class="text-center" data-eventoid="1">${element.provincia}</td>
                     <td class="text-center" data-eventoid="1">${element.comune}</td>
                     <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                     <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}"  href="./infoRichiestePersonale.html">INFO</a></td>
-                    <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailPersonale('${element.aziendaIdProponentePersonale.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                    <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailPersonale('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                 </tr>`;
 
                     p = true;

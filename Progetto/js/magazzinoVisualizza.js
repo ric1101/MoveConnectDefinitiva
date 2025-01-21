@@ -105,7 +105,7 @@ function magazzino(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteMagazzino.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -114,7 +114,7 @@ function magazzino(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.aziendaIdProponenteMagazzino.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -357,7 +357,7 @@ function depositoFiltroSoloRegione(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteMagazzino.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -366,7 +366,7 @@ function depositoFiltroSoloRegione(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.aziendaIdProponenteMagazzino.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -518,7 +518,7 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteMagazzino.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -527,7 +527,7 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.aziendaIdProponenteMagazzino.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -679,7 +679,7 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteMagazzino.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -688,7 +688,7 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.aziendaIdProponenteMagazzino.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -840,7 +840,7 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteMagazzino.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -849,7 +849,7 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.aziendaIdProponenteMagazzino.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -999,7 +999,7 @@ function depositoFiltroTipoDeposito(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteMagazzino.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -1008,7 +1008,7 @@ function depositoFiltroTipoDeposito(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.aziendaIdProponenteMagazzino.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -1159,7 +1159,7 @@ function depositoFiltroTipoDepositoMq(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteMagazzino.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -1168,7 +1168,7 @@ function depositoFiltroTipoDepositoMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.aziendaIdProponenteMagazzino.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -1322,7 +1322,7 @@ function depositoFiltroDemoDeposito(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteMagazzino.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -1331,7 +1331,7 @@ function depositoFiltroDemoDeposito(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.aziendaIdProponenteMagazzino.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 

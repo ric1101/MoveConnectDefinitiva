@@ -103,7 +103,7 @@ function tratte(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteTratta.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -111,7 +111,7 @@ function tratte(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.aziendaIdProponenteTratta.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     
                     </tr>`;
 
@@ -448,7 +448,7 @@ function tratteFiltroSoloRegionePartenza(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteTratta.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -456,7 +456,7 @@ function tratteFiltroSoloRegionePartenza(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.aziendaIdProponenteTratta.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     
                     </tr>`;
 
@@ -602,7 +602,7 @@ function tratteFiltroRegionePartenzaArrivo(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteTratta.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -610,7 +610,7 @@ function tratteFiltroRegionePartenzaArrivo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.aziendaIdProponenteTratta.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     
                     </tr>`;
 
@@ -758,7 +758,7 @@ function tratteFiltroRegionePartenzaArrivoVeicolo(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteTratta.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -766,7 +766,7 @@ function tratteFiltroRegionePartenzaArrivoVeicolo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.aziendaIdProponenteTratta.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     
                     </tr>`;
 
@@ -916,7 +916,7 @@ function tratteFiltroRegionePartenzaVeicolo(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteTratta.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -924,7 +924,7 @@ function tratteFiltroRegionePartenzaVeicolo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.aziendaIdProponenteTratta.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     
                     </tr>`;
 
@@ -1069,7 +1069,7 @@ function tratteFiltroRegioneArrivoVeicolo(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteTratta.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -1077,7 +1077,7 @@ function tratteFiltroRegioneArrivoVeicolo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.aziendaIdProponenteTratta.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     
                     </tr>`;
 
@@ -1225,7 +1225,7 @@ function tratteFiltroRegioneArrivo(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteTratta.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -1233,7 +1233,7 @@ function tratteFiltroRegioneArrivo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.aziendaIdProponenteTratta.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     
                     </tr>`;
 
@@ -1381,7 +1381,7 @@ function tratteFiltroVeicolo(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteTratta.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -1389,7 +1389,7 @@ function tratteFiltroVeicolo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.aziendaIdProponenteTratta.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     
                     </tr>`;
 

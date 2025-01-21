@@ -108,7 +108,7 @@ function elevatore(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteScala.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
@@ -116,7 +116,7 @@ function elevatore(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.aziendaIdProponenteScala.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -378,7 +378,7 @@ function elevatoreFiltroSoloRegione(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteScala.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
@@ -386,7 +386,7 @@ function elevatoreFiltroSoloRegione(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.aziendaIdProponenteScala.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -567,7 +567,7 @@ function elevatoreFiltroScala(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteScala.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
@@ -575,7 +575,7 @@ function elevatoreFiltroScala(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.aziendaIdProponenteScala.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -736,7 +736,7 @@ function elevatoreFiltroRegioniScala(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteScala.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
@@ -744,7 +744,7 @@ function elevatoreFiltroRegioniScala(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.aziendaIdProponenteScala.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -927,7 +927,7 @@ function elevatoreFiltroPeso(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteScala.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
@@ -935,7 +935,7 @@ function elevatoreFiltroPeso(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.aziendaIdProponenteScala.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -1086,7 +1086,7 @@ function elevatoreFiltroRegioniPeso(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteScala.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
@@ -1094,7 +1094,7 @@ function elevatoreFiltroRegioniPeso(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.aziendaIdProponenteScala.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -1245,7 +1245,7 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteScala.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
@@ -1253,7 +1253,7 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.aziendaIdProponenteScala.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
@@ -1404,7 +1404,7 @@ function elevatoreFiltroScalaPeso(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">${element.aziendaIdProponenteScala.nomeAzienda}</td>
+                        <td class="text-center">${element.azienda.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
@@ -1412,7 +1412,7 @@ function elevatoreFiltroScalaPeso(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.aziendaIdProponenteScala.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
