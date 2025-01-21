@@ -32,7 +32,6 @@ function fetchElevatore(id) {
 
             console.log(data);
             elevatore(data, id);
-            ascolto();
         });
 
 }
@@ -44,6 +43,8 @@ function elevatore(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -52,15 +53,62 @@ function elevatore(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
 
-                    let tabella = `<tr>
+                    
+
+                    fetch(`http://127.0.0.1:8080/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteScala.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
@@ -68,17 +116,24 @@ function elevatore(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.aziendaIdProponenteScala.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
-                    e = true;
-                    if (e1 == true) {
-                        bodyTabella.innerHTML = '';
-                    }
-                    e1 = false;
+                        e = true;
+                        if (e1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        e1 = false;
 
-                    bodyTabella.innerHTML += tabella;
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
+                    }
+
 
                 } else {
                     if (e) {
@@ -102,36 +157,16 @@ function elevatore(dati, id) {
             }
         });
 
-
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
     }
 
-}
 
-function ascolto() {
-
-    let linkElevatore = document.querySelectorAll('.linkElevatore');
-
-    linkElevatore.forEach(element => {
-        element.addEventListener('click', () => {
-            let idElement = element.getAttribute('data-evento-id');
-            localStorage.setItem('data-evento-id', idElement);
-        })
-    });
-
+                   
 
 }
 
 
-function inviaMailElevatore(emailAziendale) {
-
-    const subject = "Richiesta Moveconnect";
-    const body = "Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
-    const MailToLink = `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href = MailToLink;
-
-}
 
 
 let regLink = document.querySelectorAll('.regLink');
@@ -240,9 +275,9 @@ regioniScala.forEach(element => {
 
 
 
-function fetchRegioni(regione) {
+async function fetchRegioni(regione) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -253,11 +288,11 @@ function fetchRegioni(regione) {
         });
 }
 
-function filtriRegione(regione, id) {
+async function filtriRegione(regione, id) {
 
     console.log(regione);
 
-    fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeScaleConAziendaPerRegione/${regione}`)
+    await fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeScaleConAziendaPerRegione/${regione}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -278,6 +313,8 @@ function elevatoreFiltroSoloRegione(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -286,15 +323,62 @@ function elevatoreFiltroSoloRegione(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
 
-                    let tabella = `<tr>
+                    
+
+                    fetch(`http://127.0.0.1:8080/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteScala.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
@@ -302,17 +386,24 @@ function elevatoreFiltroSoloRegione(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.aziendaIdProponenteScala.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
-                    e = true;
-                    if (e1 == true) {
-                        bodyTabella.innerHTML = '';
-                    }
-                    e1 = false;
+                        e = true;
+                        if (e1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        e1 = false;
 
-                    bodyTabella.innerHTML += tabella;
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
+                    }
+
 
                 } else {
                     if (e) {
@@ -335,7 +426,6 @@ function elevatoreFiltroSoloRegione(dati, id) {
                 }
             }
         });
-
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -376,9 +466,9 @@ scalaEl.forEach(element => {
 });
 
 
-function fetchScala(scala) {
+async function fetchScala(scala) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -388,10 +478,10 @@ function fetchScala(scala) {
         });
 }
 
-function filtriScala(scala, id) {
+async function filtriScala(scala, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeScaleConAziendaTutto?tipoDiScala=${scala}`)
+    await fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeScaleConAziendaTutto?tipoDiScala=${scala}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -412,6 +502,8 @@ function elevatoreFiltroScala(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -420,15 +512,62 @@ function elevatoreFiltroScala(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
 
-                    let tabella = `<tr>
+                    
+
+                    fetch(`http://127.0.0.1:8080/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteScala.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
@@ -436,17 +575,24 @@ function elevatoreFiltroScala(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.aziendaIdProponenteScala.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
-                    e = true;
-                    if (e1 == true) {
-                        bodyTabella.innerHTML = '';
-                    }
-                    e1 = false;
+                        e = true;
+                        if (e1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        e1 = false;
 
-                    bodyTabella.innerHTML += tabella;
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
+                    }
+
 
                 } else {
                     if (e) {
@@ -470,7 +616,6 @@ function elevatoreFiltroScala(dati, id) {
             }
         });
 
-
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
     }
@@ -489,9 +634,9 @@ function elevatoreFiltroScala(dati, id) {
 
 
 
-function fetchRegioniScale(regione, scala) {
+async function fetchRegioniScale(regione, scala) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -502,10 +647,10 @@ function fetchRegioniScale(regione, scala) {
         });
 }
 
-function filtriRegioniScala(regione, scala, id) {
+async function filtriRegioniScala(regione, scala, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeScaleConAziendaTutto?regione=${regione}&tipoDiScala=${scala}`)
+    await fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeScaleConAziendaTutto?regione=${regione}&tipoDiScala=${scala}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -526,6 +671,8 @@ function elevatoreFiltroRegioniScala(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -534,15 +681,62 @@ function elevatoreFiltroRegioniScala(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
 
-                    let tabella = `<tr>
+                    
+
+                    fetch(`http://127.0.0.1:8080/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteScala.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
@@ -550,17 +744,24 @@ function elevatoreFiltroRegioniScala(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.aziendaIdProponenteScala.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
-                    e = true;
-                    if (e1 == true) {
-                        bodyTabella.innerHTML = '';
-                    }
-                    e1 = false;
+                        e = true;
+                        if (e1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        e1 = false;
 
-                    bodyTabella.innerHTML += tabella;
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
+                    }
+
 
                 } else {
                     if (e) {
@@ -583,7 +784,6 @@ function elevatoreFiltroRegioniScala(dati, id) {
                 }
             }
         });
-
 
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -627,9 +827,9 @@ pesoMax.forEach(element => {
 
 
 
-function fetchPeso(peso) {
+async function fetchPeso(peso) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -639,9 +839,9 @@ function fetchPeso(peso) {
         });
 }
 
-function filtriPeso(peso, id) {
+async function filtriPeso(peso, id) {
 
-    fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeScaleConAziendaTutto?pesoMassimo=${peso}`)
+    await fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeScaleConAziendaTutto?pesoMassimo=${peso}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -662,6 +862,8 @@ function elevatoreFiltroPeso(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -670,15 +872,62 @@ function elevatoreFiltroPeso(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
 
-                    let tabella = `<tr>
+                    
+
+                    fetch(`http://127.0.0.1:8080/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteScala.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
@@ -686,17 +935,24 @@ function elevatoreFiltroPeso(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.aziendaIdProponenteScala.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
-                    e = true;
-                    if (e1 == true) {
-                        bodyTabella.innerHTML = '';
-                    }
-                    e1 = false;
+                        e = true;
+                        if (e1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        e1 = false;
 
-                    bodyTabella.innerHTML += tabella;
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
+                    }
+
 
                 } else {
                     if (e) {
@@ -720,7 +976,6 @@ function elevatoreFiltroPeso(dati, id) {
             }
         });
 
-
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
     }
@@ -729,9 +984,9 @@ function elevatoreFiltroPeso(dati, id) {
 
 
 
-function fetchRegioniPeso(regione, peso) {
+async function fetchRegioniPeso(regione, peso) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -742,10 +997,10 @@ function fetchRegioniPeso(regione, peso) {
         });
 }
 
-function filtriRegioniPeso(regione, peso, id) {
+async function filtriRegioniPeso(regione, peso, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeScaleConAziendaTutto?regione=${regione}&pesoMassimo=${peso}`)
+    await fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeScaleConAziendaTutto?regione=${regione}&pesoMassimo=${peso}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -766,6 +1021,8 @@ function elevatoreFiltroRegioniPeso(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -774,15 +1031,62 @@ function elevatoreFiltroRegioniPeso(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
 
-                    let tabella = `<tr>
+                    
+
+                    fetch(`http://127.0.0.1:8080/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteScala.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
@@ -790,17 +1094,24 @@ function elevatoreFiltroRegioniPeso(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.aziendaIdProponenteScala.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
-                    e = true;
-                    if (e1 == true) {
-                        bodyTabella.innerHTML = '';
-                    }
-                    e1 = false;
+                        e = true;
+                        if (e1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        e1 = false;
 
-                    bodyTabella.innerHTML += tabella;
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
+                    }
+
 
                 } else {
                     if (e) {
@@ -824,7 +1135,6 @@ function elevatoreFiltroRegioniPeso(dati, id) {
             }
         });
 
-
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
     }
@@ -832,9 +1142,9 @@ function elevatoreFiltroRegioniPeso(dati, id) {
 }
 
 
-function fetchRegioneScalaPeso(regione, scala, peso) {
+async function fetchRegioneScalaPeso(regione, scala, peso) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -845,10 +1155,10 @@ function fetchRegioneScalaPeso(regione, scala, peso) {
         });
 }
 
-function filtriRegioniScalaPeso(regione, scala, peso, id) {
+async function filtriRegioniScalaPeso(regione, scala, peso, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeScaleConAziendaTutto?regione=${regione}&tipoDiScala=${scala}&pesoMassimo=${peso}`)
+    await fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeScaleConAziendaTutto?regione=${regione}&tipoDiScala=${scala}&pesoMassimo=${peso}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -870,6 +1180,8 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -878,15 +1190,62 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
 
-                    let tabella = `<tr>
+                    
+
+                    fetch(`http://127.0.0.1:8080/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteScala.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
@@ -894,17 +1253,24 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.aziendaIdProponenteScala.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
-                    e = true;
-                    if (e1 == true) {
-                        bodyTabella.innerHTML = '';
-                    }
-                    e1 = false;
+                        e = true;
+                        if (e1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        e1 = false;
 
-                    bodyTabella.innerHTML += tabella;
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
+                    }
+
 
                 } else {
                     if (e) {
@@ -928,7 +1294,6 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
             }
         });
 
-
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
     }
@@ -938,9 +1303,9 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
 
 
 
-function fetchScalaPeso(scala, peso) {
+async function fetchScalaPeso(scala, peso) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -950,10 +1315,10 @@ function fetchScalaPeso(scala, peso) {
         });
 }
 
-function filtriScalaPeso(scala, peso, id) {
+async function filtriScalaPeso(scala, peso, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeScaleConAziendaTutto?tipoDiScala=${scala}&pesoMassimo=${peso}`)
+    await fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeScaleConAziendaTutto?tipoDiScala=${scala}&pesoMassimo=${peso}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -974,6 +1339,8 @@ function elevatoreFiltroScalaPeso(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -982,15 +1349,62 @@ function elevatoreFiltroScalaPeso(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
 
-                    let tabella = `<tr>
+                    
+
+                    fetch(`http://127.0.0.1:8080/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteScala.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
@@ -998,17 +1412,24 @@ function elevatoreFiltroScalaPeso(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.aziendaIdProponenteScala.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
-                    e = true;
-                    if (e1 == true) {
-                        bodyTabella.innerHTML = '';
-                    }
-                    e1 = false;
+                        e = true;
+                        if (e1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        e1 = false;
 
-                    bodyTabella.innerHTML += tabella;
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
+                    }
+
 
                 } else {
                     if (e) {
@@ -1032,7 +1453,6 @@ function elevatoreFiltroScalaPeso(dati, id) {
             }
         });
 
-
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
     }
@@ -1046,3 +1466,30 @@ let bottoneReset = document.querySelector('.bottoneReset');
 bottoneReset.addEventListener('click', () => {
     location.reload();
 });
+
+
+function inviaMailElevatore(emailAziendale) {
+
+    const subject = "Richiesta Moveconnect";
+    const body = "Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
+    const MailToLink = `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href = MailToLink;
+
+}
+
+
+function ascolto() {
+
+    let linkElevatore = document.querySelectorAll('.linkElevatore');
+
+    linkElevatore.forEach(element => {
+        element.addEventListener('click', () => {
+            let idElement = element.getAttribute('data-evento-id');
+            localStorage.setItem('data-evento-id', idElement);
+        })
+    });
+
+
+}
+
+

@@ -2,19 +2,21 @@ let i = false;
 let i1 = false;
 let bodyTabella = document.querySelector('.bodyTabella');
 
-let accessToken = localStorage.getItem('accessToken');
-
 let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
 <p>Non ci sono Corrispondenze!</p>
 </div>`;
+
+let accessToken = localStorage.getItem('accessToken');
+
+
 
 
 fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
 
-        fetchImballaggi(data.id);
         console.log(data.id);
+        fetchImballaggi(data.id);
 
     });
 
@@ -49,8 +51,6 @@ function imballaggi(dati, id) {
 
 
         dati.forEach(element => {
-
-            console.log(dati);
 
 
             if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {

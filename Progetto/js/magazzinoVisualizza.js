@@ -29,7 +29,6 @@ function fetchMagazzino(id) {
 
             console.log(data);
             magazzino(data, id);
-            ascolto();
         });
 
 }
@@ -42,6 +41,8 @@ function magazzino(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -50,15 +51,61 @@ function magazzino(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    
 
-                    let tabella = `<tr>
+                    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteMagazzino.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -67,18 +114,24 @@ function magazzino(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.aziendaIdProponenteMagazzino.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
+                        m = true;
+                        if (m1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        m1 = false;
 
-                    m = true;
-                    if (m1 == true) {
-                        bodyTabella.innerHTML = '';
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
                     }
-                    m1 = false;
 
-                    bodyTabella.innerHTML += tabella;
 
                 } else {
                     if (m) {
@@ -90,7 +143,6 @@ function magazzino(dati, id) {
 
                     }
                 }
-
             } else {
                 if (m) {
 
@@ -106,33 +158,12 @@ function magazzino(dati, id) {
     } else {
         bodyTabella.innerHTML = nessunaCorrispondenza;
     }
-
-}
-
-
-function ascolto() {
-
-    let linkDeposito = document.querySelectorAll('.linkDeposito');
-
-    linkDeposito.forEach(element => {
-        element.addEventListener('click', () => {
-            let idElement = element.getAttribute('data-evento-id');
-            localStorage.setItem('data-evento-id', idElement);
-        })
-    });
+              
 
 }
 
 
 
-function inviaMailMagazzino(emailAziendale) {
-
-    const subject = "Richiesta Moveconnect";
-    const body = "Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
-    const MailToLink = `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href = MailToLink;
-
-}
 
 
 
@@ -223,22 +254,10 @@ let mag2 = 0;
 let mag3 = 0;
 
 
-let bottoneReset = document.querySelector('.bottoneReset');
 
-bottoneReset.addEventListener('click', () => {
-    location.reload();
-});
+async function fetchRegioniDeposito(regione) {
 
-
-
-
-
-
-
-
-function fetchRegioniDeposito(regione) {
-
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -249,11 +268,11 @@ function fetchRegioniDeposito(regione) {
         });
 }
 
-function filtriRegioneDeposito(regione, id) {
+async function filtriRegioneDeposito(regione, id) {
 
     console.log(regione);
 
-    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiIMagazziniConAziendaPerRegione/${regione}`)
+    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiIMagazziniConAziendaPerRegione/${regione}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -274,6 +293,8 @@ function depositoFiltroSoloRegione(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -282,15 +303,61 @@ function depositoFiltroSoloRegione(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    
 
-                    let tabella = `<tr>
+                    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteMagazzino.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -299,18 +366,24 @@ function depositoFiltroSoloRegione(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.aziendaIdProponenteMagazzino.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
+                        m = true;
+                        if (m1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        m1 = false;
 
-                    m = true;
-                    if (m1 == true) {
-                        bodyTabella.innerHTML = '';
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
                     }
-                    m1 = false;
 
-                    bodyTabella.innerHTML += tabella;
 
                 } else {
                     if (m) {
@@ -322,7 +395,6 @@ function depositoFiltroSoloRegione(dati, id) {
 
                     }
                 }
-
             } else {
                 if (m) {
 
@@ -344,9 +416,9 @@ function depositoFiltroSoloRegione(dati, id) {
 
 
 
-function fetchRegioniTipoDeposito(regione, mobilio, pedane, altro) {
+async function fetchRegioniTipoDeposito(regione, mobilio, pedane, altro) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -357,11 +429,11 @@ function fetchRegioniTipoDeposito(regione, mobilio, pedane, altro) {
         });
 }
 
-function filtriRegioneTipoDeposito(regione, mobilio, pedane, altro, id) {
+async function filtriRegioneTipoDeposito(regione, mobilio, pedane, altro, id) {
 
     console.log(regione);
 
-    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?regione=${regione}&mobilio=${mobilio}&pedane=${pedane}&altro=${altro}`)
+    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?regione=${regione}&mobilio=${mobilio}&pedane=${pedane}&altro=${altro}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -382,6 +454,8 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -390,15 +464,61 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    
 
-                    let tabella = `<tr>
+                    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteMagazzino.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -407,18 +527,24 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.aziendaIdProponenteMagazzino.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
+                        m = true;
+                        if (m1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        m1 = false;
 
-                    m = true;
-                    if (m1 == true) {
-                        bodyTabella.innerHTML = '';
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
                     }
-                    m1 = false;
 
-                    bodyTabella.innerHTML += tabella;
 
                 } else {
                     if (m) {
@@ -430,7 +556,6 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
 
                     }
                 }
-
             } else {
                 if (m) {
 
@@ -452,9 +577,9 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
 
 
 
-function fetchRegioniDepositoMq(regione, mq) {
+async function fetchRegioniDepositoMq(regione, mq) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -466,11 +591,11 @@ function fetchRegioniDepositoMq(regione, mq) {
 }
 
 
-function filtriRegioneDepositoMq(regione, mq, id) {
+async function filtriRegioneDepositoMq(regione, mq, id) {
 
     console.log(regione);
 
-    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?regione=${regione}&mq=${mq}`)
+    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?regione=${regione}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -490,6 +615,8 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -498,15 +625,61 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    
 
-                    let tabella = `<tr>
+                    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteMagazzino.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -515,18 +688,24 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.aziendaIdProponenteMagazzino.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
+                        m = true;
+                        if (m1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        m1 = false;
 
-                    m = true;
-                    if (m1 == true) {
-                        bodyTabella.innerHTML = '';
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
                     }
-                    m1 = false;
 
-                    bodyTabella.innerHTML += tabella;
 
                 } else {
                     if (m) {
@@ -538,7 +717,6 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
 
                     }
                 }
-
             } else {
                 if (m) {
 
@@ -560,9 +738,9 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
 
 
 
-function fetchRegioneTipoDepositoMq(regione, mobilio, pedane, altro, mq) {
+async function fetchRegioneTipoDepositoMq(regione, mobilio, pedane, altro, mq) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -574,11 +752,11 @@ function fetchRegioneTipoDepositoMq(regione, mobilio, pedane, altro, mq) {
 }
 
 
-function filtriRegioneTipoDepositoMq(regione, mobilio, pedane, altro, mq, id) {
+async function filtriRegioneTipoDepositoMq(regione, mobilio, pedane, altro, mq, id) {
 
     console.log(regione);
 
-    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?regione=${regione}&mobilio=${mobilio}&pedane=${pedane}&altro=${altro}&mq=${mq}`)
+    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?regione=${regione}&mobilio=${mobilio}&pedane=${pedane}&altro=${altro}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -598,6 +776,8 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -606,15 +786,61 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    
 
-                    let tabella = `<tr>
+                    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteMagazzino.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -623,18 +849,24 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.aziendaIdProponenteMagazzino.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
+                        m = true;
+                        if (m1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        m1 = false;
 
-                    m = true;
-                    if (m1 == true) {
-                        bodyTabella.innerHTML = '';
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
                     }
-                    m1 = false;
 
-                    bodyTabella.innerHTML += tabella;
 
                 } else {
                     if (m) {
@@ -646,7 +878,6 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
 
                     }
                 }
-
             } else {
                 if (m) {
 
@@ -668,9 +899,9 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
 
 
 
-function fetchTipoDeposito(mobilio, pedane, altro) {
+async function fetchTipoDeposito(mobilio, pedane, altro) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -680,10 +911,10 @@ function fetchTipoDeposito(mobilio, pedane, altro) {
         });
 }
 
-function filtriTipoDeposito(mobilio, pedane, altro, id) {
+async function filtriTipoDeposito(mobilio, pedane, altro, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?mobilio=${mobilio}&pedane=${pedane}&altro=${altro}`)
+    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?mobilio=${mobilio}&pedane=${pedane}&altro=${altro}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -704,6 +935,8 @@ function depositoFiltroTipoDeposito(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -712,15 +945,61 @@ function depositoFiltroTipoDeposito(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    
 
-                    let tabella = `<tr>
+                    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteMagazzino.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -729,18 +1008,24 @@ function depositoFiltroTipoDeposito(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.aziendaIdProponenteMagazzino.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
+                        m = true;
+                        if (m1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        m1 = false;
 
-                    m = true;
-                    if (m1 == true) {
-                        bodyTabella.innerHTML = '';
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
                     }
-                    m1 = false;
 
-                    bodyTabella.innerHTML += tabella;
 
                 } else {
                     if (m) {
@@ -752,7 +1037,6 @@ function depositoFiltroTipoDeposito(dati, id) {
 
                     }
                 }
-
             } else {
                 if (m) {
 
@@ -775,9 +1059,9 @@ function depositoFiltroTipoDeposito(dati, id) {
 
 
 
-function fetchTipoDepositoMq(mobilio, pedane, altro, mq) {
+async function fetchTipoDepositoMq(mobilio, pedane, altro, mq) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -787,10 +1071,10 @@ function fetchTipoDepositoMq(mobilio, pedane, altro, mq) {
         });
 }
 
-function filtriTipoDepositoMq(mobilio, pedane, altro, mq, id) {
+async function filtriTipoDepositoMq(mobilio, pedane, altro, mq, id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?mobilio=${mobilio}&pedane=${pedane}&altro=${altro}&mq=${mq}`)
+    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?mobilio=${mobilio}&pedane=${pedane}&altro=${altro}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -811,6 +1095,8 @@ function depositoFiltroTipoDepositoMq(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -819,15 +1105,61 @@ function depositoFiltroTipoDepositoMq(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    
 
-                    let tabella = `<tr>
+                    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteMagazzino.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -836,18 +1168,24 @@ function depositoFiltroTipoDepositoMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.aziendaIdProponenteMagazzino.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
+                        m = true;
+                        if (m1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        m1 = false;
 
-                    m = true;
-                    if (m1 == true) {
-                        bodyTabella.innerHTML = '';
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
                     }
-                    m1 = false;
 
-                    bodyTabella.innerHTML += tabella;
 
                 } else {
                     if (m) {
@@ -859,7 +1197,6 @@ function depositoFiltroTipoDepositoMq(dati, id) {
 
                     }
                 }
-
             } else {
                 if (m) {
 
@@ -882,9 +1219,9 @@ function depositoFiltroTipoDepositoMq(dati, id) {
 
 
 
-function fetchDemoDeposito(mq) {
+async function fetchDemoDeposito(mq) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -894,13 +1231,13 @@ function fetchDemoDeposito(mq) {
         });
 }
 
-function filtriDemoDepositoMq(mq, id) {
+async function filtriDemoDepositoMq(mq, id) {
 
     let rottaPerSoliMQ = `http://localhost:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?mq=${mq}`;
 
     console.log(rottaPerSoliMQ);
 
-    fetch(rottaPerSoliMQ)
+    await fetch(rottaPerSoliMQ)
         .then((res) => res.json())
         .then((data) => {
 
@@ -921,6 +1258,8 @@ function depositoFiltroDemoDeposito(dati, id) {
     console.log(dati);
     console.log(id);
     bodyTabella.innerHTML = '';
+    let entrata = false;
+    let esitoControllo = false;
 
     if (dati.length != 0) {
 
@@ -929,15 +1268,61 @@ function depositoFiltroDemoDeposito(dati, id) {
         dati.forEach(element => {
 
 
-            if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 
 
                 if (element.azienda.id != id) {
 
+                    
 
-                    let tabella = `<tr>
+                    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                        .then((res) => res.json())
+                        .then((data) => {
+
+                            console.log(data);
+
+
+                            data.forEach(element => {
+                                if (element.aziendaDTO.id == id) {
+
+
+                                    esitoControllo = true;
+
+
+                                } else {
+
+
+
+                                }
+
+
+
+                            })
+                            console.log(esitoControllo);
+                            if (esitoControllo == false) {
+                                console.log('1');
+                                entrata = true;
+                                visualizzaRecord(esitoControllo);
+                                
+                            } else {
+                                console.log('2');
+                                console.log(entrata);
+                                
+                                if (entrata == false) {
+
+                                    bodyTabella.innerHTML = nessunaCorrispondenza;
+
+                                }
+                            }
+
+                        });
+
+                    function visualizzaRecord() {
+
+
+                        let tabella = `<tr>
                         
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
+                        <td class="text-center">${element.aziendaIdProponenteMagazzino.nomeAzienda}</td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -946,18 +1331,24 @@ function depositoFiltroDemoDeposito(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html">INFO</a></td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.aziendaIdProponenteMagazzino.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
 
+                        m = true;
+                        if (m1 == true) {
+                            bodyTabella.innerHTML = '';
+                        }
+                        m1 = false;
 
-                    m = true;
-                    if (m1 == true) {
-                        bodyTabella.innerHTML = '';
+                        bodyTabella.innerHTML += tabella;
+
+
+                        ascolto();
+
+
                     }
-                    m1 = false;
 
-                    bodyTabella.innerHTML += tabella;
 
                 } else {
                     if (m) {
@@ -969,7 +1360,6 @@ function depositoFiltroDemoDeposito(dati, id) {
 
                     }
                 }
-
             } else {
                 if (m) {
 
@@ -1112,5 +1502,37 @@ sliderDemo1.addEventListener('change', () => {
 
     }
 });
+
+
+
+let bottoneReset = document.querySelector('.bottoneReset');
+
+bottoneReset.addEventListener('click', () => {
+    location.reload();
+});
+
+
+function inviaMailMagazzino(emailAziendale) {
+
+    const subject = "Richiesta Moveconnect";
+    const body = "Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
+    const MailToLink = `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href = MailToLink;
+
+}
+
+function ascolto() {
+
+    let linkDeposito = document.querySelectorAll('.linkDeposito');
+
+    linkDeposito.forEach(element => {
+        element.addEventListener('click', () => {
+            let idElement = element.getAttribute('data-evento-id');
+            localStorage.setItem('data-evento-id', idElement);
+        })
+    });
+
+}
+
 
 
