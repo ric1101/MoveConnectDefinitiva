@@ -4958,6 +4958,198 @@ if (richiesteTrattaInteresse) {
 }
 
 
+/* -------------------------------------------------------------------------- */
+/*                              deposito interesse                           */
+/* -------------------------------------------------------------------------- */
+
+function visualizzaRichiesteDepositoInteresse(deposito) {
+
+    colonnaInfo.innerHTML = '';
+    let visualizzaTabella = '';
+    let visualizzaRichieste = '';
+
+
+    visualizzaTabella = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">                        
+
+                            <div class="row rowData">
+                            <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+                                <th class="text-center">Azienda Richiedente</th>
+                                <th class="text-center">Richiesta numero #ID</th>
+                                <th class="text-center">Gestisci</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+                                
+
+                        </tbody>
+                    </table>
+                </div>`;
+
+    colonnaInfo.innerHTML = visualizzaTabella;
+
+    let body = document.querySelector('.bodyTabella');
+
+    console.log(deposito);
+
+    if (deposito.length == 0) {
+
+        body.innerHTML = nessunaCorrispondenzaProposta;
+
+    } else {
+
+        deposito.forEach(element => {
+
+
+            visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
+            <td class="text-center">${element.magazzinoDTO.id}</td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaDeposito(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaDeposito(${element.id}, ${element.magazzinoDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkDeposito px-2" data-evento-id="${element.magazzinoDTO.id}" href="./infoRichiesteDepositoProposta.html">INFO</a></td>
+            </tr>`;
+
+            body.innerHTML += visualizzaRichieste;
+            ascoltoDeposito();
+
+
+
+        });
+
+    }
+}
+
+function ascoltoDeposito() {
+
+    let linkDeposito = document.querySelectorAll('.linkDeposito');
+
+    linkDeposito.forEach(element => {
+        element.addEventListener('click', () => {
+            let idElement = element.getAttribute('data-evento-id');
+            localStorage.setItem('data-evento-id', idElement);
+        })
+    });
+
+
+}
+
+function eliminaPropostaDeposito(id) {
+
+    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/eliminaProposta/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchDepositoInteresse();
+
+}
+
+function accettaPropostaDeposito(idR, consegnaDepositoId, consegnaDepositoAziendaId, propostaAccettataId) {
+
+    let id = idR;
+
+
+
+    let cid = consegnaDepositoId;
+
+    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/inCorsoRichiestaMagazzino/${cid}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            "id": cid
+        })
+
+
+    })
+
+
+    let depositoID = consegnaDepositoId;
+    let depositoAziendaID = consegnaDepositoAziendaId;
+    let propostaAccettataID = propostaAccettataId;
+
+    class RelazioneDeposito {
+        constructor(magazzinoId, depositoMagazzinoAziendaId, propostaAccettataIdMagazzino) {
+            (this.magazzinoId = magazzinoId),
+                (this.depositoMagazzinoAziendaId = depositoMagazzinoAziendaId),
+                (this.propostaAccettataIdMagazzino = propostaAccettataIdMagazzino)
+
+        }
+    }
+
+    let newRelazioneDeposito = new RelazioneDeposito(depositoID, depositoAziendaID, propostaAccettataID);
+
+    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/relazioneMagazzino`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newRelazioneDeposito)
+    })
+
+    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/eliminaProposte/${cid}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchDepositoInteresse();
+
+
+}
+
+
+async function fetchDepositoInteresse() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            recuperaProposteDeposito(data.id);
+
+            console.log(data.id);
+
+
+        });
+
+
+}
+
+
+function recuperaProposteDeposito(id) {
+
+    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaMagazzinoRichiesta?aziendaRichiedente=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiesteDepositoInteresse(data);
+
+
+        });
+
+}
+
+
+
+if (richiesteDepositoMagazzinoInteresse) {
+
+    richiesteDepositoMagazzinoInteresse.addEventListener('click', fetchDepositoInteresse);
+}
+
 
 
 /* ----------------------------- Richieste relazione ------------------------ */
@@ -5170,8 +5362,225 @@ function recensisci(id) {
 
 
 
+/* -------------------------------------------------------------------------- */
+/*                              personale relazione                           */
+/* -------------------------------------------------------------------------- */
 
-/* ------------------------ Richieste tutteLeConsegneConAziendaMagazzinoId/ entrata interesse ----------------------- */
+
+function visualizzaRichiesteImballiRelazione(imballo) {
+
+    colonnaInfo.innerHTML = '';
+    let visualizzaTabella = '';
+    let visualizzaRichieste = '';
+
+
+    visualizzaTabella = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">                        
+
+                            <div class="row rowData">
+                            <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+                                <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Data Inizio</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Stato</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Gestisci</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+                                
+
+                        </tbody>
+                    </table>
+                </div>`;
+
+    colonnaInfo.innerHTML = visualizzaTabella;
+
+    let body = document.querySelector('.bodyTabella');
+
+    console.log(imballo);
+
+    if (imballo == 0) {
+
+        body.innerHTML = nessunaCorrispondenzaRelazione;
+
+    } else {
+
+        imballo.forEach(element => {
+
+            if (element.stato == 'IN CORSO') {
+
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazione(${element.id})">Evadi <i class="fa-solid fa-check"></i></a><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazione(${element.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
+            </td>
+            </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoImballi()
+
+            } else if (element.stato == 'RECENSITA') {
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td class="text-center" style="vertical-align: middle !important;"></td>
+            </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoImballi()
+
+
+            } else {
+
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisci(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
+            </td>
+            </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoImballi()
+
+            }
+
+
+
+        });
+
+    }
+
+}
+
+
+
+async function fetchImballiRelazione() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            recuperaRelazione(data.id);
+
+            console.log(data.id);
+
+
+        });
+
+
+}
+
+
+function annullaRelazione(id) {
+
+
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/annullataRelazioneImballi/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+    })
+
+    recensisci(id);
+
+}
+
+
+function evadiRelazione(id) {
+
+
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/evasaRelazioneImballi/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+    })
+
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/evasaRelazioneImballi/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+    })
+
+    recensisci(id);
+
+}
+
+
+function recuperaRelazione(id) {
+
+
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/byAziendaRelazioneRichiedente?consegnaImballiAziendaId=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiesteImballiRelazione(data);
+
+
+        });
+
+}
+
+
+
+if (richiesteConsegnaImballiRelazione) {
+
+    richiesteConsegnaImballiRelazione.addEventListener('click', fetchImballiRelazione);
+}
+
+
+
+function recensisci(id) {
+
+
+    let idRecensione = id;
+    localStorage.setItem('idRecensione', idRecensione);
+
+    window.location.href = 'recensione.html';
+
+}
+
+
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                              tratta relazione                              */
+/* -------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+/* ------------------------ Richieste entrata interesse ----------------------- */
 
 /* -------------------------------------------------------------------------- */
 /*                              imballi interesse entrata                     */
@@ -5427,11 +5836,16 @@ if (richiesteConsegnaImballiInteresseEntrata) {
 
 
 
+
+
+
+
+
 /* -------------------------------------------------------------------------- */
-/*                              deposito interesse                           */
+/*                              deposito relazione                            */
 /* -------------------------------------------------------------------------- */
 
-function visualizzaRichiesteDepositoInteresse(deposito) {
+function visualizzaRichiesteImballiRelazione(imballo) {
 
     colonnaInfo.innerHTML = '';
     let visualizzaTabella = '';
@@ -5451,9 +5865,11 @@ function visualizzaRichiesteDepositoInteresse(deposito) {
                     <table class="data-table table mb-0 tbl-server-info">
                         <thead class="text-uppercase">
                             <tr class="ligth ligth-data">
-                                <th class="text-center">Azienda Richiedente</th>
-                                <th class="text-center">Richiesta numero #ID</th>
-                                <th class="text-center">Gestisci</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Data Inizio</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Stato</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Gestisci</th>
                             </tr>
                         </thead>
                         <tbody class="bodyTabella">
@@ -5467,118 +5883,73 @@ function visualizzaRichiesteDepositoInteresse(deposito) {
 
     let body = document.querySelector('.bodyTabella');
 
-    console.log(deposito);
+    console.log(imballo);
 
-    if (deposito.length == 0) {
+    if (imballo == 0) {
 
-        body.innerHTML = nessunaCorrispondenzaProposta;
+        body.innerHTML = nessunaCorrispondenzaRelazione;
 
     } else {
 
-        deposito.forEach(element => {
+        imballo.forEach(element => {
+
+            if (element.stato == 'IN CORSO') {
 
 
-            visualizzaRichieste = `<tr>
-            <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
-            <td class="text-center">${element.magazzinoDTO.id}</td>
-            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaDeposito(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaDeposito(${element.id}, ${element.magazzinoDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkDeposito px-2" data-evento-id="${element.magazzinoDTO.id}" href="./infoRichiesteDepositoProposta.html">INFO</a></td>
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazione(${element.id})">Evadi <i class="fa-solid fa-check"></i></a><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazione(${element.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
+            </td>
             </tr>`;
 
-            body.innerHTML += visualizzaRichieste;
-            ascoltoDeposito();
+                body.innerHTML += visualizzaRichieste;
+                ascoltoImballi()
+
+            } else if (element.stato == 'RECENSITA') {
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td class="text-center" style="vertical-align: middle !important;"></td>
+            </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoImballi()
+
+
+            } else {
+
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisci(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
+            </td>
+            </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoImballi()
+
+            }
 
 
 
         });
 
     }
-}
-
-function ascoltoDeposito() {
-
-    let linkDeposito = document.querySelectorAll('.linkDeposito');
-
-    linkDeposito.forEach(element => {
-        element.addEventListener('click', () => {
-            let idElement = element.getAttribute('data-evento-id');
-            localStorage.setItem('data-evento-id', idElement);
-        })
-    });
-
-
-}
-
-function eliminaPropostaDeposito(id) {
-
-    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/eliminaProposta/${id}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-        }
-    })
-
-    fetchDepositoInteresse();
-
-}
-
-function accettaPropostaDeposito(idR, consegnaDepositoId, consegnaDepositoAziendaId, propostaAccettataId) {
-
-    let id = idR;
-
-
-
-    let cid = consegnaDepositoId;
-
-    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/inCorsoRichiestaMagazzino/${cid}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            "id": cid
-        })
-
-
-    })
-
-
-    let depositoID = consegnaDepositoId;
-    let depositoAziendaID = consegnaDepositoAziendaId;
-    let propostaAccettataID = propostaAccettataId;
-
-    class RelazioneDeposito {
-        constructor(magazzinoId, depositoMagazzinoAziendaId, propostaAccettataIdMagazzino) {
-            (this.magazzinoId = magazzinoId),
-                (this.depositoMagazzinoAziendaId = depositoMagazzinoAziendaId),
-                (this.propostaAccettataIdMagazzino = propostaAccettataIdMagazzino)
-
-        }
-    }
-
-    let newRelazioneDeposito = new RelazioneDeposito(depositoID, depositoAziendaID, propostaAccettataID);
-
-    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/relazioneMagazzino`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newRelazioneDeposito)
-    })
-
-    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/eliminaProposte/${cid}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-        }
-    })
-
-    fetchDepositoInteresse();
-
 
 }
 
 
-async function fetchDepositoInteresse() {
+
+async function fetchImballiRelazione() {
 
 
     let accessToken = localStorage.getItem('accessToken');
@@ -5588,7 +5959,7 @@ async function fetchDepositoInteresse() {
         .then((res) => res.json())
         .then((data) => {
 
-            recuperaProposteDeposito(data.id);
+            recuperaRelazione(data.id);
 
             console.log(data.id);
 
@@ -5599,13 +5970,54 @@ async function fetchDepositoInteresse() {
 }
 
 
-function recuperaProposteDeposito(id) {
+function annullaRelazione(id) {
 
-    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaMagazzinoRichiesta?aziendaRichiedente=${id}`)
+
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/annullataRelazioneImballi/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+    })
+
+    recensisci(id);
+
+}
+
+
+function evadiRelazione(id) {
+
+
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/evasaRelazioneImballi/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+    })
+
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/evasaRelazioneImballi/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+    })
+
+    recensisci(id);
+
+}
+
+
+function recuperaRelazione(id) {
+
+
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/byAziendaRelazioneRichiedente?consegnaImballiAziendaId=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
-            visualizzaRichiesteDepositoInteresse(data);
+            visualizzaRichiesteImballiRelazione(data);
 
 
         });
@@ -5614,7 +6026,44 @@ function recuperaProposteDeposito(id) {
 
 
 
-if (richiesteDepositoMagazzinoInteresse) {
+if (richiesteConsegnaImballiRelazione) {
 
-    richiesteDepositoMagazzinoInteresse.addEventListener('click', fetchDepositoInteresse);
+    richiesteConsegnaImballiRelazione.addEventListener('click', fetchImballiRelazione);
 }
+
+
+
+function recensisci(id) {
+
+
+    let idRecensione = id;
+    localStorage.setItem('idRecensione', idRecensione);
+
+    window.location.href = 'recensione.html';
+
+}
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                              scala relazione                               */
+/* -------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                              carico relazione                              */
+/* -------------------------------------------------------------------------- */
+
+
+
+
+
+
+
