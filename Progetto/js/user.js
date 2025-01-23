@@ -4500,14 +4500,14 @@ function accettaPropostaImballi(idR, consegnaImballiId, consegnaImballiAziendaId
         }
     }
 
-    let newRelazione = new RelazioneImballi(consegnaImballiID, consegnaImballiAziendaID, propostaAccettataID);
+    let newRelazioneImballi = new RelazioneImballi(consegnaImballiID, consegnaImballiAziendaID, propostaAccettataID);
 
     fetch(`http://127.0.0.1:8080/api/propostaImballi/relazioneImballi`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(newRelazione)
+        body: JSON.stringify(newRelazioneImballi)
     })
 
     fetch(`http://127.0.0.1:8080/api/propostaImballi/eliminaProposte/${consegnaImballiId}`, {
@@ -4659,7 +4659,7 @@ function eliminaPropostaPersonale(id) {
 
 }
 
-function accettaPropostaImballi(idR, consegnaPersonaleId, consegnaPersonaleAziendaId, propostaAccettataId) {
+function accettaPropostaPersonale(idR, consegnaPersonaleId, consegnaPersonaleAziendaId, propostaAccettataId) {
 
     let id = idR;
 
@@ -4685,22 +4685,22 @@ function accettaPropostaImballi(idR, consegnaPersonaleId, consegnaPersonaleAzien
     let propostaAccettataID = propostaAccettataId;
 
     class RelazionePersonale {
-        constructor(consegnaPersonaleId, consegnaPersonaleAziendaId, propostaAccettataId) {
-            (this.consegnaPersonaleId = consegnaPersonaleId),
-                (this.consegnaPersonaleAziendaId = consegnaPersonaleAziendaId),
-                (this.propostaAccettataId = propostaAccettataId)
+        constructor(personaleSpecializzatoId, personaleSpecializzatoAziendaId, propostaAccettataPersonaleId) {
+            (this.personaleSpecializzatoId = personaleSpecializzatoId),
+                (this.personaleSpecializzatoAziendaId = personaleSpecializzatoAziendaId),
+                (this.propostaAccettataPersonaleId = propostaAccettataPersonaleId)
 
         }
     }
 
-    let newRelazione = new RelazionePersonale(consegnaPersonaleID, consegnaPersonaleAziendaID, propostaAccettataID);
+    let newRelazionePersonale = new RelazionePersonale(consegnaPersonaleID, consegnaPersonaleAziendaID, propostaAccettataID);
 
     fetch(`http://127.0.0.1:8080/api/personale/relazionePersonale`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(newRelazione)
+        body: JSON.stringify(newRelazionePersonale)
     })
 
     fetch(`http://127.0.0.1:8080/api/personale/eliminaProposte/${cid}`, {
@@ -5276,7 +5276,7 @@ async function fetchImballiRelazione() {
         .then((res) => res.json())
         .then((data) => {
 
-            recuperaRelazione(data.id);
+            recuperaRelazioneImballi(data.id);
 
             console.log(data.id);
 
@@ -5987,7 +5987,7 @@ function recuperaRelazioneDeposito(id) {
         .then((res) => res.json())
         .then((data) => {
 
-            visualizzaRichiesteImballiRelazione(data);
+            visualizzaRichiesteDepositoRelazione(data);
 
 
         });
@@ -6507,7 +6507,7 @@ function visualizzaRichiesteImballiInteresseEntrata(imballo) {
             visualizzaRichieste = `<tr>
             <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
             <td class="text-center">${element.consegnaDTO.id}</td>
-            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaImballiInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaImballiInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkImballi px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteImballiProposta.html">INFO</a></td>
             </tr>`;
 
             body.innerHTML += visualizzaRichieste;
@@ -6579,8 +6579,383 @@ if (richiesteConsegnaImballiInteresseEntrata) {
 
 
 /* -------------------------------------------------------------------------- */
-/*                              imballi interesse entrata                     */
+/*                              personale interesse entrata                     */
 /* -------------------------------------------------------------------------- */
+
+function visualizzaRichiestePersonaleInteresseEntrata(personale) {
+
+    colonnaInfo.innerHTML = '';
+    let visualizzaTabella = '';
+    let visualizzaRichieste = '';
+
+
+    visualizzaTabella = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">                        
+
+                            <div class="row rowData">
+                            <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+                                <th class="text-center">Azienda Di Interesse</th>
+                                <th class="text-center">Richiesta numero #ID</th>
+                                <th class="text-center">Gestisci</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+                                
+
+                        </tbody>
+                    </table>
+                </div>`;
+
+    colonnaInfo.innerHTML = visualizzaTabella;
+
+    let body = document.querySelector('.bodyTabella');
+
+    console.log(personale);
+
+    if (personale.length == 0) {
+
+        body.innerHTML = nessunaCorrispondenzaProposta;
+
+    } else {
+
+        personale.forEach(element => {
+
+
+            visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
+            <td class="text-center">${element.personaleDTO.id}</td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaPersonaleInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkPersonale px-2" data-evento-id="${element.personaleDTO.id}" href="./infoRichiestaPersonaleProposta.html">INFO</a></td>
+            </tr>`;
+
+            body.innerHTML += visualizzaRichieste;
+           ascoltoPersonale();
+
+
+
+        });
+
+    }
+
+}
+
+
+
+function eliminaPropostaPersonaleInteresseEntrata(id) {
+
+    fetch(`http://127.0.0.1:8080/api/personale/eliminaProposta/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchPersonaleInteresseEntrata();
+
+}
+
+
+
+async function fetchPersonaleInteresseEntrata() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            recuperaPropostePersonaleInteresseEntrata(data.id);
+
+            console.log(data.id);
+
+
+        });
+
+}
+
+
+function recuperaPropostePersonaleInteresseEntrata(id) {
+
+    fetch(`http://127.0.0.1:8080/api/personale/byAziendaPersonaleUscita?aziendaIdProponentePersonale=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiestePersonaleInteresseEntrata(data);
+
+
+        });
+
+}
+
+
+if (richiestePersonaleSpecInteresseEntrata) {
+
+    richiestePersonaleSpecInteresseEntrata.addEventListener('click', fetchPersonaleInteresseEntrata);
+}
+
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                              deposito interesse entrata                     */
+/* -------------------------------------------------------------------------- */
+
+function visualizzaRichiesteDepositoInteresseEntrata(deposito) {
+
+    colonnaInfo.innerHTML = '';
+    let visualizzaTabella = '';
+    let visualizzaRichieste = '';
+
+
+    visualizzaTabella = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">                        
+
+                            <div class="row rowData">
+                            <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+                                <th class="text-center">Azienda Di Interesse</th>
+                                <th class="text-center">Richiesta numero #ID</th>
+                                <th class="text-center">Gestisci</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+                                
+
+                        </tbody>
+                    </table>
+                </div>`;
+
+    colonnaInfo.innerHTML = visualizzaTabella;
+
+    let body = document.querySelector('.bodyTabella');
+
+    console.log(deposito);
+
+    if (deposito.length == 0) {
+
+        body.innerHTML = nessunaCorrispondenzaProposta;
+
+    } else {
+
+        deposito.forEach(element => {
+
+
+            visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
+            <td class="text-center">${element.magazzinoDTO.id}</td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaDepositoInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkDeposito px-2" data-evento-id="${element.magazzinoDTO.id}" href="./infoRichiesteDepositoProposta.html">INFO</a></td>
+            </tr>`;
+
+            body.innerHTML += visualizzaRichieste;
+           ascoltoDeposito();
+
+
+
+        });
+
+    }
+
+}
+
+
+
+function eliminaPropostaDepositoInteresseEntrata(id) {
+
+    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/eliminaProposta/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchDepositoInteresseEntrata();
+
+}
+
+
+
+async function fetchDepositoInteresseEntrata() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            recuperaProposteDepositoInteresseEntrata(data.id);
+
+            console.log(data.id);
+
+
+        });
+
+}
+
+
+function recuperaProposteDepositoInteresseEntrata(id) {
+
+    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaPropostaProponenteInUscitaMagazzino?aziendaIdProponenteMagazzino=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiesteDepositoInteresseEntrata(data);
+
+
+        });
+
+}
+
+
+if (richiesteDepositoMagazzinoInteresseEntrata) {
+
+    richiesteDepositoMagazzinoInteresseEntrata.addEventListener('click', fetchDepositoInteresseEntrata);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                              tratta interesse entrata                     */
+/* -------------------------------------------------------------------------- */
+function visualizzaRichiesteTrattaInteresseEntrata(tratta) {
+
+    colonnaInfo.innerHTML = '';
+    let visualizzaTabella = '';
+    let visualizzaRichieste = '';
+
+
+    visualizzaTabella = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">                        
+
+                            <div class="row rowData">
+                            <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+                                <th class="text-center">Azienda Di Interesse</th>
+                                <th class="text-center">Richiesta numero #ID</th>
+                                <th class="text-center">Gestisci</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+                                
+
+                        </tbody>
+                    </table>
+                </div>`;
+
+    colonnaInfo.innerHTML = visualizzaTabella;
+
+    let body = document.querySelector('.bodyTabella');
+
+    console.log(tratta);
+
+    if (tratta.length == 0) {
+
+        body.innerHTML = nessunaCorrispondenzaProposta;
+
+    } else {
+
+        tratta.forEach(element => {
+
+
+            visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
+            <td class="text-center">${element.consegnaDTO.id}</td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaTrattaInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkTratte px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteTratteProposta.html">INFO</a></td>
+            </tr>`;
+
+            body.innerHTML += visualizzaRichieste;
+           ascoltoTratte();
+
+
+        });
+
+    }
+
+}
+
+
+
+function eliminaPropostaTrattaInteresseEntrata(id) {
+
+    fetch(`http://127.0.0.1:8080/api/trattazza/eliminaProposta/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchTrattaInteresseEntrata();
+
+}
+
+
+
+async function fetchTrattaInteresseEntrata() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            recuperaProposteTrattaInteresseEntrata(data.id);
+
+            console.log(data.id);
+
+
+        });
+
+}
+
+
+function recuperaProposteTrattaInteresseEntrata(id) {
+
+    fetch(`http://127.0.0.1:8080/api/trattazza/byAziendaProponenteTrattaInUscita?AziendaIdProponenteTratta=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiesteTrattaInteresseEntrata(data);
+
+
+        });
+
+}
+
+
+if (richiesteTrattaInteresseEntrata) {
+
+    richiesteTrattaInteresseEntrata.addEventListener('click', fetchTrattaInteresseEntrata);
+}
+
+
+
+
 
 
 // function visualizzaRichiesteImballiInteresseEntrata(imballo) {
