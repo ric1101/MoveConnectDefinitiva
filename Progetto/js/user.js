@@ -6709,3 +6709,255 @@ if (richiesteConsegnaImballiInteresseEntrata) {
 
 
 
+/* -------------------------------------------------------------------------- */
+/*                              carico interesse entrata                      */
+/* -------------------------------------------------------------------------- */
+
+
+function visualizzaRichiesteCaricoInteresseEntrata(carico) {
+
+    colonnaInfo.innerHTML = '';
+    let visualizzaTabella = '';
+    let visualizzaRichieste = '';
+
+
+    visualizzaTabella = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">                        
+
+                            <div class="row rowData">
+                            <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+                                <th class="text-center">Azienda Di Interesse</th>
+                                <th class="text-center">Richiesta numero #ID</th>
+                                <th class="text-center">Gestisci</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+                                
+
+                        </tbody>
+                    </table>
+                </div>`;
+
+    colonnaInfo.innerHTML = visualizzaTabella;
+
+    let body = document.querySelector('.bodyTabella');
+
+    console.log(carico);
+
+    if (carico.length == 0) {
+
+        body.innerHTML = nessunaCorrispondenzaProposta;
+
+    } else {
+
+        carico.forEach(element => {
+
+
+            visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
+            <td class="text-center">${element.consegnaDTO.id}</td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaCaricoInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkCarico px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiestaTrasportoProposta.html">INFO</a></td>
+            </tr>`;
+
+            body.innerHTML += visualizzaRichieste;
+            ascoltoCarico();
+
+        });
+
+    }
+
+}
+
+
+
+function eliminaPropostaCaricoInteresseEntrata(id) {
+
+    fetch(`http://127.0.0.1:8080/api/trasporto/eliminaProposta/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchCaricoInteresseEntrata();
+
+}
+
+
+
+async function fetchCaricoInteresseEntrata() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            recuperaProposteCaricoInteresseEntrata(data.id);
+
+            console.log(data.id);
+
+
+        });
+
+}
+
+
+function recuperaProposteCaricoInteresseEntrata(id) {
+
+    fetch(`http://127.0.0.1:8080/api/trasporto/byAziendaProponenteInUscita?aziendaIdProponenteTrasporto=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiesteCaricoInteresseEntrata(data);
+
+
+        });
+
+}
+
+
+if (richiesteTrasportoInteresseEntrata) {
+
+    richiesteTrasportoInteresseEntrata.addEventListener('click', fetchCaricoInteresseEntrata);
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                              scala interesse entrata                       */
+/* -------------------------------------------------------------------------- */
+
+
+
+
+
+function visualizzaRichiesteScalaInteresseEntrata(scala) {
+
+    colonnaInfo.innerHTML = '';
+    let visualizzaTabella = '';
+    let visualizzaRichieste = '';
+
+
+    visualizzaTabella = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">                        
+
+                            <div class="row rowData">
+                            <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+                                <th class="text-center">Azienda Di Interesse</th>
+                                <th class="text-center">Richiesta numero #ID</th>
+                                <th class="text-center">Gestisci</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+                                
+
+                        </tbody>
+                    </table>
+                </div>`;
+
+    colonnaInfo.innerHTML = visualizzaTabella;
+
+    let body = document.querySelector('.bodyTabella');
+
+    console.log(scala);
+
+    if (scala.length == 0) {
+
+        body.innerHTML = nessunaCorrispondenzaProposta;
+
+    } else {
+
+        scala.forEach(element => {
+
+
+            visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
+            <td class="text-center">${element.consegnaDTO.id}</td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaScalaInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkScala px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiestaScalaProposta.html">INFO</a></td>
+            </tr>`;
+
+            body.innerHTML += visualizzaRichieste;
+            ascoltoScala();
+
+
+
+        });
+
+    }
+
+}
+
+
+
+function eliminaPropostaScalaInteresseEntrata(id) {
+
+    fetch(`http://127.0.0.1:8080/api/scala/eliminaProposta/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetchScalaInteresseEntrata();
+
+}
+
+
+
+async function fetchScalaInteresseEntrata() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            recuperaProposteScalaInteresseEntrata(data.id);
+
+            console.log(data.id);
+
+
+        });
+
+}
+
+
+function recuperaProposteScalaInteresseEntrata(id) {
+
+    fetch(`http://127.0.0.1:8080/api/scala/byAziendaPropostaScalaInUscita?AziendaIdProponenteScala=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiesteScalaInteresseEntrata(data);
+
+
+        });
+
+}
+
+
+if (richiesteScalaElevatoreInteresseEntrata) {
+
+    richiesteScalaElevatoreInteresseEntrata.addEventListener('click', fetchScalaInteresseEntrata);
+}
