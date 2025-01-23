@@ -6578,9 +6578,14 @@ if (richiesteConsegnaImballiInteresseEntrata) {
 }
 
 
+
+
 /* -------------------------------------------------------------------------- */
-/*                              personale interesse entrata                     */
+/*                              personale interesse entrata                   */
 /* -------------------------------------------------------------------------- */
+
+
+
 
 function visualizzaRichiestePersonaleInteresseEntrata(personale) {
 
@@ -6707,8 +6712,12 @@ if (richiestePersonaleSpecInteresseEntrata) {
 
 
 /* -------------------------------------------------------------------------- */
-/*                              deposito interesse entrata                     */
+/*                              deposito interesse entrata                    */
 /* -------------------------------------------------------------------------- */
+
+
+
+
 
 function visualizzaRichiesteDepositoInteresseEntrata(deposito) {
 
@@ -6831,9 +6840,15 @@ if (richiesteDepositoMagazzinoInteresseEntrata) {
 }
 
 
+
+
 /* -------------------------------------------------------------------------- */
-/*                              tratta interesse entrata                     */
+/*                              tratta interesse entrata                      */
 /* -------------------------------------------------------------------------- */
+
+
+
+
 function visualizzaRichiesteTrattaInteresseEntrata(tratta) {
 
     colonnaInfo.innerHTML = '';
@@ -6952,134 +6967,6 @@ if (richiesteTrattaInteresseEntrata) {
 
     richiesteTrattaInteresseEntrata.addEventListener('click', fetchTrattaInteresseEntrata);
 }
-
-
-
-
-
-
-// function visualizzaRichiesteImballiInteresseEntrata(imballo) {
-
-//     colonnaInfo.innerHTML = '';
-//     let visualizzaTabella = '';
-//     let visualizzaRichieste = '';
-
-
-//     visualizzaTabella = `
-//     <div class="card-body destra mb-4">
-//         <div class="row rowRichieste">
-//             <div class="container">
-//                 <div class="row">
-
-//                     <div class="col-lg-12 col-xl-12">                        
-
-//                             <div class="row rowData">
-//                             <div class="table-responsive tabellozza">
-//                     <table class="data-table table mb-0 tbl-server-info">
-//                         <thead class="text-uppercase">
-//                             <tr class="ligth ligth-data">
-//                                 <th class="text-center">Azienda Di Interesse</th>
-//                                 <th class="text-center">Richiesta numero #ID</th>
-//                                 <th class="text-center">Gestisci</th>
-//                             </tr>
-//                         </thead>
-//                         <tbody class="bodyTabella">
-                                
-
-//                         </tbody>
-//                     </table>
-//                 </div>`;
-
-//     colonnaInfo.innerHTML = visualizzaTabella;
-
-//     let body = document.querySelector('.bodyTabella');
-
-//     console.log(imballo);
-
-//     if (imballo.length == 0) {
-
-//         body.innerHTML = nessunaCorrispondenzaProposta;
-
-//     } else {
-
-//         imballo.forEach(element => {
-
-
-//             visualizzaRichieste = `<tr>
-//             <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
-//             <td class="text-center">${element.consegnaDTO.id}</td>
-//             <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaImballiInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a>
-//             </tr>`;
-
-//             body.innerHTML += visualizzaRichieste;
-//             ascoltoImballi()
-
-
-
-//         });
-
-//     }
-
-// }
-
-
-
-// function eliminaPropostaImballiInteresseEntrata(id) {
-
-//     fetch(`http://127.0.0.1:8080/api/propostaImballi/eliminaProposta/${id}`, {
-//         method: "DELETE",
-//         headers: {
-//             "Content-Type": "application/json",
-//         }
-//     })
-
-//     fetchImballiInteresseEntrata();
-
-// }
-
-
-
-// async function fetchTrasportoInteresseEntrata() {
-
-
-//     let accessToken = localStorage.getItem('accessToken');
-
-
-//     await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-//         .then((res) => res.json())
-//         .then((data) => {
-
-//             recuperaTrasportoInteresseEntrata(data.id);
-
-//             console.log(data.id);
-
-
-//         });
-
-// }
-
-
-// function recuperaTrasportoInteresseEntrata(id) {
-
-//     fetch(`http://127.0.0.1:8080/api/propostaImballi/byAziendaPropostaProponenteInUscita?azienda=${id}`)
-//         .then((res) => res.json())
-//         .then((data) => {
-
-//             visualizzaRichiesteImballiInteresseEntrata(data);
-
-
-//         });
-
-// }
-
-
-// if (richiesteTrasportoInteresseEntrata) {
-
-//     richiesteTrasportoInteresseEntrata.addEventListener('click', fetchTrasportoInteresseEntrata);
-// }
-
-
-
 
 
 
@@ -7336,3 +7223,6 @@ if (richiesteScalaElevatoreInteresseEntrata) {
 
     richiesteScalaElevatoreInteresseEntrata.addEventListener('click', fetchScalaInteresseEntrata);
 }
+
+
+
