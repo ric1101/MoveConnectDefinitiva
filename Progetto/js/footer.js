@@ -9,8 +9,8 @@ function Footer() {
                     <div class="single-cta">
                         <i class="fas fa-map-marker-alt" style="padding-right: 5px"></i>
                         <div class="cta-text">
-                            <h4>Dove siamo</h4>
-                            <span>Pomezia, RM</span>
+                            <h4>Sede Legale</h4>
+                            <span>Via Masaccio 8, 42124<br>Reggio Emilia RE<br>P.Iva: 03077140352</span>
                         </div>
                     </div>
                 </div>
@@ -19,7 +19,7 @@ function Footer() {
                         <i class="fas fa-phone"></i>
                         <div class="cta-text">
                             <h4>Chiamaci</h4>
-                            <span>32143133255</span>
+                            <span>+39 331 955 4877</span>
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@ function Footer() {
                         <i class="far fa-envelope-open"></i>
                         <div class="cta-text">
                             <h4>Mandaci un'email</h4>
-                            <span>move@moveconnect.it</span>
+                            <span>info@moveconnect.it</span>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@ function Footer() {
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mb-50 pb-5 d-flex justify-content-center">
                     <div class="footer-widget">
                         <div class="footer-logo">
-                            <a href="iscriviti.html"><img src="./imgs/img.png" class="img-fluid" alt="logo"></a>
+                            <a href="index.html"><img src="./imgs/img.png" class="img-fluid" alt="logo"></a>
                         </div>
                         <div class="footer-text">
                             <p>Siamo un'azienda di traslochi</p>
@@ -54,10 +54,10 @@ function Footer() {
                         
                             <ul style="padding-left: 0rem !important;">
 
-                                <li><a href="iscriviti.html">Iscriviti</a></li>
+                                <li><a href="index.html">Home</a></li>
                                 <li><a href="blog.html">Blog</a></li>
                                 <li><a href="partners.html">Partners</a></li>
-                                <li><a href="privacyPolicy.html">Privacy</a></li>
+                                <li><a href="abbonamenti.html">Abbonati</a></li>
 
                             </ul>
                         
@@ -69,11 +69,11 @@ function Footer() {
                         <div class="footer-widget-heading">
                             <h3>Seguici</h3>
                         </div>
-                        <a href="#"><i class="fab fa-facebook-f facebook-bg soc"></i></a>
-                        <a href="#"><i class="fab fa-x-twitter twitter-bg soc"></i></a>
-                        <a href="#"><i class="fab fa-instagram instagram-bg soc"></i></a>
-                        <a href="#"><i class="fab fa-tiktok tiktok-bg soc"></i></a>
-                        <a href="https://www.youtube.com/@MoveConnect-d6t"><i class="fab fa-youtube youtube-bg soc"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61571642270034" target="_blank"><i class="fab fa-facebook-f facebook-bg soc"></i></a>
+                        <a href="https://x.com/Move_Connect_" target="_blank"><i class="fab fa-x-twitter twitter-bg soc"></i></a>
+                        <a href="https://www.instagram.com/moveconnect.srl?igsh=MTU5cjAxdzh0NjNleA==" target="_blank"><i class="fab fa-instagram instagram-bg soc"></i></a>
+                        <a href="http://tiktok.com/@move.connect_" target="_blank"><i class="fab fa-tiktok tiktok-bg soc"></i></a>
+                        <a href="https://www.youtube.com/@MoveConnect-d6t" target="_blank"><i class="fab fa-youtube youtube-bg soc"></i></a>
                     </div>
                 </div>
             </div>
@@ -84,7 +84,16 @@ function Footer() {
             <div class="row d-flex justify-content-center">
                 <div class="col-xl-6 col-lg-6 text-center text-lg-left">
                     <div class="copyright-text">
-                        <p>Copyright &copy; 2024, Tutti i diritti riservati a <a href="iscriviti.html">Moveconnect</a></p>
+                        <p>Copyright &copy; 2024, Tutti i diritti riservati a <a href="index.html">Moveconnect</a></p>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 text-center">
+                    <div class="footer-menu text-center">
+                        <ul class="mb-0 text-center">
+                            <li><a href="registrati.html">Registrati</a></li>
+                            <li><a href="https://www.iubenda.com/privacy-policy/78378781/legal?an=no&s_ck=false&newmarkup=yes">Privacy</a></li>
+                            <li><a href="https://www.iubenda.com/privacy-policy/78378781/cookie-policy?an=no&s_ck=false&newmarkup=yes">Cookie</a></li>
+                        </ul>
                     </div>
                 </div>
                 
