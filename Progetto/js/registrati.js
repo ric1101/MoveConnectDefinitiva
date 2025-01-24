@@ -76,6 +76,8 @@ class Azienda {
 
 function registrazioneAzienda() {
   
+  event.preventDefault();
+
 
   let nuovaAzienda = new Azienda(
     nomeAzienda.value,
@@ -321,7 +323,6 @@ function numTelDipCheck() {
 
 function controlloDati() {
 
-  event.preventDefault();
 
   if (nomeAzienda.value.trim() != "" &&
     // logo.value.trim() != "" &&
@@ -353,7 +354,7 @@ function controlloDati() {
       
       localStorage.setItem('emailUtente', username.value);
       location.reload();
-      // window.location.href = 'codice.html';
+      window.location.href = 'codice.html';
       console.log('ciao');
       
 
