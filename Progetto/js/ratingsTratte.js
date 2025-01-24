@@ -72,8 +72,8 @@ function riempiDatiRecensione(dati) {
 let btnInvioRecensione = document.querySelector('.btnInvioRecensione');
 
 class Recensione {
-    constructor(RelazioneTrattaId, relazioneAziendaRichiedenteTrattaId, relazioneAziendaAccettataTrattaId, valutazione, commentoAziendaRichiedente, commentoAziendaAccettata) {
-        (this.RelazioneTrattaId = RelazioneTrattaId),
+    constructor(relazioneTrattaId, relazioneAziendaRichiedenteTrattaId, relazioneAziendaAccettataTrattaId, valutazione, commentoAziendaRichiedente, commentoAziendaAccettata) {
+        (this.relazioneTrattaId = relazioneTrattaId),
             (this.relazioneAziendaRichiedenteTrattaId = relazioneAziendaRichiedenteTrattaId),
             (this.relazioneAziendaAccettataTrattaId = relazioneAziendaAccettataTrattaId),
             (this.valutazione = valutazione),

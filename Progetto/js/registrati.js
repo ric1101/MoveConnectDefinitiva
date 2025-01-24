@@ -95,6 +95,7 @@ function registrazioneAzienda() {
   );
 
 
+  console.log(nuovaAzienda);
 
   fetch("http://127.0.0.1:8080/api/azienda/registerSerio", {
     method: "POST",
@@ -102,6 +103,8 @@ function registrazioneAzienda() {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(nuovaAzienda),
+    
+    
   })
 
 }
@@ -350,7 +353,7 @@ function controlloDati() {
       
       localStorage.setItem('emailUtente', username.value);
       location.reload();
-      window.location.href = 'codice.html';
+      // window.location.href = 'codice.html';
       console.log('ciao');
       
 

@@ -7207,7 +7207,7 @@ async function fetchScalaInteresseEntrata() {
 
 function recuperaProposteScalaInteresseEntrata(id) {
 
-    fetch(`http://127.0.0.1:8080/api/scala/byAziendaPropostaScalaInUscita?AziendaIdProponenteScala=${id}`)
+    fetch(`http://127.0.0.1:8080/api/scala/byAziendaPropostaScalaInUscita?aziendaIdProponenteScala=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
