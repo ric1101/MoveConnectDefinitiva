@@ -9,14 +9,15 @@ body {
 .card {
   box-shadow: 8px 8px 15px 2px;
   transition: transform 0.3s ease-in-out;
-
+  border: solid 1px grey;
+  border-radius: 1rem;
 }
 
 .card:hover {
   transform: scale(1.05);
 }
 
-.button {
+.buttonPlus {
   
 
   border-radius: 0.5rem;
@@ -43,24 +44,39 @@ body {
   }
 
   
+  
+}
+
+
+a.btn.buttonEconomico:active {
+  background-color: #0091FF; /* Colore di sfondo durante il click */
+  color: #fff; /* Colore del testo durante il click */
+}
+
+a.btn.buttonPlus:active {
+  background-color: orange;
+  color: #fff;
 }
 
 .titleCard1 {
-  padding: 14px;
+  padding: 11px;
   border-bottom: solid 1px grey;
+  background-color: rgba(128, 128, 128, 0.288);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .titleCard2 {
   padding: 11px;
   border-bottom: solid 1px grey;
+  background-color: rgba(128, 128, 128, 0.288);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .plans {
-
   display: flex;
   justify-content: center;
-
-
 }
 
 .row>* {
@@ -71,10 +87,11 @@ body {
 
 .labelConsigliPremium {
   border-radius: 10rem;
-  background-color: #FFAA00;
+  background-color: orange;
   text-align: center;
   color: white;
   padding: 6px;
+  border: solid 1px grey;
   
 }
 
@@ -84,18 +101,19 @@ body {
   text-align: center;
   color: white;
   padding: 6px;
+  border: solid 1px grey;
   
 }
 
 .fa-circle {
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .containerImgLogoCard {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  vertical-align: middle;
 }
 
 
@@ -108,13 +126,138 @@ body {
 }
 
 .acquista {
-  display: flex;
-  justify-content: end;
-  border-top: solid 1px grey;
-  padding: 10px;
+  padding: 25px;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
 .groupBody {
-  padding: 15px;
+  padding: 20px;
 }
 
+@media (max-width: 1028px) {
+  
+  strong {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 830px) {
+ 
+  .labelConsigliPremium {
+    display: none;
+  }
+
+  .labelConsigliEconomico {
+    display: none;
+  }
+ 
+}
+
+@media (max-width: 576px) {
+ 
+  .labelConsigliPremium {
+    display: block;
+  }
+
+  .labelConsigliEconomico {
+    display: block;
+  }
+ 
+}
+
+
+@media (max-width: 373px) {
+ 
+  .labelConsigliPremium {
+    display: none;
+  }
+
+  .labelConsigliEconomico {
+    display: none;
+  }
+ 
+}
+.buttonEconomico {
+  
+
+  border-radius: 0.5rem;
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 0;
+  line-height: inherit;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #0091FF;
+  color: white;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  user-select: none;
+
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 10px #0040ff;
+    background-color: #0040ff;
+    color: white;
+    border: solid 1px grey;
+  }
+
+  
+}
+
+.btn {
+  border: solid 1px grey;
+}
+
+.titoloBase {
+  font-size: 2rem;
+  background: linear-gradient(90deg, hsla(225, 100%, 50%, 1) 0%, hsla(156, 96%, 50%, 1) 100%);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: wave 2s infinite linear;
+}
+
+.titoloBase:hover {
+  animation: fluttuazione 3s ease-in-out infinite alternate; /* Animazione continua */
+  
+}
+
+@keyframes fluttuazione {
+  0% {
+    transform: translateY(0); /* Posizione iniziale */
+  }
+  50% {
+    transform: translateY(-4px); /* Sale verso l'alto */
+  }
+  100% {
+    transform: translateY(4px); /* Torna alla posizione iniziale */
+  }
+}
+
+
+.titoloPlus {
+  font-size: 2rem;
+  background: linear-gradient(90deg, hsla(40, 100%, 50%, 1) 0%, hsla(353, 96%, 50%, 1) 100%);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: wave 2s infinite linear;
+  transition: transform 0.3s ease;
+}
+
+.titoloPlus:hover {
+  animation: fluttuazione 3s ease-in-out infinite alternate; /* Animazione continua */
+}
+
+@keyframes wave {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
