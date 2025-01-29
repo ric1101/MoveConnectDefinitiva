@@ -213,6 +213,7 @@ ul {
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
   margin-bottom: 20px;
+  padding: 0px 10px 10px 0px;
 }
 
 .footer-social-icon a {
@@ -514,3 +515,23 @@ a {
 }
 
 
+@media(max-width:768px) {
+  
+  .footer-social-icon i {
+    height: 30px;
+    width: 30px;
+  }
+
+.footer-social-icon {
+  padding: 0px 40px 10px 0px;
+
+}
+
+  .soc {
+    height: 30px !important;
+    width: 30px !important;
+    padding-bottom: 35px;
+  }
+
+
+}

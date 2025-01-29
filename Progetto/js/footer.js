@@ -63,8 +63,7 @@ function Footer() {
                         
                     </div>
                 </div>
-                <div class="footer-social-icon col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 d-flex justify-content-center"
-                    style="padding: 0px  10px 10px 0px">
+                <div class="footer-social-icon col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 d-flex justify-content-center">
                     <div class="footer-widget">
                         <div class="footer-widget-heading">
                             <h3>Seguici</h3>

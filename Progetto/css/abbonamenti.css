@@ -7,11 +7,13 @@ body {
 }
 
 .card {
-  box-shadow: 8px 8px 15px 2px;
+  box-shadow: 1px 1px 30px 1px;
   transition: transform 0.3s ease-in-out;
-  border: solid 1px grey;
+  border: solid 2px grey;
   border-radius: 1rem;
 }
+
+
 
 .card:hover {
   transform: scale(1.05);
@@ -61,7 +63,6 @@ a.btn.buttonPlus:active {
 .titleCard1 {
   padding: 11px;
   border-bottom: solid 1px grey;
-  background-color: rgba(128, 128, 128, 0.288);
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
 }
@@ -69,7 +70,6 @@ a.btn.buttonPlus:active {
 .titleCard2 {
   padding: 11px;
   border-bottom: solid 1px grey;
-  background-color: rgba(128, 128, 128, 0.288);
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
 }
@@ -178,6 +178,7 @@ a.btn.buttonPlus:active {
   }
  
 }
+
 .buttonEconomico {
   
 
@@ -326,3 +327,24 @@ a.btn.buttonPlus:active {
 }
 
 
+.carta1:hover {
+  border: solid 2px #0091FF;
+
+  .titleCard1 {
+      border-bottom: solid 2px #0091FF;
+    
+  }
+
+
+}
+
+.carta2:hover {
+  border: solid 2px #FFA500;
+
+  
+  .titleCard2 {
+    border-bottom: solid 2px #FFA500;
+  
+}
+
+}
