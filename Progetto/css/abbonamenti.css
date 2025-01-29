@@ -131,16 +131,16 @@ a.btn.buttonPlus:active {
   border-bottom-right-radius: 1rem;
 }
 
-.groupBody {
+.groupBody1 {
   padding: 20px;
+  height: 700px;
 }
 
-@media (max-width: 1028px) {
-  
-  strong {
-    font-size: 12px;
-  }
+.groupBody2 {
+  padding: 20px;
+  height: 758.5px;
 }
+
 
 @media (max-width: 830px) {
  
@@ -202,7 +202,6 @@ a.btn.buttonPlus:active {
     box-shadow: 0px 6px 10px #0040ff;
     background-color: #0040ff;
     color: white;
-    border: solid 1px grey;
   }
 
   
@@ -261,3 +260,69 @@ a.btn.buttonPlus:active {
     background-position: 200%;
   }
 }
+
+@media (max-width: 1028px) {
+  
+  strong {
+
+    font-size: 12px;
+
+  }
+
+}
+
+
+
+@media (min-width: 992px) {
+  
+  .groupBody1 {
+    height: 600px;
+  }
+  
+  .groupBody2 {
+    height: 658.5px;
+  }
+
+}
+
+
+@media (min-width: 1200px) {
+  
+  .groupBody1 {
+    height: 550px;
+  }
+  
+  .groupBody2 {
+    height: 608.5px;
+  }
+
+}
+
+
+@media (max-width: 767.20px) {
+  
+  .groupBody1 {
+    height: 550px;
+  }
+  
+  .groupBody2 {
+    height: 608.5px;
+  }
+
+}
+
+
+
+@media (max-width: 678px) {
+  
+  .groupBody1 {
+    height: auto;
+  }
+  
+  .groupBody2 {
+    height: auto;
+  }
+
+}
+
+
