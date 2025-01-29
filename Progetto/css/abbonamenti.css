@@ -1,5 +1,5 @@
 body {
-  background-image:url(../imgs/marmo.jpg);
+  background-image: url(../imgs/marmo.jpg);
   background-position: center;
   background-repeat: no-repeat;
 
@@ -20,7 +20,7 @@ body {
 }
 
 .buttonPlus {
-  
+
 
   border-radius: 0.5rem;
   display: block;
@@ -45,14 +45,16 @@ body {
     color: white;
   }
 
-  
-  
+
+
 }
 
 
 a.btn.buttonEconomico:active {
-  background-color: #0091FF; /* Colore di sfondo durante il click */
-  color: #fff; /* Colore del testo durante il click */
+  background-color: #0091FF;
+  /* Colore di sfondo durante il click */
+  color: #fff;
+  /* Colore del testo durante il click */
 }
 
 a.btn.buttonPlus:active {
@@ -92,7 +94,7 @@ a.btn.buttonPlus:active {
   color: white;
   padding: 6px;
   border: solid 1px grey;
-  
+
 }
 
 .labelConsigliEconomico {
@@ -102,7 +104,7 @@ a.btn.buttonPlus:active {
   color: white;
   padding: 6px;
   border: solid 1px grey;
-  
+
 }
 
 .fa-circle {
@@ -143,7 +145,7 @@ a.btn.buttonPlus:active {
 
 
 @media (max-width: 830px) {
- 
+
   .labelConsigliPremium {
     display: none;
   }
@@ -151,11 +153,11 @@ a.btn.buttonPlus:active {
   .labelConsigliEconomico {
     display: none;
   }
- 
+
 }
 
 @media (max-width: 576px) {
- 
+
   .labelConsigliPremium {
     display: block;
   }
@@ -163,12 +165,12 @@ a.btn.buttonPlus:active {
   .labelConsigliEconomico {
     display: block;
   }
- 
+
 }
 
 
 @media (max-width: 373px) {
- 
+
   .labelConsigliPremium {
     display: none;
   }
@@ -176,11 +178,11 @@ a.btn.buttonPlus:active {
   .labelConsigliEconomico {
     display: none;
   }
- 
+
 }
 
 .buttonEconomico {
-  
+
 
   border-radius: 0.5rem;
   display: block;
@@ -205,7 +207,7 @@ a.btn.buttonPlus:active {
     color: white;
   }
 
-  
+
 }
 
 .btn {
@@ -222,19 +224,25 @@ a.btn.buttonPlus:active {
 }
 
 .titoloBase:hover {
-  animation: fluttuazione 3s ease-in-out infinite alternate; /* Animazione continua */
-  
+  animation: fluttuazione 3s ease-in-out infinite alternate;
+  /* Animazione continua */
+
 }
 
 @keyframes fluttuazione {
   0% {
-    transform: translateY(0); /* Posizione iniziale */
+    transform: translateY(0);
+    /* Posizione iniziale */
   }
+
   50% {
-    transform: translateY(-4px); /* Sale verso l'alto */
+    transform: translateY(-4px);
+    /* Sale verso l'alto */
   }
+
   100% {
-    transform: translateY(4px); /* Torna alla posizione iniziale */
+    transform: translateY(4px);
+    /* Torna alla posizione iniziale */
   }
 }
 
@@ -250,20 +258,22 @@ a.btn.buttonPlus:active {
 }
 
 .titoloPlus:hover {
-  animation: fluttuazione 3s ease-in-out infinite alternate; /* Animazione continua */
+  animation: fluttuazione 3s ease-in-out infinite alternate;
+  /* Animazione continua */
 }
 
 @keyframes wave {
   0% {
     background-position: 0%;
   }
+
   100% {
     background-position: 200%;
   }
 }
 
 @media (max-width: 1028px) {
-  
+
   strong {
 
     font-size: 12px;
@@ -275,11 +285,11 @@ a.btn.buttonPlus:active {
 
 
 @media (min-width: 992px) {
-  
+
   .groupBody1 {
     height: 600px;
   }
-  
+
   .groupBody2 {
     height: 658.5px;
   }
@@ -288,11 +298,11 @@ a.btn.buttonPlus:active {
 
 
 @media (min-width: 1200px) {
-  
+
   .groupBody1 {
     height: 550px;
   }
-  
+
   .groupBody2 {
     height: 608.5px;
   }
@@ -301,11 +311,11 @@ a.btn.buttonPlus:active {
 
 
 @media (max-width: 767.20px) {
-  
+
   .groupBody1 {
     height: 550px;
   }
-  
+
   .groupBody2 {
     height: 608.5px;
   }
@@ -315,11 +325,11 @@ a.btn.buttonPlus:active {
 
 
 @media (max-width: 678px) {
-  
+
   .groupBody1 {
     height: auto;
   }
-  
+
   .groupBody2 {
     height: auto;
   }
@@ -331,20 +341,19 @@ a.btn.buttonPlus:active {
   border: solid 2px #0091FF;
 
   .titleCard1 {
-      border-bottom: solid 2px #0091FF;
-    
-  }
+    border-bottom: solid 2px #0091FF;
 
+  }
 
 }
 
 .carta2:hover {
   border: solid 2px #FFA500;
 
-  
+
   .titleCard2 {
     border-bottom: solid 2px #FFA500;
-  
-}
+
+  }
 
 }

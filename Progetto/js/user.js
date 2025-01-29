@@ -1,4 +1,6 @@
 userView();
+
+
 let nessunaCorrispondenzaProposta = `<div class="d-flex justify-content-center mt-3">
 <p>Non ci sono Proposte!</p>
 </div>`;
@@ -243,7 +245,7 @@ let richiestePersonaleSpecRelazione = document.querySelector('.richiestePersonal
 let richiesteDepositoMagazzinoRelazione = document.querySelector('.richiesteDepositoMagazzinoRelazione');
 let richiesteTrattaRelazione = document.querySelector('.richiesteTrattaRelazione');
 
-
+// proposte inviate
 let richiesteOccSuoloPubInteresseEntrata = document.querySelector('.richiesteOccSuoloPubInteresseEntrata');
 let richiesteTrasportoInteresseEntrata = document.querySelector('.richiesteTrasportoInteresseEntrata');
 let richiesteScalaElevatoreInteresseEntrata = document.querySelector('.richiesteScalaElevatoreInteresseEntrata');
@@ -251,6 +253,15 @@ let richiesteConsegnaImballiInteresseEntrata = document.querySelector('.richiest
 let richiestePersonaleSpecInteresseEntrata = document.querySelector('.richiestePersonaleSpecInteresseEntrata');
 let richiesteDepositoMagazzinoInteresseEntrata = document.querySelector('.richiesteDepositoMagazzinoInteresseEntrata');
 let richiesteTrattaInteresseEntrata = document.querySelector('.richiesteTrattaInteresseEntrata');
+
+//relazioni create in *entrata*
+let richiesteOccSuoloPubRelazioneEmesse = document.querySelector('.richiesteOccSuoloPubRelazioneEmesse');
+let richiesteTrasportoRelazioneEmesse = document.querySelector('.richiesteTrasportoRelazioneEmesse');
+let richiesteScalaElevatoreRelazioneEmesse = document.querySelector('.richiesteScalaElevatoreRelazioneEmesse');
+let richiesteConsegnaImballiRelazioneEmesse = document.querySelector('.richiesteConsegnaImballiRelazioneEmesse');
+let richiestePersonaleSpecRelazioneEmesse = document.querySelector('.richiestePersonaleSpecRelazioneEmesse');
+let richiesteDepositoMagazzinoRelazioneEmesse = document.querySelector('.richiesteDepositoMagazzinoRelazioneEmesse');
+let richiesteTrattaRelazioneEmesse = document.querySelector('.richiesteTrattaRelazioneEmesse');
 
 let messaggi = document.querySelector('.messaggi');
 let nomeAzienda = document.querySelector('.nomeAzienda');
@@ -7226,3 +7237,220 @@ if (richiesteScalaElevatoreInteresseEntrata) {
 
 
 
+
+/* ------------------------- Richieste relazione entrata--------------------- */
+
+
+/* -------------------------------------------------------------------------- */
+/*                              carico relazione entrata                      */
+/* -------------------------------------------------------------------------- */
+
+
+
+
+
+function visualizzaRichiesteDepositoRelazione(deposito) {
+
+    colonnaInfo.innerHTML = '';
+    let visualizzaTabella = '';
+    let visualizzaRichieste = '';
+
+
+    visualizzaTabella = `
+    <div class="card-body destra mb-4">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">                        
+
+                            <div class="row rowData">
+                            <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+                                <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Data Inizio</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Stato</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Gestisci</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+                                
+
+                        </tbody>
+                    </table>
+                </div>`;
+
+    colonnaInfo.innerHTML = visualizzaTabella;
+
+    let body = document.querySelector('.bodyTabella');
+
+    console.log(deposito);
+
+    if (deposito == 0) {
+
+        body.innerHTML = nessunaCorrispondenzaRelazione;
+
+    } else {
+
+        deposito.forEach(element => {
+
+            if (element.stato == 'IN CORSO') {
+
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.magazzinoDTO.id}"> ${element.magazzinoDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneDeposito(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneDeposito(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
+            </td>
+            </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoDeposito()
+
+            } else if (element.stato == 'RECENSITA') {
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.magazzinoDTO.id}"> ${element.magazzinoDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td class="text-center" style="vertical-align: middle !important;"></td>
+            </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoDeposito()
+
+
+            } else {
+
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.magazzinoDTO.id}"> ${element.magazzinoDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciDeposito(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
+            </td>
+            </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoDeposito()
+
+            }
+
+
+
+        });
+
+    }
+
+}
+
+
+
+async function fetchDepositoRelazione() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            recuperaRelazioneDeposito(data.id);
+
+            console.log(data.id);
+
+
+        });
+
+
+}
+
+
+function annullaRelazioneDeposito(id, aziendaId) {
+
+
+    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/annullataRelazioneMagazzino/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+    })
+
+    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/modificaMagazzinoIdAnnullata/${id}/${aziendaId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id,aziendaId)
+    })
+
+    recensisciDeposito(id);
+
+}
+
+
+function evadiRelazioneDeposito(id,aziendaId) {
+
+
+    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/evasaRelazioneMagazzino/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+    })
+
+    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/modificaMagazzinoIdEvasa/${id}/${aziendaId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id,aziendaId)
+    })
+
+    recensisciDeposito(id);
+
+}
+
+
+function recuperaRelazioneDeposito(id) {
+
+
+    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaMagazzinoRelazioneRichiedente?depositoMagazzinoAziendaId=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiesteDepositoRelazione(data);
+
+
+        });
+
+}
+
+
+
+if (richiesteDepositoMagazzinoRelazione) {
+
+    richiesteDepositoMagazzinoRelazione.addEventListener('click', fetchDepositoRelazione);
+}
+
+
+
+function recensisciDeposito(id) {
+
+
+    let idRecensione = id;
+    localStorage.setItem('idRecensione', idRecensione);
+
+    window.location.href = 'recensioneDeposito.html';
+
+}
