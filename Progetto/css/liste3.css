@@ -5,10 +5,7 @@
 
 }
 
-td {
 
-	vertical-align: middle;
-}
 
 
 @media (max-width: 992px) {
@@ -41,4 +38,17 @@ tr td img {
 
 .scrittaFiltri {
 	margin-right: 20px;
+}
+
+th {
+	border: solid 1px black !important;
+	background-color: rgba(128, 128, 128, 0.33) !important;
+	vertical-align: middle;
+
+}
+
+td {
+	border: solid 1px black !important;
+	vertical-align: middle;
+
 }

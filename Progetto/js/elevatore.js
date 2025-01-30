@@ -114,21 +114,25 @@ let blankCamp = document.querySelector('.blankCamp');
 new Date();
 let dat = new Date();
 
+function padToTwoDigits(number) {
+    return number.toString().padStart(2, '0');
+}
+
 //--------------------------------------//
 
-let ggMin = dat.getDate() + 1;
-let mmMin = (dat.getMonth() + 1);
+let ggMin = padToTwoDigits(dat.getDate() + 1);
+let mmMin = padToTwoDigits(dat.getMonth() + 1);
 let aaMin = dat.getFullYear();
 
-let dataMinInizio = aaMin + "-" + mmMin + "-" + ggMin;
+let dataMinInizio = `${aaMin}-${mmMin}-${ggMin}`;
 console.log(dataMinInizio);
 
 //--------------------------------------//
 
-let ggMax = dat.getDate() + 1;
-let mmMax = (dat.getMonth() + 1);
+let ggMax = padToTwoDigits(dat.getDate() + 1);
+let mmMax = padToTwoDigits(dat.getMonth() + 1);
 let aaMax = dat.getFullYear() + 1;
-let dataMaxInizio = aaMax + "-" + mmMax + "-" + ggMax;
+let dataMaxInizio = `${aaMax}-${mmMax}-${ggMax}`;
 
 console.log(dataMaxInizio);
 

@@ -16,11 +16,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body style="background-image: url(./imgs/marmo.jpg); background-position: center; background-repeat: no-repeat;">
+
     <div class="navbarMain"></div>
 
 
-    <div class="container p-5">
+    <div class="row mt-5 mb-5 d-flex justify-content-center">
 
 
         <div>
@@ -28,21 +29,20 @@
         </div>
 
 
-        <form class="row g-3 formRow">
+        <form class="col-md-9 col-lg-7 col-sm-7 col-9 p-5" style="background-color: #ece4d485; border-radius: 1rem;">
 
             <!-- ----------------------------------------------------------------------- -->
             <!--                                  Partenza                               -->
             <!-- ----------------------------------------------------------------------- -->
-            <div class="row g-3 justify-content-evenly">
-                <div class="col-md-3">
-                    <h3 class="d-flex justify-content">Partenza</h3>
+            <div class="row g-3 p-2">
+                <div class="col-md-5 col-lg-5">
+                    <h3>Partenza</h3>
                 </div>
-                <div class="col-md-3">
-                </div>
+
             </div>
 
-            <div class="row g-3 justify-content-evenly">
-                <div class="col-md-4 col-lg-3">
+            <div class="row g-3 p-2">
+                <div class="col-md-5 col-lg-5">
                     <label for="regioni" class="form-label">Regione *</label>
                     <select id="regioni" class="form-select regionePartenza">
                         <option value="" disabled selected>Seleziona Regione</option>
@@ -51,7 +51,9 @@
 
                 </div>
 
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-2"></div>
+
+                <div class="col-md-5 col-lg-5">
                     <label for="province" class="form-label">Provincia *</label>
                     <select id="province" class="form-select provinciaPartenza">
                         <option value="" disabled selected>Seleziona Provincia</option>
@@ -60,9 +62,9 @@
                 </div>
             </div>
 
-            <div class="row g-3 justify-content-evenly">
+            <div class="row g-3 p-2">
 
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-5 col-lg-5">
                     <label for="comuni" class="form-label">Comune *</label>
                     <select id="comuni" class="form-select comunePartenza">
                         <option value="" disabled selected>Seleziona Comune</option>
@@ -71,25 +73,30 @@
 
                 </div>
 
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-2"></div>
+
+                <div class="col-md-5 col-lg-5">
                     <label class="form-label">Indirizzo *</label>
-                    <input type="text" class="form-control indirizzoPartenza" placeholder="Via Roma 5"
-                        maxLength="50" required>
+                    <input type="text" class="form-control indirizzoPartenza" placeholder="Via Roma 5" maxLength="50"
+                        required>
 
                 </div>
 
 
             </div>
 
-            <div class="row g-3 justify-content-evenly">
+            <div class="row g-3 p-2">
 
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-5 col-lg-5">
                     <label class="form-label">Indirizzo Secondario</label>
-                    <input type="text" class="form-control indirizzoDuePartenza" placeholder="Via Milano 8" maxLength="50" required>
+                    <input type="text" class="form-control indirizzoDuePartenza" placeholder="Via Milano 8"
+                        maxLength="50" required>
 
                 </div>
 
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-2"></div>
+
+                <div class="col-md-5 col-lg-5">
                     <label class="form-label">CAP *</label>
                     <input type="text" class="form-control capPartenza" maxLength="5" placeholder="00015" required>
                     <div class="invalidCapPartenza text-danger">
@@ -99,18 +106,19 @@
 
             </div>
 
-            <div class="row g-3 justify-content-evenly">
+            <div class="row g-3 p-2">
 
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-5 col-lg-5">
                     <label for="mq" class="form-label">Indica M3 *</label>
-                    <input type="text" class="form-control mq" placeholder="Indica M3" maxlength="50"
-                        required>
+                    <input type="text" class="form-control mq" placeholder="Indica M3" maxlength="50" required>
                     <div class="invalidMq text-danger">
 
                     </div>
                 </div>
 
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-2"></div>
+
+                <div class="col-md-5 col-lg-5">
                     <label for="veicolo" class="form-label">Tipologia merce *</label>
                     <select class="form-select tipoDiVeicolo">
                         <option value="" disabled selected>Seleziona tipo di merce</option>
@@ -133,20 +141,16 @@
             <!-- ----------------------------------------------------------------------- -->
 
 
-            <hr class="separazione">
-            <div class="row g-3 justify-content-evenly">
-                <div class="col-md-3">
-                    <h3 class="d-flex justify-content">Arrivo</h3>
+            <div class="row g-3 p-2 pt-4">
+                <div class="col-md-5 col-lg-5">
+                    <h3>Arrivo</h3>
 
                 </div>
 
-                <div class="col-md-3">
-
-                </div>
             </div>
 
-            <div class="row g-3 justify-content-evenly">
-                <div class="col-md-4 col-lg-3">
+            <div class="row g-3 p-2">
+                <div class="col-md-5 col-lg-5">
                     <label for="regioni1" class="form-label">Regione *</label>
                     <select id="regioni1" class="form-select richiesti regioneArrivo">
                         <option value="" disabled selected>Seleziona Regione</option>
@@ -154,7 +158,10 @@
                     </select>
 
                 </div>
-                <div class="col-md-4 col-lg-3">
+
+                <div class="col-md-2"></div>
+
+                <div class="col-md-5 col-lg-5">
                     <label for="province1" class="form-label">Provincia *</label>
                     <select id="province1" class="form-select richiesti provinciaArrivo">
                         <option value="" disabled selected>Seleziona Provincia</option>
@@ -164,9 +171,9 @@
                 </div>
             </div>
 
-            <div class="row g-3 justify-content-evenly">
+            <div class="row g-3 p-2">
 
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-5 col-lg-5">
                     <label for="comuni1" class="form-label">Comune *</label>
                     <select id="comuni1" class="form-select richiesti comuneArrivo">
                         <option value="" disabled selected>Seleziona Comune</option>
@@ -175,7 +182,9 @@
 
                 </div>
 
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-2"></div>
+
+                <div class="col-md-5 col-lg-5">
                     <label for="indirizzoArrivo" class="form-label">Indirizzo *</label>
                     <input type="text" class="form-control richiesti indirizzoArrivo" placeholder="Indirizzo"
                         maxLength="50" required>
@@ -185,18 +194,21 @@
 
             </div>
 
-            <div class="row g-3 justify-content-evenly">
+            <div class="row g-3 p-2">
 
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-5 col-lg-5">
                     <label for="indirizzoDueArrivo" class="form-label">Indirizzo Secondario</label>
                     <input type="text" class="form-control richiesti indirizzoDueArrivo"
                         placeholder="Indirizzo Secondario" maxLength="50" required>
 
                 </div>
 
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-2"></div>
+
+                <div class="col-md-5 col-lg-5">
                     <label for="capArrivo" class="form-label">CAP *</label>
-                    <input type="text" class="form-control richiesti capArrivo" maxLength="5" placeholder="CAP" required>
+                    <input type="text" class="form-control richiesti capArrivo" maxLength="5" placeholder="CAP"
+                        required>
                     <div class="invalidCapArrivo text-danger">
 
                     </div>
@@ -210,53 +222,60 @@
             <!-- ----------------------------------------------------------------------- -->
 
 
-            <hr class="separazione">
-            <div class="row g-3 justify-content-evenly">
-                <div class="col-md-3">
-                    <h3 class="d-flex justify-content">Carico/Scarico</h3>
+            <div class="row g-3 p-2 pt-4">
+                <div class="col-md-5 col-lg-5">
+                    <h3>Carico/Scarico</h3>
 
                 </div>
 
-                <div class="col-md-3">
-
-                </div>
             </div>
 
-            <div class="row g-3 justify-content-evenly">
-                <div class="col-md-4 col-lg-3">
+            <div class="col-md-2"></div>
+
+            <div class="row g-3 p-2">
+                <div class="col-md-5 col-lg-5">
                     <label for="carico" class="form-label">Carico *</label>
-                    <input type="date" min="" max="" class="form-control richiesti carico" onkeydown="return false" required>
+                    <input type="date" min="" max="" class="form-control richiesti carico" onkeydown="return false"
+                        required>
                     <div class="invalidCarico text-danger">
 
                     </div>
                 </div>
 
+                <div class="col-md-2"></div>
 
-
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-5 col-lg-5">
                     <label for="scarico" class="form-label">Scarico *</label>
-                    <input type="date" min="" max="" class="form-control richiesti scarico" onkeydown="return false" required disabled>
+                    <input type="date" min="" max="" class="form-control richiesti scarico" onkeydown="return false"
+                        required disabled>
                     <div class="invalidScarico text-danger">
 
                     </div>
                 </div>
             </div>
-            <div class="row g-3 justify-content-evenly">
-                <div class="col-md-4 col-lg-3">
+
+
+            <div class="row d-flex justify-content-center g-3 mt-2 p-2">
+                <div class="col-md-12 col-lg-12">
                     <div data-mdb-input-init class="form-outline">
                         <label class="form-label" for="note">Note</label>
-                        <textarea class="form-control note" rows="4"
-                            placeholder="Esigenze particolari..."></textarea>
+                        <textarea class="form-control note" rows="4" placeholder="Esigenze particolari..."></textarea>
                     </div>
-                    <div class="d-flex justify-content-end mt-4">
-                        <div class="d-flex justify-content-end mt-4">
-                            <button class="btn btn-success mx-2 bottonozzo btnInvioRichiestaTrasporto"
-                                id="btnInvioRichiestaTrasporto">Invio Richiesta</button>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-end">
-                        <div class="text-danger blankCamp"></div>
-                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="row mt-4  mb-2">
+                <div class="d-flex justify-content-end mt-4">
+                    <button class="btn mx-2 bottonozzo btnInvioRichiestaTrasporto" id="btnInvioRichiestaTrasporto">Invio
+                        Richiesta</button>
+                </div>
+            </div>
+
+            <div class="row d-flex">
+                <div class="col-md-12 col-lg-12">
+                    <div align="right" class="text-danger blankCamp"></div>
                 </div>
             </div>
 

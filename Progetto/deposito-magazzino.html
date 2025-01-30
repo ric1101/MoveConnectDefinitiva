@@ -19,222 +19,243 @@
 
 </head>
 
-<body>
+<body style="background-image: url(./imgs/marmo.jpg); background-position: center; background-repeat: no-repeat;">
 
     <div class="navbarMain"></div>
 
 
-    <div class="container p-5">
-        <div>
-            <h1 class="text-center mb-4">DEPOSITO MAGAZZINO &nbsp;<i class="fa-solid fa-warehouse"></i></h1>
-        </div>
-        <form class="row g-3 formRow">
-            <div class="row g-3 justify-content-evenly">
-                <div class="col-md-4 col-lg-3">
-                    <label for="regioni" class="form-label">Regione *</label>
-                    <select id="regioni" class="form-select regione">
-                        <option value="" disabled selected>Seleziona Regione</option>
 
-                    </select>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <label for="province" class="form-label">Provincia *</label>
-                    <select id="province" class="form-select provincia">
-                        <option value="" disabled selected>Seleziona Provincia</option>
-
-                    </select>
-                </div>
-            </div>
-
-            <div class="row g-3 justify-content-evenly">
-                <div class="col-md-4 col-lg-3">
-                    <label for="comuni" class="form-label">Comune *</label>
-                    <select id="comuni" class="form-select comune">
-                        <option value="" disabled selected>Seleziona Comune</option>
-
-                    </select>
-
-                </div>
-
-                <div class="col-md-4 col-lg-3">
-
-                    <label class="form-label">Indirizzo *</label>
-                    <input type="text" class="form-control indirizzo" placeholder="Via Roma 5" maxLength="50"
-                        required>
-                </div>
-            </div>
-
-            <div class="row g-3 justify-content-evenly">
-
-                <div class="col-md-4 col-lg-3">
-
-                    <label class="form-label">CAP *</label>
-                    <input type="text" class="form-control cap" placeholder="00015" maxLength="5" required>
-                    <div class="invalidCap text-danger">
-
-                    </div>
-                </div>
-
-
-                <div class="col-md-4 col-lg-3">
-                    <label class="form-label">Indica MQ *</label>
-                    <input type="text" class="form-control mq" placeholder="12" required>
-                    <div class="invalidMq text-danger">
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="row g-3 justify-content-evenly">
-                <div class="col-md-4 col-lg-3">
-
-                    <label class="form-label">Inizio *</label>
-                    <input type="date" min="" max="" class="form-control inizio" onkeydown="return false"
-                        required>
-                    <div class="invalidInizio text-danger">
-
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-lg-3">
-                    <label class="form-label">Fine *</label>
-                    <input type="date" min="" max="" class="form-control fine" onkeydown="return false"
-                        required disabled>
-                    <div class="invalidFine text-danger">
-
-                    </div>
-                </div>
-
-            </div>
-
-        </form>
-
-        <div class="container">
-
-            <div class="row text-center mt-5">
-
-
-                <!-- Autista -->
-                <div class="col-md-4 mb-4">
-                    <div class="card professional-card">
-                        <img src="../Progetto/imgs/freepik-linear-furniture-products-logo-20240917093124BjIu.png"
-                            alt="Autista">
-                        <div class="card-body">
-                            <h5 class="card-title">Mobilio</h5>
-                            <p class="card-text">Mobilificio/Oggetti</p>
-                            <div class="counter">
-                                <button class="btn btn-danger" onclick="decrement('autista')">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span id="autista-count" class="mx-2">0</span>
-                                <button class="btn btn-success" onclick="increment('autista')">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Montatore -->
-                <div class="col-md-4 mb-4">
-                    <div class="card professional-card">
-                        <img src="../Progetto/imgs/MOBILIO (1).png" alt="Montatore">
-                        <div class="card-body">
-                            <h5 class="card-title">Pedane</h5>
-                            <p class="card-text">Pedane/Bancali</p>
-                            <div class="counter">
-                                <button class="btn btn-danger" onclick="decrement('montatore')">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span id="montatore-count" class="mx-2">0</span>
-                                <button class="btn btn-success" onclick="increment('montatore')">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Falegname -->
-                <div class="col-md-4 mb-4">
-                    <div class="card professional-card">
-                        <img src="../Progetto/imgs/altro.jpg" alt="Falegname">
-                        <div class="card-body">
-                            <h5 class="card-title">Altro</h5>
-                            <p class="card-text">Inserisci altro</p>
-                            <div class="counter">
-                                <button class="btn btn-danger" onclick="decrement('falegname')">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span id="falegname-count" class="mx-2">0</span>
-                                <button class="btn btn-success" onclick="increment('falegname')">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mt-5" id="riepilogoRichiesta">
-                <div class="row m-0 p-0 titoli">
-                    <h3 class="col-md-6">Note</h3>
-                    <h3 class="col-md-6">Riepilogo</h3>
-                </div>
-                <!-- form indirizzo -->
-
-
-                <div class="card text col-md-6 col-sm-12" style="background-color: #f0f4f700; border: none; margin-top: 25px;
-            align-items: center;">
-                    <div data-mdb-input-init class="form-outline">
-                        <h3 class="titoliResp">Note</h3>
-                        <textarea class="form-control note" rows="7" placeholder="Esigenze particolari..."></textarea>
-                    </div>
-                </div>
-
-
-                <div class="card text col-md-6 col-sm-12" id="riepilogo">
-                    <h3 class="titoliResp">Riepilogo</h3>
-                    <div class="lista">
-                        <ul class="list-group">
-                            <li class="list-group-item d-flex justify-content-between align-items-center list-group-item list-group-item-dark"
-                                id="autista">
-                                Mobilio
-                                <span class="badge text-bg-dark rounded-pill mobilio" id="autista-summary">0</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center list-group-item list-group-item-dark"
-                                id="montatore">
-                                Pedane
-                                <span class="badge text-bg-dark rounded-pill pedane" id="montatore-summary">0</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center list-group-item list-group-item-dark"
-                                id="falegname">
-                                Altro
-                                <span class="badge text-bg-dark rounded-pill altro" id="falegname-summary">0</span>
-                            </li>
-
-                        </ul>
-                    </div>
-
-
-                </div>
-            </div>
-            <div class="d-flex justify-content-end mt-4">
-                <div class="d-flex justify-content-end mt-4">
-                    <button class="btn btn-success mx-2 bottonozzo btnInvioRichiestaDeposito"
-                        id="btnInvioRichiestaDeposito">Invio Richiesta</button>
-                </div>
-
-            </div>
-            <div class="d-flex justify-content-end">
-                <div class="text-danger blankCamp"></div>
-            </div>
-
-
-        </div>
-
+    <div>
+        <h1 class="text-center mb-4" style="font-size: 2em; padding-top: 70px;">DEPOSITO MAGAZZINO &nbsp;<i
+                class="fa-solid fa-warehouse"></i></h1>
     </div>
 
+    <div class="row mt-4 mb-5 mx-5 d-flex justify-content-center">
+
+        <div class="col-md-10 pb-4" style="background-color: #ece4d485; border-radius: 1rem;">
+
+            <div class="row d-flex justify-content-center">
+
+                <form class="col-md-12 col-lg-10 col-sm-8 col-12 p-5">
+                    <div class="row g-3 p-2">
+                        <div class="col-md-5 col-lg-5">
+                            <label for="regioni" class="form-label">Regione *</label>
+                            <select id="regioni" class="form-select regione">
+                                <option value="" disabled selected>Seleziona Regione</option>
+
+                            </select>
+                        </div>
+
+                        <div class="col-md-2"></div>
+
+                        <div class="col-md-5 col-lg-5">
+                            <label for="province" class="form-label">Provincia *</label>
+                            <select id="province" class="form-select provincia">
+                                <option value="" disabled selected>Seleziona Provincia</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 p-2">
+                        <div class="col-md-5 col-lg-5">
+                            <label for="comuni" class="form-label">Comune *</label>
+                            <select id="comuni" class="form-select comune">
+                                <option value="" disabled selected>Seleziona Comune</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="col-md-2"></div>
+
+                        <div class="col-md-5 col-lg-5">
+
+                            <label class="form-label">Indirizzo *</label>
+                            <input type="text" class="form-control indirizzo" placeholder="Via Roma 5" maxLength="50"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 p-2">
+
+                        <div class="col-md-5 col-lg-5">
+
+                            <label class="form-label">CAP *</label>
+                            <input type="text" class="form-control cap" placeholder="00015" maxLength="5" required>
+                            <div class="invalidCap text-danger">
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-2"></div>
+
+                        <div class="col-md-5 col-lg-5">
+                            <label class="form-label">Indica MQ *</label>
+                            <input type="text" class="form-control mq" placeholder="12" required>
+                            <div class="invalidMq text-danger">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 p-2">
+                        <div class="col-md-5 col-lg-5">
+
+                            <label class="form-label">Inizio *</label>
+                            <input type="date" min="" max="" class="form-control inizio" onkeydown="return false"
+                                required>
+                            <div class="invalidInizio text-danger">
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-2"></div>
+
+                        <div class="col-md-5 col-lg-5">
+                            <label class="form-label">Fine *</label>
+                            <input type="date" min="" max="" class="form-control fine" onkeydown="return false" required
+                                disabled>
+                            <div class="invalidFine text-danger">
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-9">
+                        <h5 class="m-0">Seleziona i materiali necessari:</h5>
+
+                    </div>
+                </div>
+
+                <div class="row text-center d-flex justify-content-center mt-3">
+
+
+                    <!-- Autista -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-4 mb-4">
+                        <div class="card professional-card">
+                            <img src="../Progetto/imgs/mobilio.jpg" alt="Autista">
+                            <div class="card-body">
+                                <h5 class="card-title">Mobilio</h5>
+                                <p class="card-text">Mobili/Oggetti</p>
+                                <div class="counter">
+                                    <button class="btn btn-danger" onclick="decrement('autista')">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <span id="autista-count" class="mx-2">0</span>
+                                    <button class="btn btn-success" onclick="increment('autista')">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Montatore -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-4 mb-4">
+                        <div class="card professional-card">
+                            <img src="../Progetto/imgs/bancali.jpg" alt="Montatore">
+                            <div class="card-body">
+                                <h5 class="card-title">Pedane</h5>
+                                <p class="card-text">Pallet</p>
+                                <div class="counter">
+                                    <button class="btn btn-danger" onclick="decrement('montatore')">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <span id="montatore-count" class="mx-2">0</span>
+                                    <button class="btn btn-success" onclick="increment('montatore')">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Falegname -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-4 mb-4">
+                        <div class="card professional-card">
+                            <img src="../Progetto/imgs/altro.jpg" alt="Falegname">
+                            <div class="card-body">
+                                <h5 class="card-title">Altro</h5>
+                                <p class="card-text">Inserisci altro</p>
+                                <div class="counter">
+                                    <button class="btn btn-danger" onclick="decrement('falegname')">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <span id="falegname-count" class="mx-2">0</span>
+                                    <button class="btn btn-success" onclick="increment('falegname')">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3" id="riepilogoRichiesta">
+                    <div class="row d-flex justify-content-center m-0 p-0 ">
+                        <h3 class="col-md-5 titoli">Note</h3>
+                        <h3 class="col-md-5 titoli">Riepilogo</h3>
+                    </div>
+                    <!-- form indirizzo -->
+
+
+                    <div class="card text col-md-5 col-sm-12" style="background-color: #f0f4f700; border: none; margin-top: 25px;
+            align-items: center;">
+                        <div data-mdb-input-init class="form-outline">
+                            <h3 class="titoliResp">Note</h3>
+                            <textarea class="form-control note" rows="7"
+                                placeholder="Esigenze particolari..."></textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="card text col-md-5 col-sm-12" id="riepilogo">
+                        <h3 class="titoliResp">Riepilogo</h3>
+                        <div class="lista">
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center list-group-item list-group-item-dark"
+                                    id="autista">
+                                    Mobilio
+                                    <span class="badge text-bg-dark rounded-pill mobilio" id="autista-summary">0</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center list-group-item list-group-item-dark"
+                                    id="montatore">
+                                    Pedane
+                                    <span class="badge text-bg-dark rounded-pill pedane" id="montatore-summary">0</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center list-group-item list-group-item-dark"
+                                    id="falegname">
+                                    Altro
+                                    <span class="badge text-bg-dark rounded-pill altro" id="falegname-summary">0</span>
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end mb-2">
+                    <div class="d-flex justify-content-end">
+                        <button class="btn mx-2 bottonozzo btnInvioRichiestaDeposito"
+                            id="btnInvioRichiestaDeposito">Invio Richiesta</button>
+                    </div>
+
+                </div>
+                <div class="d-flex justify-content-end">
+                    <div align="right" class="text-danger blankCamp"></div>
+                </div>
+
+
+            </div>
+
+        </div>
 
     </div>
 

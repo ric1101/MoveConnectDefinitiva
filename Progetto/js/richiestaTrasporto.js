@@ -151,21 +151,25 @@ let blankCamp = document.querySelector('.blankCamp');
 new Date();
 let dat = new Date();
 
+function padToTwoDigits(number) {
+    return number.toString().padStart(2, '0');
+}
+
 //--------------------------------------//
 
-let ggMin = dat.getDate() + 1;
-let mmMin = (dat.getMonth() + 1);
+let ggMin = padToTwoDigits(dat.getDate() + 1);
+let mmMin = padToTwoDigits(dat.getMonth() + 1);
 let aaMin = dat.getFullYear();
 
-let dataMinCarico = aaMin + "-" + mmMin + "-" + ggMin;
+let dataMinCarico = `${aaMin}-${mmMin}-${ggMin}`;
 console.log(dataMinCarico);
 
 //--------------------------------------//
 
-let ggMax = dat.getDate() + 1;
-let mmMax = (dat.getMonth() + 1);
+let ggMax = padToTwoDigits(dat.getDate() + 1);
+let mmMax = padToTwoDigits(dat.getMonth() + 1);
 let aaMax = dat.getFullYear() + 1;
-let dataMaxCarico = aaMax + "-" + mmMax + "-" + ggMax;
+let dataMaxCarico = `${aaMax}-${mmMax}-${ggMax}`;
 
 console.log(dataMaxCarico);
 
@@ -175,9 +179,6 @@ carico.setAttribute('min', dataMinCarico)
 carico.setAttribute('max', dataMaxCarico)
 // scarico.setAttribute('min', dataMin)
 // scarico.setAttribute('max', dataMax)
-
-
-
 
 
 
