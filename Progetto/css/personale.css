@@ -1,13 +1,14 @@
-
 body {
     font-family: Arial, sans-serif;
-    
+
     background-color: rgba(255, 255, 255, 0.5);
 }
+
 .professional-card img {
     width: 100%;
     height: auto;
 }
+
 .counter button {
     width: 40px;
     height: 40px;
@@ -16,15 +17,15 @@ body {
     font-size: 1.2rem;
     cursor: pointer;
 }
+
 .somma {
     margin-top: 20px;
 }
 
 
-#riepilogoRichiesta{
-    
+#riepilogoRichiesta {
+
     justify-content: center;
-    align-items: center;
     padding: 30px;
 }
 
@@ -36,23 +37,31 @@ body {
     border-top: var(--bs-card-border-width) solid var(--bs-card-border-color);
 }
 
-
-#riepilogo{
-    
-    margin-top: 25px;
-    line-height: 2;
+#riepilogoDep {
+    line-height: 2.2;
     background-color: #f0f4f700;
-    border:none;
+    border: none;
     font-size: larger;
 }
 
-#riepilogoPers {
-    
-    margin-top: 25px;
-    line-height: 4;
+
+#riepilogo {
+
+    line-height: 1.9;
     background-color: #f0f4f700;
-    border:none;
+    border: none;
     font-size: larger;
+    width: 100%;
+}
+
+#riepilogoPers {
+
+    line-height: 4.5;
+    background-color: #f0f4f700;
+    border: none;
+    font-size: larger;
+    width: 100%;
+
 }
 
 .form-outline {
@@ -63,58 +72,102 @@ body {
 
 
 
-#btnInvioRichiesta{
+#btnInvioRichiesta {
     margin-bottom: 1rem;
 }
 
-.professional-card{
+.professional-card {
     background-color: #ece4d485 !important;
 }
 
-.professional-card img{
+.professional-card img {
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
 }
 
-@media (max-width: 768px) {
-
-    .titoli {
-        display: none !important;
-    }
-
-}
 
 
 
-@media (min-width: 768px) {
+
+/* @media (min-width: 768px) {
 
     .titoliResp {
         display: none !important;
     }
 
-}
+} */
 
 
 .lista {
     border-radius: 0.400rem;
     /* border: solid 1px black !important; */
+    /* height: 100%;
+    width: 100%; */
 }
+
+
 
 
 @media (max-width: 992px) {
 
-    .titoliP {
-        display: none !important;
+
+    #riepilogo {
+
+        line-height: 3.6;
+        width: 100%;
+        background-color: #f0f4f700;
+        border: none;
+        font-size: larger;
+        
+    }
+
+    #riepilogoPers {
+
+        line-height: 6.9;
+        background-color: #f0f4f700;
+        border: none;
+        font-size: larger;
+        width: 100%;
+    
+    }
+
+
+    #riepilogoPers li {
+
+       font-size: 25px;
+    
     }
 
 }
 
+@media (max-width: 768px) {
 
 
-@media (min-width: 992px) {
+    #riepilogo {
 
-    .titoliResP {
-        display: none !important;
+        line-height: 2.5;
+        width: 100%;
+        background-color: #f0f4f700;
+        border: none;
+        font-size: larger;
+        
+    }
+
+    #riepilogoPers {
+
+        line-height: 3;
+        background-color: #f0f4f700;
+        border: none;
+        font-size: larger;
+        width: 100%;
+    
+    }
+
+
+    #riepilogoPers li {
+
+       font-size: 20px;
+    
     }
 
 }

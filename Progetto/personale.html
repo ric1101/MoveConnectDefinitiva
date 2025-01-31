@@ -25,12 +25,13 @@
 
 
     <div>
-        <h1 class="text-center" style="margin-top: 70px; font-size: 2em;">PERSONALE &nbsp;<i class="fa-solid fa-helmet-safety"></i></h1>
+        <h1 class="text-center" style="margin-top: 70px; font-size: 2em;">PERSONALE &nbsp;<i
+                class="fa-solid fa-helmet-safety"></i></h1>
     </div>
 
-    <div class="container p-5 p-5 mb-5 mt-4" style="background-color: #ece4d485 !important; border-radius: 1rem;">
+    <div class="container p-5 mb-5 mt-4" style="background-color: #ece4d485 !important; border-radius: 1rem;">
         <h5 class="pb-2">Seleziona il personale necessario:</h5>
-        
+
         <div class="row text-center">
             <!-- Facchino -->
             <div class="col-md-6 col-lg-3 mb-4">
@@ -115,82 +116,141 @@
 
 
         <div class="row" id="riepilogoRichiesta">
-            <div class="row m-0 p-0">
-                <h3 class="col-md-4 titoliP">Dettagli Richiesta</h3>
-                <h3 class="col-md-4 titoliP">Note</h3>
-                <h3 class="col-md-4 titoliP">Riepilogo</h3>
-            </div>
-            <!-- form indirizzo -->
-            <div class="richiesta col-md-12 col-lg-4" id="richiesta">
-                <h3 class="titoliResP">Dettagli Richiesta</h3>
+
+            <div class="col-md-6 col-lg-6 p-0 d-flex justify-content-start" id="richiesta">
+
                 <form>
-                    <!-- Selezione regione -->
-                    <div class="mb-3">
-                        <label for="regioni" class="form-label">Regione *</label>
-                        <select id="regioni" class="form-select regione">
-                            <option value="" disabled selected>Seleziona Regione</option>
+                    <h3 class="titoliResP" style="padding-left: 5px;">Dettagli Richiesta</h3>
+                    <div class="row p-2">
+                        <div class="col-md-10 col-lg-5">
 
-                        </select>
+                            <div class="mb-3">
+
+                                <label for="regioni" class="form-label">Regione *</label>
+                                <select id="regioni" class="form-select regione">
+                                    <option value="" disabled selected>Seleziona Regione</option>
+
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-0 col-lg-1"></div>
+
+                        <div class="col-md-10 col-lg-5">
+
+                            <!-- Campo Provincia -->
+                            <div class="mb-3">
+                                <label for="province" class="form-label">Provincia *</label>
+                                <select id="province" class="form-select provincia">
+                                    <option value="" disabled selected>Seleziona Provincia</option>
+
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-0 col-lg-1"></div>
 
                     </div>
 
-                    <!-- Campo Provincia -->
-                    <div class="mb-3">
-                        <label for="province" class="form-label">Provincia *</label>
-                        <select id="province" class="form-select provincia">
-                            <option value="" disabled selected>Seleziona Provincia</option>
+                    <div class="row p-2">
+                        <div class="col-md-10 col-lg-5">
 
-                        </select>
+                            <!-- Campo Comune -->
+                            <div class="mb-3">
+                                <label for="comuni" class="form-label">Comune *</label>
+                                <select id="comuni" class="form-select comune">
+                                    <option value="" disabled selected>Seleziona Comune</option>
+
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-0 col-lg-1"></div>
+
+
+                        <div class="col-md-10 col-lg-5">
+                            <!-- Campo Indirizzo -->
+                            <div class="mb-3">
+                                <label for="indirizzo" class="form-label">Indirizzo *</label>
+                                <input type="text" id="indirizzo" class="form-control indirizzo"
+                                    placeholder="Via Roma 5" maxlength="50" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-0 col-lg-1"></div>
 
                     </div>
 
-                    <!-- Campo Comune -->
-                    <div class="mb-3">
-                        <label for="comuni" class="form-label">Comune *</label>
-                        <select id="comuni" class="form-select comune">
-                            <option value="" disabled selected>Seleziona Comune</option>
+                    <div class="row p-2">
+                        <div class="col-md-10 col-lg-5">
 
-                        </select>
+                            <!-- Campo Numero Civico -->
+                            <div class="mb-3">
+                                <label for="indirizzoSecondario" class="form-label">Indirizzo Secondario</label>
+                                <input type="text" id="indirizzoSecondario" class="form-control indirizzoDue"
+                                    placeholder="Via Milano 8" maxlength="50" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-0 col-lg-1"></div>
+
+                        <div class="col-md-10 col-lg-5">
+
+                            <!-- Campo CAP -->
+                            <div class="mb-3">
+                                <label for="cap" class="form-label">CAP *</label>
+                                <input type="text" id="cap" class="form-control cap" placeholder="00015" maxlength="5"
+                                    required>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <div class="invalidCap text-danger"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-0 col-lg-1"></div>
 
                     </div>
 
-                    <!-- Campo Indirizzo -->
-                    <div class="mb-3">
-                        <label for="indirizzo" class="form-label">Indirizzo *</label>
-                        <input type="text" id="indirizzo" class="form-control indirizzo" placeholder="Via Roma 5"
-                            maxlength="50" required>
+                    <div class="row p-2">
+                        <div class="col-md-10 col-lg-5">
+
+                            <div class="mb-3">
+                                <div data-mdb-input-init class="form-outline">
+                                    <label class="form-label" for="note">Note</label>
+                                    <textarea class="form-control note" rows="4"
+                                        placeholder="Esigenze particolari..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-0 col-lg-1"></div>
+
+                        <div class="col-md-10 col-lg-5">
+
+                            <div class="mb-3">
+                                <label class="form-label">Data Consegna</label>
+                                <input type="date" min="" max="" class="form-control" onkeydown="return false" required>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-0 col-lg-1"></div>
+
                     </div>
 
-                    <!-- Campo Numero Civico -->
-                    <div class="mb-3">
-                        <label for="indirizzoSecondario" class="form-label">Indirizzo Secondario</label>
-                        <input type="text" id="indirizzoSecondario" class="form-control indirizzoDue"
-                            placeholder="Via Milano 8" maxlength="50" required>
-                    </div>
 
-                    <!-- Campo CAP -->
-                    <div class="mb-3">
-                        <label for="cap" class="form-label">CAP *</label>
-                        <input type="text" id="cap" class="form-control cap" placeholder="00015" maxlength="5" required>
-                    </div>
-                    <div class="d-flex justify-content-end">
-                        <div class="invalidCap text-danger"></div>
-                    </div>
                 </form>
             </div>
 
-            <div class="card text col-md-12 col-lg-4" style="background-color: #f0f4f700; border: none; margin-top: 25px;
-            align-items: center;">
-                <div data-mdb-input-init class="form-outline">
-                    <h3 class="titoliResP">Note</h3>
-                    <textarea class="form-control note" id="textAreaExample1" rows="15"
-                        placeholder="Esigenze particolari..."></textarea>
-                </div>
-            </div>
+            
 
+            <div class="col-lg-5 col-md-5 d-flex justify-content-end">
 
             <div class="card text col-md-12 col-lg-4" id="riepilogoPers">
-                <h3 class="titoliResP">Riepilogo</h3>
+                <h3 class="titoliResP" style="padding-bottom: 40px;">Riepilogo</h3>
                 <div class="lista">
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center list-group-item"
@@ -213,19 +273,16 @@
                             Operatori
                             <span class="badge text-bg-dark rounded-pill facchini" id="facchino-summary">0</span>
                         </li>
-
-
-
                     </ul>
                 </div>
-
-
             </div>
         </div>
-        <div class="d-flex justify-content-end mt-2 mb-2">
-            <div class="d-flex justify-content-end mt-4">
-                <button class="btn mx-2 bottonozzo btnInvioRichiestaPersonale"
-                    id="btnInvioRichiestaPersonale">Invio Richiesta</button>
+
+        <div class="row p-0 mt-4 d-flex justify-content-end">
+
+            <div class="col-md-4 col-lg-3 d-flex justify-content-center">
+                <button class="btn bottonozzo btnInvioRichiestaPersonale" id="btnInvioRichiestaPersonale">Invio
+                    Richiesta</button>
             </div>
 
         </div>
@@ -234,6 +291,9 @@
         </div>
 
     </div>
+
+</div>
+
 
     <div class="footer"></div>
 
