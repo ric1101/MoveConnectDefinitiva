@@ -5301,7 +5301,7 @@ async function fetchImballiRelazione() {
 function annullaRelazioneImballi(id, aziendaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/propostaImballi/annullataRelazioneImballi/${id}`, {
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/annullataRelazioneImballiRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -5317,15 +5317,15 @@ function annullaRelazioneImballi(id, aziendaId) {
         body: JSON.stringify(id,aziendaId)
     })
 
-    recensisciImballi(id);
+    fetchImballiRelazione();
 
 }
 
 
-function evadiRelazioneImballi(id,aziendaId) {
+function evadiRelazioneImballi(id, aziendaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/propostaImballi/evasaRelazioneImballi/${id}`, {
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/evasaRelazioneImballiRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -5514,7 +5514,7 @@ async function fetchPersonaleRelazione() {
 function annullaRelazionePersonale(id, aziendaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/personale/annullataRelazionePersonale/${id}`, {
+    fetch(`http://127.0.0.1:8080/api/personale/annullataRelazionePersonaleRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -5530,7 +5530,7 @@ function annullaRelazionePersonale(id, aziendaId) {
         body: JSON.stringify(id, aziendaId)
     })
 
-    recensisciPersonale(id);
+    fetchPersonaleRelazione();
 
 }
 
@@ -5538,7 +5538,7 @@ function annullaRelazionePersonale(id, aziendaId) {
 function evadiRelazionePersonale(id, aziendaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/personale/evasaRelazionePersonale/${id}`, {
+    fetch(`http://127.0.0.1:8080/api/personale/evasaRelazionePersonaleRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -5731,7 +5731,7 @@ async function fetchTratteRelazione() {
 function annullaRelazioneTratte(id, aziendaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/trattazza/annullataRelazioneTratta/${id}`, {
+    fetch(`http://127.0.0.1:8080/api/trattazza/annullataRelazioneTrattaRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -5747,7 +5747,7 @@ function annullaRelazioneTratte(id, aziendaId) {
         body: JSON.stringify(id, aziendaId)
     })
 
-    recensisciTratte(id);
+    fetchTratteRelazione();
 
 }
 
@@ -5755,7 +5755,7 @@ function annullaRelazioneTratte(id, aziendaId) {
 function evadiRelazioneTratte(id, aziendaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/trattazza/evasaRelazioneTratta/${id}`, {
+    fetch(`http://127.0.0.1:8080/api/trattazza/evasaRelazioneTrattaRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -5946,7 +5946,7 @@ async function fetchDepositoRelazione() {
 function annullaRelazioneDeposito(id, aziendaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/annullataRelazioneMagazzino/${id}`, {
+    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/annullataRelazioneMagazzinoRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -5962,7 +5962,7 @@ function annullaRelazioneDeposito(id, aziendaId) {
         body: JSON.stringify(id,aziendaId)
     })
 
-    recensisciDeposito(id);
+    fetchDepositoRelazione();
 
 }
 
@@ -5970,7 +5970,7 @@ function annullaRelazioneDeposito(id, aziendaId) {
 function evadiRelazioneDeposito(id,aziendaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/evasaRelazioneMagazzino/${id}`, {
+    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/evasaRelazioneMagazzinoRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -6159,7 +6159,7 @@ async function fetchScalaRelazione() {
 function annullaRelazioneScala(id, aziendaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/scala/annullataRelazioneImballi/${id}`, {
+    fetch(`http://127.0.0.1:8080/api/scala/annullataRelazioneImballiRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -6175,7 +6175,7 @@ function annullaRelazioneScala(id, aziendaId) {
         body: JSON.stringify(id,aziendaId)
     })
 
-    recensisciScala(id);
+    fetchScalaRelazione();
 
 }
 
@@ -6183,7 +6183,7 @@ function annullaRelazioneScala(id, aziendaId) {
 function evadiRelazioneScala(id,aziendaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/scala/evasaRelazioneImballi/${id}`, {
+    fetch(`http://127.0.0.1:8080/api/scala/evasaRelazioneImballiRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -6374,7 +6374,7 @@ async function fetchCaricoRelazione() {
 function annullaRelazioneCarico(id, aziendaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/trasporto/annullataRelazioneTrasporto/${id}`, {
+    fetch(`http://127.0.0.1:8080/api/trasporto/annullataRelazioneTrasportoRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -6390,7 +6390,7 @@ function annullaRelazioneCarico(id, aziendaId) {
         body: JSON.stringify(id,aziendaId)
     })
 
-    recensisciCarico(id);
+    fetchCaricoRelazione();
 
 }
 
@@ -6398,7 +6398,7 @@ function annullaRelazioneCarico(id, aziendaId) {
 function evadiRelazioneCarico(id,aziendaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/trasporto/evasaRelazioneTrasporto/${id}`, {
+    fetch(`http://127.0.0.1:8080/api/trasporto/evasaRelazioneTrasportoRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
