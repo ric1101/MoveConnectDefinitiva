@@ -19,7 +19,8 @@
 
 </head>
 
-<body style="background-image: url(./imgs/marmo.jpg); background-position: center; background-repeat: no-repeat;">
+    
+    <body style="background-image: url(./imgs/marmo.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;">
 
     <div class="navbarMain"></div>
 
@@ -32,11 +33,11 @@
 
     <div class="row mt-4 mb-5 mx-5 d-flex justify-content-center">
 
-        <div class="col-md-10 pb-4" style="background-color: #ece4d485; border-radius: 1rem;">
+        <div class="col-md-10 col-sm-12 col-12 pb-4" style="background-color: #ece4d485; border-radius: 1rem; padding: 30px;">
 
             <div class="row d-flex justify-content-center">
 
-                <form class="col-md-12 col-lg-10 col-sm-8 col-12 p-5">
+                <form class="col-md-12 col-lg-10 col-sm-8 col-12 pb-5 pt-5">
                     <div class="row g-3 p-2">
                         <div class="col-md-5 col-lg-5">
                             <label for="regioni" class="form-label">Regione *</label>
@@ -125,7 +126,7 @@
 
                 </form>
             </div>
-            <div class="container">
+            <div>
                 <div class="row d-flex justify-content-center">
                     <div class="col-md-9">
                         <h5 class="m-0">Seleziona i materiali necessari:</h5>
@@ -137,7 +138,7 @@
 
 
                     <!-- Autista -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-4 mb-4">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
                         <div class="card professional-card">
                             <img src="../Progetto/imgs/mobilio.jpg" alt="Autista">
                             <div class="card-body">
@@ -157,7 +158,7 @@
                     </div>
 
                     <!-- Montatore -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-4 mb-4">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
                         <div class="card professional-card">
                             <img src="../Progetto/imgs/bancali.jpg" alt="Montatore">
                             <div class="card-body">
@@ -177,7 +178,7 @@
                     </div>
 
                     <!-- Falegname -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-4 mb-4">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
                         <div class="card professional-card">
                             <img src="../Progetto/imgs/altro.jpg" alt="Falegname">
                             <div class="card-body">
@@ -197,9 +198,9 @@
                     </div>
                 </div>
 
-                <div class="row mt-3" id="riepilogoRichiesta">
+                <div class="row mt-3" id="riepilogoRichiestaS">
                     
-                    <div class="card text col-md-6 mb-2" style="background-color: #f0f4f700; border: none; align-items: center;">
+                    <div class="card text col-md-5 col-sm-5 mb-2" style="background-color: #f0f4f700; border: none; align-items: center;">
                         <div data-mdb-input-init class="form-outline">
                             <h3 class="titoliResp">Note</h3>
                             <textarea class="form-control note" rows="7"
@@ -208,7 +209,7 @@
                     </div>
 
 
-                    <div class="card text col-md-6" id="riepilogoDep">
+                    <div class="card text col-md-5 col-sm-5" id="riepilogoDep">
                         <h3 class="titoliResp">Riepilogo</h3>
                         <div class="lista">
                             <ul class="list-group">
@@ -234,7 +235,7 @@
 
                     </div>
                 </div>
-                <div class="d-flex justify-content-end mb-2">
+                <div class="d-flex justify-content-end mb-2 mt-3">
                     <div class="d-flex justify-content-end">
                         <button class="btn mx-2 bottonozzo btnInvioRichiestaDeposito"
                             id="btnInvioRichiestaDeposito">Invio Richiesta</button>
