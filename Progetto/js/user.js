@@ -11,7 +11,7 @@ let nessunaCorrispondenzaRelazione = `<div class="d-flex justify-content-center 
 
 
 let nessunaCorrispondenzaImballiEmessi = `
-    <div class="card-body destra " style="padding: 80px !important">
+    <div class="card-body destra mb-4" style="padding: 80px !important; background-color: white;">
         <div class="row rowRichieste">
             <div class="container">
                 
@@ -45,7 +45,7 @@ let nessunaCorrispondenzaImballiEmessi = `
 
 
 let nessunaCorrispondenzaCaricoEmessi = `
-    <div class="card-body destra " style="padding: 80px !important">
+    <div class="card-body destra mb-4" style="padding: 80px !important; background-color: white;">
         <div class="row rowRichieste">
             <div class="container">
                 
@@ -79,7 +79,7 @@ let nessunaCorrispondenzaCaricoEmessi = `
 
 
 let nessunaCorrispondenzaScalaEmessi = `
-    <div class="card-body destra " style="padding: 80px !important">
+    <div class="card-body destra mb-4" style="padding: 80px !important; background-color: white;">
         <div class="row rowRichieste">
             <div class="container">
                 
@@ -113,7 +113,7 @@ let nessunaCorrispondenzaScalaEmessi = `
 
 
 let nessunaCorrispondenzaPersonaleEmessi = `
-    <div class="card-body destra " style="padding: 80px !important">
+    <div class="card-body destra mb-4" style="padding: 80px !important; background-color: white;">
         <div class="row rowRichieste">
             <div class="container">
                 
@@ -147,7 +147,7 @@ let nessunaCorrispondenzaPersonaleEmessi = `
 
     
 let nessunaCorrispondenzaDepositoEmessi = `
-    <div class="card-body destra " style="padding: 80px !important">
+    <div class="card-body destra mb-4" style="padding: 80px !important; background-color: white;">
         <div class="row rowRichieste">
             <div class="container">
                 
@@ -181,7 +181,7 @@ let nessunaCorrispondenzaDepositoEmessi = `
 
     
 let nessunaCorrispondenzaTratteEmessi = `
-    <div class="card-body destra " style="padding: 80px !important">
+    <div class="card-body destra mb-4" style="padding: 80px !important; background-color: white;">
         <div class="row rowRichieste">
             <div class="container">
                 
@@ -263,7 +263,6 @@ let richiestePersonaleSpecRelazioneEmesse = document.querySelector('.richiestePe
 let richiesteDepositoMagazzinoRelazioneEmesse = document.querySelector('.richiesteDepositoMagazzinoRelazioneEmesse');
 let richiesteTrattaRelazioneEmesse = document.querySelector('.richiesteTrattaRelazioneEmesse');
 
-let messaggi = document.querySelector('.messaggi');
 let nomeAzienda = document.querySelector('.nomeAzienda');
 let colonnaInfo = document.querySelector('.colonnaInfo');
 
@@ -331,7 +330,7 @@ function fetchImg(id) {
 
 function iMieiDati(dati) {
 
-    let visualizzaDati = `<div class="card-body destra">
+    let visualizzaDati = `<div class="card-body destra mb-4" style="background-color: white">
                             <div class="row rowDati d-flex justify-content-center">
                             <div class="row p-3">
                             <div class="text-center p-3 mb-3" style="border-bottom: solid 2px black">
@@ -456,7 +455,7 @@ function feedback() {
     console.log('ciao');
 
 
-    let feedbackVisualizza = `<div class="card-body destra">
+    let feedbackVisualizza = `<div class="card-body destra mb-4" style="background-color: white">
     <div class="container">
     <div class="row">
     <div class="col-lg-12">
@@ -630,101 +629,6 @@ if (feed) {
 
 
 
-
-/* -------------------------------------------------------------------------- */
-/*                               i miei messaggi                              */
-/* -------------------------------------------------------------------------- */
-
-
-
-function iMieiMessaggi() {
-
-    let visualizzaMessaggi = `<div class="card-body destra1">
-    <section style="background-color: #1B2023">
-    <div class="container py-5">
-  
-      <div class="row">
-                            
-        <div class="col-md-12 col-lg-12 col-xl-12">
-  
-          <ul class="list-unstyled">
-            <li class="d-flex justify-content-between mb-4">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp" alt="avatar"
-                class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60">
-              <div class="card">
-                <div class="card-header d-flex justify-content-between p-3">
-                  <p class="fw-bold mb-0">Brad Pitt</p>
-                  <p class="text-muted small mb-0"><i class="far fa-clock"></i> 12 mins ago</p>
-                </div>
-                <div class="card-body">
-                  <p class="mb-0">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua.
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li class="d-flex justify-content-between mb-4">
-              <div class="card w-100">
-                <div class="card-header d-flex justify-content-between p-3">
-                  <p class="fw-bold mb-0">Lara Croft</p>
-                  <p class="text-muted small mb-0"><i class="far fa-clock"></i> 13 mins ago</p>
-                </div>
-                <div class="card-body">
-                  <p class="mb-0">
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                    laudantium.
-                  </p>
-                </div>
-              </div>
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp" alt="avatar"
-                class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong" width="60">
-            </li>
-            <li class="d-flex justify-content-between mb-4">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp" alt="avatar"
-                class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60">
-              <div class="card">
-                <div class="card-header d-flex justify-content-between p-3">
-                  <p class="fw-bold mb-0">Brad Pitt</p>
-                  <p class="text-muted small mb-0"><i class="far fa-clock"></i> 10 mins ago</p>
-                </div>
-                <div class="card-body">
-                  <p class="mb-0">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua.
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li class="mb-3">
-              <div data-mdb-input-init class="form-outline">
-                <textarea class="form-control bg-body-tertiary" id="textAreaExample2" rows="4"></textarea>
-              </div>
-            </li>
-            <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-info btn-rounded float-end">Send</button>
-          </ul>
-  
-        </div>
-  
-      </div>
-  
-    </div>
-  </section>
-  </div>`;
-
-    colonnaInfo.innerHTML = visualizzaMessaggi;
-
-}
-
-if (messaggi) {
-
-    messaggi.addEventListener('click', iMieiMessaggi);
-}
-
-
-
-
-
 /* -------------------------------------------------------------------------- */
 /*                              caricamento logo                              */
 /* -------------------------------------------------------------------------- */
@@ -738,7 +642,7 @@ function caricaLogo() {
     console.log('ciao');
 
 
-    let caricaLogoVisualizza = `<div class="card-body destra">
+    let caricaLogoVisualizza = `<div class="card-body destra mb-4" style="background-color: white">
     <div class="container">
     <div class="row">
     <div class="col-lg-12">
@@ -885,9 +789,6 @@ document.addEventListener('click', () => {
 
 
 
-
-
-
 function upload() {
 
     const fileUploadInput = document.querySelector('.file-uploader');
@@ -943,7 +844,7 @@ function upload() {
 
 
 //         let visualizzaRichieste = `
-//     <div class="card-body destra">
+//     <div class="card-body destra mb-4" style="background-color: white">
 //         <div class="row rowRichieste">
 //             <div class="container">
 //                 <div class="row">
@@ -1163,7 +1064,7 @@ function visualizzaRichiesteCaricoUscita(carico) {
 
 
                 visualizzaRichieste = `
-                <div class="card-body destra">
+                <div class="card-body destra mb-4" style="background-color: white">
                     <div class="row rowRichieste">
                         <div class="container">
                             <div class="row">
@@ -1363,7 +1264,7 @@ function visualizzaRichiesteCaricoUscita(carico) {
 
 
                 visualizzaRichieste = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -1702,7 +1603,7 @@ function visualizzaRichiesteScalaElevatoreUscita(scala) {
 
 
             visualizzaRichieste = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -1847,7 +1748,7 @@ function visualizzaRichiesteScalaElevatoreUscita(scala) {
 
 
             visualizzaRichieste = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -2129,7 +2030,7 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
 
 
                 visualizzaRichieste = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -2310,7 +2211,7 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
 
 
                 visualizzaRichieste = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -2626,7 +2527,7 @@ function visualizzaRichiestePersonaleSpecializzatoUscita(personale) {
 
 
             visualizzaRichieste = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -2771,7 +2672,7 @@ function visualizzaRichiestePersonaleSpecializzatoUscita(personale) {
 
 
             visualizzaRichieste = `
-            <div class="card-body destra">
+            <div class="card-body destra mb-4" style="background-color: white">
                 <div class="row rowRichieste">
                     <div class="container">
                         <div class="row">
@@ -3050,7 +2951,7 @@ function visualizzaRichiesteDepositoMagazzinoUscita(deposito) {
 
 
                 visualizzaRichieste = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -3203,7 +3104,7 @@ function visualizzaRichiesteDepositoMagazzinoUscita(deposito) {
 
 
                 visualizzaRichieste = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -3493,7 +3394,7 @@ function visualizzaRichiesteTratteUscita(tratte) {
 
 
             visualizzaRichieste = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -3683,7 +3584,7 @@ function visualizzaRichiesteTratteUscita(tratte) {
 
 
             visualizzaRichieste = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -4000,7 +3901,7 @@ function visualizzaRichiesteCaricoInteresse(carico) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -4199,7 +4100,7 @@ function visualizzaRichiesteScalaInteresse(scala) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -4397,7 +4298,7 @@ function visualizzaRichiesteImballiInteresse(imballo) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -4590,7 +4491,7 @@ function visualizzaRichiestePersonaleInteresse(personale) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -4785,7 +4686,7 @@ function visualizzaRichiesteTratteInteresse(tratta) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -4983,7 +4884,7 @@ function visualizzaRichiesteDepositoInteresse(deposito) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -5183,7 +5084,7 @@ function visualizzaRichiesteImballiRelazione(imballo) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -5396,7 +5297,7 @@ function visualizzaRichiestePersonaleRelazione(personale) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -5613,7 +5514,7 @@ function visualizzaRichiesteTratteRelazione(tratta) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -5828,7 +5729,7 @@ function visualizzaRichiesteDepositoRelazione(deposito) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -6041,7 +5942,7 @@ function visualizzaRichiesteScalaRelazione(scala) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -6256,7 +6157,7 @@ function visualizzaRichiesteCaricoRelazione(carico) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -6478,7 +6379,7 @@ function visualizzaRichiesteImballiInteresseEntrata(imballo) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -6608,7 +6509,7 @@ function visualizzaRichiestePersonaleInteresseEntrata(personale) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -6740,7 +6641,7 @@ function visualizzaRichiesteDepositoInteresseEntrata(deposito) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -6870,7 +6771,7 @@ function visualizzaRichiesteTrattaInteresseEntrata(tratta) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -6997,7 +6898,7 @@ function visualizzaRichiesteCaricoInteresseEntrata(carico) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -7125,7 +7026,7 @@ function visualizzaRichiesteScalaInteresseEntrata(scala) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -7259,7 +7160,7 @@ function visualizzaRichiesteDepositoRelazione(deposito) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra">
+    <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
