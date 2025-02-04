@@ -1,0 +1,119 @@
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+
+.company-info {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.company-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.review-stars {
+    display: flex;
+    align-items: center;
+}
+
+.review-stars span {
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.stars {
+    color: #FFD700;
+    font-size: 20px;
+}
+
+.action-buttons button {
+    padding: 10px 15px;
+    margin-left: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+
+.left-section, .right-section {
+    width: 48%;
+}
+
+.info-box {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.info-box .info-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+/* .info-box .info-item span {
+    font-size: 14px;
+} */
+
+.verified {
+    color: green;
+}
+
+.center-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.center-button button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.center-button button:hover {
+    background-color: #218838;
+}
+
+.containerLogoImg {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: solid 3px #FAAD06;
+}
+
+.containerLogoImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
