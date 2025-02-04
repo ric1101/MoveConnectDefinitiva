@@ -69,7 +69,7 @@ function navbar() {
                     <li class="nav-item">
                         <a class="nav-link button1 mx-2 text-white blogs d-none" href="blog.html">Blog</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" style="align-self: center;">
                         <a class="nav-link button1 mx-2 text-white cercaAziende d-none" href="cerca.html"><i class="fa-solid fa-magnifying-glass"></i></a>
                     </li>
                 </ul>
