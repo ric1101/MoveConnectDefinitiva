@@ -943,7 +943,7 @@ function upload() {
 
 
 //         let visualizzaRichieste = `
-//     <div class="card-body destra mb-4">
+//     <div class="card-body destra">
 //         <div class="row rowRichieste">
 //             <div class="container">
 //                 <div class="row">
@@ -1163,7 +1163,7 @@ function visualizzaRichiesteCaricoUscita(carico) {
 
 
                 visualizzaRichieste = `
-                <div class="card-body destra mb-4">
+                <div class="card-body destra">
                     <div class="row rowRichieste">
                         <div class="container">
                             <div class="row">
@@ -1363,7 +1363,7 @@ function visualizzaRichiesteCaricoUscita(carico) {
 
 
                 visualizzaRichieste = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -1702,7 +1702,7 @@ function visualizzaRichiesteScalaElevatoreUscita(scala) {
 
 
             visualizzaRichieste = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -1847,7 +1847,7 @@ function visualizzaRichiesteScalaElevatoreUscita(scala) {
 
 
             visualizzaRichieste = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -2129,7 +2129,7 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
 
 
                 visualizzaRichieste = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -2310,7 +2310,7 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
 
 
                 visualizzaRichieste = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -2626,7 +2626,7 @@ function visualizzaRichiestePersonaleSpecializzatoUscita(personale) {
 
 
             visualizzaRichieste = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -2771,7 +2771,7 @@ function visualizzaRichiestePersonaleSpecializzatoUscita(personale) {
 
 
             visualizzaRichieste = `
-            <div class="card-body destra mb-4">
+            <div class="card-body destra">
                 <div class="row rowRichieste">
                     <div class="container">
                         <div class="row">
@@ -3050,7 +3050,7 @@ function visualizzaRichiesteDepositoMagazzinoUscita(deposito) {
 
 
                 visualizzaRichieste = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -3203,7 +3203,7 @@ function visualizzaRichiesteDepositoMagazzinoUscita(deposito) {
 
 
                 visualizzaRichieste = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -3493,7 +3493,7 @@ function visualizzaRichiesteTratteUscita(tratte) {
 
 
             visualizzaRichieste = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -3683,7 +3683,7 @@ function visualizzaRichiesteTratteUscita(tratte) {
 
 
             visualizzaRichieste = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -4000,7 +4000,7 @@ function visualizzaRichiesteCaricoInteresse(carico) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -4064,6 +4064,8 @@ function ascoltoCarico() {
     linkCarico.forEach(element => {
         element.addEventListener('click', () => {
             let idElement = element.getAttribute('data-evento-id');
+            console.log(idElement);
+            
             localStorage.setItem('data-evento-id', idElement);
         })
     });
@@ -4197,7 +4199,7 @@ function visualizzaRichiesteScalaInteresse(scala) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -4395,7 +4397,7 @@ function visualizzaRichiesteImballiInteresse(imballo) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -4588,7 +4590,7 @@ function visualizzaRichiestePersonaleInteresse(personale) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -4783,7 +4785,7 @@ function visualizzaRichiesteTratteInteresse(tratta) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -4981,7 +4983,7 @@ function visualizzaRichiesteDepositoInteresse(deposito) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -5181,7 +5183,7 @@ function visualizzaRichiesteImballiRelazione(imballo) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -5394,7 +5396,7 @@ function visualizzaRichiestePersonaleRelazione(personale) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -5611,7 +5613,7 @@ function visualizzaRichiesteTratteRelazione(tratta) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -5826,7 +5828,7 @@ function visualizzaRichiesteDepositoRelazione(deposito) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -6039,7 +6041,7 @@ function visualizzaRichiesteScalaRelazione(scala) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -6254,7 +6256,7 @@ function visualizzaRichiesteCaricoRelazione(carico) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -6476,7 +6478,7 @@ function visualizzaRichiesteImballiInteresseEntrata(imballo) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -6606,7 +6608,7 @@ function visualizzaRichiestePersonaleInteresseEntrata(personale) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -6738,7 +6740,7 @@ function visualizzaRichiesteDepositoInteresseEntrata(deposito) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -6868,7 +6870,7 @@ function visualizzaRichiesteTrattaInteresseEntrata(tratta) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -6995,7 +6997,7 @@ function visualizzaRichiesteCaricoInteresseEntrata(carico) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -7123,7 +7125,7 @@ function visualizzaRichiesteScalaInteresseEntrata(scala) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
@@ -7257,7 +7259,7 @@ function visualizzaRichiesteDepositoRelazione(deposito) {
 
 
     visualizzaTabella = `
-    <div class="card-body destra mb-4">
+    <div class="card-body destra">
         <div class="row rowRichieste">
             <div class="container">
                 <div class="row">
