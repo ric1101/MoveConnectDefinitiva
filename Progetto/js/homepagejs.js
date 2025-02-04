@@ -69,18 +69,21 @@ function navbar() {
                     <li class="nav-item">
                         <a class="nav-link button1 mx-2 text-white blogs d-none" href="blog.html">Blog</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link button1 mx-2 text-white cercaAziende d-none" href="cerca.html"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </li>
                 </ul>
+                
                 <!-- Login/Signup -->
-                <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
-                    <a href="user.html" class="text-white text-decoration-none user d-none"><i
-                        class="fa-solid fa-user"></i> &nbsp;User </a>
-                    <a href="login.html" class="text-white text-decoration-none login"><i
-                            class="fa-solid fa-arrow-right-to-bracket"></i> &nbsp;Login </a>
-                    <a href="index.html" class="text-white text-decoration-none logout d-none"><i
-                            class="fa-solid fa-arrow-right-from-bracket"></i> &nbsp;Logout </a>
-                    <a href="registrati.html" class="text-black text-decoration-none px-3 py-1 rounded-4 signup"
-                        style="background-color: #FAAD06; ">Sign Up&nbsp; <i class="fa-solid fa-pen"></i></a>
-                    
+                <div class="d-flex flex-column flex-lg-row justify-content-end align-items-center gap-3">
+                <a href="user.html" class="text-white text-decoration-none user d-none"><i class="fa-regular fa-circle-user grossi"></i></a>
+                <a href="login.html" class="text-white text-decoration-none login"><i
+                class="fa-solid fa-arrow-right-to-bracket"></i> &nbsp;Login </a>
+                <a href="index.html" class="text-white text-decoration-none logout d-none"><i
+                class="fa-solid fa-arrow-right-from-bracket grossi"></i></a>
+                <a href="registrati.html" class="text-black text-decoration-none px-3 py-1 rounded-4 signup"
+                style="background-color: #FAAD06; ">Sign Up&nbsp; <i class="fa-solid fa-pen"></i></a>
+                
                 </div>
 
             </div>
@@ -127,6 +130,8 @@ let abb = document.querySelector('.abb');
 let partners = document.querySelector('.partners');
 let blogs = document.querySelector('.blogs');
 let multiRegione = document.querySelector('.multiRegione');
+// let ricerca = document.querySelector('.ricerca');
+let cercaAziende = document.querySelector('.cercaAziende');
 
 
 
@@ -149,9 +154,10 @@ function mostraNavbarLoggata() {
     inserisci.classList.remove('d-none');
     visualizza.classList.remove('d-none');
     login.classList.add('d-none');
-    abb.classList.remove('d-none');
     partners.classList.remove('d-none');
     blogs.classList.remove('d-none');
+    // ricerca.classList.remove('d-none');
+    cercaAziende.classList.remove('d-none');
     if (multiRegione != null) {
         
         multiRegione.classList.remove('d-none');

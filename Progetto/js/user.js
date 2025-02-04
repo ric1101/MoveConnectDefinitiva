@@ -11,7 +11,7 @@ let nessunaCorrispondenzaRelazione = `<div class="d-flex justify-content-center 
 
 
 let nessunaCorrispondenzaImballiEmessi = `
-    <div class="card-body destra mb-5" style="padding: 80px !important">
+    <div class="card-body destra " style="padding: 80px !important">
         <div class="row rowRichieste">
             <div class="container">
                 
@@ -45,7 +45,7 @@ let nessunaCorrispondenzaImballiEmessi = `
 
 
 let nessunaCorrispondenzaCaricoEmessi = `
-    <div class="card-body destra mb-5" style="padding: 80px !important">
+    <div class="card-body destra " style="padding: 80px !important">
         <div class="row rowRichieste">
             <div class="container">
                 
@@ -79,7 +79,7 @@ let nessunaCorrispondenzaCaricoEmessi = `
 
 
 let nessunaCorrispondenzaScalaEmessi = `
-    <div class="card-body destra mb-5" style="padding: 80px !important">
+    <div class="card-body destra " style="padding: 80px !important">
         <div class="row rowRichieste">
             <div class="container">
                 
@@ -113,7 +113,7 @@ let nessunaCorrispondenzaScalaEmessi = `
 
 
 let nessunaCorrispondenzaPersonaleEmessi = `
-    <div class="card-body destra mb-5" style="padding: 80px !important">
+    <div class="card-body destra " style="padding: 80px !important">
         <div class="row rowRichieste">
             <div class="container">
                 
@@ -147,7 +147,7 @@ let nessunaCorrispondenzaPersonaleEmessi = `
 
     
 let nessunaCorrispondenzaDepositoEmessi = `
-    <div class="card-body destra mb-5" style="padding: 80px !important">
+    <div class="card-body destra " style="padding: 80px !important">
         <div class="row rowRichieste">
             <div class="container">
                 
@@ -181,7 +181,7 @@ let nessunaCorrispondenzaDepositoEmessi = `
 
     
 let nessunaCorrispondenzaTratteEmessi = `
-    <div class="card-body destra mb-5" style="padding: 80px !important">
+    <div class="card-body destra " style="padding: 80px !important">
         <div class="row rowRichieste">
             <div class="container">
                 

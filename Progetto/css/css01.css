@@ -2,6 +2,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 
+.ricerca {
+  height: 30px;
+  align-self: center;
+}
+
+.form-control:focus {
+  color: black;
+  background-color: white;
+  border-color: transparent;
+  outline: 0;
+  box-shadow: 0 0 0 .15rem #FFAA00;
+}
+
+.form-select:focus {
+  color: black;
+  background-color: white;
+  border-color: transparent;
+  outline: 0;
+  box-shadow: 0 0 0 .15rem #FFAA00;
+}
+
+.form-check-input:focus {
+  border-color: transparent;
+  outline: 0;
+  box-shadow: 0 0 0 .15rem #FFAA00;
+}
+
+.form-check-input:checked {
+  background-color: coral;
+  border-color: coral;
+}
+
+#search-addon {
+  background-color: #FFAA00;
+  
+}
+
+.grossi {
+  font-size: 30px;
+}
 
 :root {
   --Playfair: 'Playfair Display', serif;
