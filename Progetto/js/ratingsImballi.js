@@ -7,7 +7,8 @@ let idProponente = document.querySelector('.idProponente');
 let idAccettata = document.querySelector('.idAccettata');
 let controlloStelle = document.querySelector('.controlloStelle');
 let erroreRec = document.querySelector('.erroreRec');
-let valutazione = 0;
+let valutazioneRichiedente = 0;
+let valutazioneProponente = 0;
 
 // To access the stars
 let stars =
@@ -72,11 +73,12 @@ function riempiDatiRecensione(dati) {
 let btnInvioRecensione = document.querySelector('.btnInvioRecensione');
 
 class Recensione {
-    constructor(relazioneId, relazioneAziendaRichiedenteId, relazioneAziendaAccettataId, valutazione, commentoAziendaRichiedente, commentoAziendaAccettata) {
+    constructor(relazioneId, relazioneAziendaRichiedenteId, relazioneAziendaAccettataId, valutazioneRichiedente, valutazioneProponente, commentoAziendaRichiedente, commentoAziendaAccettata) {
         (this.relazioneId = relazioneId),
             (this.relazioneAziendaRichiedenteId = relazioneAziendaRichiedenteId),
             (this.relazioneAziendaAccettataId = relazioneAziendaAccettataId),
-            (this.valutazione = valutazione),
+            (this.valutazioneRichiedente = valutazioneRichiedente),
+            (this.valutazioneProponente = valutazioneProponente),
             (this.commentoAziendaRichiedente = commentoAziendaRichiedente),
             (this.commentoAziendaAccettata = commentoAziendaAccettata)
     }
@@ -89,27 +91,27 @@ function stelleInserite() {
 
     if (controlloStelle.classList.contains('one')) {
         erroreRec.classList.add('d-none');
-        valutazione = 1;
+        valutazioneRichiedente = 1;
         inviaRecensione()
 
     } else if (controlloStelle.classList.contains('two')) {
         erroreRec.classList.add('d-none');
-        valutazione = 2;
+        valutazioneRichiedente = 2;
         inviaRecensione()
 
     } else if (controlloStelle.classList.contains('three')) {
         erroreRec.classList.add('d-none');
-        valutazione = 3;
+        valutazioneRichiedente = 3;
         inviaRecensione()
 
     } else if (controlloStelle.classList.contains('four')) {
         erroreRec.classList.add('d-none');
-        valutazione = 4;
+        valutazioneRichiedente = 4;
         inviaRecensione()
 
     } else if (controlloStelle.classList.contains('five')) {
         erroreRec.classList.add('d-none');
-        valutazione = 5;
+        valutazioneRichiedente = 5;
         inviaRecensione()
 
     } else {
@@ -126,7 +128,7 @@ function inviaRecensione() {
     console.log(idRec.textContent);
     console.log(idProponente.textContent);
     console.log(idAccettata.textContent);
-    console.log(valutazione);
+    console.log(valutazioneRichiedente);
     console.log(commento.value);
     
 
@@ -134,7 +136,8 @@ function inviaRecensione() {
         idRec.textContent,
         idProponente.textContent,
         idAccettata.textContent,
-        valutazione,
+        valutazioneRichiedente.textContent,
+        valutazioneProponente.textContent,
         commento.value,
         null
 
