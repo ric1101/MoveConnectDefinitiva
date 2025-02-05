@@ -16,10 +16,7 @@
 
 
 
-.company-info {
-    flex: 1;
-    margin-left: 20px;
-}
+
 
 .company-name {
     font-size: 24px;
@@ -59,7 +56,8 @@
     margin-bottom: 2px;
 }
 
-.left-section, .right-section {
+.left-section,
+.right-section {
     width: 48%;
 }
 
@@ -111,12 +109,63 @@
     height: 200px;
     overflow: hidden;
     border-radius: 50%;
-    border: solid 3px #FAAD06;
+    border: solid 3px black;
 }
 
 .containerLogoImg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    
+
+}
+
+
+.cartaProfilo {
+    background-color: #FFAA00;
+}
+
+
+.bottonis {
+    width: 129.54px;
+}
+
+
+@media (max-width: 900px) {
+
+    .tastiNormali {
+        display: none;
+    }
+
+}
+
+
+@media (min-width: 901px) {
+
+    .tastiParticolari {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .nomiAz {
+        display: none;
+    }
+
+    .cont1 {
+        justify-content: center;
+    }
+
+}
+
+
+
+@media (min-width: 550px) {
+
+    .nomiAzEsteso {
+        display: none;
+    }
+
 }
