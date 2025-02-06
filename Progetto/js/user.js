@@ -145,7 +145,7 @@ let nessunaCorrispondenzaPersonaleEmessi = `
 
     </div>`;
 
-    
+
 let nessunaCorrispondenzaDepositoEmessi = `
     <div class="card-body destra mb-4" style="padding: 80px !important; background-color: white;">
         <div class="row rowRichieste">
@@ -179,7 +179,7 @@ let nessunaCorrispondenzaDepositoEmessi = `
 
     </div>`;
 
-    
+
 let nessunaCorrispondenzaTratteEmessi = `
     <div class="card-body destra mb-4" style="padding: 80px !important; background-color: white;">
         <div class="row rowRichieste">
@@ -1058,7 +1058,7 @@ function visualizzaRichiesteCaricoUscita(carico) {
 
         carico.forEach(element => {
             console.log(element.stato);
-            
+
 
             if (element.stato == 'APERTA') {
 
@@ -1251,8 +1251,8 @@ function visualizzaRichiesteCaricoUscita(carico) {
                     </div>
             
                 </div>`;
-            
-                                
+
+
                 net = true;
                 if (net1) {
                     colonnaInfo.innerHTML = '';
@@ -1585,7 +1585,7 @@ function visualizzaRichiesteScalaElevatoreUscita(scala) {
     colonnaInfo.innerHTML = '';
     let visualizzaRichieste = '';
 
-    
+
     if (scala.length == 0) {
 
         colonnaInfo.innerHTML = nessunaCorrispondenzaScalaEmessi;
@@ -1593,16 +1593,16 @@ function visualizzaRichiesteScalaElevatoreUscita(scala) {
     } else {
 
 
-    scala.forEach(element => {
+        scala.forEach(element => {
 
 
-        console.log(element.stato);
+            console.log(element.stato);
 
 
-        if (element.stato == 'APERTA') {
+            if (element.stato == 'APERTA') {
 
 
-            visualizzaRichieste = `
+                visualizzaRichieste = `
     <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
@@ -1737,17 +1737,17 @@ function visualizzaRichiesteScalaElevatoreUscita(scala) {
     </div>`;
 
 
-            net = true;
-            if (net1) {
-                colonnaInfo.innerHTML = '';
-            }
-        
-            colonnaInfo.innerHTML += visualizzaRichieste;
-        
-        } if (element.stato == 'INTERESSATA') {
+                net = true;
+                if (net1) {
+                    colonnaInfo.innerHTML = '';
+                }
+
+                colonnaInfo.innerHTML += visualizzaRichieste;
+
+            } if (element.stato == 'INTERESSATA') {
 
 
-            visualizzaRichieste = `
+                visualizzaRichieste = `
     <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
@@ -1881,24 +1881,24 @@ function visualizzaRichiesteScalaElevatoreUscita(scala) {
     </div>`;
 
 
-            net = true;
-            if (net1) {
-                colonnaInfo.innerHTML = '';
-            }
-            colonnaInfo.innerHTML += visualizzaRichieste;
-
-        } else {
-
-            if (net) {
+                net = true;
+                if (net1) {
+                    colonnaInfo.innerHTML = '';
+                }
+                colonnaInfo.innerHTML += visualizzaRichieste;
 
             } else {
-                net1 = true;
-                colonnaInfo.innerHTML = nessunaCorrispondenzaScalaEmessi;
+
+                if (net) {
+
+                } else {
+                    net1 = true;
+                    colonnaInfo.innerHTML = nessunaCorrispondenzaScalaEmessi;
+                }
+
             }
 
-        }
-
-    });
+        });
 
     }
 
@@ -2022,9 +2022,9 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
 
 
         imballi.forEach(element => {
-            
+
             console.log(element.stato);
-            
+
 
             if (element.stato == 'APERTA') {
 
@@ -2199,7 +2199,7 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
 
     </div>`;
 
-                
+
                 net = true;
                 if (net1) {
                     colonnaInfo.innerHTML = '';
@@ -2431,7 +2431,7 @@ async function fetchConsegnaImballiUscita(id) {
         .then((data) => {
 
             visualizzaRichiesteConsegnaImballiUscita(data);
-            
+
             console.log(data);
 
 
@@ -2518,15 +2518,15 @@ function visualizzaRichiestePersonaleSpecializzatoUscita(personale) {
 
 
 
-    personale.forEach(element => {
+        personale.forEach(element => {
 
-        console.log(element.stato);
-
-
-        if (element.stato == 'APERTA') {
+            console.log(element.stato);
 
 
-            visualizzaRichieste = `
+            if (element.stato == 'APERTA') {
+
+
+                visualizzaRichieste = `
     <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
@@ -2661,17 +2661,17 @@ function visualizzaRichiestePersonaleSpecializzatoUscita(personale) {
     </div>`;
 
 
-            net = true;
-            if (net1) {
-                colonnaInfo.innerHTML = '';
-            }
-        
-            colonnaInfo.innerHTML += visualizzaRichieste;
+                net = true;
+                if (net1) {
+                    colonnaInfo.innerHTML = '';
+                }
 
-        } if (element.stato == 'INTERESSATA') {
+                colonnaInfo.innerHTML += visualizzaRichieste;
+
+            } if (element.stato == 'INTERESSATA') {
 
 
-            visualizzaRichieste = `
+                visualizzaRichieste = `
             <div class="card-body destra mb-4" style="background-color: white">
                 <div class="row rowRichieste">
                     <div class="container">
@@ -2804,25 +2804,25 @@ function visualizzaRichiestePersonaleSpecializzatoUscita(personale) {
         
             </div>`;
 
-            net = true;
-            if (net1) {
-                colonnaInfo.innerHTML = '';
-            }
-            colonnaInfo.innerHTML += visualizzaRichieste;
-
-        } else {
-
-            if (net) {
+                net = true;
+                if (net1) {
+                    colonnaInfo.innerHTML = '';
+                }
+                colonnaInfo.innerHTML += visualizzaRichieste;
 
             } else {
-                net1 = true;
-                colonnaInfo.innerHTML = nessunaCorrispondenzaPersonaleEmessi;
+
+                if (net) {
+
+                } else {
+                    net1 = true;
+                    colonnaInfo.innerHTML = nessunaCorrispondenzaPersonaleEmessi;
+                }
+
             }
 
-        }
 
-
-    });
+        });
 
     }
 
@@ -2941,10 +2941,10 @@ function visualizzaRichiesteDepositoMagazzinoUscita(deposito) {
     } else {
 
 
-    deposito.forEach(element => {
+        deposito.forEach(element => {
 
 
-        console.log(element.stato);
+            console.log(element.stato);
 
 
             if (element.stato == 'APERTA') {
@@ -3093,13 +3093,13 @@ function visualizzaRichiesteDepositoMagazzinoUscita(deposito) {
 
     </div>`;
 
-            net = true;
-            if (net1) {
-                colonnaInfo.innerHTML = '';
-            }
+                net = true;
+                if (net1) {
+                    colonnaInfo.innerHTML = '';
+                }
 
                 colonnaInfo.innerHTML += visualizzaRichieste;
-            
+
             } if (element.stato == 'INTERESSATA') {
 
 
@@ -3245,24 +3245,24 @@ function visualizzaRichiesteDepositoMagazzinoUscita(deposito) {
 
     </div>`;
 
-            net = true;
-            if (net1) {
-                colonnaInfo.innerHTML = '';
-            }
-            colonnaInfo.innerHTML += visualizzaRichieste;
-
-        } else {
-
-            if (net) {
+                net = true;
+                if (net1) {
+                    colonnaInfo.innerHTML = '';
+                }
+                colonnaInfo.innerHTML += visualizzaRichieste;
 
             } else {
-                net1 = true;
-                colonnaInfo.innerHTML = nessunaCorrispondenzaDepositoEmessi;
+
+                if (net) {
+
+                } else {
+                    net1 = true;
+                    colonnaInfo.innerHTML = nessunaCorrispondenzaDepositoEmessi;
+                }
+
             }
 
-        }
-
-    });
+        });
 
     }
 
@@ -3385,15 +3385,15 @@ function visualizzaRichiesteTratteUscita(tratte) {
 
 
 
-    tratte.forEach(element => {
+        tratte.forEach(element => {
 
-        console.log(element.stato);
-
-
-        if (element.stato == 'APERTA') {
+            console.log(element.stato);
 
 
-            visualizzaRichieste = `
+            if (element.stato == 'APERTA') {
+
+
+                visualizzaRichieste = `
     <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
@@ -3573,17 +3573,17 @@ function visualizzaRichiesteTratteUscita(tratte) {
 
     </div>`;
 
-            net = true;
-            if (net1) {
-                colonnaInfo.innerHTML = '';
-            }
+                net = true;
+                if (net1) {
+                    colonnaInfo.innerHTML = '';
+                }
 
-            colonnaInfo.innerHTML += visualizzaRichieste;
+                colonnaInfo.innerHTML += visualizzaRichieste;
 
-        } if (element.stato == 'INTERESSATA') {
+            } if (element.stato == 'INTERESSATA') {
 
 
-            visualizzaRichieste = `
+                visualizzaRichieste = `
     <div class="card-body destra mb-4" style="background-color: white">
         <div class="row rowRichieste">
             <div class="container">
@@ -3762,24 +3762,24 @@ function visualizzaRichiesteTratteUscita(tratte) {
 
     </div>`;
 
-            net = true;
-            if (net1) {
-                colonnaInfo.innerHTML = '';
-            }
-            colonnaInfo.innerHTML += visualizzaRichieste;
-
-        } else {
-
-            if (net) {
+                net = true;
+                if (net1) {
+                    colonnaInfo.innerHTML = '';
+                }
+                colonnaInfo.innerHTML += visualizzaRichieste;
 
             } else {
-                net1 = true;
-                colonnaInfo.innerHTML = nessunaCorrispondenzaTratteEmessi;
+
+                if (net) {
+
+                } else {
+                    net1 = true;
+                    colonnaInfo.innerHTML = nessunaCorrispondenzaTratteEmessi;
+                }
+
             }
 
-        }
-
-    });
+        });
 
     }
 
@@ -3815,7 +3815,7 @@ async function fetchTratteUscita(id) {
         .then((data) => {
 
             visualizzaRichiesteTratteUscita(data);
-            
+
             console.log(data);
 
 
@@ -3915,6 +3915,7 @@ function visualizzaRichiesteCaricoInteresse(carico) {
                             <tr class="ligth ligth-data">
                                 <th class="text-center">Azienda Richiedente</th>
                                 <th class="text-center">Richiesta numero #ID</th>
+                                <th class="text-center">Stato</th>
                                 <th class="text-center">Gestisci</th>
                             </tr>
                         </thead>
@@ -3935,26 +3936,41 @@ function visualizzaRichiesteCaricoInteresse(carico) {
 
     } else {
 
-      carico.forEach(element => {
+        carico.forEach(element => {
 
 
-      
+            if (element.stato == 'Pendente') {
 
-
-        visualizzaRichieste = `<tr>
+                visualizzaRichieste = `<tr>
         <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
         <td class="text-center">${element.consegnaDTO.id}</td>
-        <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaCarico(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaCarico(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkCarico px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiestaTrasportoProposta.html">INFO</a></td>
+        <td class="text-center">${element.stato}</td>
+        <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaCarico(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaCarico(${element.id}, ${element.consegnaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkCarico px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiestaTrasportoProposta.html">INFO</a></td>
         </tr>`;
 
-            body.innerHTML += visualizzaRichieste;
-            ascoltoCarico();
+                body.innerHTML += visualizzaRichieste;
+                ascoltoCarico();
 
-           
-        
 
-    });
-}
+            } else if (element.stato == 'IN ATTESA') {
+
+
+
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
+                <td class="text-center">${element.consegnaDTO.id}</td>
+                <td class="text-center">${element.stato}</td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaCarico(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkCarico px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiestaTrasportoProposta.html">INFO</a></td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoCarico();
+
+
+            }
+
+        });
+    }
 
 }
 
@@ -3966,7 +3982,7 @@ function ascoltoCarico() {
         element.addEventListener('click', () => {
             let idElement = element.getAttribute('data-evento-id');
             console.log(idElement);
-            
+
             localStorage.setItem('data-evento-id', idElement);
         })
     });
@@ -3987,10 +4003,7 @@ function eliminaPropostaCarico(id) {
 
 }
 
-function accettaPropostaCarico(idR, consegnaCaricoId, consegnaCaricoAziendaId, propostaAccettataId) {
-
-    let id = idR;
-
+function accettaPropostaCarico(idR, consegnaCaricoId, /*consegnaCaricoAziendaId, propostaAccettataId*/) {
 
 
     let cid = consegnaCaricoId;
@@ -4004,44 +4017,62 @@ function accettaPropostaCarico(idR, consegnaCaricoId, consegnaCaricoAziendaId, p
             "id": cid
         })
 
-
     })
 
+    let id = idR;
 
-    let consegnaCaricoID = consegnaCaricoId;
-    let consegnaCaricoAziendaID = consegnaCaricoAziendaId;
-    let propostaAccettataID = propostaAccettataId;
-
-    class RelazioneCarico {
-        constructor(trasportoId, trasportoAziendaId, propostaAccettataTrasportoId) {
-            (this.trasportoId = trasportoId),
-                (this.trasportoAziendaId = trasportoAziendaId),
-                (this.propostaAccettataTrasportoId = propostaAccettataTrasportoId)
-
-        }
-    }
-
-    let newRelazione = new RelazioneCarico(consegnaCaricoID, consegnaCaricoAziendaID, propostaAccettataID);
-
-    fetch(`http://127.0.0.1:8080/api/trasporto/relazioneTrasporto`, {
-        method: "POST",
+    fetch(`http://127.0.0.1:8080/api/trasporto/inAttesaRichiesta/${id}`, {
+        method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(newRelazione)
-    })
+        body: JSON.stringify({
 
-    fetch(`http://127.0.0.1:8080/api/trasporto/eliminaProposte/${cid}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-        }
+        })
+
+
     })
 
     fetchCaricoInteresse();
 
 
 }
+
+
+// let consegnaCaricoID = consegnaCaricoId;
+// let consegnaCaricoAziendaID = consegnaCaricoAziendaId;
+// let propostaAccettataID = propostaAccettataId;
+
+// class RelazioneCarico {
+//     constructor(trasportoId, trasportoAziendaId, propostaAccettataTrasportoId) {
+//         (this.trasportoId = trasportoId),
+//             (this.trasportoAziendaId = trasportoAziendaId),
+//             (this.propostaAccettataTrasportoId = propostaAccettataTrasportoId)
+
+//     }
+// }
+
+// let newRelazione = new RelazioneCarico(consegnaCaricoID, consegnaCaricoAziendaID, propostaAccettataID);
+
+// fetch(`http://127.0.0.1:8080/api/trasporto/relazioneTrasporto`, {
+//     method: "POST",
+//     headers: {
+//         "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(newRelazione)
+// })
+
+// fetch(`http://127.0.0.1:8080/api/trasporto/eliminaProposte/${cid}`, {
+//     method: "DELETE",
+//     headers: {
+//         "Content-Type": "application/json",
+//     }
+// })
+
+// da aggiungere all'oncllick per far partire la funzione accetta del proponente
+// <a class="btn btn-success px-3 mx-2" onclick="accettaPropostaCarico(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a>
+
+
 
 
 async function fetchCaricoInteresse() {
@@ -4114,6 +4145,7 @@ function visualizzaRichiesteScalaInteresse(scala) {
                             <tr class="ligth ligth-data">
                                 <th class="text-center">Azienda Richiedente</th>
                                 <th class="text-center">Richiesta numero #ID</th>
+                                <th class="text-center">Stato</th>
                                 <th class="text-center">Gestisci</th>
                             </tr>
                         </thead>
@@ -4136,21 +4168,41 @@ function visualizzaRichiesteScalaInteresse(scala) {
 
     } else {
 
-    scala.forEach(element => {
+        scala.forEach(element => {
 
 
-        visualizzaRichieste = `<tr>
+            if (element.stato == 'Pendente') {
+
+
+
+                visualizzaRichieste = `<tr>
         <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
         <td class="text-center">${element.consegnaDTO.id}</td>
-        <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaScala(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaScala(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkScala px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteScalaElevatoreProposta.html">INFO</a></td>
+        <td class="text-center">${element.stato}</td>
+        <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaScala(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaScala(${element.id}, ${element.consegnaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkScala px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteScalaElevatoreProposta.html">INFO</a></td>
         </tr>`;
 
-            body.innerHTML += visualizzaRichieste;
-            ascoltoScala();
+                body.innerHTML += visualizzaRichieste;
+                ascoltoScala();
 
+
+            } else if (element.stato == 'IN ATTESA') {
+
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
+                <td class="text-center">${element.consegnaDTO.id}</td>
+                <td class="text-center">${element.stato}</td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaScala(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkScala px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteScalaElevatoreProposta.html">INFO</a></td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoScala();
+
+
+            }
 
         });
-        
+
     }
 
 }
@@ -4183,10 +4235,7 @@ function eliminaPropostaScala(id) {
 
 }
 
-function accettaPropostaScala(idR, scalaId, scalaAziendaId, propostaAccettataId) {
-
-    let id = idR;
-
+function accettaPropostaScala(idR, scalaId, /*scalaAziendaId, propostaAccettataId*/) {
 
 
     let cid = scalaId;
@@ -4203,41 +4252,57 @@ function accettaPropostaScala(idR, scalaId, scalaAziendaId, propostaAccettataId)
 
     })
 
+    let id = idR;
 
-    let scalaID = scalaId;
-    let scalaAziendaID = scalaAziendaId;
-    let propostaAccettataID = propostaAccettataId;
-
-    class RelazioneScala {
-        constructor(scalaElevatoreId, scalaElevatoreAziendaId, propostaAccettataScalaId) {
-            (this.scalaElevatoreId = scalaElevatoreId),
-                (this.scalaElevatoreAziendaId = scalaElevatoreAziendaId),
-                (this.propostaAccettataScalaId = propostaAccettataScalaId)
-
-        }
-    }
-
-    let newRelazione = new RelazioneScala(scalaID, scalaAziendaID, propostaAccettataID);
-
-    fetch(`http://127.0.0.1:8080/api/scala/relazioneScala`, {
-        method: "POST",
+    fetch(`http://127.0.0.1:8080/api/scala/inAttesaRichiesta/${id}`, {
+        method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(newRelazione)
-    })
+        body: JSON.stringify({
 
-    fetch(`http://127.0.0.1:8080/api/scala/eliminaProposte/${scalaID}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-        }
+        })
+
     })
 
     fetchScalaInteresse();
 
-
 }
+
+// let scalaID = scalaId;
+// let scalaAziendaID = scalaAziendaId;
+// let propostaAccettataID = propostaAccettataId;
+
+// class RelazioneScala {
+//     constructor(scalaElevatoreId, scalaElevatoreAziendaId, propostaAccettataScalaId) {
+//         (this.scalaElevatoreId = scalaElevatoreId),
+//             (this.scalaElevatoreAziendaId = scalaElevatoreAziendaId),
+//             (this.propostaAccettataScalaId = propostaAccettataScalaId)
+
+//     }
+// }
+
+// let newRelazione = new RelazioneScala(scalaID, scalaAziendaID, propostaAccettataID);
+
+// fetch(`http://127.0.0.1:8080/api/scala/relazioneScala`, {
+//     method: "POST",
+//     headers: {
+//         "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(newRelazione)
+// })
+
+// fetch(`http://127.0.0.1:8080/api/scala/eliminaProposte/${scalaID}`, {
+//     method: "DELETE",
+//     headers: {
+//         "Content-Type": "application/json",
+//     }
+// })
+
+
+// da aggiungere all'oncllick per far partire la funzione accetta del proponente
+// <a class="btn btn-success px-3 mx-2" onclick="accettaPropostaScala(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a>
+
 
 async function fetchScalaInteresse() {
 
@@ -4312,6 +4377,7 @@ function visualizzaRichiesteImballiInteresse(imballo) {
                             <tr class="ligth ligth-data">
                                 <th class="text-center">Azienda Richiedente</th>
                                 <th class="text-center">Richiesta numero #ID</th>
+                                <th class="text-center">Stato</th>
                                 <th class="text-center">Gestisci</th>
                             </tr>
                         </thead>
@@ -4337,16 +4403,33 @@ function visualizzaRichiesteImballiInteresse(imballo) {
         imballo.forEach(element => {
 
 
-            visualizzaRichieste = `<tr>
-            <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
-            <td class="text-center">${element.consegnaDTO.id}</td>
-            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaImballi(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaImballi(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkImballi px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteImballiProposta.html">INFO</a></td>
-            </tr>`;
+            if (element.stato == 'Pendente') {
 
-            body.innerHTML += visualizzaRichieste;
-            ascoltoImballi();
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
+                <td class="text-center">${element.consegnaDTO.id}</td>
+                <td class="text-center">${element.stato}</td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaImballi(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaImballi(${element.id}, ${element.consegnaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkImballi px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteImballiProposta.html">INFO</a></td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoImballi();
 
 
+            } else if (element.stato == 'IN ATTESA') {
+
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
+                <td class="text-center">${element.consegnaDTO.id}</td>
+                <td class="text-center">${element.stato}</td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaImballi(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkImballi px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteImballiProposta.html">INFO</a></td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoImballi();
+
+
+            }
 
         });
 
@@ -4380,10 +4463,7 @@ function eliminaPropostaImballi(id) {
 
 }
 
-function accettaPropostaImballi(idR, consegnaImballiId, consegnaImballiAziendaId, propostaAccettataId) {
-
-    let id = idR;
-
+function accettaPropostaImballi(idR, consegnaImballiId, /*consegnaImballiAziendaId, propostaAccettataId*/) {
 
 
     let cid = consegnaImballiId;
@@ -4397,44 +4477,60 @@ function accettaPropostaImballi(idR, consegnaImballiId, consegnaImballiAziendaId
             "id": cid
         })
 
-
     })
 
+    let id = idR;
 
-    let consegnaImballiID = consegnaImballiId;
-    let consegnaImballiAziendaID = consegnaImballiAziendaId;
-    let propostaAccettataID = propostaAccettataId;
 
-    class RelazioneImballi {
-        constructor(consegnaImballiId, consegnaImballiAziendaId, propostaAccettataId) {
-            (this.consegnaImballiId = consegnaImballiId),
-                (this.consegnaImballiAziendaId = consegnaImballiAziendaId),
-                (this.propostaAccettataId = propostaAccettataId)
-
-        }
-    }
-
-    let newRelazioneImballi = new RelazioneImballi(consegnaImballiID, consegnaImballiAziendaID, propostaAccettataID);
-
-    fetch(`http://127.0.0.1:8080/api/propostaImballi/relazioneImballi`, {
-        method: "POST",
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/inAttesaProposta/${id}`, {
+        method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(newRelazioneImballi)
+        body: JSON.stringify({
+
+        })
+
     })
 
-    fetch(`http://127.0.0.1:8080/api/propostaImballi/eliminaProposte/${consegnaImballiId}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-        }
-    })
 
     fetchImballiInteresse();
 
-
 }
+// let consegnaImballiID = consegnaImballiId;
+// let consegnaImballiAziendaID = consegnaImballiAziendaId;
+// let propostaAccettataID = propostaAccettataId;
+
+// class RelazioneImballi {
+//     constructor(consegnaImballiId, consegnaImballiAziendaId, propostaAccettataId) {
+//         (this.consegnaImballiId = consegnaImballiId),
+//             (this.consegnaImballiAziendaId = consegnaImballiAziendaId),
+//             (this.propostaAccettataId = propostaAccettataId)
+
+//     }
+// }
+
+// let newRelazioneImballi = new RelazioneImballi(consegnaImballiID, consegnaImballiAziendaID, propostaAccettataID);
+
+// fetch(`http://127.0.0.1:8080/api/propostaImballi/relazioneImballi`, {
+//     method: "POST",
+//     headers: {
+//         "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(newRelazioneImballi)
+// })
+
+// fetch(`http://127.0.0.1:8080/api/propostaImballi/eliminaProposte/${consegnaImballiId}`, {
+//     method: "DELETE",
+//     headers: {
+//         "Content-Type": "application/json",
+//     }
+// })
+
+
+
+// da aggiungere all'oncllick per far partire la funzione accetta del proponente
+// <a class="btn btn-success px-3 mx-2" onclick="accettaPropostaImballi(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a>
 
 
 async function fetchImballiInteresse() {
@@ -4505,6 +4601,7 @@ function visualizzaRichiestePersonaleInteresse(personale) {
                             <tr class="ligth ligth-data">
                                 <th class="text-center">Azienda Richiedente</th>
                                 <th class="text-center">Richiesta numero #ID</th>
+                                <th class="text-center">Stato</th>
                                 <th class="text-center">Gestisci</th>
                             </tr>
                         </thead>
@@ -4529,17 +4626,31 @@ function visualizzaRichiestePersonaleInteresse(personale) {
 
         personale.forEach(element => {
 
+            if (element.stato == 'Pendente') {
 
-            visualizzaRichieste = `<tr>
-            <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
-            <td class="text-center">${element.personaleDTO.id}</td>
-            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaPersonale(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaPersonale(${element.id}, ${element.personaleDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkPersonale px-2" data-evento-id="${element.personaleDTO.id}" href="./infoRichiestaPersonaleProposta.html">INFO</a></td>
-            </tr>`;
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
+                <td class="text-center">${element.personaleDTO.id}</td>
+                <td class="text-center">${element.stato}</td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaPersonale(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaPersonale(${element.id}, ${element.personaleDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkPersonale px-2" data-evento-id="${element.personaleDTO.id}" href="./infoRichiestaPersonaleProposta.html">INFO</a></td>
+                </tr>`;
 
-            body.innerHTML += visualizzaRichieste;
-            ascoltoPersonale();
+                body.innerHTML += visualizzaRichieste;
+                ascoltoPersonale();
 
+            } else if (element.stato == 'IN ATTESA') {
 
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
+                <td class="text-center">${element.personaleDTO.id}</td>
+                <td class="text-center">${element.stato}</td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaPersonale(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkPersonale px-2" data-evento-id="${element.personaleDTO.id}" href="./infoRichiestaPersonaleProposta.html">INFO</a></td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoPersonale();
+
+            }
 
         });
 
@@ -4573,10 +4684,7 @@ function eliminaPropostaPersonale(id) {
 
 }
 
-function accettaPropostaPersonale(idR, consegnaPersonaleId, consegnaPersonaleAziendaId, propostaAccettataId) {
-
-    let id = idR;
-
+function accettaPropostaPersonale(idR, consegnaPersonaleId /*consegnaPersonaleAziendaId, propostaAccettataId*/) {
 
 
     let cid = consegnaPersonaleId;
@@ -4590,44 +4698,63 @@ function accettaPropostaPersonale(idR, consegnaPersonaleId, consegnaPersonaleAzi
             "id": cid
         })
 
-
     })
 
 
-    let consegnaPersonaleID = consegnaPersonaleId;
-    let consegnaPersonaleAziendaID = consegnaPersonaleAziendaId;
-    let propostaAccettataID = propostaAccettataId;
+    let id = idR;
 
-    class RelazionePersonale {
-        constructor(personaleSpecializzatoId, personaleSpecializzatoAziendaId, propostaAccettataPersonaleId) {
-            (this.personaleSpecializzatoId = personaleSpecializzatoId),
-                (this.personaleSpecializzatoAziendaId = personaleSpecializzatoAziendaId),
-                (this.propostaAccettataPersonaleId = propostaAccettataPersonaleId)
-
-        }
-    }
-
-    let newRelazionePersonale = new RelazionePersonale(consegnaPersonaleID, consegnaPersonaleAziendaID, propostaAccettataID);
-
-    fetch(`http://127.0.0.1:8080/api/personale/relazionePersonale`, {
-        method: "POST",
+    fetch(`http://127.0.0.1:8080/api/personale/inAttesaRichiesta/${id}`, {
+        method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(newRelazionePersonale)
+        body: JSON.stringify({
+
+        })
+
     })
 
-    fetch(`http://127.0.0.1:8080/api/personale/eliminaProposte/${cid}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-        }
-    })
 
     fetchPersonaleInteresse();
 
-
 }
+
+
+// let consegnaPersonaleID = consegnaPersonaleId;
+// let consegnaPersonaleAziendaID = consegnaPersonaleAziendaId;
+// let propostaAccettataID = propostaAccettataId;
+
+// class RelazionePersonale {
+//     constructor(personaleSpecializzatoId, personaleSpecializzatoAziendaId, propostaAccettataPersonaleId) {
+//         (this.personaleSpecializzatoId = personaleSpecializzatoId),
+//             (this.personaleSpecializzatoAziendaId = personaleSpecializzatoAziendaId),
+//             (this.propostaAccettataPersonaleId = propostaAccettataPersonaleId)
+
+//     }
+// }
+
+// let newRelazionePersonale = new RelazionePersonale(consegnaPersonaleID, consegnaPersonaleAziendaID, propostaAccettataID);
+
+// fetch(`http://127.0.0.1:8080/api/personale/relazionePersonale`, {
+//     method: "POST",
+//     headers: {
+//         "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(newRelazionePersonale)
+// })
+
+// fetch(`http://127.0.0.1:8080/api/personale/eliminaProposte/${cid}`, {
+//     method: "DELETE",
+//     headers: {
+//         "Content-Type": "application/json",
+//     }
+// })
+
+// da aggiungere all'oncllick per far partire la funzione accetta del proponente
+//<a class="btn btn-success px-3 mx-2" onclick="accettaPropostaPersonale(${element.id}, ${element.personaleDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a>
+
+
+
 
 
 async function fetchPersonaleInteresse() {
@@ -4700,6 +4827,7 @@ function visualizzaRichiesteTratteInteresse(tratta) {
                             <tr class="ligth ligth-data">
                                 <th class="text-center">Azienda Richiedente</th>
                                 <th class="text-center">Richiesta numero #ID</th>
+                                <th class="text-center">Stato</th>
                                 <th class="text-center">Gestisci</th>
                             </tr>
                         </thead>
@@ -4725,16 +4853,32 @@ function visualizzaRichiesteTratteInteresse(tratta) {
         tratta.forEach(element => {
 
 
-            visualizzaRichieste = `<tr>
-            <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
-            <td class="text-center">${element.consegnaDTO.id}</td>
-            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaTratte(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaTratte(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkTratte px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteTratteProposta.html">INFO</a></td>
-            </tr>`;
+            if (element.stato == 'Pendente') {
 
-            body.innerHTML += visualizzaRichieste;
-            ascoltoTratte();
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
+                <td class="text-center">${element.consegnaDTO.id}</td>
+                <td class="text-center">${element.stato}</td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaTratte(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaTratte(${element.id}, ${element.consegnaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkTratte px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteTratteProposta.html">INFO</a></td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoTratte();
 
 
+            } else if (element.stato == 'IN ATTESA') {
+
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
+                <td class="text-center">${element.consegnaDTO.id}</td>
+                <td class="text-center">${element.stato}</td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaTratte(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkTratte px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteTratteProposta.html">INFO</a></td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoTratte();
+
+            }
 
         });
 
@@ -4773,9 +4917,7 @@ function eliminaPropostaTratte(id) {
 }
 
 
-function accettaPropostaTratte(idR, tratteId, tratteAziendaId, propostaAccettataId) {
-
-    let id = idR;
+function accettaPropostaTratte(idR, tratteId /*tratteAziendaId, propostaAccettataId*/) {
 
 
     let cid = tratteId;
@@ -4789,45 +4931,62 @@ function accettaPropostaTratte(idR, tratteId, tratteAziendaId, propostaAccettata
             "id": cid
         })
 
-
     })
 
+    let id = idR;
 
-    let tratteID = tratteId;
-    let tratteAziendaID = tratteAziendaId;
-    let propostaAccettataID = propostaAccettataId;
-
-    class RelazioneTratte {
-        constructor(trattaId, depositoMTrattaAziendaId, propostaAccettataIdTratta) {
-            (this.trattaId = trattaId),
-                (this.depositoMTrattaAziendaId = depositoMTrattaAziendaId),
-                (this.propostaAccettataIdTratta = propostaAccettataIdTratta)
-
-        }
-    }
-
-
-    let newRelazioneTratte = new RelazioneTratte(tratteID, tratteAziendaID, propostaAccettataID);
-
-    fetch(`http://127.0.0.1:8080/api/trattazza/relazioneTratta`, {
-        method: "POST",
+    fetch(`http://127.0.0.1:8080/api/trattazza/inAttesaRichiesta/${id}`, {
+        method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(newRelazioneTratte)
-    })
+        body: JSON.stringify({
 
-    fetch(`http://127.0.0.1:8080/api/trattazza/eliminaProposte/${cid}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-        }
+        })
+
     })
 
     fetchTratteInteresse();
 
 
 }
+
+
+// let tratteID = tratteId;
+// let tratteAziendaID = tratteAziendaId;
+// let propostaAccettataID = propostaAccettataId;
+
+// class RelazioneTratte {
+//     constructor(trattaId, depositoMTrattaAziendaId, propostaAccettataIdTratta) {
+//         (this.trattaId = trattaId),
+//             (this.depositoMTrattaAziendaId = depositoMTrattaAziendaId),
+//             (this.propostaAccettataIdTratta = propostaAccettataIdTratta)
+
+//     }
+// }
+
+
+// let newRelazioneTratte = new RelazioneTratte(tratteID, tratteAziendaID, propostaAccettataID);
+
+// fetch(`http://127.0.0.1:8080/api/trattazza/relazioneTratta`, {
+//     method: "POST",
+//     headers: {
+//         "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(newRelazioneTratte)
+// })
+
+// fetch(`http://127.0.0.1:8080/api/trattazza/eliminaProposte/${cid}`, {
+//     method: "DELETE",
+//     headers: {
+//         "Content-Type": "application/json",
+//     }
+// })
+
+// da aggiungere all'oncllick per far partire la funzione accetta del proponente
+//<a class="btn btn-success px-3 mx-2" onclick="accettaPropostaTratte(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a>
+
+
 
 
 async function fetchTratteInteresse() {
@@ -4898,6 +5057,7 @@ function visualizzaRichiesteDepositoInteresse(deposito) {
                             <tr class="ligth ligth-data">
                                 <th class="text-center">Azienda Richiedente</th>
                                 <th class="text-center">Richiesta numero #ID</th>
+                                <th class="text-center">Stato</th>
                                 <th class="text-center">Gestisci</th>
                             </tr>
                         </thead>
@@ -4923,16 +5083,31 @@ function visualizzaRichiesteDepositoInteresse(deposito) {
         deposito.forEach(element => {
 
 
-            visualizzaRichieste = `<tr>
+            if (element.stato == 'Pendente') {
+
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
+                <td class="text-center">${element.magazzinoDTO.id}</td>
+                <td class="text-center">${element.stato}</td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaDeposito(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaDeposito(${element.id}, ${element.magazzinoDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkDeposito px-2" data-evento-id="${element.magazzinoDTO.id}" href="./infoRichiesteDepositoProposta.html">INFO</a></td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoDeposito();
+
+            } else if (element.stato == 'IN ATTESA') {
+
+                visualizzaRichieste = `<tr>
             <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
             <td class="text-center">${element.magazzinoDTO.id}</td>
-            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaDeposito(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaDeposito(${element.id}, ${element.magazzinoDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkDeposito px-2" data-evento-id="${element.magazzinoDTO.id}" href="./infoRichiesteDepositoProposta.html">INFO</a></td>
+            <td class="text-center">${element.stato}</td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaDeposito(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkDeposito px-2" data-evento-id="${element.magazzinoDTO.id}" href="./infoRichiesteDepositoProposta.html">INFO</a></td>
             </tr>`;
 
-            body.innerHTML += visualizzaRichieste;
-            ascoltoDeposito();
+                body.innerHTML += visualizzaRichieste;
+                ascoltoDeposito();
 
-
+            }
 
         });
 
@@ -4966,14 +5141,11 @@ function eliminaPropostaDeposito(id) {
 
 }
 
-function accettaPropostaDeposito(idR, consegnaDepositoId, consegnaDepositoAziendaId, propostaAccettataId) {
+function accettaPropostaDeposito(idR, consegnaDepositoId /*consegnaDepositoAziendaId, propostaAccettataId*/) {
 
-    let id = idR;
-
-
-
+    
     let cid = consegnaDepositoId;
-
+    
     fetch(`http://127.0.0.1:8080/api/propostaMagazzino/inCorsoRichiestaMagazzino/${cid}`, {
         method: "PUT",
         headers: {
@@ -4982,45 +5154,64 @@ function accettaPropostaDeposito(idR, consegnaDepositoId, consegnaDepositoAziend
         body: JSON.stringify({
             "id": cid
         })
-
-
+        
+        
     })
+    
+    let id = idR;
 
-
-    let depositoID = consegnaDepositoId;
-    let depositoAziendaID = consegnaDepositoAziendaId;
-    let propostaAccettataID = propostaAccettataId;
-
-    class RelazioneDeposito {
-        constructor(magazzinoId, depositoMagazzinoAziendaId, propostaAccettataIdMagazzino) {
-            (this.magazzinoId = magazzinoId),
-                (this.depositoMagazzinoAziendaId = depositoMagazzinoAziendaId),
-                (this.propostaAccettataIdMagazzino = propostaAccettataIdMagazzino)
-
-        }
-    }
-
-    let newRelazioneDeposito = new RelazioneDeposito(depositoID, depositoAziendaID, propostaAccettataID);
-
-    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/relazioneMagazzino`, {
-        method: "POST",
+    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/inAttesaRichiesta/${id}`, {
+        method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(newRelazioneDeposito)
+        body: JSON.stringify({
+            
+        })
+        
+        
     })
 
-    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/eliminaProposte/${cid}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-        }
-    })
 
     fetchDepositoInteresse();
 
 
 }
+
+    // let depositoID = consegnaDepositoId;
+    // let depositoAziendaID = consegnaDepositoAziendaId;
+    // let propostaAccettataID = propostaAccettataId;
+
+    // class RelazioneDeposito {
+    //     constructor(magazzinoId, depositoMagazzinoAziendaId, propostaAccettataIdMagazzino) {
+    //         (this.magazzinoId = magazzinoId),
+    //             (this.depositoMagazzinoAziendaId = depositoMagazzinoAziendaId),
+    //             (this.propostaAccettataIdMagazzino = propostaAccettataIdMagazzino)
+
+    //     }
+    // }
+
+    // let newRelazioneDeposito = new RelazioneDeposito(depositoID, depositoAziendaID, propostaAccettataID);
+
+    // fetch(`http://127.0.0.1:8080/api/propostaMagazzino/relazioneMagazzino`, {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(newRelazioneDeposito)
+    // })
+
+    // fetch(`http://127.0.0.1:8080/api/propostaMagazzino/eliminaProposte/${cid}`, {
+    //     method: "DELETE",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     }
+    // })
+
+    // da aggiungere all'oncllick per far partire la funzione accetta del proponente
+    //</a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaDeposito(${element.id}, ${element.magazzinoDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a>
+
+
 
 
 async function fetchDepositoInteresse() {
@@ -5217,7 +5408,7 @@ function annullaRelazioneImballi(id, aziendaId) {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(id,aziendaId)
+        body: JSON.stringify(id, aziendaId)
     })
 
     fetchImballiRelazione();
@@ -5241,7 +5432,7 @@ function evadiRelazioneImballi(id, aziendaId) {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(id,aziendaId)
+        body: JSON.stringify(id, aziendaId)
     })
 
     recensisciImballi(id);
@@ -5862,7 +6053,7 @@ function annullaRelazioneDeposito(id, aziendaId) {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(id,aziendaId)
+        body: JSON.stringify(id, aziendaId)
     })
 
     fetchDepositoRelazione();
@@ -5870,7 +6061,7 @@ function annullaRelazioneDeposito(id, aziendaId) {
 }
 
 
-function evadiRelazioneDeposito(id,aziendaId) {
+function evadiRelazioneDeposito(id, aziendaId) {
 
 
     fetch(`http://127.0.0.1:8080/api/propostaMagazzino/evasaRelazioneMagazzinoRichiedente/${id}`, {
@@ -5886,7 +6077,7 @@ function evadiRelazioneDeposito(id,aziendaId) {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(id,aziendaId)
+        body: JSON.stringify(id, aziendaId)
     })
 
     recensisciDeposito(id);
@@ -6075,7 +6266,7 @@ function annullaRelazioneScala(id, aziendaId) {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(id,aziendaId)
+        body: JSON.stringify(id, aziendaId)
     })
 
     fetchScalaRelazione();
@@ -6083,7 +6274,7 @@ function annullaRelazioneScala(id, aziendaId) {
 }
 
 
-function evadiRelazioneScala(id,aziendaId) {
+function evadiRelazioneScala(id, aziendaId) {
 
 
     fetch(`http://127.0.0.1:8080/api/scala/evasaRelazioneImballiRichiedente/${id}`, {
@@ -6099,7 +6290,7 @@ function evadiRelazioneScala(id,aziendaId) {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(id,aziendaId)
+        body: JSON.stringify(id, aziendaId)
     })
 
     recensisciScala(id);
@@ -6290,7 +6481,7 @@ function annullaRelazioneCarico(id, aziendaId) {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(id,aziendaId)
+        body: JSON.stringify(id, aziendaId)
     })
 
     fetchCaricoRelazione();
@@ -6298,7 +6489,7 @@ function annullaRelazioneCarico(id, aziendaId) {
 }
 
 
-function evadiRelazioneCarico(id,aziendaId) {
+function evadiRelazioneCarico(id, aziendaId) {
 
 
     fetch(`http://127.0.0.1:8080/api/trasporto/evasaRelazioneTrasportoRichiedente/${id}`, {
@@ -6314,7 +6505,7 @@ function evadiRelazioneCarico(id,aziendaId) {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(id,aziendaId)
+        body: JSON.stringify(id, aziendaId)
     })
 
     recensisciCarico(id);
@@ -6555,7 +6746,7 @@ function visualizzaRichiestePersonaleInteresseEntrata(personale) {
             </tr>`;
 
             body.innerHTML += visualizzaRichieste;
-           ascoltoPersonale();
+            ascoltoPersonale();
 
 
 
@@ -6687,7 +6878,7 @@ function visualizzaRichiesteDepositoInteresseEntrata(deposito) {
             </tr>`;
 
             body.innerHTML += visualizzaRichieste;
-           ascoltoDeposito();
+            ascoltoDeposito();
 
 
 
@@ -6817,7 +7008,7 @@ function visualizzaRichiesteTrattaInteresseEntrata(tratta) {
             </tr>`;
 
             body.innerHTML += visualizzaRichieste;
-           ascoltoTratte();
+            ascoltoTratte();
 
 
         });
@@ -7293,7 +7484,7 @@ function annullaRelazioneDeposito(id, aziendaId) {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(id,aziendaId)
+        body: JSON.stringify(id, aziendaId)
     })
 
     recensisciDeposito(id);
@@ -7301,7 +7492,7 @@ function annullaRelazioneDeposito(id, aziendaId) {
 }
 
 
-function evadiRelazioneDeposito(id,aziendaId) {
+function evadiRelazioneDeposito(id, aziendaId) {
 
 
     fetch(`http://127.0.0.1:8080/api/propostaMagazzino/evasaRelazioneMagazzino/${id}`, {
@@ -7317,7 +7508,7 @@ function evadiRelazioneDeposito(id,aziendaId) {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(id,aziendaId)
+        body: JSON.stringify(id, aziendaId)
     })
 
     recensisciDeposito(id);

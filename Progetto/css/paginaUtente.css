@@ -169,3 +169,22 @@
     }
 
 }
+
+
+.row>* {
+    flex-shrink: 1;
+}
+
+
+.rowers {
+    margin-left: 5px;
+}
+
+
+
+@media (max-width: 768px) {
+
+    .rowers {
+        margin: 0 !important;
+    }
+}
