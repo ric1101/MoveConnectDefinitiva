@@ -5093,7 +5093,7 @@ function visualizzaRichiesteImballiRelazione(imballo) {
                             <tr class="ligth ligth-data">
                                 <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
-                                <th class="text-center" style="vertical-align: middle !important;">Data Inizio</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Consegna</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Stato</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Gestisci</th>
                             </tr>
@@ -5121,51 +5121,99 @@ function visualizzaRichiesteImballiRelazione(imballo) {
 
             if (element.stato == 'IN CORSO') {
 
+                let oggi = new Date();
 
-                visualizzaRichieste = `<tr>
+                function padToTwoDigits(number) {
+                    return number.toString().padStart(2, '0');
+                }
+
+                let giorno = padToTwoDigits(oggi.getDate());
+                let mese = padToTwoDigits(oggi.getMonth() + 1);
+                let anno = oggi.getFullYear();
+
+                let today = `${giorno}/${mese}/${anno}`;
+
+                console.log(today);
+
+                if (today < element.consegnaDTO.consegna) {
+
+
+                    visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneImballi(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneImballi(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
-            </td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
             </tr>`;
 
-                body.innerHTML += visualizzaRichieste;
-                ascoltoImballi()
+                    body.innerHTML += visualizzaRichieste;
+                    ascoltoImballi();
+
+                } else {
+
+
+                    visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneImballi(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a></td>
+            </tr>`;
+
+                    body.innerHTML += visualizzaRichieste;
+                    ascoltoImballi();
+
+
+                }
+
+
+                //<a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneImballi(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneImballi(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
 
             } else if (element.stato == 'RECENSITA') {
 
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
             <td class="text-center" style="vertical-align: middle !important;"></td>
             </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
-                ascoltoImballi()
+                ascoltoImballi();
 
 
-            } else {
+            } else if (element.stato == 'COMPLETATA') {
 
 
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
             <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciImballi(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
             </td>
             </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
-                ascoltoImballi()
+                ascoltoImballi();
+
+            } else {
+
+
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                <td class="text-center" style="vertical-align: middle !important;"></td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoImballi();
+
 
             }
-
-
 
         });
 
@@ -5220,28 +5268,28 @@ function annullaRelazioneImballi(id, aziendaId) {
 }
 
 
-function evadiRelazioneImballi(id, aziendaId) {
+// function evadiRelazioneImballi(id, aziendaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/propostaImballi/evasaRelazioneImballiRichiedente/${id}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(id)
-    })
+//     fetch(`http://127.0.0.1:8080/api/propostaImballi/evasaRelazioneImballiRichiedente/${id}`, {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(id)
+//     })
 
-    fetch(`http://127.0.0.1:8080/api/consegnaImballi/modificaImballiIdEvasa/${id}/${aziendaId}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(id, aziendaId)
-    })
+//     fetch(`http://127.0.0.1:8080/api/consegnaImballi/modificaImballiIdEvasa/${id}/${aziendaId}`, {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(id, aziendaId)
+//     })
 
-    recensisciImballi(id);
+//     recensisciImballi(id);
 
-}
+// }
 
 
 function recuperaRelazioneImballi(id) {
@@ -5306,7 +5354,7 @@ function visualizzaRichiestePersonaleRelazione(personale) {
                             <tr class="ligth ligth-data">
                                 <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
-                                <th class="text-center" style="vertical-align: middle !important;">Data Inizio</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Consegna</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Stato</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Gestisci</th>
                             </tr>
@@ -5334,25 +5382,59 @@ function visualizzaRichiestePersonaleRelazione(personale) {
 
             if (element.stato == 'IN CORSO') {
 
+                let oggi = new Date();
 
-                visualizzaRichieste = `<tr>
+                function padToTwoDigits(number) {
+                    return number.toString().padStart(2, '0');
+                }
+
+                let giorno = padToTwoDigits(oggi.getDate());
+                let mese = padToTwoDigits(oggi.getMonth() + 1);
+                let anno = oggi.getFullYear();
+
+                let today = `${giorno}/${mese}/${anno}`;
+
+                console.log(today);
+
+                if (today < element.consegnaDTO.consegna) {
+
+
+                    visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.personaleDTO.id}"> ${element.personaleDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazionePersonale(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazionePersonale(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
-            </td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
             </tr>`;
 
-                body.innerHTML += visualizzaRichieste;
-                ascoltoPersonale();
+                    body.innerHTML += visualizzaRichieste;
+                    ascoltoPersonale();
+
+
+                } else {
+
+                    visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.personaleDTO.id}"> ${element.personaleDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazionePersonale(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a></td>
+            </tr>`;
+
+                    body.innerHTML += visualizzaRichieste;
+                    ascoltoPersonale();
+
+
+                }
+
+                //<a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazionePersonale(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazionePersonale(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
 
             } else if (element.stato == 'RECENSITA') {
 
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.personaleDTO.id}"> ${element.personaleDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
             <td class="text-center" style="vertical-align: middle !important;"></td>
             </tr>`;
@@ -5361,13 +5443,13 @@ function visualizzaRichiestePersonaleRelazione(personale) {
                 ascoltoPersonale();
 
 
-            } else {
+            } else if (element.stato == 'COMPLETATA') {
 
 
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.personaleDTO.id}"> ${element.personaleDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
             <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciPersonale(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
             </td>
@@ -5375,6 +5457,20 @@ function visualizzaRichiestePersonaleRelazione(personale) {
 
                 body.innerHTML += visualizzaRichieste;
                 ascoltoPersonale();
+
+            } else {
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.personaleDTO.id}"> ${element.personaleDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td class="text-center" style="vertical-align: middle !important;"></td>
+            </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoPersonale();
+
 
             }
 
@@ -5433,28 +5529,28 @@ function annullaRelazionePersonale(id, aziendaId) {
 }
 
 
-function evadiRelazionePersonale(id, aziendaId) {
+// function evadiRelazionePersonale(id, aziendaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/personale/evasaRelazionePersonaleRichiedente/${id}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(id)
-    })
+//     fetch(`http://127.0.0.1:8080/api/personale/evasaRelazionePersonaleRichiedente/${id}`, {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(id)
+//     })
 
-    fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/modificaPersonaleIdEvasa/${id}/${aziendaId}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(id, aziendaId)
-    })
+//     fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/modificaPersonaleIdEvasa/${id}/${aziendaId}`, {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(id, aziendaId)
+//     })
 
-    recensisciPersonale(id);
+//     recensisciPersonale(id);
 
-}
+// }
 
 
 function recuperaRelazionePersonale(id) {
@@ -5494,7 +5590,6 @@ function recensisciPersonale(id) {
 
 
 
-
 /* -------------------------------------------------------------------------- */
 /*                              tratta relazione                              */
 /* -------------------------------------------------------------------------- */
@@ -5523,7 +5618,7 @@ function visualizzaRichiesteTratteRelazione(tratta) {
                             <tr class="ligth ligth-data">
                                 <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
-                                <th class="text-center" style="vertical-align: middle !important;">Data Inizio</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Arrivo</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Stato</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Gestisci</th>
                             </tr>
@@ -5552,26 +5647,80 @@ function visualizzaRichiesteTratteRelazione(tratta) {
             if (element.stato == 'IN CORSO') {
 
 
-                visualizzaRichieste = `<tr>
+                let oggi = new Date();
+
+                function padToTwoDigits(number) {
+                    return number.toString().padStart(2, '0');
+                }
+
+                let giorno = padToTwoDigits(oggi.getDate());
+                let mese = padToTwoDigits(oggi.getMonth() + 1);
+                let anno = oggi.getFullYear();
+
+                let today = `${giorno}/${mese}/${anno}`;
+
+                console.log(today);
+
+                if (today < element.consegnaDTO.arrivo) {
+
+
+                    visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteTratteProposta.html" class="linkTratte" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.arrivo}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneTratte(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneTratte(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
-            </td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
             </tr>`;
 
-                body.innerHTML += visualizzaRichieste;
-                ascoltoTratte();
+                    body.innerHTML += visualizzaRichieste;
+                    ascoltoTratte();
+
+
+                } else {
+
+
+                    visualizzaRichieste = `<tr>
+                    <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+                    <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteTratteProposta.html" class="linkTratte" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.arrivo}</td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                    <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneTratte(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a></td>
+                    </tr>`;
+
+                    body.innerHTML += visualizzaRichieste;
+                    ascoltoTratte();
+
+
+                }
+
+
+                //<a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneTratte(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneTratte(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
+
 
             } else if (element.stato == 'RECENSITA') {
 
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteTratteProposta.html" class="linkTratte" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.arrivo}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
             <td class="text-center" style="vertical-align: middle !important;"></td>
+            </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoTratte();
+
+
+            } else if (element.stato == 'COMPLETATA') {
+
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteTratteProposta.html" class="linkTratte" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.arrivo}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciTratte(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
+            </td>
             </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
@@ -5584,18 +5733,16 @@ function visualizzaRichiesteTratteRelazione(tratta) {
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteTratteProposta.html" class="linkTratte" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.arrivo}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciTratte(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
-            </td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
             </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
                 ascoltoTratte();
 
+
             }
-
-
 
         });
 
@@ -5650,28 +5797,28 @@ function annullaRelazioneTratte(id, aziendaId) {
 }
 
 
-function evadiRelazioneTratte(id, aziendaId) {
+// function evadiRelazioneTratte(id, aziendaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/trattazza/evasaRelazioneTrattaRichiedente/${id}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(id)
-    })
+//     fetch(`http://127.0.0.1:8080/api/trattazza/evasaRelazioneTrattaRichiedente/${id}`, {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(id)
+//     })
 
-    fetch(`http://127.0.0.1:8080/api/tratta/modificaTrattaIdEvasa/${id}/${aziendaId}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(id, aziendaId)
-    })
+//     fetch(`http://127.0.0.1:8080/api/tratta/modificaTrattaIdEvasa/${id}/${aziendaId}`, {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(id, aziendaId)
+//     })
 
-    recensisciTratte(id);
+//     recensisciTratte(id);
 
-}
+// }
 
 
 function recuperaRelazioneTratte(id) {
@@ -5738,7 +5885,7 @@ function visualizzaRichiesteDepositoRelazione(deposito) {
                             <tr class="ligth ligth-data">
                                 <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
-                                <th class="text-center" style="vertical-align: middle !important;">Data Inizio</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Data Fine</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Stato</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Gestisci</th>
                             </tr>
@@ -5767,24 +5914,61 @@ function visualizzaRichiesteDepositoRelazione(deposito) {
             if (element.stato == 'IN CORSO') {
 
 
-                visualizzaRichieste = `<tr>
-            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
-            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.magazzinoDTO.id}"> ${element.magazzinoDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneDeposito(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneDeposito(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
-            </td>
-            </tr>`;
+                let oggi = new Date();
 
-                body.innerHTML += visualizzaRichieste;
-                ascoltoDeposito()
+                function padToTwoDigits(number) {
+                    return number.toString().padStart(2, '0');
+                }
+
+                let giorno = padToTwoDigits(oggi.getDate());
+                let mese = padToTwoDigits(oggi.getMonth() + 1);
+                let anno = oggi.getFullYear();
+
+                let today = `${giorno}/${mese}/${anno}`;
+
+                console.log(today);
+
+                if (today < element.consegnaDTO.dataFine) {
+
+
+                    visualizzaRichieste = `<tr>
+                    <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+                    <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.magazzinoDTO.id}"> ${element.magazzinoDTO.id}</a></td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                    <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
+                    </tr>`;
+
+                    body.innerHTML += visualizzaRichieste;
+                    ascoltoDeposito()
+
+
+                } else {
+
+
+                    visualizzaRichieste = `<tr>
+                    <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+                    <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.magazzinoDTO.id}"> ${element.magazzinoDTO.id}</a></td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                    <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneDeposito(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a></td>
+                    </tr>`;
+
+                    body.innerHTML += visualizzaRichieste;
+                    ascoltoDeposito()
+
+
+                }
+
+
+                //<a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneDeposito(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneDeposito(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
 
             } else if (element.stato == 'RECENSITA') {
 
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.magazzinoDTO.id}"> ${element.magazzinoDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
             <td class="text-center" style="vertical-align: middle !important;"></td>
             </tr>`;
@@ -5793,13 +5977,13 @@ function visualizzaRichiesteDepositoRelazione(deposito) {
                 ascoltoDeposito()
 
 
-            } else {
+            } else if (element.stato == 'COMPLETATA') {
 
 
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.magazzinoDTO.id}"> ${element.magazzinoDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
             <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciDeposito(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
             </td>
@@ -5808,9 +5992,21 @@ function visualizzaRichiesteDepositoRelazione(deposito) {
                 body.innerHTML += visualizzaRichieste;
                 ascoltoDeposito()
 
+            } else {
+
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.magazzinoDTO.id}"> ${element.magazzinoDTO.id}</a></td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                <td class="text-center" style="vertical-align: middle !important;"></td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoDeposito()
+
+
             }
-
-
 
         });
 
@@ -5865,28 +6061,28 @@ function annullaRelazioneDeposito(id, aziendaId) {
 }
 
 
-function evadiRelazioneDeposito(id, aziendaId) {
+// function evadiRelazioneDeposito(id, aziendaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/evasaRelazioneMagazzinoRichiedente/${id}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(id)
-    })
+//     fetch(`http://127.0.0.1:8080/api/propostaMagazzino/evasaRelazioneMagazzinoRichiedente/${id}`, {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(id)
+//     })
 
-    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/modificaMagazzinoIdEvasa/${id}/${aziendaId}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(id, aziendaId)
-    })
+//     fetch(`http://127.0.0.1:8080/api/depositoMagazzino/modificaMagazzinoIdEvasa/${id}/${aziendaId}`, {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(id, aziendaId)
+//     })
 
-    recensisciDeposito(id);
+//     recensisciDeposito(id);
 
-}
+// }
 
 
 function recuperaRelazioneDeposito(id) {
@@ -5951,7 +6147,7 @@ function visualizzaRichiesteScalaRelazione(scala) {
                             <tr class="ligth ligth-data">
                                 <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
-                                <th class="text-center" style="vertical-align: middle !important;">Data Inizio</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Data Fine</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Stato</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Gestisci</th>
                             </tr>
@@ -5979,25 +6175,57 @@ function visualizzaRichiesteScalaRelazione(scala) {
 
             if (element.stato == 'IN CORSO') {
 
+                let oggi = new Date();
 
-                visualizzaRichieste = `<tr>
+                function padToTwoDigits(number) {
+                    return number.toString().padStart(2, '0');
+                }
+
+                let giorno = padToTwoDigits(oggi.getDate());
+                let mese = padToTwoDigits(oggi.getMonth() + 1);
+                let anno = oggi.getFullYear();
+
+                let today = `${giorno}/${mese}/${anno}`;
+
+                console.log(today);
+
+                if (today < element.consegnaDTO.dataFine) {
+
+
+                    visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteScalaElevatoreProposta.html" class="linkScala" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneScala(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneScala(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
-            </td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
             </tr>`;
 
-                body.innerHTML += visualizzaRichieste;
-                ascoltoScala()
+                    body.innerHTML += visualizzaRichieste;
+                    ascoltoScala()
+
+                    //<a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneScala(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneScala(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
+
+                } else {
+
+                    visualizzaRichieste = `<tr>
+                    <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+                    <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteScalaElevatoreProposta.html" class="linkScala" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                    <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneScala(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a></td>
+                    </tr>`;
+
+                    body.innerHTML += visualizzaRichieste;
+                    ascoltoScala()
+
+                }
 
             } else if (element.stato == 'RECENSITA') {
 
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteScalaElevatoreProposta.html" class="linkScala" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
             <td class="text-center" style="vertical-align: middle !important;"></td>
             </tr>`;
@@ -6006,24 +6234,35 @@ function visualizzaRichiesteScalaRelazione(scala) {
                 ascoltoScala()
 
 
-            } else {
+            } else if (element.stato == 'COMPLETATA') {
 
 
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteScalaElevatoreProposta.html" class="linkScala" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciScala(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
-            </td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciScala(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a></td>
             </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
                 ascoltoScala()
 
+            } else {
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteScalaElevatoreProposta.html" class="linkScala" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
+            </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoScala()
+
+
             }
-
-
 
         });
 
@@ -6078,28 +6317,28 @@ function annullaRelazioneScala(id, aziendaId) {
 }
 
 
-function evadiRelazioneScala(id, aziendaId) {
+// function evadiRelazioneScala(id, aziendaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/scala/evasaRelazioneImballiRichiedente/${id}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(id)
-    })
+//     fetch(`http://127.0.0.1:8080/api/scala/evasaRelazioneImballiRichiedente/${id}`, {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(id)
+//     })
 
-    fetch(`http://127.0.0.1:8080/api/scalaElevatore/modificaScalaIdEvasa/${id}/${aziendaId}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(id, aziendaId)
-    })
+//     fetch(`http://127.0.0.1:8080/api/scalaElevatore/modificaScalaIdEvasa/${id}/${aziendaId}`, {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(id, aziendaId)
+//     })
 
-    recensisciScala(id);
+//     recensisciScala(id);
 
-}
+// }
 
 
 function recuperaRelazioneScala(id) {
@@ -6166,7 +6405,7 @@ function visualizzaRichiesteCaricoRelazione(carico) {
                             <tr class="ligth ligth-data">
                                 <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
-                                <th class="text-center" style="vertical-align: middle !important;">Data Fine</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Scarico</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Stato</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Gestisci</th>
                             </tr>
@@ -6210,15 +6449,9 @@ function visualizzaRichiesteCaricoRelazione(carico) {
                 console.log(today);
 
                 if (today < element.consegnaDTO.scarico) {
-                    console.log('daje');
-                    
-                } else {
-                    console.log('0');
-                    
-                }
-//
 
-                visualizzaRichieste = `<tr>
+
+                    visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
             <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
@@ -6227,9 +6460,27 @@ function visualizzaRichiesteCaricoRelazione(carico) {
             </tr>`;
 
 
-                body.innerHTML += visualizzaRichieste;
-                ascoltoCarico()
+                    body.innerHTML += visualizzaRichieste;
+                    ascoltoCarico()
 
+
+
+                } else {
+
+
+                    visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneCarico(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a></td>
+            </tr>`;
+
+
+                    body.innerHTML += visualizzaRichieste;
+                    ascoltoCarico()
+
+                }
 
             } else if (element.stato == 'RECENSITA') {
 
@@ -6251,7 +6502,7 @@ function visualizzaRichiesteCaricoRelazione(carico) {
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
             <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciCarico(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
             </td>
@@ -6263,11 +6514,20 @@ function visualizzaRichiesteCaricoRelazione(carico) {
             } else {
 
 
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
+            </tr>`;
+
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoCarico()
 
 
             }
-
-
 
         });
 
@@ -6311,6 +6571,7 @@ function annullaRelazioneCarico(id, aziendaId) {
         body: JSON.stringify(id)
     })
 
+    // 
     fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/modificapTrasportoIdAnnullata/${id}/${aziendaId}`, {
         method: "PUT",
         headers: {
@@ -6319,33 +6580,35 @@ function annullaRelazioneCarico(id, aziendaId) {
         body: JSON.stringify(id, aziendaId)
     })
 
+    // da rivedere perchè forse va remipostata su interessata
+
     fetchCaricoRelazione();
 
 }
 
 
-function evadiRelazioneCarico(id, aziendaId) {
+// function evadiRelazioneCarico(id, aziendaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/trasporto/evasaRelazioneTrasportoRichiedente/${id}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(id)
-    })
+//     fetch(`http://127.0.0.1:8080/api/trasporto/evasaRelazioneTrasportoRichiedente/${id}`, {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(id)
+//     })
 
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/modificapTrasportoIdEvasa/${id}/${aziendaId}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(id, aziendaId)
-    })
+//     fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/modificapTrasportoIdEvasa/${id}/${aziendaId}`, {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(id, aziendaId)
+//     })
 
-    recensisciCarico(id);
+//     recensisciCarico(id);
 
-}
+// }
 
 
 function recuperaRelazioneCarico(id) {
@@ -6380,11 +6643,6 @@ function recensisciCarico(id) {
     window.location.href = 'recensioneCarico.html';
 
 }
-
-
-
-
-
 
 
 
