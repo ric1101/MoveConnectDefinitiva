@@ -6195,6 +6195,29 @@ function visualizzaRichiesteCaricoRelazione(carico) {
             if (element.stato == 'IN CORSO') {
 
 
+                let oggi = new Date();
+
+                function padToTwoDigits(number) {
+                    return number.toString().padStart(2, '0');
+                }
+
+                let giorno = padToTwoDigits(oggi.getDate());
+                let mese = padToTwoDigits(oggi.getMonth() + 1);
+                let anno = oggi.getFullYear();
+
+                let today = `${giorno}/${mese}/${anno}`;
+
+                console.log(today);
+
+                if (today < element.consegnaDTO.scarico) {
+                    console.log('daje');
+                    
+                } else {
+                    console.log('0');
+                    
+                }
+//
+
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
@@ -6203,15 +6226,17 @@ function visualizzaRichiesteCaricoRelazione(carico) {
             <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
             </tr>`;
 
+
                 body.innerHTML += visualizzaRichieste;
                 ascoltoCarico()
+
 
             } else if (element.stato == 'RECENSITA') {
 
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
             <td class="text-center" style="vertical-align: middle !important;"></td>
             </tr>`;
@@ -6220,7 +6245,7 @@ function visualizzaRichiesteCaricoRelazione(carico) {
                 ascoltoCarico()
 
 
-            } else {
+            } else if (element.stato == 'COMPLETATA') {
 
 
                 visualizzaRichieste = `<tr>
@@ -6234,6 +6259,11 @@ function visualizzaRichiesteCaricoRelazione(carico) {
 
                 body.innerHTML += visualizzaRichieste;
                 ascoltoCarico()
+
+            } else {
+
+
+
 
             }
 
