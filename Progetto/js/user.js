@@ -6198,10 +6198,9 @@ function visualizzaRichiesteCaricoRelazione(carico) {
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.dataFine}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneCarico(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneCarico(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
-            </td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
             </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
@@ -6246,7 +6245,9 @@ function visualizzaRichiesteCaricoRelazione(carico) {
 
 }
 
+//<a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneCarico(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
 
+//<a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneCarico(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a>
 
 async function fetchCaricoRelazione() {
 
