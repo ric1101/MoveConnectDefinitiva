@@ -6166,7 +6166,7 @@ function visualizzaRichiesteCaricoRelazione(carico) {
                             <tr class="ligth ligth-data">
                                 <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
-                                <th class="text-center" style="vertical-align: middle !important;">Data Inizio</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Data Fine</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Stato</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Gestisci</th>
                             </tr>
@@ -6198,7 +6198,7 @@ function visualizzaRichiesteCaricoRelazione(carico) {
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataFine}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
             <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
             </tr>`;
