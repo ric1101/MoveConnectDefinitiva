@@ -39,6 +39,7 @@ function remove() {
 }
 
 
+
 function recuperaDatiRecensione() {
 
     let idRel = localStorage.getItem('idRecensione');
@@ -50,11 +51,11 @@ function recuperaDatiRecensione() {
             riempiDatiRecensione(data);
             console.log(data);
 
-
         });
 
 }
-recuperaDatiRecensione()
+
+recuperaDatiRecensione();
 
 
 function riempiDatiRecensione(dati) {
@@ -68,6 +69,8 @@ function riempiDatiRecensione(dati) {
 
 
 }
+
+
 
 let btnInvioRecensione = document.querySelector('.btnInvioRecensione');
 
@@ -83,34 +86,84 @@ class Recensione {
 }
 
 
-function stelleInserite() {
+
+
+async function recuperaToken() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            stelleInserite(data.id);
+
+            console.log(data.id);
+
+
+        });
+
+
+}
+
+
+
+
+function stelleInserite(idAziendaAccesso) {
 
     event.preventDefault();
+
+    let scelta = 0;
+    let idRel = localStorage.getItem('idRecensione');
+
+    fetch(`http://127.0.0.1:8080/api/trasporto/relazioneTrasportoPerId/${idRel}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            riempiDatiRecensione(data);
+            console.log(data);
+
+        });
+
+
+    if (idAziendaAccesso == dati.aziendaAccettata.id) {
+
+        scelta = 1
+
+
+    } else if (idAziendaAccesso == dati.aziendaRichiedente.id) {
+
+        scelta = 2
+
+    }
+
 
     if (controlloStelle.classList.contains('one')) {
         erroreRec.classList.add('d-none');
         valutazione = 1;
-        inviaRecensione()
+        inviaRecensione(scelta);
 
     } else if (controlloStelle.classList.contains('two')) {
         erroreRec.classList.add('d-none');
         valutazione = 2;
-        inviaRecensione()
+        inviaRecensione(scelta);
 
     } else if (controlloStelle.classList.contains('three')) {
         erroreRec.classList.add('d-none');
         valutazione = 3;
-        inviaRecensione()
+        inviaRecensione(scelta);
 
     } else if (controlloStelle.classList.contains('four')) {
         erroreRec.classList.add('d-none');
         valutazione = 4;
-        inviaRecensione()
+        inviaRecensione(scelta);
 
     } else if (controlloStelle.classList.contains('five')) {
         erroreRec.classList.add('d-none');
         valutazione = 5;
-        inviaRecensione()
+        inviaRecensione(scelta);
 
     } else {
 
@@ -118,17 +171,20 @@ function stelleInserite() {
 
     }
 
+
+
+
 }
 
 
-function inviaRecensione() {
+function inviaRecensione(choose) {
 
     console.log(idRec.textContent);
     console.log(idProponente.textContent);
     console.log(idAccettata.textContent);
     console.log(valutazione);
     console.log(commento.value);
-    
+
 
     let newRecensione = new Recensione(
         idRec.textContent,
@@ -141,6 +197,39 @@ function inviaRecensione() {
     );
 
 
+    if (choose == 1) {
+
+
+        fetch(`http://127.0.0.1:8080/api/trasporto/recensitaRelazioneTrasportoProponente/${idAccettata}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+
+            }),
+
+        })
+
+
+
+    } else {
+
+
+        fetch(`http://127.0.0.1:8080/api/trasporto/recensitaRelazioneTrasportoRichiedente/${idProponente}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+
+            }),
+
+        })
+
+    }
+
+
     fetch(`http://127.0.0.1:8080/api/trasporto/recensioneTrasporto`, {
         method: "POST",
         headers: {
@@ -150,22 +239,8 @@ function inviaRecensione() {
 
     })
 
-    
-    let idRel = localStorage.getItem('idRecensione');
-
-    fetch(`http://127.0.0.1:8080/api/trasporto/recensitaRelazioneTrasporto/${idRel}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-
-        }),
-
-    })
 
     // window.location.href = 'recensioneInviata.html';
 
-
 }
-btnInvioRecensione.addEventListener('click', stelleInserite);
+btnInvioRecensione.addEventListener('click', recuperaToken);

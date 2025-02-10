@@ -6420,7 +6420,7 @@ function visualizzaRichiesteCaricoRelazione(carico) {
 
                 console.log(today);
                 console.log(element.consegnaDTO.scarico);
-                
+
 
                 if (today < element.consegnaDTO.scarico) {
 
@@ -6496,9 +6496,7 @@ function visualizzaRichiesteCaricoRelazione(carico) {
 
 }
 
-//<a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneCarico(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
 
-//<a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneCarico(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a>
 
 async function fetchCaricoRelazione() {
 
@@ -6543,33 +6541,10 @@ function annullaRelazioneCarico(id, richiestaId) {
 
     // da rivedere perchè forse va remipostata su interessata
 
-    recensisciCaricoEntrata(id);
+    recensisciCarico(id);
 
 }
 
-
-// function evadiRelazioneCarico(id, aziendaId) {
-
-
-//     fetch(`http://127.0.0.1:8080/api/trasporto/evasaRelazioneTrasportoRichiedente/${id}`, {
-//         method: "PUT",
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(id)
-//     })
-
-//     fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/modificapTrasportoIdEvasa/${id}/${aziendaId}`, {
-//         method: "PUT",
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(id, aziendaId)
-//     })
-
-//     recensisciCarico(id);
-
-// }
 
 
 function recuperaRelazioneCarico(id) {
@@ -7858,9 +7833,6 @@ function visualizzaRichiesteCaricoRelazioneEntrata(carico) {
 
 }
 
-//<a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneCarico(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
-
-//<a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneCarico(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a>
 
 async function fetchCaricoRelazioneEntrata() {
 
@@ -7879,35 +7851,8 @@ async function fetchCaricoRelazioneEntrata() {
 
         });
 
-
 }
 
-
-// function annullaRelazioneCarico(id, aziendaId) {
-
-
-//     fetch(`http://127.0.0.1:8080/api/trasporto/annullataRelazioneTrasportoRichiedente/${id}`, {
-//         method: "PUT",
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(id)
-//     })
-
-//     // 
-//     fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/modificapTrasportoIdAnnullata/${id}/${aziendaId}`, {
-//         method: "PUT",
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(id, aziendaId)
-//     })
-
-//     // da rivedere perchè forse va remipostata su interessata
-
-//     fetchCaricoRelazione();
-
-// }
 
 
 function evadiRelazioneCaricoEntrata(id, richiestaId) {
@@ -7921,7 +7866,7 @@ function evadiRelazioneCaricoEntrata(id, richiestaId) {
         body: JSON.stringify(id)
     })
 
-    
+
     fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/modificapTrasportoIdEvasa/${richiestaId}`, {
         method: "PUT",
         headers: {
@@ -7931,7 +7876,7 @@ function evadiRelazioneCaricoEntrata(id, richiestaId) {
 
     })
 
-    // recensisciCaricoEntrata(id);
+    recensisciCaricoEntrata(id);
 
 }
 
@@ -7968,9 +7913,6 @@ function recensisciCaricoEntrata(id) {
     window.location.href = 'recensioneCarico.html';
 
 }
-
-
-
 
 
 
