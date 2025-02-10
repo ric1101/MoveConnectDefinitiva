@@ -6457,6 +6457,35 @@ function visualizzaRichiesteCaricoRelazione(carico) {
                 }
 
 
+            } else if (element.statoRichiedente == 'ANNULLATA') {
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciCarico(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
+            </td>
+            </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoCarico()
+
+
+            } else if (element.statoRichiedente == 'RECENSITA') {
+
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
+                </tr>`;
+
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoCarico()
+
             } else if (element.stato == 'COMPLETATA') {
 
 
@@ -6519,10 +6548,10 @@ async function fetchCaricoRelazione() {
 }
 
 
-function annullaRelazioneCarico(id, richiestaId) {
+async function annullaRelazioneCarico(id, richiestaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/trasporto/annullataEBastaRelazioneTrasportoProponente/${id}`, {
+    await fetch(`http://127.0.0.1:8080/api/trasporto/annullataEBastaRelazioneTrasportoProponente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -6530,8 +6559,17 @@ function annullaRelazioneCarico(id, richiestaId) {
         body: JSON.stringify(id)
     })
 
+    await fetch(`http://127.0.0.1:8080/api/trasporto/annullataRelazioneTrasportoRichiedente/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+    })
+
+
     // 
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/modificapTrasportoIdAnnullata/${richiestaId}`, {
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/modificapTrasportoIdAnnullata/${richiestaId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -7795,7 +7833,7 @@ function visualizzaRichiesteCaricoRelazioneEntrata(carico) {
 
 
             } else if (element.statoProponente == 'EVASA') {
-                
+
                 visualizzaRichieste = `<tr>
                 <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
                 <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
@@ -7804,9 +7842,39 @@ function visualizzaRichiesteCaricoRelazioneEntrata(carico) {
                 <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciCarico(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
                 </td>
                 </tr>`;
-    
-                    body.innerHTML += visualizzaRichieste;
-                    ascoltoCarico();
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoCarico();
+
+            } else if (element.stato == 'ANNULLATA') {
+
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciCarico(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
+                </td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoCarico();
+
+
+            } else if (element.statoProponente == 'RECENSITA') {
+
+                visualizzaRichieste = `<tr>
+                    <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+                    <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                    <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
+                    </tr>`;
+
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoCarico();
+
 
             } else {
 
@@ -7822,7 +7890,6 @@ function visualizzaRichiesteCaricoRelazioneEntrata(carico) {
 
                 body.innerHTML += visualizzaRichieste;
                 ascoltoCarico();
-
 
             }
 
