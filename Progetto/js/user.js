@@ -7809,7 +7809,9 @@ function visualizzaRichiesteCaricoRelazioneEntrata(carico) {
                 body.innerHTML += visualizzaRichieste;
                 ascoltoCarico();
 
-            } else {
+            } else if (element.statoProponente == '') {
+                
+            } {
 
 
                 visualizzaRichieste = `<tr>
@@ -7875,6 +7877,17 @@ function evadiRelazioneCaricoEntrata(id, richiestaId) {
         body: JSON.stringify({})
 
     })
+
+    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/evasaRelazioneTrasportoProponente/${richiestaId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({})
+
+    })
+
+
 
     recensisciCaricoEntrata(id);
 
