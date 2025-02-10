@@ -1,5 +1,8 @@
+
+
 let accessToken = localStorage.getItem('accessToken');
 let container = document.querySelector(".container");
+
 
 
 
@@ -15,9 +18,15 @@ async function userView() {
         .then((data) => {
 
 
+
+            fetchImg(data.id);
+            nomeAzienda.innerHTML = data.nomeAzienda;
+            iMieiDati(data);
+
             iMieiDatiUtente(data);
             fetchImg(data.id);
             // nomeAzienda.innerHTML = data.nomeAzienda;
+
 
             console.log(data);
 
@@ -27,9 +36,12 @@ async function userView() {
 }
 
 
+
+
 /* -------------------------------------------------------------------------- */
 /*                            visualizzazione logo                            */
 /* -------------------------------------------------------------------------- */
+
 
 function fetchImg(id) {
 
@@ -42,6 +54,13 @@ function fetchImg(id) {
             }
             return response.blob();
         })
+
+    };
+
+    function aziendaDati(dati){
+        let visualizzaDati =``
+    }
+
         .then((blob) => {
             const logoUrl = URL.createObjectURL(blob);
             imgAzienda.setAttribute('src', logoUrl);
@@ -179,3 +198,4 @@ function iMieiDatiUtente(dati){
 }
 
 userView();
+
