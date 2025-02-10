@@ -7875,7 +7875,7 @@ async function evadiRelazioneCaricoEntrata(id, richiestaId) {
 
     })
 
-    await fetch(`http://127.0.0.1:8080/api/trasporto/evasaRelazioneTrasportoProponente/${richiestaId}`, {
+    await fetch(`http://127.0.0.1:8080/api/trasporto/evasaRelazioneTrasportoProponente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
