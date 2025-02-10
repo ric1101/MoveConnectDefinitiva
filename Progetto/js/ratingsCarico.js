@@ -79,13 +79,13 @@ let btnInvioRecensione = document.querySelector('.btnInvioRecensione');
 
 
 
-async function recuperaToken() {
+function recuperaToken() {
 
 
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -104,6 +104,8 @@ async function recuperaToken() {
 
 function stelleInserite(idAziendaAccesso) {
 
+    console.log('ci entra yes');
+    
     
     let scelta = 0;
     let idRel = localStorage.getItem('idRecensione');
@@ -129,7 +131,7 @@ function stelleInserite(idAziendaAccesso) {
         
     }
     
-    event.preventDefault();
+    // event.preventDefault();
     
     if (controlloStelle.classList.contains('one')) {
         erroreRec.classList.add('d-none');
@@ -161,7 +163,6 @@ function stelleInserite(idAziendaAccesso) {
         erroreRec.classList.remove('d-none');
 
     }
-
 
 
 
