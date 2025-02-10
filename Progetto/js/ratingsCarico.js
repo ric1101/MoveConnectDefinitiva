@@ -254,7 +254,7 @@ console.log(idRecNumber);
     
 
 
-    // window.location.href = 'recensioneInviata.html';
+    window.location.href = 'recensioneInviata.html';
 
 }
 btnInvioRecensione.addEventListener('click', recuperaToken);
