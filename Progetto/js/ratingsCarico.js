@@ -81,6 +81,8 @@ let btnInvioRecensione = document.querySelector('.btnInvioRecensione');
 
 function recuperaToken() {
 
+    event.preventDefault();
+
 
     let accessToken = localStorage.getItem('accessToken');
 
@@ -131,7 +133,7 @@ function stelleInserite(idAziendaAccesso) {
         
     }
     
-    // event.preventDefault();
+    event.preventDefault();
     
     if (controlloStelle.classList.contains('one')) {
         erroreRec.classList.add('d-none');
