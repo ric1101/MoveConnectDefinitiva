@@ -111,3 +111,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.rigeneraCodicePadding{
+  padding-top: 1.5rem;
+}

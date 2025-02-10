@@ -5,6 +5,7 @@ let newPassword = document.querySelector('.newPassword');
 let newPasswordConferma = document.querySelector('.newPasswordConferma');
 let codiceVerificaRecuperoPassword = document.querySelector('.codice');
 let btnInvio = document.querySelector('.btn-invio');
+let btnPassRecupera = document.querySelector(".rigeneraCodice");
 let errore = document.querySelector('.errore');
 let showPassword1 = document.querySelector("#showPassword1");
 let showPassword2 = document.querySelector("#showPassword2");
@@ -62,6 +63,42 @@ function verificaCodice() {
 
 
 }
+
+class Rigenera {
+    constructor(username) {
+        (this.username = username)
+    }
+}
+
+function rigenera(){
+    event.preventDefault();
+    let rigenera = new Rigenera(username);
+    console.log(username);
+  
+    fetch(`http://127.0.0.1:8080/api/azienda/rigenera-password?username=${username}`,{ 
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(rigenera),
+    })
+    .then((response) => {
+      if (response.ok) {
+  
+        window.location.href = 'recuperaPassword.html';
+        // console.log('codice giusto');
+  
+      } else {
+  
+        errore.innerHTML = 'codice errato o scaduto';
+      }
+    })
+  
+  
+  
+  }
+  
+  btnPassRecupera.addEventListener('click', rigenera);
 
 
 function toShowPassword1() {
