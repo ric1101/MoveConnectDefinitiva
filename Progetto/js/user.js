@@ -6457,7 +6457,7 @@ function visualizzaRichiesteCaricoRelazione(carico) {
                 }
 
 
-            } else if (element.statoRichiedente == 'ANNULLATA') {
+            } else if (element.statoRichiedente == 'ANNULLATA' && element.statoRichiedente != 'RECENSITA') {
 
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
@@ -6486,7 +6486,7 @@ function visualizzaRichiesteCaricoRelazione(carico) {
                 body.innerHTML += visualizzaRichieste;
                 ascoltoCarico()
 
-            } else if (element.stato == 'COMPLETATA') {
+            } else if (element.stato == 'COMPLETATA' && element.statoRichiedente != 'RECENSITA') {
 
 
                 visualizzaRichieste = `<tr>
@@ -7832,7 +7832,7 @@ function visualizzaRichiesteCaricoRelazioneEntrata(carico) {
                 ascoltoCarico();
 
 
-            } else if (element.statoProponente == 'EVASA') {
+            } else if (element.statoProponente == 'EVASA' && element.statoProponente != 'RECENSITA') {
 
                 visualizzaRichieste = `<tr>
                 <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
@@ -7846,7 +7846,7 @@ function visualizzaRichiesteCaricoRelazioneEntrata(carico) {
                 body.innerHTML += visualizzaRichieste;
                 ascoltoCarico();
 
-            } else if (element.stato == 'ANNULLATA') {
+            } else if (element.stato == 'ANNULLATA' && element.statoProponente != 'RECENSITA') {
 
                 visualizzaRichieste = `<tr>
                 <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
