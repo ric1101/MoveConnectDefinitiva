@@ -255,13 +255,13 @@ let richiesteDepositoMagazzinoInteresseEntrata = document.querySelector('.richie
 let richiesteTrattaInteresseEntrata = document.querySelector('.richiesteTrattaInteresseEntrata');
 
 //relazioni create in *entrata*
-let richiesteOccSuoloPubRelazioneEmesse = document.querySelector('.richiesteOccSuoloPubRelazioneEmesse');
-let richiesteTrasportoRelazioneEmesse = document.querySelector('.richiesteTrasportoRelazioneEmesse');
-let richiesteScalaElevatoreRelazioneEmesse = document.querySelector('.richiesteScalaElevatoreRelazioneEmesse');
-let richiesteConsegnaImballiRelazioneEmesse = document.querySelector('.richiesteConsegnaImballiRelazioneEmesse');
-let richiestePersonaleSpecRelazioneEmesse = document.querySelector('.richiestePersonaleSpecRelazioneEmesse');
-let richiesteDepositoMagazzinoRelazioneEmesse = document.querySelector('.richiesteDepositoMagazzinoRelazioneEmesse');
-let richiesteTrattaRelazioneEmesse = document.querySelector('.richiesteTrattaRelazioneEmesse');
+let richiesteOccSuoloPubRelazioneEntrata = document.querySelector('.richiesteOccSuoloPubRelazioneEntrata');
+let richiesteTrasportoRelazioneEntrata = document.querySelector('.richiesteTrasportoRelazioneEntrata');
+let richiesteScalaElevatoreRelazioneEntrata = document.querySelector('.richiesteScalaElevatoreRelazioneEntrata');
+let richiesteConsegnaImballiRelazioneEntrata = document.querySelector('.richiesteConsegnaImballiRelazioneEntrata');
+let richiestePersonaleSpecRelazioneEntrata = document.querySelector('.richiestePersonaleSpecRelazioneEntrata');
+let richiesteDepositoMagazzinoRelazioneEntrata = document.querySelector('.richiesteDepositoMagazzinoRelazioneEntrata');
+let richiesteTrattaRelazioneEntrata = document.querySelector('.richiesteTrattaRelazioneEntrata');
 
 let nomeAzienda = document.querySelector('.nomeAzienda');
 let colonnaInfo = document.querySelector('.colonnaInfo');
@@ -5127,7 +5127,7 @@ function visualizzaRichiesteImballiRelazione(imballo) {
                     <table class="data-table table mb-0 tbl-server-info">
                         <thead class="text-uppercase">
                             <tr class="ligth ligth-data">
-                                <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Azienda Proponente</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Consegna</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Stato</th>
@@ -5202,21 +5202,7 @@ function visualizzaRichiesteImballiRelazione(imballo) {
 
                 }
 
-
                 //<a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneImballi(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneImballi(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
-
-            } else if (element.stato == 'RECENSITA') {
-
-                visualizzaRichieste = `<tr>
-            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
-            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td class="text-center" style="vertical-align: middle !important;"></td>
-            </tr>`;
-
-                body.innerHTML += visualizzaRichieste;
-                ascoltoImballi();
 
 
             } else if (element.stato == 'COMPLETATA') {
@@ -5388,7 +5374,7 @@ function visualizzaRichiestePersonaleRelazione(personale) {
                     <table class="data-table table mb-0 tbl-server-info">
                         <thead class="text-uppercase">
                             <tr class="ligth ligth-data">
-                                <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Azienda Proponente</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Consegna</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Stato</th>
@@ -5464,19 +5450,6 @@ function visualizzaRichiestePersonaleRelazione(personale) {
                 }
 
                 //<a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazionePersonale(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazionePersonale(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
-
-            } else if (element.stato == 'RECENSITA') {
-
-                visualizzaRichieste = `<tr>
-            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
-            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.personaleDTO.id}"> ${element.personaleDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td class="text-center" style="vertical-align: middle !important;"></td>
-            </tr>`;
-
-                body.innerHTML += visualizzaRichieste;
-                ascoltoPersonale();
 
 
             } else if (element.stato == 'COMPLETATA') {
@@ -5652,7 +5625,7 @@ function visualizzaRichiesteTratteRelazione(tratta) {
                     <table class="data-table table mb-0 tbl-server-info">
                         <thead class="text-uppercase">
                             <tr class="ligth ligth-data">
-                                <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Azienda Proponente</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Arrivo</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Stato</th>
@@ -5731,20 +5704,6 @@ function visualizzaRichiesteTratteRelazione(tratta) {
 
 
                 //<a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneTratte(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneTratte(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
-
-
-            } else if (element.stato == 'RECENSITA') {
-
-                visualizzaRichieste = `<tr>
-            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
-            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteTratteProposta.html" class="linkTratte" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.arrivo}</td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td class="text-center" style="vertical-align: middle !important;"></td>
-            </tr>`;
-
-                body.innerHTML += visualizzaRichieste;
-                ascoltoTratte();
 
 
             } else if (element.stato == 'COMPLETATA') {
@@ -5919,7 +5878,7 @@ function visualizzaRichiesteDepositoRelazione(deposito) {
                     <table class="data-table table mb-0 tbl-server-info">
                         <thead class="text-uppercase">
                             <tr class="ligth ligth-data">
-                                <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Azienda Proponente</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Data Fine</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Stato</th>
@@ -5998,19 +5957,6 @@ function visualizzaRichiesteDepositoRelazione(deposito) {
 
 
                 //<a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneDeposito(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneDeposito(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
-
-            } else if (element.stato == 'RECENSITA') {
-
-                visualizzaRichieste = `<tr>
-            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
-            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.magazzinoDTO.id}"> ${element.magazzinoDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td class="text-center" style="vertical-align: middle !important;"></td>
-            </tr>`;
-
-                body.innerHTML += visualizzaRichieste;
-                ascoltoDeposito()
 
 
             } else if (element.stato == 'COMPLETATA') {
@@ -6181,7 +6127,7 @@ function visualizzaRichiesteScalaRelazione(scala) {
                     <table class="data-table table mb-0 tbl-server-info">
                         <thead class="text-uppercase">
                             <tr class="ligth ligth-data">
-                                <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Azienda Proponente</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Data Fine</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Stato</th>
@@ -6255,19 +6201,6 @@ function visualizzaRichiesteScalaRelazione(scala) {
                     ascoltoScala()
 
                 }
-
-            } else if (element.stato == 'RECENSITA') {
-
-                visualizzaRichieste = `<tr>
-            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
-            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteScalaElevatoreProposta.html" class="linkScala" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td class="text-center" style="vertical-align: middle !important;"></td>
-            </tr>`;
-
-                body.innerHTML += visualizzaRichieste;
-                ascoltoScala()
 
 
             } else if (element.stato == 'COMPLETATA') {
@@ -6419,6 +6352,9 @@ function recensisciScala(id) {
 /*                              carico relazione                              */
 /* -------------------------------------------------------------------------- */
 
+
+
+
 function visualizzaRichiesteCaricoRelazione(carico) {
 
     colonnaInfo.innerHTML = '';
@@ -6439,7 +6375,7 @@ function visualizzaRichiesteCaricoRelazione(carico) {
                     <table class="data-table table mb-0 tbl-server-info">
                         <thead class="text-uppercase">
                             <tr class="ligth ligth-data">
-                                <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Azienda Proponente</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Scarico</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Stato</th>
@@ -6517,19 +6453,6 @@ function visualizzaRichiesteCaricoRelazione(carico) {
                     ascoltoCarico()
 
                 }
-
-            } else if (element.stato == 'RECENSITA') {
-
-                visualizzaRichieste = `<tr>
-            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
-            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td class="text-center" style="vertical-align: middle !important;"></td>
-            </tr>`;
-
-                body.innerHTML += visualizzaRichieste;
-                ascoltoCarico()
 
 
             } else if (element.stato == 'COMPLETATA') {
@@ -7830,9 +7753,7 @@ if (richiesteScalaElevatoreInteresseEntrata) {
 
 
 
-
-
-function visualizzaRichiesteDepositoRelazione(deposito) {
+function visualizzaRichiesteCaricoRelazioneEntrata(carico) {
 
     colonnaInfo.innerHTML = '';
     let visualizzaTabella = '';
@@ -7854,7 +7775,7 @@ function visualizzaRichiesteDepositoRelazione(deposito) {
                             <tr class="ligth ligth-data">
                                 <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
-                                <th class="text-center" style="vertical-align: middle !important;">Data Inizio</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Scarico</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Stato</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Gestisci</th>
                             </tr>
@@ -7870,63 +7791,64 @@ function visualizzaRichiesteDepositoRelazione(deposito) {
 
     let body = document.querySelector('.bodyTabella');
 
-    console.log(deposito);
+    console.log(carico);
 
-    if (deposito == 0) {
+    if (carico == 0) {
 
         body.innerHTML = nessunaCorrispondenzaRelazione;
 
     } else {
 
-        deposito.forEach(element => {
+        carico.forEach(element => {
 
             if (element.stato == 'IN CORSO') {
 
 
                 visualizzaRichieste = `<tr>
-            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
-            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.magazzinoDTO.id}"> ${element.magazzinoDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneDeposito(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a><a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneDeposito(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneCaricoEntrata(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a></td>
+            </tr>`;
+
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoCarico();
+
+
+            } else if (element.stato == 'COMPLETATA') {
+
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciCarico(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
             </td>
             </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
-                ascoltoDeposito()
-
-            } else if (element.stato == 'RECENSITA') {
-
-                visualizzaRichieste = `<tr>
-            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
-            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.magazzinoDTO.id}"> ${element.magazzinoDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td class="text-center" style="vertical-align: middle !important;"></td>
-            </tr>`;
-
-                body.innerHTML += visualizzaRichieste;
-                ascoltoDeposito()
-
+                ascoltoCarico();
 
             } else {
 
 
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
-            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.magazzinoDTO.id}"> ${element.magazzinoDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.dataInizio}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciDeposito(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
-            </td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
             </tr>`;
 
+
                 body.innerHTML += visualizzaRichieste;
-                ascoltoDeposito()
+                ascoltoCarico();
+
 
             }
-
-
 
         });
 
@@ -7934,9 +7856,11 @@ function visualizzaRichiesteDepositoRelazione(deposito) {
 
 }
 
+//<a class="btn btn-danger px-1 bottoniAnnulla" data-id-annulla="${element.id}" onclick="annullaRelazioneCarico(${element.id}, ${element.aziendaDTO.id})">Annulla <i class="fa-solid fa-xmark"></i></a>
 
+//<a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneCarico(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a>
 
-async function fetchDepositoRelazione() {
+async function fetchCaricoRelazioneEntrata() {
 
 
     let accessToken = localStorage.getItem('accessToken');
@@ -7946,7 +7870,7 @@ async function fetchDepositoRelazione() {
         .then((res) => res.json())
         .then((data) => {
 
-            recuperaRelazioneDeposito(data.id);
+            recuperaRelazioneCaricoEntrata(data.id);
 
             console.log(data.id);
 
@@ -7957,10 +7881,37 @@ async function fetchDepositoRelazione() {
 }
 
 
-function annullaRelazioneDeposito(id, aziendaId) {
+// function annullaRelazioneCarico(id, aziendaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/annullataRelazioneMagazzino/${id}`, {
+//     fetch(`http://127.0.0.1:8080/api/trasporto/annullataRelazioneTrasportoRichiedente/${id}`, {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(id)
+//     })
+
+//     // 
+//     fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/modificapTrasportoIdAnnullata/${id}/${aziendaId}`, {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(id, aziendaId)
+//     })
+
+//     // da rivedere perchè forse va remipostata su interessata
+
+//     fetchCaricoRelazione();
+
+// }
+
+
+function evadiRelazioneCaricoEntrata(id, aziendaId) {
+
+
+    fetch(`http://127.0.0.1:8080/api/trasporto/evasaRelazioneTrasportoProponente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -7968,7 +7919,8 @@ function annullaRelazioneDeposito(id, aziendaId) {
         body: JSON.stringify(id)
     })
 
-    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/modificaMagazzinoIdAnnullata/${id}/${aziendaId}`, {
+    
+    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/modificapTrasportoIdEvasa/${id}/${aziendaId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -7976,43 +7928,19 @@ function annullaRelazioneDeposito(id, aziendaId) {
         body: JSON.stringify(id, aziendaId)
     })
 
-    recensisciDeposito(id);
+    recensisciCaricoEntrata(id);
 
 }
 
 
-function evadiRelazioneDeposito(id, aziendaId) {
+function recuperaRelazioneCaricoEntrata(id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/evasaRelazioneMagazzino/${id}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(id)
-    })
-
-    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/modificaMagazzinoIdEvasa/${id}/${aziendaId}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(id, aziendaId)
-    })
-
-    recensisciDeposito(id);
-
-}
-
-
-function recuperaRelazioneDeposito(id) {
-
-
-    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaMagazzinoRelazioneRichiedente?depositoMagazzinoAziendaId=${id}`)
+    fetch(`http://127.0.0.1:8080/api/trasporto/byAziendaRelazioneInUscita?propostaAccettataTrasportoId=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
-            visualizzaRichiesteDepositoRelazione(data);
+            visualizzaRichiesteCaricoRelazioneEntrata(data);
 
 
         });
@@ -8021,19 +7949,25 @@ function recuperaRelazioneDeposito(id) {
 
 
 
-if (richiesteDepositoMagazzinoRelazione) {
+if (richiesteTrasportoRelazioneEntrata) {
 
-    richiesteDepositoMagazzinoRelazione.addEventListener('click', fetchDepositoRelazione);
+    richiesteTrasportoRelazioneEntrata.addEventListener('click', fetchCaricoRelazioneEntrata);
 }
 
 
 
-function recensisciDeposito(id) {
+function recensisciCaricoEntrata(id) {
 
 
     let idRecensione = id;
     localStorage.setItem('idRecensione', idRecensione);
 
-    window.location.href = 'recensioneDeposito.html';
+    window.location.href = 'recensioneCarico.html';
 
 }
+
+
+
+
+
+
