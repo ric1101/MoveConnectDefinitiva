@@ -7809,7 +7809,7 @@ function visualizzaRichiesteCaricoRelazioneEntrata(carico) {
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
             <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneCaricoEntrata(${element.id}, ${element.aziendaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a></td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneCaricoEntrata(${element.id}, ${element.consegnaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a></td>
             </tr>`;
 
 
@@ -7908,10 +7908,10 @@ async function fetchCaricoRelazioneEntrata() {
 // }
 
 
-function evadiRelazioneCaricoEntrata(id, aziendaId) {
+function evadiRelazioneCaricoEntrata(id, richiestaId) {
 
 
-    fetch(`http://127.0.0.1:8080/api/trasporto/evasaRelazioneTrasportoProponente/${id}`, {
+    fetch(`http://127.0.0.1:8080/api/trasporto/completatoRelazioneTrasportoRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -7920,15 +7920,16 @@ function evadiRelazioneCaricoEntrata(id, aziendaId) {
     })
 
     
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/modificapTrasportoIdEvasa/${id}/${aziendaId}`, {
+    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/modificapTrasportoIdEvasa/${richiestaId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(id, aziendaId)
+        body: JSON.stringify({})
+
     })
 
-    recensisciCaricoEntrata(id);
+    // recensisciCaricoEntrata(id);
 
 }
 
