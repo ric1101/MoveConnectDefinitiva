@@ -12,6 +12,7 @@ let operatore = document.querySelector('.facchini');
 let autista = document.querySelector('.autisti');
 let montatore = document.querySelector('.montatori');
 let falegname = document.querySelector('.falegnami');
+let arrivo = document.querySelector('.arrivo');
 
 let btnInvioRichiestaImballi = document.querySelector('.btnInvioRichiestaPersonale');
 
@@ -27,6 +28,7 @@ class Personale {
         falegname,
         montatore,
         operatore,
+        arrivo,
         azienda_id) {
 
         (this.regione = regione),
@@ -40,6 +42,7 @@ class Personale {
             (this.falegname = falegname),
             (this.montatore = montatore),
             (this.operatore = operatore),
+            (this.arrivo = arrivo),
             (this.azienda_id = azienda_id)
     }
 }
@@ -82,6 +85,7 @@ function inviaRichiesta(dati) {
         falegname.textContent,
         montatore.textContent,
         operatore.textContent,
+        arrivo.value,
         azienda_id
     );
 

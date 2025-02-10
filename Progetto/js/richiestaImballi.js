@@ -8,6 +8,7 @@ let indirizzo = document.querySelector('.indirizzo');
 let indirizzoDue = document.querySelector('.indirizzoDue');
 let cap = document.querySelector('.cap');
 let note = document.querySelector('.note');
+let arrivo = document.querySelector('.arrivo');
 let imballo1 = document.querySelector('#imballo1-summary');
 let imballo2 = document.querySelector('#imballo2-summary');
 let imballo3 = document.querySelector('#imballo3-summary');
@@ -35,6 +36,7 @@ class Imballi {
         imballo6,
         imballo7,
         imballo8,
+        arrivo,
         azienda_id) {
 
         (this.regione = regione),
@@ -52,6 +54,7 @@ class Imballi {
             (this.imballo6 = imballo6),
             (this.imballo7 = imballo7),
             (this.imballo8 = imballo8),
+            (this.arrivo = arrivo),
             (this.azienda_id = azienda_id)
     }
 }
@@ -98,6 +101,7 @@ function inviaRichiesta(dati) {
         imballo6.textContent,
         imballo7.textContent,
         imballo8.textContent,
+        arrivo.value,
         azienda_id
     );
 
@@ -115,7 +119,7 @@ function inviaRichiesta(dati) {
 
     })
 
-    window.location.href = 'inviataConSuccessoImballi.html';
+    // window.location.href = 'inviataConSuccessoImballi.html';
 
 
 }
