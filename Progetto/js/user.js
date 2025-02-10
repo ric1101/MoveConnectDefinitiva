@@ -2169,6 +2169,15 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
                                 ${element.imballo8}
                                 </div>
                             </div>
+                              <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Arrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.arrivo}
+                                </div>
+                            </div>
                             <hr>
                             <div class="row rowDati">
                                 <div class="col-sm-5">
@@ -2348,6 +2357,15 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
                                 ${element.imballo8}
+                                </div>
+                            </div>
+                                <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Arrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.arrivo}
                                 </div>
                             </div>
                             <hr>
@@ -2631,6 +2649,15 @@ function visualizzaRichiestePersonaleSpecializzatoUscita(personale) {
                                 </div>
                             </div>
                             <hr>
+                              <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Arrivo</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.arrivo}
+                                </div>
+                            </div>
+                            <hr>
                             <div class="row rowDati">
                                 <div class="col-sm-5">
                                     <h6 class="mb-0" style="font-size: 18px;">Note</h6>
@@ -2775,7 +2802,16 @@ function visualizzaRichiestePersonaleSpecializzatoUscita(personale) {
                                         ${element.falegname}
                                         </div>
                                     </div>
-                                    <hr>
+                                     <hr>
+                                        <div class="row rowDati">
+                                            <div class="col-sm-5">
+                                            <h6 class="mb-0" style="font-size: 18px;">Arrivo</h6>
+                                            </div>
+                                            <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                            ${element.arrivo}
+                                            </div>
+                                        </div>
+                                        <hr>
                                     <div class="row rowDati">
                                         <div class="col-sm-5">
                                             <h6 class="mb-0" style="font-size: 18px;">Note</h6>
