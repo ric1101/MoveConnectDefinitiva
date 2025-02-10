@@ -74,16 +74,7 @@ function riempiDatiRecensione(dati) {
 
 let btnInvioRecensione = document.querySelector('.btnInvioRecensione');
 
-class Recensione {
-    constructor(relazioneTrasportoId, relazioneAziendaRichiedenteTrasportoId, relazioneAziendaAccettataTrasportoId, valutazione, commentoAziendaRichiedente, commentoAziendaAccettata) {
-        (this.relazioneTrasportoId = relazioneTrasportoId),
-            (this.relazioneAziendaRichiedenteTrasportoId = relazioneAziendaRichiedenteTrasportoId),
-            (this.relazioneAziendaAccettataTrasportoId = relazioneAziendaAccettataTrasportoId),
-            (this.valutazione = valutazione),
-            (this.commentoAziendaRichiedente = commentoAziendaRichiedente),
-            (this.commentoAziendaAccettata = commentoAziendaAccettata)
-    }
-}
+
 
 
 
@@ -113,33 +104,33 @@ async function recuperaToken() {
 
 function stelleInserite(idAziendaAccesso) {
 
-    event.preventDefault();
-
+    
     let scelta = 0;
     let idRel = localStorage.getItem('idRecensione');
-
+    
     fetch(`http://127.0.0.1:8080/api/trasporto/relazioneTrasportoPerId/${idRel}`)
-        .then((res) => res.json())
-        .then((data) => {
-
-            riempiDatiRecensione(data);
-            console.log(data);
-
-        });
-
-
+    .then((res) => res.json())
+    .then((data) => {
+        
+        riempiDatiRecensione(data);
+        console.log(data);
+        
+    });
+    
+    
     if (idAziendaAccesso == dati.aziendaAccettata.id) {
-
+        
         scelta = 1
-
-
+        
+        
     } else if (idAziendaAccesso == dati.aziendaRichiedente.id) {
-
+        
         scelta = 2
-
+        
     }
-
-
+    
+    event.preventDefault();
+    
     if (controlloStelle.classList.contains('one')) {
         erroreRec.classList.add('d-none');
         valutazione = 1;
@@ -178,6 +169,17 @@ function stelleInserite(idAziendaAccesso) {
 
 
 function inviaRecensione(choose) {
+    
+    class Recensione {
+        constructor(relazioneTrasportoId, relazioneAziendaRichiedenteTrasportoId, relazioneAziendaAccettataTrasportoId, valutazione, commentoAziendaRichiedente, commentoAziendaAccettata) {
+            (this.relazioneTrasportoId = relazioneTrasportoId),
+                (this.relazioneAziendaRichiedenteTrasportoId = relazioneAziendaRichiedenteTrasportoId),
+                (this.relazioneAziendaAccettataTrasportoId = relazioneAziendaAccettataTrasportoId),
+                (this.valutazione = valutazione),
+                (this.commentoAziendaRichiedente = commentoAziendaRichiedente),
+                (this.commentoAziendaAccettata = commentoAziendaAccettata)
+        }
+    }
 
     console.log(idRec.textContent);
     console.log(idProponente.textContent);
