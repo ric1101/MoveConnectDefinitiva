@@ -47,20 +47,19 @@ function fetchImg(id) {
 
     let imgAzienda = document.querySelector('.imgAzienda');
 
-    fetch(`http://127.0.0.1:8080/api/azienda/logo/${id}`)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error("Errore nel recupero del logo");
-            }
-            return response.blob();
-        })
+    function fetchImg(id) {
 
-    };
-
-    function aziendaDati(dati){
-        let visualizzaDati =``
-    }
-
+        let imgAzienda = document.querySelector('.imgAzienda');
+    
+        fetch(`http://127.0.0.1:8080/api/azienda/logo/${id}`)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Errore nel recupero del logo");
+                }
+                return response.blob();
+            })
+    
+       
         .then((blob) => {
             const logoUrl = URL.createObjectURL(blob);
             imgAzienda.setAttribute('src', logoUrl);
@@ -72,7 +71,8 @@ function fetchImg(id) {
                 './img/default-logo.png'
             );
         });
-}
+    }
+}    
 
 
 /* -------------------------------------------------------------------------- */
