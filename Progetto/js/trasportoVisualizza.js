@@ -104,8 +104,9 @@ function trasporto(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
-                        <td class="text-center">${element.id}</td>
+<td class="text-center">
+    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+</td>                        <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
@@ -375,8 +376,9 @@ function trasportoFiltroSoloRegionePartenza(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
-                        <td class="text-center">${element.id}</td>
+<td class="text-center">
+    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+</td>                           <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
@@ -533,8 +535,9 @@ function trasportoFiltroSoloRegioneArrivo(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
-                        <td class="text-center">${element.id}</td>
+<td class="text-center">
+    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+</td>                           <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
@@ -691,8 +694,9 @@ function trasportoFiltroRegioniDoppie(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
-                        <td class="text-center">${element.id}</td>
+<td class="text-center">
+    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+</td>                           <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
@@ -870,8 +874,9 @@ function trasportoFiltroRegioniMq(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
-                        <td class="text-center">${element.id}</td>
+<td class="text-center">
+    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+</td>                           <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
@@ -1025,8 +1030,9 @@ function trasportoFiltroRegioniDoppieMq(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
-                        <td class="text-center">${element.id}</td>
+<td class="text-center">
+    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+</td>                           <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
@@ -1185,8 +1191,9 @@ function trasportoFiltroDemo(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
-                        <td class="text-center">${element.id}</td>
+<td class="text-center">
+    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+</td>                           <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
@@ -1540,8 +1547,9 @@ function trasportoFiltroMerce(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
-                        <td class="text-center">${element.id}</td>
+<td class="text-center">
+    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+</td>                           <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
@@ -1695,8 +1703,9 @@ function trasportoFiltroRegionePartenzaMerce(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
-                        <td class="text-center">${element.id}</td>
+<td class="text-center">
+    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+</td>                           <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
@@ -1852,8 +1861,9 @@ function trasportoFiltroRegioneArrivoMerce(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
-                        <td class="text-center">${element.id}</td>
+<td class="text-center">
+    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+</td>                           <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
@@ -2010,8 +2020,9 @@ function trasportoFiltroRegionePartenzaArrivoMerce(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
-                        <td class="text-center">${element.id}</td>
+<td class="text-center">
+    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+</td>                           <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
@@ -2170,8 +2181,9 @@ function trasportoFiltroRegionePartenzaArrivoMerceMq(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
-                        <td class="text-center">${element.id}</td>
+<td class="text-center">
+    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+</td>                           <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
@@ -2327,8 +2339,9 @@ function trasportoFiltroRegionePartenzaMerceMq(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
-                        <td class="text-center">${element.id}</td>
+<td class="text-center">
+    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+</td>                           <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
@@ -2486,8 +2499,9 @@ function trasportoFiltroRegioneArrivoMerceMq(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
-                        <td class="text-center">${element.id}</td>
+<td class="text-center">
+    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+</td>                           <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
@@ -2647,8 +2661,9 @@ function trasportoFiltroMerceMq(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">${element.azienda.nomeAzienda}</td>
-                        <td class="text-center">${element.id}</td>
+<td class="text-center">
+    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+</td>                           <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>

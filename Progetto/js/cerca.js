@@ -189,7 +189,7 @@ function iMieiDatiUtente(dati) {
                         <div class="card-body">
                             <h4 class="text-success">Info verificate ✔</h4>
                             <div class="mb-2">
-                                <strong>Email Verificata:</strong> <span class="text-success">✔</span>
+                                <strong>Email Verificata:</strong> ${dati.username}<span class="text-success">✔</span>
                             </div>
                             <div class="mb-2">
                                 <strong>Numero di Telefono Verificato:</strong> <span class="text-success">✔</span>
