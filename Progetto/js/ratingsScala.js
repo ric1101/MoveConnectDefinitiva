@@ -38,8 +38,28 @@ function remove() {
     }
 }
 
+function tokenizzami() {
 
-function recuperaDatiRecensione() {
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            recuperaDatiRecensione(data.id);
+
+            console.log(data.id);
+
+
+        });
+
+
+}
+tokenizzami();
+
+
+function recuperaDatiRecensione(id) {
 
     let idRel = localStorage.getItem('idRecensione');
 
@@ -47,88 +67,153 @@ function recuperaDatiRecensione() {
         .then((res) => res.json())
         .then((data) => {
 
-            riempiDatiRecensione(data);
+            riempiDatiRecensione(data, id);
             console.log(data);
 
 
         });
 
 }
-recuperaDatiRecensione()
 
 
-function riempiDatiRecensione(dati) {
+function riempiDatiRecensione(dati, id) {
 
 
     idProponente.innerHTML = dati.aziendaProponente.id;
     idAccettata.innerHTML = dati.aziendaRichiedente.id;
     idRec.innerHTML = dati.id;
-    nomeAziendaDaRecensire.innerHTML = dati.aziendaRichiedente.nomeAzienda;
-    nomeAziendaDaRecensireDesc.innerHTML = dati.aziendaRichiedente.nomeAzienda;
+
+    if (id == dati.aziendaAccettata.id) {
+
+        nomeAziendaDaRecensire.innerHTML = dati.aziendaRichiedente.nomeAzienda;
+        nomeAziendaDaRecensireDesc.innerHTML = dati.aziendaRichiedente.nomeAzienda;
+
+    } else if (id == dati.aziendaRichiedente.id) {
+
+        nomeAziendaDaRecensire.innerHTML = dati.aziendaAccettata.nomeAzienda;
+        nomeAziendaDaRecensireDesc.innerHTML = dati.aziendaAccettata.nomeAzienda;
+
+    }
 
 
 }
+
+
 
 let btnInvioRecensione = document.querySelector('.btnInvioRecensione');
 
-class Recensione {
-    constructor(relazioneScalaId, relazioneAziendaRichiedenteScalaId, relazioneAziendaAccettataScalaId, valutazione, commentoAziendaRichiedente, commentoAziendaAccettata) {
-        (this.relazioneScalaId = relazioneScalaId),
-            (this.relazioneAziendaRichiedenteScalaId = relazioneAziendaRichiedenteScalaId),
-            (this.relazioneAziendaAccettataScalaId = relazioneAziendaAccettataScalaId),
-            (this.valutazione = valutazione),
-            (this.commentoAziendaRichiedente = commentoAziendaRichiedente),
-            (this.commentoAziendaAccettata = commentoAziendaAccettata)
-    }
-}
 
-
-function stelleInserite() {
+function recuperaToken() {
 
     event.preventDefault();
 
-    if (controlloStelle.classList.contains('one')) {
-        erroreRec.classList.add('d-none');
-        valutazione = 1;
-        inviaRecensione()
 
-    } else if (controlloStelle.classList.contains('two')) {
-        erroreRec.classList.add('d-none');
-        valutazione = 2;
-        inviaRecensione()
+    let accessToken = localStorage.getItem('accessToken');
 
-    } else if (controlloStelle.classList.contains('three')) {
-        erroreRec.classList.add('d-none');
-        valutazione = 3;
-        inviaRecensione()
 
-    } else if (controlloStelle.classList.contains('four')) {
-        erroreRec.classList.add('d-none');
-        valutazione = 4;
-        inviaRecensione()
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
 
-    } else if (controlloStelle.classList.contains('five')) {
-        erroreRec.classList.add('d-none');
-        valutazione = 5;
-        inviaRecensione()
+            stelleInserite(data.id);
 
-    } else {
+            console.log(data.id);
 
-        erroreRec.classList.remove('d-none');
 
-    }
+        });
+
 
 }
 
 
-function inviaRecensione() {
+
+
+
+function stelleInserite(idAziendaAccesso) {
+
+    console.log('ci entra yes');
+
+
+    let scelta = 0;
+    let idRel = localStorage.getItem('idRecensione');
+
+    fetch(`http://127.0.0.1:8080/api/scala/relazioneScalaPerId/${idRel}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            console.log(data);
+
+            if (idAziendaAccesso == data.aziendaAccettata.id) {
+
+                scelta = 1
+
+
+            } else if (idAziendaAccesso == data.aziendaRichiedente.id) {
+
+                scelta = 2
+
+            }
+
+            if (controlloStelle.classList.contains('one')) {
+                erroreRec.classList.add('d-none');
+                valutazione = 1;
+                inviaRecensione(scelta);
+
+            } else if (controlloStelle.classList.contains('two')) {
+                erroreRec.classList.add('d-none');
+                valutazione = 2;
+                inviaRecensione(scelta);
+
+            } else if (controlloStelle.classList.contains('three')) {
+                erroreRec.classList.add('d-none');
+                valutazione = 3;
+                inviaRecensione(scelta);
+
+            } else if (controlloStelle.classList.contains('four')) {
+                erroreRec.classList.add('d-none');
+                valutazione = 4;
+                inviaRecensione(scelta);
+
+            } else if (controlloStelle.classList.contains('five')) {
+                erroreRec.classList.add('d-none');
+                valutazione = 5;
+                inviaRecensione(scelta);
+
+            } else {
+
+                erroreRec.classList.remove('d-none');
+
+            }
+
+        });
+
+}
+
+
+function inviaRecensione(choose) {
+
+
+    class Recensione {
+        constructor(relazioneScalaId, relazioneAziendaRichiedenteScalaId, relazioneAziendaAccettataScalaId, valutazione, commento) {
+            (this.relazioneScalaId = relazioneScalaId),
+                (this.relazioneAziendaRichiedenteScalaId = relazioneAziendaRichiedenteScalaId),
+                (this.relazioneAziendaAccettataScalaId = relazioneAziendaAccettataScalaId),
+                (this.valutazione = valutazione),
+                (this.commento = commento)
+        }
+    }
 
     console.log(idRec.textContent);
     console.log(idProponente.textContent);
     console.log(idAccettata.textContent);
     console.log(valutazione);
     console.log(commento.value);
-    
+
+
+    let idRecNumber = Number(idRec.textContent)
+    console.log(idRecNumber);
+
+
 
     let newRecensione = new Recensione(
         idRec.textContent,
@@ -141,6 +226,39 @@ function inviaRecensione() {
     );
 
 
+    if (choose == 1) {
+
+
+        fetch(`http://127.0.0.1:8080/api/scala/recensitaRelazioneScalaProponente/${idRecNumber}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+
+            }),
+
+        })
+
+
+
+    } else {
+
+
+        fetch(`http://127.0.0.1:8080/api/scala/recensitaRelazioneScalaRichiedente/${idRecNumber}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+
+            }),
+
+        })
+
+    }
+
+
     fetch(`http://127.0.0.1:8080/api/scala/recensioneScala`, {
         method: "POST",
         headers: {
@@ -150,22 +268,11 @@ function inviaRecensione() {
 
     })
 
-    
-    let idRel = localStorage.getItem('idRecensione');
+    console.log(newRecensione);
 
-    fetch(`http://127.0.0.1:8080/api/scala/recensitaRelazioneImballi/${idRel}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
 
-        }),
-
-    })
 
     window.location.href = 'recensioneInviata.html';
 
-
 }
-btnInvioRecensione.addEventListener('click', stelleInserite);
+btnInvioRecensione.addEventListener('click', recuperaToken);

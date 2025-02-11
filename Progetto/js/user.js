@@ -5935,7 +5935,7 @@ function visualizzaRichiesteDepositoRelazione(deposito) {
                     </tr>`;
 
                     body.innerHTML += visualizzaRichieste;
-                    ascoltoDeposito()
+                    ascoltoDeposito();
 
 
                 } else {
@@ -5950,7 +5950,7 @@ function visualizzaRichiesteDepositoRelazione(deposito) {
                     </tr>`;
 
                     body.innerHTML += visualizzaRichieste;
-                    ascoltoDeposito()
+                    ascoltoDeposito();
 
 
                 }
@@ -5972,7 +5972,7 @@ function visualizzaRichiesteDepositoRelazione(deposito) {
             </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
-                ascoltoDeposito()
+                ascoltoDeposito();
 
             } else {
 
@@ -5985,7 +5985,7 @@ function visualizzaRichiesteDepositoRelazione(deposito) {
                 </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
-                ascoltoDeposito()
+                ascoltoDeposito();
 
 
             }
@@ -7835,7 +7835,7 @@ function visualizzaRichiesteCaricoRelazioneEntrata(carico) {
             } else if (element.statoProponente == 'EVASA' && element.statoProponente != 'RECENSITA') {
 
                 visualizzaRichieste = `<tr>
-                <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+                <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
                 <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
                 <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
                 <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
@@ -7849,7 +7849,7 @@ function visualizzaRichiesteCaricoRelazioneEntrata(carico) {
             } else if (element.stato == 'ANNULLATA' && element.statoProponente != 'RECENSITA') {
 
                 visualizzaRichieste = `<tr>
-                <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+                <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
                 <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
                 <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
                 <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
@@ -7864,7 +7864,7 @@ function visualizzaRichiesteCaricoRelazioneEntrata(carico) {
             } else if (element.statoProponente == 'RECENSITA') {
 
                 visualizzaRichieste = `<tr>
-                    <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+                    <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
                     <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
                     <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
                     <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
@@ -7880,7 +7880,7 @@ function visualizzaRichiesteCaricoRelazioneEntrata(carico) {
 
 
                 visualizzaRichieste = `<tr>
-            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaAccettataDTO.nomeAzienda}</td>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
             <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
             <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
@@ -7993,3 +7993,1157 @@ function recensisciCaricoEntrata(id) {
 
 
 
+/* -------------------------------------------------------------------------- */
+/*                              scala relazione entrata                       */
+/* -------------------------------------------------------------------------- */
+
+
+
+function visualizzaRichiesteScalaRelazioneEntrata(scala) {
+
+    colonnaInfo.innerHTML = '';
+    let visualizzaTabella = '';
+    let visualizzaRichieste = '';
+
+
+    visualizzaTabella = `
+    <div class="card-body destra mb-4" style="background-color: white">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">                        
+
+                            <div class="row rowData">
+                            <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+                                <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Data Fine</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Stato</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Gestisci</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+                                
+
+                        </tbody>
+                    </table>
+                </div>`;
+
+    colonnaInfo.innerHTML = visualizzaTabella;
+
+    let body = document.querySelector('.bodyTabella');
+
+    console.log(scala);
+
+    if (scala == 0) {
+
+        body.innerHTML = nessunaCorrispondenzaRelazione;
+
+    } else {
+
+        scala.forEach(element => {
+
+            if (element.stato == 'IN CORSO') {
+
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteScalaElevatoreProposta.html" class="linkScala" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneScalaEntrata(${element.id}, ${element.consegnaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a></td>
+            </tr>`;
+
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoScala();
+
+
+            } else if (element.statoProponente == 'EVASA' && element.statoProponente != 'RECENSITA') {
+
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteScalaElevatoreProposta.html" class="linkScala" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciScalaEntrata(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
+                </td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoScala();
+
+            } else if (element.stato == 'ANNULLATA' && element.statoProponente != 'RECENSITA') {
+
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteScalaElevatoreProposta.html" class="linkScala" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciScalaEntrata(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
+                </td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoScala();
+
+
+            } else if (element.statoProponente == 'RECENSITA') {
+
+                visualizzaRichieste = `<tr>
+                    <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+                    <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteScalaElevatoreProposta.html" class="linkScala" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                    <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
+                    </tr>`;
+
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoScala();
+
+
+            } else {
+
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteScalaElevatoreProposta.html" class="linkScala" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
+            </tr>`;
+
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoScala();
+
+            }
+
+        });
+
+    }
+
+}
+
+
+async function fetchScalaRelazioneEntrata() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            recuperaRelazioneScalaEntrata(data.id);
+
+            console.log(data.id);
+
+
+        });
+
+}
+
+
+
+async function evadiRelazioneScalaEntrata(id, richiestaId) {
+
+
+    await fetch(`http://127.0.0.1:8080/api/scala/completatoRelazioneScalaRichiedente/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+    })
+
+
+    await fetch(`http://127.0.0.1:8080/api/scalaElevatore/modificaScalaIdEvasa/${richiestaId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({})
+
+    })
+
+    await fetch(`http://127.0.0.1:8080/api/scala/evasaRelazioneScalaProponente/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+
+    })
+
+
+    recensisciScalaEntrata(id);
+
+}
+
+
+function recuperaRelazioneScalaEntrata(id) {
+
+
+    fetch(`http://127.0.0.1:8080/api/scala/byAziendaRelazioneScalaInUscita?propostaAccettataScalaId=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiesteScalaRelazioneEntrata(data);
+
+
+        });
+
+}
+
+
+
+if (richiesteScalaElevatoreRelazioneEntrata) {
+
+    richiesteScalaElevatoreRelazioneEntrata.addEventListener('click', fetchScalaRelazioneEntrata);
+}
+
+
+
+function recensisciScalaEntrata(id) {
+
+
+    let idRecensione = id;
+    localStorage.setItem('idRecensione', idRecensione);
+
+    window.location.href = 'recensioneScala.html';
+
+}
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                              deposito relazione entrata                    */
+/* -------------------------------------------------------------------------- */
+
+
+
+function visualizzaRichiesteDepositoRelazioneEntrata(deposito) {
+
+    colonnaInfo.innerHTML = '';
+    let visualizzaTabella = '';
+    let visualizzaRichieste = '';
+
+
+    visualizzaTabella = `
+    <div class="card-body destra mb-4" style="background-color: white">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">                        
+
+                            <div class="row rowData">
+                            <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+                                <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Data Fine</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Stato</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Gestisci</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+                                
+
+                        </tbody>
+                    </table>
+                </div>`;
+
+    colonnaInfo.innerHTML = visualizzaTabella;
+
+    let body = document.querySelector('.bodyTabella');
+
+    console.log(deposito);
+
+    if (deposito == 0) {
+
+        body.innerHTML = nessunaCorrispondenzaRelazione;
+
+    } else {
+
+        deposito.forEach(element => {
+
+            if (element.stato == 'IN CORSO') {
+
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneDepositoEntrata(${element.id}, ${element.consegnaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a></td>
+            </tr>`;
+
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoDeposito();
+
+
+            } else if (element.statoProponente == 'EVASA' && element.statoProponente != 'RECENSITA') {
+
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciDepositoEntrata(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
+                </td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoDeposito();
+
+            } else if (element.stato == 'ANNULLATA' && element.statoProponente != 'RECENSITA') {
+
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciDepositoEntrata(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
+                </td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoDeposito();
+
+
+            } else if (element.statoProponente == 'RECENSITA') {
+
+                visualizzaRichieste = `<tr>
+                    <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+                    <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                    <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
+                    </tr>`;
+
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoDeposito();
+
+
+            } else {
+
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
+            </tr>`;
+
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoDeposito();
+
+            }
+
+        });
+
+    }
+
+}
+
+
+async function fetchDepositoRelazioneEntrata() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            recuperaRelazioneDepositoEntrata(data.id);
+
+            console.log(data.id);
+
+
+        });
+
+}
+
+
+
+async function evadiRelazioneDepositoEntrata(id, richiestaId) {
+
+
+    await fetch(`http://127.0.0.1:8080/api/propostaMagazzino/completatoRelazioneMagazzinoRichiedente/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+    })
+
+
+    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/modificaMagazzinoIdEvasa/${richiestaId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({})
+
+    })
+
+    await fetch(`http://127.0.0.1:8080/api/propostaMagazzino/evasaRelazioneMagazzinoProponente/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+
+    })
+
+
+
+    recensisciDepositoEntrata(id);
+
+}
+
+
+function recuperaRelazioneDepositoEntrata(id) {
+
+
+    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/relazioniPerId?propostaAccettataIdMagazzino=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiesteDepositoRelazioneEntrata(data);
+
+
+        });
+
+}
+
+
+
+if (richiesteDepositoMagazzinoRelazioneEntrata) {
+
+    richiesteDepositoMagazzinoRelazioneEntrata.addEventListener('click', fetchDepositoRelazioneEntrata);
+}
+
+
+
+function recensisciDepositoEntrata(id) {
+
+
+    let idRecensione = id;
+    localStorage.setItem('idRecensione', idRecensione);
+
+    window.location.href = 'recensioneDeposito.html';
+
+}
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                              tratta relazione entrata                      */
+/* -------------------------------------------------------------------------- */
+
+
+
+function visualizzaRichiesteTratteRelazioneEntrata(tratta) {
+
+    colonnaInfo.innerHTML = '';
+    let visualizzaTabella = '';
+    let visualizzaRichieste = '';
+
+
+    visualizzaTabella = `
+    <div class="card-body destra mb-4" style="background-color: white">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">                        
+
+                            <div class="row rowData">
+                            <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+                                <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Arrivo</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Stato</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Gestisci</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+                                
+
+                        </tbody>
+                    </table>
+                </div>`;
+
+    colonnaInfo.innerHTML = visualizzaTabella;
+
+    let body = document.querySelector('.bodyTabella');
+
+    console.log(tratta);
+
+    if (tratta == 0) {
+
+        body.innerHTML = nessunaCorrispondenzaRelazione;
+
+    } else {
+
+        tratta.forEach(element => {
+
+            if (element.stato == 'IN CORSO') {
+
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteTratteProposta.html" class="linkTratte" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.arrivo}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneTratteEntrata(${element.id}, ${element.consegnaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a></td>
+            </tr>`;
+
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoTratte();
+
+
+            } else if (element.statoProponente == 'EVASA' && element.statoProponente != 'RECENSITA') {
+
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteTratteProposta.html" class="linkTratte" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.arrivo}</td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciTratteEntrata(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
+                </td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoTratte();
+
+            } else if (element.stato == 'ANNULLATA' && element.statoProponente != 'RECENSITA') {
+
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteTratteProposta.html" class="linkTratte" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.arrivo}</td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciTratteEntrata(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
+                </td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoTratte();
+
+
+            } else if (element.statoProponente == 'RECENSITA') {
+
+                visualizzaRichieste = `<tr>
+                    <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+                    <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteTratteProposta.html" class="linkTratte" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.arrivo}</td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                    <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
+                    </tr>`;
+
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoTratte();
+
+
+            } else {
+
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteTratteProposta.html" class="linkTratte" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.arrivo}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
+            </tr>`;
+
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoTratte();
+
+            }
+
+        });
+
+    }
+
+}
+
+
+async function fetchTratteRelazioneEntrata() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            recuperaRelazioneTratteEntrata(data.id);
+
+            console.log(data.id);
+
+
+        });
+
+}
+
+
+
+async function evadiRelazioneTratteEntrata(id, richiestaId) {
+
+
+    await fetch(`http://127.0.0.1:8080/api/trattazza/completatoRelazioneTrattaRichiedente/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+    })
+
+
+    await fetch(`http://127.0.0.1:8080/api/tratta/modificaTrattaIdEvasa/${richiestaId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({})
+
+    })
+
+    await fetch(`http://127.0.0.1:8080/api/trattazza/evasaRelazioneTrattaProponente/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+
+    })
+
+
+
+    recensisciTratteEntrata(id);
+
+}
+
+
+function recuperaRelazioneTratteEntrata(id) {
+
+
+    fetch(`http://127.0.0.1:8080/api/trattazza/byAziendaRelazioneTrattaInUscita?propostaAccettataIdTratta=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiesteTratteRelazioneEntrata(data);
+
+
+        });
+
+}
+
+
+
+if (richiesteTrattaRelazioneEntrata) {
+
+    richiesteTrattaRelazioneEntrata.addEventListener('click', fetchTratteRelazioneEntrata);
+}
+
+
+
+function recensisciTratteEntrata(id) {
+
+
+    let idRecensione = id;
+    localStorage.setItem('idRecensione', idRecensione);
+
+    window.location.href = 'recensioneTratte.html';
+
+}
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                              personale relazione entrata                   */
+/* -------------------------------------------------------------------------- */
+
+
+
+function visualizzaRichiestePersonaleRelazioneEntrata(personale) {
+
+    colonnaInfo.innerHTML = '';
+    let visualizzaTabella = '';
+    let visualizzaRichieste = '';
+
+
+    visualizzaTabella = `
+    <div class="card-body destra mb-4" style="background-color: white">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">                        
+
+                            <div class="row rowData">
+                            <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+                                <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Consegna</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Stato</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Gestisci</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+                                
+
+                        </tbody>
+                    </table>
+                </div>`;
+
+    colonnaInfo.innerHTML = visualizzaTabella;
+
+    let body = document.querySelector('.bodyTabella');
+
+    console.log(personale);
+
+    if (personale == 0) {
+
+        body.innerHTML = nessunaCorrispondenzaRelazione;
+
+    } else {
+
+        personale.forEach(element => {
+
+            if (element.stato == 'IN CORSO') {
+
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazionePersonaleEntrata(${element.id}, ${element.consegnaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a></td>
+            </tr>`;
+
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoPersonale();
+
+
+            } else if (element.statoProponente == 'EVASA' && element.statoProponente != 'RECENSITA') {
+
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciPersonaleEntrata(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
+                </td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoPersonale();
+
+            } else if (element.stato == 'ANNULLATA' && element.statoProponente != 'RECENSITA') {
+
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciPersonaleEntrata(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
+                </td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoPersonale();
+
+
+            } else if (element.statoProponente == 'RECENSITA') {
+
+                visualizzaRichieste = `<tr>
+                    <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+                    <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                    <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
+                    </tr>`;
+
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoPersonale();
+
+
+            } else {
+
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
+            </tr>`;
+
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoPersonale();
+
+            }
+
+        });
+
+    }
+
+}
+
+
+async function fetchPersonaleRelazioneEntrata() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            recuperaRelazionePersonaleEntrata(data.id);
+
+            console.log(data.id);
+
+
+        });
+
+}
+
+
+
+async function evadiRelazionePersonaleEntrata(id, richiestaId) {
+
+
+    await fetch(`http://127.0.0.1:8080/api/personale/completatoRelazionePersonaleRichiedente/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+    })
+
+
+    await fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/modificapersonaleIdEvasa/${richiestaId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({})
+
+    })
+
+    await fetch(`http://127.0.0.1:8080/api/personale/evasaRelazionePersonaleProponente/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+
+    })
+
+
+
+    recensisciPersonaleEntrata(id);
+
+}
+
+
+function recuperaRelazionePersonaleEntrata(id) {
+
+
+    fetch(`http://127.0.0.1:8080/api/personale/byAziendaRelazioneUscita?propostaAccettataPersonaleId=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiestePersonaleRelazioneEntrata(data);
+
+
+        });
+
+}
+
+
+
+if (richiestePersonaleSpecRelazioneEntrata) {
+
+    richiestePersonaleSpecRelazioneEntrata.addEventListener('click', fetchPersonaleRelazioneEntrata);
+}
+
+
+
+function recensisciPersonaleEntrata(id) {
+
+
+    let idRecensione = id;
+    localStorage.setItem('idRecensione', idRecensione);
+
+    window.location.href = 'recensionePersonale.html';
+
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                              imballi relazione entrata                     */
+/* -------------------------------------------------------------------------- */
+
+
+
+function visualizzaRichiesteCaricoRelazioneEntrata(carico) {
+
+    colonnaInfo.innerHTML = '';
+    let visualizzaTabella = '';
+    let visualizzaRichieste = '';
+
+
+    visualizzaTabella = `
+    <div class="card-body destra mb-4" style="background-color: white">
+        <div class="row rowRichieste">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12">                        
+
+                            <div class="row rowData">
+                            <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+                                <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Scarico</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Stato</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Gestisci</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+                                
+
+                        </tbody>
+                    </table>
+                </div>`;
+
+    colonnaInfo.innerHTML = visualizzaTabella;
+
+    let body = document.querySelector('.bodyTabella');
+
+    console.log(carico);
+
+    if (carico == 0) {
+
+        body.innerHTML = nessunaCorrispondenzaRelazione;
+
+    } else {
+
+        carico.forEach(element => {
+
+            if (element.stato == 'IN CORSO') {
+
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneCaricoEntrata(${element.id}, ${element.consegnaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a></td>
+            </tr>`;
+
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoCarico();
+
+
+            } else if (element.statoProponente == 'EVASA' && element.statoProponente != 'RECENSITA') {
+
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciCarico(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
+                </td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoCarico();
+
+            } else if (element.stato == 'ANNULLATA' && element.statoProponente != 'RECENSITA') {
+
+                visualizzaRichieste = `<tr>
+                <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciCarico(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
+                </td>
+                </tr>`;
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoCarico();
+
+
+            } else if (element.statoProponente == 'RECENSITA') {
+
+                visualizzaRichieste = `<tr>
+                    <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+                    <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+                    <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
+                    </tr>`;
+
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoCarico();
+
+
+            } else {
+
+
+                visualizzaRichieste = `<tr>
+            <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
+            </tr>`;
+
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoCarico();
+
+            }
+
+        });
+
+    }
+
+}
+
+
+async function fetchCaricoRelazioneEntrata() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            recuperaRelazioneCaricoEntrata(data.id);
+
+            console.log(data.id);
+
+
+        });
+
+}
+
+
+
+async function evadiRelazioneCaricoEntrata(id, richiestaId) {
+
+
+    await fetch(`http://127.0.0.1:8080/api/trasporto/completatoRelazioneTrasportoRichiedente/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+    })
+
+
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/modificapTrasportoIdEvasa/${richiestaId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({})
+
+    })
+
+    await fetch(`http://127.0.0.1:8080/api/trasporto/evasaRelazioneTrasportoProponente/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id)
+
+    })
+
+
+
+    recensisciCaricoEntrata(id);
+
+}
+
+
+function recuperaRelazioneCaricoEntrata(id) {
+
+
+    fetch(`http://127.0.0.1:8080/api/trasporto/byAziendaRelazioneInUscita?propostaAccettataTrasportoId=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            visualizzaRichiesteCaricoRelazioneEntrata(data);
+
+
+        });
+
+}
+
+
+
+if (richiesteTrasportoRelazioneEntrata) {
+
+    richiesteTrasportoRelazioneEntrata.addEventListener('click', fetchCaricoRelazioneEntrata);
+}
+
+
+
+function recensisciCaricoEntrata(id) {
+
+
+    let idRecensione = id;
+    localStorage.setItem('idRecensione', idRecensione);
+
+    window.location.href = 'recensioneCarico.html';
+
+}

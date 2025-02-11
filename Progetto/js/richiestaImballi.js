@@ -119,7 +119,7 @@ function inviaRichiesta(dati) {
 
     })
 
-    // window.location.href = 'inviataConSuccessoImballi.html';
+    window.location.href = 'inviataConSuccessoImballi.html';
 
 
 }
