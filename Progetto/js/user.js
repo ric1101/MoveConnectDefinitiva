@@ -8283,10 +8283,10 @@ function visualizzaRichiesteDepositoRelazioneEntrata(deposito) {
 
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
-            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.magazzinoDTO.id}"> ${element.magazzinoDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.magazzinoDTO.dataFine}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneDepositoEntrata(${element.id}, ${element.consegnaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a></td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneDepositoEntrata(${element.id}, ${element.magazzinoDTO.id})">Evadi <i class="fa-solid fa-check"></i></a></td>
             </tr>`;
 
 
@@ -8298,8 +8298,8 @@ function visualizzaRichiesteDepositoRelazioneEntrata(deposito) {
 
                 visualizzaRichieste = `<tr>
                 <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
-                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
+                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.magazzinoDTO.id}"> ${element.magazzinoDTO.id}</a></td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.magazzinoDTO.dataFine}</td>
                 <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
                 <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciDepositoEntrata(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
                 </td>
@@ -8312,8 +8312,8 @@ function visualizzaRichiesteDepositoRelazioneEntrata(deposito) {
 
                 visualizzaRichieste = `<tr>
                 <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
-                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
+                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.magazzinoDTO.id}"> ${element.magazzinoDTO.id}</a></td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.magazzinoDTO.dataFine}</td>
                 <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
                 <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciDepositoEntrata(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
                 </td>
@@ -8327,8 +8327,8 @@ function visualizzaRichiesteDepositoRelazioneEntrata(deposito) {
 
                 visualizzaRichieste = `<tr>
                     <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
-                    <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-                    <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
+                    <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.magazzinoDTO.id}"> ${element.magazzinoDTO.id}</a></td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.magazzinoDTO.dataFine}</td>
                     <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
                     <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
                     </tr>`;
@@ -8343,8 +8343,8 @@ function visualizzaRichiesteDepositoRelazioneEntrata(deposito) {
 
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
-            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.dataFine}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteDepositoProposta.html" class="linkDeposito" data-evento-id="${element.magazzinoDTO.id}"> ${element.magazzinoDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.magazzinoDTO.dataFine}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
             <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
             </tr>`;
@@ -8747,10 +8747,10 @@ function visualizzaRichiestePersonaleRelazioneEntrata(personale) {
 
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
-            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.personaleDTO.id}"> ${element.personaleDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.personaleDTO.consegna}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazionePersonaleEntrata(${element.id}, ${element.consegnaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a></td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazionePersonaleEntrata(${element.id}, ${element.personaleDTO.id})">Evadi <i class="fa-solid fa-check"></i></a></td>
             </tr>`;
 
 
@@ -8762,8 +8762,8 @@ function visualizzaRichiestePersonaleRelazioneEntrata(personale) {
 
                 visualizzaRichieste = `<tr>
                 <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
-                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
+                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.personaleDTO.id}"> ${element.personaleDTO.id}</a></td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.personaleDTO.consegna}</td>
                 <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
                 <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciPersonaleEntrata(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
                 </td>
@@ -8776,8 +8776,8 @@ function visualizzaRichiestePersonaleRelazioneEntrata(personale) {
 
                 visualizzaRichieste = `<tr>
                 <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
-                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
+                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.personaleDTO.id}"> ${element.personaleDTO.id}</a></td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.personaleDTO.consegna}</td>
                 <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
                 <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciPersonaleEntrata(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
                 </td>
@@ -8791,8 +8791,8 @@ function visualizzaRichiestePersonaleRelazioneEntrata(personale) {
 
                 visualizzaRichieste = `<tr>
                     <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
-                    <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-                    <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
+                    <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.personaleDTO.id}"> ${element.personaleDTO.id}</a></td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.personaleDTO.consegna}</td>
                     <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
                     <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
                     </tr>`;
@@ -8807,8 +8807,8 @@ function visualizzaRichiestePersonaleRelazioneEntrata(personale) {
 
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
-            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestePersonaleProposta.html" class="linkPersonale" data-evento-id="${element.personaleDTO.id}"> ${element.personaleDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.personaleDTO.consegna}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
             <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
             </tr>`;
