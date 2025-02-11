@@ -8925,7 +8925,7 @@ function recensisciPersonaleEntrata(id) {
 
 
 
-function visualizzaRichiesteCaricoRelazioneEntrata(carico) {
+function visualizzaRichiesteImballiRelazioneEntrata(imballi) {
 
     colonnaInfo.innerHTML = '';
     let visualizzaTabella = '';
@@ -8947,7 +8947,7 @@ function visualizzaRichiesteCaricoRelazioneEntrata(carico) {
                             <tr class="ligth ligth-data">
                                 <th class="text-center" style="vertical-align: middle !important;">Azienda Richiedente</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Richiesta numero #ID</th>
-                                <th class="text-center" style="vertical-align: middle !important;">Scarico</th>
+                                <th class="text-center" style="vertical-align: middle !important;">Consegna</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Stato</th>
                                 <th class="text-center" style="vertical-align: middle !important;">Gestisci</th>
                             </tr>
@@ -8963,74 +8963,74 @@ function visualizzaRichiesteCaricoRelazioneEntrata(carico) {
 
     let body = document.querySelector('.bodyTabella');
 
-    console.log(carico);
+    console.log(imballi);
 
-    if (carico == 0) {
+    if (imballi == 0) {
 
         body.innerHTML = nessunaCorrispondenzaRelazione;
 
     } else {
 
-        carico.forEach(element => {
+        imballi.forEach(element => {
 
             if (element.stato == 'IN CORSO') {
 
 
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
-            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneCaricoEntrata(${element.id}, ${element.consegnaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a></td>
+            <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-success px-1 bottoniEvadi" style="margin-bottom:5px;" data-id-evadi="${element.id}" onclick="evadiRelazioneImballiEntrata(${element.id}, ${element.consegnaDTO.id})">Evadi <i class="fa-solid fa-check"></i></a></td>
             </tr>`;
 
 
                 body.innerHTML += visualizzaRichieste;
-                ascoltoCarico();
+                ascoltoImballi();
 
 
             } else if (element.statoProponente == 'EVASA' && element.statoProponente != 'RECENSITA') {
 
                 visualizzaRichieste = `<tr>
                 <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
-                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
+                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
                 <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-                <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciCarico(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
+                <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciImballiEntrata(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
                 </td>
                 </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
-                ascoltoCarico();
+                ascoltoImballi();
 
             } else if (element.stato == 'ANNULLATA' && element.statoProponente != 'RECENSITA') {
 
                 visualizzaRichieste = `<tr>
                 <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
-                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
+                <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
                 <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
-                <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciCarico(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
+                <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"><a class="btn btn-dark px-1 btnRecensisci" data-id-rec="${element.id}" onclick="recensisciImballiEntrata(${element.id})">Recensisci <i class="fa-solid fa-star"></i></a>
                 </td>
                 </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
-                ascoltoCarico();
+                ascoltoImballi();
 
 
             } else if (element.statoProponente == 'RECENSITA') {
 
                 visualizzaRichieste = `<tr>
                     <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
-                    <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-                    <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
+                    <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+                    <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
                     <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
                     <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
                     </tr>`;
 
 
                 body.innerHTML += visualizzaRichieste;
-                ascoltoCarico();
+                ascoltoImballi();
 
 
             } else {
@@ -9038,15 +9038,15 @@ function visualizzaRichiesteCaricoRelazioneEntrata(carico) {
 
                 visualizzaRichieste = `<tr>
             <td class="text-center nomeAz" style="vertical-align: middle !important;">${element.aziendaDTO.nomeAzienda}</td>
-            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiestaTrasportoProposta.html" class="linkCarico" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
-            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.scarico}</td>
+            <td class="text-center" style="vertical-align: middle !important;"><a href="./infoRichiesteImballiProposta.html" class="linkImballi" data-evento-id="${element.consegnaDTO.id}"> ${element.consegnaDTO.id}</a></td>
+            <td class="text-center" style="vertical-align: middle !important;">${element.consegnaDTO.consegna}</td>
             <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
             <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
             </tr>`;
 
 
                 body.innerHTML += visualizzaRichieste;
-                ascoltoCarico();
+                ascoltoImballi();
 
             }
 
@@ -9057,7 +9057,7 @@ function visualizzaRichiesteCaricoRelazioneEntrata(carico) {
 }
 
 
-async function fetchCaricoRelazioneEntrata() {
+async function fetchImballiRelazioneEntrata() {
 
 
     let accessToken = localStorage.getItem('accessToken');
@@ -9067,7 +9067,7 @@ async function fetchCaricoRelazioneEntrata() {
         .then((res) => res.json())
         .then((data) => {
 
-            recuperaRelazioneCaricoEntrata(data.id);
+            recuperaRelazioneImballiEntrata(data.id);
 
             console.log(data.id);
 
@@ -9078,10 +9078,10 @@ async function fetchCaricoRelazioneEntrata() {
 
 
 
-async function evadiRelazioneCaricoEntrata(id, richiestaId) {
+async function evadiRelazioneImballiEntrata(id, richiestaId) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/trasporto/completatoRelazioneTrasportoRichiedente/${id}`, {
+    await fetch(`http://127.0.0.1:8080/api/propostaImballi/completatoRelazioneImballiRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -9090,7 +9090,7 @@ async function evadiRelazioneCaricoEntrata(id, richiestaId) {
     })
 
 
-    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/modificapTrasportoIdEvasa/${richiestaId}`, {
+    await fetch(`http://127.0.0.1:8080/api/consegnaImballi/modificaImballiIdEvasa/${richiestaId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -9099,7 +9099,7 @@ async function evadiRelazioneCaricoEntrata(id, richiestaId) {
 
     })
 
-    await fetch(`http://127.0.0.1:8080/api/trasporto/evasaRelazioneTrasportoProponente/${id}`, {
+    await fetch(`http://127.0.0.1:8080/api/propostaImballi/evasaRelazioneImballiProponente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -9110,19 +9110,19 @@ async function evadiRelazioneCaricoEntrata(id, richiestaId) {
 
 
 
-    recensisciCaricoEntrata(id);
+    recensisciImballiEntrata(id);
 
 }
 
 
-function recuperaRelazioneCaricoEntrata(id) {
+function recuperaRelazioneImballiEntrata(id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/trasporto/byAziendaRelazioneInUscita?propostaAccettataTrasportoId=${id}`)
+    fetch(`http://127.0.0.1:8080/api/propostaImballi/relazioniPerId?propostaAccettataId=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
-            visualizzaRichiesteCaricoRelazioneEntrata(data);
+            visualizzaRichiesteImballiRelazioneEntrata(data);
 
 
         });
@@ -9131,19 +9131,19 @@ function recuperaRelazioneCaricoEntrata(id) {
 
 
 
-if (richiesteTrasportoRelazioneEntrata) {
+if (richiesteConsegnaImballiRelazioneEntrata) {
 
-    richiesteTrasportoRelazioneEntrata.addEventListener('click', fetchCaricoRelazioneEntrata);
+    richiesteConsegnaImballiRelazioneEntrata.addEventListener('click', fetchImballiRelazioneEntrata);
 }
 
 
 
-function recensisciCaricoEntrata(id) {
+function recensisciImballiEntrata(id) {
 
 
     let idRecensione = id;
     localStorage.setItem('idRecensione', idRecensione);
 
-    window.location.href = 'recensioneCarico.html';
+    window.location.href = 'recensioneImballi.html';
 
 }
