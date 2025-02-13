@@ -109,7 +109,7 @@ function elevatore(dati, id) {
                         let tabella = `<tr>
                         
                         <td class="text-center">
-    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+    <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
 </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
@@ -381,7 +381,7 @@ function elevatoreFiltroSoloRegione(dati, id) {
                         let tabella = `<tr>
                         
                         <td class="text-center">
-    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+    <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
 </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
@@ -572,7 +572,7 @@ function elevatoreFiltroScala(dati, id) {
                         let tabella = `<tr>
                         
                         <td class="text-center">
-    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+    <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
 </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
@@ -743,7 +743,7 @@ function elevatoreFiltroRegioniScala(dati, id) {
                         let tabella = `<tr>
                         
                         <td class="text-center">
-    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+    <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
 </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
@@ -936,7 +936,7 @@ function elevatoreFiltroPeso(dati, id) {
                         let tabella = `<tr>
                         
                         <td class="text-center">
-    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+    <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
 </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
@@ -1097,7 +1097,7 @@ function elevatoreFiltroRegioniPeso(dati, id) {
                         let tabella = `<tr>
                         
                         <td class="text-center">
-    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+    <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
 </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
@@ -1258,7 +1258,7 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
                         let tabella = `<tr>
                         
                         <td class="text-center">
-    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+    <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
 </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
@@ -1419,7 +1419,7 @@ function elevatoreFiltroScalaPeso(dati, id) {
                         let tabella = `<tr>
                         
                         <td class="text-center">
-    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
+    <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
 </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>

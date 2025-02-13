@@ -31,134 +31,14 @@
 
     <div class="containerLista row d-flex flex-row align-items-start">
 
-        <div class="row d-flex">
-            <div class="col-xl-2 d-flex">
-                <h4 class="mb-2 scrittaFiltri">Filtri <i class="bi bi-filter"></i></h4>
 
-                <button class="btn btn-danger bottoneReset mb-2">Reset</button>
-            </div>
-        </div>
-
-        <div class="col-lg-2 col-12 card">
-            <div class="row d-flex justify-content-center">
-                <div class="row p-0">
-                    <div class="col-lg-9 col-11 pt-4">
-                        <a class="text-black regLink" data-bs-toggle="collapse" href="#collapseExample" role=""
-                            aria-expanded="false" aria-controls="collapseExample">
-                            <h6 class="m-0">Regione </h6>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-1 d-flex justify-content-center"
-                        style="padding-top: 10px; font-size: 30px;">
-                        <a class="text-black regLink collassaRegioni" data-bs-toggle="collapse" href="#collapseExample"
-                            role="" aria-expanded="false" aria-controls="collapseExample"><i
-                                class="fa-solid fa-plus simboloReg"></i></a>
-                    </div>
-
-                </div>
-
-                <div class="collapse regCol" id="collapseExample">
-
-                    <div class="row">
-                        <form>
-                            <label><input type="radio" class="regioniPersonale" name="regione" value="Abruzzo">
-                                Abruzzo</label><br>
-                            <label><input type="radio" class="regioniPersonale" name="regione" value="Basilicata">
-                                Basilicata</label><br>
-                            <label><input type="radio" class="regioniPersonale" name="regione" value="Calabria">
-                                Calabria</label><br>
-                            <label><input type="radio" class="regioniPersonale" name="regione" value="Campania">
-                                Campania</label><br>
-                            <label><input type="radio" class="regioniPersonale" name="regione" value="Emilia-Romagna">
-                                Emilia</label><br>
-                            <label><input type="radio" class="regioniPersonale" name="regione"
-                                    value="Friuli-Venezia Giulia"> Friuli</label><br>
-                            <label><input type="radio" class="regioniPersonale" name="regione" value="Lazio">
-                                Lazio</label><br>
-                            <label><input type="radio" class="regioniPersonale" name="regione" value="Liguria">
-                                Liguria</label><br>
-                            <label><input type="radio" class="regioniPersonale" name="regione" value="Lombardia">
-                                Lombardia</label><br>
-                            <label><input type="radio" class="regioniPersonale" name="regione" value="Marche">
-                                Marche</label><br>
-                            <label><input type="radio" class="regioniPersonale" name="regione" value="Molise">
-                                Molise</label><br>
-                            <label><input type="radio" class="regioniPersonale" name="regione" value="Piemonte">
-                                Piemonte</label><br>
-                            <label><input type="radio" class="regioniPersonale" name="regione" value="Puglia">
-                                Puglia</label><br>
-                            <label><input type="radio" class="regioniPersonale" name="regione" value="Sardegna">
-                                Sardegna</label><br>
-                            <label><input type="radio" class="regioniPersonale" name="regione" value="Sicilia">
-                                Sicilia</label><br>
-                            <label><input type="radio" class="regioniPersonale" name="regione" value="Toscana">
-                                Toscana</label><br>
-                            <label><input type="radio" class="regioniPersonale" name="regione"
-                                    value="Trentino-Alto Adige">
-                                Trentino</label><br>
-                            <label><input type="radio" class="regioniPersonale" name="regione" value="Umbria">
-                                Umbria</label><br>
-                            <label><input type="radio" class="regioniPersonale" name="regione" value="Valle d'Aosta">
-                                Valle
-                                d'Aosta</label><br>
-                            <label><input type="radio" class="regioniPersonale" name="regione" value="Veneto">
-                                Veneto</label><br>
-                        </form>
-
-                    </div>
-                </div>
-
-
-
-                <div class="row p-0">
-                    <div class="col-lg-9 col-11 pt-4">
-                        <a class="text-black personaleLink" data-bs-toggle="collapse" href="#collapseExample1" role=""
-                            aria-expanded="false" aria-controls="collapseExample">
-                            <h6 class="m-0">Personale </h6>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-1 d-flex justify-content-center"
-                        style="padding-top: 10px; font-size: 30px;">
-                        <a class="text-black personaleLink collassaPersonale" data-bs-toggle="collapse"
-                            href="#collapseExample1" role="" aria-expanded="false" aria-controls="collapseExample"><i
-                                class="fa-solid fa-plus simboloPersonale"></i></a>
-                    </div>
-
-                </div>
-
-                <div class="collapse personaleCol" id="collapseExample1">
-                    <div class="row">
-                        <form class="mb-3">
-
-                            <label><input type="checkbox" class="personale2 tipoPersonale" name="personale" value="0">
-                                Autista</label><br>
-                            <label><input type="checkbox" class="personale4 tipoPersonale" name="personale" value="0">
-                                Falegname</label><br>
-                            <label><input type="checkbox" class="personale3 tipoPersonale" name="personale" value="0">
-                                Montatore</label><br>
-                            <label><input type="checkbox" class="personale1 tipoPersonale" name="personale" value="0">
-                                Operatore</label><br>
-
-
-                        </form>
-
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-
-
-
-        <div class="col-lg-10 col-12 px-4 visualTable">
+        <div class="col-lg-12 col-12 px-4 visualTable">
             <div>
                 <div class="table-responsive tabellozza">
                     <table class="data-table table mb-0 tbl-server-info" style="border: solid 1px;">
                         <thead class="text-uppercase">
                             <tr class="ligth ligth-data">
 
-                                <th class="text-center">Azienda</th>
                                 <th class="text-center">#ID</th>
                                 <th class="text-center">Regione</th>
                                 <th class="text-center">Provincia</th>
@@ -169,6 +49,7 @@
                             </tr>
                         </thead>
                         <tbody class="bodyTabella">
+                            <h1>Richieste Personale Specializzato <span class="nomeAziendaInterna"></span></h1>
 
 
                         </tbody>
