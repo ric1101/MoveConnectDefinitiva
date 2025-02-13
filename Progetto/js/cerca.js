@@ -25,11 +25,11 @@ function tokenizzami() {
 
 async function cercaAzienda(nomeAziendaNostra) {
     let nomeAzienda = document.getElementById("searchInput").value;
-    
+
     let v = true;
-    
-    
-    if (nomeAzienda.length < 2) { 
+
+
+    if (nomeAzienda.length < 2) {
         document.getElementById("ricerca").innerHTML = "";
         return;
     }
@@ -37,37 +37,37 @@ async function cercaAzienda(nomeAziendaNostra) {
     try {
         let response = await fetch(`http://localhost:8080/api/azienda/search?nomeAzienda=${encodeURIComponent(nomeAzienda)}`);
         let aziende = await response.json();
-        
+
         let resultsList = document.getElementById("ricerca");
         resultsList.innerHTML = "";
 
         aziende.forEach(azienda => {
             console.log(azienda.nomeAzienda);
             console.log(nomeAziendaNostra);
-            if(azienda.nomeAzienda === nomeAziendaNostra){
+            if (azienda.nomeAzienda === nomeAziendaNostra) {
                 v = false;
-            }else{
-                v=true;
+            } else {
+                v = true;
             }
-            if(v){
+            if (v) {
                 let li = document.createElement("li");
                 let link = document.createElement("a");
-                
+
                 link.textContent = azienda.nomeAzienda;
                 link.href = `paginaUtente.html?nomeAzienda=${azienda.nomeAzienda}`; // Passa l'ID nell'URL
                 link.style.textDecoration = "none";
                 link.style.color = "#FAAD06";
-                
+
                 li.appendChild(link);
                 resultsList.appendChild(li);
             }
-            });
-            
-        } catch (error) {
-            console.error("Errore nella ricerca:", error);
-        }
+        });
+
+    } catch (error) {
+        console.error("Errore nella ricerca:", error);
     }
-    
+}
+
 /* -------------------------------------------------------------------------- */
 /*         Recupera automaticamente i dati dell'azienda all'avvio            */
 /* -------------------------------------------------------------------------- */
@@ -80,28 +80,48 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((res) => res.json())
         .then((data) => {
 
-          
+            
+
             setParam(data.nomeAzienda);
             console.log(data.id);
 
 
         });
 
-  
+
 });
 
 /* -------------------------------------------------------------------------- */
 /*                 Recupera e mostra i dati dell'azienda cercata              */
 /* -------------------------------------------------------------------------- */
-function setParam(nomeAziendaDue){
+function setParam(nomeAziendaDue) {
+    console.log('ii');
+    
     let params = new URLSearchParams(window.location.search);
     let nomeAzienda = params.get("nomeAzienda");
-    
-    if (nomeAzienda === nomeAziendaDue) {
-        window.location.href = "pagina404.html";
-    }else{
 
-        loadAziendaByNome(nomeAzienda); // Carica i dati dell'azienda
+    let link = window.location.href;
+    console.log(link);
+    
+    let parseLink = String(link);
+    console.log(parseLink);
+    
+
+    if (parseLink.includes('http://127.0.0.1:5501/Progetto/paginaUtente.html?nomeAzienda='))  {
+
+        console.log('cc');
+        
+
+        if (nomeAzienda === nomeAziendaDue) {
+            window.location.href = "pagina404.html";
+        } else {
+
+            loadAziendaByNome(nomeAzienda); // Carica i dati dell'azienda
+        }
+
+    } else {
+
+        return;
     }
 
 }
@@ -113,7 +133,7 @@ async function loadAziendaByNome(nomeAzienda) {
 
         let data = await response.json();
         // console.log(data.id);
-        
+
         iMieiDatiUtente(data); // Popola la UI con i dati
         fetchImg(data.id); // Recupera il logo
 
@@ -217,13 +237,13 @@ function iMieiDatiUtente(dati) {
                             Visualizza richieste
                         </a>
                         <ul class="dropdown-menu drop3">
-                            <li><a class="dropdown-item d-none" href="suoloPubVisualizza.html">Occupazione solo pubblico</a></li>
-                            <li><a class="dropdown-item" href="trasportoVisualizzaUtente.html">Groupage</a></li>
-                            <li><a class="dropdown-item" href="elevatoreVisualizzaUtente.html">Scala elevatore</a></li>
-                            <li><a class="dropdown-item" href="imballaggiVisualizzaUtente.html">Consegna imballi</a></li>
-                            <li><a class="dropdown-item" href="personale-specVisualizzaUtente.html">Personale spec.</a></li>
-                            <li><a class="dropdown-item" href="magazzinoVisualizzaUtente.html">Deposito magazzino m2</a></li>
-                            <li><a class="dropdown-item" href="tratteVisualizzaUtente.html">Tratte</a></li>
+                            <li><a class="dropdown-item d-none" href="suoloPubVisualizzaUtente.html" onclick="inviaLocalId(${dati.id})">Occupazione solo pubblico</a></li>
+                            <li><a class="dropdown-item" href="trasportoVisualizzaUtente.html" onclick="inviaLocalId(${dati.id})">Groupage</a></li>
+                            <li><a class="dropdown-item" href="elevatoreVisualizzaUtente.html" onclick="inviaLocalId(${dati.id})">Scala elevatore</a></li>
+                            <li><a class="dropdown-item" href="imballaggiVisualizzaUtente.html" onclick="inviaLocalId(${dati.id})">Consegna imballi</a></li>
+                            <li><a class="dropdown-item" href="personale-specVisualizzaUtente.html" onclick="inviaLocalId(${dati.id})">Personale spec.</a></li>
+                            <li><a class="dropdown-item" href="magazzinoVisualizzaUtente.html" onclick="inviaLocalId(${dati.id})">Deposito magazzino m2</a></li>
+                            <li><a class="dropdown-item" href="tratteVisualizzaUtente.html" onclick="inviaLocalId(${dati.id})">Tratte</a></li>
                         </ul>
                     </li>
                         <a class="btn btn-warning ">Partners</a>
@@ -281,7 +301,16 @@ function iMieiDatiUtente(dati) {
 
     container.innerHTML = visualizzaIDati;
 
-    
+
+}
+
+
+function inviaLocalId(id) {
+
+    let aziendaIdLocale = id;
+
+    localStorage.setItem('iDLocalAzienda', aziendaIdLocale);
+
 }
 
 function sendEmail(email) {
@@ -293,7 +322,7 @@ function sendEmail(email) {
     const subject = "Ho visto il tuo profilo da Moveconnect";
     const body = "Salve, ho visto il profilo sulla piattaforma Moveconnect e credo potremmo instaurare una partnership strategica per ottimizzare le nostre risorse";
     const mailToLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
+
     window.location.href = mailToLink;
 }
 // const searchInput = document.getElementById('searchInput');

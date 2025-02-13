@@ -106,8 +106,8 @@ function magazzino(dati, id) {
                         let tabella = `<tr>
                         
                         <td class="text-center">
-    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
-</td>   
+                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>                    
+                        </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -360,8 +360,8 @@ function depositoFiltroSoloRegione(dati, id) {
                         let tabella = `<tr>
                         
                         <td class="text-center">
-    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
-</td>   
+                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>                    
+                        </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -523,8 +523,8 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
                         let tabella = `<tr>
                         
                         <td class="text-center">
-    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
-</td>   
+                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -686,8 +686,8 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
                         let tabella = `<tr>
                         
                         <td class="text-center">
-    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
-</td>   
+                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>                    
+                        </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -849,8 +849,8 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
                         let tabella = `<tr>
                         
                         <td class="text-center">
-    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
-</td>   
+                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -1010,8 +1010,8 @@ function depositoFiltroTipoDeposito(dati, id) {
                         let tabella = `<tr>
                         
                         <td class="text-center">
-    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
-</td>   
+                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -1172,8 +1172,8 @@ function depositoFiltroTipoDepositoMq(dati, id) {
                         let tabella = `<tr>
                         
                         <td class="text-center">
-    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
-</td>   
+                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -1337,8 +1337,8 @@ function depositoFiltroDemoDeposito(dati, id) {
                         let tabella = `<tr>
                         
                         <td class="text-center">
-    <a href="/Progetto/paginaUtente.html?id=${element.azienda.id}">${element.azienda.nomeAzienda}</a>
-</td>   
+                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
