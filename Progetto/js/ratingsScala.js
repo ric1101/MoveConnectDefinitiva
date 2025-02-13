@@ -63,7 +63,7 @@ function recuperaDatiRecensione(id) {
 
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`http://127.0.0.1:8080/api/scala/relazioneImballiPerId/${idRel}`)
+    fetch(`http://127.0.0.1:8080/api/scala/relazioneScalaPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -79,19 +79,19 @@ function recuperaDatiRecensione(id) {
 function riempiDatiRecensione(dati, id) {
 
 
-    idProponente.innerHTML = dati.aziendaProponente.id;
+    idProponente.innerHTML = dati.aziendaProponente.id; 
     idAccettata.innerHTML = dati.aziendaRichiedente.id;
     idRec.innerHTML = dati.id;
 
-    if (id == dati.aziendaAccettata.id) {
+    if (id == dati.aziendaRichiedente.id) {
+
+        nomeAziendaDaRecensire.innerHTML = dati.aziendaProponente.nomeAzienda;
+        nomeAziendaDaRecensireDesc.innerHTML = dati.aziendaProponente.nomeAzienda;
+
+    } else if (id == dati.aziendaProponente.id) {
 
         nomeAziendaDaRecensire.innerHTML = dati.aziendaRichiedente.nomeAzienda;
         nomeAziendaDaRecensireDesc.innerHTML = dati.aziendaRichiedente.nomeAzienda;
-
-    } else if (id == dati.aziendaRichiedente.id) {
-
-        nomeAziendaDaRecensire.innerHTML = dati.aziendaAccettata.nomeAzienda;
-        nomeAziendaDaRecensireDesc.innerHTML = dati.aziendaAccettata.nomeAzienda;
 
     }
 
@@ -143,14 +143,17 @@ function stelleInserite(idAziendaAccesso) {
 
             console.log(data);
 
-            if (idAziendaAccesso == data.aziendaAccettata.id) {
+            if (idAziendaAccesso == data.aziendaRichiedente.id) {
 
                 scelta = 1
-
-
-            } else if (idAziendaAccesso == data.aziendaRichiedente.id) {
-
+                console.log("PRIMO" + data.aziendaRichiedente.id, idAziendaAccesso);
+                
+                
+                
+            } else if (idAziendaAccesso == data.aziendaProponente.id) {
+                
                 scelta = 2
+                console.log("SECONDO" + data.aziendaProponente.id, idAziendaAccesso);
 
             }
 

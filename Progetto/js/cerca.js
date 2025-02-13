@@ -1,8 +1,33 @@
 /* -------------------------------------------------------------------------- */
 /*                   Funzione per cercare aziende per nome                    */
 /* -------------------------------------------------------------------------- */
-async function cercaAzienda() {
+
+function tokenizzami() {
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            cercaAzienda(data.nomeAzienda);
+
+            console.log(data.id);
+
+
+        });
+
+
+}
+
+
+
+async function cercaAzienda(nomeAziendaNostra) {
     let nomeAzienda = document.getElementById("searchInput").value;
+    
+    let v = true;
+    
     
     if (nomeAzienda.length < 2) { 
         document.getElementById("ricerca").innerHTML = "";
@@ -17,44 +42,78 @@ async function cercaAzienda() {
         resultsList.innerHTML = "";
 
         aziende.forEach(azienda => {
-            let li = document.createElement("li");
-            let link = document.createElement("a");
-        
-            link.textContent = azienda.nomeAzienda;
-            link.href = `paginaUtente.html?id=${azienda.id}`; // Passa l'ID nell'URL
-            link.style.textDecoration = "none";
-            link.style.color = "#FAAD06";
-        
-            li.appendChild(link);
-            resultsList.appendChild(li);
-        });
-
-    } catch (error) {
-        console.error("Errore nella ricerca:", error);
+            console.log(azienda.nomeAzienda);
+            console.log(nomeAziendaNostra);
+            if(azienda.nomeAzienda === nomeAziendaNostra){
+                v = false;
+            }else{
+                v=true;
+            }
+            if(v){
+                let li = document.createElement("li");
+                let link = document.createElement("a");
+                
+                link.textContent = azienda.nomeAzienda;
+                link.href = `paginaUtente.html?nomeAzienda=${azienda.nomeAzienda}`; // Passa l'ID nell'URL
+                link.style.textDecoration = "none";
+                link.style.color = "#FAAD06";
+                
+                li.appendChild(link);
+                resultsList.appendChild(li);
+            }
+            });
+            
+        } catch (error) {
+            console.error("Errore nella ricerca:", error);
+        }
     }
-}
-
+    
 /* -------------------------------------------------------------------------- */
 /*         Recupera automaticamente i dati dell'azienda all'avvio            */
 /* -------------------------------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", function () {
-    let params = new URLSearchParams(window.location.search);
-    let idAzienda = params.get("id");
 
-    if (idAzienda) {
-        loadAziendaById(idAzienda); // Carica i dati dell'azienda
-    }
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+          
+            setParam(data.nomeAzienda);
+            console.log(data.id);
+
+
+        });
+
+  
 });
 
 /* -------------------------------------------------------------------------- */
 /*                 Recupera e mostra i dati dell'azienda cercata              */
 /* -------------------------------------------------------------------------- */
-async function loadAziendaById(idAzienda) {
+function setParam(nomeAziendaDue){
+    let params = new URLSearchParams(window.location.search);
+    let nomeAzienda = params.get("nomeAzienda");
+    
+    if (nomeAzienda === nomeAziendaDue) {
+        window.location.href = "pagina404.html";
+    }else{
+
+        loadAziendaByNome(nomeAzienda); // Carica i dati dell'azienda
+    }
+
+}
+
+async function loadAziendaByNome(nomeAzienda) {
     try {
-        let response = await fetch(`http://127.0.0.1:8080/api/azienda/aziendaPerID/${idAzienda}`);
+        let response = await fetch(`http://127.0.0.1:8080/api/azienda/searchNomeAzienda?nomeAzienda=${nomeAzienda}`);
         if (!response.ok) throw new Error("Errore nel recupero dei dati dell'azienda");
 
         let data = await response.json();
+        // console.log(data.id);
+        
         iMieiDatiUtente(data); // Popola la UI con i dati
         fetchImg(data.id); // Recupera il logo
 
@@ -151,9 +210,23 @@ function iMieiDatiUtente(dati) {
             <div class="row p-3 d-flex justify-content-center">
                 <div class="col-md-4">
                     <div class="row card p-4 mb-3">
-                        <a class="btn btn-warning p-2 m-1">Visualizza Recensioni</a>
-                        <a class="btn btn-warning p-2 m-1">Visualizza Richieste</a>
-                        <a class="btn btn-warning p-2 m-1">Partners</a>
+                        <a class="btn btn-warning">Visualizza Recensioni</a>
+                    <li class="nav-item dropdown visualizzaUser my-2 p-0" id="menu-products">
+                        <a class="nav-link dropdown-toggle suca " href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Visualizza richieste
+                        </a>
+                        <ul class="dropdown-menu drop3">
+                            <li><a class="dropdown-item d-none" href="suoloPubVisualizza.html">Occupazione solo pubblico</a></li>
+                            <li><a class="dropdown-item" href="trasportoVisualizzaUtente.html">Groupage</a></li>
+                            <li><a class="dropdown-item" href="elevatoreVisualizzaUtente.html">Scala elevatore</a></li>
+                            <li><a class="dropdown-item" href="imballaggiVisualizzaUtente.html">Consegna imballi</a></li>
+                            <li><a class="dropdown-item" href="personale-specVisualizzaUtente.html">Personale spec.</a></li>
+                            <li><a class="dropdown-item" href="magazzinoVisualizzaUtente.html">Deposito magazzino m2</a></li>
+                            <li><a class="dropdown-item" href="tratteVisualizzaUtente.html">Tratte</a></li>
+                        </ul>
+                    </li>
+                        <a class="btn btn-warning ">Partners</a>
                     </div>
                 </div>
                 <div class="col-md-8">
@@ -265,3 +338,5 @@ function sendEmail(email) {
 //         resultsList.innerHTML = '';
 //     }
 // });
+
+

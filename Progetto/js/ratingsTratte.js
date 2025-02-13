@@ -80,16 +80,16 @@ function recuperaDatiRecensione(id) {
 function riempiDatiRecensione(dati, id) {
 
 
-    idProponente.innerHTML = dati.aziendaRichiedente.id;
+    idProponente.innerHTML = dati.aziendaProponente.id;
     idAccettata.innerHTML = dati.aziendaAccettata.id;
     idRec.innerHTML = dati.id;
 
     if (id == dati.aziendaAccettata.id) {
 
-        nomeAziendaDaRecensire.innerHTML = dati.aziendaRichiedente.nomeAzienda;
-        nomeAziendaDaRecensireDesc.innerHTML = dati.aziendaRichiedente.nomeAzienda;
+        nomeAziendaDaRecensire.innerHTML = dati.aziendaProponente.nomeAzienda;
+        nomeAziendaDaRecensireDesc.innerHTML = dati.aziendaProponente.nomeAzienda;
 
-    } else if (id == dati.aziendaRichiedente.id) {
+    } else if (id == dati.aziendaProponente.id) {
 
         nomeAziendaDaRecensire.innerHTML = dati.aziendaAccettata.nomeAzienda;
         nomeAziendaDaRecensireDesc.innerHTML = dati.aziendaAccettata.nomeAzienda;
@@ -146,7 +146,7 @@ function stelleInserite(idAziendaAccesso) {
                 scelta = 1
 
 
-            } else if (idAziendaAccesso == data.aziendaRichiedente.id) {
+            } else if (idAziendaAccesso == data.aziendaProponente.id) {
 
                 scelta = 2
 

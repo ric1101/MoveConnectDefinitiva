@@ -7,8 +7,7 @@ let idProponente = document.querySelector('.idProponente');
 let idAccettata = document.querySelector('.idAccettata');
 let controlloStelle = document.querySelector('.controlloStelle');
 let erroreRec = document.querySelector('.erroreRec');
-let valutazioneRichiedente = 0;
-let valutazioneProponente = 0;
+let valutazione = 0;
 
 // To access the stars
 let stars =
@@ -80,16 +79,16 @@ function recuperaDatiRecensione(id) {
 
 function riempiDatiRecensione(dati, id) {
 
-    idProponente.innerHTML = dati.aziendaRichiedente.id;
+    idProponente.innerHTML = dati.aziendaProponente.id;
     idAccettata.innerHTML = dati.aziendaAccettata.id;
     idRec.innerHTML = dati.id;
 
     if (id == dati.aziendaAccettata.id) {
 
-        nomeAziendaDaRecensire.innerHTML = dati.aziendaRichiedente.nomeAzienda;
-        nomeAziendaDaRecensireDesc.innerHTML = dati.aziendaRichiedente.nomeAzienda;
+        nomeAziendaDaRecensire.innerHTML = dati.aziendaProponente.nomeAzienda;
+        nomeAziendaDaRecensireDesc.innerHTML = dati.aziendaProponente.nomeAzienda;
 
-    } else if (id == dati.aziendaRichiedente.id) {
+    } else if (id == dati.aziendaProponente.id) {
 
         nomeAziendaDaRecensire.innerHTML = dati.aziendaAccettata.nomeAzienda;
         nomeAziendaDaRecensireDesc.innerHTML = dati.aziendaAccettata.nomeAzienda;
@@ -143,7 +142,7 @@ function stelleInserite(idAziendaAccesso) {
                 scelta = 1
 
 
-            } else if (idAziendaAccesso == data.aziendaRichiedente.id) {
+            } else if (idAziendaAccesso == data.aziendaProponente.id) {
 
                 scelta = 2
 
@@ -189,12 +188,11 @@ function stelleInserite(idAziendaAccesso) {
 function inviaRecensione(choose) {
 
     class Recensione {
-        constructor(relazioneId, relazioneAziendaRichiedenteId, relazioneAziendaAccettataId, valutazioneRichiedente, valutazioneProponente, commento) {
+        constructor(relazioneId, relazioneAziendaRichiedenteId, relazioneAziendaAccettataId, valutazione, commento) {
             (this.relazioneId = relazioneId),
                 (this.relazioneAziendaRichiedenteId = relazioneAziendaRichiedenteId),
                 (this.relazioneAziendaAccettataId = relazioneAziendaAccettataId),
-                (this.valutazioneRichiedente = valutazioneRichiedente),
-                (this.valutazioneProponente = valutazioneProponente),
+                (this.valutazione = valutazione),
                 (this.commento = commento)
         }
     }
@@ -203,7 +201,7 @@ function inviaRecensione(choose) {
     console.log(idRec.textContent);
     console.log(idProponente.textContent);
     console.log(idAccettata.textContent);
-    console.log(valutazioneRichiedente);
+    console.log(valutazione);
     console.log(commento.value);
 
     let idRecNumber = Number(idRec.textContent)
@@ -214,8 +212,7 @@ function inviaRecensione(choose) {
         idRec.textContent,
         idProponente.textContent,
         idAccettata.textContent,
-        valutazioneRichiedente.textContent,
-        valutazioneProponente.textContent,
+        valutazione,
         commento.value,
         null
 

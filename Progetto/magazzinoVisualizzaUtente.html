@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizza Richieste Deposito Magazzino</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="icon" href="./imgs/favicon.ico">
+    <link rel="stylesheet" href="../Progetto/css/css01.css">
+    <link rel="stylesheet" href="../Progetto/css/normalize.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/Progetto/css/liste4.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+</head>
+
+<body>
+
+    <div class="navbarMain"></div>
+
+    <div class="containerLista row d-flex flex-row align-items-start">
+
+        <div class="row d-flex">
+            <div class="col-xl-2 d-flex">
+                <h4 class="mb-2 scrittaFiltri">Filtri <i class="bi bi-filter"></i></h4>
+
+                <button class="btn btn-danger bottoneReset mb-2">Reset</button>
+            </div>
+        </div>
+
+
+        <div class="col-lg-2 col-12 card">
+            <div class="row d-flex justify-content-center">
+                <div class="row p-0">
+                    <div class="col-lg-9 col-11 pt-4">
+                        <a class="text-black regLink" data-bs-toggle="collapse" href="#collapseExample" role=""
+                            aria-expanded="false" aria-controls="collapseExample">
+                            <h6 class="m-0">Regione </h6>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-1 d-flex justify-content-center"
+                        style="padding-top: 10px; font-size: 30px;">
+                        <a class="text-black regLink collassaRegioni" data-bs-toggle="collapse" href="#collapseExample"
+                            role="" aria-expanded="false" aria-controls="collapseExample"><i
+                                class="fa-solid fa-plus simboloReg"></i></a>
+                    </div>
+
+                </div>
+
+                <div class="collapse regCol" id="collapseExample">
+
+                    <div class="row">
+                        <form>
+                            <label><input type="radio" class="regioniDeposito" name="regione" value="Abruzzo">
+                                Abruzzo</label><br>
+                            <label><input type="radio" class="regioniDeposito" name="regione" value="Basilicata">
+                                Basilicata</label><br>
+                            <label><input type="radio" class="regioniDeposito" name="regione" value="Calabria">
+                                Calabria</label><br>
+                            <label><input type="radio" class="regioniDeposito" name="regione" value="Campania">
+                                Campania</label><br>
+                            <label><input type="radio" class="regioniDeposito" name="regione" value="Emilia-Romagna">
+                                Emilia</label><br>
+                            <label><input type="radio" class="regioniDeposito" name="regione"
+                                    value="Friuli-Venezia Giulia"> Friuli</label><br>
+                            <label><input type="radio" class="regioniDeposito" name="regione" value="Lazio">
+                                Lazio</label><br>
+                            <label><input type="radio" class="regioniDeposito" name="regione" value="Liguria">
+                                Liguria</label><br>
+                            <label><input type="radio" class="regioniDeposito" name="regione" value="Lombardia">
+                                Lombardia</label><br>
+                            <label><input type="radio" class="regioniDeposito" name="regione" value="Marche">
+                                Marche</label><br>
+                            <label><input type="radio" class="regioniDeposito" name="regione" value="Molise">
+                                Molise</label><br>
+                            <label><input type="radio" class="regioniDeposito" name="regione" value="Piemonte">
+                                Piemonte</label><br>
+                            <label><input type="radio" class="regioniDeposito" name="regione" value="Puglia">
+                                Puglia</label><br>
+                            <label><input type="radio" class="regioniDeposito" name="regione" value="Sardegna">
+                                Sardegna</label><br>
+                            <label><input type="radio" class="regioniDeposito" name="regione" value="Sicilia">
+                                Sicilia</label><br>
+                            <label><input type="radio" class="regioniDeposito" name="regione" value="Toscana">
+                                Toscana</label><br>
+                            <label><input type="radio" class="regioniDeposito" name="regione"
+                                    value="Trentino-Alto Adige">
+                                Trentino</label><br>
+                            <label><input type="radio" class="regioniDeposito" name="regione" value="Umbria">
+                                Umbria</label><br>
+                            <label><input type="radio" class="regioniDeposito" name="regione" value="Valle d'Aosta">
+                                Valle
+                                d'Aosta</label><br>
+                            <label><input type="radio" class="regioniDeposito" name="regione" value="Veneto">
+                                Veneto</label><br>
+                        </form>
+
+                    </div>
+                </div>
+
+
+
+                <div class="row p-0">
+                    <div class="col-lg-9 col-11 pt-4">
+                        <a class="text-black depositoLink" data-bs-toggle="collapse" href="#collapseExample1" role=""
+                            aria-expanded="false" aria-controls="collapseExample1">
+                            <h6 class="m-0">Deposito </h6>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-1 d-flex justify-content-center"
+                        style="padding-top: 10px; font-size: 30px;">
+                        <a class="text-black depositoLink collassaDeposito" data-bs-toggle="collapse"
+                            href="#collapseExample1" role="" aria-expanded="false" aria-controls="collapseExample1"><i
+                                class="fa-solid fa-plus simboloDeposito"></i></a>
+                    </div>
+
+                </div>
+
+                <div class="collapse depositoCol" id="collapseExample1">
+                    <div class="row">
+                        <form class="mb-3">
+
+                            <label><input type="checkbox" class="deposito1 tipoDeposito" name="deposito" value="0">
+                                Mobilio</label><br>
+                            <label><input type="checkbox" class="deposito2 tipoDeposito" name="deposito" value="0">
+                                Pedane</label><br>
+                            <label><input type="checkbox" class="deposito3 tipoDeposito" name="deposito" value="0">
+                                Altro</label><br>
+
+
+                        </form>
+
+                    </div>
+                </div>
+
+                <div class="row p-0">
+                    <div class="col-lg-9 col-11 pt-4">
+                        <a class="text-black mqLink" data-bs-toggle="collapse" href="#collapseExample2" role=""
+                            aria-expanded="false" aria-controls="collapseExample2">
+                            <h6 class="m-0">MQ </h6>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-1 d-flex justify-content-center"
+                        style="padding-top: 10px; font-size: 30px;">
+                        <a class="text-black mqLink collassaMq" data-bs-toggle="collapse" href="#collapseExample2" role=""
+                            aria-expanded="false" aria-controls="collapseExample2"><i
+                                class="fa-solid fa-plus simboloMq"></i></a>
+                    </div>
+
+                </div>
+
+                <div class="collapse colaMq" id="collapseExample2">
+                    <div class="row">
+                        <h6>Scegli la quantità:</h6>
+                        <ul class="mb-2" style="list-style-type: none;">
+                            <li>- Da 1 a 25</li>
+                            <li>- Da 26 a 50</li>
+                            <li>- Da 51 a 75</li>
+                            <li>- Da 76 a 99</li>
+                        </ul>
+                        <div class="slidecontainer">
+                            <input type="range" min="0" max="99" value="0" class="slider1" id="myRange1">
+                            <p>Numero: <span id="demo1" class="demo1"></span></p>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        <div class="col-lg-10 col-12 px-4 visualTable">
+            <div>
+                <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info" style="border: solid 1px;">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
+
+                                <th class="text-center">Azienda</th>
+                                <th class="text-center">#ID</th>
+                                <th class="text-center">Regione</th>
+                                <th class="text-center">Provincia</th>
+                                <th class="text-center">Comune</th>
+                                <th class="text-center">MQ</th>
+                                <th class="text-center">Inizio</th>
+                                <th class="text-center">Fine</th>
+                                <th class="text-center">Visualizza</th>
+                                <th class="text-center">Invia Mail</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <!-- Page end  -->
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer"></div>
+
+
+    <script src="../Progetto/js/footer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+        <script src="/Progetto/js/cerca.js"></script>
+
+    <script src="../Progetto/js/homepagejs.js"></script>
+    <script src="../Progetto/js/magazzinoVisualizzaUtente.js"></script>
+
+</body>
+
+</html>

@@ -102,6 +102,7 @@ let dropdown1 = document.querySelector(".drop1");
 let dropdown2 = document.querySelector(".drop2");
 
 
+
 bottone.addEventListener("click", function () {
     dropdown1.classList.add("show");
     dropdown2.classList.add("show");
