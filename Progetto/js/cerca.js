@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((res) => res.json())
         .then((data) => {
 
-            
+
 
             setParam(data.nomeAzienda);
             console.log(data.id);
@@ -96,21 +96,21 @@ document.addEventListener("DOMContentLoaded", function () {
 /* -------------------------------------------------------------------------- */
 function setParam(nomeAziendaDue) {
     console.log('ii');
-    
+
     let params = new URLSearchParams(window.location.search);
     let nomeAzienda = params.get("nomeAzienda");
 
     let link = window.location.href;
     console.log(link);
-    
+
     let parseLink = String(link);
     console.log(parseLink);
-    
 
-    if (parseLink.includes('http://127.0.0.1:5501/Progetto/paginaUtente.html?nomeAzienda='))  {
+
+    if (parseLink.includes('http://127.0.0.1:5501/Progetto/paginaUtente.html?nomeAzienda=')) {
 
         console.log('cc');
-        
+
 
         if (nomeAzienda === nomeAziendaDue) {
             window.location.href = "pagina404.html";
@@ -196,8 +196,8 @@ function iMieiDatiUtente(dati) {
                             <div class="row d-flex justify-content-center">
                                 <div class="col-md-12 col-lg-12 col-xl-12 col-sm-6 d-flex justify-content-end p-1">
                                     <a class="btn btn-primary me-1 tastiNormali" onclick="sendEmail('${dati.emailAziendale}')">
-    <i class="fa-regular fa-envelope"></i> Messaggia
-</a>
+                            <i class="fa-regular fa-envelope"></i> Messaggia
+                                    </a>
                                     <a class="btn btn-primary tastiNormali"><i class="fa-solid fa-user-plus"></i>
                                         Aggiungi</a>
 
@@ -208,12 +208,12 @@ function iMieiDatiUtente(dati) {
                                 </div>
                                 <div class="row">
                                     <a class="btn btn-primary tastiParticolari m-1"><i
-                                            class="fa-regular fa-envelope"></i> Messaggia</a>
+                                            class="fa-regular fa-envelope"></i> <p>Messaggia</p></a>
 
                                 </div>
                                 <div class="row">
                                     <a class="btn btn-primary tastiParticolari m-1"><i
-                                            class="fa-solid fa-user-plus"></i> Aggiungi</a>
+                                            class="fa-solid fa-user-plus"></i> <p>Aggiungi</p></a>
 
                                 </div>
                             </div>
@@ -227,13 +227,12 @@ function iMieiDatiUtente(dati) {
             </div>
 
 
-            <div class="row p-3 d-flex justify-content-center">
-                <div class="col-md-4">
-                    <div class="row card p-4 mb-3">
-                        <a class="btn btn-warning">Visualizza Recensioni</a>
-                    <li class="nav-item dropdown visualizzaUser my-2 p-0" id="menu-products">
-                        <a class="nav-link dropdown-toggle suca " href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="row p-3 d-flex justify-content-center" style="margin-left: 0.550rem;">
+                <div class="col-md-6 col-lg-5">
+                    <div class="row card mb-3 req">
+                    <li class="nav-item dropdown visualizzaUser mb-2 p-0" id="menu-products">
+                        <a class="nav-link dropdown-toggle visualizzaRichiesteAll" href="#" role="button"
+                             aria-expanded="false">
                             Visualizza richieste
                         </a>
                         <ul class="dropdown-menu drop3">
@@ -242,15 +241,29 @@ function iMieiDatiUtente(dati) {
                             <li><a class="dropdown-item" href="elevatoreVisualizzaUtente.html" onclick="inviaLocalId(${dati.id})">Scala elevatore</a></li>
                             <li><a class="dropdown-item" href="imballaggiVisualizzaUtente.html" onclick="inviaLocalId(${dati.id})">Consegna imballi</a></li>
                             <li><a class="dropdown-item" href="personale-specVisualizzaUtente.html" onclick="inviaLocalId(${dati.id})">Personale spec.</a></li>
-                            <li><a class="dropdown-item" href="magazzinoVisualizzaUtente.html" onclick="inviaLocalId(${dati.id})">Deposito magazzino m2</a></li>
+                            <li><a class="dropdown-item" href="magazzinoVisualizzaUtente.html" onclick="inviaLocalId(${dati.id})">Deposito</a></li>
                             <li><a class="dropdown-item" href="tratteVisualizzaUtente.html" onclick="inviaLocalId(${dati.id})">Tratte</a></li>
                         </ul>
                     </li>
                         <a class="btn btn-warning ">Partners</a>
                     </div>
+                <div class="row"></div>
+
+
+
+                <div class="col-md-12">
+                    <div class="row card mb-3 veri">
+                        <a class="btn btn-success p-2 mb-2">Verifica Azienda</a>
+                        <a class="btn btn-danger p-2">Segnala</a>
+                    </div>
                 </div>
-                <div class="col-md-8">
-                    <div class="row card mb-3 rowers">
+                
+
+                </div>
+                <div class="col-md-6 col-lg-7 capitana">
+                    <div class="row rowers">
+
+                    <div class="col-12 card mb-3 rowers">
                         <div class="card-body">
                             <h4 class="text-success align-center">Info</h4>
                             <div class="mb-2">
@@ -267,17 +280,7 @@ function iMieiDatiUtente(dati) {
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="row p-3 d-flex justify-content-center">
-                <div class="col-md-4">
-                    <div class="row card p-4 mb-3">
-                        <a class="btn btn-success p-2 m-1">Verifica Azienda</a>
-                        <a class="btn btn-danger p-2 m-1">Segnala</a>
-                    </div>
-                </div>
-                <div class="col-md-8">
                     <div class="row card mb-3 rowers">
                         <div class="card-body">
                             <h4 class="text-success">Info verificate ✔</h4>
@@ -294,12 +297,50 @@ function iMieiDatiUtente(dati) {
                             <strong>Indirizzo:</strong><span>Via Esempio 1, Milano</span>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
+        </div>
+
+            
         </div>`;
 
     container.innerHTML = visualizzaIDati;
+
+    // Seleziona l'elemento che attiva il dropdown
+    const menuProducts = document.getElementById('menu-products');
+    const dropdownMenu = menuProducts.querySelector('.drop3');
+
+    // Aggiungi l'evento hover per i dispositivi desktop
+    menuProducts.addEventListener('mouseover', function () {
+        dropdownMenu.style.display = 'block'; // Mostra il menu
+    });
+
+    menuProducts.addEventListener('mouseout', function () {
+        dropdownMenu.style.display = 'none'; // Nasconde il menu quando il mouse esce
+    });
+
+    // Aggiungi gli eventi touchstart per dispositivi mobili
+    menuProducts.addEventListener('touchstart', function (event) {
+        // Impedisci che il tocco venga propagato per evitare conflitti
+        event.stopPropagation();
+
+        // Se il menu è visibile, lo nascondiamo, altrimenti lo mostriamo
+        if (dropdownMenu.style.display === 'block') {
+            dropdownMenu.style.display = 'none';
+        } else {
+            dropdownMenu.style.display = 'block';
+        }
+    });
+
+    // Aggiungi un evento di uscita dal menu (per dispositivi mobili)
+    document.addEventListener('touchstart', function (event) {
+        // Se l'utente tocca fuori dal menu, nascondilo
+        if (!menuProducts.contains(event.target)) {
+            dropdownMenu.style.display = 'none';
+        }
+    });
+
 
 
 }
@@ -325,47 +366,6 @@ function sendEmail(email) {
 
     window.location.href = mailToLink;
 }
-// const searchInput = document.getElementById('searchInput');
-// const resultsList = document.getElementById('resultsList');
 
-// searchInput.addEventListener('input', async (event) => {
-//     const query = event.target.value.trim();
-
-//     if (query.length > 0) {
-//         try {
-//             // Fetch results from the backend
-//             const response = await fetch(`http://localhost:8080/api/azienda/nomeAzienda?nomeAzienda=${query}`);
-//             const results = await response.json();
-
-//             // Filter results dynamically based on the query
-//             const filteredResults = results.filter(result => {
-//                 // Ensure result.name exists and filter by the starting characters
-//                 return result.name && result.name.toLowerCase().startsWith(query.toLowerCase());
-//             });
-
-//             // Clear previous results
-//             resultsList.innerHTML = '';
-
-//             // Display filtered results
-//             if (filteredResults.length > 0) {
-//                 filteredResults.forEach(result => {
-//                     const li = document.createElement('li');
-//                     li.textContent = result.name;
-//                     resultsList.appendChild(li);
-//                 });
-//             } else {
-//                 // If no results match, display "No matches found"
-//                 resultsList.innerHTML = '<li>No matches found</li>';
-//             }
-
-//         } catch (error) {
-//             console.error('Error fetching data:', error);
-//             resultsList.innerHTML = '<li>Error occurred while fetching data</li>';
-//         }
-//     } else {
-//         // Clear results when the input is empty
-//         resultsList.innerHTML = '';
-//     }
-// });
 
 

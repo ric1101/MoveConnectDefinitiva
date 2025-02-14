@@ -1,5 +1,6 @@
 let navbarHTML = document.querySelector(".navbarMain");
 
+navbar();
 
 
 function navbar() {
@@ -94,7 +95,6 @@ function navbar() {
     navbarHTML.innerHTML = navBarFinale;
 }
 
-navbar();
 
 let bottone = document.querySelector(".hamburger");
 let chiusura = document.querySelector(".closed");

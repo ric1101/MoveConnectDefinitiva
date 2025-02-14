@@ -172,19 +172,123 @@
 
 
 .row>* {
-    flex-shrink: 1;
+    flex-shrink: 0;
 }
 
+
+.row {
+    margin-right: 0 !important;
+    margin-left: calc(-.5* var(--bs-gutter-x));
+}
 
 .rowers {
     margin-left: 5px;
+
 }
 
+
+
+
+
+@media (max-width: 415px) {
+
+    .containerLogoImg {
+        height: 130px;
+        width: 130px;
+    }
+
+    .req {
+
+        padding: 0.6rem !important;
+
+    }
+
+    .veri {
+
+        padding: 0.6rem !important;
+
+    }
+
+
+}
 
 
 @media (max-width: 768px) {
 
+
     .rowers {
         margin: 0 !important;
     }
+
+    .rowers {
+        margin-bottom: 10px !important;
+    }
+
+    .capitana {
+        margin-right: 13px !important;
+    }
+
+
+}
+
+
+@media (max-width: 450px) {
+
+    .req {
+
+        padding: 1.8rem !important;
+
+    }
+
+    .veri {
+
+        padding: 1.8rem !important;
+
+    }
+
+}
+
+
+
+.req {
+
+    padding: 3.46rem;
+
+}
+
+.veri {
+
+    padding: 3.07rem;
+
+}
+
+@media (max-width: 382px) {
+
+    .req {
+
+        padding: 0.1rem !important;
+
+    }
+
+    .veri {
+
+        padding: 0.1rem !important;
+
+    }
+
+}
+
+
+@media (max-width: 340px) {
+
+    .tastiParticolari p {
+        display: none;
+    }
+
+
+
+}
+
+.tastiParticolari p {
+    margin: 0;
 }
