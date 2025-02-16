@@ -119,53 +119,53 @@ function stelleInserite(idAziendaAccesso) {
         riempiDatiRecensione(data);
         console.log(data);
         
-    });
+        if (idAziendaAccesso == data.aziendaAccettata.id) {
+            
+            scelta = 1
+            
+            
+        } else if (idAziendaAccesso == data.aziendaRichiedente.id) {
+            
+            scelta = 2
+            
+        }
+        // event.preventDefault();
+        
+        if (controlloStelle.classList.contains('one')) {
+            erroreRec.classList.add('d-none');
+            valutazione = 1;
+            inviaRecensione(scelta);
+    
+        } else if (controlloStelle.classList.contains('two')) {
+            erroreRec.classList.add('d-none');
+            valutazione = 2;
+            inviaRecensione(scelta);
+    
+        } else if (controlloStelle.classList.contains('three')) {
+            erroreRec.classList.add('d-none');
+            valutazione = 3;
+            inviaRecensione(scelta);
+    
+        } else if (controlloStelle.classList.contains('four')) {
+            erroreRec.classList.add('d-none');
+            valutazione = 4;
+            inviaRecensione(scelta);
+    
+        } else if (controlloStelle.classList.contains('five')) {
+            erroreRec.classList.add('d-none');
+            valutazione = 5;
+            inviaRecensione(scelta);
+    
+        } else {
+    
+            erroreRec.classList.remove('d-none');
+    
+        }
+
+    });    
     
     
-    if (idAziendaAccesso == dati.aziendaAccettata.id) {
-        
-        scelta = 1
-        
-        
-    } else if (idAziendaAccesso == dati.aziendaRichiedente.id) {
-        
-        scelta = 2
-        
-    }
     
-    event.preventDefault();
-    
-    if (controlloStelle.classList.contains('one')) {
-        erroreRec.classList.add('d-none');
-        valutazione = 1;
-        inviaRecensione(scelta);
-
-    } else if (controlloStelle.classList.contains('two')) {
-        erroreRec.classList.add('d-none');
-        valutazione = 2;
-        inviaRecensione(scelta);
-
-    } else if (controlloStelle.classList.contains('three')) {
-        erroreRec.classList.add('d-none');
-        valutazione = 3;
-        inviaRecensione(scelta);
-
-    } else if (controlloStelle.classList.contains('four')) {
-        erroreRec.classList.add('d-none');
-        valutazione = 4;
-        inviaRecensione(scelta);
-
-    } else if (controlloStelle.classList.contains('five')) {
-        erroreRec.classList.add('d-none');
-        valutazione = 5;
-        inviaRecensione(scelta);
-
-    } else {
-
-        erroreRec.classList.remove('d-none');
-
-    }
-
 
 
 }
@@ -174,13 +174,12 @@ function stelleInserite(idAziendaAccesso) {
 function inviaRecensione(choose) {
     
     class Recensione {
-        constructor(relazioneTrasportoId, relazioneAziendaRichiedenteTrasportoId, relazioneAziendaAccettataTrasportoId, valutazione, commentoAziendaRichiedente, commentoAziendaAccettata) {
+        constructor(relazioneTrasportoId, relazioneAziendaRichiedenteTrasportoId, relazioneAziendaAccettataTrasportoId, valutazione, commento) {
             (this.relazioneTrasportoId = relazioneTrasportoId),
                 (this.relazioneAziendaRichiedenteTrasportoId = relazioneAziendaRichiedenteTrasportoId),
                 (this.relazioneAziendaAccettataTrasportoId = relazioneAziendaAccettataTrasportoId),
                 (this.valutazione = valutazione),
-                (this.commentoAziendaRichiedente = commentoAziendaRichiedente),
-                (this.commentoAziendaAccettata = commentoAziendaAccettata)
+                (this.commento = commento)
         }
     }
 
@@ -189,6 +188,13 @@ function inviaRecensione(choose) {
     console.log(idAccettata.textContent);
     console.log(valutazione);
     console.log(commento.value);
+
+
+
+let idRecNumber = Number(idRec.textContent)
+console.log(idRecNumber);
+
+
 
 
     let newRecensione = new Recensione(
@@ -200,12 +206,12 @@ function inviaRecensione(choose) {
         null
 
     );
-
+    
 
     if (choose == 1) {
 
 
-        fetch(`http://127.0.0.1:8080/api/trasporto/recensitaRelazioneTrasportoProponente/${idAccettata}`, {
+        fetch(`http://127.0.0.1:8080/api/trasporto/recensitaRelazioneTrasportoProponente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -219,9 +225,9 @@ function inviaRecensione(choose) {
 
 
     } else {
-
-
-        fetch(`http://127.0.0.1:8080/api/trasporto/recensitaRelazioneTrasportoRichiedente/${idProponente}`, {
+        
+        
+        fetch(`http://127.0.0.1:8080/api/trasporto/recensitaRelazioneTrasportoRichiedente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -243,6 +249,9 @@ function inviaRecensione(choose) {
         body: JSON.stringify(newRecensione),
 
     })
+
+    console.log(newRecensione);
+    
 
 
     // window.location.href = 'recensioneInviata.html';
