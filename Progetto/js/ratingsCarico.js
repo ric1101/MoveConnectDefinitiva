@@ -164,7 +164,7 @@ function inviaRecensione() {
 
     })
 
-    window.location.href = 'recensioneInviata.html';
+    // window.location.href = 'recensioneInviata.html';
 
 
 }
