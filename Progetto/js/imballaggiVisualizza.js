@@ -108,9 +108,9 @@ function imballaggi(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">
-                        <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>   
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>      
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -345,9 +345,9 @@ function imballaggiFiltroRegioneImballi(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>   
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -512,9 +512,9 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>   
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>     
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -682,9 +682,9 @@ function imballaggiFiltroTipiImballi(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>   
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>     
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.provincia}</td>
