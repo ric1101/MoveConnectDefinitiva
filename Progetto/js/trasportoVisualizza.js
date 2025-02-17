@@ -104,9 +104,9 @@ function trasporto(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>                        
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>                           
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -377,9 +377,9 @@ function trasportoFiltroSoloRegionePartenza(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>                           
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -537,9 +537,9 @@ function trasportoFiltroSoloRegioneArrivo(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>                          
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>                             
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -697,9 +697,9 @@ function trasportoFiltroRegioniDoppie(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>                           
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -878,9 +878,9 @@ function trasportoFiltroRegioniMq(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>                           
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -1035,9 +1035,9 @@ function trasportoFiltroRegioniDoppieMq(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>                           
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -1197,9 +1197,9 @@ function trasportoFiltroDemo(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>                           
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -1711,9 +1711,9 @@ function trasportoFiltroRegionePartenzaMerce(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -1870,9 +1870,9 @@ function trasportoFiltroRegioneArrivoMerce(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>                           
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -2030,9 +2030,9 @@ function trasportoFiltroRegionePartenzaArrivoMerce(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>                          
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>                             
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -2192,9 +2192,9 @@ function trasportoFiltroRegionePartenzaArrivoMerceMq(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -2351,9 +2351,9 @@ function trasportoFiltroRegionePartenzaMerceMq(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>                           
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -2512,9 +2512,9 @@ function trasportoFiltroRegioneArrivoMerceMq(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>                           
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
@@ -2675,9 +2675,9 @@ function trasportoFiltroMerceMq(dati, id) {
 
                     let tabella = `<tr>
                     
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>                           
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>

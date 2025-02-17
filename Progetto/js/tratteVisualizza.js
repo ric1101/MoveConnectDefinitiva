@@ -103,9 +103,9 @@ function tratte(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>                           
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -450,9 +450,9 @@ function tratteFiltroSoloRegionePartenza(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>                           
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -606,9 +606,9 @@ function tratteFiltroRegionePartenzaArrivo(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>                           
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -764,9 +764,9 @@ function tratteFiltroRegionePartenzaArrivoVeicolo(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>                           
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -924,9 +924,9 @@ function tratteFiltroRegionePartenzaVeicolo(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>                           
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -1079,9 +1079,9 @@ function tratteFiltroRegioneArrivoVeicolo(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>                           
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -1237,9 +1237,9 @@ function tratteFiltroRegioneArrivo(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>                           
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>
@@ -1395,9 +1395,9 @@ function tratteFiltroVeicolo(dati, id) {
 
                         let tabella = `<tr>
                         
-                        <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                        </td>                           
+                         <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regionePartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.regioneArrivo}</td>

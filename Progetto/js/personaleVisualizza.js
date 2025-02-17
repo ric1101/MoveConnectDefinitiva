@@ -108,7 +108,7 @@ function personale(dati, id) {
                     let tabella = `<tr>
                         
                     <td class="text-center">
-                        <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                     <td class="text-center">${element.id}</td>
                     <td class="text-center" data-eventoid="1">${element.regione}</td>
@@ -327,9 +327,9 @@ function personaleFiltroRegione(dati, id) {
 
                     let tabella = `<tr>
                         
-                    <td class="text-center">
-                        <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                    </td>   
+                     <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>     
                     <td class="text-center">${element.id}</td>
                     <td class="text-center" data-eventoid="1">${element.regione}</td>
                     <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -491,9 +491,9 @@ function personaleFiltroRegioneTipiPersonale(dati, id) {
 
                     let tabella = `<tr>
                         
-                    <td class="text-center">
-                        <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                    </td>   
+                     <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>     
                     <td class="text-center">${element.id}</td>
                     <td class="text-center" data-eventoid="1">${element.regione}</td>
                     <td class="text-center" data-eventoid="1">${element.provincia}</td>
@@ -657,9 +657,9 @@ function personaleFiltroTipiPersonale(dati, id) {
 
                     let tabella = `<tr>
                         
-                    <td class="text-center">
-                        <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                    </td>   
+                     <td class="text-center">
+                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                    </td>     
                     <td class="text-center">${element.id}</td>
                     <td class="text-center" data-eventoid="1">${element.regione}</td>
                     <td class="text-center" data-eventoid="1">${element.provincia}</td>
