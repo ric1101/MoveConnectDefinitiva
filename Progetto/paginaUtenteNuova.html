@@ -51,26 +51,42 @@
                             </div>
                             <h2 class="my-2 fw-bold">Paoli</h2>
                         </div>
-                        <div class="card-body col-lg-6 d-flex justify-content-end px-4 pt-2">
+                        <div class="card-body col-lg-6 px-4 pt-2">
                             <div class="row">
-                                <div class="col-md-12 p-2">
-                                    <a class="btn btn-primary me-3 mt-3"><i class="fa-regular fa-envelope"></i>
+                                <div class="col-md-12 p-2 mt-3 box">
+                                    <a class="btn btn-primary ms-3 me-3 mt-3"><i class="fa-regular fa-envelope"></i>
                                         Messaggia</a>
-                                    <a class="btn btn-primary me-3 mt-3"><i
-                                            class="fa-solid fa-user-plus"></i>Aggiungi</a>
+                                    <a class="btn btn-primary me-3 mt-3 agg"><i class="fa-solid fa-user-plus"></i>
+                                        Aggiungi</a>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 p-2">
+                                        <a class="btn btn-warning ms-4">Visualizza Partners</a>
+
+                                    </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-12 p-2 mt-3">
+                                    <h3 style="font-size: larger; font-weight: bold;">Media Recensioni</h3>
+                                    <h1 style="font-weight: bold;">4.3 <span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
+                                    </h1>
+                                </div>
+
+                            </div>
+
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-1"></div>
                 <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-10">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-10">
                         <div class="row card mb-3 p-3 flex-row align-items-center">
-                            <div class="col-md-4">
-                                <li class="nav-item dropdown visualizzaUser" id="menu-products">
-                                    <a class="nav-link dropdown-toggle visualizzaRichiesteAll" href="#" role="button"
+                            <div class="col-md-4 pt-2">
+                                <li class="nav-item dropdown visualizzaUser btnBarra" id="menu-products">
+                                    <a class="nav-link dropdown-toggle visualizzaRichiesteAll" role="button"
                                         aria-expanded="false">
                                         Visualizza richieste
                                     </a>
@@ -93,18 +109,18 @@
                                     </ul>
                                 </li>
                             </div>
-                            <div class="col-md-3 d-flex justify-content-center">
-                                <a class="btn btn-warning">Visualizza Recensioni</a>
+                            <div class="col-md-3 d-flex justify-content-center pt-2">
+                                <a class="btn btn-warning btnBarra">Visualizza Recensioni</a>
                             </div>
-                            <div class="col-md-3 d-flex justify-content-center">
-                                <a class="btn btn-success">Verifica Azienda</a>
+                            <div class="col-md-3 d-flex justify-content-center pt-2">
+                                <a class="btn btn-success btnBarra">Verifica Azienda</a>
                             </div>
-                            <div class="col-md-2 d-flex justify-content-center">
-                                <a class="btn btn-danger">Segnala</a>
+                            <div class="col-md-2 d-flex justify-content-center pt-2">
+                                <a class="btn btn-danger btnBarra">Segnala</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-1"></div>
+                    <div class="col-lg-1"></div>
                 </div>
 
 
@@ -112,7 +128,7 @@
                 <div class="row">
                     <div class="col-lg-1"></div>
                     <div class="col-lg-5">
-                        <div class="row card me-2">
+                        <div class="row card first">
                             <div class="card-body">
                                 <h4 class="text-success">Info</h4>
                                 <div class="mb-2">
@@ -131,7 +147,7 @@
                         </div>
                     </div>
                     <div class="col-lg-5">
-                        <div class="row card">
+                        <div class="row card second">
                             <div class="card-body">
                                 <h4 class="text-success">Info verificate ✔</h4>
                                 <div class="mb-2">
@@ -153,76 +169,151 @@
                 </div>
 
                 <div class="row mt-3">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-10">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-10">
 
 
-                        <div class="bg-white rounded shadow-sm p-4 mb-4 clearfix graph-star-rating">
-                            <h5 class="mb-0 mb-4 text-success">Ratings and Reviews</h5>
-                            <div class="graph-star-rating-header">
-                                <div class="star-rating"> <a href="#"><i class="icofont-ui-rating active"></i></a> <a
-                                        href="#"><i class="icofont-ui-rating active"></i></a> <a href="#"><i
-                                            class="icofont-ui-rating active"></i></a> <a href="#"><i
-                                            class="icofont-ui-rating active"></i></a> <a href="#"><i
-                                            class="icofont-ui-rating"></i></a> <b class="text-black ml-2">334</b></div>
-                                <p class="text-black mb-4 mt-2">Rated 3.5 out of 5</p>
+                        <div class="bg-white rounded p-4 mb-4 card graph-star-rating">
+                            <div class="mb-4">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row p-2">
+                                            <div class="col-md-6">
+                                                <h5 class="mb-0 mb-4 text-success">Ratings and Reviews</h5>
+                                            </div>
+                                            <div class="col-md-6 d-flex justify-content-end align-items-center">
+                                                <h3 style="font-size: larger; font-weight: bold;">Media Recensioni
+                                                    &nbsp;</h3>
+                                                <h1 style="font-weight: bold;">4.3 <span class="spannetto" style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
+                                                </h1>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
+
                             <div class="graph-star-rating-body">
                                 <div class="rating-list">
-                                    <div class="rating-list-left text-black"> 5 Star</div>
+                                    <div class="rating-list-left text-black"><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
+                                    </div>
                                     <div class="rating-list-center">
                                         <div class="progress">
                                             <div style="width: 56%" aria-valuemax="5" aria-valuemin="0"
-                                                aria-valuenow="5" role="progressbar" class="progress-bar bg-primary">
-                                                <span class="sr-only">80% Complete (danger)</span>
+                                                aria-valuenow="5" role="progressbar" class="progress-bar bg-warning">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="rating-list-right text-black">56%</div>
+                                    <div class="rating-list-right text-black">56</div>
                                 </div>
                                 <div class="rating-list">
-                                    <div class="rating-list-left text-black"> 4 Star</div>
+                                    <div class="rating-list-left text-black"><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
+                                    </div>
                                     <div class="rating-list-center">
                                         <div class="progress">
                                             <div style="width: 23%" aria-valuemax="5" aria-valuemin="0"
-                                                aria-valuenow="5" role="progressbar" class="progress-bar bg-primary">
-                                                <span class="sr-only">80% Complete (danger)</span>
+                                                aria-valuenow="5" role="progressbar" class="progress-bar bg-warning">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="rating-list-right text-black">23%</div>
+                                    <div class="rating-list-right text-black">23</div>
                                 </div>
                                 <div class="rating-list">
-                                    <div class="rating-list-left text-black"> 3 Star</div>
+                                    <div class="rating-list-left text-black"><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
+                                    </div>
                                     <div class="rating-list-center">
                                         <div class="progress">
                                             <div style="width: 11%" aria-valuemax="5" aria-valuemin="0"
-                                                aria-valuenow="5" role="progressbar" class="progress-bar bg-primary">
-                                                <span class="sr-only">80% Complete (danger)</span>
+                                                aria-valuenow="5" role="progressbar" class="progress-bar bg-warning">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="rating-list-right text-black">11%</div>
+                                    <div class="rating-list-right text-black">11</div>
                                 </div>
                                 <div class="rating-list">
-                                    <div class="rating-list-left text-black"> 2 Star</div>
+                                    <div class="rating-list-left text-black"><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
+                                    </div>
                                     <div class="rating-list-center">
                                         <div class="progress">
                                             <div style="width: 2%" aria-valuemax="5" aria-valuemin="0" aria-valuenow="5"
-                                                role="progressbar" class="progress-bar bg-primary"> <span
-                                                    class="sr-only">80% Complete (danger)</span></div>
+                                                role="progressbar" class="progress-bar bg-warning">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="rating-list-right text-black">02%</div>
+                                    <div class="rating-list-right text-black">2</div>
+                                </div>
+                                <div class="rating-list">
+                                    <div class="rating-list-left text-black"><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
+                                    </div>
+                                    <div class="rating-list-center">
+                                        <div class="progress">
+                                            <div style="width: 3%" aria-valuemax="5" aria-valuemin="0" aria-valuenow="5"
+                                                role="progressbar" class="progress-bar bg-warning">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="rating-list-right text-black">3</div>
                                 </div>
                             </div>
 
                         </div>
                     </div>
 
-                    <div class="col-md-1"></div>
+                    <div class="col-lg-1"></div>
 
                 </div>
+                <div class="d-flex justify-content-center m-3">
+                    <h2>Recensioni Globali</h2>
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-1"></div>
+                    <div class="card review col-lg-10">
+                        <div class="row d-flex">
+                            <div class="d-flex flex-row poli">
+                                <div class="col-md-8 col-sm-8 col-8">
+                                    <h4 class="mt-2 mb-0">Curci S.p.A.</h4>
+                                    <div>
+                                        <p class="text-left widete"><span class="text-muted">4.0</span>
+                                            <span class="fa fa-star star-active ml-3"></span>
+                                            <span class="fa fa-star star-active"></span>
+                                            <span class="fa fa-star star-active"></span>
+                                            <span class="fa fa-star star-active"></span>
+                                            <span class="fa fa-star star-inactive"></span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-end">
+                                    <div class="ml-auto">
+                                        <p class="text-muted mt-2">10 Sept</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row text-left">
+                            <p class="content">Esperienza molto positiva, consigliato per tutti!</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-1"></div>
+
+                </div>
+
             </div>
 
     </section>

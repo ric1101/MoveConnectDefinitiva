@@ -1,4 +1,7 @@
-
+.card-body {
+    width: 100% !important;
+    height: 100% !important;
+}
 
 .containerRichiesta {
     border-radius: 10px;
@@ -32,7 +35,7 @@
 
 
 @media (max-width: 768px) {
-    
+
     .rowes {
         display: flex;
         flex-direction: column;
@@ -41,32 +44,37 @@
 }
 
 .utente {
-    background-color: rgba(128, 128, 128, 0.508);
+    background-color: #ece4d485;
 }
 
 
 
 .progress {
-    background: #f2f4f8 none repeat scroll 0 0;
+    background: #e0e1e5 none repeat scroll 0 0;
     border-radius: 0;
     height: 30px;
 }
+
 .rating-list {
     display: inline-flex;
     margin-bottom: 15px;
     width: 100%;
 }
+
 .rating-list-left {
-    height: 16px;
+    height: 100%;
     line-height: 29px;
     width: 10%;
 }
+
 .rating-list-center {
     width: 80%;
 }
+
 .rating-list-right {
-    line-height: 29px;
+    line-height: 100%;
     text-align: right;
+    align-self: center;
     width: 10%;
 }
 
@@ -78,12 +86,208 @@
     top: 100%;
     left: 0;
     z-index: 1050;
-    display: none; /* Inizialmente nascosto */
-    width: 100%; /* Prende tutta la larghezza del bottone */
-    min-width: 200px; /* Puoi modificarlo in base alla dimensione del tuo bottone */
+    display: none;
+    /* Inizialmente nascosto */
+    width: 100%;
+    /* Prende tutta la larghezza del bottone */
+    min-width: 200px;
+    /* Puoi modificarlo in base alla dimensione del tuo bottone */
 }
 
 /* Mostra il dropdown quando si passa sopra */
 #menu-products:hover .drop3 {
     display: block;
+}
+
+.btnBarra {
+    width: 100%;
+}
+
+.first {
+    margin-right: .5rem;
+}
+
+.second {
+    height: 100%;
+}
+
+@media (max-width: 992px) {
+
+    .first {
+        margin: 0 !important;
+    }
+
+    .second {
+        margin: 0 !important;
+        margin-top: 10px !important;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+
+    .box {
+        margin: 0 !important;
+    }
+
+
+}
+
+
+@media (max-width: 1000px) {
+
+    .rating-list-left {
+        height: 100%;
+        line-height: 29px;
+        width: 20%;
+    }
+
+}
+
+
+@media (max-width: 565px) {
+
+    .rating-list-left {
+        height: 100%;
+        line-height: 29px;
+        width: 30%;
+    }
+
+}
+
+
+@media (max-width: 470px) {
+
+    .rating-list-left {
+        height: 100%;
+        line-height: 29px;
+        width: 50%;
+    }
+
+    .rating-list-right {
+        line-height: 100%;
+        text-align: right;
+        align-self: center;
+        width: 20%;
+    }
+
+
+
+}
+
+
+@media (max-width: 400px) {
+
+
+    .containerLogoImg {
+        display: inline-block;
+        position: relative;
+        width: 160px;
+        height: 160px;
+        overflow: hidden;
+        border-radius: 50%;
+        border: solid 3px black;
+        margin-top: 20px;
+    }
+
+    .progress {
+        display: none !important;
+
+    }
+
+    .rating-list-center {
+        display: none !important;
+    }
+
+    .rating-list-left {
+        height: 100%;
+        line-height: 29px;
+        width: 50%;
+    }
+
+    .rating-list-right {
+        line-height: 100%;
+        text-align: right;
+        align-self: center;
+        width: 50%;
+    }
+
+}
+
+
+@media (max-width: 445px) {
+
+    h1 {
+        margin-left: 12px !important;
+
+    }
+
+    .agg {
+        margin-left: 1rem !important;
+    }
+
+    .spannetto {
+        display: flex;
+        justify-content: space-around;
+    }
+
+}
+
+
+.sr-only {
+    color: black !important;
+}
+
+
+.review {
+    border-radius: 5px;
+    background-color: #fff;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.star-active {
+    color: #FBC02D;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.star-active:hover {
+    color: #F9A825;
+    cursor: pointer;
+}
+
+.star-inactive {
+    color: #CFD8DC;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.content {
+    font-size: 18px;
+}
+
+@media (max-width: 433px) {
+
+
+    .poli {
+        flex-direction: column !important;
+    }
+
+
+}
+
+@media (max-width: 433px) {
+
+
+    .widete {
+        width: max-content !important;
+    }
+
+
 }
