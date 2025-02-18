@@ -28,8 +28,159 @@
 
     <div class="navbarMain"></div>
 
+
+
     <div class="container">
 
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-12 mb-3">
+                <div class="card" style="background-color: #ece4d485;">
+                    <div class="row p-4">
+
+                        <div class="col-md-8 col-sm-12 col-lg-7 col-xl-7 d-flex align-items-center cont1">
+                            <div class="containerLogoImg">
+                                <img src="" alt="" class="imgAzienda">
+                            </div>
+                            <div class="nomiAz p-3">
+                                <div class="row">
+                                    <h4>${dati.nomeAzienda}</h4>
+
+                                </div>
+                                <div class="row">
+                                    <p>Recensioni: ${dati.votiRecensione}</p>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-5 col-sm-12 col-md-4 p-4">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-md-12 col-lg-12 col-xl-12 col-sm-6 d-flex justify-content-end p-1">
+
+                                <div class="">
+                                    <a class="btn btn-primary me-1 tastiNormali" onclick="sendEmail('${dati.emailAziendale}')"><i class="fa-regular fa-envelope"></i> Messaggia</a>
+                                </div>
+
+                                <div class="">
+                                    <a class="btn btn-primary tastiNormali"><i class="fa-solid fa-user-plus"></i>Aggiungi</a>
+                                </div>
+                                        
+                                
+
+                            </div>
+                            <div class="col-md-12 col-lg-12 col-xl-12 col-sm-6 d-flex justify-content-end p-1">
+                                <div class="">
+                                    <a class="btn btn-warning tastiNormali">Visualizza Partners</a>
+                                </div>
+
+                            </div>
+
+                                <div class="row nomiAzEsteso">
+                                    <h4>${dati.nomeAzienda}</h4>
+                                    <p>${dati.votiRecensione}</p>
+                                </div>
+                                <div class="row">
+                                    <a class="btn btn-primary tastiParticolari m-1"><p><i
+                                            class="fa-regular fa-envelope"></i> Messaggia</p></a>
+
+                                </div>
+                                <div class="row">
+                                    <a class="btn btn-primary tastiParticolari m-1"><p><i
+                                            class="fa-solid fa-user-plus"></i> Aggiungi</p></a>
+
+                                </div>
+                                
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="row p-3 d-flex justify-content-center" style="margin-left: 0.550rem;">
+                <div class="col-md-6 col-lg-5">
+                    <div class="row card mb-3 req">
+                    <li class="nav-item dropdown visualizzaUser mb-2 p-0" id="menu-products">
+                        <a class="nav-link dropdown-toggle visualizzaRichiesteAll" href="#" role="button"
+                             aria-expanded="false">
+                            Visualizza richieste
+                        </a>
+                        <ul class="dropdown-menu drop3">
+                            <li><a class="dropdown-item d-none" href="suoloPubVisualizzaUtente.html" onclick="inviaLocalId(/*${dati.id}*/)">Occupazione solo pubblico</a></li>
+                            <li><a class="dropdown-item" href="trasportoVisualizzaUtente.html" onclick="inviaLocalId(/*${dati.id}*/)">Groupage</a></li>
+                            <li><a class="dropdown-item" href="elevatoreVisualizzaUtente.html" onclick="inviaLocalId(/*${dati.id}*/)">Scala elevatore</a></li>
+                            <li><a class="dropdown-item" href="imballaggiVisualizzaUtente.html" onclick="inviaLocalId(/*${dati.id}*/)">Consegna imballi</a></li>
+                            <li><a class="dropdown-item" href="personale-specVisualizzaUtente.html" onclick="inviaLocalId(/*${dati.id}*/)">Personale spec.</a></li>
+                            <li><a class="dropdown-item" href="magazzinoVisualizzaUtente.html" onclick="inviaLocalId(/*${dati.id}*/)">Deposito</a></li>
+                            <li><a class="dropdown-item" href="tratteVisualizzaUtente.html" onclick="inviaLocalId(/*${dati.id}*/)">Tratte</a></li>
+                        </ul>
+                    </li>
+                        <a class="btn btn-warning ">Visualizza Recensioni</a>
+                    </div>
+                <div class="row"></div>
+
+
+
+                <div class="col-md-12">
+                    <div class="row card mb-3 veri">
+                        <a class="btn btn-success p-2 mb-2">Verifica Azienda</a>
+                        <a class="btn btn-danger p-2">Segnala</a>
+                    </div>
+                </div>
+                
+
+                </div>
+                <div class="col-md-6 col-lg-7 capitana">
+                    <div class="row rowers">
+
+                    <div class="col-12 card mb-3 rowers">
+                        <div class="card-body">
+                            <h4 class="text-success align-center">Info</h4>
+                            <div class="mb-2">
+                                <strong>Numero Aziendale:</strong> <span>${dati.numeroTelefonicoAziendale}</span>
+                            </div>
+                            <div class="mb-2">
+                                <strong>Email:</strong> <span>${dati.emailAziendale}</span>
+                            </div>
+                            <div class="mb-2">
+                                <strong>P.IVA:</strong> <span>${dati.piva}</span>
+                            </div>
+                            <div class="mb-2">
+                                <strong>Indirizzo:</strong> <span>${dati.indirizzo}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row card mb-3 rowers">
+                        <div class="card-body">
+                            <h4 class="text-success">Info verificate ✔</h4>
+                            <div class="mb-2">
+                                <strong>Email Verificata:</strong> ${dati.username}<span class="text-success">✔</span>
+                            </div>
+                            <div class="mb-2">
+                                <strong>Numero di Telefono Verificato:</strong> <span class="text-success">✔</span>
+                            </div>
+                            <div class="mb-2">
+                                <strong>P.IVA Verificata:</strong> <span class="text-success">✔</span>
+                            </div>
+                            <div class="mb-2"></div>
+                            <strong>Indirizzo:</strong><span>Via Esempio 1, Milano</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+            
+        </div>
 
 
     </div>
