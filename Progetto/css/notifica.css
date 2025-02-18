@@ -1,0 +1,114 @@
+.mainTitle{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap');
+
+/** Core Styles **/
+
+
+
+
+/** The Original Design **/
+.friend-request-card {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  flex-direction: row;
+  align-items: center;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.6); /** This shadow is no good... **/
+  
+  .profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    margin-right: 27px;
+    overflow: hidden;
+    img {
+      width: 100px;
+      height: 100%;
+    }
+  }
+  
+  h1, h2 {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  
+  h1 {
+    color: #001D37;
+    font-size: 44px;
+  }
+  
+  h2 {
+    color: #6B7880;
+    font-size: 24px;
+  }
+  
+  .friend-request-actions {
+    margin-left: auto;
+    width: 180px;
+  }
+
+
+  .button {
+    font-family: Lato, sans-serif;
+    border-radius: 100px;
+    width: 100%;
+    padding: 14px 10px;
+    border: none;
+    font-size: 18px;
+    font-weight: 700; /** Slightly lighter than design because, browser rendering differences y'all **/
+    transition: background .3s;
+    cursor: pointer;
+
+    &:first-child {
+      margin-bottom: 14px;
+    }
+    
+    &.button-primary {
+      background: rgb(255,193,7);
+      color: #fff;
+      
+      &:hover {
+        background: darken(#3A9BDE, 10%);
+      }
+    }
+    
+    &.button-secondary {
+      background: #6F8493;
+      color: #fff;
+      
+      &:hover {
+        background: darken(#6F8493, 10%);
+      }
+    }
+  }
+}
+
+/** The Improved Design Variation **/
+.friend-request-card {
+  &.friend-request-card-better {
+    box-shadow:
+      0px 3px 3px rgba(0, 54, 85, 0.2), /** Simulate Direct Light - Color is a darkened shade of blue **/
+      0px 3px 20px rgba(0, 54, 85, 0.3)  /** Simulate Ambient Light - Color is a darkened shade of blue **/;
+    
+    .profile-picture {
+    position: relative;
+      &:after { /** Add inner-shadows to user-generated images **/
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+      box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.3);
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+  
+  
+}
