@@ -77,6 +77,7 @@ function navbar() {
                 
                 <!-- Login/Signup -->
                 <div class="d-flex flex-column flex-lg-row justify-content-end align-items-center gap-3">
+                <a href="notifica.html" class="text-white text-decoration-none notifica"><i class="fa-solid fa-bell grossi"></i> </a>
                 <a href="user.html" class="text-white text-decoration-none user d-none"><i class="fa-regular fa-circle-user grossi"></i></a>
                 <a href="login.html" class="text-white text-decoration-none login"><i
                 class="fa-solid fa-arrow-right-to-bracket"></i> &nbsp;Login </a>
@@ -124,6 +125,7 @@ chiusura.addEventListener("click", function () {
 let user = document.querySelector('.user');
 let logout = document.querySelector('.logout');
 let login = document.querySelector('.login');
+let notifica = document.querySelector('.notifica');
 let signup = document.querySelector('.signup');
 let inserisci = document.querySelector('.inserisci');
 let visualizza = document.querySelector('.visualizza');
@@ -150,6 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function mostraNavbarLoggata() {
     user.classList.remove('d-none');
+    notifica.classList.remove('d-none');
     signup.classList.add('d-none');
     logout.classList.remove('d-none');
     inserisci.classList.remove('d-none');
@@ -168,6 +171,7 @@ function mostraNavbarLoggata() {
 
 function mostraNavbarNonLoggata() {
     user.classList.add('d-none');
+    notifica.classList.add('d-none');
     signup.classList.remove('d-none');
     logout.classList.add('d-none');
     inserisci.classList.add('d-none');
