@@ -138,7 +138,7 @@ async function loadAziendaByNome(nomeAzienda, id) {
         // console.log(data.id);
 
         recensioniAzienda(data, id, data.id); // Popola la UI con i dati
-         // Recupera il logo
+        // Recupera il logo
 
 
         console.log("Dati azienda:", data);
@@ -150,12 +150,12 @@ async function loadAziendaByNome(nomeAzienda, id) {
 
 async function recensioniAzienda(dati, idAziendaMittente, idAziendaDestinataria) {
 
-    await fetch(`http://127.0.0.1:8080/api/azienda/recensioneImballiFinale/${idAziendaDestinataria}`)
+    await fetch(`http://127.0.0.1:8080/api/azienda/recensioneImballiFinaleAme/${idAziendaDestinataria}`)
         .then((res) => res.json())
         .then((data) => {
 
             iMieiDatiUtente(data, dati, idAziendaMittente, idAziendaDestinataria);
-            
+
         });
 
 
@@ -165,13 +165,13 @@ async function recensioniAzienda(dati, idAziendaMittente, idAziendaDestinataria)
 /* -------------------------------------------------------------------------- */
 /*                         Recupero del logo aziendale                        */
 /* -------------------------------------------------------------------------- */
- function fetchImg(idAzienda) {
+function fetchImg(idAzienda) {
     let imgAzienda = document.querySelector('.imgAzienda');
 
     console.log(imgAzienda);
-    
 
-     fetch(`http://127.0.0.1:8080/api/azienda/logo/${idAzienda}`)
+
+    fetch(`http://127.0.0.1:8080/api/azienda/logo/${idAzienda}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Errore nel recupero del logo");
@@ -195,18 +195,18 @@ async function recensioniAzienda(dati, idAziendaMittente, idAziendaDestinataria)
 /*                 Genera la UI con i dati dell'azienda cercata               */
 /* -------------------------------------------------------------------------- */
 
- async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDestinataria) {
+async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDestinataria) {
     let container = document.querySelector(".container");
 
 
-     await fetch(`http://127.0.0.1:8080/api/amicizia/amicizie/${idAziendaMittente}/${idAziendaDestinataria}`)
-    .then((res) => {
-        if (res.status === 404) {
-            // If the status is 404, handle it here
-            // console.error('Error: Resource not found (404)');
-            
-            // Insert the HTML element for 404
-            let visualizzaIDati = `<div class="row d-flex justify-content-center colonnaInfo">
+    await fetch(`http://127.0.0.1:8080/api/amicizia/amicizie/${idAziendaMittente}/${idAziendaDestinataria}`)
+        .then((res) => {
+            if (res.status === 404) {
+                // If the status is 404, handle it here
+                // console.error('Error: Resource not found (404)');
+
+                // Insert the HTML element for 404
+                let visualizzaIDati = `<div class="row d-flex justify-content-center colonnaInfo">
 
             <div class="col-lg-1"></div>
             <div class="col-lg-10">
@@ -235,7 +235,7 @@ async function recensioniAzienda(dati, idAziendaMittente, idAziendaDestinataria)
                         <div class="row">
                             <div class="col-md-12 p-2 mt-3">
                                 <h3 style="font-size: larger; font-weight: bold;">Media Recensioni</h3>
-                                <h1 style="font-weight: bold;">${recensioni.media}<span style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
+                                <h1 style="font-weight: bold;">${recensioni.media} <span style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
                                 </h1>
                             </div>
 
@@ -347,7 +347,7 @@ async function recensioniAzienda(dati, idAziendaMittente, idAziendaDestinataria)
                                             <h5 class="mb-0 mb-4 text-success">Valutazione e Recensioni</h5>
                                         </div>
                                         <div class="col-md-6 d-flex justify-content-end align-items-center">
-                                            <h3 style="font-size: larger; font-weight: bold;">Media Recensioni
+                                            <h3 style="font-size: larger; font-weight: bold; margin: 0;">Media Recensioni
                                                 &nbsp;</h3>
                                             <h1 style="font-weight: bold;">${recensioni.media} <span class="spannetto" style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
                                             </h1>
@@ -442,38 +442,42 @@ async function recensioniAzienda(dati, idAziendaMittente, idAziendaDestinataria)
 
                 <div class="col-lg-1"></div>
 
+                <div class="inserisciRecensioni">
+                    
+                </div>
+
             </div>
             
 
             </div>`;
 
 
-            container.innerHTML = visualizzaIDati; 
-            fetchImg(idAziendaDestinataria); // Replace 'container' with the actual ID of the parent element in your HTML
+                container.innerHTML = visualizzaIDati;
+                fetchImg(idAziendaDestinataria); // Replace 'container' with the actual ID of the parent element in your HTML
 
-            throw new Error('404 Not Found'); 
-             // Stop further execution if 404
-
-
-        } else if (!res.ok) {
-            // If the response status is not ok (i.e., not 2xx), handle other errors here
-            console.error('Error:', res.statusText);
-            throw new Error(res.statusText);  // Throw the error to stop further processing
-        }
-
-        return res.json();  // Only parse JSON if the status is not 404
-    })
-
-    .then((data) => {
-        console.log('Received data:', data);
-
-        // Now check the 'stato' field only if data is successfully fetched and is not a 404
+                throw new Error('404 Not Found');
+                // Stop further execution if 404
 
 
-        if (data.stato !== "PENDENTE") {
+            } else if (!res.ok) {
+                // If the response status is not ok (i.e., not 2xx), handle other errors here
+                console.error('Error:', res.statusText);
+                throw new Error(res.statusText);  // Throw the error to stop further processing
+            }
+
+            return res.json();  // Only parse JSON if the status is not 404
+        })
+
+        .then((data) => {
+            console.log('Received data:', data);
+
+            // Now check the 'stato' field only if data is successfully fetched and is not a 404
 
 
-            let visualizzaIDati = `<div class="row d-flex justify-content-center colonnaInfo">
+            if (data.stato !== "PENDENTE") {
+
+
+                let visualizzaIDati = `<div class="row d-flex justify-content-center colonnaInfo">
 
             <div class="col-lg-1"></div>
             <div class="col-lg-10">
@@ -502,7 +506,7 @@ async function recensioniAzienda(dati, idAziendaMittente, idAziendaDestinataria)
                         <div class="row">
                             <div class="col-md-12 p-2 mt-3">
                                 <h3 style="font-size: larger; font-weight: bold;">Media Recensioni</h3>
-                                <h1 style="font-weight: bold;">${recensioni.media}<span style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
+                                <h1 style="font-weight: bold;">${recensioni.media} <span style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
                                 </h1>
                             </div>
 
@@ -709,18 +713,22 @@ async function recensioniAzienda(dati, idAziendaMittente, idAziendaDestinataria)
 
                 <div class="col-lg-1"></div>
 
+                <div class="inserisciRecensioni">
+                    
+                </div>
+
             </div>
             
 
             </div>`;
 
-            container.innerHTML = visualizzaIDati;
-            fetchImg(idAziendaDestinataria);
+                container.innerHTML = visualizzaIDati;
+                fetchImg(idAziendaDestinataria);
 
-        } else if (data.stato === "PENDENTE") {
+            } else if (data.stato === "PENDENTE") {
 
 
-            let visualizzaIDati = `<div class="row d-flex justify-content-center colonnaInfo">
+                let visualizzaIDati = `<div class="row d-flex justify-content-center colonnaInfo">
 
             <div class="col-lg-1"></div>
             <div class="col-lg-10">
@@ -748,7 +756,7 @@ async function recensioniAzienda(dati, idAziendaMittente, idAziendaDestinataria)
                         <div class="row">
                             <div class="col-md-12 p-2 mt-3">
                                 <h3 style="font-size: larger; font-weight: bold;">Media Recensioni</h3>
-                                <h1 style="font-weight: bold;">${recensioni.media}<span style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
+                                <h1 style="font-weight: bold;">${recensioni.media} <span style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
                                 </h1>
                             </div>
 
@@ -955,25 +963,125 @@ async function recensioniAzienda(dati, idAziendaMittente, idAziendaDestinataria)
 
                 <div class="col-lg-1"></div>
 
+                <div class="inserisciRecensioni">
+                    
+                </div>
+
             </div>
             
 
             </div>`;
 
-            container.innerHTML = visualizzaIDati;
-            fetchImg(idAziendaDestinataria);
-        }
-        
-        
-    })
-    .catch((error) => {
-        // console.error('Fetch error:', error.message);  // Handle fetch errors, including 404
-    });
-   
-        
-    
+                container.innerHTML = visualizzaIDati;
+                fetchImg(idAziendaDestinataria);
+            }
 
-            
+
+        })
+        .catch((error) => {
+            // console.error('Fetch error:', error.message);  // Handle fetch errors, including 404
+        });
+
+
+
+    recensioni.recensioni.forEach(element => {
+
+        let containerRecensioni = document.querySelector('.inserisciRecensioni');
+
+
+        fetch(`http://127.0.0.1:8080/api/azienda/aziendaPerID/${element.azienda_richiedente_recensione_id}`)
+            .then((res) => res.json())
+            .then((data) => {
+
+
+                let recensioneScritta = `<div class="d-flex justify-content-center m-3">
+                        <h2>Recensioni Globali</h2>
+                    </div>
+                <div class="row">
+
+                    <div class="col-lg-1"></div>
+                    <div class="card review col-lg-10">
+                        <div class="row d-flex">
+                            <div class="d-flex flex-row poli">
+                                <div class="col-md-8 col-sm-8 col-8">
+                                    <h4 class="mt-2 mb-0 titolino">${data.nomeAzienda}</h4>
+                                    <div>
+                                        <p class="text-left widete"><span class="text-muted">${element.valutazione}</span>
+                                            <div class="containerStelle"></div>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-end">
+                                    <div class="ml-auto">
+                                        <p class="text-muted mt-2">${element.data_recensione}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row text-left">
+                            <p class="content">${element.commento}</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-1"></div>`;
+
+                containerRecensioni.innerHTML += recensioneScritta;
+
+                let containerStelle = document.querySelector('.containerStelle');
+
+                if (element.valutazione == 5) {
+
+                    containerStelle.innerHTML = 
+                    `<span class="fa fa-star star-active ml-3"></span>
+                    <span class="fa fa-star star-active"></span>
+                    <span class="fa fa-star star-active"></span>
+                    <span class="fa fa-star star-active"></span>
+                    <span class="fa fa-star star-active"></span>`;             
+                    
+                } else if (element.valutazione == 4) { 
+
+                    containerStelle.innerHTML = 
+                    `<span class="fa fa-star star-active ml-3"></span>
+                    <span class="fa fa-star star-active"></span>
+                    <span class="fa fa-star star-active"></span>
+                    <span class="fa fa-star star-active"></span>
+                    <span class="fa fa-star star-inactive"></span>`;             
+                    
+                } else if (element.valutazione == 3) { 
+
+                    containerStelle.innerHTML = 
+                    `<span class="fa fa-star star-active ml-3"></span>
+                    <span class="fa fa-star star-active"></span>
+                    <span class="fa fa-star star-active"></span>
+                    <span class="fa fa-star star-inactive"></span>
+                    <span class="fa fa-star star-inactive"></span>`;             
+
+                } else if (element.valutazione == 2) { 
+
+                    containerStelle.innerHTML = 
+                    `<span class="fa fa-star star-active ml-3"></span>
+                    <span class="fa fa-star star-active"></span>
+                    <span class="fa fa-star star-inactive"></span>
+                    <span class="fa fa-star star-inactive"></span>
+                    <span class="fa fa-star star-inactive"></span>`; 
+
+                } else if (element.valutazione == 1) { 
+
+                    containerStelle.innerHTML = 
+                    `<span class="fa fa-star star-active ml-3"></span>
+                    <span class="fa fa-star star-inactive"></span>
+                    <span class="fa fa-star star-inactive"></span>
+                    <span class="fa fa-star star-inactive"></span>
+                    <span class="fa fa-star star-inactive"></span>`; 
+
+                }
+
+            });
+
+    });
+
+
+
+
 
 
     // Seleziona l'elemento che attiva il dropdown
@@ -1137,7 +1245,7 @@ async function recensioniAzienda(dati, idAziendaMittente, idAziendaDestinataria)
 //                         <a class="btn btn-danger p-2">Segnala</a>
 //                     </div>
 //                 </div>
-                
+
 
 //                 </div>
 //                 <div class="col-md-6 col-lg-7 capitana">
@@ -1182,7 +1290,7 @@ async function recensioniAzienda(dati, idAziendaMittente, idAziendaDestinataria)
 //             </div>
 //         </div>
 
-            
+
 //         </div>`;
 
 
