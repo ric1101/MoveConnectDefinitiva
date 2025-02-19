@@ -193,7 +193,7 @@ function checkToken() {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-
+      richiesteRicevute(data.id);
       mostraNavbarLoggata();
     })
     .catch((error) => {
@@ -229,24 +229,7 @@ function toggleNotifi() {
 
 let boxes = document.querySelector(".notifi-box");
 
-async function tokenizzami() {
 
-
-    let accessToken = localStorage.getItem('accessToken');
-
-
-    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-        .then((res) => res.json())
-        .then((data) => {
-
-            
-            richiesteRicevute(data.id);
-            console.log(data.id);
-
-            
-        });
-        
-    }
 
     function richiesteRicevute(id) {
         fetch(`http://127.0.0.1:8080/api/amicizia/amicizieRicevute?idAzienda2=${id}`)
@@ -258,7 +241,7 @@ async function tokenizzami() {
             if (Array.isArray(data)) {
                 data.forEach(item => {
                     if (item.azienda1 && item.azienda1.id) {
-                        visualizzaRichiesteRicevute([item.azienda1]);  // Passing array to visualizzaRichiesteRicevute
+                        visualizzaRichiesteRicevute([item.azienda1], [item.azienda2]);  // Passing array to visualizzaRichiesteRicevute
                         console.log(item);
                         console.log(item.azienda1.id);
                     } else {
@@ -275,9 +258,10 @@ async function tokenizzami() {
     }
     
 
-function visualizzaRichiesteRicevute(data) {
+function visualizzaRichiesteRicevute(data, dataMio) {
     console.log(data);
 
+    
     // Check if data is an array before using .forEach
     if (Array.isArray(data)) {
         let visualizzaRichieste = '';
@@ -291,6 +275,8 @@ function visualizzaRichiesteRicevute(data) {
                     <div class="text">
                         <h4>${element.nomeAzienda}</h4>
                         <p>${element.username}</p>
+                        <a class="btn btn-success" style="background-color: green; onclick"accettaAmicizia()">Accetta</a>
+                        <a class="btn btn-danger" style="background-color: red;">Rifiuta</a>
                     </div>
                 </div>`;
         });
@@ -302,30 +288,8 @@ function visualizzaRichiesteRicevute(data) {
     }
 }
 
-tokenizzami();
 
-// let arrayCarrello = [];
-// let numeroArticoli = document.querySelector('#numeroArticoli');
-// let numProdotti = 0;
 
-// function contoCarrello() {
-//   console.log(numProdotti);
+function accettaAmicizia(){
 
-//   arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
-//   console.log(arrayCarrello);
-
-//   if (arrayCarrello !== null) {
-
-//     numProdotti = arrayCarrello.length;
-//   }
-//   console.log(numProdotti);
-//   numeroArticoli.innerHTML = numProdotti;
-
-//   if (numProdotti == 0) {
-//     numeroArticoli.innerHTML = null;
-//   }
-
-// }
-// contoCarrello();
-
-// let ruolo = "";
+}
