@@ -83,39 +83,6 @@ function navbar() {
                     <div class="notifi-box" id="box">
                     <h2> Notifiche <span>17</span></h2>
                     <div class="notifi-item">
-                    <img src="../imgs/square.png" alt="img">
-                    <div class="text">
-                    <h4>Elias Puzzong</h4>
-                    <p>@lorem ipsum dolor sit amet</p>
-                    </div>
-                    </div>
-                        <div class="notifi-item">
-                    <img src="../imgs/small.png" alt="img">
-                    <div class="text">
-                    <h4>Elias Puzzong</h4>
-                    <p>@lorem ipsum dolor sit amet</p>
-                    </div>
-                    </div>
-                        <div class="notifi-item">
-                    <img src="../imgs/small1.png" alt="img">
-                    <div class="text">
-                    <h4>Elias Puzzong</h4>
-                    <p>@lorem ipsum dolor sit amet</p>
-                    </div>
-                    </div>
-                        <div class="notifi-item">
-                    <img src="../imgs/strada.png" alt="img">
-                    <div class="text">
-                    <h4>Elias Puzzong</h4>
-                    <p>@lorem ipsum dolor sit amet</p>
-                    </div>
-                    </div>
-                        <div class="notifi-item">
-                    <img src="../imgs/sfondoSfocato.png" alt="img">
-                    <div class="text">
-                    <h4>Elias Puzzong</h4>
-                    <p>@lorem ipsum dolor sit amet</p>
-                    </div>
                     </div>
                 </div>
                 <a href="user.html" class="text-white text-decoration-none user d-none"><i class="fa-regular fa-circle-user grossi"></i></a>
@@ -140,6 +107,7 @@ let bottone = document.querySelector(".hamburger");
 let chiusura = document.querySelector(".closed");
 let dropdown1 = document.querySelector(".drop1");
 let dropdown2 = document.querySelector(".drop2");
+let item = document.querySelector(".notifi-item");
 
 bottone.addEventListener("click", function () {
   dropdown1.classList.add("show");
@@ -185,20 +153,21 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function mostraNavbarLoggata() {
-  user.classList.remove("d-none");
-  notifica.classList.remove("d-none");
-  signup.classList.add("d-none");
-  logout.classList.remove("d-none");
-  inserisci.classList.remove("d-none");
-  visualizza.classList.remove("d-none");
-  login.classList.add("d-none");
-  partners.classList.remove("d-none");
-  blogs.classList.remove("d-none");
-  // ricerca.classList.remove('d-none');
-  cercaAziende.classList.remove("d-none");
-  if (multiRegione != null) {
-    multiRegione.classList.remove("d-none");
-  }
+    user.classList.remove("d-none");
+    notifica.classList.remove("d-none");
+    signup.classList.add("d-none");
+    logout.classList.remove("d-none");
+    inserisci.classList.remove("d-none");
+    visualizza.classList.remove("d-none");
+    login.classList.add("d-none");
+    partners.classList.remove("d-none");
+    blogs.classList.remove("d-none");
+    // ricerca.classList.remove('d-none');
+    cercaAziende.classList.remove("d-none");
+    if (multiRegione != null) {
+        multiRegione.classList.remove("d-none");
+    }
+    item.classList.add("d-none");
 }
 
 function mostraNavbarNonLoggata() {
@@ -257,6 +226,83 @@ function toggleNotifi() {
     down = true;
   }
 }
+
+let boxes = document.querySelector(".notifi-box");
+
+async function tokenizzami() {
+
+
+    let accessToken = localStorage.getItem('accessToken');
+
+
+    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            
+            richiesteRicevute(data.id);
+            console.log(data.id);
+
+            
+        });
+        
+    }
+
+    function richiesteRicevute(id) {
+        fetch(`http://127.0.0.1:8080/api/amicizia/amicizieRicevute?idAzienda2=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log('Received data:', data); // Log the raw data
+        
+            // Check if the data is an array and process it accordingly
+            if (Array.isArray(data)) {
+                data.forEach(item => {
+                    if (item.azienda1 && item.azienda1.id) {
+                        visualizzaRichiesteRicevute([item.azienda1]);  // Passing array to visualizzaRichiesteRicevute
+                        console.log(item);
+                        console.log(item.azienda1.id);
+                    } else {
+                        console.log("azienda1 is undefined for this item");
+                    }
+                });
+            } else {
+                console.error('Data is not an array:', data); // Log an error if it's not an array
+            }
+        })
+        .catch((error) => {
+            console.error('Error fetching data:', error);
+        });
+    }
+    
+
+function visualizzaRichiesteRicevute(data) {
+    console.log(data);
+
+    // Check if data is an array before using .forEach
+    if (Array.isArray(data)) {
+        let visualizzaRichieste = '';
+        console.log(data);
+        
+        // Loop through each element of data to display requests
+        data.forEach(element => {
+            visualizzaRichieste += `   
+                <div class="notifi-item">
+                    <i class="fa-solid fa-user-plus amicomio"></i>
+                    <div class="text">
+                        <h4>${element.nomeAzienda}</h4>
+                        <p>${element.username}</p>
+                    </div>
+                </div>`;
+        });
+
+        // Assuming boxes is a container for notifications
+        boxes.innerHTML += visualizzaRichieste;
+    } else {
+        console.error('Data passed to visualizzaRichiesteRicevute is not an array:', data);
+    }
+}
+
+tokenizzami();
 
 // let arrayCarrello = [];
 // let numeroArticoli = document.querySelector('#numeroArticoli');
