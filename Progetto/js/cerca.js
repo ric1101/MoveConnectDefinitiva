@@ -113,7 +113,7 @@ function setParam(nomeAziendaDue, id) {
 
 
         if (nomeAzienda === nomeAziendaDue) {
-            window.location.href = "pagina404.html";
+            window.location.href = "user.html";
         } else {
 
             loadAziendaByNome(nomeAzienda, id); // Carica i dati dell'azienda
