@@ -1001,8 +1001,8 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
                                 <div class="d-flex flex-row poli">
                                     <div class="col-md-8 col-sm-8 col-8">
                                         <h4 class="mt-2 mb-0 titolino">${data.nomeAzienda}</h4>
-                                        <div>
-                                            <p class="text-left widete"><span class="text-muted">${element.valutazione}</span>
+                                        <div class="d-flex">
+                                            <p class="text-left widete"><span class="text-muted">${element.valutazione} </span>
                                                 <div class="containerStelle-${index}"></div>
                                             </p>
                                         </div>
