@@ -261,7 +261,7 @@ let boxes = document.querySelector(".notifi-box");
 function visualizzaRichiesteRicevute(data, dataMio) {
     console.log(data);
 
-    
+
     // Check if data is an array before using .forEach
     if (Array.isArray(data)) {
         let visualizzaRichieste = '';
@@ -286,10 +286,27 @@ function visualizzaRichiesteRicevute(data, dataMio) {
     } else {
         console.error('Data passed to visualizzaRichiesteRicevute is not an array:', data);
     }
+
+    accettaAmicizia(data,dataMio);
+    console.log(data[0].id);
+    console.log(dataMio.id);
+    
 }
 
 
 
-function accettaAmicizia(){
+function accettaAmicizia(data,dataMio){
+    console.log(data);
+    console.log(dataMio);
+    
+
+    fetch(`http://127.0.0.1:8080/api/amicizia/accettataAmicizia/`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(),
+
+    })
 
 }
