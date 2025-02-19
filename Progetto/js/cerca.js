@@ -982,102 +982,63 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
             // console.error('Fetch error:', error.message);  // Handle fetch errors, including 404
         });
 
+    let containerRecensioni = document.querySelector('.inserisciRecensioni');
 
+    containerRecensioni.innerHTML = `
+        <div class="d-flex justify-content-center m-3">
+            <h2>Recensioni Globali</h2>
+        </div>`;
 
-    recensioni.recensioni.forEach(element => {
-
-        let containerRecensioni = document.querySelector('.inserisciRecensioni');
-
-
+    recensioni.recensioni.forEach((element, index) => {
         fetch(`http://127.0.0.1:8080/api/azienda/aziendaPerID/${element.azienda_richiedente_recensione_id}`)
             .then((res) => res.json())
             .then((data) => {
-
-
-                let recensioneScritta = `<div class="d-flex justify-content-center m-3">
-                        <h2>Recensioni Globali</h2>
-                    </div>
-                <div class="row">
-
-                    <div class="col-lg-1"></div>
-                    <div class="card review col-lg-10">
-                        <div class="row d-flex">
-                            <div class="d-flex flex-row poli">
-                                <div class="col-md-8 col-sm-8 col-8">
-                                    <h4 class="mt-2 mb-0 titolino">${data.nomeAzienda}</h4>
-                                    <div>
-                                        <p class="text-left widete"><span class="text-muted">${element.valutazione}</span>
-                                            <div class="containerStelle"></div>
-                                        </p>
+                let recensioneScritta = `
+                    <div class="row">
+                        <div class="col-lg-1"></div>
+                        <div class="card review col-lg-10">
+                            <div class="row d-flex">
+                                <div class="d-flex flex-row poli">
+                                    <div class="col-md-8 col-sm-8 col-8">
+                                        <h4 class="mt-2 mb-0 titolino">${data.nomeAzienda}</h4>
+                                        <div>
+                                            <p class="text-left widete"><span class="text-muted">${element.valutazione}</span>
+                                                <div class="containerStelle-${index}"></div>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-end">
-                                    <div class="ml-auto">
-                                        <p class="text-muted mt-2">${element.data_recensione}</p>
+                                    <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-end">
+                                        <div class="ml-auto">
+                                            <p class="text-muted mt-2">${element.data_recensione}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="row text-left">
+                                <p class="content">${element.commento}</p>
+                            </div>
                         </div>
-                        <div class="row text-left">
-                            <p class="content">${element.commento}</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-1"></div>`;
+                        <div class="col-lg-1"></div>
+                    </div>`;
 
                 containerRecensioni.innerHTML += recensioneScritta;
 
-                let containerStelle = document.querySelector('.containerStelle');
+                let containerStelle = document.querySelector(`.containerStelle-${index}`);
 
-                if (element.valutazione == 5) {
+                let stelleHTML = '';
 
-                    containerStelle.innerHTML = 
-                    `<span class="fa fa-star star-active ml-3"></span>
-                    <span class="fa fa-star star-active"></span>
-                    <span class="fa fa-star star-active"></span>
-                    <span class="fa fa-star star-active"></span>
-                    <span class="fa fa-star star-active"></span>`;             
-                    
-                } else if (element.valutazione == 4) { 
-
-                    containerStelle.innerHTML = 
-                    `<span class="fa fa-star star-active ml-3"></span>
-                    <span class="fa fa-star star-active"></span>
-                    <span class="fa fa-star star-active"></span>
-                    <span class="fa fa-star star-active"></span>
-                    <span class="fa fa-star star-inactive"></span>`;             
-                    
-                } else if (element.valutazione == 3) { 
-
-                    containerStelle.innerHTML = 
-                    `<span class="fa fa-star star-active ml-3"></span>
-                    <span class="fa fa-star star-active"></span>
-                    <span class="fa fa-star star-active"></span>
-                    <span class="fa fa-star star-inactive"></span>
-                    <span class="fa fa-star star-inactive"></span>`;             
-
-                } else if (element.valutazione == 2) { 
-
-                    containerStelle.innerHTML = 
-                    `<span class="fa fa-star star-active ml-3"></span>
-                    <span class="fa fa-star star-active"></span>
-                    <span class="fa fa-star star-inactive"></span>
-                    <span class="fa fa-star star-inactive"></span>
-                    <span class="fa fa-star star-inactive"></span>`; 
-
-                } else if (element.valutazione == 1) { 
-
-                    containerStelle.innerHTML = 
-                    `<span class="fa fa-star star-active ml-3"></span>
-                    <span class="fa fa-star star-inactive"></span>
-                    <span class="fa fa-star star-inactive"></span>
-                    <span class="fa fa-star star-inactive"></span>
-                    <span class="fa fa-star star-inactive"></span>`; 
-
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= element.valutazione) {
+                        stelleHTML += `<span class="fa fa-star star-active ml-3"></span>`;
+                    } else {
+                        stelleHTML += `<span class="fa fa-star star-inactive"></span>`;
+                    }
                 }
 
+                containerStelle.innerHTML = stelleHTML;
             });
-
     });
+
 
 
 
