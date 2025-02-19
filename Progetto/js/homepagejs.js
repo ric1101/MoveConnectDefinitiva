@@ -2,9 +2,8 @@ let navbarHTML = document.querySelector(".navbarMain");
 
 navbar();
 
-
 function navbar() {
-    let navBarFinale = `<nav class="navbar navbar-expand-xxl navbar-fixed-top" style="background-color: #1B2023;">
+  let navBarFinale = `<nav class="navbar navbar-expand-xxl navbar-fixed-top" style="background-color: #1B2023;">
     <div class="container-fluid">
         <!-- Logo -->
         <a class="navbar-brand fs-4" href="index.html"><img class="logo" src="../Progetto/imgs/img.png" alt=""></a>
@@ -77,7 +76,48 @@ function navbar() {
                 
                 <!-- Login/Signup -->
                 <div class="d-flex flex-column flex-lg-row justify-content-end align-items-center gap-3">
-                <a href="notifica.html" class="text-white text-decoration-none notifica"><i class="fa-solid fa-bell grossi"></i> </a>
+               
+                <div class"icon" onclick="toggleNotifi()">
+                    <a class="text-white text-decoration-none notifica"><span>17</span><i class="fa-solid fa-bell grossi"></i> </a>
+                    </div>
+                    <div class="notifi-box" id="box">
+                    <h2> Notifiche <span>17</span></h2>
+                    <div class="notifi-item">
+                    <img src="../imgs/square.png" alt="img">
+                    <div class="text">
+                    <h4>Elias Puzzong</h4>
+                    <p>@lorem ipsum dolor sit amet</p>
+                    </div>
+                    </div>
+                        <div class="notifi-item">
+                    <img src="../imgs/small.png" alt="img">
+                    <div class="text">
+                    <h4>Elias Puzzong</h4>
+                    <p>@lorem ipsum dolor sit amet</p>
+                    </div>
+                    </div>
+                        <div class="notifi-item">
+                    <img src="../imgs/small1.png" alt="img">
+                    <div class="text">
+                    <h4>Elias Puzzong</h4>
+                    <p>@lorem ipsum dolor sit amet</p>
+                    </div>
+                    </div>
+                        <div class="notifi-item">
+                    <img src="../imgs/strada.png" alt="img">
+                    <div class="text">
+                    <h4>Elias Puzzong</h4>
+                    <p>@lorem ipsum dolor sit amet</p>
+                    </div>
+                    </div>
+                        <div class="notifi-item">
+                    <img src="../imgs/sfondoSfocato.png" alt="img">
+                    <div class="text">
+                    <h4>Elias Puzzong</h4>
+                    <p>@lorem ipsum dolor sit amet</p>
+                    </div>
+                    </div>
+                </div>
                 <a href="user.html" class="text-white text-decoration-none user d-none"><i class="fa-regular fa-circle-user grossi"></i></a>
                 <a href="login.html" class="text-white text-decoration-none login"><i
                 class="fa-solid fa-arrow-right-to-bracket"></i> &nbsp;Login </a>
@@ -91,129 +131,132 @@ function navbar() {
             </div>
         </div>
     </div>
-</nav>`
+</nav>`;
 
-    navbarHTML.innerHTML = navBarFinale;
+  navbarHTML.innerHTML = navBarFinale;
 }
-
 
 let bottone = document.querySelector(".hamburger");
 let chiusura = document.querySelector(".closed");
 let dropdown1 = document.querySelector(".drop1");
 let dropdown2 = document.querySelector(".drop2");
 
-
-
 bottone.addEventListener("click", function () {
-    dropdown1.classList.add("show");
-    dropdown2.classList.add("show");
+  dropdown1.classList.add("show");
+  dropdown2.classList.add("show");
 
-    let back = document.querySelector('.offcanvas-backdrop');
+  let back = document.querySelector(".offcanvas-backdrop");
 
-    back.addEventListener("click", function () {
-        dropdown1.classList.remove("show");
-        dropdown2.classList.remove("show");
-    });
+  back.addEventListener("click", function () {
+    dropdown1.classList.remove("show");
+    dropdown2.classList.remove("show");
+  });
 });
 
 chiusura.addEventListener("click", function () {
-    dropdown1.classList.remove("show");
-    dropdown2.classList.remove("show");
+  dropdown1.classList.remove("show");
+  dropdown2.classList.remove("show");
 });
 
-
-let user = document.querySelector('.user');
-let logout = document.querySelector('.logout');
-let login = document.querySelector('.login');
-let notifica = document.querySelector('.notifica');
-let signup = document.querySelector('.signup');
-let inserisci = document.querySelector('.inserisci');
-let visualizza = document.querySelector('.visualizza');
-let abb = document.querySelector('.abb');
-let partners = document.querySelector('.partners');
-let blogs = document.querySelector('.blogs');
-let multiRegione = document.querySelector('.multiRegione');
+let user = document.querySelector(".user");
+let logout = document.querySelector(".logout");
+let login = document.querySelector(".login");
+let notifica = document.querySelector(".notifica");
+let signup = document.querySelector(".signup");
+let inserisci = document.querySelector(".inserisci");
+let visualizza = document.querySelector(".visualizza");
+let abb = document.querySelector(".abb");
+let partners = document.querySelector(".partners");
+let blogs = document.querySelector(".blogs");
+let multiRegione = document.querySelector(".multiRegione");
 // let ricerca = document.querySelector('.ricerca');
-let cercaAziende = document.querySelector('.cercaAziende');
+let cercaAziende = document.querySelector(".cercaAziende");
 
+document.addEventListener("DOMContentLoaded", () => {
+  // Nascondi la navbar in base all'accessToken immediatamente
+  let accessToken = localStorage.getItem("accessToken");
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Nascondi la navbar in base all'accessToken immediatamente
-    let accessToken = localStorage.getItem('accessToken');
-
-    if (accessToken) {
-        mostraNavbarLoggata();
-        checkToken(); // Chiama la funzione asincrona per verificare il token
-    } else {
-        mostraNavbarNonLoggata();
-    }
+  if (accessToken) {
+    mostraNavbarLoggata();
+    checkToken(); // Chiama la funzione asincrona per verificare il token
+  } else {
+    mostraNavbarNonLoggata();
+  }
 });
 
 function mostraNavbarLoggata() {
-    user.classList.remove('d-none');
-    notifica.classList.remove('d-none');
-    signup.classList.add('d-none');
-    logout.classList.remove('d-none');
-    inserisci.classList.remove('d-none');
-    visualizza.classList.remove('d-none');
-    login.classList.add('d-none');
-    partners.classList.remove('d-none');
-    blogs.classList.remove('d-none');
-    // ricerca.classList.remove('d-none');
-    cercaAziende.classList.remove('d-none');
-    if (multiRegione != null) {
-        
-        multiRegione.classList.remove('d-none');
-
-    }
+  user.classList.remove("d-none");
+  notifica.classList.remove("d-none");
+  signup.classList.add("d-none");
+  logout.classList.remove("d-none");
+  inserisci.classList.remove("d-none");
+  visualizza.classList.remove("d-none");
+  login.classList.add("d-none");
+  partners.classList.remove("d-none");
+  blogs.classList.remove("d-none");
+  // ricerca.classList.remove('d-none');
+  cercaAziende.classList.remove("d-none");
+  if (multiRegione != null) {
+    multiRegione.classList.remove("d-none");
+  }
 }
 
 function mostraNavbarNonLoggata() {
-    user.classList.add('d-none');
-    notifica.classList.add('d-none');
-    signup.classList.remove('d-none');
-    logout.classList.add('d-none');
-    inserisci.classList.add('d-none');
-    visualizza.classList.add('d-none');
-    login.classList.remove('d-none');
-    abb.classList.remove('d-none');
-    partners.classList.remove('d-none');
-    blogs.classList.remove('d-none');
-    if (multiRegione != null) {
-        
-        multiRegione.classList.add('d-none');
-        
-    }
-    
+  user.classList.add("d-none");
+  notifica.classList.add("d-none");
+  signup.classList.remove("d-none");
+  logout.classList.add("d-none");
+  inserisci.classList.add("d-none");
+  visualizza.classList.add("d-none");
+  login.classList.remove("d-none");
+  abb.classList.remove("d-none");
+  partners.classList.remove("d-none");
+  blogs.classList.remove("d-none");
+  if (multiRegione != null) {
+    multiRegione.classList.add("d-none");
+  }
 }
 
 function checkToken() {
-    let accessToken = localStorage.getItem('accessToken');
+  let accessToken = localStorage.getItem("accessToken");
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data);
-            
-            mostraNavbarLoggata();
-        })
-        .catch(error => {
-            console.log(error);
-            
-            localStorage.removeItem('accessToken');
-            mostraNavbarNonLoggata();
-            // window.location.href = 'index.html';
-        });
+  fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+
+      mostraNavbarLoggata();
+    })
+    .catch((error) => {
+      console.log(error);
+
+      localStorage.removeItem("accessToken");
+      mostraNavbarNonLoggata();
+      // window.location.href = 'index.html';
+    });
 }
 
 function logOut() {
-    localStorage.removeItem('accessToken');
-    mostraNavbarNonLoggata();
+  localStorage.removeItem("accessToken");
+  mostraNavbarNonLoggata();
 }
 
-logout.addEventListener('click', logOut);
+logout.addEventListener("click", logOut);
 
+let box = document.getElementById("box");
+let down = false;
+
+function toggleNotifi() {
+  if (down) {
+    box.style.height = "0px";
+    box.style.opacity = 0;
+    down = false;
+  } else {
+    box.style.height = "510px";
+    box.style.opacity = 1;
+    down = true;
+  }
+}
 
 // let arrayCarrello = [];
 // let numeroArticoli = document.querySelector('#numeroArticoli');
@@ -240,4 +283,3 @@ logout.addEventListener('click', logOut);
 // contoCarrello();
 
 // let ruolo = "";
-

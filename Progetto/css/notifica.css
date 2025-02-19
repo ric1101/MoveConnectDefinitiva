@@ -1,114 +1,99 @@
-.mainTitle{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body{
+  font-family: sans-serif;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap');
-
-/** Core Styles **/
-
-
-
-
-/** The Original Design **/
-.friend-request-card {
+nav{
   display: flex;
-  width: 100%;
-  padding: 20px;
-  flex-direction: row;
   align-items: center;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.6); /** This shadow is no good... **/
-  
-  .profile-picture {
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-    margin-right: 27px;
-    overflow: hidden;
-    img {
-      width: 100px;
-      height: 100%;
-    }
-  }
-  
-  h1, h2 {
-    margin-bottom: 0;
-    margin-top: 0;
-  }
-  
-  h1 {
-    color: #001D37;
-    font-size: 44px;
-  }
-  
-  h2 {
-    color: #6B7880;
-    font-size: 24px;
-  }
-  
-  .friend-request-actions {
-    margin-left: auto;
-    width: 180px;
-  }
-
-
-  .button {
-    font-family: Lato, sans-serif;
-    border-radius: 100px;
-    width: 100%;
-    padding: 14px 10px;
-    border: none;
-    font-size: 18px;
-    font-weight: 700; /** Slightly lighter than design because, browser rendering differences y'all **/
-    transition: background .3s;
-    cursor: pointer;
-
-    &:first-child {
-      margin-bottom: 14px;
-    }
-    
-    &.button-primary {
-      background: rgb(255,193,7);
-      color: #fff;
-      
-      &:hover {
-        background: darken(#3A9BDE, 10%);
-      }
-    }
-    
-    &.button-secondary {
-      background: #6F8493;
-      color: #fff;
-      
-      &:hover {
-        background: darken(#6F8493, 10%);
-      }
-    }
-  }
+  background-color: #00A9D4;
+  height: 60px;
+  position: relative; 
 }
 
-/** The Improved Design Variation **/
-.friend-request-card {
-  &.friend-request-card-better {
-    box-shadow:
-      0px 3px 3px rgba(0, 54, 85, 0.2), /** Simulate Direct Light - Color is a darkened shade of blue **/
-      0px 3px 20px rgba(0, 54, 85, 0.3)  /** Simulate Ambient Light - Color is a darkened shade of blue **/;
-    
-    .profile-picture {
-    position: relative;
-      &:after { /** Add inner-shadows to user-generated images **/
-        position: absolute;
-        content: '';
-        width: 100%;
-        height: 100%;
-        border-radius: 100%;
-      box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.3);
-        top: 0;
-        left: 0;
-      }
-    }
-  }
-  
-  
+.icon{
+  cursor: pointer;
+  margin-right: 50px;
+  line-height: 60px;
+}
+
+.icon a span{
+  background: #f00;
+  padding: 7px;
+  border-radius: 50%;
+  color: #fff;
+  vertical-align: top;
+  margin-left: -25px;
+}
+
+.icon img{
+  display: inline-block;
+  width: 40px;
+  margin-top: 20px;
+}
+
+.icon:hover{
+  opacity: .7; 
+}
+
+.logo{
+  flex: 1;
+  margin-right: 50px;
+  color: #eee;
+  font-size: 20px;
+  font-family: monospace;
+}
+
+.notifi-box {
+  width: 300px;
+  height: 300px; /* You can adjust this height based on your preference */
+  opacity: 0;
+  position: absolute;
+  top: 63px;
+  right: 35px;
+  box-shadow: 0 4px 8px 0 rgba(250, 250, 250, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  background-color: white;
+  transition: 1s opacity, 250ms height;
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding-right: 10px; /* Optional: to add space for the scrollbar */
+}
+
+
+.notifi-box h2{
+  font-size: 14px;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  color: #999;
+}
+
+.notifi-box h2 span{
+  color: #f00 !important;
+}
+
+.notifi-item{
+  display: flex;
+  border-bottom: 1px solid #eee;
+  padding: 15px 5px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.notifi-item:hover{
+  background-color: #eee;
+}
+
+.notifi-item img{
+  display: block;
+  width: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.notifi-item .text h4{
+ color: #777;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.notifica{
+  cursor: pointer;
 }
