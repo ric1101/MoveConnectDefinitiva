@@ -192,12 +192,13 @@ function inviaRecensione(choose) {
 
 
     class Recensione {
-        constructor(relazioneMagazzinoId, relazioneAziendaRichiedenteMagazzinoId, relazioneAziendaAccettataMagazzinoId, valutazione, commento) {
+        constructor(relazioneMagazzinoId, relazioneAziendaRichiedenteMagazzinoId, relazioneAziendaAccettataMagazzinoId, valutazione, commento, stato) {
             (this.relazioneMagazzinoId = relazioneMagazzinoId),
                 (this.relazioneAziendaRichiedenteMagazzinoId = relazioneAziendaRichiedenteMagazzinoId),
                 (this.relazioneAziendaAccettataMagazzinoId = relazioneAziendaAccettataMagazzinoId),
                 (this.valutazione = valutazione),
-                (this.commento = commento)
+                (this.commento = commento),
+                (this.stato = stato)
         }
     }
 
@@ -211,8 +212,20 @@ function inviaRecensione(choose) {
 
     let idRecNumber = Number(idRec.textContent)
     console.log(idRecNumber);
+    let stato = '';
 
+    if (choose == 1) {
 
+        stato = 'PROPONENTE';
+
+    } else {
+
+        stato = 'RICHIEDENTE';
+
+    }
+
+    console.log(stato);
+     
 
     let newRecensione = new Recensione(
         idRec.textContent,
@@ -220,24 +233,10 @@ function inviaRecensione(choose) {
         idAccettata.textContent,
         valutazione,
         commento.value,
+        stato,
         null
 
     );
-
-
-
-
-
-    if (choose == 1) {
-
-
-
-    } else {
-
-
-
-    }
-
 
 
 
