@@ -993,17 +993,16 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
         </div>`;
 
         recensioni.recensioni.forEach((element, index) => {
-            fetch(`http://127.0.0.1:8080/api/azienda/aziendaPerID/${element.azienda_richiedente_recensione_id}`)
-                .then((res) => res.json())
-                .then((data) => {
-                    let recensioneScritta = `
+
+
+            let recensioneScritta = `
                     <div class="row">
                         <div class="col-lg-1"></div>
                         <div class="card review col-lg-10">
                             <div class="row d-flex">
                                 <div class="d-flex flex-row poli">
                                     <div class="col-md-8 col-sm-8 col-8">
-                                        <a style="color:#FAAD06;" href="/Progetto/paginaUtente.html?nomeAzienda=${data.nomeAzienda}"><h4 class="mt-2 mb-0 titolino">${data.nomeAzienda}</h4></a>
+                                        <a style="color:#FAAD06;" href="/Progetto/paginaUtente.html?nomeAzienda=${element.nomeAzienda}"><h4 class="mt-2 mb-0 titolino">${element.nomeAzienda}</h4></a>
                                         <div class="d-flex">
                                             <p class="text-left widete m-0" style="display: flex; align-items: center;"><span class="text-muted">${element.valutazione} </span>
                                                 <div class="containerStelle-${index}" style="padding-left: 10px;"></div>
@@ -1024,26 +1023,24 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
                         <div class="col-lg-1"></div>
                     </div>`;
 
-                    containerRecensioni.innerHTML += recensioneScritta;
+            containerRecensioni.innerHTML += recensioneScritta;
 
-                    let containerStelle = document.querySelector(`.containerStelle-${index}`);
+            let containerStelle = document.querySelector(`.containerStelle-${index}`);
 
-                    let stelleHTML = '';
+            let stelleHTML = '';
 
-                    for (let i = 1; i <= 5; i++) {
-                        if (i <= element.valutazione) {
-                            stelleHTML += `<span class="fa fa-star star-active ml-3"></span>`;
-                        } else {
-                            stelleHTML += `<span class="fa fa-star star-inactive"></span>`;
-                        }
-                    }
+            for (let i = 1; i <= 5; i++) {
+                if (i <= element.valutazione) {
+                    stelleHTML += `<span class="fa fa-star star-active ml-3"></span>`;
+                } else {
+                    stelleHTML += `<span class="fa fa-star star-inactive"></span>`;
+                }
+            }
 
-                    containerStelle.innerHTML = stelleHTML;
-                });
+            containerStelle.innerHTML = stelleHTML;
         });
+
     }
-
-
 
 
 
