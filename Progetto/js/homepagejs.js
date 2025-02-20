@@ -78,7 +78,7 @@ function navbar() {
                 <div class="d-flex flex-column flex-lg-row justify-content-end align-items-center gap-3">
                
                 <div class"icon" onclick="toggleNotifi()">
-                    <a class="text-white text-decoration-none notifica"><span>17</span><i class="fa-solid fa-bell grossi"></i> </a>
+                    <a class="text-white text-decoration-none notifica"><span style="background-color:red; border-radius:50%; padding:5px; font-size: 15px !important;">17</span><i class="fa-solid fa-bell grossi"></i> </a>
                     </div>
                     <div class="notifi-box" id="box">
                     <h2> Notifiche <span>17</span></h2>
@@ -241,7 +241,7 @@ let boxes = document.querySelector(".notifi-box");
             if (Array.isArray(data)) {
                 data.forEach(item => {
                     if (item.azienda1 && item.azienda1.id) {
-                        visualizzaRichiesteRicevute([item.azienda1], [item.azienda2]);  // Passing array to visualizzaRichiesteRicevute
+                        visualizzaRichiesteRicevute(item,[item.azienda1], [item.azienda2]);  // Passing array to visualizzaRichiesteRicevute
                         console.log(item);
                         console.log(item.azienda1.id);
                     } else {
@@ -258,55 +258,68 @@ let boxes = document.querySelector(".notifi-box");
     }
     
 
-function visualizzaRichiesteRicevute(data, dataMio) {
-    console.log(data);
-
-
+function visualizzaRichiesteRicevute(item,data, dataMio) {
+    console.log(item);
+    let i = 0;
+    
+    
     // Check if data is an array before using .forEach
-    if (Array.isArray(data)) {
+   
         let visualizzaRichieste = '';
-        console.log(data);
+        console.log(item);
         
         // Loop through each element of data to display requests
-        data.forEach(element => {
+        [item].forEach(element => {
+            console.log(element);
+            
+        if(element.stato == "PENDENTE"){
             visualizzaRichieste += `   
-                <div class="notifi-item">
-                    <i class="fa-solid fa-user-plus amicomio"></i>
-                    <div class="text">
-                        <h4>${element.nomeAzienda}</h4>
-                        <p>${element.username}</p>
-                        <a class="btn btn-success" style="background-color: green; onclick"accettaAmicizia()">Accetta</a>
-                        <a class="btn btn-danger" style="background-color: red;">Rifiuta</a>
-                    </div>
-                </div>`;
-        });
+        <div class="notifi-item">
+             <i class="fa-solid fa-user-plus amicomio"></i>
+            <div class="text">
+                <h4>${element.azienda1.nomeAzienda}</h4>
+                <p>${element.azienda1.username}</p>
+            </div>
+        </div>
+            <a class="btn btn-success" onclick="accettaAmicizia(${data[i].id} , ${dataMio[i].id})">Accetta</a>
+            <a class="btn btn-danger" onclick="rifiutaAmicizia(${data[i].id} , ${dataMio[i].id})">Rifiuta</a>
+            `;
+            console.log(data[i].id);
+            console.log(dataMio[i].id);
+            i++;
+        }else{
 
+      
+           
+         
+        }
+        });
+        
+        
         // Assuming boxes is a container for notifications
         boxes.innerHTML += visualizzaRichieste;
-    } else {
-        console.error('Data passed to visualizzaRichiesteRicevute is not an array:', data);
-    }
+  
 
-    accettaAmicizia(data,dataMio);
-    console.log(data[0].id);
-    console.log(dataMio.id);
     
 }
 
 
 
-function accettaAmicizia(data,dataMio){
-    console.log(data);
-    console.log(dataMio);
+function accettaAmicizia(dataId1,dataId2){
+    console.log("BELLAAAA" + dataId1);
+    console.log("BELLAAAA2" + dataId2);
     
 
-    fetch(`http://127.0.0.1:8080/api/amicizia/accettataAmicizia/`, {
+    fetch(`http://127.0.0.1:8080/api/amicizia/accettataAmicizia/${dataId1}/${dataId2}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(),
-
+        body: JSON.stringify({
+            "idAzienda1" : dataId1,
+            "idAzienda2" : dataId2
+        }),
     })
+window.location.reload();
 
 }
