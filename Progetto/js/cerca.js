@@ -796,7 +796,7 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
                             </li>
                         </div>
                         <div class="col-md-3 d-flex justify-content-center pt-2">
-                            <a class="btn btn-warning btnBarra" href="recensioniTutte">Visualizza Recensioni</a>
+                            <a class="btn btn-warning btnBarra" href="#recensioniTutte">Visualizza Recensioni</a>
                         </div>
                         <div class="col-md-3 d-flex justify-content-center pt-2">
                             <a class="btn btn-success btnBarra">Verifica Azienda</a>
