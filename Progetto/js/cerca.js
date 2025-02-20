@@ -275,7 +275,7 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
                             </li>
                         </div>
                         <div class="col-md-3 d-flex justify-content-center pt-2">
-                            <a class="btn btn-warning btnBarra">Visualizza Recensioni</a>
+                            <a class="btn btn-warning btnBarra" href="#recensioniTutte">Visualizza Recensioni</a>
                         </div>
                         <div class="col-md-3 d-flex justify-content-center pt-2">
                             <a class="btn btn-success btnBarra">Verifica Azienda</a>
@@ -333,7 +333,7 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
                 <div class="col-lg-1"></div>
             </div>
 
-            <div class="row mt-3">
+            <div class="row mt-3" id="recensioniTutte">
                 <div class="col-lg-1"></div>
                 <div class="col-lg-10">
 

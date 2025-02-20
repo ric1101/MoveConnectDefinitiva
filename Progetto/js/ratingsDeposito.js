@@ -185,12 +185,11 @@ function stelleInserite(idAziendaAccesso) {
         });
 
 
-
-
 }
 
 
 function inviaRecensione(choose) {
+
 
     class Recensione {
         constructor(relazioneMagazzinoId, relazioneAziendaRichiedenteMagazzinoId, relazioneAziendaAccettataMagazzinoId, valutazione, commento) {
@@ -224,6 +223,22 @@ function inviaRecensione(choose) {
         null
 
     );
+
+
+
+
+
+    if (choose == 1) {
+
+
+
+    } else {
+
+
+
+    }
+
+
 
 
 
