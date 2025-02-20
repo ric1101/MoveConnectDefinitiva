@@ -214,6 +214,7 @@ function inviaRecensione(choose) {
     console.log(idRecNumber);
     let stato = '';
 
+
     if (choose == 1) {
 
         stato = 'PROPONENTE';
@@ -287,7 +288,7 @@ function inviaRecensione(choose) {
 
 
 
-    // window.location.href = 'recensioneInviata.html';
+    window.location.href = 'recensioneInviata.html';
 
 
 

@@ -197,12 +197,13 @@ function inviaRecensione(choose) {
 
 
     class Recensione {
-        constructor(relazioneScalaId, relazioneAziendaRichiedenteScalaId, relazioneAziendaAccettataScalaId, valutazione, commento) {
+        constructor(relazioneScalaId, relazioneAziendaRichiedenteScalaId, relazioneAziendaAccettataScalaId, valutazione, commento, stato) {
             (this.relazioneScalaId = relazioneScalaId),
                 (this.relazioneAziendaRichiedenteScalaId = relazioneAziendaRichiedenteScalaId),
                 (this.relazioneAziendaAccettataScalaId = relazioneAziendaAccettataScalaId),
                 (this.valutazione = valutazione),
-                (this.commento = commento)
+                (this.commento = commento),
+                (this.stato = stato)
         }
     }
 
@@ -215,7 +216,20 @@ function inviaRecensione(choose) {
 
     let idRecNumber = Number(idRec.textContent)
     console.log(idRecNumber);
+    let stato = '';
 
+
+    if (choose == 1) {
+
+        stato = 'PROPONENTE';
+
+    } else {
+
+        stato = 'RICHIEDENTE';
+
+    }
+
+    console.log(stato);
 
 
     let newRecensione = new Recensione(
@@ -224,6 +238,7 @@ function inviaRecensione(choose) {
         idAccettata.textContent,
         valutazione,
         commento.value,
+        stato,
         null
 
     );
