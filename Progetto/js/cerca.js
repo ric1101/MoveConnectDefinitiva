@@ -1104,7 +1104,7 @@ function mostraAmici(id) {
 
 
     let inserisciRecensioni = document.querySelector('.contenitorePartner');
-
+    inserisciRecensioni.innerHTML = '';
 
     let containerAmici = `<div class="col-lg-1"></div>
             <div class="col-lg-10 card mb-4">
