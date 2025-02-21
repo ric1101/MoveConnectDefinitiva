@@ -243,13 +243,13 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
                             </div>
                             <div class="row">
                                 <div class="col-md-12 p-2">
-                                     <a class="btn btn-warning ms-4" onclick="mostraAmici(${idAziendaDestinataria})" href="#partnerVisualizza">Visualizza Partners</a>
+                                     <a class="btn btn-warning ms-4" onclick="mostraAmici(${idAziendaDestinataria})">Visualizza Partners</a>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 p-2">
-                            <h3 class="m-0" style="font-size: larger; font-weight: bold; margin-bottom: 10px;">Partners commerciali</h3> <h1 class="m-1"><a class="visualizzaAmici" style="font-weight: bold;" href="#partnerVisualizza" onclick="mostraAmici(${idAziendaDestinataria})">${amici} <i class="fa-solid fa-user-group" style="font-size: 25px; color: black;"></i></a></h1>
+                            <h3 class="m-0" style="font-size: larger; font-weight: bold; margin-bottom: 10px;">Partners commerciali</h3> <h1 class="m-1"><a class="visualizzaAmici" style="font-weight: bold;"  onclick="mostraAmici(${idAziendaDestinataria})">${amici} <i class="fa-solid fa-user-group" style="font-size: 25px; color: black;"></i></a></h1>
                                 <h3 class="m-0" style="font-size: larger; font-weight: bold;">Media Recensioni </h3>
                                 <h1 class="m-1" style="font-weight: bold;">${recensioni.media} <span style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
                                 </h1>
@@ -512,13 +512,13 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
                             </div>
                             <div class="row">
                                 <div class="col-md-12 p-2">
-                                     <a class="btn btn-warning ms-4" onclick="mostraAmici(${idAziendaDestinataria})" href="#partnerVisualizza">Visualizza Partners</a>
+                                     <a class="btn btn-warning ms-4" onclick="mostraAmici(${idAziendaDestinataria})" >Visualizza Partners</a>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 p-2 mt-3">
-                            <h3 class="m-0" style="font-size: larger; font-weight: bold; margin-bottom: 10px;">Partners commerciali</h3> <h1 class="m-1"><a class="visualizzaAmici" style="font-weight: bold;" href="#partnerVisualizza" onclick="mostraAmici(${idAziendaDestinataria})">${amici} <i class="fa-solid fa-user-group" style="font-size: 25px; color: black;"></i></a></h1>
+                            <h3 class="m-0" style="font-size: larger; font-weight: bold; margin-bottom: 10px;">Partners commerciali</h3> <h1 class="m-1"><a class="visualizzaAmici" style="font-weight: bold;"  onclick="mostraAmici(${idAziendaDestinataria})">${amici} <i class="fa-solid fa-user-group" style="font-size: 25px; color: black;"></i></a></h1>
                                 <h3 style="font-size: larger; font-weight: bold;">Media Recensioni</h3>
                                 <h1 style="font-weight: bold;">${recensioni.media} <span style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
                                 </h1>
@@ -530,6 +530,7 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
                 </div>
             </div>
             <div class="col-lg-1"></div>
+                <div class="row contenitorePartner" id="partnerVisualizza"></div>
             <div class="row">
                 <div class="col-lg-1"></div>
                 <div class="col-lg-10">
@@ -762,13 +763,13 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
                             </div>
                             <div class="row">
                                 <div class="col-md-12 p-2">
-                                     <a class="btn btn-warning ms-4" onclick="mostraAmici(${idAziendaDestinataria})" href="#partnerVisualizza">Visualizza Partners</a>
+                                     <a class="btn btn-warning ms-4" onclick="mostraAmici(${idAziendaDestinataria})" >Visualizza Partners</a>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 p-2 mt-3">
-                            <h3 class="m-0" style="font-size: larger; font-weight: bold; margin-bottom: 10px;">Partners commerciali</h3> <h1 class="m-1"><a class="visualizzaAmici" style="font-weight: bold;" href="#partnerVisualizza" onclick="mostraAmici(${idAziendaDestinataria})">${amici} <i class="fa-solid fa-user-group" style="font-size: 25px; color: black;"></i></a></h1>
+                            <h3 class="m-0" style="font-size: larger; font-weight: bold; margin-bottom: 10px;">Partners commerciali</h3> <h1 class="m-1"><a class="visualizzaAmici" style="font-weight: bold;"  onclick="mostraAmici(${idAziendaDestinataria})">${amici} <i class="fa-solid fa-user-group" style="font-size: 25px; color: black;"></i></a></h1>
                                 <h3 style="font-size: larger; font-weight: bold;">Media Recensioni</h3>
                                 <h1 style="font-weight: bold;">${recensioni.media} <span style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
                                 </h1>
@@ -780,6 +781,7 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
                 </div>
             </div>
             <div class="col-lg-1"></div>
+                <div class="row contenitorePartner" id="partnerVisualizza"></div>
             <div class="row">
                 <div class="col-lg-1"></div>
                 <div class="col-lg-10">
@@ -1097,71 +1099,43 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
 
 
 
+
 function mostraAmici(id) {
 
+    let inserisciRecensioni = document.querySelector('.contenitorePartner');
+
+    let containerAmici = `<div class="col-lg-1"></div>
+            <div class="col-lg-10 card mb-4">
+                <div class="row d-flex justify-content-center p-3 containerTitolo">
+                    
+                    
+                    
+
+                </div>
+            </div>
+            <div class="col-lg-1"></div>`;
+
+    inserisciRecensioni.innerHTML += containerAmici;
+
+    let titoloPartner = `<div class="d-flex justify-content-center">
+                        <h3>Partners</h3>
+                    </div>`;
+
+    let containerTitolo = document.querySelector('.containerTitolo');
+
+    containerTitolo += titoloPartner;
 
     fetch(`http://127.0.0.1:8080/api/amicizia/counterPartnerTotale/${id}`)
         .then((res) => res.json())
         .then((data) => {
 
 
-            let inserisciRecensioni = document.querySelector('.inserisciRecensioni');
-
-            let containerAmici = `<div class="col-lg-1"></div>
-                    <div class="col-lg-10 card mb-4">
-                        <div class="row d-flex justify-content-center p-3 containerTitolo">
-                            
-                            
-                            
-        
-                        </div>
-                    </div>
-                    <div class="col-lg-1"></div>`;
-
-            inserisciRecensioni.innerHTML += containerAmici;
-
-            let titoloPartner = `<div class="d-flex justify-content-center">
-                                <h3>Partners</h3>
-                            </div>`;
-
-            let containerTitolo = document.querySelector('.containerTitolo');
-
-            containerTitolo += titoloPartner;
+         
 
 
             data.forEach((element, index) => {
 
-
-                let amicoSingolo = `<div class="col-md-2">
-                                        <div class="containerLogoImg2">
-                                            <img src="" alt="" class="partner${index}">
-                                        </div>
-                                        <h5 class="text-black text-center">Paoli</h5>
-                                    </div>`;
-
-
-                let partner = document.querySelector(`.partner-${index}`);    
-                fetchImgSingola(element.id, partner);
-
-
-
-                containerTitolo += amicoSingolo;
-
-
-            });
-
-        });
-
-
-
-
-}
-
-
-function fetchImgSingola(idAzienda, partner) {
-    
-
-    fetch(`http://127.0.0.1:8080/api/azienda/logo/${idAzienda}`)
+             fetch(`http://127.0.0.1:8080/api/azienda/logo/${idAzienda}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Errore nel recupero del logo");
@@ -1170,16 +1144,77 @@ function fetchImgSingola(idAzienda, partner) {
         })
         .then((blob) => {
             const logoUrl = URL.createObjectURL(blob);
-            partner.setAttribute('src', logoUrl);
+            console.log(logoUrl);
+            
+            let amicoSingolo = `<div class="col-md-2">
+    
+                                    <div class="containerLogoImg2">
+                                        <img src="${logoUrl}" alt="" class='partner-${index}'>
+                                    </div>
+                                    <h5 class="text-black text-center">${element.nomeAzienda}</h5>
+                                </div>`;
+
+                                containerTitolo += amicoSingolo;
+            // partner.setAttribute('src', logoUrl);
         })
         .catch((error) => {
             console.error("Errore nel caricamento del logo:", error);
-            partner.setAttribute(
-                'src',
-                './img/default-logo.png'
-            );
+            //     partner.setAttribute(
+                //         'src',
+                //         './img/default-logo.png'
+                
+                });
+
+
+
+
+
+
+                // let partner = document.querySelector(`.partner-${index}`);   
+                // console.log(partner);
+                 
+
+
+                // fetchImgSingola(element.id, partner);
+                // console.log(element.id);
+                
+
+
+
+                
+                
+            
         });
 }
+
+
+// async function fetchImgSingola(idAzienda, partner) {
+
+//     console.log(idAzienda);
+//     console.log(partner);
+    
+    
+//     await fetch(`http://127.0.0.1:8080/api/azienda/logo/${idAzienda}`)
+//         .then((response) => {
+//             if (!response.ok) {
+//                 throw new Error("Errore nel recupero del logo");
+//             }
+//             return response.blob();
+//         })
+//         .then((blob) => {
+//             const logoUrl = URL.createObjectURL(blob);
+//             console.log(logoUrl);
+            
+//             partner.setAttribute('src', logoUrl);
+//         })
+//         .catch((error) => {
+//             console.error("Errore nel caricamento del logo:", error);
+//             partner.setAttribute(
+//                 'src',
+//                 './img/default-logo.png'
+//             );
+//         });
+// }
 
 // let recensioneSingola = `<div class="d-flex justify-content-center m-3">
 //                     <h2>Recensioni Globali</h2>

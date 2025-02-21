@@ -323,3 +323,18 @@ function accettaAmicizia(dataId1,dataId2){
 window.location.reload();
 
 }
+
+
+function rifiutaAmicizia(idAzienda1, idAzienda2) {
+
+    fetch(`http://127.0.0.1:8080/api/amicizia/amiciziaRifiutata/${idAzienda1}/${idAzienda2}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+    window.location.reload();
+
+}
+
+
