@@ -1130,60 +1130,44 @@ function mostraAmici(id) {
         .then((data) => {
 
 
-         
-
-
             data.forEach((element, index) => {
 
-             fetch(`http://127.0.0.1:8080/api/azienda/logo/${idAzienda}`)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error("Errore nel recupero del logo");
-            }
-            return response.blob();
-        })
-        .then((blob) => {
-            const logoUrl = URL.createObjectURL(blob);
-            console.log(logoUrl);
-            
-            let amicoSingolo = `<div class="col-md-2">
-    
-                                    <div class="containerLogoImg2">
-                                        <img src="${logoUrl}" alt="" class='partner-${index}'>
-                                    </div>
-                                    <h5 class="text-black text-center">${element.nomeAzienda}</h5>
-                                </div>`;
+                fetch(`http://127.0.0.1:8080/api/azienda/logo/${idAzienda}`)
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error("Errore nel recupero del logo");
+                        }
+                        return response.blob();
+                    })
+                    .then((blob) => {
+                        const logoUrl = URL.createObjectURL(blob);
+                        console.log(logoUrl);
 
-                                containerTitolo += amicoSingolo;
-            // partner.setAttribute('src', logoUrl);
-        })
-        .catch((error) => {
-            console.error("Errore nel caricamento del logo:", error);
-            //     partner.setAttribute(
-                //         'src',
-                //         './img/default-logo.png'
-                
-                });
+                        let amicoSingolo = `<div class="col-md-2">
+                                                <div class="containerLogoImg2">
+                                                    <img src="${logoUrl}" alt="" class='partner-${index}'>
+                                                </div>
+                                            <h5 class="text-black text-center">${element.nomeAzienda}</h5>
+                                            </div>`;
 
+                        containerTitolo += amicoSingolo;
+                        // partner.setAttribute('src', logoUrl);
+                    })
+                    .catch((error) => {
+                        console.error("Errore nel caricamento del logo:", error);
+                        //partner.setAttribute(
+                        // 'src',
+                        // './img/default-logo.png'
 
-
-
+                    })
 
 
                 // let partner = document.querySelector(`.partner-${index}`);   
                 // console.log(partner);
-                 
-
-
                 // fetchImgSingola(element.id, partner);
                 // console.log(element.id);
-                
 
-
-
-                
-                
-            
+            });
         });
 }
 
@@ -1192,8 +1176,8 @@ function mostraAmici(id) {
 
 //     console.log(idAzienda);
 //     console.log(partner);
-    
-    
+
+
 //     await fetch(`http://127.0.0.1:8080/api/azienda/logo/${idAzienda}`)
 //         .then((response) => {
 //             if (!response.ok) {
@@ -1204,7 +1188,7 @@ function mostraAmici(id) {
 //         .then((blob) => {
 //             const logoUrl = URL.createObjectURL(blob);
 //             console.log(logoUrl);
-            
+
 //             partner.setAttribute('src', logoUrl);
 //         })
 //         .catch((error) => {
@@ -1398,6 +1382,7 @@ function inviaLocalId(id) {
 }
 
 let bottoneAmicizia = document.querySelector(".amicizia");
+
 
 function inviaAmicizia(idAzienda1, idAzienda2) {
     let id1 = idAzienda1;
