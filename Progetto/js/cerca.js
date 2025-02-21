@@ -1189,7 +1189,7 @@ function mostraAmici(id) {
     } else {
 
         inserisciRecensioni.innerHTML = '';
-
+        siNo = false;
 
     }
 }
