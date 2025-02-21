@@ -1129,7 +1129,7 @@ function mostraAmici(id) {
 
     containerTitolo += titoloPartner;
 
-    console.log(containerTitolo);
+    console.log(inserisciRecensioni);
     
 
     fetch(`http://127.0.0.1:8080/api/amicizia/counterPartnerTotale/${id}`)
