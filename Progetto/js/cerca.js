@@ -1098,12 +1098,16 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
 }
 
 
-
+let siNo = false;
 
 function mostraAmici(id) {
-
-
+    
     let inserisciRecensioni = document.querySelector('.contenitorePartner');
+    
+    if (siNo == false) {
+        
+    siNo = true;
+
     inserisciRecensioni.innerHTML = '';
 
     let containerAmici = `<div class="col-lg-1"></div>
@@ -1181,6 +1185,13 @@ function mostraAmici(id) {
 
             });
         });
+
+    } else {
+
+        inserisciRecensioni.innerHTML = '';
+
+
+    }
 }
 
 
