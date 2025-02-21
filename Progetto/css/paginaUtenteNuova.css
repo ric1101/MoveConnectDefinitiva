@@ -21,6 +21,24 @@
     margin-top: 20px;
 }
 
+.containerLogoImg2 {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: solid 3px black;
+    margin: 5px;
+    justify-self: center;
+}
+
+.containerLogoImg2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
 .containerLogoImg img {
     width: 100%;
     height: 100%;
@@ -44,7 +62,7 @@
 }
 
 .utente {
-    background-color: #ece4d485;
+    background-color: #fff;
 }
 
 

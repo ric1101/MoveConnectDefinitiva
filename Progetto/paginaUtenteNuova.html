@@ -38,11 +38,294 @@
     <section
         style="background-image: url(./imgs/marmo.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;">
         <div class="container py-5">
+            <div class="row d-flex justify-content-center colonnaInfo">
+
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                    <div class="card mb-4 text-center rowes utente">
+                        <div class="card-body col-lg-6 flex-column justify-content-center px-4 pt-4">
+                            <div class="containerLogoImg" style="margin-top: 0px !important;">
+                                <img src="" class="imgAzienda">
+                            </div>
+                            <h2 class="my-4 fw-bold">${dati.nomeAzienda}</h2>
+                        </div>
+                        <div class="card-body col-lg-6 px-4 pt-2">
+                            <div class="row">
+                                <div class="col-md-12 p-2 mt-3 box">
+                                    <a class="btn btn-primary ms-3 me-3 mt-3"
+                                        onclick="sendEmail('${dati.emailAziendale}')"><i
+                                            class="fa-regular fa-envelope"></i>
+                                        Messaggia</a>
+                                    <a class="btn btn-primary me-3 mt-3 agg"
+                                        onclick="inviaAmicizia(${idAziendaMittente}, ${idAziendaDestinataria})"><i
+                                            class="fa-solid fa-user-plus"></i>
+                                        Aggiungi</a>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 p-2">
+                                        <a class="btn btn-warning ms-4" onclick="mostraAmici(${idAziendaDestinataria})"
+                                            href="#partnerVisualizza">Visualizza Partners</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 p-2">
+                                    <h3 class="m-0" style="font-size: larger; font-weight: bold; margin-bottom: 10px;">
+                                        Partners commerciali</h3>
+                                    <h1 class="m-1"><a class="visualizzaAmici" style="font-weight: bold;"
+                                            href="#partnerVisualizza"
+                                            onclick="mostraAmici(${idAziendaDestinataria})">${amici} <i
+                                                class="fa-solid fa-user-group"
+                                                style="font-size: 25px; color: black;"></i></a></h1>
+                                    <h3 class="m-0" style="font-size: larger; font-weight: bold;">Media Recensioni </h3>
+                                    <h1 class="m-1" style="font-weight: bold;">${recensioni.media} <span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
+                                    </h1>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-1"></div>
+                <div class="row contenitorePartner" id="partnerVisualizza">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-10 card mb-4">
+                        <div class="row d-flex justify-content-center p-3">
+                            <div class="d-flex justify-content-center">
+                                <h3>Partners</h3>
+                            </div>
+                            
+                            
+                            <div class="col-md-2">
+                                <div class="containerLogoImg2">
+                                    <img src="./imgs/2.png" alt="">
+                                </div>
+                                <h5 class="text-black text-center">Paoli</h5>
+                            </div>
+        
+                        </div>
+                    </div>
+                    <div class="col-lg-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-10">
+                        <div class="row card mb-3 p-3 flex-row align-items-center">
+                            <div class="col-md-4 pt-2">
+                                <li class="nav-item dropdown visualizzaUser btnBarra" id="menu-products">
+                                    <a class="nav-link dropdown-toggle visualizzaRichiesteAll" role="button"
+                                        aria-expanded="false">
+                                        Visualizza richieste
+                                    </a>
+                                    <ul class="dropdown-menu drop3">
+                                        <li><a class="dropdown-item d-none" href="suoloPubVisualizzaUtente.html"
+                                                onclick="inviaLocalId(${dati.id})">Occupazione solo pubblico</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="trasportoVisualizzaUtente.html"
+                                                onclick="inviaLocalId(${dati.id})">Groupage</a></li>
+                                        <li><a class="dropdown-item" href="elevatoreVisualizzaUtente.html"
+                                                onclick="inviaLocalId(${dati.id})">Scala elevatore</a></li>
+                                        <li><a class="dropdown-item" href="imballaggiVisualizzaUtente.html"
+                                                onclick="inviaLocalId(${dati.id})">Consegna imballi</a></li>
+                                        <li><a class="dropdown-item" href="personale-specVisualizzaUtente.html"
+                                                onclick="inviaLocalId(${dati.id})">Personale spec.</a></li>
+                                        <li><a class="dropdown-item" href="magazzinoVisualizzaUtente.html"
+                                                onclick="inviaLocalId(${dati.id})">Deposito</a></li>
+                                        <li><a class="dropdown-item" href="tratteVisualizzaUtente.html"
+                                                onclick="inviaLocalId(${dati.id})">Tratte</a></li>
+                                    </ul>
+                                </li>
+                            </div>
+                            <div class="col-md-3 d-flex justify-content-center pt-2">
+                                <a class="btn btn-warning btnBarra" href="#recensioniTutte">Visualizza Recensioni</a>
+                            </div>
+                            <div class="col-md-3 d-flex justify-content-center pt-2">
+                                <a class="btn btn-success btnBarra">Verifica Azienda</a>
+                            </div>
+                            <div class="col-md-2 d-flex justify-content-center pt-2">
+                                <a class="btn btn-danger btnBarra">Segnala</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1"></div>
+                </div>
 
 
-            
+
+                <div class="row">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-5">
+                        <div class="row card first">
+                            <div class="card-body">
+                                <h4 class="text-success">Info</h4>
+                                <div class="mb-2">
+                                    <strong>Numero Aziendale:</strong> <span>${dati.numeroTelefonicoAziendale}</span>
+                                </div>
+                                <div class="mb-2">
+                                    <strong>Email:</strong> <span>${dati.emailAziendale}</span>
+                                </div>
+                                <div class="mb-2">
+                                    <strong>P.IVA:</strong> <span>${dati.piva}</span>
+                                </div>
+                                <div class="mb-2">
+                                    <strong>Indirizzo:</strong> <span>${dati.indirizzo}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="row card second">
+                            <div class="card-body">
+                                <h4 class="text-success">Info verificate ✔</h4>
+                                <div class="mb-2">
+                                    <strong>Email Verificata:</strong> ${dati.username}<span
+                                        class="text-success">✔</span>
+                                </div>
+                                <div class="mb-2">
+                                    <strong>Numero di Telefono Verificato:</strong> <span class="text-success">✔</span>
+                                </div>
+                                <div class="mb-2">
+                                    <strong>P.IVA Verificata:</strong> <span class="text-success">✔</span>
+                                </div>
+                                <div class="mb-2"></div>
+                                <strong>Indirizzo:</strong><span>Via Esempio 1, Milano </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1"></div>
+                </div>
+
+                <div class="row mt-3" id="recensioniTutte">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-10">
+
+
+                        <div class="bg-white rounded p-4 mb-4 card graph-star-rating">
+                            <div class="mb-4">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row p-2">
+                                            <div class="col-md-6">
+                                                <h5 class="mb-0 mb-4 text-success">Valutazione e Recensioni</h5>
+                                            </div>
+                                            <div class="col-md-6 d-flex justify-content-end align-items-center">
+                                                <h3 style="font-size: larger; font-weight: bold; margin: 0;">Media
+                                                    Recensioni
+                                                    &nbsp;</h3>
+                                                <h1 style="font-weight: bold;">${recensioni.media} <span
+                                                        class="spannetto"
+                                                        style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
+                                                </h1>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="graph-star-rating-body">
+                                <div class="rating-list">
+                                    <div class="rating-list-left text-black"><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
+                                    </div>
+                                    <div class="rating-list-center">
+                                        <div class="progress">
+                                            <div style="width: ${recensioni.percentuali.stelle5}%" aria-valuemax="5"
+                                                aria-valuemin="0" aria-valuenow="5" role="progressbar"
+                                                class="progress-bar bg-warning">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="rating-list-right text-black">${recensioni.percentuali.stelle5}%</div>
+                                </div>
+                                <div class="rating-list">
+                                    <div class="rating-list-left text-black"><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
+                                    </div>
+                                    <div class="rating-list-center">
+                                        <div class="progress">
+                                            <div style="width: ${recensioni.percentuali.stelle4}%" aria-valuemax="5"
+                                                aria-valuemin="0" aria-valuenow="5" role="progressbar"
+                                                class="progress-bar bg-warning">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="rating-list-right text-black">${recensioni.percentuali.stelle4}%</div>
+                                </div>
+                                <div class="rating-list">
+                                    <div class="rating-list-left text-black"><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
+                                    </div>
+                                    <div class="rating-list-center">
+                                        <div class="progress">
+                                            <div style="width: ${recensioni.percentuali.stelle3}%" aria-valuemax="5"
+                                                aria-valuemin="0" aria-valuenow="5" role="progressbar"
+                                                class="progress-bar bg-warning">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="rating-list-right text-black">${recensioni.percentuali.stelle3}%</div>
+                                </div>
+                                <div class="rating-list">
+                                    <div class="rating-list-left text-black"><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
+                                    </div>
+                                    <div class="rating-list-center">
+                                        <div class="progress">
+                                            <div style="width: ${recensioni.percentuali.stelle2}%" aria-valuemax="5"
+                                                aria-valuemin="0" aria-valuenow="5" role="progressbar"
+                                                class="progress-bar bg-warning">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="rating-list-right text-black">${recensioni.percentuali.stelle2}%</div>
+                                </div>
+                                <div class="rating-list">
+                                    <div class="rating-list-left text-black"><span
+                                            style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
+                                    </div>
+                                    <div class="rating-list-center">
+                                        <div class="progress">
+                                            <div style="width: ${recensioni.percentuali.stelle1}%" aria-valuemax="5"
+                                                aria-valuemin="0" aria-valuenow="5" role="progressbar"
+                                                class="progress-bar bg-warning">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="rating-list-right text-black">${recensioni.percentuali.stelle1}%</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-1"></div>
+
+                    <div class="inserisciRecensioni">
+
+                    </div>
+
+                </div>
+
 
             </div>
+
+
+
+        </div>
 
     </section>
 
@@ -59,7 +342,6 @@
     <script>window.gtranslateSettings = { "default_language": "it", "detect_browser_language": true, "languages": ["it", "fr", "de", "es", "zh-CN", "ko", "ja", "ru", "en", "ar", "hi", "bn", "ur"], "wrapper_selector": ".gtranslate_wrapper", "switcher_horizontal_position": "right", "float_switcher_open_direction": "bottom", "alt_flags": { "en": "usa", "pt": "brazil" } }</script>
     <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
-    <script src="../Progetto/js/infoRichiesteScalaElevatore.js"></script>
 
 </body>
 
