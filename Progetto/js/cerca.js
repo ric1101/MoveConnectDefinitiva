@@ -202,10 +202,8 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
     await fetch(`http://127.0.0.1:8080/api/amicizia/amicizie/${idAziendaMittente}/${idAziendaDestinataria}`)
         .then((res) => {
             if (res.status === 404) {
-                // If the status is 404, handle it here
-                // console.error('Error: Resource not found (404)');
 
-                // Insert the HTML element for 404
+
                 let visualizzaIDati = `<div class="row d-flex justify-content-center colonnaInfo">
 
             <div class="col-lg-1"></div>
@@ -471,10 +469,9 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
         .then((data) => {
             console.log('Received data:', data);
 
-            // Now check the 'stato' field only if data is successfully fetched and is not a 404
 
 
-            if (data.stato !== "PENDENTE") {
+            if (data.stato === "ACCETTATA") {
 
 
                 let visualizzaIDati = `<div class="row d-flex justify-content-center colonnaInfo">
@@ -491,10 +488,8 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
                     <div class="card-body col-lg-6 px-4 pt-2">
                         <div class="row">
                             <div class="col-md-12 p-2 mt-3 box">
-                                <a class="btn btn-primary ms-3 me-3 mt-3" onclick="sendEmail('${dati.emailAziendale}')"><i class="fa-regular fa-envelope"></i>
-                                    Messaggia</a>
-                                <a class="btn btn-primary me-3 mt-3 agg" onclick="inviaAmicizia(${idAziendaMittente}, ${idAziendaDestinataria})"><i class="fa-solid fa-user-plus"></i>
-                                    Aggiungi</a>
+                                <a class="btn btn-primary ms-3 me-3 mt-3" onclick="sendEmail('${dati.emailAziendale}')"><i class="fa-regular fa-envelope"></i> Messaggia</a>
+                                <a class="btn btn-primary me-3 mt-3 agg" onclick="annullaRichiestaAmicizia(${idAziendaMittente}, ${idAziendaDestinataria})"><i class="fa-solid fa-user-minus"></i> Rimuovi</a>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 p-2">
@@ -744,7 +739,7 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
                             <div class="col-md-12 p-2 mt-3 box">
                                 <a class="btn btn-primary ms-3 me-3 mt-3" onclick="sendEmail('${dati.emailAziendale}')"><i class="fa-regular fa-envelope"></i>
                                     Messaggia</a>
-                                <a class="btn btn-danger me-3 mt-3 agg" onclick="annullaRichiestaAmicizia(${idAziendaMittente}, ${idAziendaDestinataria})"><i class="fa-solid fa-user-xmark"></i>Annulla</a>
+                                <a class="btn btn-danger me-3 mt-3 agg" onclick="annullaRichiestaAmicizia(${idAziendaMittente}, ${idAziendaDestinataria})"><i class="fa-solid fa-user-xmark"></i> Annulla</a>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 p-2">
