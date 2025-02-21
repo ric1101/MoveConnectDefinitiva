@@ -1122,14 +1122,6 @@ function mostraAmici(id) {
     console.log(containerTitolo);
     
 
-    let titoloPartner = `<div class="d-flex justify-content-center">
-                        <h3>Partners</h3>
-                    </div>`;
-
-
-    containerTitolo += titoloPartner;
-
-    console.log(inserisciRecensioni);
     
 
     fetch(`http://127.0.0.1:8080/api/amicizia/counterPartnerTotale/${id}`)
