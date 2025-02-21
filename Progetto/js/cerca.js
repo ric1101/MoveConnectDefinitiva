@@ -1117,11 +1117,12 @@ function mostraAmici(id) {
 
     inserisciRecensioni.innerHTML += containerAmici;
 
+    let containerTitolo = document.querySelector('.containerTitolo');
+
     let titoloPartner = `<div class="d-flex justify-content-center">
                         <h3>Partners</h3>
                     </div>`;
 
-    let containerTitolo = document.querySelector('.containerTitolo');
 
     containerTitolo += titoloPartner;
 
@@ -1131,8 +1132,11 @@ function mostraAmici(id) {
 
 
             data.forEach((element, index) => {
-
-                fetch(`http://127.0.0.1:8080/api/azienda/logo/${idAzienda}`)
+                console.log(element);
+                console.log(element.id);
+                
+                
+                fetch(`http://127.0.0.1:8080/api/azienda/logo/${element.id}`)
                     .then((response) => {
                         if (!response.ok) {
                             throw new Error("Errore nel recupero del logo");
