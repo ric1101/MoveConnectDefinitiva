@@ -1119,6 +1119,9 @@ function mostraAmici(id) {
 
     let containerTitolo = document.querySelector('.containerTitolo');
 
+    console.log(containerTitolo);
+    
+
     let titoloPartner = `<div class="d-flex justify-content-center">
                         <h3>Partners</h3>
                     </div>`;
