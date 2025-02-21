@@ -1102,10 +1102,11 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
 
 function mostraAmici(id) {
 
-    inserisciRecensioni = '';
-
+    
     let inserisciRecensioni = document.querySelector('.contenitorePartner');
-
+    
+    inserisciRecensioni = '';
+    
     let containerAmici = `<div class="col-lg-1"></div>
             <div class="col-lg-10 card mb-4">
                 <div class="row d-flex justify-content-center p-3 containerTitolo">
