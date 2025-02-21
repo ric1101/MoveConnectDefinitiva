@@ -1122,6 +1122,14 @@ function mostraAmici(id) {
     console.log(containerTitolo);
     
 
+    let titoloPartner = `<div class="d-flex justify-content-center">
+                        <h3>Partners</h3>
+                    </div>`;
+
+
+    containerTitolo.innerHTML += titoloPartner;
+
+    console.log();
     
 
     fetch(`http://127.0.0.1:8080/api/amicizia/counterPartnerTotale/${id}`)
@@ -1152,7 +1160,7 @@ function mostraAmici(id) {
                                             <h5 class="text-black text-center">${element.nomeAzienda}</h5>
                                             </div>`;
 
-                        containerTitolo += amicoSingolo;
+                        containerTitolo.innerHTML += amicoSingolo;
                         // partner.setAttribute('src', logoUrl);
                     })
                     .catch((error) => {
