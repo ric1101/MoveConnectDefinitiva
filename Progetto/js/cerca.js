@@ -1104,6 +1104,7 @@ function mostraAmici(id) {
 
     
     let inserisciRecensioni = document.querySelector('.contenitorePartner');
+    console.log(inserisciRecensioni);
     
     inserisciRecensioni = '';
     
