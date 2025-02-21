@@ -1102,6 +1102,8 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
 
 function mostraAmici(id) {
 
+    inserisciRecensioni = '';
+
     let inserisciRecensioni = document.querySelector('.contenitorePartner');
 
     let containerAmici = `<div class="col-lg-1"></div>
@@ -1120,7 +1122,7 @@ function mostraAmici(id) {
     let containerTitolo = document.querySelector('.containerTitolo');
 
     console.log(containerTitolo);
-    
+
 
     let titoloPartner = `<div class="d-flex justify-content-center">
                         <h3>Partners</h3>
@@ -1130,7 +1132,7 @@ function mostraAmici(id) {
     containerTitolo.innerHTML += titoloPartner;
 
     console.log();
-    
+
 
     fetch(`http://127.0.0.1:8080/api/amicizia/counterPartnerTotale/${id}`)
         .then((res) => res.json())
@@ -1140,8 +1142,8 @@ function mostraAmici(id) {
             data.forEach((element, index) => {
                 console.log(element);
                 console.log(element.id);
-                
-                
+
+
                 fetch(`http://127.0.0.1:8080/api/azienda/logo/${element.id}`)
                     .then((response) => {
                         if (!response.ok) {
@@ -1155,9 +1157,9 @@ function mostraAmici(id) {
 
                         let amicoSingolo = `<div class="col-md-2">
                                                 <div class="containerLogoImg2">
-                                                    <img src="${logoUrl}" alt="" class='partner-${index}'>
+                                                    <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.nomeAzienda}"><img src="${logoUrl}" alt="" class='partner-${index}'></a>
                                                 </div>
-                                            <h5 class="text-black text-center">${element.nomeAzienda}</h5>
+                                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.nomeAzienda}"><h5 class="text-black text-center">${element.nomeAzienda}</h5></a>
                                             </div>`;
 
                         containerTitolo.innerHTML += amicoSingolo;
