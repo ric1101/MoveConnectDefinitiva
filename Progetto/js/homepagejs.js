@@ -69,7 +69,7 @@ function navbar() {
                     <li class="nav-item">
                         <a class="nav-link button1 mx-2 text-white blogs d-none" href="blog.html">Blog</a>
                     </li>
-                    <li class="nav-item" style="align-self: center;">
+                    <li class="nav-item">
                         <a class="nav-link button1 mx-2 text-white cercaAziende d-none" href="cerca.html"><i class="fa-solid fa-magnifying-glass"></i></a>
                     </li>
                 </ul>
@@ -78,13 +78,13 @@ function navbar() {
                 <!-- Login/Signup -->
                 <div class="d-flex flex-column flex-lg-row justify-content-end align-items-center gap-3">
                
-                <div class"icon" onclick="toggleNotifi()">
-                <a class="text-white text-decoration-none notifica box"><i class="fa-solid fa-bell grossi"></i><span class="position-absolute top-1 start-99 translate-middle badge rounded-pill bg-danger"
+                <div class"icona" onclick="toggleNotifi()">
+                <a class="text-white text-decoration-none notifica box"><i class="fa-solid fa-bell grossi bella"></i><span class="position-absolute top-1 start-99 translate-middle badge rounded-pill bg-danger"
                 id="numeroNotifiche"></span></a>
 
                 </div>
 
-                    <div class="notifi-box" id="box">
+                    <div class="notifi-box d-none" id="box">
                     <h2> Notifiche <span class="notiSpan"></span></h2>
 
                     <div class="notifi-item">
@@ -225,14 +225,17 @@ function logOut() {
 logout.addEventListener("click", logOut);
 
 let box = document.getElementById("box");
+let notifyBox = document.querySelector(".notifi-box");
 let down = false;
 
 function toggleNotifi() {
     if (down) {
+        notifyBox.classList.add('d-none');
         box.style.height = "0px";
         box.style.opacity = 0;
         down = false;
     } else {
+        notifyBox.classList.remove('d-none');
         box.style.height = "510px";
         box.style.opacity = 1;
         down = true;
