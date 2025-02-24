@@ -249,7 +249,7 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
                         </div>
                         <div class="row">
                             <div class="col-md-12 p-2">
-                            <h3 class="m-0" style="font-size: larger; font-weight: bold; margin-bottom: 10px;">Partners commerciali</h3> <h1 class="m-1"><a class="visualizzaAmici" style="font-weight: bold;"  onclick="mostraAmici(${idAziendaDestinataria})">${amici} <i class="fa-solid fa-user-group" style="font-size: 25px; color: black;"></i></a></h1>
+                            <h3 class="m-0" style="font-size: larger; font-weight: bold; margin-bottom: 10px;">Partners commerciali</h3> <h1 class="m-1"><a class="visualizzaAmici" style="font-weight: bold; cursor:pointer;"  onclick="mostraAmici(${idAziendaDestinataria})">${amici} <i class="fa-solid fa-user-group" style="font-size: 25px; color: black;"></i></a></h1>
                                 <h3 class="m-0" style="font-size: larger; font-weight: bold;">Media Recensioni </h3>
                                 <h1 class="m-1" style="font-weight: bold;">${recensioni.media} <span style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
                                 </h1>
@@ -518,7 +518,7 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
                         </div>
                         <div class="row">
                             <div class="col-md-12 p-2 mt-3">
-                            <h3 class="m-0" style="font-size: larger; font-weight: bold; margin-bottom: 10px;">Partners commerciali</h3> <h1 class="m-1"><a class="visualizzaAmici" style="font-weight: bold;"  onclick="mostraAmici(${idAziendaDestinataria})">${amici} <i class="fa-solid fa-user-group" style="font-size: 25px; color: black;"></i></a></h1>
+                            <h3 class="m-0" style="font-size: larger; font-weight: bold; margin-bottom: 10px;">Partners commerciali</h3> <h1 class="m-1"><a class="visualizzaAmici" style="font-weight: bold; cursor:pointer;"  onclick="mostraAmici(${idAziendaDestinataria})">${amici} <i class="fa-solid fa-user-group" style="font-size: 25px; color: black;"></i></a></h1>
                                 <h3 style="font-size: larger; font-weight: bold;">Media Recensioni</h3>
                                 <h1 style="font-weight: bold;">${recensioni.media} <span style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
                                 </h1>
@@ -769,7 +769,7 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
                         </div>
                         <div class="row">
                             <div class="col-md-12 p-2 mt-3">
-                            <h3 class="m-0" style="font-size: larger; font-weight: bold; margin-bottom: 10px;">Partners commerciali</h3> <h1 class="m-1"><a class="visualizzaAmici" style="font-weight: bold;"  onclick="mostraAmici(${idAziendaDestinataria})">${amici} <i class="fa-solid fa-user-group" style="font-size: 25px; color: black;"></i></a></h1>
+                            <h3 class="m-0" style="font-size: larger; font-weight: bold; margin-bottom: 10px;">Partners commerciali</h3> <h1 class="m-1"><a class="visualizzaAmici" style="font-weight: bold; cursor:pointer;"  onclick="mostraAmici(${idAziendaDestinataria})">${amici} <i class="fa-solid fa-user-group" style="font-size: 25px; color: black;"></i></a></h1>
                                 <h3 style="font-size: larger; font-weight: bold;">Media Recensioni</h3>
                                 <h1 style="font-weight: bold;">${recensioni.media} <span style="color: yellow; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">★</span>
                                 </h1>
