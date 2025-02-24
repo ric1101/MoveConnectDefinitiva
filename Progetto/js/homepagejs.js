@@ -3,7 +3,7 @@ let navbarHTML = document.querySelector(".navbarMain");
 navbar();
 
 function navbar() {
-  let navBarFinale = `<nav class="navbar navbar-expand-xxl navbar-fixed-top" style="background-color: #1B2023;">
+    let navBarFinale = `<nav class="navbar navbar-expand-xxl navbar-fixed-top" style="background-color: #1B2023;">
     <div class="container-fluid">
         <!-- Logo -->
         <a class="navbar-brand fs-4" href="index.html"><img class="logo" src="../Progetto/imgs/img.png" alt=""></a>
@@ -74,17 +74,26 @@ function navbar() {
                     </li>
                 </ul>
                 
+
                 <!-- Login/Signup -->
                 <div class="d-flex flex-column flex-lg-row justify-content-end align-items-center gap-3">
                
                 <div class"icon" onclick="toggleNotifi()">
-                    <a class="text-white text-decoration-none notifica"><span style="background-color:red; border-radius:50%; padding:5px; font-size: 15px !important;">17</span><i class="fa-solid fa-bell grossi"></i> </a>
-                    </div>
-                    <div class="notifi-box" id="box">
-                    <h2> Notifiche <span>17</span></h2>
-                    <div class="notifi-item">
-                    </div>
+                <a class="text-white text-decoration-none notifica box"><i class="fa-solid fa-bell grossi"></i><span class="position-absolute top-1 start-99 translate-middle badge rounded-pill bg-danger"
+                id="numeroNotifiche"></span></a>
+
                 </div>
+
+                    <div class="notifi-box" id="box">
+                    <h2> Notifiche <span class="notiSpan"></span></h2>
+
+                    <div class="notifi-item">
+
+                    </div>
+
+                </div>
+                
+                
                 <a href="user.html" class="text-white text-decoration-none user d-none"><i class="fa-regular fa-circle-user grossi"></i></a>
                 <a href="login.html" class="text-white text-decoration-none login"><i
                 class="fa-solid fa-arrow-right-to-bracket"></i> &nbsp;Login </a>
@@ -100,7 +109,7 @@ function navbar() {
     </div>
 </nav>`;
 
-  navbarHTML.innerHTML = navBarFinale;
+    navbarHTML.innerHTML = navBarFinale;
 }
 
 let bottone = document.querySelector(".hamburger");
@@ -110,20 +119,20 @@ let dropdown2 = document.querySelector(".drop2");
 let item = document.querySelector(".notifi-item");
 
 bottone.addEventListener("click", function () {
-  dropdown1.classList.add("show");
-  dropdown2.classList.add("show");
+    dropdown1.classList.add("show");
+    dropdown2.classList.add("show");
 
-  let back = document.querySelector(".offcanvas-backdrop");
+    let back = document.querySelector(".offcanvas-backdrop");
 
-  back.addEventListener("click", function () {
-    dropdown1.classList.remove("show");
-    dropdown2.classList.remove("show");
-  });
+    back.addEventListener("click", function () {
+        dropdown1.classList.remove("show");
+        dropdown2.classList.remove("show");
+    });
 });
 
 chiusura.addEventListener("click", function () {
-  dropdown1.classList.remove("show");
-  dropdown2.classList.remove("show");
+    dropdown1.classList.remove("show");
+    dropdown2.classList.remove("show");
 });
 
 let user = document.querySelector(".user");
@@ -141,15 +150,16 @@ let multiRegione = document.querySelector(".multiRegione");
 let cercaAziende = document.querySelector(".cercaAziende");
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Nascondi la navbar in base all'accessToken immediatamente
-  let accessToken = localStorage.getItem("accessToken");
+    // Nascondi la navbar in base all'accessToken immediatamente
+    let accessToken = localStorage.getItem("accessToken");
 
-  if (accessToken) {
-    mostraNavbarLoggata();
-    checkToken(); // Chiama la funzione asincrona per verificare il token
-  } else {
-    mostraNavbarNonLoggata();
-  }
+    if (accessToken) {
+        mostraNavbarLoggata();
+
+        checkToken();
+    } else {
+        mostraNavbarNonLoggata();
+    }
 });
 
 function mostraNavbarLoggata() {
@@ -171,43 +181,45 @@ function mostraNavbarLoggata() {
 }
 
 function mostraNavbarNonLoggata() {
-  user.classList.add("d-none");
-  notifica.classList.add("d-none");
-  signup.classList.remove("d-none");
-  logout.classList.add("d-none");
-  inserisci.classList.add("d-none");
-  visualizza.classList.add("d-none");
-  login.classList.remove("d-none");
-  abb.classList.remove("d-none");
-  partners.classList.remove("d-none");
-  blogs.classList.remove("d-none");
-  if (multiRegione != null) {
-    multiRegione.classList.add("d-none");
-  }
+    user.classList.add("d-none");
+    notifica.classList.add("d-none");
+    signup.classList.remove("d-none");
+    logout.classList.add("d-none");
+    inserisci.classList.add("d-none");
+    visualizza.classList.add("d-none");
+    login.classList.remove("d-none");
+    abb.classList.remove("d-none");
+    partners.classList.remove("d-none");
+    blogs.classList.remove("d-none");
+    if (multiRegione != null) {
+        multiRegione.classList.add("d-none");
+    }
 }
 
 function checkToken() {
-  let accessToken = localStorage.getItem("accessToken");
+    let accessToken = localStorage.getItem("accessToken");
 
-  fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      richiesteRicevute(data.id);
-      mostraNavbarLoggata();
-    })
-    .catch((error) => {
-      console.log(error);
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+            richiesteRicevute(data.id);
+            mostraNavbarLoggata();
+            mostraNotifiche(data.id);
 
-      localStorage.removeItem("accessToken");
-      mostraNavbarNonLoggata();
-      // window.location.href = 'index.html';
-    });
+        })
+        .catch((error) => {
+            console.log(error);
+
+            localStorage.removeItem("accessToken");
+            mostraNavbarNonLoggata();
+            // window.location.href = 'index.html';
+        });
 }
 
 function logOut() {
-  localStorage.removeItem("accessToken");
-  mostraNavbarNonLoggata();
+    localStorage.removeItem("accessToken");
+    mostraNavbarNonLoggata();
 }
 
 logout.addEventListener("click", logOut);
@@ -216,32 +228,46 @@ let box = document.getElementById("box");
 let down = false;
 
 function toggleNotifi() {
-  if (down) {
-    box.style.height = "0px";
-    box.style.opacity = 0;
-    down = false;
-  } else {
-    box.style.height = "510px";
-    box.style.opacity = 1;
-    down = true;
-  }
+    if (down) {
+        box.style.height = "0px";
+        box.style.opacity = 0;
+        down = false;
+    } else {
+        box.style.height = "510px";
+        box.style.opacity = 1;
+        down = true;
+    }
 }
 
 let boxes = document.querySelector(".notifi-box");
 
+function mostraNotifiche(id) {
 
 
-    function richiesteRicevute(id) {
-        fetch(`http://127.0.0.1:8080/api/amicizia/amicizieRicevute?idAzienda2=${id}`)
+    fetch(`http://127.0.0.1:8080/api/amicizia/counterPartnerArrivate/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+            let notiSpan = document.querySelector('.notiSpan');
+            let numeroNotifiche = document.querySelector('#numeroNotifiche');
+
+            notiSpan.innerHTML = data;
+            numeroNotifiche.innerHTML = data;
+
+        })
+}
+
+function richiesteRicevute(id) {
+    fetch(`http://127.0.0.1:8080/api/amicizia/amicizieRicevute?idAzienda2=${id}`)
         .then((res) => res.json())
         .then((data) => {
             console.log('Received data:', data); // Log the raw data
-        
+
             // Check if the data is an array and process it accordingly
             if (Array.isArray(data)) {
                 data.forEach(item => {
                     if (item.azienda1 && item.azienda1.id) {
-                        visualizzaRichiesteRicevute(item,[item.azienda1], [item.azienda2]);  // Passing array to visualizzaRichiesteRicevute
+                        visualizzaRichiesteRicevute(item, [item.azienda1], [item.azienda2]);  // Passing array to visualizzaRichiesteRicevute
                         console.log(item);
                         console.log(item.azienda1.id);
                     } else {
@@ -255,60 +281,62 @@ let boxes = document.querySelector(".notifi-box");
         .catch((error) => {
             console.error('Error fetching data:', error);
         });
-    }
-    
+}
 
-function visualizzaRichiesteRicevute(item,data, dataMio) {
+
+
+
+
+function visualizzaRichiesteRicevute(item, data, dataMio) {
     console.log(item);
     let i = 0;
-    
-    
+
+
     // Check if data is an array before using .forEach
-   
-        let visualizzaRichieste = '';
-        console.log(item);
-        
-        // Loop through each element of data to display requests
-        [item].forEach(element => {
-            console.log(element);
-            
-        if(element.stato == "PENDENTE"){
+
+    let visualizzaRichieste = '';
+    console.log(item);
+
+    // Loop through each element of data to display requests
+    [item].forEach(element => {
+        console.log(element);
+
+        if (element.stato == "PENDENTE") {
             visualizzaRichieste += `   
         <div class="notifi-item">
              <i class="fa-solid fa-user-plus amicomio"></i>
             <div class="text">
                 <h4>${element.azienda1.nomeAzienda}</h4>
                 <p>${element.azienda1.username}</p>
+                <a class="btn btn-success" onclick="accettaAmicizia(${data[i].id} , ${dataMio[i].id})">Accetta</a>
+                <a class="btn btn-danger" onclick="rifiutaAmicizia(${data[i].id} , ${dataMio[i].id})">Rifiuta</a>
             </div>
-        </div>
-            <a class="btn btn-success" onclick="accettaAmicizia(${data[i].id} , ${dataMio[i].id})">Accetta</a>
-            <a class="btn btn-danger" onclick="rifiutaAmicizia(${data[i].id} , ${dataMio[i].id})">Rifiuta</a>
-            `;
+        </div>`;
             console.log(data[i].id);
             console.log(dataMio[i].id);
             i++;
-        }else{
+        } else {
 
-      
-           
-         
+
+
+
         }
-        });
-        
-        
-        // Assuming boxes is a container for notifications
-        boxes.innerHTML += visualizzaRichieste;
-  
+    });
 
-    
+
+    // Assuming boxes is a container for notifications
+    boxes.innerHTML += visualizzaRichieste;
+
+
+
 }
 
 
 
-function accettaAmicizia(dataId1,dataId2){
+function accettaAmicizia(dataId1, dataId2) {
     console.log("BELLAAAA" + dataId1);
     console.log("BELLAAAA2" + dataId2);
-    
+
 
     fetch(`http://127.0.0.1:8080/api/amicizia/accettataAmicizia/${dataId1}/${dataId2}`, {
         method: "PUT",
@@ -316,11 +344,11 @@ function accettaAmicizia(dataId1,dataId2){
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            "idAzienda1" : dataId1,
-            "idAzienda2" : dataId2
+            "idAzienda1": dataId1,
+            "idAzienda2": dataId2
         }),
     })
-window.location.reload();
+    window.location.reload();
 
 }
 

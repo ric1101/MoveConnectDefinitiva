@@ -298,7 +298,7 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
                             <a class="btn btn-success btnBarra">Verifica Azienda</a>
                         </div>
                         <div class="col-md-2 d-flex justify-content-center pt-2">
-                            <a class="btn btn-danger btnBarra">Segnala</a>
+                            <a class="btn btn-danger btnBarra" onclick="segnala(${dati.id}, '${dati.username}', '${dati.nomeAzienda}')">Segnala</a>
                         </div>
                     </div>
                 </div>
@@ -567,7 +567,7 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
                             <a class="btn btn-success btnBarra">Verifica Azienda</a>
                         </div>
                         <div class="col-md-2 d-flex justify-content-center pt-2">
-                            <a class="btn btn-danger btnBarra">Segnala</a>
+                            <a class="btn btn-danger btnBarra" onclick="segnala(${dati.id}, '${dati.username}', '${dati.nomeAzienda}')">Segnala</a>
                         </div>
                     </div>
                 </div>
@@ -818,7 +818,7 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
                             <a class="btn btn-success btnBarra">Verifica Azienda</a>
                         </div>
                         <div class="col-md-2 d-flex justify-content-center pt-2">
-                            <a class="btn btn-danger btnBarra">Segnala</a>
+                            <a class="btn btn-danger btnBarra" onclick="segnala(${dati.id}, '${dati.username}', '${dati.nomeAzienda}')">Segnala</a>
                         </div>
                     </div>
                 </div>
@@ -995,7 +995,6 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
 
         })
         .catch((error) => {
-            // console.error('Fetch error:', error.message);  // Handle fetch errors, including 404
         });
 
     let containerRecensioni = document.querySelector('.inserisciRecensioni');
@@ -1101,16 +1100,16 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
 let siNo = false;
 
 function mostraAmici(id) {
-    
+
     let inserisciRecensioni = document.querySelector('.contenitorePartner');
-    
+
     if (siNo == false) {
-        
-    siNo = true;
 
-    inserisciRecensioni.innerHTML = '';
+        siNo = true;
 
-    let containerAmici = `<div class="col-lg-1"></div>
+        inserisciRecensioni.innerHTML = '';
+
+        let containerAmici = `<div class="col-lg-1"></div>
             <div class="col-lg-10 card mb-4">
                 <div class="row d-flex justify-content-center p-3 containerTitolo">
                     
@@ -1121,70 +1120,62 @@ function mostraAmici(id) {
             </div>
             <div class="col-lg-1"></div>`;
 
-    inserisciRecensioni.innerHTML += containerAmici;
+        inserisciRecensioni.innerHTML += containerAmici;
 
-    let containerTitolo = document.querySelector('.containerTitolo');
+        let containerTitolo = document.querySelector('.containerTitolo');
 
-    console.log(containerTitolo);
+        console.log(containerTitolo);
 
 
-    let titoloPartner = `<div class="d-flex justify-content-center">
+        let titoloPartner = `<div class="d-flex justify-content-center">
                         <h3>Partners</h3>
                     </div>`;
 
 
-    containerTitolo.innerHTML += titoloPartner;
+        containerTitolo.innerHTML += titoloPartner;
 
-    console.log();
-
-
-    fetch(`http://127.0.0.1:8080/api/amicizia/counterPartnerTotale/${id}`)
-        .then((res) => res.json())
-        .then((data) => {
+        console.log();
 
 
-            data.forEach((element, index) => {
-                console.log(element);
-                console.log(element.id);
+        fetch(`http://127.0.0.1:8080/api/amicizia/counterPartnerTotale/${id}`)
+            .then((res) => res.json())
+            .then((data) => {
 
 
-                fetch(`http://127.0.0.1:8080/api/azienda/logo/${element.id}`)
-                    .then((response) => {
-                        if (!response.ok) {
-                            throw new Error("Errore nel recupero del logo");
-                        }
-                        return response.blob();
-                    })
-                    .then((blob) => {
-                        const logoUrl = URL.createObjectURL(blob);
-                        console.log(logoUrl);
+                data.forEach((element, index) => {
+                    console.log(element);
+                    console.log(element.id);
 
-                        let amicoSingolo = `<div class="col-md-2">
+
+                    fetch(`http://127.0.0.1:8080/api/azienda/logo/${element.id}`)
+                        .then((response) => {
+                            if (!response.ok) {
+                                throw new Error("Errore nel recupero del logo");
+                            }
+                            return response.blob();
+                        })
+                        .then((blob) => {
+                            const logoUrl = URL.createObjectURL(blob);
+                            console.log(logoUrl);
+
+                            let amicoSingolo = `<div class="col-md-2">
                                                 <div class="containerLogoImg2">
                                                     <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.nomeAzienda}"><img src="${logoUrl}" alt="" class='partner-${index}'></a>
                                                 </div>
                                             <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.nomeAzienda}"><h5 class="text-black text-center">${element.nomeAzienda}</h5></a>
                                             </div>`;
 
-                        containerTitolo.innerHTML += amicoSingolo;
-                        // partner.setAttribute('src', logoUrl);
-                    })
-                    .catch((error) => {
-                        console.error("Errore nel caricamento del logo:", error);
-                        //partner.setAttribute(
-                        // 'src',
-                        // './img/default-logo.png'
+                            containerTitolo.innerHTML += amicoSingolo;
+                        })
+                        .catch((error) => {
+                            console.error("Errore nel caricamento del logo:", error);
 
-                    })
+                        })
 
 
-                // let partner = document.querySelector(`.partner-${index}`);   
-                // console.log(partner);
-                // fetchImgSingola(element.id, partner);
-                // console.log(element.id);
 
+                });
             });
-        });
 
     } else {
 
@@ -1195,205 +1186,23 @@ function mostraAmici(id) {
 }
 
 
-// async function fetchImgSingola(idAzienda, partner) {
+function segnala(id, username, nomeAzienda) {
 
-//     console.log(idAzienda);
-//     console.log(partner);
+    fetch(`http://127.0.0.1:8080/api/azienda/segnalaAzienda/${id}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            "username": username,
+            "nomeAzienda": nomeAzienda
+        }),
+    })
+console.log("wewe");
 
+    window.location.href = 'segnalazioneInviata.html';
 
-//     await fetch(`http://127.0.0.1:8080/api/azienda/logo/${idAzienda}`)
-//         .then((response) => {
-//             if (!response.ok) {
-//                 throw new Error("Errore nel recupero del logo");
-//             }
-//             return response.blob();
-//         })
-//         .then((blob) => {
-//             const logoUrl = URL.createObjectURL(blob);
-//             console.log(logoUrl);
-
-//             partner.setAttribute('src', logoUrl);
-//         })
-//         .catch((error) => {
-//             console.error("Errore nel caricamento del logo:", error);
-//             partner.setAttribute(
-//                 'src',
-//                 './img/default-logo.png'
-//             );
-//         });
-// }
-
-// let recensioneSingola = `<div class="d-flex justify-content-center m-3">
-//                     <h2>Recensioni Globali</h2>
-//                 </div>
-//                 <div class="row">
-
-//                     <div class="col-lg-1"></div>
-//                     <div class="card review col-lg-10">
-//                         <div class="row d-flex">
-//                             <div class="d-flex flex-row poli">
-//                                 <div class="col-md-8 col-sm-8 col-8">
-//                                     <h4 class="mt-2 mb-0 titolino">Curci S.p.A.</h4>
-//                                     <div>
-//                                         <p class="text-left widete"><span class="text-muted">4.0</span>
-//                                             <span class="fa fa-star star-active ml-3"></span>
-//                                             <span class="fa fa-star star-active"></span>
-//                                             <span class="fa fa-star star-active"></span>
-//                                             <span class="fa fa-star star-active"></span>
-//                                             <span class="fa fa-star star-inactive"></span>
-//                                         </p>
-//                                     </div>
-//                                 </div>
-//                                 <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-end">
-//                                     <div class="ml-auto">
-//                                         <p class="text-muted mt-2">10 Sept</p>
-//                                     </div>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                         <div class="row text-left">
-//                             <p class="content">Esperienza molto positiva, consigliato per tutti!</p>
-//                         </div>
-//                     </div>
-//                     <div class="col-lg-1"></div>`;
-
-
-
-// let old =  `<div class="row d-flex justify-content-center">
-//             <div class="col-lg-12 mb-3">
-//                 <div class="card" style="background-color: #ece4d485;">
-//                     <div class="row p-4">
-
-//                         <div class="col-md-8 col-sm-12 col-lg-7 col-xl-7 d-flex align-items-center cont1">
-//                             <div class="containerLogoImg">
-//                                 <img src="" alt="" class="imgAzienda">
-//                             </div>
-//                             <div class="nomiAz p-3">
-//                                 <div class="row">
-//                                     <h4>${dati.nomeAzienda}</h4>
-
-//                                 </div>
-//                                 <div class="row">
-//                                     <p>Recensioni: ${dati.votiRecensione}</p>
-
-//                                 </div>
-//                             </div>
-
-//                         </div>
-
-//                         <div class="col-lg-5 col-sm-12 col-md-4 p-4">
-//                             <div class="row d-flex justify-content-center">
-//                                 <div class="col-md-12 col-lg-12 col-xl-12 col-sm-6 d-flex justify-content-end p-1">
-//                                     <a class="btn btn-primary me-1 tastiNormali" onclick="sendEmail('${dati.emailAziendale}')">
-//                             <i class="fa-regular fa-envelope"></i> Messaggia
-//                                     </a>
-//                                     <a class="btn btn-danger tastiNormali amicizia" onclick="annullaRichiestaAmicizia(${idAziendaMittente}, ${idAziendaDestinataria})"><i class="fa-solid fa-user-xmark"></i>
-//                                         Annulla</a>
-
-//                                 </div>
-//                                 <div class="row nomiAzEsteso">
-//                                     <h4>${dati.nomeAzienda}</h4>
-//                                     <p>${dati.votiRecensione}</p>
-//                                 </div>
-//                                 <div class="row">
-//                                     <a class="btn btn-primary tastiParticolari m-1"><i
-//                                             class="fa-regular fa-envelope"></i> <p>Messaggia</p></a>
-
-//                                 </div>
-//                                 <div class="row">
-//                                     <a class="btn btn-primary tastiParticolari m-1"><i
-//                                             class="fa-solid fa-user-plus"></i> <p>Aggiungi</p></a>
-
-//                                 </div>
-//                             </div>
-
-//                         </div>
-
-//                     </div>
-
-//                 </div>
-
-//             </div>
-
-
-//             <div class="row p-3 d-flex justify-content-center" style="margin-left: 0.550rem;">
-//                 <div class="col-md-6 col-lg-5">
-//                     <div class="row card mb-3 req">
-//                     <li class="nav-item dropdown visualizzaUser mb-2 p-0" id="menu-products">
-//                         <a class="nav-link dropdown-toggle visualizzaRichiesteAll" href="#" role="button"
-//                              aria-expanded="false">
-//                             Visualizza richieste
-//                         </a>
-//                         <ul class="dropdown-menu drop3">
-//                             <li><a class="dropdown-item d-none" href="suoloPubVisualizzaUtente.html" onclick="inviaLocalId(${dati.id})">Occupazione solo pubblico</a></li>
-//                             <li><a class="dropdown-item" href="trasportoVisualizzaUtente.html" onclick="inviaLocalId(${dati.id})">Groupage</a></li>
-//                             <li><a class="dropdown-item" href="elevatoreVisualizzaUtente.html" onclick="inviaLocalId(${dati.id})">Scala elevatore</a></li>
-//                             <li><a class="dropdown-item" href="imballaggiVisualizzaUtente.html" onclick="inviaLocalId(${dati.id})">Consegna imballi</a></li>
-//                             <li><a class="dropdown-item" href="personale-specVisualizzaUtente.html" onclick="inviaLocalId(${dati.id})">Personale spec.</a></li>
-//                             <li><a class="dropdown-item" href="magazzinoVisualizzaUtente.html" onclick="inviaLocalId(${dati.id})">Deposito</a></li>
-//                             <li><a class="dropdown-item" href="tratteVisualizzaUtente.html" onclick="inviaLocalId(${dati.id})">Tratte</a></li>
-//                         </ul>
-//                     </li>
-//                         <a class="btn btn-warning ">Partners</a>
-//                     </div>
-//                 <div class="row"></div>
-
-
-
-//                 <div class="col-md-12">
-//                     <div class="row card mb-3 veri">
-//                         <a class="btn btn-success p-2 mb-2">Verifica Azienda</a>
-//                         <a class="btn btn-danger p-2">Segnala</a>
-//                     </div>
-//                 </div>
-
-
-//                 </div>
-//                 <div class="col-md-6 col-lg-7 capitana">
-//                     <div class="row rowers">
-
-//                     <div class="col-12 card mb-3 rowers">
-//                         <div class="card-body">
-//                             <h4 class="text-success align-center">Info</h4>
-//                             <div class="mb-2">
-//                                 <strong>Numero Aziendale:</strong> <span>${dati.numeroTelefonicoAziendale}</span>
-//                             </div>
-//                             <div class="mb-2">
-//                                 <strong>Email:</strong> <span>${dati.emailAziendale}</span>
-//                             </div>
-//                             <div class="mb-2">
-//                                 <strong>P.IVA:</strong> <span>${dati.piva}</span>
-//                             </div>
-//                             <div class="mb-2">
-//                                 <strong>Indirizzo:</strong> <span>${dati.indirizzo}</span>
-//                             </div>
-//                         </div>
-//                     </div>
-
-//                     <div class="row card mb-3 rowers">
-//                         <div class="card-body">
-//                             <h4 class="text-success">Info verificate ✔</h4>
-//                             <div class="mb-2">
-//                                 <strong>Email Verificata:</strong> ${dati.username}<span class="text-success">✔</span>
-//                             </div>
-//                             <div class="mb-2">
-//                                 <strong>Numero di Telefono Verificato:</strong> <span class="text-success">✔</span>
-//                             </div>
-//                             <div class="mb-2">
-//                                 <strong>P.IVA Verificata:</strong> <span class="text-success">✔</span>
-//                             </div>
-//                             <div class="mb-2"></div>
-//                             <strong>Indirizzo:</strong><span>Via Esempio 1, Milano</span>
-//                         </div>
-//                     </div>
-
-//                 </div>
-//             </div>
-//         </div>
-
-
-//         </div>`;
-
+}
 
 
 function inviaLocalId(id) {
