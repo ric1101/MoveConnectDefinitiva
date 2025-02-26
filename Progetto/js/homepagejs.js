@@ -210,7 +210,7 @@ function mostraNavbarLoggata() {
 
 function mostraNavbarAbbonamento() {
     user.classList.add("d-none");
-    notifica.classList.add("d-none");
+    notifica.classList.remove("d-none");
     signup.classList.add("d-none");
     logout.classList.add("d-none");
     inserisci.classList.add("d-none");
@@ -227,7 +227,7 @@ function mostraNavbarAbbonamento() {
 }
 
 function mostraNavbarNonLoggata() {
-    console.log(weww);
+    console.log('weww');
     
     user.classList.add("d-none");
     notifica.classList.add("d-none");
