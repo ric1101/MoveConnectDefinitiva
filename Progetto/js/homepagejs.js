@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 }
 
-                checkToken();
+                // checkToken();
             
 
         })
@@ -185,6 +185,8 @@ document.addEventListener("DOMContentLoaded", () => {
             mostraNavbarNonLoggata();
             // window.location.href = 'index.html';
         });
+
+
 });
 
 function mostraNavbarLoggata() {
@@ -242,45 +244,45 @@ function mostraNavbarNonLoggata() {
     }
 }
 
-function checkToken() {
-    let accessToken = localStorage.getItem("accessToken");
+// function checkToken() {
+//     let accessToken = localStorage.getItem("accessToken");
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data);
+//     fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+//         .then((res) => res.json())
+//         .then((data) => {
+//             console.log(data);
 
-            if (data.abbonamento == null) {
+//             if (data.abbonamento == null) {
 
-                window.location.href = abbonamentiRegistrato.html;
-                mostraNavbarAbbonamento();
-                richiesteRicevute(data.id);
-                mostraNotifiche(data.id);
+//                 window.location.href = abbonamentiRegistrato.html;
+//                 mostraNavbarAbbonamento();
+//                 richiesteRicevute(data.id);
+//                 mostraNotifiche(data.id);
 
-            } else if (data.abbonamento == 'base') {
+//             } else if (data.abbonamento == 'base') {
 
-                mostraNavbarLoggata();
-                richiesteRicevute(data.id);
-                mostraNotifiche(data.id);
+//                 mostraNavbarLoggata();
+//                 richiesteRicevute(data.id);
+//                 mostraNotifiche(data.id);
 
-            } else {
+//             } else {
 
-                mostraNavbarLoggata();
-                richiesteRicevute(data.id);
-                mostraNotifiche(data.id);
+//                 mostraNavbarLoggata();
+//                 richiesteRicevute(data.id);
+//                 mostraNotifiche(data.id);
 
-            }
+//             }
 
 
-        })
-        .catch((error) => {
-            console.log(error);
+//         })
+//         .catch((error) => {
+//             console.log(error);
 
-            localStorage.removeItem("accessToken");
-            mostraNavbarNonLoggata();
-            // window.location.href = 'index.html';
-        });
-}
+//             localStorage.removeItem("accessToken");
+//             mostraNavbarNonLoggata();
+//             // window.location.href = 'index.html';
+//         });
+// }
 
 function logOut() {
     localStorage.removeItem("accessToken");
