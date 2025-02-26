@@ -212,7 +212,7 @@ function mostraNavbarAbbonamento() {
     user.classList.add("d-none");
     notifica.classList.remove("d-none");
     signup.classList.add("d-none");
-    logout.classList.add("d-none");
+    logout.classList.remove("d-none");
     inserisci.classList.add("d-none");
     visualizza.classList.add("d-none");
     login.classList.add("d-none");
