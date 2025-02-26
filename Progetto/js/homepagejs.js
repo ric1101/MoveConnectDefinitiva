@@ -161,7 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (data.abbonamento == null) {
 
-                    window.location.href = 'abbonamentiRegistrato.html';
                     mostraNavbarAbbonamento();
 
                 } else if (data.abbonamento == 'base') {
@@ -209,6 +208,8 @@ function mostraNavbarLoggata() {
 
 
 function mostraNavbarAbbonamento() {
+    window.location.href = 'abbonamentiRegistrato.html';
+
     user.classList.add("d-none");
     notifica.classList.remove("d-none");
     signup.classList.add("d-none");
