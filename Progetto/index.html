@@ -29,6 +29,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Londrina+Sketch&display=swap" rel="stylesheet">
+  <script>
+    let accessToken = localStorage.getItem("accessToken");
+
+    if (accessToken) {
+        fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.abbonamento == null) {
+                    window.location.replace('abbonamentiRegistrato.html'); // Evita il back button
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+                localStorage.removeItem("accessToken");
+            });
+    }
+</script>
+
 </head>
 
 <body style="background-color: white !important;">
