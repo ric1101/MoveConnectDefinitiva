@@ -220,6 +220,8 @@ function mostraNavbarAbbonamento() {
 }
 
 function mostraNavbarNonLoggata() {
+    console.log(weww);
+    
     user.classList.add("d-none");
     notifica.classList.add("d-none");
     signup.classList.remove("d-none");
