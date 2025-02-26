@@ -210,7 +210,7 @@ function mostraNavbarLoggata() {
 
 function mostraNavbarAbbonamento() {
     user.classList.add("d-none");
-    notifica.classList.remove("d-none");
+    notifica.classList.add("d-none");
     signup.classList.add("d-none");
     logout.classList.add("d-none");
     inserisci.classList.add("d-none");
