@@ -150,43 +150,31 @@ let multiRegione = document.querySelector(".multiRegione");
 let cercaAziende = document.querySelector(".cercaAziende");
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Nascondi la navbar in base all'accessToken immediatamente
     let accessToken = localStorage.getItem("accessToken");
+
+    // Se il flag di reindirizzamento è già stato impostato, non rifare la chiamata
+    if (sessionStorage.getItem("redirected")) {
+        return;
+    }
 
     fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
-
-            
-
-                if (data.abbonamento == null) {
-
-                    mostraNavbarAbbonamento();
-
-                } else if (data.abbonamento == 'base') {
-
-                    mostraNavbarLoggata();
-
-                } else {
-
-                    mostraNavbarLoggata();
-
-                }
-
-                // checkToken();
-            
-
+            if (data.abbonamento == null) {
+                sessionStorage.setItem("redirected", "true"); // Imposta il flag
+                window.location.href = 'abbonamentiRegistrato.html';
+                mostraNavbarAbbonamento();
+            } else {
+                mostraNavbarLoggata();
+            }
         })
         .catch((error) => {
             console.log(error);
-
             localStorage.removeItem("accessToken");
             mostraNavbarNonLoggata();
-            // window.location.href = 'index.html';
         });
-
-
 });
+
 
 function mostraNavbarLoggata() {
     user.classList.remove("d-none");
@@ -208,7 +196,6 @@ function mostraNavbarLoggata() {
 
 
 function mostraNavbarAbbonamento() {
-    window.location.href = 'abbonamentiRegistrato.html';
 
     user.classList.add("d-none");
     notifica.classList.remove("d-none");
