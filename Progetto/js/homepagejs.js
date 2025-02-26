@@ -138,7 +138,7 @@ chiusura.addEventListener("click", function () {
 let user = document.querySelector(".user");
 let logout = document.querySelector(".logout");
 let login = document.querySelector(".login");
-let notifica = document.querySelector(".bella");
+let notifica = document.querySelector(".icona");
 let signup = document.querySelector(".signup");
 let inserisci = document.querySelector(".inserisci");
 let visualizza = document.querySelector(".visualizza");
