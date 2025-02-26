@@ -467,10 +467,19 @@ hr {
 
   .bella {
     color: black !important;
+    margin-left: 20px !important;
   }
+
+  .badge {
+    position: static !important;
+    
+  }
+
 }
 
-
+.closed {
+  cursor: pointer;
+}
 
 .partner {
   display: flex;
@@ -668,6 +677,10 @@ a {
   display: inline-block;
   width: 40px;
   margin-top: 20px;
+}
+
+.badge {
+  position: absolute;
 }
 
 .icon:hover{

@@ -79,7 +79,7 @@ function navbar() {
                 <div class="d-flex flex-column flex-lg-row justify-content-end align-items-center gap-3">
                
                 <div class"icona" onclick="toggleNotifi()">
-                <a class="text-white text-decoration-none notifica box"><i class="fa-solid fa-bell grossi bella"></i><span class="position-absolute top-1 start-99 translate-middle badge rounded-pill bg-danger"
+                <a class="text-white text-decoration-none notifica box"><i class="fa-solid fa-bell grossi bella"></i><span class="top-1 start-99 translate-middle badge rounded-pill bg-danger"
                 id="numeroNotifiche"></span></a>
 
                 </div>
@@ -153,13 +153,33 @@ document.addEventListener("DOMContentLoaded", () => {
     // Nascondi la navbar in base all'accessToken immediatamente
     let accessToken = localStorage.getItem("accessToken");
 
-    if (accessToken) {
-        mostraNavbarLoggata();
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
 
-        checkToken();
-    } else {
-        mostraNavbarNonLoggata();
-    }
+            if (accessToken) {
+
+                if (data.abbonamento == null) {
+
+                    window.location.href = abbonamentiRegistrato.html;
+                    mostraNavbarAbbonamento();
+
+                } else if (data.abbonamento == 'base') {
+
+                    mostraNavbarLoggata();
+
+                } else {
+
+                    mostraNavbarLoggata();
+
+                }
+
+                checkToken();
+            } else {
+                mostraNavbarNonLoggata();
+            }
+
+        });
 });
 
 function mostraNavbarLoggata() {
@@ -174,6 +194,25 @@ function mostraNavbarLoggata() {
     blogs.classList.remove("d-none");
     // ricerca.classList.remove('d-none');
     cercaAziende.classList.remove("d-none");
+    if (multiRegione != null) {
+        multiRegione.classList.remove("d-none");
+    }
+    item.classList.add("d-none");
+}
+
+
+function mostraNavbarAbbonamento() {
+    user.classList.add("d-none");
+    notifica.classList.remove("d-none");
+    signup.classList.add("d-none");
+    logout.classList.add("d-none");
+    inserisci.classList.add("d-none");
+    visualizza.classList.add("d-none");
+    login.classList.add("d-none");
+    partners.classList.remove("d-none");
+    blogs.classList.remove("d-none");
+    // ricerca.classList.remove('d-none');
+    cercaAziende.classList.add("d-none");
     if (multiRegione != null) {
         multiRegione.classList.remove("d-none");
     }
@@ -203,9 +242,28 @@ function checkToken() {
         .then((res) => res.json())
         .then((data) => {
             console.log(data);
-            richiesteRicevute(data.id);
-            mostraNavbarLoggata();
-            mostraNotifiche(data.id);
+
+            if (data.abbonamento == null) {
+
+                window.location.href = abbonamentiRegistrato.html;
+                mostraNavbarAbbonamento();
+                richiesteRicevute(data.id);
+                mostraNotifiche(data.id);
+
+            } else if (data.abbonamento == 'base') {
+
+                mostraNavbarLoggata();
+                richiesteRicevute(data.id);
+                mostraNotifiche(data.id);
+
+            } else {
+
+                mostraNavbarLoggata();
+                richiesteRicevute(data.id);
+                mostraNotifiche(data.id);
+
+            }
+
 
         })
         .catch((error) => {

@@ -1198,7 +1198,7 @@ function segnala(id, username, nomeAzienda) {
             "nomeAzienda": nomeAzienda
         }),
     })
-console.log("wewe");
+    console.log("wewe");
 
     window.location.href = 'segnalazioneInviata.html';
 
