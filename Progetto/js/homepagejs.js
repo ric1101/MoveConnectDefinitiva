@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((res) => res.json())
         .then((data) => {
 
-            if (accessToken) {
+            
 
                 if (data.abbonamento == null) {
 
@@ -175,10 +175,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
                 checkToken();
-            } else {
-                mostraNavbarNonLoggata();
-            }
+            
 
+        })
+        .catch((error) => {
+            console.log(error);
+
+            localStorage.removeItem("accessToken");
+            mostraNavbarNonLoggata();
+            // window.location.href = 'index.html';
         });
 });
 
