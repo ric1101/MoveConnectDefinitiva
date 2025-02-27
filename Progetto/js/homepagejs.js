@@ -61,13 +61,13 @@ function navbar() {
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link button1 mx-2 text-white abb d-none" href="abbonamenti.html">Subscribe</a>
+                        <a class="nav-link button1 mx-2 text-white abb" href="abbonamenti.html">Subscribe</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link button1 mx-2 text-white partners d-none" href="partners.html">Partners</a>
+                        <a class="nav-link button1 mx-2 text-white partners" href="partners.html">Partners</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link button1 mx-2 text-white blogs d-none" href="blog.html">Blog</a>
+                        <a class="nav-link button1 mx-2 text-white blogs" href="blog.html">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link button1 mx-2 text-white cercaAziende d-none" href="cerca.html"><i class="fa-solid fa-magnifying-glass"></i></a>
@@ -79,7 +79,7 @@ function navbar() {
                 <div class="d-flex flex-column flex-lg-row justify-content-end align-items-center gap-3">
                
                 <div class"icona" onclick="toggleNotifi()">
-                <a class="text-white text-decoration-none notifica box"><i class="fa-solid fa-bell grossi bella"></i><span class="top-1 start-99 translate-middle badge rounded-pill bg-danger"
+                <a class="text-white text-decoration-none notifica box"><i class="fa-solid fa-bell grossi bella d-none"></i><span class="top-1 start-99 translate-middle badge rounded-pill bg-danger"
                 id="numeroNotifiche"></span></a>
 
                 </div>
@@ -146,6 +146,7 @@ let abb = document.querySelector(".abb");
 let partners = document.querySelector(".partners");
 let blogs = document.querySelector(".blogs");
 let multiRegione = document.querySelector(".multiRegione");
+let banner = document.querySelector(".banner");
 // let ricerca = document.querySelector('.ricerca');
 let cercaAziende = document.querySelector(".cercaAziende");
 
@@ -157,24 +158,32 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((res) => res.json())
         .then((data) => {
 
-            
 
-                if (data.abbonamento == null) {
 
-                    mostraNavbarAbbonamento();
+            if (data.abbonamento == null) {
 
-                } else if (data.abbonamento == 'base') {
+                mostraNavbarAbbonamento();
 
-                    mostraNavbarLoggata();
+            } else if (data.abbonamento == 'base') {
 
-                } else {
+                if (window.location.href == '/index.html') {
 
-                    mostraNavbarLoggata();
-
+                    document.querySelector(".heading").style.background = "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./imgs/pacchi.jpg) center/cover no-repeat fixed";
                 }
+                mostraNavbarLoggata();
 
-                // checkToken();
-            
+            } else {
+
+                if (window.location.href == '/index.html') {
+
+                    document.querySelector(".heading").style.background = "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./imgs/pacchi.jpg) center/cover no-repeat fixed";
+                }
+                mostraNavbarLoggata();
+
+            }
+
+            // checkToken();
+
 
         })
         .catch((error) => {
@@ -198,6 +207,7 @@ function mostraNavbarLoggata() {
     login.classList.add("d-none");
     partners.classList.remove("d-none");
     blogs.classList.remove("d-none");
+    banner.classList.add("d-none");
     // ricerca.classList.remove('d-none');
     cercaAziende.classList.remove("d-none");
     if (multiRegione != null) {
@@ -208,7 +218,6 @@ function mostraNavbarLoggata() {
 
 
 function mostraNavbarAbbonamento() {
-
     user.classList.add("d-none");
     notifica.classList.remove("d-none");
     signup.classList.add("d-none");
@@ -228,7 +237,7 @@ function mostraNavbarAbbonamento() {
 
 function mostraNavbarNonLoggata() {
     console.log('weww');
-    
+    banner.classList.remove("d-none");
     user.classList.add("d-none");
     notifica.classList.add("d-none");
     signup.classList.remove("d-none");

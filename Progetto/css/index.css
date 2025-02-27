@@ -115,10 +115,10 @@
 }
 
 
-header {
+.heading {
     min-height: 100vh !important;
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-        url(../imgs/sfondo.png) center/cover no-repeat fixed !important;
+        url(../imgs/sfondo.png) center/cover no-repeat fixed;
     display: flex !important;
     flex-direction: column !important;
     justify-content: stretch !important;
