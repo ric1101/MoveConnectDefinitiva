@@ -61,13 +61,16 @@ function navbar() {
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link button1 mx-2 text-white abb" href="abbonamenti.html">Subscribe</a>
+                        <a class="nav-link button1 mx-2 text-white abb d-none" href="abbonamenti.html">Subscribe</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link button1 mx-2 text-white partners" href="partners.html">Partners</a>
+                        <a class="nav-link button1 mx-2 text-white abbPaga d-none" href="abbonamentiRegistrato.html">Subscribe</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link button1 mx-2 text-white blogs" href="blog.html">Blog</a>
+                        <a class="nav-link button1 mx-2 text-white partners d-none" href="partners.html">Partners</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link button1 mx-2 text-white blogs d-none" href="blog.html">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link button1 mx-2 text-white cercaAziende d-none" href="cerca.html"><i class="fa-solid fa-magnifying-glass"></i></a>
@@ -95,11 +98,11 @@ function navbar() {
                 
                 
                 <a href="user.html" class="text-white text-decoration-none user d-none"><i class="fa-regular fa-circle-user grossi"></i></a>
-                <a href="login.html" class="text-white text-decoration-none login"><i
+                <a href="login.html" class="text-white text-decoration-none login d-none"><i
                 class="fa-solid fa-arrow-right-to-bracket"></i> &nbsp;Login </a>
                 <a href="index.html" class="text-white text-decoration-none logout d-none"><i
                 class="fa-solid fa-arrow-right-from-bracket grossi"></i></a>
-                <a href="registrati.html" class="text-black text-decoration-none px-3 py-1 rounded-4 signup"
+                <a href="registrati.html" class="text-black text-decoration-none px-3 py-1 rounded-4 signup d-none"
                 style="background-color: #FAAD06; ">Sign Up&nbsp; <i class="fa-solid fa-pen"></i></a>
                 
                 </div>
@@ -147,6 +150,8 @@ let partners = document.querySelector(".partners");
 let blogs = document.querySelector(".blogs");
 let multiRegione = document.querySelector(".multiRegione");
 let banner = document.querySelector(".banner");
+let banner1 = document.querySelector(".banner1");
+let abbPaga = document.querySelector(".abbPaga");
 // let ricerca = document.querySelector('.ricerca');
 let cercaAziende = document.querySelector(".cercaAziende");
 
@@ -166,23 +171,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             } else if (data.abbonamento == 'base') {
 
-                if (window.location.href == '/index.html') {
-
-                    document.querySelector(".heading").style.background = "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./imgs/pacchi.jpg) center/cover no-repeat fixed";
-                }
                 mostraNavbarLoggata();
 
             } else {
 
-                if (window.location.href == '/index.html') {
-
-                    document.querySelector(".heading").style.background = "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./imgs/pacchi.jpg) center/cover no-repeat fixed";
-                }
                 mostraNavbarLoggata();
 
             }
 
-            // checkToken();
 
 
         })
@@ -199,6 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function mostraNavbarLoggata() {
     user.classList.remove("d-none");
+    abbPaga.classList.add("d-none");
     notifica.classList.remove("d-none");
     signup.classList.add("d-none");
     logout.classList.remove("d-none");
@@ -207,8 +204,11 @@ function mostraNavbarLoggata() {
     login.classList.add("d-none");
     partners.classList.remove("d-none");
     blogs.classList.remove("d-none");
-    banner.classList.add("d-none");
-    // ricerca.classList.remove('d-none');
+    if (window.location.href == 'http://127.0.0.1:5501/Progetto/index.html') {
+        banner.classList.add("d-none");
+        banner1.classList.remove('d-none');
+
+    }
     cercaAziende.classList.remove("d-none");
     if (multiRegione != null) {
         multiRegione.classList.remove("d-none");
@@ -218,11 +218,17 @@ function mostraNavbarLoggata() {
 
 
 function mostraNavbarAbbonamento() {
+    if (window.location.href == 'http://127.0.0.1:5501/Progetto/index.html') {
+        banner.classList.add('d-none');
+        banner1.classList.add('d-none');
+    }
     user.classList.add("d-none");
     notifica.classList.remove("d-none");
     signup.classList.add("d-none");
     logout.classList.remove("d-none");
     inserisci.classList.add("d-none");
+    abb.classList.add("d-none");
+    abbPaga.classList.remove("d-none");
     visualizza.classList.add("d-none");
     login.classList.add("d-none");
     partners.classList.remove("d-none");
@@ -237,7 +243,12 @@ function mostraNavbarAbbonamento() {
 
 function mostraNavbarNonLoggata() {
     console.log('weww');
-    banner.classList.remove("d-none");
+
+    if (window.location.href == 'http://127.0.0.1:5501/Progetto/index.html') {
+        banner.classList.remove("d-none");
+        banner1.classList.add('d-none');
+
+    }
     user.classList.add("d-none");
     notifica.classList.add("d-none");
     signup.classList.remove("d-none");
@@ -253,45 +264,6 @@ function mostraNavbarNonLoggata() {
     }
 }
 
-// function checkToken() {
-//     let accessToken = localStorage.getItem("accessToken");
-
-//     fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-//         .then((res) => res.json())
-//         .then((data) => {
-//             console.log(data);
-
-//             if (data.abbonamento == null) {
-
-//                 window.location.href = abbonamentiRegistrato.html;
-//                 mostraNavbarAbbonamento();
-//                 richiesteRicevute(data.id);
-//                 mostraNotifiche(data.id);
-
-//             } else if (data.abbonamento == 'base') {
-
-//                 mostraNavbarLoggata();
-//                 richiesteRicevute(data.id);
-//                 mostraNotifiche(data.id);
-
-//             } else {
-
-//                 mostraNavbarLoggata();
-//                 richiesteRicevute(data.id);
-//                 mostraNotifiche(data.id);
-
-//             }
-
-
-//         })
-//         .catch((error) => {
-//             console.log(error);
-
-//             localStorage.removeItem("accessToken");
-//             mostraNavbarNonLoggata();
-//             // window.location.href = 'index.html';
-//         });
-// }
 
 function logOut() {
     localStorage.removeItem("accessToken");

@@ -32,20 +32,44 @@
   <script>
     let accessToken = localStorage.getItem("accessToken");
 
-    if (accessToken) {
-        fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.abbonamento == null) {
-                    window.location.replace('abbonamentiRegistrato.html'); // Evita il back button
-                }
-            })
-            .catch((error) => {
-                console.log(error);
-                localStorage.removeItem("accessToken");
-            });
-    }
-</script>
+
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+      .then((res) => res.json())
+      .then((data) => {
+
+
+
+        if (data.abbonamento == null) {
+
+          window.location.replace('abbonamentiRegistrato.html'); // Evita il back button
+          mostraNavbarAbbonamento();
+
+        } else if (data.abbonamento == 'base') {
+
+
+          document.querySelector(".heading").style.background = "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./imgs/pacchi.jpg) center top/cover no-repeat fixed";
+          mostraNavbarLoggata();
+
+        } else {
+
+
+          document.querySelector(".heading").style.background = "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./imgs/pacchi.jpg) center top/cover no-repeat fixed";
+          mostraNavbarLoggata();
+
+        }
+
+      })
+      .catch((error) => {
+        console.log(error);
+
+        document.querySelector(".heading").style.background = "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./imgs/sfondo.png) center/cover no-repeat fixed";
+        localStorage.removeItem("accessToken");
+        mostraNavbarNonLoggata();
+        // window.location.href = 'index.html';
+      });
+
+
+  </script>
 
 </head>
 
@@ -56,43 +80,82 @@
   <!-- HTML per la freccia -->
   <header class="heading">
     <div class="navbarMain"></div>
-    <div class="banner">
-        <div class="container">
-            <div class="strada">
-                <div class="d-flex justify-content-center">
-                    <img src="imgs/img22.png" alt="Logo" class="imgPiccola" style="width: 256px; height: auto;">
-                </div>
+    <div class="banner d-none">
+      <div class="container">
+        <div class="strada">
+          <div class="d-flex justify-content-center">
+            <img src="imgs/img22.png" alt="Logo" class="imgPiccola" style="width: 256px; height: auto;">
+          </div>
 
-                <!-- Contenitore per l'animazione delle righe (sopra il logo) -->
-                <!-- <div class="animated-stripes">
-                    <div class="stripe"></div>
-                    <div class="stripe"></div>
-                    <div class="stripe"></div>
-                </div> -->
+          <img src="imgs/img22.png" alt="Logo" class="animated-logo" style="width: 256px; height: auto;">
 
-                <!-- Il logo animato -->
-                <img src="imgs/img22.png" alt="Logo" class="animated-logo" style="width: 256px; height: auto;">
-
-                <div class="allineaRighe d-flex justify-content-center">
-                    <div class="righe row d-flex justify-content-center">
-                        <div class="p-0 d-flex justify-content-center">
-                            <div class="black-line1"></div>
-                        </div>
-                        <div class="p-0 d-flex justify-content-center">
-                            <div class="white-line"></div>
-                        </div>
-                        <div class="p-0 d-flex justify-content-center">
-                            <div class="black-line2"></div>
-                        </div>
-                    </div>
-                </div>
+          <div class="allineaRighe d-flex justify-content-center">
+            <div class="righe row d-flex justify-content-center">
+              <div class="p-0 d-flex justify-content-center">
+                <div class="black-line1"></div>
+              </div>
+              <div class="p-0 d-flex justify-content-center">
+                <div class="white-line"></div>
+              </div>
+              <div class="p-0 d-flex justify-content-center">
+                <div class="black-line2"></div>
+              </div>
             </div>
-
-            <h1 class="banner-title">m<i class="bi bi-globe2"></i>veconnect</h1>
-            <p style="text-shadow: 2px 1px 3px black;">Your moving community</p>
+          </div>
         </div>
+
+        <h1 class="banner-title">m<i class="bi bi-globe2"></i>veconnect</h1>
+        <p style="text-shadow: 2px 1px 3px black;">Your moving community</p>
+      </div>
     </div>
-</header>
+
+
+    <div class="banner1 d-none">
+      <div class="">
+        <div class="card p-2" style="border-radius: 20px !important; border: solid 2px #FFAA00;">
+          <div class="pt-4 px-4">
+            <h1 class="banner-title-1">m<i class="bi bi-globe2"></i>veconnect</h1>
+            <p>Your moving community</p>
+          </div>
+          <div class="d-flex justify-content-start ps-4">
+            <h4>Servizi Disponibili:</h4>
+          </div>
+          <div class="card-body px-4 pt-0 d-flex flex-column"
+            style="background-color: rgba(128, 128, 128, 0.381); border-radius: 20px; border: solid 1px grey; padding-right: 60px !important;">
+            <div class="card-title linkNav h5 p-1 position-relative">
+              <a href="richiestaTrasporto.html">Inserisci richieste Groupage</a>
+              <a href="richiestaTrasporto.html"><i class="fa-solid fa-caret-right arrow-icon1"></i></a>
+            </div>
+            <div class="card-title linkNav h5 p-1 position-relative">
+              <a href="scala-elevatore.html">Inserisci richieste Scala Elevatore</a>
+              <a href="scala-elevatore.html"><i class="fa-solid fa-caret-right arrow-icon2"></i></a>
+            </div>
+            <div class="card-title linkNav h5 p-1 position-relative">
+              <a href="imballi.html">Inserisci richieste Imballi</a>
+              <a href="imballi.html"><i class="fa-solid fa-caret-right arrow-icon3"></i></a>
+            </div>
+            <div class="card-title linkNav h5 p-1 position-relative">
+              <a href="personale.html">Inserisci richieste Personale specializzato</a>
+              <a href="personale.html"><i class="fa-solid fa-caret-right arrow-icon4"></i></a>
+            </div>
+            <div class="card-title linkNav h5 p-1 position-relative">
+              <a href="deposito-magazzino.html">Inserisci richieste Deposito magazzino</a>
+              <a href="deposito-magazzino.html"><i class="fa-solid fa-caret-right arrow-icon5"></i></a>
+            </div>
+            <div class="card-title linkNav h5 p-1 position-relative">
+              <a href="insertTratte.html">Inserisci richieste Tratta</a>
+              <a href="insertTratte.html"><i class="fa-solid fa-caret-right arrow-icon6"></i></a>
+            </div>
+          </div>
+
+
+
+
+        </div>
+
+      </div>
+    </div>
+  </header>
 
 
 
@@ -267,7 +330,7 @@
   </div>
 
 
-  
+
 
 
   <!-- <div class="text-wrapper1">
@@ -352,19 +415,19 @@
     <div class="col-lg-6 col-md-12 col-sm-12 col-12 p-4">
       <h1>Abbonati Ora</h1>
       <p class="desc" align="justify">
-        <h3>MoveConnect: Il Tuo Punto di Riferimento per Trasporti e Magazzini!</h3>
-    <p>🚛 <strong>-Lavori nel settore dei trasporti o della logistica?</strong></p>
-    <p>🏗️ <strong>-Cerchi soluzioni innovative per il tuo magazzino?</strong></p>
-    <p>Abbonati a <strong>MoveConnect</strong> e accedi a:</p>
-    <ul>
+      <h3>MoveConnect: Il Tuo Punto di Riferimento per Trasporti e Magazzini!</h3>
+      <p>🚛 <strong>-Lavori nel settore dei trasporti o della logistica?</strong></p>
+      <p>🏗️ <strong>-Cerchi soluzioni innovative per il tuo magazzino?</strong></p>
+      <p>Abbonati a <strong>MoveConnect</strong> e accedi a:</p>
+      <ul>
         <h4>✅ <strong>Guide e articoli esclusivi</strong></h4>
         <h4>✅ <strong>Strumenti e risorse pratiche</strong></h4>
         <h4>✅ <strong>Aggiornamenti su tecnologia e innovazione</strong></h4>
         <h4>✅ <strong>Networking con professionisti del settore</strong></h4>
-    </ul>
-    <hr>
-    <h5>🎉 <strong>Offerta speciale per i nuovi iscritti!</strong></h5>
-    <p><strong>MoveConnect: Insieme, verso un futuro più efficiente.</strong></p>
+      </ul>
+      <hr>
+      <h5>🎉 <strong>Offerta speciale per i nuovi iscritti!</strong></h5>
+      <p><strong>MoveConnect: Insieme, verso un futuro più efficiente.</strong></p>
       <div class="d-flex justify-content-center p-3">
         <a class="btn btn-dark bottone-" href="/Progetto/abbonamenti.html">Abbonati Ora</a>
       </div>
@@ -443,17 +506,20 @@
     <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 p-5 align-content-center"
       style="height: auto; font-size: 1.5rem;">
       <p align="justify">
-        <h1>Le Nostre Aziende: Trasporti Eccellenti in Tutta Italia</h1>
-        <p>
-            Le aziende del nostro network operano nel settore dei trasporti con professionalità e passione, 
-            garantendo servizi efficienti e su misura per ogni esigenza. Da nord a sud, copriamo l’intero territorio italiano, 
-            offrendo soluzioni affidabili per il trasporto di merci e materiali, con particolare attenzione alla puntualità e alla sicurezza.
-        </p>
-        <p>
-            Grazie alla nostra rete, supportiamo imprese di ogni dimensione, agevolando la connessione tra produttori, magazzini e punti vendita. 
-            Innovazione e sostenibilità sono i valori che ci guidano verso un futuro migliore per la logistica italiana.
-        </p>
-        <p><strong>MoveConnect: La qualità che ti accompagna ovunque.</strong></p>
+      <h1>Le Nostre Aziende: Trasporti Eccellenti in Tutta Italia</h1>
+      <p>
+        Le aziende del nostro network operano nel settore dei trasporti con professionalità e passione,
+        garantendo servizi efficienti e su misura per ogni esigenza. Da nord a sud, copriamo l’intero territorio
+        italiano,
+        offrendo soluzioni affidabili per il trasporto di merci e materiali, con particolare attenzione alla puntualità
+        e alla sicurezza.
+      </p>
+      <p>
+        Grazie alla nostra rete, supportiamo imprese di ogni dimensione, agevolando la connessione tra produttori,
+        magazzini e punti vendita.
+        Innovazione e sostenibilità sono i valori che ci guidano verso un futuro migliore per la logistica italiana.
+      </p>
+      <p><strong>MoveConnect: La qualità che ti accompagna ovunque.</strong></p>
       </p>
     </div>
 
@@ -478,9 +544,9 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script src="../Progetto/js/homepagejs.js"></script>
-<div class="gtranslate_wrapper"></div>
- <script>window.gtranslateSettings = {"default_language":"it","detect_browser_language":true,"languages":["it","fr","de","es","zh-CN","ko","ja","ru","en","ar","hi","bn","ur"],"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"right","float_switcher_open_direction":"bottom","alt_flags":{"en":"usa","pt":"brazil"}}</script>
-<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+  <div class="gtranslate_wrapper"></div>
+  <script>window.gtranslateSettings = { "default_language": "it", "detect_browser_language": true, "languages": ["it", "fr", "de", "es", "zh-CN", "ko", "ja", "ru", "en", "ar", "hi", "bn", "ur"], "wrapper_selector": ".gtranslate_wrapper", "switcher_horizontal_position": "right", "float_switcher_open_direction": "bottom", "alt_flags": { "en": "usa", "pt": "brazil" } }</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
   <script src="../Progetto/js/footer.js"></script>
   <script src="../Progetto/js/index.js"></script>

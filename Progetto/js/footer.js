@@ -57,7 +57,6 @@ function Footer() {
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="blog.html">Blog</a></li>
                                 <li><a href="partners.html">Partners</a></li>
-                                <li><a href="abbonamenti.html">Abbonati</a></li>
 
                             </ul>
                         
@@ -89,7 +88,6 @@ function Footer() {
                 <div class="col-xl-6 col-lg-6 text-center">
                     <div class="footer-menu text-center">
                         <ul class="mb-0 text-center">
-                            <li><a href="registrati.html">Registrati</a></li>
                             <li><a href="https://www.iubenda.com/privacy-policy/78378781/legal?an=no&s_ck=false&newmarkup=yes">Privacy</a></li>
                             <li><a href="https://www.iubenda.com/privacy-policy/78378781/cookie-policy?an=no&s_ck=false&newmarkup=yes">Cookie</a></li>
                         </ul>

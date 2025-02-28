@@ -117,8 +117,7 @@
 
 .heading {
     min-height: 100vh !important;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-        url(../imgs/sfondo.png) center/cover no-repeat fixed;
+
     display: flex !important;
     flex-direction: column !important;
     justify-content: stretch !important;
@@ -150,15 +149,185 @@
 
 
 .bi-globe2 {
-    font-size: 48px;
+    font-size: 38px;
     color: #FAAD06;
 }
+
+.card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title i {
+    margin-left: 10px;
+    /* Aggiungi spazio tra il link e l'icona */
+}
+
 
 .banner {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.h5 {
+    font-family: Open Sans;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    align-self: baseline;
+}
+
+
+
+.h5:hover .arrow-icon1 {
+    color: #FFAA00;
+    /* Cambia il colore dell'icona quando passi sopra il div */
+    cursor: pointer;
+}
+
+.h5:hover .arrow-icon2 {
+    color: #FFAA00;
+    /* Cambia il colore dell'icona quando passi sopra il div */
+    cursor: pointer;
+}
+
+.h5:hover .arrow-icon3 {
+    color: #FFAA00;
+    /* Cambia il colore dell'icona quando passi sopra il div */
+    cursor: pointer;
+}
+
+.h5:hover .arrow-icon4 {
+    color: #FFAA00;
+    /* Cambia il colore dell'icona quando passi sopra il div */
+    cursor: pointer;
+}
+
+.h5:hover .arrow-icon5 {
+    color: #FFAA00;
+    /* Cambia il colore dell'icona quando passi sopra il div */
+    cursor: pointer;
+}
+
+.h5:hover .arrow-icon6 {
+    color: #FFAA00;
+    /* Cambia il colore dell'icona quando passi sopra il div */
+    cursor: pointer;
+}
+
+
+.linkNav::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #FFAA00;
+    transition: width 0.3s ease-out;
+}
+
+.linkNav:hover::after {
+    width: 100%;
+}
+
+.linkNav {
+    text-decoration: none;
+    color: #333;
+    position: relative;
+}
+
+
+
+.arrow-icon1 {
+    position: absolute;
+    right: -170px;
+    /* La sposta completamente a destra */
+    top: 50%;
+    transform: translateY(-50%);
+    /* La centra verticalmente */
+    font-size: 1.2rem;
+    /* Puoi regolare la dimensione dell'icona */
+    color: #333;
+    /* Cambia colore se necessario */
+}
+
+.arrow-icon2 {
+    position: absolute;
+    right: -120px;
+    /* La sposta completamente a destra */
+    top: 50%;
+    transform: translateY(-50%);
+    /* La centra verticalmente */
+    font-size: 1.2rem;
+    /* Puoi regolare la dimensione dell'icona */
+    color: #333;
+    /* Cambia colore se necessario */
+}
+
+.arrow-icon3 {
+    position: absolute;
+    right: -200px;
+    /* La sposta completamente a destra */
+    top: 50%;
+    transform: translateY(-50%);
+    /* La centra verticalmente */
+    font-size: 1.2rem;
+    /* Puoi regolare la dimensione dell'icona */
+    color: #333;
+    /* Cambia colore se necessario */
+}
+
+.arrow-icon4 {
+    position: absolute;
+    right: -45px;
+    /* La sposta completamente a destra */
+    top: 50%;
+    transform: translateY(-50%);
+    /* La centra verticalmente */
+    font-size: 1.2rem;
+    /* Puoi regolare la dimensione dell'icona */
+    color: #333;
+    /* Cambia colore se necessario */
+}
+
+.arrow-icon5 {
+    position: absolute;
+    right: -75px;
+    /* La sposta completamente a destra */
+    top: 50%;
+    transform: translateY(-50%);
+    /* La centra verticalmente */
+    font-size: 1.2rem;
+    /* Puoi regolare la dimensione dell'icona */
+    color: #333;
+    /* Cambia colore se necessario */
+}
+
+.arrow-icon6 {
+    position: absolute;
+    right: -210px;
+    /* La sposta completamente a destra */
+    top: 50%;
+    transform: translateY(-50%);
+    /* La centra verticalmente */
+    font-size: 1.2rem;
+    /* Puoi regolare la dimensione dell'icona */
+    color: #333;
+    /* Cambia colore se necessario */
+}
+
+.banner1 {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-right: 8rem;
+    margin-top: 5rem;
     text-align: center;
     color: #fff;
 }
@@ -173,7 +342,17 @@
 
 }
 
+.banner-title-1 {
+    font-size: 4rem;
+    color: white;
+    -webkit-text-stroke: 1px black;
+    font-family: var(--Open);
+    font-weight: bold !important;
+    line-height: 1.2;
+    align-items: center;
+    text-shadow: 8px 2px 5px black;
 
+}
 
 .banner-title span {
     font-family: var(--Playfair);
@@ -218,7 +397,7 @@
     /* Animazione leggermente più veloce */
     /* border-right: solid 2px rgb(73, 73, 73); */
     /* border-left: solid 2px rgb(73, 73, 73); */
-    
+
 }
 
 
@@ -227,14 +406,14 @@
     height: 20px;
     /* Puoi regolare l'altezza della linea */
     background: repeating-linear-gradient(90deg,
-    #15191C,
-    #15191C 30px,
-    /* Segmento bianco più lungo */
-    #15191C 30px,
-    /* Grigio più scuro per maggiore contrasto */
-    #15191C 60px
-    /* Lunghezza totale del pattern */
-);
+            #15191C,
+            #15191C 30px,
+            /* Segmento bianco più lungo */
+            #15191C 30px,
+            /* Grigio più scuro per maggiore contrasto */
+            #15191C 60px
+            /* Lunghezza totale del pattern */
+        );
     background-size: 200% 100%;
     animation: moveLine 5s linear infinite;
     border-top-left-radius: 8px;
@@ -243,22 +422,22 @@
     /* border-top: solid 5px white; */
     /* border-right: solid 2px rgb(73, 73, 73);
     border-left: solid 2px rgb(73, 73, 73); */
-    
+
 }
 
 .black-line2 {
     width: 100%;
     height: 20px;
     /* Puoi regolare l'altezza della linea */
-    background:  repeating-linear-gradient(90deg,
-    #15191C,
-    #15191C 30px,
-    /* Segmento bianco più lungo */
-    #15191C 30px,
-    /* Grigio più scuro per maggiore contrasto */
-    #15191C 60px
-    /* Lunghezza totale del pattern */
-);
+    background: repeating-linear-gradient(90deg,
+            #15191C,
+            #15191C 30px,
+            /* Segmento bianco più lungo */
+            #15191C 30px,
+            /* Grigio più scuro per maggiore contrasto */
+            #15191C 60px
+            /* Lunghezza totale del pattern */
+        );
     background-size: 200% 100%;
     animation: moveLine 5s linear infinite;
     border-bottom-left-radius: 8px;
@@ -267,7 +446,7 @@
     /* border-bottom: solid 2px rgb(73, 73, 73);
     border-right: solid 2px rgb(73, 73, 73);
     border-left: solid 2px rgb(73, 73, 73); */
-    
+
 }
 
 .righe {
@@ -283,7 +462,7 @@
     position: relative;
     /* Imposta la sezione strada come riferimento */
     padding-top: 158px;
-    
+
 }
 
 
@@ -294,27 +473,33 @@
     /* left: 40%;  */
     z-index: 2;
     /* Assicura che l'immagine sia sopra */
-    
+
 
 }
 
 .animated-stripes {
     position: absolute;
-    top: 58%;  /* Posiziona al centro verticale rispetto al contenitore */
+    top: 58%;
+    /* Posiziona al centro verticale rispetto al contenitore */
     left: 35%;
     width: 30%;
-    height: 40px;  /* Altezza regolabile per sovrapporre le righe al logo */
+    height: 40px;
+    /* Altezza regolabile per sovrapporre le righe al logo */
     overflow: hidden;
-    z-index: 2;  /* Più alto del logo per sovrapporsi a esso */
-    pointer-events: none;  /* Per evitare interferenze con altre interazioni */
+    z-index: 2;
+    /* Più alto del logo per sovrapporsi a esso */
+    pointer-events: none;
+    /* Per evitare interferenze con altre interazioni */
 }
 
 .stripe {
     position: absolute;
     width: 20%;
-    height: 4px; /* Altezza della riga */
+    height: 4px;
+    /* Altezza della riga */
     background-color: #C99701;
-    opacity: 0;  /* Le righe sono invisibili all'inizio */
+    opacity: 0;
+    /* Le righe sono invisibili all'inizio */
     animation: slideStripes 3s linear infinite;
 }
 
@@ -323,10 +508,12 @@
     top: 2px;
     animation-delay: 0s;
 }
+
 .stripe:nth-child(2) {
     top: 8px;
     animation-delay: 0.5s;
 }
+
 .stripe:nth-child(3) {
     top: 14px;
     animation-delay: 1s;
@@ -334,16 +521,24 @@
 
 @keyframes slideStripes {
     0% {
-        transform: translateX(100%);  /* Inizia dal vuoto a destra */
-        opacity: 1;  /* Completamente visibile mentre entra */
+        transform: translateX(100%);
+        /* Inizia dal vuoto a destra */
+        opacity: 1;
+        /* Completamente visibile mentre entra */
     }
+
     80% {
-        transform: translateX(0);  /* La riga è visibile al centro */
-        opacity: 1;  /* Rimane visibile */
+        transform: translateX(0);
+        /* La riga è visibile al centro */
+        opacity: 1;
+        /* Rimane visibile */
     }
+
     100% {
-        transform: translateX(-100%);  /* Fuori dal margine sinistro */
-        opacity: 0;  /* Scompare immediatamente quando raggiunge il margine sinistro */
+        transform: translateX(-100%);
+        /* Fuori dal margine sinistro */
+        opacity: 0;
+        /* Scompare immediatamente quando raggiunge il margine sinistro */
     }
 }
 
@@ -393,7 +588,7 @@
         width: 50%;
     }
 
-    
+
 
 
 }
@@ -401,7 +596,7 @@
 @media (min-width: 540px) {
 
     .imgPiccola {
-       display: none;
+        display: none;
     }
 
 
@@ -423,7 +618,7 @@
     }
 
     .animated-logo {
-       display: none;
+        display: none;
     }
 
     .white-line {
@@ -456,7 +651,7 @@
         left: 21% !important;
     }
 
-    .righe{
+    .righe {
         width: 70%;
     }
 
@@ -488,7 +683,7 @@
         font-size: 20px;
     }
 
-    .righe{
+    .righe {
         width: 100%;
     }
 
@@ -617,4 +812,3 @@ a {
 
 
 }
-
