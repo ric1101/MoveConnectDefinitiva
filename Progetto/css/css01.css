@@ -467,7 +467,7 @@ hr {
 
   .bella {
     color: black !important;
-    margin-left: 20px !important;
+    /* margin-left: 20px !important; */
   }
 
   .badge {
