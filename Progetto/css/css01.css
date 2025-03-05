@@ -679,9 +679,6 @@ a {
   margin-top: 20px;
 }
 
-.badge {
-  position: absolute;
-}
 
 .icon:hover{
   opacity: .7; 
