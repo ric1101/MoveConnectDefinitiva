@@ -9,8 +9,6 @@ let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
 let accessToken = localStorage.getItem('accessToken');
 
 
-
-
 fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
@@ -59,7 +57,7 @@ function elevatore(dati, id) {
                 if (element.azienda.id != id) {
 
 
-                    
+
 
                     fetch(`http://127.0.0.1:8080/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
@@ -89,11 +87,11 @@ function elevatore(dati, id) {
                                 console.log('1');
                                 entrata = true;
                                 visualizzaRecord(esitoControllo);
-                                
+
                             } else {
                                 console.log('2');
                                 console.log(entrata);
-                                
+
                                 if (entrata == false) {
 
                                     bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -108,16 +106,16 @@ function elevatore(dati, id) {
 
                         let tabella = `<tr>
                         
-                         <td class="text-center">
+                    <td class="text-center">
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
-                    </td>   
+                    </td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.comune}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" target="_blank">INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -164,7 +162,7 @@ function elevatore(dati, id) {
     }
 
 
-                   
+
 
 }
 
@@ -331,7 +329,7 @@ function elevatoreFiltroSoloRegione(dati, id) {
                 if (element.azienda.id != id) {
 
 
-                    
+
 
                     fetch(`http://127.0.0.1:8080/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
@@ -361,11 +359,11 @@ function elevatoreFiltroSoloRegione(dati, id) {
                                 console.log('1');
                                 entrata = true;
                                 visualizzaRecord(esitoControllo);
-                                
+
                             } else {
                                 console.log('2');
                                 console.log(entrata);
-                                
+
                                 if (entrata == false) {
 
                                     bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -389,7 +387,7 @@ function elevatoreFiltroSoloRegione(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" target="_blank">INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -522,7 +520,7 @@ function elevatoreFiltroScala(dati, id) {
                 if (element.azienda.id != id) {
 
 
-                    
+
 
                     fetch(`http://127.0.0.1:8080/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
@@ -552,11 +550,11 @@ function elevatoreFiltroScala(dati, id) {
                                 console.log('1');
                                 entrata = true;
                                 visualizzaRecord(esitoControllo);
-                                
+
                             } else {
                                 console.log('2');
                                 console.log(entrata);
-                                
+
                                 if (entrata == false) {
 
                                     bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -580,7 +578,7 @@ function elevatoreFiltroScala(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" target="_blank">INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -693,7 +691,7 @@ function elevatoreFiltroRegioniScala(dati, id) {
                 if (element.azienda.id != id) {
 
 
-                    
+
 
                     fetch(`http://127.0.0.1:8080/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
@@ -723,11 +721,11 @@ function elevatoreFiltroRegioniScala(dati, id) {
                                 console.log('1');
                                 entrata = true;
                                 visualizzaRecord(esitoControllo);
-                                
+
                             } else {
                                 console.log('2');
                                 console.log(entrata);
-                                
+
                                 if (entrata == false) {
 
                                     bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -751,7 +749,7 @@ function elevatoreFiltroRegioniScala(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" target="_blank">INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -886,7 +884,7 @@ function elevatoreFiltroPeso(dati, id) {
                 if (element.azienda.id != id) {
 
 
-                    
+
 
                     fetch(`http://127.0.0.1:8080/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
@@ -916,11 +914,11 @@ function elevatoreFiltroPeso(dati, id) {
                                 console.log('1');
                                 entrata = true;
                                 visualizzaRecord(esitoControllo);
-                                
+
                             } else {
                                 console.log('2');
                                 console.log(entrata);
-                                
+
                                 if (entrata == false) {
 
                                     bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -944,7 +942,7 @@ function elevatoreFiltroPeso(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" target="_blank">INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -1047,7 +1045,7 @@ function elevatoreFiltroRegioniPeso(dati, id) {
                 if (element.azienda.id != id) {
 
 
-                    
+
 
                     fetch(`http://127.0.0.1:8080/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
@@ -1077,11 +1075,11 @@ function elevatoreFiltroRegioniPeso(dati, id) {
                                 console.log('1');
                                 entrata = true;
                                 visualizzaRecord(esitoControllo);
-                                
+
                             } else {
                                 console.log('2');
                                 console.log(entrata);
-                                
+
                                 if (entrata == false) {
 
                                     bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -1105,7 +1103,7 @@ function elevatoreFiltroRegioniPeso(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" target="_blank">INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -1208,7 +1206,7 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
                 if (element.azienda.id != id) {
 
 
-                    
+
 
                     fetch(`http://127.0.0.1:8080/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
@@ -1238,11 +1236,11 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
                                 console.log('1');
                                 entrata = true;
                                 visualizzaRecord(esitoControllo);
-                                
+
                             } else {
                                 console.log('2');
                                 console.log(entrata);
-                                
+
                                 if (entrata == false) {
 
                                     bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -1266,7 +1264,7 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" target="_blank">INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -1369,7 +1367,7 @@ function elevatoreFiltroScalaPeso(dati, id) {
                 if (element.azienda.id != id) {
 
 
-                    
+
 
                     fetch(`http://127.0.0.1:8080/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
@@ -1399,11 +1397,11 @@ function elevatoreFiltroScalaPeso(dati, id) {
                                 console.log('1');
                                 entrata = true;
                                 visualizzaRecord(esitoControllo);
-                                
+
                             } else {
                                 console.log('2');
                                 console.log(entrata);
-                                
+
                                 if (entrata == false) {
 
                                     bodyTabella.innerHTML = nessunaCorrispondenza;
@@ -1427,7 +1425,7 @@ function elevatoreFiltroScalaPeso(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" target="_blank">INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 

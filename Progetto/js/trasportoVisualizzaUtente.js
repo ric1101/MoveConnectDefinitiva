@@ -58,7 +58,7 @@ function trasporto(dati) {
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
                         <td class="text-center" data-eventoid="1">${element.scarico}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTrasporto" data-evento-id="${element.id}" href="./infoRichiesteTrasporto.html" target="_blank">INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTrasporto('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 

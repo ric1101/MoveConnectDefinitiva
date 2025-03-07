@@ -51,7 +51,7 @@ function personale(dati) {
                     <td class="text-center" data-eventoid="1">${element.provincia}</td>
                     <td class="text-center" data-eventoid="1">${element.comune}</td>
                     <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
-                    <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}"  href="./infoRichiestePersonale.html">INFO</a></td>
+                    <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}"  href="./infoRichiestePersonale.html" target="_blank">INFO</a></td>
                     <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailPersonale('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                 </tr>`;
 
