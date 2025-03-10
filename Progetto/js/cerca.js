@@ -1256,6 +1256,65 @@ function annullaRichiestaAmicizia(idAzienda1, idAzienda2) {
 
 }
 
+let piuRecensioni = document.querySelector(".piuRecensioni");
+
+function piuRecensite(){
+    
+     fetch(`http://127.0.0.1:8080/api/azienda/top5-recensioni`)
+    .then((res) => res.json())
+    .then((data) => {
+
+        showRecensite(data);
+        
+
+    });
+}
+
+function showRecensite(data){
+
+    let i = 1;
+     data.forEach(element => {
+        let recensioni =    
+        `<p>#${i} <a style="color:#FAAD06;" href="/Progetto/paginaUtente.html?nomeAzienda=${element.nomeAzienda}" target="_blank">${element.nomeAzienda} <a/> <span> (${element.total_recensioni}) </span></p>`;
+            i++;
+            piuRecensioni.innerHTML += recensioni;
+     });
+
+
+
+
+
+}
+
+piuRecensite();
+
+function miglioriRecensite(){
+    
+    fetch(`http://127.0.0.1:8080/api/azienda/top-azienda`)
+   .then((res) => res.json())
+   .then((data) => {
+
+       showMiglioriRecensite(data);
+       
+
+   });
+}
+
+let miglioriRecensioni = document.querySelector(".miglioriRecensite");
+
+function showMiglioriRecensite(data){
+
+    let i = 1;
+     data.forEach(element => {
+        let recensioni =    
+        `<p>#${i} <a style="color:#FAAD06;" href="/Progetto/paginaUtente.html?nomeAzienda=${element.nomeAzienda}" target="_blank">${element.nomeAzienda} <a/> <span>(${element.avg_valutazione}⭐) </span></p>`;
+            i++;
+            miglioriRecensioni.innerHTML += recensioni;
+     });
+
+}
+miglioriRecensite();
+
 
 
 function sendEmail(email) {
@@ -1270,6 +1329,8 @@ function sendEmail(email) {
 
     window.location.href = mailToLink;
 }
+
+
 
 
 

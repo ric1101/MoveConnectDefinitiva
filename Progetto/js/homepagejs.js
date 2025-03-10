@@ -158,10 +158,12 @@ let cercaAziende = document.querySelector(".cercaAziende");
 document.addEventListener("DOMContentLoaded", () => {
     // Nascondi la navbar in base all'accessToken immediatamente
     let accessToken = localStorage.getItem("accessToken");
-
+    
     fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-        .then((res) => res.json())
-        .then((data) => {
+    .then((res) => res.json())
+    .then((data) => {
+            richiesteRicevute(data.id);
+            mostraNotifiche(data.id);
 
 
 
@@ -415,5 +417,7 @@ function rifiutaAmicizia(idAzienda1, idAzienda2) {
     window.location.reload();
 
 }
+
+
 
 
