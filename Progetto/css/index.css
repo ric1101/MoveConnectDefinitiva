@@ -169,6 +169,19 @@
     /* Aggiungi spazio tra il link e l'icona */
 }
 
+.piuRecensioni{
+    background-color: rgb(27,32,35);
+}
+
+.miglioriRecensite{
+    background-color: rgb(27,32,35);
+}
+
+.ricercas{
+    background-color: rgb(27,32,35);
+}
+
+
 
 .banner {
     flex: 1;
