@@ -1275,7 +1275,7 @@ function showRecensite(data){
     let i = 1;
      data.forEach(element => {
         let recensioni =    
-        `<p>#${i} <a style="color:#FAAD06;" href="/Progetto/paginaUtente.html?nomeAzienda=${element.nomeAzienda}" target="_blank">${element.nomeAzienda} <a/> <span> (${element.total_recensioni}) </span></p>`;
+        `<p style="color: white";>#${i} <a style="color:#FAAD06;" href="/Progetto/paginaUtente.html?nomeAzienda=${element.nomeAzienda}" target="_blank">${element.nomeAzienda} <a/> <span> (${element.total_recensioni}) </span></p>`;
             i++;
             piuRecensioni.innerHTML += recensioni;
      });
@@ -1307,7 +1307,7 @@ function showMiglioriRecensite(data){
     let i = 1;
      data.forEach(element => {
         let recensioni =    
-        `<p>#${i} <a style="color:#FAAD06;" href="/Progetto/paginaUtente.html?nomeAzienda=${element.nomeAzienda}" target="_blank">${element.nomeAzienda} <a/> <span>(${element.avg_valutazione}⭐) </span></p>`;
+        `<p style="color: white";>#${i} <a style="color:#FAAD06;" href="/Progetto/paginaUtente.html?nomeAzienda=${element.nomeAzienda}" target="_blank">${element.nomeAzienda} <a/> <span>(${element.avg_valutazione}⭐) </span></p>`;
             i++;
             miglioriRecensioni.innerHTML += recensioni;
      });
