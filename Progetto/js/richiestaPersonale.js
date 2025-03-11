@@ -109,6 +109,32 @@ function inviaRichiesta(dati) {
 }
 
 
+new Date();
+let dat = new Date();
+
+//--------------------------------------//
+
+function padToTwoDigits(number) {
+    return number.toString().padStart(2, '0');
+}
+
+let ggMin = padToTwoDigits(dat.getDate() + 1);
+let mmMin = padToTwoDigits(dat.getMonth() + 1);
+let aaMin = dat.getFullYear();
+let dataMinInizio = `${aaMin}-${mmMin}-${ggMin}`;
+
+let ggMax = padToTwoDigits(dat.getDate() + 1);
+let mmMax = padToTwoDigits(dat.getMonth() + 1);
+let aaMax = dat.getFullYear() + 1;
+let dataMaxInizio = `${aaMax}-${mmMax}-${ggMax}`;
+
+console.log(dataMinInizio);
+console.log(dataMaxInizio);
+
+arrivo.setAttribute('min', dataMinInizio);
+arrivo.setAttribute('max', dataMaxInizio);
+
+
 let invalidCap = document.querySelector('.invalidCap');
 let blankCamp = document.querySelector('.blankCamp');
 
