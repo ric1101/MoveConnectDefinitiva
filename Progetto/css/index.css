@@ -736,18 +736,19 @@
     background-position: center;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-self: center;
 }
 
 /* Mantiene le proporzioni corrette e la posizione della mappa */
 .map-container {
     position: absolute;
-    width: 282px;
+    width: 286px;
     /* Adatta alle dimensioni dello schermo dell'immagine */
-    height: 625.67px;
+    height: 630.67px;
     /* Adatta alle dimensioni dello schermo dell'immagine */
     overflow: hidden;
     border-radius: 30px;
+    margin-top: 20px;
 }
 
 /* Aggiungi media queries per diverse risoluzioni di schermo */
