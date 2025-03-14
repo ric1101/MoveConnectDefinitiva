@@ -54,7 +54,7 @@ function magazzino(dati) {
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 

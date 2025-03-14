@@ -112,7 +112,7 @@ function tratte(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataPartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     
                     </tr>`;
@@ -459,7 +459,7 @@ function tratteFiltroSoloRegionePartenza(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataPartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     
                     </tr>`;
@@ -615,7 +615,7 @@ function tratteFiltroRegionePartenzaArrivo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataPartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     
                     </tr>`;
@@ -773,7 +773,7 @@ function tratteFiltroRegionePartenzaArrivoVeicolo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataPartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     
                     </tr>`;
@@ -933,7 +933,7 @@ function tratteFiltroRegionePartenzaVeicolo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataPartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     
                     </tr>`;
@@ -1088,7 +1088,7 @@ function tratteFiltroRegioneArrivoVeicolo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataPartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     
                     </tr>`;
@@ -1246,7 +1246,7 @@ function tratteFiltroRegioneArrivo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataPartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     
                     </tr>`;
@@ -1404,7 +1404,7 @@ function tratteFiltroVeicolo(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.dataPartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     
                     </tr>`;

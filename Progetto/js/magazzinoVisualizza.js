@@ -115,7 +115,7 @@ function magazzino(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -369,7 +369,7 @@ function depositoFiltroSoloRegione(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -532,7 +532,7 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -695,7 +695,7 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -858,7 +858,7 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -1019,7 +1019,7 @@ function depositoFiltroTipoDeposito(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -1181,7 +1181,7 @@ function depositoFiltroTipoDepositoMq(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -1346,7 +1346,7 @@ function depositoFiltroDemoDeposito(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkDeposito" data-evento-id="${element.id}" href="./infoRichiesteDepositoMagazzino.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailMagazzino('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 

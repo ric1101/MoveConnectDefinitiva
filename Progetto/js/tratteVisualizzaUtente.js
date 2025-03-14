@@ -51,7 +51,7 @@ function tratte(dati) {
                         <td class="text-center" data-eventoid="1">${element.dataPartenza}</td>
                         <td class="text-center" data-eventoid="1">${element.dataArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkTratte" data-evento-id="${element.id}" href="./infoRichiestaTratte.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailTratte('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     
                     </tr>`;

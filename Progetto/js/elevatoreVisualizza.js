@@ -115,7 +115,7 @@ function elevatore(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -387,7 +387,7 @@ function elevatoreFiltroSoloRegione(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -578,7 +578,7 @@ function elevatoreFiltroScala(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -749,7 +749,7 @@ function elevatoreFiltroRegioniScala(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -942,7 +942,7 @@ function elevatoreFiltroPeso(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -1103,7 +1103,7 @@ function elevatoreFiltroRegioniPeso(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -1264,7 +1264,7 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 
@@ -1425,7 +1425,7 @@ function elevatoreFiltroScalaPeso(dati, id) {
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
-                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" target="_blank">INFO</a></td>
+                        <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkElevatore" data-evento-id="${element.id}" href="./infoRichiesteScalaElevatore.html" >INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailElevatore('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
                     </tr>`;
 

@@ -6749,7 +6749,7 @@ function visualizzaRichiesteImballiInteresseEntrata(imballo) {
                 <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
                 <td class="text-center">${element.consegnaDTO.id}</td>
                 <td class="text-center">${element.stato}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaImballiInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkImballi px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteImballiProposta.html" target="_blank">INFO</a></td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3 mx-2" onclick="eliminaPropostaImballiInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkImballi px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteImballiProposta.html" target="_blank">INFO</a></td>
                 </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
@@ -6764,7 +6764,7 @@ function visualizzaRichiesteImballiInteresseEntrata(imballo) {
                 <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
                 <td class="text-center">${element.consegnaDTO.id}</td>
                 <td class="text-center">${element.stato}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaImballiInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaImballiInteresseEntrata(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkImballi px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteImballiProposta.html" target="_blank">INFO</a></td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3 mx-2" onclick="eliminaPropostaImballiInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaImballiInteresseEntrata(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkImballi px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteImballiProposta.html" target="_blank">INFO</a></td>
                 </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
@@ -6945,7 +6945,7 @@ function visualizzaRichiestePersonaleInteresseEntrata(personale) {
             <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
             <td class="text-center">${element.personaleDTO.id}</td>
             <td class="text-center">${element.stato}</td>
-            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaPersonaleInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkPersonale px-2" data-evento-id="${element.personaleDTO.id}" href="./infoRichiestaPersonaleProposta.html" target="_blank">INFO</a></td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3 mx-2" onclick="eliminaPropostaPersonaleInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkPersonale px-2" data-evento-id="${element.personaleDTO.id}" href="./infoRichiestaPersonaleProposta.html" target="_blank">INFO</a></td>
             </tr>`;
 
 
@@ -6960,7 +6960,7 @@ function visualizzaRichiestePersonaleInteresseEntrata(personale) {
             <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
             <td class="text-center">${element.personaleDTO.id}</td>
             <td class="text-center">${element.stato}</td>
-            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaPersonaleInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaPersonaleInteresseEntrata(${element.id}, ${element.personaleDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkPersonale px-2" data-evento-id="${element.personaleDTO.id}" href="./infoRichiestaPersonaleProposta.html" target="_blank">INFO</a></td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3 mx-2" onclick="eliminaPropostaPersonaleInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaPersonaleInteresseEntrata(${element.id}, ${element.personaleDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkPersonale px-2" data-evento-id="${element.personaleDTO.id}" href="./infoRichiestaPersonaleProposta.html" target="_blank">INFO</a></td>
             </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
@@ -7136,7 +7136,7 @@ function visualizzaRichiesteDepositoInteresseEntrata(deposito) {
                 <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
                 <td class="text-center">${element.magazzinoDTO.id}</td>
                 <td class="text-center">${element.stato}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaDepositoInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkDeposito px-2" data-evento-id="${element.magazzinoDTO.id}" href="./infoRichiesteDepositoProposta.html" target="_blank">INFO</a></td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3 mx-2" onclick="eliminaPropostaDepositoInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkDeposito px-2" data-evento-id="${element.magazzinoDTO.id}" href="./infoRichiesteDepositoProposta.html" target="_blank">INFO</a></td>
                 </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
@@ -7150,7 +7150,7 @@ function visualizzaRichiesteDepositoInteresseEntrata(deposito) {
             <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
             <td class="text-center">${element.magazzinoDTO.id}</td>
             <td class="text-center">${element.stato}</td>
-            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaDepositoInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaDepositoInteresseEntrata(${element.id}, ${element.magazzinoDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkDeposito px-2" data-evento-id="${element.magazzinoDTO.id}" href="./infoRichiesteDepositoProposta.html" target="_blank">INFO</a></td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3 mx-2" onclick="eliminaPropostaDepositoInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaDepositoInteresseEntrata(${element.id}, ${element.magazzinoDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkDeposito px-2" data-evento-id="${element.magazzinoDTO.id}" href="./infoRichiesteDepositoProposta.html" target="_blank">INFO</a></td>
             </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
@@ -7323,7 +7323,7 @@ function visualizzaRichiesteTrattaInteresseEntrata(tratta) {
             <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
             <td class="text-center">${element.consegnaDTO.id}</td>
             <td class="text-center">${element.stato}</td>
-            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaTrattaInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkTratte px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteTratteProposta.html" target="_blank">INFO</a></td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3 mx-2" onclick="eliminaPropostaTrattaInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkTratte px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteTratteProposta.html" target="_blank">INFO</a></td>
             </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
@@ -7335,7 +7335,7 @@ function visualizzaRichiesteTrattaInteresseEntrata(tratta) {
             <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
             <td class="text-center">${element.consegnaDTO.id}</td>
             <td class="text-center">${element.stato}</td>
-            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaTrattaInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaTrattaInteresseEntrata(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkTratte px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteTratteProposta.html" target="_blank">INFO</a></td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3 mx-2" onclick="eliminaPropostaTrattaInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaTrattaInteresseEntrata(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkTratte px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteTratteProposta.html" target="_blank">INFO</a></td>
             </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
@@ -7509,7 +7509,7 @@ function visualizzaRichiesteCaricoInteresseEntrata(carico) {
             <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
             <td class="text-center">${element.consegnaDTO.id}</td>
             <td class="text-center">${element.stato}</td>
-            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaCaricoInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkCarico px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiestaTrasportoProposta.html" target="_blank">INFO</a></td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3 mx-2" onclick="eliminaPropostaCaricoInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkCarico px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiestaTrasportoProposta.html" target="_blank">INFO</a></td>
             </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
@@ -7521,7 +7521,7 @@ function visualizzaRichiesteCaricoInteresseEntrata(carico) {
             <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
             <td class="text-center">${element.consegnaDTO.id}</td>
             <td class="text-center">${element.stato}</td>
-            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaCaricoInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaCaricoInteresseEntrata(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkCarico px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiestaTrasportoProposta.html" target="_blank">INFO</a></td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3 mx-2" onclick="eliminaPropostaCaricoInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaCaricoInteresseEntrata(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkCarico px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiestaTrasportoProposta.html" target="_blank">INFO</a></td>
             </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
@@ -7694,7 +7694,7 @@ function visualizzaRichiesteScalaInteresseEntrata(scala) {
             <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
             <td class="text-center">${element.consegnaDTO.id}</td>
             <td class="text-center">${element.stato}</td>
-            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaScalaInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkScala px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteScalaElevatoreProposta.html" target="_blank">INFO</a></td>
+            <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3 mx-2" onclick="eliminaPropostaScalaInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkScala px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteScalaElevatoreProposta.html" target="_blank">INFO</a></td>
             </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
@@ -7707,7 +7707,7 @@ function visualizzaRichiesteScalaInteresseEntrata(scala) {
                 <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
                 <td class="text-center">${element.consegnaDTO.id}</td>
                 <td class="text-center">${element.stato}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaScalaInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaScalaInteresseEntrata(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkScala px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteScalaElevatoreProposta.html" target="_blank">INFO</a></td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3 mx-2" onclick="eliminaPropostaScalaInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaScalaInteresseEntrata(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkScala px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteScalaElevatoreProposta.html" target="_blank">INFO</a></td>
                 </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
