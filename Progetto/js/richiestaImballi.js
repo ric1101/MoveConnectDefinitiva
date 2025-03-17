@@ -163,7 +163,7 @@ function checkCampi() {
         citta.value.trim() != "" &&
         indirizzo.value.trim() != "" &&
         cap.value.trim() != "" &&
-        arriva.value.trim() != "" 
+        arrivo.value.trim() != "" 
     ) {
 
         blankCamp.innerHTML = '';
