@@ -53,7 +53,9 @@ function ripopolaRichiestaImballi(dati) {
     indirizzoDue.value = dati.indirizzoDue;
     cap.value = dati.cap;
     note.value = dati.note;
-    arrivo.textContent = dati.arrivo;
+    arrivo.value = dati.arrivo;
+    console.log(dati.arrivo);
+    
     imballo1.textContent = dati.imballo1;
     imballo2.textContent = dati.imballo2;
     imballo3.textContent = dati.imballo3;
@@ -178,6 +180,35 @@ function inviaRichiesta(dati) {
 
 
 }
+
+
+
+new Date();
+let dat = new Date();
+
+//--------------------------------------//
+
+function padToTwoDigits(number) {
+    return number.toString().padStart(2, '0');
+}
+
+let ggMin = padToTwoDigits(dat.getDate() + 1);
+let mmMin = padToTwoDigits(dat.getMonth() + 1);
+let aaMin = dat.getFullYear();
+let dataMinInizio = `${aaMin}-${mmMin}-${ggMin}`;
+
+let ggMax = padToTwoDigits(dat.getDate() + 1);
+let mmMax = padToTwoDigits(dat.getMonth() + 1);
+let aaMax = dat.getFullYear() + 1;
+let dataMaxInizio = `${aaMax}-${mmMax}-${ggMax}`;
+
+console.log(dataMinInizio);
+console.log(dataMaxInizio);
+
+arrivo.setAttribute('min', dataMinInizio);
+arrivo.setAttribute('max', dataMaxInizio);
+
+
 
 
 let blankCamp = document.querySelector('.blankCamp');
