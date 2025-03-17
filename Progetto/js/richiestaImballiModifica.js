@@ -43,14 +43,10 @@ fetch(`http://127.0.0.1:8080/api/consegnaImballi/consegnas/${idImballi}`)
 
 function ripopolaRichiestaImballi(dati) {
 
-    let opzioneRegione = document.querySelector('.opzioneRegione');
-    let opzionePaese = document.querySelector('.opzioneProvincia');
-    let opzioneCitta = document.querySelector('.opzioneComune');
 
-
-    opzioneRegione.innerHTML = 'Precedente: ' + dati.regione;
-    opzionePaese.innerHTML = 'Precedente: ' + dati.paese;
-    opzioneCitta.innerHTML = 'Precedente: ' + dati.citta;
+    regione.value = dati.regione;
+    paese.value = dati.paese;
+    citta.value = dati.citta;
     indirizzo.value = dati.indirizzo;
     indirizzoDue.value = dati.indirizzoDue;
     cap.value = dati.cap;

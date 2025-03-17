@@ -2,8 +2,8 @@
 
 
 let regione = document.querySelector('.regione');
-let provincia = document.querySelector('.provincia');
-let comune = document.querySelector('.comune');
+let paese = document.querySelector('.paese');
+let citta = document.querySelector('.citta');
 let indirizzo = document.querySelector('.indirizzo');
 let indirizzoDue = document.querySelector('.indirizzoDue');
 let cap = document.querySelector('.cap');
@@ -18,8 +18,8 @@ let btnInvioRichiestaImballi = document.querySelector('.btnInvioRichiestaPersona
 
 class Personale {
     constructor(regione,
-        provincia,
-        comune,
+        paese,
+        citta,
         indirizzo,
         indirizzoDue,
         cap,
@@ -32,8 +32,8 @@ class Personale {
         azienda_id) {
 
         (this.regione = regione),
-            (this.provincia = provincia),
-            (this.comune = comune),
+            (this.paese = paese),
+            (this.citta = citta),
             (this.indirizzo = indirizzo),
             (this.indirizzoDue = indirizzoDue),
             (this.cap = cap),
@@ -49,13 +49,13 @@ class Personale {
 
 
 function recuperaId() {
-    
+
     let accessToken = localStorage.getItem('accessToken');
-    
+
 
     fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-    .then((res) => res.json())
-    .then((data) => {
+        .then((res) => res.json())
+        .then((data) => {
 
 
             inviaRichiesta(data);
@@ -75,8 +75,8 @@ function inviaRichiesta(dati) {
 
     let nuovaRichiestaPersonale = new Personale(
         regione.value,
-        provincia.value,
-        comune.value,
+        paese.value,
+        citta.value,
         indirizzo.value,
         indirizzoDue.value,
         cap.value,
@@ -135,23 +135,7 @@ arrivo.setAttribute('min', dataMinInizio);
 arrivo.setAttribute('max', dataMaxInizio);
 
 
-let invalidCap = document.querySelector('.invalidCap');
 let blankCamp = document.querySelector('.blankCamp');
-
-
-let regexCap = /^[0-9]{5}$/;
-
-
-function controllaValiditaCampi() {
-
-
-    if (!cap.value.match(regexCap)) {
-        invalidCap.innerHTML = 'cap non valido';
-    } else {
-        invalidCap.innerHTML = '';
-    }
-
-}
 
 
 
@@ -159,11 +143,10 @@ function checkCampi() {
 
     event.preventDefault();
     if (regione.value.trim() != "" &&
-        provincia.value.trim() != "" &&
-        comune.value.trim() != "" &&
+        paese.value.trim() != "" &&
+        citta.value.trim() != "" &&
         indirizzo.value.trim() != "" &&
-        cap.value.trim() != "" &&
-        cap.value.match(regexCap)
+        cap.value.trim() != ""
     ) {
 
         blankCamp.innerHTML = '';
@@ -171,7 +154,7 @@ function checkCampi() {
         recuperaId();
 
     } else {
-        
+
         blankCamp.innerHTML = 'riempi i campi mancanti o incompleti!';
     }
 
@@ -180,5 +163,3 @@ function checkCampi() {
 
 
 btnInvioRichiestaPersonale.addEventListener('click', checkCampi);
-
-cap.addEventListener('keyup', controllaValiditaCampi);
