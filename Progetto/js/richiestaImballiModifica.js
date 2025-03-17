@@ -2,8 +2,8 @@
 
 
 let regione = document.querySelector('.regione');
-let provincia = document.querySelector('.provincia');
-let comune = document.querySelector('.comune');
+let paese = document.querySelector('.paese');
+let citta = document.querySelector('.citta');
 let indirizzo = document.querySelector('.indirizzo');
 let indirizzoDue = document.querySelector('.indirizzoDue');
 let cap = document.querySelector('.cap');
@@ -44,13 +44,13 @@ fetch(`http://127.0.0.1:8080/api/consegnaImballi/consegnas/${idImballi}`)
 function ripopolaRichiestaImballi(dati) {
 
     let opzioneRegione = document.querySelector('.opzioneRegione');
-    let opzioneProvincia = document.querySelector('.opzioneProvincia');
-    let opzioneComune = document.querySelector('.opzioneComune');
+    let opzionePaese = document.querySelector('.opzioneProvincia');
+    let opzioneCitta = document.querySelector('.opzioneComune');
 
 
     opzioneRegione.innerHTML = 'Precedente: ' + dati.regione;
-    opzioneProvincia.innerHTML = 'Precedente: ' + dati.provincia;
-    opzioneComune.innerHTML = 'Precedente: ' + dati.comune;
+    opzionePaese.innerHTML = 'Precedente: ' + dati.paese;
+    opzioneCitta.innerHTML = 'Precedente: ' + dati.citta;
     indirizzo.value = dati.indirizzo;
     indirizzoDue.value = dati.indirizzoDue;
     cap.value = dati.cap;
@@ -76,11 +76,10 @@ function ripopolaRichiestaImballi(dati) {
 
 
 
-
 class Imballi {
     constructor(regione,
-        provincia,
-        comune,
+        paese,
+        citta,
         indirizzo,
         indirizzoDue,
         cap,
@@ -96,8 +95,8 @@ class Imballi {
         azienda_id) {
 
         (this.regione = regione),
-            (this.provincia = provincia),
-            (this.comune = comune),
+            (this.paese = paese),
+            (this.citta = citta),
             (this.indirizzo = indirizzo),
             (this.indirizzoDue = indirizzoDue),
             (this.cap = cap),
@@ -142,8 +141,8 @@ function inviaRichiesta(dati) {
 
     let nuovaRichiestaImballi = new Imballi(
         regione.value,
-        provincia.value,
-        comune.value,
+        paese.value,
+        citta.value,
         indirizzo.value,
         indirizzoDue.value,
         cap.value,
@@ -179,23 +178,7 @@ function inviaRichiesta(dati) {
 }
 
 
-let invalidCap = document.querySelector('.invalidCap');
 let blankCamp = document.querySelector('.blankCamp');
-
-
-let regexCap = /^[0-9]{5}$/;
-
-
-function controllaValiditaCampi() {
-
-
-    if (!cap.value.match(regexCap)) {
-        invalidCap.innerHTML = 'cap non valido';
-    } else {
-        invalidCap.innerHTML = '';
-    }
-
-}
 
 
 
@@ -203,11 +186,10 @@ function checkCampi() {
 
     event.preventDefault();
     if (regione.value.trim() != "" &&
-        provincia.value.trim() != "" &&
-        comune.value.trim() != "" &&
+        paese.value.trim() != "" &&
+        citta.value.trim() != "" &&
         indirizzo.value.trim() != "" &&
-        cap.value.trim() != "" &&
-        cap.value.match(regexCap)
+        cap.value.trim() != ""
     ) {
 
         blankCamp.innerHTML = '';
@@ -225,4 +207,3 @@ function checkCampi() {
 
 btnInvioRichiestaImballi.addEventListener('click', checkCampi);
 
-cap.addEventListener('keyup', controllaValiditaCampi);
