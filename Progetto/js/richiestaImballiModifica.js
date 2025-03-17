@@ -53,7 +53,7 @@ function ripopolaRichiestaImballi(dati) {
     indirizzoDue.value = dati.indirizzoDue;
     cap.value = dati.cap;
     note.value = dati.note;
-    arrivo.value = dati.arrivo;
+    arrivo.textContent = dati.arrivo;
     imballo1.textContent = dati.imballo1;
     imballo2.textContent = dati.imballo2;
     imballo3.textContent = dati.imballo3;
