@@ -162,7 +162,8 @@ function checkCampi() {
         paese.value.trim() != "" &&
         citta.value.trim() != "" &&
         indirizzo.value.trim() != "" &&
-        cap.value.trim() != ""
+        cap.value.trim() != "" &&
+        arriva.value.trim() != "" 
     ) {
 
         blankCamp.innerHTML = '';
