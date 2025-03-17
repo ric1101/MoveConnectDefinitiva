@@ -36,7 +36,8 @@ fetch(`http://127.0.0.1:8080/api/consegnaImballi/consegnas/${idImballi}`)
 
 
         ripopolaRichiestaImballi(data);
-
+        console.log(data);
+        
 
     });
 
