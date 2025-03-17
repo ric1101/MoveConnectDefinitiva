@@ -14,10 +14,85 @@
     <link rel="stylesheet" href="./css/css01.css">
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/login.css">
+    <script type="module">
+        "use strict";
+
+        // This loads helper components from the Extended Component Library,
+        // https://github.com/googlemaps/extended-component-library.
+        import { APILoader } from 'https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js';
+
+        const CONFIGURATION = {
+            "ctaTitle": "Checkout",
+            "mapOptions": { "center": { "lat": 37.4221, "lng": -122.0841 }, "fullscreenControl": true, "mapTypeControl": false, "streetViewControl": true, "zoom": 11, "zoomControl": true, "maxZoom": 22, "mapId": "" },
+            "mapsApiKey": "AIzaSyBj1bqlcwA9G1E6Jl9Z14ZvgLZtioIBoow",
+            "capabilities": { "addressAutocompleteControl": true, "mapDisplayControl": false, "ctaControl": false }
+        };
+
+        const SHORT_NAME_ADDRESS_COMPONENT_TYPES =
+            new Set(['street_number', 'administrative_area_level_1', 'postal_code']);
+
+        const ADDRESS_COMPONENT_TYPES_IN_FORM = [
+            'location',
+            'locality',
+            'administrative_area_level_1',
+            'postal_code',
+            'country',
+        ];
+
+        function getFormInputElement(componentType) {
+            return document.getElementById(`${componentType}-input`);
+        }
+
+        function fillInAddress(place) {
+            function getComponentName(componentType) {
+                for (const component of place.address_components || []) {
+                    if (component.types[0] === componentType) {
+                        return SHORT_NAME_ADDRESS_COMPONENT_TYPES.has(componentType) ?
+                            component.short_name :
+                            component.long_name;
+                    }
+                }
+                return '';
+            }
+
+            function getComponentText(componentType) {
+                return (componentType === 'location') ?
+                    `${getComponentName('street_number')} ${getComponentName('route')}` :
+                    getComponentName(componentType);
+            }
+
+            for (const componentType of ADDRESS_COMPONENT_TYPES_IN_FORM) {
+                getFormInputElement(componentType).value = getComponentText(componentType);
+            }
+        }
+
+        async function initMap() {
+            const { Autocomplete } = await APILoader.importLibrary('places');
+
+            const autocomplete = new Autocomplete(getFormInputElement('location'), {
+                fields: ['address_components', 'geometry', 'name'],
+                types: ['address'],
+            });
+
+            autocomplete.addListener('place_changed', () => {
+                const place = autocomplete.getPlace();
+                if (!place.geometry) {
+                    // User entered the name of a Place that was not suggested and
+                    // pressed the Enter key, or the Place Details request failed.
+                    window.alert(`No details available for input: '${place.name}'`);
+                    return;
+                }
+                fillInAddress(place);
+            });
+        }
+
+        initMap();
+    </script>
 </head>
 
 <body style="background-color: #2A2B2C !important;">
-
+    <gmpx-api-loader key="AIzaSyBj1bqlcwA9G1E6Jl9Z14ZvgLZtioIBoow" solution-channel="GMP_QB_addressselection_v4_cA">
+    </gmpx-api-loader>
     <header>
         <div class="navbarMain">
 
@@ -30,7 +105,7 @@
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                         <div class="card shadow-2-strong" style="border-radius: 1rem; border: solid 0.3rem #2B3035;">
-                            <div class="card-body p-5 ">
+                            <div class="card-body p-5 panel">
 
                                 <h3 class="mb-5 text-center"><i class="fa-solid fa-pen"></i> Registrati a MoveConnect
                                 </h3>
@@ -39,7 +114,7 @@
 
                                     <label for="nomeAzienda" class="form-label">Nome Azienda</label>
                                     <input type="text" class="form-control richiesti" id="nomeAzienda"
-                                        placeholder="es: Terzi S.p.A" maxLength="50">
+                                        placeholder="es: Terzi S.p.A" maxLength="50"/>
                                     <!-- <p class="text-danger" id="usernameError"></p> -->
                                     <div class="invalidNomeAzienda">
 
@@ -48,47 +123,43 @@
 
                                 <div class="mb-3">
 
-                                    <label for="regioni" class="form-label">Regione</label>
-                                    <select id="regioni" class="form-select richiesti regione">
-                                        <option value="" disabled selected>Seleziona Regione</option>
+                                    <label for="location-input" class="form-label">Indirizzo</label>
+                                    <input type="text" placeholder="Via Roma 4" id="location-input" class="form-control indirizzo"/>
 
-                                    </select>
                                 </div>
 
                                 <div class="mb-3">
 
-                                    <label for="province" class="form-label">Provincia</label>
-                                    <select id="province" class="form-select richiesti provincia">
-                                        <option value="" disabled selected>Seleziona Provincia</option>
+                                    <label for="" class="form-label">Indirizzo due</label>
+                                    <input type="text" placeholder="Palazzina, scala, piano, etc (opzionale)" class="form-control indirizzoDue"/>
 
-                                    </select>
                                 </div>
 
                                 <div class="mb-3">
 
-                                    <label for="comuni" class="form-label">Comune</label>
-                                    <select id="comuni" class="form-select richiesti comune">
-                                        <option value="" disabled selected>Seleziona Comune</option>
+                                    <label for="locality-input" class="form-label">Città</label>
+                                    <input type="text" placeholder="Città" id="locality-input" class="form-control citta"/>
 
-                                    </select>
                                 </div>
 
                                 <div class="mb-3">
 
-                                    <label for="indirizzo" class="form-label">Indirizzo</label>
-                                    <input type="text" class="form-control richiesti indirizzo"
-                                        placeholder="es: Via Roma 3" maxLength="50">
+                                    <label for="administrative_area_level_1-input" class="form-label">Regione/Stato</label>
+                                    <input type="text" id="administrative_area_level_1-input" class="form-control regione" placeholder="Stato" maxLength="50"/>
+
                                 </div>
 
                                 <div class="mb-3">
 
-                                    <label class="form-label">CAP</label>
-                                    <input type="text" class="form-control richiesti cap" placeholder="es. 00015"
-                                        maxlength="5">
-                                    
-                                    <div class="invalidCap text-danger">
-                                
+                                    <label for="postal_code-input" class="form-label">CAP</label>
+                                    <input type="text" id="postal_code-input" class="form-control cap" placeholder="Zip/Postal code"/>
+
                                 </div>
+
+                                <div class="mb-3">
+
+                                    <label for="country-input" class="form-label">Paese</label>
+                                    <input type="text" id="country-input" class="form-control paese" placeholder="Country"/>
 
                                 </div>
 
@@ -96,18 +167,15 @@
 
                                     <label for="partitaIva" class="form-label">Partita IVA</label>
                                     <input type="text" class="form-control richiesti" id="partitaIva"
-                                        aria-label="partitaIva" maxLength="11" placeholder="es. 86334519757">
+                                        aria-label="partitaIva" placeholder="es. 86334519757"/>
                                     <!-- <p class="text-danger" id="usernameError"></p> -->
-                                    <div class="invalidPIva text-danger">
 
-                                    </div>
                                 </div>
 
                                 <div class="mb-3">
 
                                     <label for="emailAziendale" class="form-label">Email Aziendale</label>
-                                    <input type="text" class="form-control richiesti" id="emailAziendale"
-                                        placeholder="es: terzi@gmail.com">
+                                    <input type="text" class="form-control richiesti" id="emailAziendale" placeholder="es: terzi@gmail.com"/>
 
                                     <div class="invalidEmailAz text-danger">
 
@@ -194,7 +262,9 @@
                                             <input class="form-check-input" type="checkbox" value=""
                                                 id="flexCheckPrivacy">
                                             <label class="form-check-label" for="flexCheck1">
-                                                Accetto la <a href="https://www.iubenda.com/privacy-policy/78378781/legal?an=no&s_ck=false&newmarkup=yes">Policy Privacy.</a>
+                                                Accetto la <a
+                                                    href="https://www.iubenda.com/privacy-policy/78378781/legal?an=no&s_ck=false&newmarkup=yes">Policy
+                                                    Privacy.</a>
                                             </label>
                                         </div>
                                     </div>
@@ -203,7 +273,9 @@
                                             <input class="form-check-input" type="checkbox" value=""
                                                 id="flexCheckCookie">
                                             <label class="form-check-label" for="flexCheck2">
-                                                Accetto la <a href="https://www.iubenda.com/privacy-policy/78378781/cookie-policy?an=no&s_ck=false&newmarkup=yes">Cookie Policy.</a>
+                                                Accetto la <a
+                                                    href="https://www.iubenda.com/privacy-policy/78378781/cookie-policy?an=no&s_ck=false&newmarkup=yes">Cookie
+                                                    Policy.</a>
                                             </label>
                                         </div>
 
@@ -229,14 +301,14 @@
 
 
     <script src="./js/homepagejs.js"></script>
-<div class="gtranslate_wrapper"></div>
- <script>window.gtranslateSettings = {"default_language":"it","detect_browser_language":true,"languages":["it","fr","de","es","zh-CN","ko","ja","ru","en","ar","hi","bn","ur"],"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"right","float_switcher_open_direction":"bottom","alt_flags":{"en":"usa","pt":"brazil"}}</script>
-<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+    <div class="gtranslate_wrapper"></div>
+    <script>window.gtranslateSettings = { "default_language": "it", "detect_browser_language": true, "languages": ["it", "fr", "de", "es", "zh-CN", "ko", "ja", "ru", "en", "ar", "hi", "bn", "ur"], "wrapper_selector": ".gtranslate_wrapper", "switcher_horizontal_position": "right", "float_switcher_open_direction": "bottom", "alt_flags": { "en": "usa", "pt": "brazil" } }</script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="../Progetto/js/imballi.js"></script>
+    <!-- <script src="../Progetto/js/imballi.js"></script> -->
     <script src="./js/registrati.js"></script>
     <script src="../Progetto/js/footer.js"></script>
 

@@ -3,9 +3,10 @@
 let nomeAzienda = document.querySelector("#nomeAzienda");
 // let logo = document.querySelector("#immagine");
 let regione = document.querySelector(".regione");
-let provincia = document.querySelector(".provincia");
-let comune = document.querySelector(".comune");
+let paese = document.querySelector(".paese");
+let citta = document.querySelector(".citta");
 let indirizzo = document.querySelector(".indirizzo");
+let indirizzoDue = document.querySelector(".indirizzoDue");
 let cap = document.querySelector(".cap");
 let piva = document.querySelector("#partitaIva");
 let emailAziendale = document.querySelector("#emailAziendale");
@@ -29,10 +30,8 @@ let erroreMinuscola = document.querySelector('.erroreMinuscola');
 let erroreCarattereSpec = document.querySelector('.erroreCarattereSpec');
 let erroreNumero = document.querySelector('.erroreNumero');
 let nonInviato = document.querySelector('.nonInviato');
-let invalidCap = document.querySelector('.invalidCap');
 let invalidEmailAz = document.querySelector('.invalidEmailAz');
 let invalidEmailDip = document.querySelector('.invalidEmailDip');
-let invalidPIva = document.querySelector('.invalidPIva');
 let invalidNumTelAz = document.querySelector('.invalidNumTelAz');
 let invalidNumTelDip = document.querySelector('.invalidNumTelDip');
 
@@ -42,9 +41,10 @@ class Azienda {
   constructor(
     nomeAzienda,
     regione,
-    provincia,
-    comune,
+    paese,
+    citta,
     indirizzo,
+    indirizzoDue,
     cap,
     piva,
     emailAziendale,
@@ -57,9 +57,10 @@ class Azienda {
   ) {
     (this.nomeAzienda = nomeAzienda),
       (this.regione = regione),
-      (this.provincia = provincia),
-      (this.comune = comune),
+      (this.paese = paese),
+      (this.citta = citta),
       (this.indirizzo = indirizzo),
+      (this.indirizzoDue = indirizzoDue),
       (this.cap = cap),
       (this.piva = piva),
       (this.emailAziendale = emailAziendale),
@@ -82,9 +83,10 @@ function registrazioneAzienda() {
   let nuovaAzienda = new Azienda(
     nomeAzienda.value,
     regione.value,
-    provincia.value,
-    comune.value,
+    paese.value,
+    citta.value,
     indirizzo.value,
+    indirizzoDue.value,
     cap.value,
     piva.value,
     emailAziendale.value,
@@ -110,64 +112,16 @@ function registrazioneAzienda() {
   })
 
 }
-// .then((response) => {
-//   if (!response.ok) {
-//       throw new Error("Network response was not ok " + response.statusText);
-//     }
-//     return response.json();
-//   })
-//   .then((data) => {
-//     console.log("Success:", data);
-//   })
-//   .catch((error) => {
-//     console.error("There was a problem with the fetch operation:", error);
-//   });
-
-//   window.localStorage.setItem("azienda", JSON.stringify(nuovaAzienda));
-//   location.reload();
-//  } else {
-//   console.textContent = "Per continuare devi compilare tutti i campi e accettare i Termini di servizio e Cookie";
-// }
-// console.log(nuovaAzienda);
 
 
 const regexPASSWORD = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/;
-
 const regexPasswordMaiuscola = /(?=.*[A-Z])/;
 const regexPasswordMinuscola = /(?=.*[a-z])/;
 const regexPasswordSpeciale = /(?=.*[@$!%*?&])/;
 const regexPasswordNumeri = /(?=.*\d)/;
-let regexCap = /^[0-9]{5}$/;
 let regexPIva = /^[0-9]{11}$/;
 let regexNumTel = /^[0-9]{6,15}/;
 const regexEMAIL = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-
-// new Date();
-// let dat = new Date();
-
-// //--------------------------------------//
-
-// let ggMin = dat.getDate() + 1;
-// let mmMin = (dat.getMonth() + 1);
-// let aaMin = dat.getFullYear() - 75;
-
-// let dataMin = aaMin + "-" + mmMin + "-" + ggMin;
-// console.log(dataMin);
-
-// //--------------------------------------//
-
-// let ggMax = dat.getDate() + 1;
-// let mmMax = (dat.getMonth() + 1);
-// let aaMax = dat.getFullYear() - 18;
-
-// let dataMax = aaMax + "-" + mmMax + "-" + ggMax;
-// console.log(dataMax);
-
-// //--------------------------------------//
-
-// dataNascita.setAttribute('min', dataMin)
-// dataNascita.setAttribute('max', dataMax)
-
 
 
 function passwordCheck() {
@@ -222,20 +176,6 @@ function passwordCheck() {
 }
 
 
-function capCheck() {
-
-
-  if (!cap.value.match(regexCap)) {
-    let capErr = 'cap non valido';
-    invalidCap.innerHTML = capErr;
-    console.log(invalidCap);
-  } else {
-    invalidCap.innerHTML = '';
-
-  }
-
-}
-
 function emailAzCheck() {
 
   if (!emailAziendale.value.match(regexEMAIL)) {
@@ -261,16 +201,6 @@ function emailDipCheck() {
 
 }
 
-function pIvaCheck() {
-
-  if (!piva.value.match(regexPIva)) {
-    let pIvaErr = 'partita Iva non valida';
-    invalidPIva.innerHTML = pIvaErr;
-  } else {
-    invalidPIva.innerHTML = '';
-  }
-
-}
 
 function numTelAzCheck() {
 
@@ -295,41 +225,15 @@ function numTelDipCheck() {
 }
 
 
-// function emailCheckValue() {
-
-//   let emailLive = email.value;
-
-//   fetch(`http://127.0.0.1:8080/registrati?email=${emailLive}`)
-
-//     .then((res) => res.json())
-//     .then((data) => {
-//       console.log(data, "sono dentro la fetch")
-      
-//       if (data == 'true') {
-        
-//         return true;
-
-//       } else {
-        
-//         return false;
-
-//       }
-
-
-//     })
-
-// }
-
-
 function controlloDati() {
 
 
   if (nomeAzienda.value.trim() != "" &&
-    // logo.value.trim() != "" &&
     regione.value.trim() != "" &&
-    provincia.value.trim() != "" &&
-    comune.value.trim() != "" &&
+    paese.value.trim() != "" &&
+    citta.value.trim() != "" &&
     indirizzo.value.trim() != "" &&
+    indirizzoDue.value.trim() != "" &&
     cap.value.trim() != "" &&
     piva.value.trim() != "" &&
     emailAziendale.value.trim() != "" &&
@@ -340,10 +244,8 @@ function controlloDati() {
     username.value.trim() != "" &&
     password.value.trim() != "" &&
     password.value.match(regexPASSWORD) &&
-    cap.value.match(regexCap) &&
     emailAziendale.value.match(regexEMAIL) &&
     username.value.match(regexEMAIL) &&
-    piva.value.match(regexPIva) &&
     numeroTelefonicoAziendale.value.match(regexNumTel) &&
     numeroTelefono.value.match(regexNumTel) &&
     checkboxPrivacy.checked &&
@@ -378,20 +280,15 @@ showPassword.addEventListener("click", toShowPassword);
 
 
 bottoneRegistrati.addEventListener("click", () => {
-  // if (emailCheckValue()) {
     
     controlloDati();
-  // } else {
-
-  // }
+ 
 
 });
 
 password.addEventListener("keyup", passwordCheck);
-cap.addEventListener('keyup', capCheck)
 username.addEventListener('keyup', emailDipCheck);
 emailAziendale.addEventListener('keyup', emailAzCheck);
-piva.addEventListener('keyup', pIvaCheck);
 numeroTelefonicoAziendale.addEventListener('keyup', numTelAzCheck);
 numeroTelefono.addEventListener('keyup', numTelDipCheck);
 
