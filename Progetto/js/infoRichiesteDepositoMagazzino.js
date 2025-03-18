@@ -103,6 +103,15 @@ function depositoInfo(dati, img, id) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Nazione</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.paese}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
                                         <p class="mb-0 fw-bold">Regione</p>
                                     </div>
                                     <div class="col-sm-6">
@@ -112,19 +121,10 @@ function depositoInfo(dati, img, id) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Provincia</p>
+                                        <p class="mb-0 fw-bold">Città</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.provincia}</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row p-2 ">
-                                    <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Comune</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.comune}</p>
+                                        <p class="text-muted mb-0">${dati.citta}</p>
                                     </div>
                                 </div>
                                 <hr>
@@ -134,6 +134,15 @@ function depositoInfo(dati, img, id) {
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.indirizzo}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Indirizzo Due</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.indirizzoDue}</p>
                                     </div>
                                 </div>
                                 <hr>

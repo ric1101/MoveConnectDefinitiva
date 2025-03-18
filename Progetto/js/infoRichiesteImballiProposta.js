@@ -104,19 +104,19 @@ function imballiInfo(dati, img, id) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Regione</p>
+                                        <p class="mb-0 fw-bold">Nazione</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.regione}</p>
+                                        <p class="text-muted mb-0">${dati.paese}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Nazione</p>
+                                        <p class="mb-0 fw-bold">Regione</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.paese}</p>
+                                        <p class="text-muted mb-0">${dati.regione}</p>
                                     </div>
                                 </div>
                                 <hr>
