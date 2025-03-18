@@ -84,7 +84,7 @@ function elevatoreInfo(dati, img, id) {
                             <h5 class="fw-bold">P. Iva: </h5>
                             <p>${dati.aziendaDTO.piva}</p>
                             <h5 class="fw-bold">Indirizzo: </h5>
-                            <p>${dati.aziendaDTO.indirizzo + ', ' + dati.aziendaDTO.comune + ', ' + dati.aziendaDTO.cap}</p>
+                            <p>${dati.aziendaDTO.indirizzo + ', ' + dati.aziendaDTO.citta + ', ' + dati.aziendaDTO.cap}</p>
                         </div>
                     </div>
                        
@@ -116,19 +116,19 @@ function elevatoreInfo(dati, img, id) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Provincia</p>
+                                        <p class="mb-0 fw-bold">Nazione</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.provincia}</p>
+                                        <p class="text-muted mb-0">${dati.paese}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Comune</p>
+                                        <p class="mb-0 fw-bold">Città</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.comune}</p>
+                                        <p class="text-muted mb-0">${dati.citta}</p>
                                     </div>
                                 </div>
                                 <hr>
@@ -143,7 +143,7 @@ function elevatoreInfo(dati, img, id) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Indirizzo Secondario</p>
+                                        <p class="mb-0 fw-bold">Indirizzo Due</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.indirizzoDue}</p>
