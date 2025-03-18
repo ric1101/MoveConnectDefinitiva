@@ -110,7 +110,7 @@ function elevatore(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
@@ -382,7 +382,7 @@ function elevatoreFiltroSoloRegione(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
@@ -573,7 +573,7 @@ function elevatoreFiltroScala(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
@@ -744,7 +744,7 @@ function elevatoreFiltroRegioniScala(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
@@ -937,7 +937,7 @@ function elevatoreFiltroPeso(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
@@ -1098,7 +1098,7 @@ function elevatoreFiltroRegioniPeso(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
@@ -1259,7 +1259,7 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
@@ -1420,7 +1420,7 @@ function elevatoreFiltroScalaPeso(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>

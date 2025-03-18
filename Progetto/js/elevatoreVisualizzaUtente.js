@@ -48,7 +48,7 @@ function elevatore(dati) {
                 let tabella = `<tr>
                          
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiScala}</td>
                         <td class="text-center" data-eventoid="1">${element.pesoMassimo}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>

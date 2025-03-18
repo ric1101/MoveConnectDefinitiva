@@ -2651,7 +2651,7 @@ function visualizzaRichiestePersonaleSpecializzatoUscita(personale) {
                             <hr>
                               <div class="row rowDati">
                                 <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Arrivo</h6>
+                                    <h6 class="mb-0" style="font-size: 18px;">Data Arrivo</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
                                 ${element.arrivo}
@@ -2805,7 +2805,7 @@ function visualizzaRichiestePersonaleSpecializzatoUscita(personale) {
                                      <hr>
                                         <div class="row rowDati">
                                             <div class="col-sm-5">
-                                            <h6 class="mb-0" style="font-size: 18px;">Arrivo</h6>
+                                            <h6 class="mb-0" style="font-size: 18px;">Data Arrivo</h6>
                                             </div>
                                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
                                             ${element.arrivo}
@@ -3039,6 +3039,15 @@ function visualizzaRichiesteDepositoMagazzinoUscita(deposito) {
                             <hr>
                             <div class="row rowDati">
                                 <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo Due</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzoDue}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
                                     <h6 class="mb-0" style="font-size: 18px;">Cap</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
@@ -3187,6 +3196,15 @@ function visualizzaRichiesteDepositoMagazzinoUscita(deposito) {
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
                                 ${element.indirizzo}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">Indirizzo Due</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                ${element.indirizzoDue}
                                 </div>
                             </div>
                             <hr>
