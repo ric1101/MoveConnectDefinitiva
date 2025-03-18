@@ -115,19 +115,19 @@ function personaleInfo(dati, img, id) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Provincia</p>
+                                        <p class="mb-0 fw-bold">Paese</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.provincia}</p>
+                                        <p class="text-muted mb-0">${dati.paese}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Comune</p>
+                                        <p class="mb-0 fw-bold">Città</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.comune}</p>
+                                        <p class="text-muted mb-0">${dati.citta}</p>
                                     </div>
                                 </div>
                                 <hr>
@@ -137,6 +137,15 @@ function personaleInfo(dati, img, id) {
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.indirizzo}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Indirizzo Due</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.indirizzoDue}</p>
                                     </div>
                                 </div>
                                 <hr>
@@ -182,6 +191,15 @@ function personaleInfo(dati, img, id) {
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="text-muted mb-0">${dati.falegname}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Data Arrivo</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.arrivo}</p>
                                     </div>
                                 </div>
                                 
