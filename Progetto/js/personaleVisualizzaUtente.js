@@ -48,8 +48,8 @@ function personale(dati) {
                         
                     <td class="text-center">${element.id}</td>
                     <td class="text-center" data-eventoid="1">${element.regione}</td>
-                    <td class="text-center" data-eventoid="1">${element.provincia}</td>
-                    <td class="text-center" data-eventoid="1">${element.comune}</td>
+                    <td class="text-center" data-eventoid="1">${element.paese}</td>
+                    <td class="text-center" data-eventoid="1">${element.citta}</td>
                     <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                     <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}"  href="./infoRichiestePersonale.html" >INFO</a></td>
                     <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailPersonale('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>

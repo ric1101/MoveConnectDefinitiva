@@ -113,8 +113,8 @@ function imballaggi(dati, id) {
                     </td>      
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
-                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.paese}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" href="./infoRichiesteImballi.html"  data-evento-id="${element.id}">INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailImballi('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
@@ -350,8 +350,8 @@ function imballaggiFiltroRegioneImballi(dati, id) {
                     </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
-                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.paese}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" href="./infoRichiesteImballi.html"  data-evento-id="${element.id}">INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailImballi('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
@@ -517,8 +517,8 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
                     </td>     
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
-                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.paese}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" href="./infoRichiesteImballi.html"  data-evento-id="${element.id}">INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailImballi('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
@@ -687,8 +687,8 @@ function imballaggiFiltroTipiImballi(dati, id) {
                     </td>     
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
-                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.paese}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" href="./infoRichiesteImballi.html"  data-evento-id="${element.id}">INFO</a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="inviaMailImballi('${element.azienda.username}')"><i class="fa-solid fa-comments"></i></a></td>
