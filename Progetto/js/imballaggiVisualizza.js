@@ -112,8 +112,8 @@ function imballaggi(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>      
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.paese}</td>
+                        <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" href="./infoRichiesteImballi.html"  data-evento-id="${element.id}">INFO</a></td>
@@ -349,8 +349,8 @@ function imballaggiFiltroRegioneImballi(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.paese}</td>
+                        <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" href="./infoRichiesteImballi.html"  data-evento-id="${element.id}">INFO</a></td>
@@ -516,8 +516,8 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>     
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.paese}</td>
+                        <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" href="./infoRichiesteImballi.html"  data-evento-id="${element.id}">INFO</a></td>
@@ -686,8 +686,8 @@ function imballaggiFiltroTipiImballi(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>     
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.paese}</td>
+                        <td class="text-center" data-eventoid="1">${element.regione}</td>
                         <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkImballi" href="./infoRichiesteImballi.html"  data-evento-id="${element.id}">INFO</a></td>

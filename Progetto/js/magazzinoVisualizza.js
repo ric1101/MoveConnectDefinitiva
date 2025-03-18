@@ -109,9 +109,9 @@ function magazzino(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>      
                         <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.paese}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
-                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
@@ -363,9 +363,9 @@ function depositoFiltroSoloRegione(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>      
                         <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.paese}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
-                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
@@ -526,9 +526,9 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>     
                         <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.paese}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
-                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
@@ -689,9 +689,9 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>      
                         <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.paese}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
-                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
@@ -852,9 +852,9 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>     
                         <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.paese}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
-                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
@@ -1013,9 +1013,9 @@ function depositoFiltroTipoDeposito(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>     
                         <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.paese}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
-                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
@@ -1175,9 +1175,9 @@ function depositoFiltroTipoDepositoMq(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>     
                         <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.paese}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
-                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
@@ -1340,9 +1340,9 @@ function depositoFiltroDemoDeposito(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>     
                         <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.paese}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
-                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>

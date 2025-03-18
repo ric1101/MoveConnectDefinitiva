@@ -111,8 +111,8 @@ function personale(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                     <td class="text-center">${element.id}</td>
-                    <td class="text-center" data-eventoid="1">${element.regione}</td>
                     <td class="text-center" data-eventoid="1">${element.paese}</td>
+                    <td class="text-center" data-eventoid="1">${element.regione}</td>
                     <td class="text-center" data-eventoid="1">${element.citta}</td>
                     <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                     <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}" href="./infoRichiestePersonale.html" >INFO</a></td>
@@ -331,8 +331,8 @@ function personaleFiltroRegione(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>     
                     <td class="text-center">${element.id}</td>
-                    <td class="text-center" data-eventoid="1">${element.regione}</td>
                     <td class="text-center" data-eventoid="1">${element.paese}</td>
+                    <td class="text-center" data-eventoid="1">${element.regione}</td>
                     <td class="text-center" data-eventoid="1">${element.citta}</td>
                     <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                     <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}" href="./infoRichiestePersonale.html" >INFO</a></td>
@@ -495,8 +495,8 @@ function personaleFiltroRegioneTipiPersonale(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>     
                     <td class="text-center">${element.id}</td>
-                    <td class="text-center" data-eventoid="1">${element.regione}</td>
                     <td class="text-center" data-eventoid="1">${element.paese}</td>
+                    <td class="text-center" data-eventoid="1">${element.regione}</td>
                     <td class="text-center" data-eventoid="1">${element.citta}</td>
                     <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                     <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}" href="./infoRichiestePersonale.html" >INFO</a></td>
@@ -661,8 +661,8 @@ function personaleFiltroTipiPersonale(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>     
                     <td class="text-center">${element.id}</td>
-                    <td class="text-center" data-eventoid="1">${element.regione}</td>
                     <td class="text-center" data-eventoid="1">${element.paese}</td>
+                    <td class="text-center" data-eventoid="1">${element.regione}</td>
                     <td class="text-center" data-eventoid="1">${element.citta}</td>
                     <td class="text-center" data-eventoid="1">${element.indirizzo}</td>
                     <td class="text-center" data-eventoid="1"><a class="btn btn-dark linkPersonale" data-evento-id="${element.id}" href="./infoRichiestePersonale.html" >INFO</a></td>

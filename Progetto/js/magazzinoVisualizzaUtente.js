@@ -48,9 +48,9 @@ function magazzino(dati) {
                 let tabella = `<tr>
                          
                         <td class="text-center">${element.id}</td>
+                        <td class="text-center" data-eventoid="1">${element.paese}</td>
                         <td class="text-center" data-eventoid="1">${element.regione}</td>
-                        <td class="text-center" data-eventoid="1">${element.provincia}</td>
-                        <td class="text-center" data-eventoid="1">${element.comune}</td>
+                        <td class="text-center" data-eventoid="1">${element.citta}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.inizio}</td>
                         <td class="text-center" data-eventoid="1">${element.fine}</td>
