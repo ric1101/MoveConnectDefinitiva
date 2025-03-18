@@ -19,8 +19,9 @@
 
 </head>
 
-    
-    <body style="background-image: url(./imgs/marmo.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;">
+
+<body
+    style="background-image: url(./imgs/marmo.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;">
 
     <div class="navbarMain"></div>
 
@@ -33,38 +34,35 @@
 
     <div class="row mt-4 mb-5 mx-5 d-flex justify-content-center">
 
-        <div class="col-md-10 col-sm-12 col-12 pb-4" style="background-color: #ece4d485; border-radius: 1rem; padding: 30px;">
+        <div class="col-md-10 col-sm-12 col-12 pb-4"
+            style="background-color: #ece4d485; border-radius: 1rem; padding: 30px;">
 
             <div class="row d-flex justify-content-center">
 
                 <form class="col-md-12 col-lg-10 col-sm-8 col-12 pb-5 pt-5">
                     <div class="row g-3 p-2">
                         <div class="col-md-5 col-lg-5">
-                            <label for="regioni" class="form-label">Regione *</label>
-                            <select id="regioni" class="form-select regione">
-                                <option value="" disabled selected>Seleziona Regione</option>
 
-                            </select>
+                            <label for="location-input" class="form-label">Indirizzo *</label>
+                            <input type="text" placeholder="Via Roma 4" id="location-input" class="form-control indirizzo" />
+
                         </div>
 
                         <div class="col-md-2"></div>
 
                         <div class="col-md-5 col-lg-5">
-                            <label for="province" class="form-label">Provincia *</label>
-                            <select id="province" class="form-select provincia">
-                                <option value="" disabled selected>Seleziona Provincia</option>
 
-                            </select>
+                            <label for="" class="form-label">Indirizzo due</label>
+                            <input type="text" placeholder="Palazzina, scala, piano, etc (opzionale)" class="form-control indirizzoDue" />
+
                         </div>
                     </div>
 
                     <div class="row g-3 p-2">
                         <div class="col-md-5 col-lg-5">
-                            <label for="comuni" class="form-label">Comune *</label>
-                            <select id="comuni" class="form-select comune">
-                                <option value="" disabled selected>Seleziona Comune</option>
 
-                            </select>
+                            <label for="locality-input" class="form-label">Città *</label>
+                            <input type="text" placeholder="Città" id="locality-input" class="form-control citta" />
 
                         </div>
 
@@ -72,9 +70,9 @@
 
                         <div class="col-md-5 col-lg-5">
 
-                            <label class="form-label">Indirizzo *</label>
-                            <input type="text" class="form-control indirizzo" placeholder="Via Roma 5" maxLength="50"
-                                required>
+                            <label for="administrative_area_level_1-input" class="form-label">Regione/Stato *</label>
+                            <input type="text" id="administrative_area_level_1-input" class="form-control regione" placeholder="Stato" maxLength="50" />
+                        
                         </div>
                     </div>
 
@@ -82,21 +80,18 @@
 
                         <div class="col-md-5 col-lg-5">
 
-                            <label class="form-label">CAP *</label>
-                            <input type="text" class="form-control cap" placeholder="00015" maxLength="5" required>
-                            <div class="invalidCap text-danger">
+                            <label for="postal_code-input" class="form-label">CAP *</label>
+                            <input type="text" id="postal_code-input" class="form-control cap" placeholder="Zip/Postal code" />
 
-                            </div>
                         </div>
 
                         <div class="col-md-2"></div>
 
                         <div class="col-md-5 col-lg-5">
-                            <label class="form-label">Indica MQ *</label>
-                            <input type="text" class="form-control mq" placeholder="12" required>
-                            <div class="invalidMq text-danger">
 
-                            </div>
+                            <label for="country-input" class="form-label">Paese *</label>
+                            <input type="text" id="country-input" class="form-control paese" placeholder="Country" />
+
                         </div>
                     </div>
 
@@ -120,6 +115,28 @@
                             <div class="invalidFine text-danger">
 
                             </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row g-3 p-2">
+                        <div class="col-md-3 col-lg-3">
+
+                            
+                        </div>
+
+                        <div class="col-md-6 col-lg-6">
+
+                            <label class="form-label">Indica MQ *</label>
+                            <input type="text" class="form-control mq" placeholder="12" required>
+                            <div class="invalidMq text-danger">
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-3 col-lg-3">
+                            
                         </div>
 
                     </div>
@@ -199,8 +216,9 @@
                 </div>
 
                 <div class="row mt-3" id="riepilogoRichiestaS">
-                    
-                    <div class="card text col-md-5 col-sm-5 mb-2" style="background-color: #f0f4f700; border: none; align-items: center;">
+
+                    <div class="card text col-md-5 col-sm-5 mb-2"
+                        style="background-color: #f0f4f700; border: none; align-items: center;">
                         <div data-mdb-input-init class="form-outline">
                             <h3 class="titoliResp">Note</h3>
                             <textarea class="form-control note" rows="7"
@@ -261,9 +279,9 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="../Progetto/js/homepagejs.js"></script>
-<div class="gtranslate_wrapper"></div>
- <script>window.gtranslateSettings = {"default_language":"it","detect_browser_language":true,"languages":["it","fr","de","es","zh-CN","ko","ja","ru","en","ar","hi","bn","ur"],"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"right","float_switcher_open_direction":"bottom","alt_flags":{"en":"usa","pt":"brazil"}}</script>
-<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+    <div class="gtranslate_wrapper"></div>
+    <script>window.gtranslateSettings = { "default_language": "it", "detect_browser_language": true, "languages": ["it", "fr", "de", "es", "zh-CN", "ko", "ja", "ru", "en", "ar", "hi", "bn", "ur"], "wrapper_selector": ".gtranslate_wrapper", "switcher_horizontal_position": "right", "float_switcher_open_direction": "bottom", "alt_flags": { "en": "usa", "pt": "brazil" } }</script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
     <script src="../Progetto/js/imballi.js"></script>
     <script src="../Progetto/js/deposito.js"></script>

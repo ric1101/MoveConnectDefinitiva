@@ -8,6 +8,7 @@ let indirizzo = document.querySelector('.indirizzo');
 let indirizzoDue = document.querySelector('.indirizzoDue');
 let cap = document.querySelector('.cap');
 let note = document.querySelector('.note');
+let arrivo = document.querySelector('.arrivo');
 let operatore = document.querySelector('.facchini');
 let autista = document.querySelector('.autisti');
 let montatore = document.querySelector('.montatori');
@@ -35,14 +36,15 @@ fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/personale/${idPersonale}
 
 function ripopolaRichiestaPersonale(dati) {
 
-    let opzioneRegione = document.querySelector('.opzioneRegione');
-    let opzionePaese = document.querySelector('.opzioneProvincia');
-    let opzioneCitta = document.querySelector('.opzioneComune');
 
-
-    opzioneRegione.innerHTML = 'Precedente: ' + dati.regionePartenza;
-    opzionePaese.innerHTML = 'Precedente: ' + dati.paesePartenza;
-    opzioneCitta.innerHTML = 'Precedente: ' + dati.cittaPartenza;
+    regione.value = dati.regione;
+    paese.value = dati.paese;
+    citta.value = dati.citta;
+    indirizzo.value = dati.indirizzo;
+    indirizzoDue.value = dati.indirizzoDue;
+    cap.value = dati.cap;
+    note.value = dati.note;
+    arrivo.value = dati.arrivo;
     indirizzo.value = dati.indirizzo;
     indirizzoDue.value = dati.indirizzoDue;
     cap.value = dati.cap;
@@ -55,7 +57,7 @@ function ripopolaRichiestaPersonale(dati) {
     autisti.textContent = dati.autista;
     montatori.textContent = dati.montatore;
     falegnami.textContent = dati.falegname;
-    
+
 
 }
 
@@ -72,6 +74,7 @@ class Personale {
         falegname,
         montatore,
         operatore,
+        arrivo,
         azienda_id) {
 
         (this.regione = regione),
@@ -85,6 +88,7 @@ class Personale {
             (this.falegname = falegname),
             (this.montatore = montatore),
             (this.operatore = operatore),
+            (this.arrivo = arrivo),
             (this.azienda_id = azienda_id)
     }
 }
@@ -127,6 +131,7 @@ function inviaRichiesta(dati) {
         falegname.textContent,
         montatore.textContent,
         operatore.textContent,
+        arrivo.value,
         azienda_id
     );
 
@@ -150,6 +155,34 @@ function inviaRichiesta(dati) {
 }
 
 
+
+new Date();
+let dat = new Date();
+
+//--------------------------------------//
+
+function padToTwoDigits(number) {
+    return number.toString().padStart(2, '0');
+}
+
+let ggMin = padToTwoDigits(dat.getDate() + 1);
+let mmMin = padToTwoDigits(dat.getMonth() + 1);
+let aaMin = dat.getFullYear();
+let dataMinInizio = `${aaMin}-${mmMin}-${ggMin}`;
+
+let ggMax = padToTwoDigits(dat.getDate() + 1);
+let mmMax = padToTwoDigits(dat.getMonth() + 1);
+let aaMax = dat.getFullYear() + 1;
+let dataMaxInizio = `${aaMax}-${mmMax}-${ggMax}`;
+
+console.log(dataMinInizio);
+console.log(dataMaxInizio);
+
+arrivo.setAttribute('min', dataMinInizio);
+arrivo.setAttribute('max', dataMaxInizio);
+
+
+
 let blankCamp = document.querySelector('.blankCamp');
 
 
@@ -161,7 +194,8 @@ function checkCampi() {
         paese.value.trim() != "" &&
         citta.value.trim() != "" &&
         indirizzo.value.trim() != "" &&
-        cap.value.trim() != ""
+        cap.value.trim() != "" &&
+        arrivo.value.trim() != ""
     ) {
 
         blankCamp.innerHTML = '';
