@@ -872,7 +872,7 @@ function upload() {
 //                                     <h6 class="mb-0" style="font-size: 18px;">Provincia</h6>
 //                                 </div>
 //                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-//                                 ${element.provincia}
+//                                 ${element.paese}
 //                                 </div>
 //                             </div>
 //                             <hr>
@@ -881,7 +881,7 @@ function upload() {
 //                                     <h6 class="mb-0" style="font-size: 18px;">Comune</h6>
 //                                 </div>
 //                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-//                                 ${element.comune}
+//                                 ${element.citta}
 //                                 </div>
 //                             </div>
 //                             <hr>
@@ -1092,7 +1092,7 @@ function visualizzaRichiesteCaricoUscita(carico) {
                                                 <h6 class="mb-0" style="font-size: 18px;">Provincia Partenza</h6>
                                             </div>
                                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                            ${element.provinciaPartenza}
+                                            ${element.paesePartenza}
                                             </div>
                                         </div>
                                         <hr>
@@ -1101,7 +1101,7 @@ function visualizzaRichiesteCaricoUscita(carico) {
                                                 <h6 class="mb-0" style="font-size: 18px;">Comune Partenza</h6>
                                             </div>
                                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                            ${element.comunePartenza}
+                                            ${element.cittaPartenza}
                                             </div>
                                         </div>
                                         <hr>
@@ -1164,7 +1164,7 @@ function visualizzaRichiesteCaricoUscita(carico) {
                                                 <h6 class="mb-0" style="font-size: 18px;">Provincia Arrivo</h6>
                                             </div>
                                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                            ${element.provinciaArrivo}
+                                            ${element.paeseArrivo}
                                             </div>
                                         </div>
                                         <hr>
@@ -1173,7 +1173,7 @@ function visualizzaRichiesteCaricoUscita(carico) {
                                                 <h6 class="mb-0" style="font-size: 18px;">Comune Arrivo</h6>
                                             </div>
                                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                            ${element.comuneArrivo}
+                                            ${element.cittaArrivo}
                                             </div>
                                         </div>
                                         <hr>
@@ -1292,7 +1292,7 @@ function visualizzaRichiesteCaricoUscita(carico) {
                                     <h6 class="mb-0" style="font-size: 18px;">Provincia Partenza</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.provinciaPartenza}
+                                ${element.paesePartenza}
                                 </div>
                             </div>
                             <hr>
@@ -1301,7 +1301,7 @@ function visualizzaRichiesteCaricoUscita(carico) {
                                     <h6 class="mb-0" style="font-size: 18px;">Comune Partenza</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.comunePartenza}
+                                ${element.cittaPartenza}
                                 </div>
                             </div>
                             <hr>
@@ -1364,7 +1364,7 @@ function visualizzaRichiesteCaricoUscita(carico) {
                                     <h6 class="mb-0" style="font-size: 18px;">Provincia Arrivo</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.provinciaArrivo}
+                                ${element.paeseArrivo}
                                 </div>
                             </div>
                             <hr>
@@ -1373,7 +1373,7 @@ function visualizzaRichiesteCaricoUscita(carico) {
                                     <h6 class="mb-0" style="font-size: 18px;">Comune Arrivo</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.comuneArrivo}
+                                ${element.cittaArrivo}
                                 </div>
                             </div>
                             <hr>
@@ -1628,19 +1628,19 @@ function visualizzaRichiesteScalaElevatoreUscita(scala) {
                             <hr>
                             <div class="row rowDati">
                                 <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Provincia</h6>
+                                    <h6 class="mb-0" style="font-size: 18px;">Paese</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.provincia}
+                                ${element.paese}
                                 </div>
                             </div>
                             <hr>
                             <div class="row rowDati">
                                 <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Comune</h6>
+                                    <h6 class="mb-0" style="font-size: 18px;">Città</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.comune}
+                                ${element.citta}
                                 </div>
                             </div>
                             <hr>
@@ -1776,7 +1776,7 @@ function visualizzaRichiesteScalaElevatoreUscita(scala) {
                                     <h6 class="mb-0" style="font-size: 18px;">Provincia</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.provincia}
+                                ${element.paese}
                                 </div>
                             </div>
                             <hr>
@@ -1785,7 +1785,7 @@ function visualizzaRichiesteScalaElevatoreUscita(scala) {
                                     <h6 class="mb-0" style="font-size: 18px;">Comune</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.comune}
+                                ${element.citta}
                                 </div>
                             </div>
                             <hr>
@@ -2058,7 +2058,7 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
                                     <h6 class="mb-0" style="font-size: 18px;">Provincia</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.provincia}
+                                ${element.paese}
                                 </div>
                             </div>
                             <hr>
@@ -2067,7 +2067,7 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
                                     <h6 class="mb-0" style="font-size: 18px;">Comune</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.comune}
+                                ${element.citta}
                                 </div>
                             </div>
                             <hr>
@@ -2248,7 +2248,7 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
                                     <h6 class="mb-0" style="font-size: 18px;">Provincia</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.provincia}
+                                ${element.paese}
                                 </div>
                             </div>
                             <hr>
@@ -2257,7 +2257,7 @@ function visualizzaRichiesteConsegnaImballiUscita(imballi) {
                                     <h6 class="mb-0" style="font-size: 18px;">Comune</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.comune}
+                                ${element.citta}
                                 </div>
                             </div>
                             <hr>
@@ -2573,7 +2573,7 @@ function visualizzaRichiestePersonaleSpecializzatoUscita(personale) {
                                     <h6 class="mb-0" style="font-size: 18px;">Provincia</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.provincia}
+                                ${element.paese}
                                 </div>
                             </div>
                             <hr>
@@ -2582,7 +2582,7 @@ function visualizzaRichiestePersonaleSpecializzatoUscita(personale) {
                                     <h6 class="mb-0" style="font-size: 18px;">Comune</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.comune}
+                                ${element.citta}
                                 </div>
                             </div>
                             <hr>
@@ -2727,7 +2727,7 @@ function visualizzaRichiestePersonaleSpecializzatoUscita(personale) {
                                             <h6 class="mb-0" style="font-size: 18px;">Provincia</h6>
                                         </div>
                                         <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                        ${element.provincia}
+                                        ${element.paese}
                                         </div>
                                     </div>
                                     <hr>
@@ -2736,7 +2736,7 @@ function visualizzaRichiestePersonaleSpecializzatoUscita(personale) {
                                             <h6 class="mb-0" style="font-size: 18px;">Comune</h6>
                                         </div>
                                         <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                        ${element.comune}
+                                        ${element.citta}
                                         </div>
                                     </div>
                                     <hr>
@@ -3015,7 +3015,7 @@ function visualizzaRichiesteDepositoMagazzinoUscita(deposito) {
                                     <h6 class="mb-0" style="font-size: 18px;">Provincia</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.provincia}
+                                ${element.paese}
                                 </div>
                             </div>
                             <hr>
@@ -3024,7 +3024,7 @@ function visualizzaRichiesteDepositoMagazzinoUscita(deposito) {
                                     <h6 class="mb-0" style="font-size: 18px;">Comune</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.comune}
+                                ${element.citta}
                                 </div>
                             </div>
                             <hr>
@@ -3168,7 +3168,7 @@ function visualizzaRichiesteDepositoMagazzinoUscita(deposito) {
                                     <h6 class="mb-0" style="font-size: 18px;">Provincia</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.provincia}
+                                ${element.paese}
                                 </div>
                             </div>
                             <hr>
@@ -3177,7 +3177,7 @@ function visualizzaRichiesteDepositoMagazzinoUscita(deposito) {
                                     <h6 class="mb-0" style="font-size: 18px;">Comune</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.comune}
+                                ${element.citta}
                                 </div>
                             </div>
                             <hr>
@@ -3458,7 +3458,7 @@ function visualizzaRichiesteTratteUscita(tratte) {
                                     <h6 class="mb-0" style="font-size: 18px;">Provincia Partenza</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.provinciaPartenza}
+                                ${element.paesePartenza}
                                 </div>
                             </div>
                             <hr>
@@ -3467,7 +3467,7 @@ function visualizzaRichiesteTratteUscita(tratte) {
                                     <h6 class="mb-0" style="font-size: 18px;">Comune Partenza</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.comunePartenza}
+                                ${element.cittaPartenza}
                                 </div>
                             </div>
                             <hr>
@@ -3530,7 +3530,7 @@ function visualizzaRichiesteTratteUscita(tratte) {
                                     <h6 class="mb-0" style="font-size: 18px;">Provincia Arrivo</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.provinciaArrivo}
+                                ${element.paeseArrivo}
                                 </div>
                             </div>
                             <hr>
@@ -3539,7 +3539,7 @@ function visualizzaRichiesteTratteUscita(tratte) {
                                     <h6 class="mb-0" style="font-size: 18px;">Comune Arrivo</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.comuneArrivo}
+                                ${element.cittaArrivo}
                                 </div>
                             </div>
                             <hr>
@@ -3648,7 +3648,7 @@ function visualizzaRichiesteTratteUscita(tratte) {
                                     <h6 class="mb-0" style="font-size: 18px;">Provincia Partenza</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.provinciaPartenza}
+                                ${element.paesePartenza}
                                 </div>
                             </div>
                             <hr>
@@ -3657,7 +3657,7 @@ function visualizzaRichiesteTratteUscita(tratte) {
                                     <h6 class="mb-0" style="font-size: 18px;">Comune Partenza</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.comunePartenza}
+                                ${element.cittaPartenza}
                                 </div>
                             </div>
                             <hr>
@@ -3720,7 +3720,7 @@ function visualizzaRichiesteTratteUscita(tratte) {
                                     <h6 class="mb-0" style="font-size: 18px;">Provincia Arrivo</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.provinciaArrivo}
+                                ${element.paeseArrivo}
                                 </div>
                             </div>
                             <hr>
@@ -3729,7 +3729,7 @@ function visualizzaRichiesteTratteUscita(tratte) {
                                     <h6 class="mb-0" style="font-size: 18px;">Comune Arrivo</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.comuneArrivo}
+                                ${element.cittaArrivo}
                                 </div>
                             </div>
                             <hr>
