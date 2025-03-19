@@ -14,11 +14,85 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="module">
+        "use strict";
 
+        // This loads helper components from the Extended Component Library,
+        // https://github.com/googlemaps/extended-component-library.
+        import { APILoader } from 'https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js';
+
+        const CONFIGURATION = {
+            "ctaTitle": "Checkout",
+            "mapOptions": { "center": { "lat": 37.4221, "lng": -122.0841 }, "fullscreenControl": true, "mapTypeControl": false, "streetViewControl": true, "zoom": 11, "zoomControl": true, "maxZoom": 22, "mapId": "" },
+            "mapsApiKey": "AIzaSyBj1bqlcwA9G1E6Jl9Z14ZvgLZtioIBoow",
+            "capabilities": { "addressAutocompleteControl": true, "mapDisplayControl": false, "ctaControl": false }
+        };
+
+        const SHORT_NAME_ADDRESS_COMPONENT_TYPES =
+            new Set(['street_number', 'administrative_area_level_1', 'postal_code']);
+
+        const ADDRESS_COMPONENT_TYPES_IN_FORM = [
+            'location',
+            'locality',
+            'administrative_area_level_1',
+            'postal_code',
+            'country',
+        ];
+
+        function getFormInputElement(componentType) {
+            return document.getElementById(`${componentType}-input`);
+        }
+
+        function fillInAddress(place) {
+            function getComponentName(componentType) {
+                for (const component of place.address_components || []) {
+                    if (component.types[0] === componentType) {
+                        return SHORT_NAME_ADDRESS_COMPONENT_TYPES.has(componentType) ?
+                            component.short_name :
+                            component.long_name;
+                    }
+                }
+                return '';
+            }
+
+            function getComponentText(componentType) {
+                return (componentType === 'location') ?
+                    `${getComponentName('street_number')} ${getComponentName('route')}` :
+                    getComponentName(componentType);
+            }
+
+            for (const componentType of ADDRESS_COMPONENT_TYPES_IN_FORM) {
+                getFormInputElement(componentType).value = getComponentText(componentType);
+            }
+        }
+
+        async function initMap() {
+            const { Autocomplete } = await APILoader.importLibrary('places');
+
+            const autocomplete = new Autocomplete(getFormInputElement('location'), {
+                fields: ['address_components', 'geometry', 'name'],
+                types: ['address'],
+            });
+
+            autocomplete.addListener('place_changed', () => {
+                const place = autocomplete.getPlace();
+                if (!place.geometry) {
+                    // User entered the name of a Place that was not suggested and
+                    // pressed the Enter key, or the Place Details request failed.
+                    window.alert(`No details available for input: '${place.name}'`);
+                    return;
+                }
+                fillInAddress(place);
+            });
+        }
+
+        initMap();
+    </script>
 </head>
 
 <body style="background-image: url(./imgs/marmo.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;">
-
+    <gmpx-api-loader key="AIzaSyBj1bqlcwA9G1E6Jl9Z14ZvgLZtioIBoow" solution-channel="GMP_QB_addressselection_v4_cA">
+    </gmpx-api-loader>
     <div class="navbarMain"></div>
 
 
@@ -44,22 +118,19 @@
 
             <div class="row g-3 p-2">
                 <div class="col-md-5 col-lg-5">
-                    <label for="regioni" class="form-label">Regione *</label>
-                    <select id="regioni" class="form-select regionePartenza">
-                        <option value="" disabled selected>Seleziona Regione</option>
-
-                    </select>
+                    
+                    <label for="location-input" class="form-label">Indirizzo *</label>
+                    <input type="text" placeholder="Via Roma 4" id="location-input" class="form-control indirizzoPartenza" />
 
                 </div>
 
                 <div class="col-md-2"></div>
 
                 <div class="col-md-5 col-lg-5">
-                    <label for="province" class="form-label">Provincia *</label>
-                    <select id="province" class="form-select provinciaPartenza">
-                        <option value="" disabled selected>Seleziona Provincia</option>
+                    
+                    <label for="" class="form-label">Indirizzo due</label>
+                    <input type="text" placeholder="Palazzina, scala, piano, etc (opzionale)" class="form-control indirizzoDuePartenza" />
 
-                    </select>
                 </div>
             </div>
 
@@ -67,20 +138,18 @@
             <div class="row g-3 p-2">
 
                 <div class="col-md-5 col-lg-5">
-                    <label for="comuni" class="form-label">Comune *</label>
-                    <select id="comuni" class="form-select comunePartenza">
-                        <option value="" disabled selected>Seleziona Comune</option>
-
-                    </select>
+                    
+                    <label for="locality-input" class="form-label">Città *</label>
+                    <input type="text" placeholder="Città" id="locality-input" class="form-control cittaPartenza" />
 
                 </div>
 
                 <div class="col-md-2"></div>
 
                 <div class="col-md-5 col-lg-5">
-                    <label class="form-label">Indirizzo *</label>
-                    <input type="text" class="form-control indirizzoPartenza" placeholder="Via Roma 5" maxLength="50"
-                        required>
+                    
+                    <label for="administrative_area_level_1-input" class="form-label">Regione/Stato *</label>
+                    <input type="text" id="administrative_area_level_1-input" class="form-control regionePartenza" placeholder="Stato" maxLength="50" />
 
                 </div>
 
@@ -89,20 +158,19 @@
             <div class="row g-3 p-2">
 
                 <div class="col-md-5 col-lg-5">
-                    <label class="form-label">Indirizzo Secondario</label>
-                    <input type="text" class="form-control indirizzoDuePartenza" placeholder="Via Milano 8"
-                        maxLength="50">
+                    
+                    <label for="postal_code-input" class="form-label">CAP *</label>
+                    <input type="text" id="postal_code-input" class="form-control capPartenza" placeholder="Zip/Postal code" />
 
                 </div>
 
                 <div class="col-md-2"></div>
 
                 <div class="col-md-5 col-lg-5">
-                    <label class="form-label">CAP *</label>
-                    <input type="text" class="form-control capPartenza" placeholder="00015" maxLength="5" required>
-                    <div class="invalidCapPartenza text-danger">
+                    
+                    <label for="country-input" class="form-label">Nazione *</label>
+                    <input type="text" id="country-input" class="form-control paesePartenza" placeholder="Country" />
 
-                    </div>
                 </div>
 
             </div>
@@ -151,22 +219,18 @@
 
             <div class="row g-3 p-2 ">
                 <div class="col-md-5 col-lg-5">
-                    <label for="regioni1" class="form-label">Regione *</label>
-                    <select id="regioni1" class="form-select regioneArrivo">
-                        <option value="" disabled selected>Seleziona Regione</option>
-
-                    </select>
+                    
+                    <label for="location-input" class="form-label">Indirizzo *</label>
+                    <input type="text" placeholder="Via Roma 4" id="location-input" class="form-control indirizzoArrivo" />
 
                 </div>
 
                 <div class="col-md-2"></div>
 
                 <div class="col-md-5 col-lg-5">
-                    <label for="province1" class="form-label">Provincia *</label>
-                    <select id="province1" class="form-select provinciaArrivo">
-                        <option value="" disabled selected>Seleziona Provincia</option>
-
-                    </select>
+                    
+                    <label for="" class="form-label">Indirizzo due</label>
+                    <input type="text" placeholder="Palazzina, scala, piano, etc (opzionale)" class="form-control indirizzoDueArrivo" />
 
                 </div>
             </div>
@@ -174,20 +238,18 @@
             <div class="row g-3 p-2">
 
                 <div class="col-md-5 col-lg-5">
-                    <label for="comuni1" class="form-label">Comune *</label>
-                    <select id="comuni1" class="form-select comuneArrivo">
-                        <option value="" disabled selected>Seleziona Comune</option>
-
-                    </select>
+                    
+                    <label for="locality-input" class="form-label">Città *</label>
+                    <input type="text" placeholder="Città" id="locality-input" class="form-control cittaArrivo" />
 
                 </div>
 
                 <div class="col-md-2"></div>
 
                 <div class="col-md-5 col-lg-5">
-                    <label class="form-label">Indirizzo *</label>
-                    <input type="text" class="form-control indirizzoArrivo" placeholder="Via Roma 5" maxLength="50"
-                        required>
+                    
+                    <label for="administrative_area_level_1-input" class="form-label">Regione/Stato *</label>
+                    <input type="text" id="administrative_area_level_1-input" class="form-control regioneArrivo" placeholder="Stato" maxLength="50" />
 
                 </div>
 
@@ -197,21 +259,19 @@
             <div class="row g-3 p-2">
 
                 <div class="col-md-5 col-lg-5">
-                    <label class="form-label">Indirizzo Secondario</label>
-                    <input type="text" class="form-control indirizzoDueArrivo" placeholder="Via Milano 8"
-                        maxLength="50">
-
+                    
+                    <label for="postal_code-input" class="form-label">CAP *</label>
+                    <input type="text" id="postal_code-input" class="form-control capArrivo" placeholder="Zip/Postal code" />
 
                 </div>
 
                 <div class="col-md-2"></div>
 
                 <div class="col-md-5 col-lg-5">
-                    <label class="form-label">CAP *</label>
-                    <input type="text" class="form-control capArrivo" placeholder="00030" maxlength="5" required>
-                    <div class="invalidCapArrivo text-danger">
+                    
+                    <label for="country-input" class="form-label">Nazione *</label>
+                    <input type="text" id="country-input" class="form-control paeseArrivo" placeholder="Country" />
 
-                    </div>
                 </div>
 
 
@@ -264,14 +324,12 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="../Progetto/js/homepagejs.js"></script>
-<div class="gtranslate_wrapper"></div>
- <script>window.gtranslateSettings = {"default_language":"it","detect_browser_language":true,"languages":["it","fr","de","es","zh-CN","ko","ja","ru","en","ar","hi","bn","ur"],"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"right","float_switcher_open_direction":"bottom","alt_flags":{"en":"usa","pt":"brazil"}}</script>
-<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+    <div class="gtranslate_wrapper"></div>
+    <script>window.gtranslateSettings = { "default_language": "it", "detect_browser_language": true, "languages": ["it", "fr", "de", "es", "zh-CN", "ko", "ja", "ru", "en", "ar", "hi", "bn", "ur"], "wrapper_selector": ".gtranslate_wrapper", "switcher_horizontal_position": "right", "float_switcher_open_direction": "bottom", "alt_flags": { "en": "usa", "pt": "brazil" } }</script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
     <script src="../Progetto/js/footer.js"></script>
     <script src="../Progetto/js/richiestaTratte.js"></script>
-    <script src="../Progetto/js/imballi.js"></script>
-    <script src="../Progetto/js/imballi1.js"></script>
 
 </body>
 

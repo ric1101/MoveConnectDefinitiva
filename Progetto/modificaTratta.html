@@ -14,96 +14,169 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="module">
+        "use strict";
+
+        // This loads helper components from the Extended Component Library,
+        // https://github.com/googlemaps/extended-component-library.
+        import { APILoader } from 'https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js';
+
+        const CONFIGURATION = {
+            "ctaTitle": "Checkout",
+            "mapOptions": { "center": { "lat": 37.4221, "lng": -122.0841 }, "fullscreenControl": true, "mapTypeControl": false, "streetViewControl": true, "zoom": 11, "zoomControl": true, "maxZoom": 22, "mapId": "" },
+            "mapsApiKey": "AIzaSyBj1bqlcwA9G1E6Jl9Z14ZvgLZtioIBoow",
+            "capabilities": { "addressAutocompleteControl": true, "mapDisplayControl": false, "ctaControl": false }
+        };
+
+        const SHORT_NAME_ADDRESS_COMPONENT_TYPES =
+            new Set(['street_number', 'administrative_area_level_1', 'postal_code']);
+
+        const ADDRESS_COMPONENT_TYPES_IN_FORM = [
+            'location',
+            'locality',
+            'administrative_area_level_1',
+            'postal_code',
+            'country',
+        ];
+
+        function getFormInputElement(componentType) {
+            return document.getElementById(`${componentType}-input`);
+        }
+
+        function fillInAddress(place) {
+            function getComponentName(componentType) {
+                for (const component of place.address_components || []) {
+                    if (component.types[0] === componentType) {
+                        return SHORT_NAME_ADDRESS_COMPONENT_TYPES.has(componentType) ?
+                            component.short_name :
+                            component.long_name;
+                    }
+                }
+                return '';
+            }
+
+            function getComponentText(componentType) {
+                return (componentType === 'location') ?
+                    `${getComponentName('street_number')} ${getComponentName('route')}` :
+                    getComponentName(componentType);
+            }
+
+            for (const componentType of ADDRESS_COMPONENT_TYPES_IN_FORM) {
+                getFormInputElement(componentType).value = getComponentText(componentType);
+            }
+        }
+
+        async function initMap() {
+            const { Autocomplete } = await APILoader.importLibrary('places');
+
+            const autocomplete = new Autocomplete(getFormInputElement('location'), {
+                fields: ['address_components', 'geometry', 'name'],
+                types: ['address'],
+            });
+
+            autocomplete.addListener('place_changed', () => {
+                const place = autocomplete.getPlace();
+                if (!place.geometry) {
+                    // User entered the name of a Place that was not suggested and
+                    // pressed the Enter key, or the Place Details request failed.
+                    window.alert(`No details available for input: '${place.name}'`);
+                    return;
+                }
+                fillInAddress(place);
+            });
+        }
+
+        initMap();
+    </script>
 </head>
 
-<body>
+<body style="background-image: url(./imgs/marmo.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;">
+    <gmpx-api-loader key="AIzaSyBj1bqlcwA9G1E6Jl9Z14ZvgLZtioIBoow" solution-channel="GMP_QB_addressselection_v4_cA">
+    </gmpx-api-loader>
     <div class="navbarMain"></div>
 
 
-    <div class="container mt-5 mb-5" style="border-radius: 4px; border: solid 2px black;">
+    <div class="row mt-5 mb-5 d-flex justify-content-center">
 
 
         <div>
-            <h1 class="text-center mb-4">MODIFICA TRATTA &nbsp;<i class="fa-solid fa-road"></i></h1>
+            <h1 class="text-center mb-4">TRATTA &nbsp;<i class="fa-solid fa-road"></i></h1>
         </div>
 
 
-        <form class="row g-3 formRow">
+        <form class="col-md-9 col-lg-7 col-sm-7 col-9 p-5" style="background-color: #ece4d485; border-radius: 1rem; ">
 
             <!-- ----------------------------------------------------------------------- -->
             <!--                                  Partenza                               -->
             <!-- ----------------------------------------------------------------------- -->
-            <div class="row g-3 justify-content-evenly">
-                <div class="col-md-4 col-lg-3">
-                    <h3 class="d-flex justify-content">Partenza</h3>
+            <div class="row g-3 p-2">
+                <div class="col-md-5 col-lg-5">
+                    <h3>Partenza</h3>
                 </div>
-                <div class="col-md-4 col-lg-3">
+
+            </div>
+
+            <div class="row g-3 p-2">
+                <div class="col-md-5 col-lg-5">
+                    
+                    <label for="location-input" class="form-label">Indirizzo *</label>
+                    <input type="text" placeholder="Via Roma 4" id="location-input" class="form-control indirizzoPartenza" />
+
+                </div>
+
+                <div class="col-md-2"></div>
+
+                <div class="col-md-5 col-lg-5">
+                    
+                    <label for="" class="form-label">Indirizzo due</label>
+                    <input type="text" placeholder="Palazzina, scala, piano, etc (opzionale)" class="form-control indirizzoDuePartenza" />
+
                 </div>
             </div>
 
-            <div class="row g-3 justify-content-evenly">
-                <div class="col-md-4 col-lg-3">
-                    <label for="regioni" class="form-label">Regione *</label>
-                    <select id="regioni" class="form-select regionePartenza">
-                        <option value="" disabled selected>Seleziona Regione</option>
 
-                    </select>
-                    <p class="opzioneRegione"></p>
+            <div class="row g-3 p-2">
 
-                </div>
-
-                <div class="col-md-4 col-lg-3">
-                    <label for="province" class="form-label">Provincia *</label>
-                    <select id="province" class="form-select provinciaPartenza">
-                        <option value="" disabled selected>Seleziona Provincia</option>
-
-                    </select>
-                    <p class="opzioneProvincia"></p>
-                </div>
-            </div>
-
-            <div class="row g-3 justify-content-evenly">
-
-                <div class="col-md-4 col-lg-3">
-                    <label for="comuni" class="form-label">Comune *</label>
-                    <select id="comuni" class="form-select comunePartenza">
-                        <option value="" disabled selected>Seleziona Comune</option>
-
-                    </select>
-                    <p class="opzioneComune"></p>
+                <div class="col-md-5 col-lg-5">
+                    
+                    <label for="locality-input" class="form-label">Città *</label>
+                    <input type="text" placeholder="Città" id="locality-input" class="form-control cittaPartenza" />
 
                 </div>
 
-                <div class="col-md-4 col-lg-3">
-                    <label class="form-label">Indirizzo *</label>
-                    <input type="text" class="form-control indirizzoPartenza" placeholder="Via Roma 5" maxLength="50"
-                        required>
+                <div class="col-md-2"></div>
+
+                <div class="col-md-5 col-lg-5">
+                    
+                    <label for="administrative_area_level_1-input" class="form-label">Regione/Stato *</label>
+                    <input type="text" id="administrative_area_level_1-input" class="form-control regionePartenza" placeholder="Stato" maxLength="50" />
 
                 </div>
 
             </div>
 
-            <div class="row g-3 justify-content-evenly">
+            <div class="row g-3 p-2">
 
-                <div class="col-md-4 col-lg-3">
-                    <label class="form-label">Indirizzo Secondario</label>
-                    <input type="text" class="form-control indirizzoDuePartenza" placeholder="Via Milano 8"
-                        maxLength="50">
+                <div class="col-md-5 col-lg-5">
+                    
+                    <label for="postal_code-input" class="form-label">CAP *</label>
+                    <input type="text" id="postal_code-input" class="form-control capPartenza" placeholder="Zip/Postal code" />
 
                 </div>
 
-                <div class="col-md-4 col-lg-3">
-                    <label class="form-label">CAP *</label>
-                    <input type="text" class="form-control capPartenza" placeholder="00015" maxLength="5" required>
-                    <div class="invalidCapPartenza text-danger">
+                <div class="col-md-2"></div>
 
-                    </div>
+                <div class="col-md-5 col-lg-5">
+                    
+                    <label for="country-input" class="form-label">Nazione *</label>
+                    <input type="text" id="country-input" class="form-control paesePartenza" placeholder="Country" />
+
                 </div>
 
             </div>
 
-            <div class="row g-3 justify-content-evenly mb-5">
-                <div class="col-md-4 col-lg-3">
+            <div class="row g-3 p-2 mb-3">
+                <div class="col-md-5 col-lg-5">
                     <label class="form-label">Partenza *</label>
                     <input type="date" min="" max="" class="form-control partenza" onkeydown="return false" required>
                     <div class="invalidPartenza text-danger">
@@ -111,8 +184,9 @@
                     </div>
                 </div>
 
+                <div class="col-md-2"></div>
 
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-5 col-lg-5">
                     <label for="veicolo" class="form-label">Tipologia veicolo *</label>
                     <select id="veicolo" class="form-select tipoDiVeicolo">
                         <option value="" disabled selected>Seleziona veicolo</option>
@@ -132,9 +206,8 @@
             <!-- ----------------------------------------------------------------------- -->
 
 
-            <hr class="separazione mt-3">
-            <div class="row g-3 justify-content-evenly">
-                <div class="col-md-4 col-lg-3">
+            <div class="row g-3 p-2">
+                <div class="col-md-5 col-lg-5">
                     <h3 class="d-flex justify-content">Arrivo</h3>
 
                 </div>
@@ -144,96 +217,102 @@
                 </div>
             </div>
 
-            <div class="row g-3 justify-content-evenly">
-                <div class="col-md-4 col-lg-3">
-                    <label for="regioni1" class="form-label">Regione *</label>
-                    <select id="regioni1" class="form-select regioneArrivo">
-                        <option value="" disabled selected>Seleziona Regione</option>
-                    </select>
-                    <p class="opzioneRegione2"></p>
+            <div class="row g-3 p-2 ">
+                <div class="col-md-5 col-lg-5">
                     
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <label for="province1" class="form-label">Provincia *</label>
-                    <select id="province1" class="form-select provinciaArrivo">
-                        <option value="" disabled selected>Seleziona Provincia</option>
+                    <label for="location-input" class="form-label">Indirizzo *</label>
+                    <input type="text" placeholder="Via Roma 4" id="location-input" class="form-control indirizzoArrivo" />
 
-                    </select>
-                    <p class="opzioneProvincia2"></p>
+                </div>
+
+                <div class="col-md-2"></div>
+
+                <div class="col-md-5 col-lg-5">
+                    
+                    <label for="" class="form-label">Indirizzo due</label>
+                    <input type="text" placeholder="Palazzina, scala, piano, etc (opzionale)" class="form-control indirizzoDueArrivo" />
 
                 </div>
             </div>
 
-            <div class="row g-3 justify-content-evenly">
+            <div class="row g-3 p-2">
 
-                <div class="col-md-4 col-lg-3">
-                    <label for="comuni1" class="form-label">Comune *</label>
-                    <select id="comuni1" class="form-select comuneArrivo">
-                        <option value="" disabled selected>Seleziona Comune</option>
-
-                    </select>
-                    <p class="opzioneComune2"></p>
+                <div class="col-md-5 col-lg-5">
+                    
+                    <label for="locality-input" class="form-label">Città *</label>
+                    <input type="text" placeholder="Città" id="locality-input" class="form-control cittaArrivo" />
 
                 </div>
 
-                <div class="col-md-4 col-lg-3">
-                    <label class="form-label">Indirizzo *</label>
-                    <input type="text" class="form-control indirizzoArrivo" placeholder="Via Roma 5" maxLength="50"
-                        required>
+                <div class="col-md-2"></div>
 
-                </div>
+                <div class="col-md-5 col-lg-5">
+                    
+                    <label for="administrative_area_level_1-input" class="form-label">Regione/Stato *</label>
+                    <input type="text" id="administrative_area_level_1-input" class="form-control regioneArrivo" placeholder="Stato" maxLength="50" />
 
-
-            </div>
-
-            <div class="row g-3 justify-content-evenly">
-
-                <div class="col-md-4 col-lg-3">
-                    <label class="form-label">Indirizzo Secondario</label>
-                    <input type="text" class="form-control indirizzoDueArrivo" placeholder="Via Milano 8" maxLength="50" >
-                  
-
-                </div>
-
-                <div class="col-md-4 col-lg-3">
-                    <label class="form-label">CAP *</label>
-                    <input type="text" class="form-control capArrivo" placeholder="00030" maxlength="5" required>
-                    <div class="invalidCapArrivo text-danger">
-
-                    </div>
                 </div>
 
 
             </div>
 
-            <div class="row g-3 justify-content-evenly">
-                <div class="col-md-4 col-lg-3">
+            <div class="row g-3 p-2">
+
+                <div class="col-md-5 col-lg-5">
+                    
+                    <label for="postal_code-input" class="form-label">CAP *</label>
+                    <input type="text" id="postal_code-input" class="form-control capArrivo" placeholder="Zip/Postal code" />
+
+                </div>
+
+                <div class="col-md-2"></div>
+
+                <div class="col-md-5 col-lg-5">
+                    
+                    <label for="country-input" class="form-label">Nazione *</label>
+                    <input type="text" id="country-input" class="form-control paeseArrivo" placeholder="Country" />
+
+                </div>
+
+
+            </div>
+
+            <div class="row g-3 p-2">
+                <div class="col-md-5 col-lg-5">
                     <label class="form-label">Arrivo *</label>
-                    <input type="date" class="form-control arrivo" min="" max="" onkeydown="return false" required>
+                    <input type="date" class="form-control arrivo" min="" max="" onkeydown="return false" required
+                        disabled>
                     <div class="invalidArrivo text-danger">
 
                     </div>
                 </div>
 
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-2"></div>
+
+                <div class="col-md-5 col-lg-5">
                     <div data-mdb-input-init class="form-outline">
                         <label class="form-label" for="textAreaExample">Note</label>
-                        <textarea class="form-control note" rows="1" 
-                           placeholder="Esigenze particolari..."></textarea>
+                        <textarea class="form-control note" rows="1" placeholder="Esigenze particolari..."></textarea>
                     </div>
-                    <div class="d-flex justify-content-end mt-4 mb-4">
-                        <div class="d-flex justify-content-end mt-4">
-                            <button class="btn btn-success mx-2 bottonozzo btnInvioRichiestaTratte"
-                                id="btnInvioRichiestaTratte">Invio Richiesta</button>
-                        </div>
 
-                    </div>
-                    <div class="d-flex justify-content-end">
-                        <div class="text-danger blankCamp"></div>
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <div class="row g-3 mt-2">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="d-flex justify-content-end mb-2">
+                                <button class="btn bottonozzo btnInvioRichiestaTratte"
+                                    id="btnInvioRichiestaTratte">Invio Richiesta</button>
+                            </div>
+                            <div class="row d-flex">
+                                <div class="col-md-12 col-lg-12">
+                                    <div align="right" class="text-danger blankCamp"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </form>
     </div>
 
@@ -245,14 +324,12 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="../Progetto/js/homepagejs.js"></script>
-<div class="gtranslate_wrapper"></div>
- <script>window.gtranslateSettings = {"default_language":"it","detect_browser_language":true,"languages":["it","fr","de","es","zh-CN","ko","ja","ru","en","ar","hi","bn","ur"],"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"right","float_switcher_open_direction":"bottom","alt_flags":{"en":"usa","pt":"brazil"}}</script>
-<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+    <div class="gtranslate_wrapper"></div>
+    <script>window.gtranslateSettings = { "default_language": "it", "detect_browser_language": true, "languages": ["it", "fr", "de", "es", "zh-CN", "ko", "ja", "ru", "en", "ar", "hi", "bn", "ur"], "wrapper_selector": ".gtranslate_wrapper", "switcher_horizontal_position": "right", "float_switcher_open_direction": "bottom", "alt_flags": { "en": "usa", "pt": "brazil" } }</script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
     <script src="../Progetto/js/footer.js"></script>
     <script src="../Progetto/js/richiestaTratteModifica.js"></script>
-    <script src="../Progetto/js/imballi.js"></script>
-    <script src="../Progetto/js/imballi1.js"></script>
 
 </body>
 
