@@ -80,7 +80,7 @@ function tratteInfo(dati, img, id) {
                             <p>${dati.aziendaDTO.emailAziendale}</p>
                             <h5 class="fw-bold">P. Iva: </h5>
                             <p>${dati.aziendaDTO.piva}</p>
-                            <h5 class="fw-bold">Indirizzo: </h5>aziendaDTO
+                            <h5 class="fw-bold">Indirizzo: </h5>
                             <p>${dati.aziendaDTO.indirizzo + ', ' + dati.aziendaDTO.citta + ', ' + dati.aziendaDTO.cap }</p>
                         </div>
                     </div>
