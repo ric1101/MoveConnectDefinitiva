@@ -81,7 +81,7 @@ function tratteInfo(dati, img, id) {
                             <h5 class="fw-bold">P. Iva: </h5>
                             <p>${dati.aziendaDTO.piva}</p>
                             <h5 class="fw-bold">Indirizzo: </h5>aziendaDTO
-                            <p>${dati.aziendaDTO.indirizzo + ', ' + dati.aziendaDTO.comune + ', ' + dati.aziendaDTO.cap }</p>
+                            <p>${dati.aziendaDTO.indirizzo + ', ' + dati.aziendaDTO.citta + ', ' + dati.aziendaDTO.cap }</p>
                         </div>
                     </div>
                        
@@ -104,6 +104,15 @@ function tratteInfo(dati, img, id) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Nazione Partenza</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.paesePartenza}</p>
+                                    </div>
+                                </div>                                
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
                                         <p class="mb-0 fw-bold">Regione Partenza</p>
                                     </div>
                                     <div class="col-sm-6">
@@ -113,19 +122,10 @@ function tratteInfo(dati, img, id) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Provincia Partenza</p>
+                                        <p class="mb-0 fw-bold">Città Partenza</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.provinciaPartenza}</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row p-2 ">
-                                    <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Comune Partenza</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.comunePartenza}</p>
+                                        <p class="text-muted mb-0">${dati.cittaPartenza}</p>
                                     </div>
                                 </div>
                                 <hr>
@@ -176,6 +176,15 @@ function tratteInfo(dati, img, id) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Nazione Arrivo</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.paeseArrivo}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
                                         <p class="mb-0 fw-bold">Regione Arrivo</p>
                                     </div>
                                     <div class="col-sm-6">
@@ -185,19 +194,10 @@ function tratteInfo(dati, img, id) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Provincia Arrivo</p>
+                                        <p class="mb-0 fw-bold">Città Arrivo</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.provinciaArrivo}</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row p-2 ">
-                                    <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Comune Arrivo</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.comuneArrivo}</p>
+                                        <p class="text-muted mb-0">${dati.cittaArrivo}</p>
                                     </div>
                                 </div>
                                 <hr>
