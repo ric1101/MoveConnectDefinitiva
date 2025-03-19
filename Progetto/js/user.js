@@ -1077,22 +1077,21 @@ function visualizzaRichiesteCaricoUscita(carico) {
                                         </div>
                                         
             
-            
-                                        <div class="row rowDati">
-                                            <div class="col-sm-5">
-                                                <h6 class="mb-0" style="font-size: 18px;">Regione Partenza</h6>
-                                            </div>
-                                            <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                            ${element.regionePartenza}
-                                            </div>
-                                        </div>
-                                        <hr>
                                         <div class="row rowDati">
                                             <div class="col-sm-5">
                                                 <h6 class="mb-0" style="font-size: 18px;">Nazione Partenza</h6>
                                             </div>
                                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
                                             ${element.paesePartenza}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row rowDati">
+                                            <div class="col-sm-5">
+                                                <h6 class="mb-0" style="font-size: 18px;">Regione Partenza</h6>
+                                            </div>
+                                            <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                            ${element.regionePartenza}
                                             </div>
                                         </div>
                                         <hr>
@@ -1152,19 +1151,19 @@ function visualizzaRichiesteCaricoUscita(carico) {
                                         <hr>
                                         <div class="row rowDati">
                                             <div class="col-sm-5">
-                                                <h6 class="mb-0" style="font-size: 18px;">Regione Arrivo</h6>
+                                                <h6 class="mb-0" style="font-size: 18px;">Nazione Arrivo</h6>
                                             </div>
                                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                            ${element.regioneArrivo}
+                                            ${element.paeseArrivo}
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row rowDati">
                                             <div class="col-sm-5">
-                                                <h6 class="mb-0" style="font-size: 18px;">Nazione Arrivo</h6>
+                                                <h6 class="mb-0" style="font-size: 18px;">Regione Arrivo</h6>
                                             </div>
                                             <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                            ${element.paeseArrivo}
+                                            ${element.regioneArrivo}
                                             </div>
                                         </div>
                                         <hr>
@@ -1352,19 +1351,19 @@ function visualizzaRichiesteCaricoUscita(carico) {
                             <hr>
                             <div class="row rowDati">
                                 <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Regione Arrivo</h6>
+                                    <h6 class="mb-0" style="font-size: 18px;">Nazione Arrivo</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.regioneArrivo}
+                                ${element.paeseArrivo}
                                 </div>
                             </div>
                             <hr>
                             <div class="row rowDati">
                                 <div class="col-sm-5">
-                                    <h6 class="mb-0" style="font-size: 18px;">Nazione Arrivo</h6>
+                                    <h6 class="mb-0" style="font-size: 18px;">Regione Arrivo</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                ${element.paeseArrivo}
+                                ${element.regioneArrivo}
                                 </div>
                             </div>
                             <hr>

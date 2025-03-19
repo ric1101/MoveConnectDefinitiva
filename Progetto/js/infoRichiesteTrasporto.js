@@ -15,53 +15,53 @@ fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/richiestaId/${dataEventoId}`
     });
 
 
-    function fetchImg(dati, id) {
+function fetchImg(dati, id) {
 
-        let imgAzienda = document.querySelector('.imgAzienda');
-    
-        fetch(`http://127.0.0.1:8080/api/azienda/logo/${id}`)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Errore nel recupero del logo");
-                }
-                return response.blob();
-            })
-            .then((blob) => {
-                const logoUrl = URL.createObjectURL(blob);
-                
+    let imgAzienda = document.querySelector('.imgAzienda');
 
-                recuperaToken(dati, logoUrl);
-            })
-            .catch((error) => {
-                console.error("Errore nel caricamento del logo:", error);
-                imgAzienda.setAttribute(
-                    'src',
-                    './img/default-logo.png'
-                );
-            });
-    }
+    fetch(`http://127.0.0.1:8080/api/azienda/logo/${id}`)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Errore nel recupero del logo");
+            }
+            return response.blob();
+        })
+        .then((blob) => {
+            const logoUrl = URL.createObjectURL(blob);
 
-    
-    function recuperaToken(dati, img) {
 
-        let accessToken = localStorage.getItem('accessToken');
-    
-        fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-            .then((res) => res.json())
-            .then((data) => {
-    
-    
-                trasportoInfo(dati, img, data.id)
-    
-    
-            });
-    }
-    
+            recuperaToken(dati, logoUrl);
+        })
+        .catch((error) => {
+            console.error("Errore nel caricamento del logo:", error);
+            imgAzienda.setAttribute(
+                'src',
+                './img/default-logo.png'
+            );
+        });
+}
+
+
+function recuperaToken(dati, img) {
+
+    let accessToken = localStorage.getItem('accessToken');
+
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+
+            trasportoInfo(dati, img, data.id)
+
+
+        });
+}
+
 
 
 
 function trasportoInfo(dati, img, id) {
-    
+
 
     let visualizzaInfo = `
     <div class="col-lg-2"></div>
@@ -81,7 +81,7 @@ function trasportoInfo(dati, img, id) {
                             <h5 class="fw-bold">P. Iva: </h5>
                             <p>${dati.aziendaDTO.piva}</p>
                             <h5 class="fw-bold">Indirizzo: </h5>
-                            <p>${dati.aziendaDTO.indirizzo + ', ' + dati.aziendaDTO.comune + ', ' + dati.aziendaDTO.cap }</p>
+                            <p>${dati.aziendaDTO.indirizzo + ', ' + dati.aziendaDTO.citta + ', ' + dati.aziendaDTO.cap}</p>
                         </div>
                     </div>
                        
@@ -104,6 +104,15 @@ function trasportoInfo(dati, img, id) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Nazione Partenza</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.paesePartenza}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
                                         <p class="mb-0 fw-bold">Regione Partenza</p>
                                     </div>
                                     <div class="col-sm-6">
@@ -113,19 +122,10 @@ function trasportoInfo(dati, img, id) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Provincia Partenza</p>
+                                        <p class="mb-0 fw-bold">Città Partenza</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.provinciaPartenza}</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row p-2 ">
-                                    <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Comune Partenza</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.comunePartenza}</p>
+                                        <p class="text-muted mb-0">${dati.cittaPartenza}</p>
                                     </div>
                                 </div>
                                 <hr>
@@ -176,6 +176,15 @@ function trasportoInfo(dati, img, id) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
+                                        <p class="mb-0 fw-bold">Nazione Arrivo</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">${dati.paeseArrivo}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row p-2 ">
+                                    <div class="col-sm-6">
                                         <p class="mb-0 fw-bold">Regione Arrivo</p>
                                     </div>
                                     <div class="col-sm-6">
@@ -185,19 +194,10 @@ function trasportoInfo(dati, img, id) {
                                 <hr>
                                 <div class="row p-2 ">
                                     <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Provincia Arrivo</p>
+                                        <p class="mb-0 fw-bold">Città Arrivo</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.provinciaArrivo}</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row p-2 ">
-                                    <div class="col-sm-6">
-                                        <p class="mb-0 fw-bold">Comune Arrivo</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="text-muted mb-0">${dati.comuneArrivo}</p>
+                                        <p class="text-muted mb-0">${dati.cittaArrivo}</p>
                                     </div>
                                 </div>
                                 <hr>
@@ -271,7 +271,7 @@ function trasportoInfo(dati, img, id) {
                     <div class="col-md-2"</div>
                 </div>`;
 
-                colonnaInfo.innerHTML = visualizzaInfo;
+    colonnaInfo.innerHTML = visualizzaInfo;
 
 
 }
@@ -285,7 +285,7 @@ function interessamentoTrasporto(richiestaId, aziendaIdAccesso, emailAziendale, 
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
-        }, 
+        },
         body: JSON.stringify({
 
         }),
@@ -297,8 +297,8 @@ function interessamentoTrasporto(richiestaId, aziendaIdAccesso, emailAziendale, 
     class PropostaCarico {
         constructor(aziendaIdProponenteTrasporto, trasportoId, aziendaIdRichiedenteTrasporto) {
             (this.aziendaIdProponenteTrasporto = aziendaIdProponenteTrasporto),
-            (this.trasportoId = trasportoId),
-            (this.aziendaIdRichiedenteTrasporto = aziendaIdRichiedenteTrasporto)
+                (this.trasportoId = trasportoId),
+                (this.aziendaIdRichiedenteTrasporto = aziendaIdRichiedenteTrasporto)
 
         }
     }
@@ -309,16 +309,16 @@ function interessamentoTrasporto(richiestaId, aziendaIdAccesso, emailAziendale, 
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-        }, 
+        },
         body: JSON.stringify(newPropostaTrasporto),
     })
-    
-    const subject= "Richiesta Moveconnect";
-    const body= " Salve ho visto la richiesta sul portale Moveconnect e sarei interessato ";
-    const MailToLink= `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href=MailToLink;
+
+    const subject = "Richiesta Moveconnect";
+    const body = " Salve ho visto la richiesta sul portale Moveconnect e sarei interessato ";
+    const MailToLink = `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href = MailToLink;
 
     window.location.href = 'interesseMostrato.html';
-    
+
 
 }

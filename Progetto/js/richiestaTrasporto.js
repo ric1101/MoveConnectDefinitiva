@@ -2,8 +2,8 @@
 
 
 let regionePartenza = document.querySelector('.regionePartenza');
-let provinciaPartenza = document.querySelector('.provinciaPartenza');
-let comunePartenza = document.querySelector('.comunePartenza');
+let paesePartenza = document.querySelector('.paesePartenza');
+let cittaPartenza = document.querySelector('.cittaPartenza');
 let indirizzoPartenza = document.querySelector('.indirizzoPartenza');
 let indirizzoDuePartenza = document.querySelector('.indirizzoDuePartenza');
 let capPartenza = document.querySelector('.capPartenza');
@@ -12,8 +12,8 @@ let tipoDiVeicolo = document.querySelector('.tipoDiVeicolo');
 
 
 let regioneArrivo = document.querySelector('.regioneArrivo');
-let provinciaArrivo = document.querySelector('.provinciaArrivo');
-let comuneArrivo = document.querySelector('.comuneArrivo');
+let paeseArrivo = document.querySelector('.paeseArrivo');
+let cittaArrivo = document.querySelector('.cittaArrivo');
 let indirizzoArrivo = document.querySelector('.indirizzoArrivo');
 let indirizzoDueArrivo = document.querySelector('.indirizzoDueArrivo');
 let capArrivo = document.querySelector('.capArrivo');
@@ -27,8 +27,8 @@ let btnInvioRichiestaTrasporto = document.querySelector('.btnInvioRichiestaTrasp
 
 class Trasporto {
     constructor(regionePartenza,
-        provinciaPartenza,
-        comunePartenza,
+        paesePartenza,
+        cittaPartenza,
         indirizzoPartenza,
         indirizzoDuePartenza,
         capPartenza,
@@ -46,8 +46,8 @@ class Trasporto {
         azienda_id) {
 
         (this.regionePartenza = regionePartenza),
-            (this.provinciaPartenza = provinciaPartenza),
-            (this.comunePartenza = comunePartenza),
+            (this.paesePartenza = paesePartenza),
+            (this.cittaPartenza = cittaPartenza),
             (this.indirizzoPartenza = indirizzoPartenza),
             (this.indirizzoDuePartenza = indirizzoDuePartenza),
             (this.capPartenza = capPartenza),
@@ -68,13 +68,13 @@ class Trasporto {
 
 
 function recuperaId() {
-    
+
     let accessToken = localStorage.getItem('accessToken');
-    
+
 
     fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-    .then((res) => res.json())
-    .then((data) => {
+        .then((res) => res.json())
+        .then((data) => {
 
 
             inviaRichiesta(data);
@@ -96,16 +96,16 @@ function inviaRichiesta(dati) {
 
     let nuovaRichiestaTrasporto = new Trasporto(
         regionePartenza.value,
-        provinciaPartenza.value,
-        comunePartenza.value,
+        paesePartenza.value,
+        cittaPartenza.value,
         indirizzoPartenza.value,
         indirizzoDuePartenza.value,
         capPartenza.value,
         mq.value,
         tipoDiVeicolo.value,
         regioneArrivo.value,
-        provinciaArrivo.value,
-        comuneArrivo.value,
+        paeseArrivo.value,
+        cittaArrivo.value,
         indirizzoArrivo.value,
         indirizzoDueArrivo.value,
         capArrivo.value,
@@ -113,12 +113,11 @@ function inviaRichiesta(dati) {
         scarico.value,
         note.value,
         azienda_id
+
     );
 
 
     console.log(nuovaRichiestaTrasporto);
-
-
 
 
 
@@ -135,13 +134,9 @@ function inviaRichiesta(dati) {
 
 
 
-
-
 }
 
 
-let invalidCapPartenza = document.querySelector('.invalidCapPartenza');
-let invalidCapArrivo = document.querySelector('.invalidCapArrivo');
 let invalidMq = document.querySelector('.invalidMq');
 let invalidCarico = document.querySelector('.invalidCarico');
 let invalidScarico = document.querySelector('.invalidScarico');
@@ -175,36 +170,16 @@ console.log(dataMaxCarico);
 
 //--------------------------------------//
 
-carico.setAttribute('min', dataMinCarico)
-carico.setAttribute('max', dataMaxCarico)
+carico.setAttribute('min', dataMinCarico);
+carico.setAttribute('max', dataMaxCarico);
 // scarico.setAttribute('min', dataMin)
 // scarico.setAttribute('max', dataMax)
 
 
 
-let regexCap = /^[0-9]{5}$/;
 let regexMq = /^[1-9][0-9]?$/;
 
 
-function capPartenzaCheck() {
-
-
-    if (!capPartenza.value.match(regexCap)) {
-        invalidCapPartenza.innerHTML = 'cap non valido';
-    } else {
-        invalidCapPartenza.innerHTML = '';
-    }
-}
-
-function capArrivoCheck() {
-
-    if (!capArrivo.value.match(regexCap)) {
-        invalidCapArrivo.innerHTML = 'cap non valido';
-    } else {
-        invalidCapArrivo.innerHTML = '';
-    }
-
-}
 
 function mqCheck() {
 
@@ -224,8 +199,8 @@ function caricoCheck() {
 
         console.log('hello');
         scarico.removeAttribute('disabled');
-        scarico.setAttribute('min', carico.value)
-        scarico.setAttribute('max', dataMaxCarico)
+        scarico.setAttribute('min', carico.value);
+        scarico.setAttribute('max', dataMaxCarico);
 
     } else {
         console.log('ciao');
@@ -237,28 +212,24 @@ function caricoCheck() {
 
 
 
-
-
 function checkCampi() {
 
     event.preventDefault();
     if (regionePartenza.value.trim() != "" &&
-        provinciaPartenza.value.trim() != "" &&
-        comunePartenza.value.trim() != "" &&
+        paesePartenza.value.trim() != "" &&
+        cittaPartenza.value.trim() != "" &&
         indirizzoPartenza.value.trim() != "" &&
         capPartenza.value.trim() != "" &&
         mq.value.trim() != "" &&
         tipoDiVeicolo.value.trim() != "" &&
         regioneArrivo.value.trim() != "" &&
-        provinciaArrivo.value.trim() != "" &&
-        comuneArrivo.value.trim() != "" &&
+        paeseArrivo.value.trim() != "" &&
+        cittaArrivo.value.trim() != "" &&
         indirizzoArrivo.value.trim() != "" &&
         capArrivo.value.trim() != "" &&
         carico.value.trim() != "" &&
         scarico.value.trim() != "" &&
-        mq.value.match(regexMq) &&
-        capArrivo.value.match(regexCap) &&
-        capPartenza.value.match(regexCap)
+        mq.value.match(regexMq)
     ) {
 
         blankCamp.innerHTML = '';
@@ -279,7 +250,5 @@ function checkCampi() {
 btnInvioRichiestaTrasporto.addEventListener('click', checkCampi);
 
 
-capPartenza.addEventListener('keyup', capPartenzaCheck);
-capArrivo.addEventListener('keyup', capArrivoCheck)
-mq.addEventListener('keyup', mqCheck)
-document.addEventListener('input', caricoCheck)
+mq.addEventListener('keyup', mqCheck);
+document.addEventListener('input', caricoCheck);

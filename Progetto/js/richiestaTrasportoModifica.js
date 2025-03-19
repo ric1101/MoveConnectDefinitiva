@@ -1,8 +1,8 @@
 
 
 let regionePartenza = document.querySelector('.regionePartenza');
-let provinciaPartenza = document.querySelector('.provinciaPartenza');
-let comunePartenza = document.querySelector('.comunePartenza');
+let paesePartenza = document.querySelector('.paesePartenza');
+let cittaPartenza = document.querySelector('.cittaPartenza');
 let indirizzoPartenza = document.querySelector('.indirizzoPartenza');
 let indirizzoDuePartenza = document.querySelector('.indirizzoDuePartenza');
 let capPartenza = document.querySelector('.capPartenza');
@@ -12,8 +12,8 @@ let tipoDiVeicolo = document.querySelector('.tipoDiVeicolo');
 
 
 let regioneArrivo = document.querySelector('.regioneArrivo');
-let provinciaArrivo = document.querySelector('.provinciaArrivo');
-let comuneArrivo = document.querySelector('.comuneArrivo');
+let paeseArrivo = document.querySelector('.paeseArrivo');
+let cittaArrivo = document.querySelector('.cittaArrivo');
 let indirizzoArrivo = document.querySelector('.indirizzoArrivo');
 let indirizzoDueArrivo = document.querySelector('.indirizzoDueArrivo');
 let capArrivo = document.querySelector('.capArrivo');
@@ -40,20 +40,14 @@ fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/richiestaId/${idTrasporto}`)
 
 function ripopolaRichiestaTrasporto(dati) {
 
-    let opzioneRegione = document.querySelector('.opzioneRegione');
-    let opzioneProvincia = document.querySelector('.opzioneProvincia');
-    let opzioneComune = document.querySelector('.opzioneComune');
-    let opzioneRegione2 = document.querySelector('.opzioneRegione2');
-    let opzioneProvincia2 = document.querySelector('.opzioneProvincia2');
-    let opzioneComune2 = document.querySelector('.opzioneComune2');
 
 
-    opzioneRegione.innerHTML = 'Precedente: ' + dati.regionePartenza;
-    opzioneProvincia.innerHTML = 'Precedente: ' + dati.provinciaPartenza;
-    opzioneComune.innerHTML = 'Precedente: ' + dati.comunePartenza;
-    opzioneRegione2.innerHTML = 'Precedente: ' + dati.regioneArrivo;
-    opzioneProvincia2.innerHTML = 'Precedente: ' + dati.provinciaArrivo;
-    opzioneComune2.innerHTML = 'Precedente: ' + dati.comuneArrivo;
+    regionePartenza.value = dati.regionePartenza;
+    paesePartenza.value = dati.paesePartenza;
+    cittaPartenza.value = dati.cittaPartenza;
+    regioneArrivo.value = dati.regioneArrivo;
+    paeseArrivo.value = dati.paeseArrivo;
+    cittaArrivo.value = dati.cittaArrivo;
     indirizzoPartenza.value = dati.indirizzoPartenza;
     indirizzoDuePartenza.value = dati.indirizzoDuePartenza;
     capPartenza.value = dati.capPartenza;
@@ -72,16 +66,16 @@ function ripopolaRichiestaTrasporto(dati) {
 
 class Trasporto {
     constructor(regionePartenza,
-        provinciaPartenza,
-        comunePartenza,
+        paesePartenza,
+        cittaPartenza,
         indirizzoPartenza,
         indirizzoDuePartenza,
         capPartenza,
         mq,
         tipoDiVeicolo,
         regioneArrivo,
-        provinciaArrivo,
-        comuneArrivo,
+        paeseArrivo,
+        cittaArrivo,
         indirizzoArrivo,
         indirizzoDueArrivo,
         capArrivo,
@@ -91,16 +85,16 @@ class Trasporto {
         azienda_id) {
 
         (this.regionePartenza = regionePartenza),
-            (this.provinciaPartenza = provinciaPartenza),
-            (this.comunePartenza = comunePartenza),
+            (this.paesePartenza = paesePartenza),
+            (this.cittaPartenza = cittaPartenza),
             (this.indirizzoPartenza = indirizzoPartenza),
             (this.indirizzoDuePartenza = indirizzoDuePartenza),
             (this.capPartenza = capPartenza),
             (this.mq = mq),
             (this.tipoDiVeicolo = tipoDiVeicolo),
             (this.regioneArrivo = regioneArrivo),
-            (this.provinciaArrivo = provinciaArrivo),
-            (this.comuneArrivo = comuneArrivo),
+            (this.paeseArrivo = paeseArrivo),
+            (this.cittaArrivo = cittaArrivo),
             (this.indirizzoArrivo = indirizzoArrivo),
             (this.indirizzoDueArrivo = indirizzoDueArrivo),
             (this.capArrivo = capArrivo),
@@ -141,16 +135,16 @@ function inviaRichiesta(dati) {
 
     let nuovaRichiestaTrasporto = new Trasporto(
         regionePartenza.value,
-        provinciaPartenza.value,
-        comunePartenza.value,
+        paesePartenza.value,
+        cittaPartenza.value,
         indirizzoPartenza.value,
         indirizzoDuePartenza.value,
         capPartenza.value,
         mq.value,
         tipoDiVeicolo.value,
         regioneArrivo.value,
-        provinciaArrivo.value,
-        comuneArrivo.value,
+        paeseArrivo.value,
+        cittaArrivo.value,
         indirizzoArrivo.value,
         indirizzoDueArrivo.value,
         capArrivo.value,
@@ -182,8 +176,6 @@ function inviaRichiesta(dati) {
 }
 
 
-let invalidCapPartenza = document.querySelector('.invalidCapPartenza');
-let invalidCapArrivo = document.querySelector('.invalidCapArrivo');
 let invalidMq = document.querySelector('.invalidMq');
 let invalidCarico = document.querySelector('.invalidCarico');
 let invalidScarico = document.querySelector('.invalidScarico');
@@ -213,39 +205,17 @@ console.log(dataMaxCarico);
 
 //--------------------------------------//
 
-carico.setAttribute('min', dataMinCarico)
-carico.setAttribute('max', dataMaxCarico)
+carico.setAttribute('min', dataMinCarico);
+carico.setAttribute('max', dataMaxCarico);
 // scarico.setAttribute('min', dataMin)
 // scarico.setAttribute('max', dataMax)
 
 
 
 
-
-
-let regexCap = /^[0-9]{5}$/;
 let regexMq = /^[1-9][0-9]?$/;
 
 
-function capPartenzaCheck() {
-
-
-    if (!capPartenza.value.match(regexCap)) {
-        invalidCapPartenza.innerHTML = 'cap non valido';
-    } else {
-        invalidCapPartenza.innerHTML = '';
-    }
-}
-
-function capArrivoCheck() {
-
-    if (!capArrivo.value.match(regexCap)) {
-        invalidCapArrivo.innerHTML = 'cap non valido';
-    } else {
-        invalidCapArrivo.innerHTML = '';
-    }
-
-}
 
 function mqCheck() {
 
@@ -278,28 +248,24 @@ function caricoCheck() {
 
 
 
-
-
 function checkCampi() {
 
     event.preventDefault();
     if (regionePartenza.value.trim() != "" &&
-        provinciaPartenza.value.trim() != "" &&
-        comunePartenza.value.trim() != "" &&
+        paesePartenza.value.trim() != "" &&
+        cittaPartenza.value.trim() != "" &&
         indirizzoPartenza.value.trim() != "" &&
         capPartenza.value.trim() != "" &&
         mq.value.trim() != "" &&
         tipoDiVeicolo.value.trim() != "" &&
         regioneArrivo.value.trim() != "" &&
-        provinciaArrivo.value.trim() != "" &&
-        comuneArrivo.value.trim() != "" &&
+        paeseArrivo.value.trim() != "" &&
+        cittaArrivo.value.trim() != "" &&
         indirizzoArrivo.value.trim() != "" &&
         capArrivo.value.trim() != "" &&
         carico.value.trim() != "" &&
         scarico.value.trim() != "" &&
-        mq.value.match(regexMq) &&
-        capArrivo.value.match(regexCap) &&
-        capPartenza.value.match(regexCap)
+        mq.value.match(regexMq)
     ) {
 
         blankCamp.innerHTML = '';
@@ -320,7 +286,5 @@ function checkCampi() {
 btnInvioRichiestaTrasporto.addEventListener('click', checkCampi);
 
 
-capPartenza.addEventListener('keyup', capPartenzaCheck);
-capArrivo.addEventListener('keyup', capArrivoCheck)
 mq.addEventListener('keyup', mqCheck)
 document.addEventListener('input', caricoCheck)

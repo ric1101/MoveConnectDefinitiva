@@ -43,42 +43,37 @@
 
             <div class="row g-3 p-2">
                 <div class="col-md-5 col-lg-5">
-                    <label for="regioni" class="form-label">Regione *</label>
-                    <select id="regioni" class="form-select regionePartenza">
-                        <option value="" disabled selected>Seleziona Regione</option>
-
-                    </select>
+                    
+                    <label for="location-input" class="form-label">Indirizzo Partenza *</label>
+                    <input type="text" placeholder="Via Roma 4" id="location-input" class="form-control indirizzoPartenza" />
 
                 </div>
 
                 <div class="col-md-2"></div>
 
                 <div class="col-md-5 col-lg-5">
-                    <label for="province" class="form-label">Provincia *</label>
-                    <select id="province" class="form-select provinciaPartenza">
-                        <option value="" disabled selected>Seleziona Provincia</option>
+                    
+                    <label for="" class="form-label">Indirizzo due Partenza</label>
+                    <input type="text" placeholder="Palazzina, scala, piano, etc (opzionale)" class="form-control indirizzoDuePartenza" />
 
-                    </select>
                 </div>
             </div>
 
             <div class="row g-3 p-2">
 
                 <div class="col-md-5 col-lg-5">
-                    <label for="comuni" class="form-label">Comune *</label>
-                    <select id="comuni" class="form-select comunePartenza">
-                        <option value="" disabled selected>Seleziona Comune</option>
-
-                    </select>
+                    
+                    <label for="locality-input" class="form-label">Città Partenza *</label>
+                    <input type="text" placeholder="Città" id="locality-input" class="form-control cittaPartenza" />
 
                 </div>
 
                 <div class="col-md-2"></div>
 
                 <div class="col-md-5 col-lg-5">
-                    <label class="form-label">Indirizzo *</label>
-                    <input type="text" class="form-control indirizzoPartenza" placeholder="Via Roma 5" maxLength="50"
-                        required>
+                    
+                    <label for="administrative_area_level_1-input" class="form-label">Regione/Stato Partenza *</label>
+                    <input type="text" id="administrative_area_level_1-input" class="form-control regionePartenza" placeholder="Stato" maxLength="50" />
 
                 </div>
 
@@ -88,20 +83,19 @@
             <div class="row g-3 p-2">
 
                 <div class="col-md-5 col-lg-5">
-                    <label class="form-label">Indirizzo Secondario</label>
-                    <input type="text" class="form-control indirizzoDuePartenza" placeholder="Via Milano 8"
-                        maxLength="50" required>
+                    
+                    <label for="postal_code-input" class="form-label">CAP Partenza *</label>
+                    <input type="text" id="postal_code-input" class="form-control capPartenza" placeholder="Zip/Postal code" />
 
                 </div>
 
                 <div class="col-md-2"></div>
 
                 <div class="col-md-5 col-lg-5">
-                    <label class="form-label">CAP *</label>
-                    <input type="text" class="form-control capPartenza" maxLength="5" placeholder="00015" required>
-                    <div class="invalidCapPartenza text-danger">
+                    
+                    <label for="country-input" class="form-label">Nazione Partenza *</label>
+                    <input type="text" id="country-input" class="form-control paesePartenza" placeholder="Country" />
 
-                    </div>
                 </div>
 
             </div>
@@ -151,22 +145,18 @@
 
             <div class="row g-3 p-2">
                 <div class="col-md-5 col-lg-5">
-                    <label for="regioni1" class="form-label">Regione *</label>
-                    <select id="regioni1" class="form-select richiesti regioneArrivo">
-                        <option value="" disabled selected>Seleziona Regione</option>
 
-                    </select>
+                    <label for="location-input" class="form-label">Indirizzo Arrivo *</label>
+                    <input type="text" placeholder="Via Roma 4" id="location-input" class="form-control indirizzoArrivo" />
 
                 </div>
 
                 <div class="col-md-2"></div>
 
                 <div class="col-md-5 col-lg-5">
-                    <label for="province1" class="form-label">Provincia *</label>
-                    <select id="province1" class="form-select richiesti provinciaArrivo">
-                        <option value="" disabled selected>Seleziona Provincia</option>
-
-                    </select>
+                    
+                    <label for="" class="form-label">Indirizzo due Arrivo</label>
+                    <input type="text" placeholder="Palazzina, scala, piano, etc (opzionale)" class="form-control indirizzoDueArrivo" />
 
                 </div>
             </div>
@@ -174,20 +164,18 @@
             <div class="row g-3 p-2">
 
                 <div class="col-md-5 col-lg-5">
-                    <label for="comuni1" class="form-label">Comune *</label>
-                    <select id="comuni1" class="form-select richiesti comuneArrivo">
-                        <option value="" disabled selected>Seleziona Comune</option>
-
-                    </select>
+                    
+                    <label for="locality-input" class="form-label">Città Arrivo *</label>
+                    <input type="text" placeholder="Città" id="locality-input" class="form-control cittaArrivo" />
 
                 </div>
 
                 <div class="col-md-2"></div>
 
                 <div class="col-md-5 col-lg-5">
-                    <label for="indirizzoArrivo" class="form-label">Indirizzo *</label>
-                    <input type="text" class="form-control richiesti indirizzoArrivo" placeholder="Indirizzo"
-                        maxLength="50" required>
+                    
+                    <label for="administrative_area_level_1-input" class="form-label">Regione/Stato Arrivo *</label>
+                    <input type="text" id="administrative_area_level_1-input" class="form-control regioneArrivo" placeholder="Stato" maxLength="50" />
 
                 </div>
 
@@ -197,21 +185,19 @@
             <div class="row g-3 p-2">
 
                 <div class="col-md-5 col-lg-5">
-                    <label for="indirizzoDueArrivo" class="form-label">Indirizzo Secondario</label>
-                    <input type="text" class="form-control richiesti indirizzoDueArrivo"
-                        placeholder="Indirizzo Secondario" maxLength="50" required>
+                    
+                    <label for="postal_code-input" class="form-label">CAP Arrivo *</label>
+                    <input type="text" id="postal_code-input" class="form-control capArrivo" placeholder="Zip/Postal code" />
 
                 </div>
 
                 <div class="col-md-2"></div>
 
                 <div class="col-md-5 col-lg-5">
-                    <label for="capArrivo" class="form-label">CAP *</label>
-                    <input type="text" class="form-control richiesti capArrivo" maxLength="5" placeholder="CAP"
-                        required>
-                    <div class="invalidCapArrivo text-danger">
+                    
+                    <label for="country-input" class="form-label">Nazione Arrivo *</label>
+                    <input type="text" id="country-input" class="form-control paeseArrivo" placeholder="Country" />
 
-                    </div>
                 </div>
 
 
@@ -295,8 +281,6 @@
 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
     <script src="../Progetto/js/footer.js"></script>
-    <script src="../Progetto/js/imballi.js"></script>
-    <script src="../Progetto/js/imballi1.js"></script>
     <script src="../Progetto/js/richiestaTrasporto.js"></script>
 
 </body>
