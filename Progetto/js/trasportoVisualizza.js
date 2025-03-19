@@ -108,8 +108,8 @@ function trasporto(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                           
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
@@ -381,8 +381,8 @@ function trasportoFiltroSoloRegionePartenza(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                              
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
@@ -541,8 +541,8 @@ function trasportoFiltroSoloRegioneArrivo(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                             
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
@@ -701,8 +701,8 @@ function trasportoFiltroRegioniDoppie(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                              
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
@@ -882,8 +882,8 @@ function trasportoFiltroRegioniMq(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                              
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
@@ -1039,8 +1039,8 @@ function trasportoFiltroRegioniDoppieMq(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                              
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
@@ -1201,8 +1201,8 @@ function trasportoFiltroDemo(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                              
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
@@ -1558,8 +1558,8 @@ function trasportoFiltroMerce(dati, id) {
                             <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>  
                         </td>                           
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
@@ -1715,8 +1715,8 @@ function trasportoFiltroRegionePartenzaMerce(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
@@ -1874,8 +1874,8 @@ function trasportoFiltroRegioneArrivoMerce(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                              
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
@@ -2034,8 +2034,8 @@ function trasportoFiltroRegionePartenzaArrivoMerce(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                             
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
@@ -2196,8 +2196,8 @@ function trasportoFiltroRegionePartenzaArrivoMerceMq(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
@@ -2355,8 +2355,8 @@ function trasportoFiltroRegionePartenzaMerceMq(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                              
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
@@ -2516,8 +2516,8 @@ function trasportoFiltroRegioneArrivoMerceMq(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                              
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
@@ -2679,8 +2679,8 @@ function trasportoFiltroMerceMq(dati, id) {
                         <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                              
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1">${element.carico}</td>

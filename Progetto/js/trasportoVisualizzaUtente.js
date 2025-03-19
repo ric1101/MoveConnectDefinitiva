@@ -52,8 +52,8 @@ function trasporto(dati) {
                 let tabella = `<tr>
                     
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1">${element.comunePartenza}</td>
-                        <td class="text-center" data-eventoid="1">${element.comuneArrivo}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
+                        <td class="text-center" data-eventoid="1">${element.cittaArrivo}</td>
                         <td class="text-center" data-eventoid="1">${element.mq}</td>
                         <td class="text-center" data-eventoid="1">${element.tipoDiVeicolo}</td>
                         <td class="text-center" data-eventoid="1">${element.carico}</td>
