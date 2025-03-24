@@ -302,6 +302,7 @@ regioniArrivo.forEach(element => {
             fetchRegioneArrivoVeicolo(element.value, tipoVeicoloLocal);
 
         }
+        
     });
 
 
