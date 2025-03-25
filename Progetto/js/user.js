@@ -468,7 +468,7 @@ function feedback(id) {
 
 
 
-    fetch(`http://127.0.0.1:8080/api/azienda/recensioneImballiFinalePerUtente${id}`)
+    fetch(`http://127.0.0.1:8080/api/azienda/recensioneImballiFinalePerUtente/${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -491,7 +491,7 @@ function feedback(id) {
                                     <div class="card-body">
                                         <h4 class="card-title">Recensioni</h4>
                                         <h5 class="card-subtitle">Riepilogo</h5>
-                                        <h2 class="font-medium mt-5 mb-0">${data.totaleRecensioni}</h2>
+                                        <h2 class="font-medium mt-5 mb-0">Totali <br>${data.totaleRecensioni}</h2>
                                         
                                         
 
@@ -588,7 +588,7 @@ function feedback(id) {
 
 if (feed) {
 
-    feed.addEventListener('click', feedback);
+    feed.addEventListener('click', getTokenFeed);
 }
 
 
