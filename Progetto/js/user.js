@@ -7697,7 +7697,7 @@ function visualizzaRichiesteScalaInteresseEntrata(scala) {
                 <td class="text-center nomeAz">${element.aziendaRichiedenteDTO.nomeAzienda}</td>
                 <td class="text-center">${element.consegnaDTO.id}</td>
                 <td class="text-center">${element.stato}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3 mx-2" onclick="eliminaPropostaScalaInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 mx-2" onclick="accettaPropostaScalaInteresseEntrata(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkScala px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteScalaElevatoreProposta.html" target="_blank">INFO</a></td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3 mx-2" onclick="eliminaPropostaScalaInteresseEntrata(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-success px-3 me-2" onclick="accettaPropostaScalaInteresseEntrata(${element.id}, ${element.consegnaDTO.id}, ${element.aziendaRichiedenteDTO.id}, ${element.aziendaDTO.id})"><i class="fa-solid fa-check"></i></a><a class="btn btn-dark linkScala px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteScalaElevatoreProposta.html" target="_blank">INFO</a></td>
                 </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
