@@ -4174,7 +4174,7 @@ function visualizzaRichiesteScalaInteresse(scala) {
                 <td class="text-center nomeAz">${element.aziendaDTO.nomeAzienda}</td>
                 <td class="text-center">${element.consegnaDTO.id}</td>
                 <td class="text-center">${element.stato}</td>
-                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaScala(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkScala px-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteScalaElevatoreProposta.html" target="_blank">INFO</a></td>
+                <td class="text-center" data-eventoid="1"><a class="btn btn-danger px-3" onclick="eliminaPropostaScala(${element.id})"><i class="fa-solid fa-xmark"></i></a><a class="btn btn-dark linkScala px-2 mx-2" data-evento-id="${element.consegnaDTO.id}" href="./infoRichiesteScalaElevatoreProposta.html" target="_blank">INFO</a></td>
                 </tr>`;
 
                 body.innerHTML += visualizzaRichieste;
