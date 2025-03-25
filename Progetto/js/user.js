@@ -473,8 +473,18 @@ function feedback(id) {
         .then((data) => {
 
 
+            let tot = data.totaleRecensioni;
+
+            if (data.totaleRecensioni == undefined) {
+                
+                tot = 0;
 
 
+            } else {
+
+
+                
+            }
             
             
             
@@ -491,7 +501,7 @@ function feedback(id) {
                                     <div class="card-body">
                                         <h4 class="card-title">Recensioni</h4>
                                         <h5 class="card-subtitle">Riepilogo</h5>
-                                        <h2 class="font-medium mt-5 mb-0">Totali <br>${data.totaleRecensioni}</h2>
+                                        <h2 class="font-medium mt-5 mb-0">Totali <br>${tot}</h2>
                                         
                                         
 
