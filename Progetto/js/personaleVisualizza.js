@@ -241,7 +241,7 @@ async function filtriRegionePersonale(regione, id) {
 
     console.log(regione);
 
-    await fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/${regione}`) //ci va la rotta nuova
+    await fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/tuttiIPersonaliConAziendaPerRegione/${regione}`) //ci va la rotta nuova
         .then((res) => res.json())
         .then((data) => {
 
@@ -402,7 +402,7 @@ async function fetchRegioniTipiPersonale(regione, autista, falegname, montatore,
 async function filtriRegioneTipiPersonale(regione, autista, falegname, montatore, operatore, id) {
 
 
-    await fetch(`http://localhost:8080/api/personaleSpecializzato/tuttoIlPersonaleConAziendaTutto?regione=${regione}&autista=${autista}&falegname=${falegname}&montatore=${montatore}&operatore=${operatore}`)
+    await fetch(`http://localhost:8080/api/personaleSpecializzato/tuttoIlPersonaleConAziendaTutto?paese=${regione}&autista=${autista}&falegname=${falegname}&montatore=${montatore}&operatore=${operatore}`)
         .then((res) => {
             if (!res.ok) {
                 throw new Error(`Errore nella risposta: ${res.status} - ${res.statusText}`);

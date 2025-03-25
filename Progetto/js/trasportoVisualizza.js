@@ -615,7 +615,7 @@ async function fetchRegioniDoppie(regionePartenza, regioneArrivo) {
 async function filtriRegioniDoppie(regionePartenza, regioneArrivo, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regionePartenza}&regioneArrivo=${regioneArrivo}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paesePartenza=${regionePartenza}&paeseArrivo=${regioneArrivo}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -774,8 +774,8 @@ async function fetchRegioniMq(regione, mq) {
 
 async function filtriRegioniMq(regione, mq, id) {
 
-    let rottaPartenza = `http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regione}&mq=${mq}`;
-    let rottaArrivo = `http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regioneArrivo=${regione}&mq=${mq}`
+    let rottaPartenza = `http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paesePartenza=${regione}&mq=${mq}`;
+    let rottaArrivo = `http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paeseArrivo=${regione}&mq=${mq}`
 
     if (reg1 == 0) {
         console.log('ciaoneeee');
@@ -953,7 +953,7 @@ async function fetchRegionePartenzaArrivoMq(regionePartenza, regioneArrivo, mq) 
 async function filtriRegioniDoppieMq(regionePartenza, regioneArrivo, mq, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regionePartenza}&regioneArrivo=${regioneArrivo}&mq=${mq}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paeseePartenza=${regionePartenza}&paeseArrivo=${regioneArrivo}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1629,7 +1629,7 @@ async function fetchRegionePartenzaMerce(regionePartenza, merce) {
 async function filtriRegionePartenzaMerce(regionePartenza, merce, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regionePartenza}&tipoDiVeicolo=${merce}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paesePartenza=${regionePartenza}&tipoDiVeicolo=${merce}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1788,7 +1788,7 @@ async function fetchRegioneArrivoMerce(regioneArrivo, merce) {
 async function filtriRegioneArrivoMerce(regioneArrivo, merce, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regioneArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paeseArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1948,7 +1948,7 @@ async function fetchRegionePartenzaArrivoMerce(regionePartenza, regioneArrivo, m
 async function filtriRegionePartenzaArrivoMerce(regionePartenza, regioneArrivo, merce, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regionePartenza}&regioneArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paesePartenza=${regionePartenza}&paeseArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -2110,7 +2110,7 @@ async function fetchRegionePartenzaArrivoMerceMq(regionePartenza, regioneArrivo,
 async function filtriRegionePartenzaArrivoMerceMq(regionePartenza, regioneArrivo, merce, mq, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regionePartenza}&regioneArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}&mq=${mq}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paesePartenza=${regionePartenza}&paeseArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -2269,7 +2269,7 @@ async function fetchRegionePartenzaMerceMq(regionePartenza, merce, mq) {
 async function filtriRegionePartenzaMerceMq(regionePartenza, merce, mq, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regionePartenza=${regionePartenza}&tipoDiVeicolo=${merce}&mq=${mq}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paesePartenza=${regionePartenza}&tipoDiVeicolo=${merce}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -2430,7 +2430,7 @@ async function fetchRegioneArrivoMerceMq(regioneArrivo, merce, mq) {
 async function filtriRegioneArrivoMerceMq(regioneArrivo, merce, mq, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?regioneArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}&mq=${mq}`)
+    await fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paeseArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 

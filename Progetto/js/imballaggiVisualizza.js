@@ -421,7 +421,7 @@ async function fetchRegioniTipiImballi(regione, imballo1, imballo2, imballo3, im
 async function filtriRegioneTipiImballi(regione, imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8, id) {
 
 
-    await fetch(`http://localhost:8080/api/consegnaImballi/tuttiGliImballiConAziendaTutto?regione=${regione}&imballo1=${imballo1}&imballo2=${imballo2}&imballo3=${imballo3}&imballo4=${imballo4}&imballo5=${imballo5}&imballo6=${imballo6}&imballo7=${imballo7}&imballo8=${imballo8}`)
+    await fetch(`http://localhost:8080/api/consegnaImballi/tuttiGliImballiConAziendaTutto?paese=${regione}&imballo1=${imballo1}&imballo2=${imballo2}&imballo3=${imballo3}&imballo4=${imballo4}&imballo5=${imballo5}&imballo6=${imballo6}&imballo7=${imballo7}&imballo8=${imballo8}`)
         .then((res) => {
             if (!res.ok) {
                 throw new Error(`Errore nella risposta: ${res.status} - ${res.statusText}`);

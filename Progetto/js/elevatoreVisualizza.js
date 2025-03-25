@@ -654,7 +654,7 @@ async function fetchRegioniScale(regione, scala) {
 async function filtriRegioniScala(regione, scala, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeScaleConAziendaTutto?regione=${regione}&tipoDiScala=${scala}`)
+    await fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeScaleConAziendaTutto?paese=${regione}&tipoDiScala=${scala}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1008,7 +1008,7 @@ async function fetchRegioniPeso(regione, peso) {
 async function filtriRegioniPeso(regione, peso, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeScaleConAziendaTutto?regione=${regione}&pesoMassimo=${peso}`)
+    await fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeScaleConAziendaTutto?paese=${regione}&pesoMassimo=${peso}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1168,7 +1168,7 @@ async function fetchRegioneScalaPeso(regione, scala, peso) {
 async function filtriRegioniScalaPeso(regione, scala, peso, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeScaleConAziendaTutto?regione=${regione}&tipoDiScala=${scala}&pesoMassimo=${peso}`)
+    await fetch(`http://127.0.0.1:8080/api/scalaElevatore/tutteLeScaleConAziendaTutto?paese=${regione}&tipoDiScala=${scala}&pesoMassimo=${peso}`)
         .then((res) => res.json())
         .then((data) => {
 

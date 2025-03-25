@@ -526,7 +526,7 @@ async function fetchRegionePartenzaArrivo(regionePartenza, regioneArrivo) {
 async function filtriRegionePartenzaArrivo(regionePartenza, regioneArrivo, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?regionePartenza=${regionePartenza}&regioneArrivo=${regioneArrivo}`)
+    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?paesePartenza=${regionePartenza}&paeseArrivo=${regioneArrivo}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -684,7 +684,7 @@ async function fetchRegioniPartenzaArrivoVeicolo(regionePartenza, regioneArrivo,
 async function filtriRegionePartenzaArrivoVeicolo(regionePartenza, regioneArrivo, veicolo, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?regionePartenza=${regionePartenza}&regioneArrivo=${regioneArrivo}&tipoDiVeicolo=${veicolo}`)
+    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?paesePartenza=${regionePartenza}&paeseArrivo=${regioneArrivo}&tipoDiVeicolo=${veicolo}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -844,7 +844,7 @@ async function fetchRegionePartenzaVeicolo(regionePartenza, veicolo) {
 async function filtriRegionePartenzaVeicolo(regionePartenza, veicolo, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?regionePartenza=${regionePartenza}&tipoDiVeicolo=${veicolo}`)
+    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?paesePartenza=${regionePartenza}&tipoDiVeicolo=${veicolo}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -999,7 +999,7 @@ async function fetchRegioneArrivoVeicolo(regioneArrivo, veicolo) {
 async function filtriRegioneArrivoVeicolo(regioneArrivo, veicolo, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?regioneArrivo=${regioneArrivo}&tipoDiVeicolo=${veicolo}`)
+    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?paeseArrivo=${regioneArrivo}&tipoDiVeicolo=${veicolo}`)
         .then((res) => res.json())
         .then((data) => {
 

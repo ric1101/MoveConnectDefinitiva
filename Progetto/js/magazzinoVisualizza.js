@@ -437,7 +437,7 @@ async function filtriRegioneTipoDeposito(regione, mobilio, pedane, altro, id) {
 
     console.log(regione);
 
-    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?regione=${regione}&mobilio=${mobilio}&pedane=${pedane}&altro=${altro}`)
+    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?paese=${regione}&mobilio=${mobilio}&pedane=${pedane}&altro=${altro}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -601,7 +601,7 @@ async function filtriRegioneDepositoMq(regione, mq, id) {
 
     console.log(regione);
 
-    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?regione=${regione}&mq=${mq}`)
+    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?paese=${regione}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -764,7 +764,7 @@ async function filtriRegioneTipoDepositoMq(regione, mobilio, pedane, altro, mq, 
 
     console.log(regione);
 
-    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?regione=${regione}&mobilio=${mobilio}&pedane=${pedane}&altro=${altro}&mq=${mq}`)
+    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?paese=${regione}&mobilio=${mobilio}&pedane=${pedane}&altro=${altro}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
