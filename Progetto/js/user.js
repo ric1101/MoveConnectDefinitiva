@@ -447,57 +447,59 @@ document.addEventListener("DOMContentLoaded", function () {
 /* -------------------------------------------------------------------------- */
 
 
+function getTokenFeed() {
 
-function feedback() {
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
 
-    let destra = document.querySelector('.destra');
+            feedback(data.id);
 
-    console.log('ciao');
+            console.log(data.id);
 
 
-    let feedbackVisualizza = `<div class="card-body destra mb-4" style="background-color: white">
-    <div class="container">
-    <div class="row">
-    <div class="col-lg-12">
+        });
+
+}
+
+
+
+function feedback(id) {
+
+
+
+    fetch(`http://127.0.0.1:8080/api/azienda/recensioneImballiFinalePerUtente${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+
+
+
+            
+            
+            
+            let destra = document.querySelector('.destra');
+
+
+            let feedbackVisualizza = `<div class="card-body destra mb-4" style="background-color: white">
+                    <div class="container">
+                    <div class="row">
+                    <div class="col-lg-12">
                         <div class="card">
                             <div class="row">
                                 <div class="col-sm-12 col-lg-4">
                                     <div class="card-body">
                                         <h4 class="card-title">Recensioni</h4>
                                         <h5 class="card-subtitle">Riepilogo</h5>
-                                        <h2 class="font-medium mt-5 mb-0">25426</h2>
-                                        <span class="text-muted">Questo mese ci sono 346 nuove
-                                            recensioni </span>
-                                        <div class="image-box mt-4 mb-4">
-                                            <a href="#" class="mr-2" data-toggle="tooltip"
-                                                data-placement="top" title=""
-                                                data-original-title="Simmons"><img
-                                                    src="../Progetto/imgs/4.png" class="rounded-circle"
-                                                    width="45" alt="user"></a>
-                                            <a href="#" class="mr-2" data-toggle="tooltip"
-                                                data-placement="top" title=""
-                                                data-original-title="Fitz"><img
-                                                    src="../Progetto/imgs/3.png" class="rounded-circle"
-                                                    width="45" alt="user"></a>
-                                            <a href="#" class="mr-2" data-toggle="tooltip"
-                                                data-placement="top" title=""
-                                                data-original-title="Phil"><img
-                                                    src="../Progetto/imgs/2.png" class="rounded-circle"
-                                                    width="45" alt="user"></a>
-                                            <a href="#" class="mr-2" data-toggle="tooltip"
-                                                data-placement="top" title=""
-                                                data-original-title="Melinda"><img
-                                                    src="../Progetto/imgs/1.png" class="rounded-circle"
-                                                    width="45" alt="user"></a>
-                                        </div>
+                                        <h2 class="font-medium mt-5 mb-0">${data.totaleRecensioni}</h2>
+                                        
+                                        
 
                                     </div>
-                                    <div class="media">
+                                    <div class="card-body media">
                                         <div class="row" style="display: flex; align-items: center;">
                                             <h6>Media</h6>
-                                            <h1 style="font-size: 50px;">4.5<i
-                                                    class="fa-solid fa-star display-5"
-                                                    style="color: #FFD43B;"></i></h1>
+                                            <h1 style="font-size: 50px;">${data.media} <span style="color: #FFAA00; font-size: 40px;">★</span></h1>
                                         </div>
                                     </div>
                                 </div>
@@ -506,103 +508,62 @@ function feedback() {
                                         <ul class="list-style-none">
                                             <li>
                                                 <div class="d-flex align-items-center">
-                                                    <i class="fa-solid fa-star display-5 "
-                                                        style="color: #FFD43B;"></i><i
-                                                        class="fa-solid fa-star display-5 "
-                                                        style="color: #FFD43B;"></i><i
-                                                        class="fa-solid fa-star display-5 "
-                                                        style="color: #FFD43B;"></i><i
-                                                        class="fa-solid fa-star display-5 "
-                                                        style="color: #FFD43B;"></i><i
-                                                        class="fa-solid fa-star display-5 "
-                                                        style="color: #FFD43B;"></i>
-                                                    <div class="ml-2 p-3">
-                                                        <h5 class="mb-0">Recensioni 5 stelle</h5>
-                                                        <span class="text-muted">25547 Recensioni</span>
+                                                    
+                                                    <div class="ml-2 p-1">
+                                                        <h5 class="mb-0 d-flex"><span style="color: #FFAA00; font-size: 40px;">★★★★★&nbsp;</span> <span class="align-self-center">&nbsp;Recensioni 5 stelle</span></h5>
+                                                        <span class="text-muted">${data.percentuali.stelle5} Recensioni</span>
                                                     </div>
                                                 </div>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-success"
-                                                        role="progressbar" style="width: 40%"
-                                                        aria-valuenow="47" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
+                                                <hr>
+                                                
                                             </li>
                                             <li class="mt-2">
                                                 <div class="d-flex align-items-center">
-                                                    <i class="fa-solid fa-star display-5"
-                                                        style="color: #FFD43B;"></i><i
-                                                        class="fa-solid fa-star display-5 "
-                                                        style="color: #FFD43B;"></i><i
-                                                        class="fa-solid fa-star display-5"
-                                                        style="color: #FFD43B;"></i><i
-                                                        class="fa-solid fa-star display-5 "
-                                                        style="color: #FFD43B;"></i>
-                                                    <div class="ml-2 p-3">
-                                                        <h5 class="mb-0">Recensioni 4 stelle</h5>
-                                                        <span class="text-muted">5547 Reviews</span>
+                                                    
+                                                    <div class="ml-2 p-1">
+                                                        <h5 class="mb-0 d-flex"><span style="color: #FFAA00; font-size: 40px;">★★★★&nbsp;</span> <span class="align-self-center">&nbsp;Recensioni 4 stelle</span></h5>
+                                                        <span class="text-muted">${data.percentuali.stelle4} Recensioni</span>
                                                     </div>
                                                 </div>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-orange"
-                                                        role="progressbar" style="width: 30%"
-                                                        aria-valuenow="33" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
+                                                <hr>
+
+                                                    
                                             </li>
                                             <li class="mt-2 mb-2">
                                                 <div class="d-flex align-items-center">
-                                                    <i class="fa-solid fa-star display-5"
-                                                        style="color: #FFD43B;"></i><i
-                                                        class="fa-solid fa-star display-5 "
-                                                        style="color: #FFD43B;"></i><i
-                                                        class="fa-solid fa-star display-5"
-                                                        style="color: #FFD43B;"></i>
-                                                    <div class="ml-2 p-3">
-                                                        <h5 class="mb-0">Recensioni 3 stelle</h5>
-                                                        <span class="text-muted">547 Reviews</span>
+                                                    
+                                                    <div class="ml-2 p-1">
+                                                        <h5 class="mb-0 d-flex"><span style="color: #FFAA00; font-size: 40px;">★★★&nbsp;</span> <span class="align-self-center">&nbsp;Recensioni 3 stelle</span></h5>
+                                                        <span class="text-muted">${data.percentuali.stelle3} Recensioni</span>
                                                     </div>
                                                 </div>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-info" role="progressbar"
-                                                        style="width: 10%" aria-valuenow="20"
-                                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
+                                                <hr>
+
+                                                    
                                             </li>
                                             <li class="mt-2">
                                                 <div class="d-flex align-items-center">
 
-                                                    <i class="fa-solid fa-star display-5"
-                                                        style="color: #FFD43B;"></i><i
-                                                        class="fa-solid fa-star display-5 "
-                                                        style="color: #FFD43B;"></i>
-                                                    <div class="ml-2 p-3">
-                                                        <h5 class="mb-0">Recensioni 2 stelle</h5>
-                                                        <span class="text-muted">25547 Recensioni</span>
+                                                    
+                                                    <div class="ml-2 p-1">
+                                                        <h5 class="mb-0 d-flex"><span style="color: #FFAA00; font-size: 40px;">★★&nbsp;</span> <span class="align-self-center">&nbsp;Recensioni 2 stelle</span></h5>
+                                                        <span class="text-muted">${data.percentuali.stelle2} Recensioni</span>
                                                     </div>
                                                 </div>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-success"
-                                                        role="progressbar" style="width: 5%"
-                                                        aria-valuenow="47" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
+                                                <hr>
+                                                
+                                                    
                                             </li>
                                             <li class="mt-2">
                                                 <div class="d-flex align-items-center">
-                                                    <i class="fa-solid fa-star display-5 "
-                                                        style="color: #FFD43B;"></i>
-                                                    <div class="ml-2 p-3">
-                                                        <h5 class="mb-0">Recensioni 1 stella</h5>
-                                                        <span class="text-muted">25547 Recensioni</span>
+                                                    
+                                                    <div class="ml-2 p-1">
+                                                        <h5 class="mb-0 d-flex"><span style="color: #FFAA00; font-size: 40px;">★&nbsp;</span> <span class="align-self-center">&nbsp;Recensioni 1 stella</span></h5>
+                                                        <span class="text-muted">${data.percentuali.stelle1} Recensioni</span>
                                                     </div>
                                                 </div>
-                                                <div class="progress mb-4">
-                                                    <div class="progress-bar bg-success"
-                                                        role="progressbar" style="width: 5%"
-                                                        aria-valuenow="47" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
+                                                <hr>
+
                                             </li>
                                         </ul>
                                     </div>
@@ -616,7 +577,10 @@ function feedback() {
         </div>
         `;
 
-    colonnaInfo.innerHTML = feedbackVisualizza;
+            colonnaInfo.innerHTML = feedbackVisualizza;
+
+
+        });
 
 }
 
@@ -6255,7 +6219,7 @@ function visualizzaRichiesteScalaRelazione(scala) {
                     body.innerHTML += visualizzaRichieste;
                     ascoltoScala();
 
-            
+
 
                 } else {
 
@@ -6324,9 +6288,9 @@ function visualizzaRichiesteScalaRelazione(scala) {
                 <td class="text-center" style="vertical-align: middle !important;">${element.stato}</td>
                 <td style="vertical-align: middle !important;" class="text-center bottoneRecensione" data-eventoid="1"></td>
                 </tr>`;
-    
-                    body.innerHTML += visualizzaRichieste;
-                    ascoltoScala();
+
+                body.innerHTML += visualizzaRichieste;
+                ascoltoScala();
 
 
             }
