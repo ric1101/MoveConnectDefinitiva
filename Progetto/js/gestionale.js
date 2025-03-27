@@ -58,32 +58,7 @@ function eliminaBlog(id) {
 function modificaBlog(id) {
 
 
-    // class NuovoArticolo {
-    //     constructor(titolo, desc, testo, img, data, writer, genere) {
-    //         (this.titolo = titolo),
-    //         (this.desc = desc),
-    //         (this.testo = testo),
-    //         (this.img = img),
-    //         (this.data = data),
-    //         (this.writer = writer),
-    //         (this.genere = genere)
-    //     }
-    // }
-
-    // let nuovoArticolo = new NuovoArticolo(
-
-
-    // );
-
-
-    // fetch(`http://127.0.0.1:8080/api/blog/modificaBlog/${id}`, {
-    //     method: "PUT",
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(),
-
-    // })
+    
 
     localStorage.setItem('idModifica', id);
     window.location.href = 'modificaBlog.html';
