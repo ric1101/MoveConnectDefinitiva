@@ -2,7 +2,7 @@
 
 let genere = document.querySelector('.genere');
 let titolo = document.querySelector('.titolo');
-let descrizione = document.querySelector('.desc');
+let descrizione = document.querySelector('.descrizione');
 let testo = document.querySelector('.testo');
 let img = document.querySelector('.img');
 let datato = document.querySelector('.data');
