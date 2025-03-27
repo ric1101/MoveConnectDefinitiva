@@ -20,7 +20,7 @@ function popolaGestionale() {
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1"><textarea name="" id="">${element.titolo}</textarea></td>
                         <td class="text-center" data-eventoid="1"><textarea name="" id="">${element.desc}</textarea></td>
-                        <td class="text-center" data-eventoid="1"><textarea name="" id="">${element.testo}</textarea></td>
+                        <td class="text-center" data-eventoid="1"><textarea name="" id="" style="height: 100%; width: 100%;">${element.testo}</textarea></td>
                         <td class="text-center" data-eventoid="1"><img src="${element.img}" alt="" style="width: 100px; height: 100px;"></img></td>
                         <td class="text-center" data-eventoid="1"><textarea name="" id="">${element.data}</textarea></td>
                         <td class="text-center" data-eventoid="1"><textarea name="" id="">${element.writer}</textarea></td>
