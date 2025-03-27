@@ -16,7 +16,7 @@ function popolaGestionale() {
 
                 let articolo = `<tr>
 
-                        <td class="text-center"><input type="text" value="${element.genere}"></input></td>
+                        <td class="text-center"><textarea name="" id="">${element.genere}</textarea></td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1"><input type="text">${element.titolo}</input></td>
                         <td class="text-center" data-eventoid="1"><input type="text">${element.desc}</input></td>
