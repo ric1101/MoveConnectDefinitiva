@@ -4,9 +4,10 @@
 let bodyTabella = document.querySelector('.bodyTabella');
 
 
-function popolaGestionale() {
+async function popolaGestionale() {
+    bodyTabella.innerHTML = "";
 
-    fetch(`http://127.0.0.1:8080/api/blog/tutti`)
+    await fetch(`http://127.0.0.1:8080/api/blog/tutti`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -38,19 +39,22 @@ function popolaGestionale() {
 
 }
 
+
 popolaGestionale();
 
 
 
-function eliminaBlog(id) {
+async function eliminaBlog(id) {
 
-    fetch(`http://127.0.0.1:8080/api/blog/eliminaBlog/${id}`, {
+    await fetch(`http://127.0.0.1:8080/api/blog/eliminaBlog/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
         }
 
     })
+
+   popolaGestionale();
 
 }
 

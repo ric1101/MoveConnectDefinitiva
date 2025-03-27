@@ -11,10 +11,10 @@ let btnInviaModifica = document.querySelector('.btnInviaModifica');
 
 
 
+let idMod = localStorage.getItem('idModifica');
 
 function popolaModBlog() {
 
-    let idMod = localStorage.getItem('idModifica');
 
     fetch(`http://127.0.0.1:8080/api/blog/${idMod}`)
         .then((res) => res.json())
@@ -60,7 +60,7 @@ function modificaBlog() {
     );
 
 
-    fetch(`http://127.0.0.1:8080/api/blog/modificaBlog/${id}`, {
+    fetch(`http://127.0.0.1:8080/api/blog/modificaBlog/${idMod}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
