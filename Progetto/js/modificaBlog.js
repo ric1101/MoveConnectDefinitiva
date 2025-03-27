@@ -2,7 +2,7 @@
 
 let genere = document.querySelector('.genere');
 let titolo = document.querySelector('.titolo');
-let desc = document.querySelector('.desc');
+let descrizione = document.querySelector('.desc');
 let testo = document.querySelector('.testo');
 let img = document.querySelector('.img');
 let datato = document.querySelector('.data');
@@ -20,7 +20,7 @@ function popolaModBlog() {
         .then((data) => {
 
             titolo.value = data.titolo;
-            desc.value = data.desc;
+            descrizione.value = data.desc;
             testo.value = data.testo;
             img.value = data.img;
             datato.value = data.data;
