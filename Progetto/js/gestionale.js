@@ -18,12 +18,12 @@ function popolaGestionale() {
 
                         <td class="text-center"><textarea name="" id="">${element.genere}</textarea></td>
                         <td class="text-center">${element.id}</td>
-                        <td class="text-center" data-eventoid="1"><input type="text">${element.titolo}</input></td>
-                        <td class="text-center" data-eventoid="1"><input type="text">${element.desc}</input></td>
-                        <td class="text-center" data-eventoid="1"><input type="text">${element.testo}</input></td>
+                        <td class="text-center" data-eventoid="1"><textarea name="" id="">${element.titolo}</textarea></td>
+                        <td class="text-center" data-eventoid="1"><textarea name="" id="">${element.desc}</textarea></td>
+                        <td class="text-center" data-eventoid="1"><textarea name="" id="">${element.testo}</textarea></td>
                         <td class="text-center" data-eventoid="1"><img src="${element.img}" alt="" style="width: 100px; height: 100px;"></img></td>
-                        <td class="text-center" data-eventoid="1"><input type="text">${element.data}</input></td>
-                        <td class="text-center" data-eventoid="1"><input type="text">${element.writer}</input></td>
+                        <td class="text-center" data-eventoid="1"><textarea name="" id="">${element.data}</textarea></td>
+                        <td class="text-center" data-eventoid="1"><textarea name="" id="">${element.writer}</textarea></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-primary" onclick="eliminaBlog(${element.id})"><i class="fa-solid fa-pen-to-square"></i></a></td>
                         <td class="text-center" data-eventoid="1"><a class="btn btn-danger" onclick="modificaBlog(${element.id}, )"><i class="fa-solid fa-trash-can"></i></a></td>
 
