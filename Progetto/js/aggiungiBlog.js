@@ -1,4 +1,5 @@
 
+
 let genere = 'Blog';
 let titolo = document.querySelector('.titolo');
 let descrizione = document.querySelector('.descrizione');
@@ -6,35 +7,12 @@ let testo = document.querySelector('.testo');
 let img = document.querySelector('.img');
 let datato = document.querySelector('.data');
 let writer = document.querySelector('.writer');
-let btnInviaModifica = document.querySelector('.btnInviaModifica');
+let btnInviaAdd = document.querySelector('.btnInviaAdd');
 
 
+btnInviaAdd.addEventListener('click', aggiungiArticoloBlog);
 
-let idMod = localStorage.getItem('idModifica');
-
-function popolaModBlog() {
-
-
-    fetch(`http://127.0.0.1:8080/api/blog/${idMod}`)
-        .then((res) => res.json())
-        .then((data) => {
-
-            titolo.value = data.titolo;
-            descrizione.value = data.desc;
-            testo.value = data.testo;
-            img.value = data.img;
-            datato.value = data.data;
-            writer.value = data.writer;
-
-        });
-
-
-}
-popolaModBlog();
-
-btnInviaModifica.addEventListener('click', modificaBlog);
-
-function modificaBlog() {
+function aggiungiArticoloBlog() {
 
     class NuovoArticolo {
         constructor(titolo, desc, testo, img, data, writer, genere) {
@@ -59,8 +37,8 @@ function modificaBlog() {
     );
 
 
-    fetch(`http://127.0.0.1:8080/api/blog/modificaBlog/${idMod}`, {
-        method: "PUT",
+    fetch(`http://127.0.0.1:8080/api/blog/inserisciBlog`, {
+        method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
