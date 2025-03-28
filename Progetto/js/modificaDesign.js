@@ -10,12 +10,12 @@ let btnInviaModifica = document.querySelector('.btnInviaModificaDesign');
 
 
 
-let idMod = localStorage.getItem('idModificaDesign');
+let idModDesign = localStorage.getItem('idModificaDesign');
 
 function popolaModDesign() {
 
 
-    fetch(`http://127.0.0.1:8080/api/design/${idMod}`)
+    fetch(`http://127.0.0.1:8080/api/design/${idModDesign}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -34,7 +34,7 @@ popolaModDesign();
 
 btnInviaModifica.addEventListener('click', modificaDesign);
 
-function modificaDesign() {
+async function modificaDesign() {
 
     class NuovoArticolo {
         constructor(titolo, desc, testo, img, data, writer, genere) {
@@ -59,7 +59,7 @@ function modificaDesign() {
     );
 
 
-    fetch(`http://127.0.0.1:8080/api/design/modificaDesign/${idMod}`, {
+   await fetch(`http://127.0.0.1:8080/api/design/modificaDesign/${idModDesign}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

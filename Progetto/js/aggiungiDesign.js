@@ -12,7 +12,7 @@ let btnInviaAdd = document.querySelector('.btnInviaAdd');
 
 btnInviaAdd.addEventListener('click', aggiungiArticoloDesign);
 
-function aggiungiArticoloDesign() {
+async function aggiungiArticoloDesign() {
 
     class NuovoArticolo {
         constructor(titolo, desc, testo, img, data, writer, genere) {
@@ -37,7 +37,7 @@ function aggiungiArticoloDesign() {
     );
 
 
-    fetch(`http://127.0.0.1:8080/api/design/inserisciDesign`, {
+    await fetch(`http://127.0.0.1:8080/api/design/inserisciDesign`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

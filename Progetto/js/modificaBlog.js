@@ -6,7 +6,7 @@ let testo = document.querySelector('.testo');
 let img = document.querySelector('.img');
 let datato = document.querySelector('.data');
 let writer = document.querySelector('.writer');
-let btnInviaModifica = document.querySelector('.btnInviaModificaBlog');
+let btnInviaModificaBlog = document.querySelector('.btnInviaModificaBlog');
 
 
 
@@ -32,11 +32,14 @@ function popolaModBlog() {
 }
 popolaModBlog();
 
-btnInviaModifica.addEventListener('click', modificaBlog);
+btnInviaModificaBlog.addEventListener('click', modificaBlog);
 
-function modificaBlog() {
+async function modificaBlog() {
 
-    class NuovoArticolo {
+    
+    
+
+    class NuovoArticoloBlog{
         constructor(titolo, desc, testo, img, data, writer, genere) {
             (this.titolo = titolo),
                 (this.desc = desc),
@@ -48,7 +51,7 @@ function modificaBlog() {
         }
     }
 
-    let nuovoArticolo = new NuovoArticolo(
+    let nuovoArticoloBlog = new NuovoArticoloBlog(
         titolo.value,
         descrizione.value,
         testo.value,
@@ -58,16 +61,19 @@ function modificaBlog() {
         genere
     );
 
+    
 
-    fetch(`http://127.0.0.1:8080/api/blog/modificaBlog/${idMod}`, {
+
+    await fetch(`http://127.0.0.1:8080/api/blog/modificaBlog/${idMod}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(nuovoArticolo),
+        body: JSON.stringify(nuovoArticoloBlog),
 
     })
-
+    console.log("CIAOOO");
     window.location.href = 'gestionaleBlog.html';
+
 
 }

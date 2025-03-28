@@ -7,12 +7,12 @@ let testo = document.querySelector('.testo');
 let img = document.querySelector('.img');
 let datato = document.querySelector('.data');
 let writer = document.querySelector('.writer');
-let btnInviaAdd = document.querySelector('.btnInviaAdd');
+let btnInviaAddBlog = document.querySelector('.btnInviaAddBlog');
 
 
-btnInviaAdd.addEventListener('click', aggiungiArticoloBlog);
+btnInviaAddBlog.addEventListener('click', aggiungiArticoloBlog);
 
-function aggiungiArticoloBlog() {
+async function aggiungiArticoloBlog() {
 
     class NuovoArticolo {
         constructor(titolo, desc, testo, img, data, writer, genere) {
@@ -37,7 +37,7 @@ function aggiungiArticoloBlog() {
     );
 
 
-    fetch(`http://127.0.0.1:8080/api/blog/inserisciBlog`, {
+    await fetch(`http://127.0.0.1:8080/api/blog/inserisciBlog`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
