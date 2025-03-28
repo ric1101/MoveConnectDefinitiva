@@ -1,21 +1,21 @@
 
-let genere = 'Blog';
+let genere = 'Design';
 let titolo = document.querySelector('.titolo');
 let descrizione = document.querySelector('.descrizione');
 let testo = document.querySelector('.testo');
 let img = document.querySelector('.img');
 let datato = document.querySelector('.data');
 let writer = document.querySelector('.writer');
-let btnInviaModifica = document.querySelector('.btnInviaModificaBlog');
+let btnInviaModifica = document.querySelector('.btnInviaModificaDesign');
 
 
 
-let idMod = localStorage.getItem('idModificaBlog');
+let idMod = localStorage.getItem('idModificaDesign');
 
-function popolaModBlog() {
+function popolaModDesign() {
 
 
-    fetch(`http://127.0.0.1:8080/api/blog/${idMod}`)
+    fetch(`http://127.0.0.1:8080/api/design/${idMod}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -30,11 +30,11 @@ function popolaModBlog() {
 
 
 }
-popolaModBlog();
+popolaModDesign();
 
-btnInviaModifica.addEventListener('click', modificaBlog);
+btnInviaModifica.addEventListener('click', modificaDesign);
 
-function modificaBlog() {
+function modificaDesign() {
 
     class NuovoArticolo {
         constructor(titolo, desc, testo, img, data, writer, genere) {
@@ -59,7 +59,7 @@ function modificaBlog() {
     );
 
 
-    fetch(`http://127.0.0.1:8080/api/blog/modificaBlog/${idMod}`, {
+    fetch(`http://127.0.0.1:8080/api/design/modificaDesign/${idMod}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -68,6 +68,6 @@ function modificaBlog() {
 
     })
 
-    window.location.href = 'gestionaleBlog.html';
+    window.location.href = 'gestionaleDesign.html';
 
 }

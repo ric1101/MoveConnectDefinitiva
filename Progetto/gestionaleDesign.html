@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifica Articolo Blog</title>
+    <title>Gestionale Design</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
@@ -23,60 +23,54 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
 
-<body style="background-image: url(./imgs/marmo.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;">
+<body>
 
     <div class="navbarMain"></div>
 
 
-    <div class="row d-flex justify-content-center">
-        <div class="col-lg-10 col-10 px-5 py-5 my-5 visualTable">
-            <form>
+    <div class="row">
 
-                <div class="mb-3">
+        
+        <div class="col-lg-12 col-12 px-5 pb-5 mb-5 mt-2 visualTable">
+            <div class="row d-flex justify-content-between my-2 py-4">
+                <div class="col-md-3 d-flex justify-content-center">
+                    <h2>Gestionale Design</h2>
+                </div>
+                <div class="col-md-3 d-flex justify-content-center">
+                
+                    <a href="aggiungiDesign.html" class="btn btn-primary"><i class="fa-solid fa-plus"></i><i class="fa-brands fa-figma"></i> Aggiungi Articolo Design</a>
+                
+                </div>
+            </div>
 
-                    <label for="titolo" class="form-label">Titolo</label>
-                    <input type="text" class="titolo form-control" />
+            <div>
+                <div class="table-responsive tabellozza">
+                    <table class="data-table table mb-0 tbl-server-info" style="border: solid 1px;">
+                        <thead class="text-uppercase">
+                            <tr class="ligth ligth-data">
 
+                                <th class="text-center">Genere</th>
+                                <th class="text-center">#ID</th>
+                                <th class="text-center">Titolo</th>
+                                <th class="text-center">Descrizione</th>
+                                <th class="text-center">Testo</th>
+                                <th class="text-center">Immagine</th>
+                                <th class="text-center">Data</th>
+                                <th class="text-center">Writer</th>
+                                <th class="text-center">Modifica</th>
+                                <th class="text-center">Elimina</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bodyTabella">
+
+
+                        </tbody>
+                    </table>
                 </div>
 
-                <div class="mb-3">
 
-                    <label for="descrizione" class="form-label">Descrizione</label>
-                    <textarea name="desc" class="descrizione form-control" rows="3"></textarea>
-
-
-                </div>
-
-                <div class="mb-3">
-
-                    <label for="testo" class="form-label">Testo</label>
-                    <textarea name="testo" class="testo form-control" rows="15"></textarea>
-
-                </div>
-
-                <div class="mb-3">
-
-                    <label for="img" class="form-label">Immagine</label>
-                    <input type="text" class="img form-control" />
-
-                </div>
-
-                <div class="mb-3">
-
-                    <label for="data" class="form-label">Data</label>
-                    <input type="date" class="data form-control" />
-
-                </div>
-
-                <div class="mb-3">
-
-                    <label for="writer" class="form-label">Writer</label>
-                    <input type="text" class="writer form-control" />
-
-                </div>
-
-                <div class="row d-flex justify-content-end px-5 py-1 my-5 "><div class="col-md-1"><a class="btn btn-success btnInviaModificaBlog">MODIFICA</a></div></div>
-            </form>
+                <!-- Page end  -->
+            </div>
         </div>
     </div>
 
@@ -88,7 +82,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="../Progetto/js/homepagejs.js"></script>
-    <script src="../Progetto/js/modificaBlog.js"></script>
+    <script src="../Progetto/js/gestionaleDesign.js"></script>
 </body>
 
 </html>

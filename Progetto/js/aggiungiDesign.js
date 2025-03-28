@@ -1,40 +1,18 @@
 
-let genere = 'Blog';
+
+let genere = 'Design';
 let titolo = document.querySelector('.titolo');
 let descrizione = document.querySelector('.descrizione');
 let testo = document.querySelector('.testo');
 let img = document.querySelector('.img');
 let datato = document.querySelector('.data');
 let writer = document.querySelector('.writer');
-let btnInviaModifica = document.querySelector('.btnInviaModificaBlog');
+let btnInviaAdd = document.querySelector('.btnInviaAdd');
 
 
+btnInviaAdd.addEventListener('click', aggiungiArticoloDesign);
 
-let idMod = localStorage.getItem('idModificaBlog');
-
-function popolaModBlog() {
-
-
-    fetch(`http://127.0.0.1:8080/api/blog/${idMod}`)
-        .then((res) => res.json())
-        .then((data) => {
-
-            titolo.value = data.titolo;
-            descrizione.value = data.desc;
-            testo.value = data.testo;
-            img.value = data.img;
-            datato.value = data.data;
-            writer.value = data.writer;
-
-        });
-
-
-}
-popolaModBlog();
-
-btnInviaModifica.addEventListener('click', modificaBlog);
-
-function modificaBlog() {
+function aggiungiArticoloDesign() {
 
     class NuovoArticolo {
         constructor(titolo, desc, testo, img, data, writer, genere) {
@@ -59,8 +37,8 @@ function modificaBlog() {
     );
 
 
-    fetch(`http://127.0.0.1:8080/api/blog/modificaBlog/${idMod}`, {
-        method: "PUT",
+    fetch(`http://127.0.0.1:8080/api/design/inserisciDesign`, {
+        method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
@@ -68,6 +46,6 @@ function modificaBlog() {
 
     })
 
-    window.location.href = 'gestionaleBlog.html';
+    window.location.href = 'gestionaleDesign.html';
 
 }
