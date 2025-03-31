@@ -121,7 +121,7 @@ function gestisci() {
 
                } else {
 
-                window.location.href = 'pagina404';
+                window.location.href = 'pagina404.html';
 
                }
                 
