@@ -18,8 +18,8 @@ showPassword.addEventListener('click', toShowPassword);
 
 
 class Utente {
-    constructor(username, password) {
-        (this.username = username),
+    constructor(email, password) {
+        (this.email = email),
             (this.password = password)
     }
 }
@@ -32,7 +32,7 @@ let nuovoUtente = {};
 function logIn(event) {
     event.preventDefault();
     nuovoUtente = new Utente(
-        email.value,
+        username.value,
         password.value
     );
     console.log(nuovoUtente);
