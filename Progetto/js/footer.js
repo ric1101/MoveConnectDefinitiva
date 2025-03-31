@@ -117,7 +117,7 @@ function gestisci() {
     
                if (data.abbonamento == 'ADMIN') {
                 
-                window.location.href = 'gestionaleBlogDesign';
+                window.location.href = 'gestionaleBlogDesign.html';
 
                } else {
 
