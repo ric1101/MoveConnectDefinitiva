@@ -23,30 +23,34 @@
 
     <script>
         document.addEventListener('DOMcontentLoaded', () => {
-            
+
+            let accessToken = localStorage.getItem('accessToken');
+
+
             fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-        .then((res) => res.json())
-        .then((data) => {
+                .then((res) => res.json())
+                .then((data) => {
 
 
-            if (data.abbonamento != 'ADMIN') {
-                
-                window.location.href = 'pagina404.html';
+                    if (data.abbonamento != 'ADMIN') {
 
-            } else {
-                
+                        window.location.href = 'pagina404.html';
 
-            }
+                    } else {
 
 
-        });
+                    }
+
+
+                });
 
 
         })
     </script>
 </head>
 
-<body style="background-image: url(./imgs/marmo.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;">
+<body
+    style="background-image: url(./imgs/marmo.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;">
 
     <div class="navbarMain"></div>
 
@@ -105,7 +109,9 @@
 
                 </div>
 
-                <div class="row d-flex justify-content-end px-5 py-1 my-5 "><div class="col-md-1"><a class="btn btn-success btnInviaModificaDesign">MODIFICA</a></div></div>
+                <div class="row d-flex justify-content-end px-5 py-1 my-5 ">
+                    <div class="col-md-1"><a class="btn btn-success btnInviaModificaDesign">MODIFICA</a></div>
+                </div>
             </form>
         </div>
     </div>
