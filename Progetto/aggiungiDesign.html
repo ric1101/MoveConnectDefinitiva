@@ -26,6 +26,9 @@
 
             let accessToken = localStorage.getItem('accessToken');
 
+            if (accessToken != null || accessToken != '' || accessToken != undefined) {
+                
+            
 
             fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
                 .then((res) => res.json())
@@ -43,6 +46,13 @@
 
 
                 });
+
+            } else {
+                
+                window.location.href = 'pagina404.html';
+
+
+            }
 
 
         })
