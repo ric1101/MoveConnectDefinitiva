@@ -61,13 +61,13 @@ class Imballi {
 
 
 function recuperaId() {
-    
+
     let accessToken = localStorage.getItem('accessToken');
-    
+
 
     fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-    .then((res) => res.json())
-    .then((data) => {
+        .then((res) => res.json())
+        .then((data) => {
 
 
             inviaRichiesta(data);
@@ -84,43 +84,50 @@ function inviaRichiesta(dati) {
 
     let azienda_id = dati.id;
 
-
-    let nuovaRichiestaImballi = new Imballi(
-        regione.value,
-        paese.value,
-        citta.value,
-        indirizzo.value,
-        indirizzoDue.value,
-        cap.value,
-        note.value,
-        imballo1.textContent,
-        imballo2.textContent,
-        imballo3.textContent,
-        imballo4.textContent,
-        imballo5.textContent,
-        imballo6.textContent,
-        imballo7.textContent,
-        imballo8.textContent,
-        arrivo.value,
-        azienda_id
-    );
+    if (dati.abbonamento == 'base' || dati.abbonamento == 'plus') {
 
 
+        let nuovaRichiestaImballi = new Imballi(
+            regione.value,
+            paese.value,
+            citta.value,
+            indirizzo.value,
+            indirizzoDue.value,
+            cap.value,
+            note.value,
+            imballo1.textContent,
+            imballo2.textContent,
+            imballo3.textContent,
+            imballo4.textContent,
+            imballo5.textContent,
+            imballo6.textContent,
+            imballo7.textContent,
+            imballo8.textContent,
+            arrivo.value,
+            azienda_id
+        );
 
-    console.log(nuovaRichiestaImballi);
 
 
-    fetch(`http://127.0.0.1:8080/api/consegnaImballi/inserisciConsegna/${azienda_id}`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(nuovaRichiestaImballi),
+        console.log(nuovaRichiestaImballi);
 
-    })
 
-    window.location.href = 'inviataConSuccessoImballi.html';
+        fetch(`http://127.0.0.1:8080/api/consegnaImballi/inserisciConsegna/${azienda_id}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(nuovaRichiestaImballi),
 
+        })
+
+        window.location.href = 'inviataConSuccessoImballi.html';
+
+    } else {
+
+        window.location.href = 'abbonamentiRegistrato.html';
+
+    }
 
 }
 
@@ -163,7 +170,7 @@ function checkCampi() {
         citta.value.trim() != "" &&
         indirizzo.value.trim() != "" &&
         cap.value.trim() != "" &&
-        arrivo.value.trim() != "" 
+        arrivo.value.trim() != ""
     ) {
 
         blankCamp.innerHTML = '';
@@ -171,7 +178,7 @@ function checkCampi() {
         recuperaId();
 
     } else {
-        
+
         blankCamp.innerHTML = 'riempi i campi mancanti o incompleti!';
     }
 

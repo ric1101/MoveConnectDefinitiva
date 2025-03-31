@@ -90,49 +90,54 @@ function recuperaId() {
 
 function inviaRichiesta(dati) {
 
-
     let azienda_id = dati.id;
 
-
-    let nuovaRichiestaTrasporto = new Trasporto(
-        regionePartenza.value,
-        paesePartenza.value,
-        cittaPartenza.value,
-        indirizzoPartenza.value,
-        indirizzoDuePartenza.value,
-        capPartenza.value,
-        mq.value,
-        tipoDiVeicolo.value,
-        regioneArrivo.value,
-        paeseArrivo.value,
-        cittaArrivo.value,
-        indirizzoArrivo.value,
-        indirizzoDueArrivo.value,
-        capArrivo.value,
-        carico.value,
-        scarico.value,
-        note.value,
-        azienda_id
-
-    );
+    if (dati.abbonamento == 'base' || dati.abbonamento == 'plus') {
 
 
-    console.log(nuovaRichiestaTrasporto);
+        let nuovaRichiestaTrasporto = new Trasporto(
+            regionePartenza.value,
+            paesePartenza.value,
+            cittaPartenza.value,
+            indirizzoPartenza.value,
+            indirizzoDuePartenza.value,
+            capPartenza.value,
+            mq.value,
+            tipoDiVeicolo.value,
+            regioneArrivo.value,
+            paeseArrivo.value,
+            cittaArrivo.value,
+            indirizzoArrivo.value,
+            indirizzoDueArrivo.value,
+            capArrivo.value,
+            carico.value,
+            scarico.value,
+            note.value,
+            azienda_id
+
+        );
+
+
+        console.log(nuovaRichiestaTrasporto);
 
 
 
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/aggiungiRichiestaTrasporto/${azienda_id}`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(nuovaRichiestaTrasporto),
+        fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/aggiungiRichiestaTrasporto/${azienda_id}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(nuovaRichiestaTrasporto),
 
-    })
+        })
 
-    window.location.href = 'inviataConSuccessoGroupage.html';
+        window.location.href = 'inviataConSuccessoGroupage.html';
 
+    } else {
 
+        window.location.href = 'abbonamentiRegistrato.html';
+
+    }
 
 }
 

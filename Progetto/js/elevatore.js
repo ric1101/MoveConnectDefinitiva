@@ -46,13 +46,13 @@ class ScalaElevatore {
 
 
 function recuperaId() {
-    
+
     let accessToken = localStorage.getItem('accessToken');
-    
+
 
     fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-    .then((res) => res.json())
-    .then((data) => {
+        .then((res) => res.json())
+        .then((data) => {
 
 
             inviaRichiesta(data);
@@ -70,37 +70,45 @@ function inviaRichiesta(dati) {
     let azienda_id = dati.id;
 
 
-    let nuovaRichiestaScalaElevatore = new ScalaElevatore(
-        regione.value,
-        paese.value,
-        citta.value,
-        indirizzo.value,
-        indirizzoDue.value,
-        cap.value,
-        tipoDiScala.value,
-        pesoMassimo.value,
-        inizio.value,
-        fine.value,
-        note.value,
-        azienda_id
-    );
+    if (dati.abbonamento == 'base' || dati.abbonamento == 'plus') {
+
+
+        let nuovaRichiestaScalaElevatore = new ScalaElevatore(
+            regione.value,
+            paese.value,
+            citta.value,
+            indirizzo.value,
+            indirizzoDue.value,
+            cap.value,
+            tipoDiScala.value,
+            pesoMassimo.value,
+            inizio.value,
+            fine.value,
+            note.value,
+            azienda_id
+        );
 
 
 
-    console.log(nuovaRichiestaScalaElevatore);
+        console.log(nuovaRichiestaScalaElevatore);
 
 
-    fetch(`http://127.0.0.1:8080/api/scalaElevatore/inserisciScala/${azienda_id}`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(nuovaRichiestaScalaElevatore),
+        fetch(`http://127.0.0.1:8080/api/scalaElevatore/inserisciScala/${azienda_id}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(nuovaRichiestaScalaElevatore),
 
-    })
+        })
 
-    window.location.href = 'inviataConSuccessoScala.html';
+        window.location.href = 'inviataConSuccessoScala.html';
 
+    } else {
+
+        window.location.href = 'abbonamentiRegistrato.html';
+
+    }
 
 }
 
@@ -184,7 +192,7 @@ function checkCampi() {
         recuperaId();
 
     } else {
-        
+
         blankCamp.innerHTML = 'riempi i campi mancanti o incompleti!';
     }
 

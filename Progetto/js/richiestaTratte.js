@@ -67,13 +67,13 @@ class Tratte {
 
 
 function recuperaId() {
-    
+
     let accessToken = localStorage.getItem('accessToken');
-    
+
 
     fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-    .then((res) => res.json())
-    .then((data) => {
+        .then((res) => res.json())
+        .then((data) => {
 
 
             inviaRichiesta(data);
@@ -89,48 +89,53 @@ function recuperaId() {
 
 function inviaRichiesta(dati) {
 
-
     let azienda_id = dati.id;
 
-
-    let nuovaRichiestaTratte = new Tratte(
-        regionePartenza.value,
-        paesePartenza.value,
-        cittaPartenza.value,
-        indirizzoPartenza.value,
-        indirizzoDuePartenza.value,
-        capPartenza.value,
-        dataPartenza.value,
-        tipoDiVeicolo.value,
-        regioneArrivo.value,
-        paeseArrivo.value,
-        cittaArrivo.value,
-        indirizzoArrivo.value,
-        indirizzoDueArrivo.value,
-        capArrivo.value,
-        dataArrivo.value,
-        note.value,
-        azienda_id
-    );
+    if (dati.abbonamento == 'base' || dati.abbonamento == 'plus') {
 
 
-    console.log(nuovaRichiestaTratte);
+        let nuovaRichiestaTratte = new Tratte(
+            regionePartenza.value,
+            paesePartenza.value,
+            cittaPartenza.value,
+            indirizzoPartenza.value,
+            indirizzoDuePartenza.value,
+            capPartenza.value,
+            dataPartenza.value,
+            tipoDiVeicolo.value,
+            regioneArrivo.value,
+            paeseArrivo.value,
+            cittaArrivo.value,
+            indirizzoArrivo.value,
+            indirizzoDueArrivo.value,
+            capArrivo.value,
+            dataArrivo.value,
+            note.value,
+            azienda_id
+        );
 
 
-
-    fetch(`http://127.0.0.1:8080/api/tratta/inserisciTratta/${azienda_id}`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(nuovaRichiestaTratte),
-
-    })
-
-    window.location.href = 'inviataConSuccessoTratta.html';
+        console.log(nuovaRichiestaTratte);
 
 
 
+        fetch(`http://127.0.0.1:8080/api/tratta/inserisciTratta/${azienda_id}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(nuovaRichiestaTratte),
+
+        })
+
+        window.location.href = 'inviataConSuccessoTratta.html';
+
+
+    } else {
+
+        window.location.href = 'abbonamentiRegistrato.html';
+
+    }
 
 
 }

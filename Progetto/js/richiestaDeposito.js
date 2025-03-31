@@ -76,40 +76,47 @@ function inviaRichiesta(dati) {
 
     let azienda_id = dati.id;
 
-
-    let nuovaRichiestaDeposito = new Deposito(
-        regione.value,
-        paese.value,
-        citta.value,
-        indirizzo.value,
-        indirizzoDue.value,
-        cap.value,
-        mq.value,
-        inizio.value,
-        fine.value,
-        note.value,
-        mobilio.textContent,
-        pedane.textContent,
-        altro.textContent,
-        azienda_id
-    );
+    if (dati.abbonamento == 'base' || dati.abbonamento == 'plus') {
 
 
+        let nuovaRichiestaDeposito = new Deposito(
+            regione.value,
+            paese.value,
+            citta.value,
+            indirizzo.value,
+            indirizzoDue.value,
+            cap.value,
+            mq.value,
+            inizio.value,
+            fine.value,
+            note.value,
+            mobilio.textContent,
+            pedane.textContent,
+            altro.textContent,
+            azienda_id
+        );
 
-    console.log(nuovaRichiestaDeposito);
 
 
-    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/inserisciMagazzino/${azienda_id}`, { //Inserire qui la rotta
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(nuovaRichiestaDeposito),
+        console.log(nuovaRichiestaDeposito);
 
-    })
 
-    window.location.href = 'inviataConSuccessoDeposito.html';
+        fetch(`http://127.0.0.1:8080/api/depositoMagazzino/inserisciMagazzino/${azienda_id}`, { //Inserire qui la rotta
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(nuovaRichiestaDeposito),
 
+        })
+
+        window.location.href = 'inviataConSuccessoDeposito.html';
+
+    } else {
+
+        window.location.href = 'abbonamentiRegistrato.html';
+
+    }
 
 }
 

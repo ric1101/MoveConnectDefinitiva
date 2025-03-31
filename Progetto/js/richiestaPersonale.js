@@ -72,39 +72,46 @@ function inviaRichiesta(dati) {
 
     let azienda_id = dati.id;
 
-
-    let nuovaRichiestaPersonale = new Personale(
-        regione.value,
-        paese.value,
-        citta.value,
-        indirizzo.value,
-        indirizzoDue.value,
-        cap.value,
-        note.value,
-        autista.textContent,
-        falegname.textContent,
-        montatore.textContent,
-        operatore.textContent,
-        arrivo.value,
-        azienda_id
-    );
+    if (dati.abbonamento == 'base' || dati.abbonamento == 'plus') {
 
 
+        let nuovaRichiestaPersonale = new Personale(
+            regione.value,
+            paese.value,
+            citta.value,
+            indirizzo.value,
+            indirizzoDue.value,
+            cap.value,
+            note.value,
+            autista.textContent,
+            falegname.textContent,
+            montatore.textContent,
+            operatore.textContent,
+            arrivo.value,
+            azienda_id
+        );
 
-    console.log(nuovaRichiestaPersonale);
 
 
-    fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/inserisciPersonale/${azienda_id}`, {  //Inserire qui la rotta
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(nuovaRichiestaPersonale),
+        console.log(nuovaRichiestaPersonale);
 
-    })
 
-    window.location.href = 'inviataConSuccessoPersonale.html';
+        fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/inserisciPersonale/${azienda_id}`, {  //Inserire qui la rotta
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(nuovaRichiestaPersonale),
 
+        })
+
+        window.location.href = 'inviataConSuccessoPersonale.html';
+
+    } else {
+
+        window.location.href = 'abbonamentiRegistrato.html';
+
+    }
 
 }
 
