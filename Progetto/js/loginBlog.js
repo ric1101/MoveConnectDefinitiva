@@ -17,6 +17,15 @@ function toShowPassword() {
 showPassword.addEventListener('click', toShowPassword);
 
 
+class Utente {
+    constructor(username, password) {
+        (this.username = username),
+            (this.password = password)
+    }
+}
+
+
+
 let nuovoUtente = {};
 
 
