@@ -90,6 +90,7 @@ function Footer() {
                         <ul class="mb-0 text-center">
                             <li><a href="https://www.iubenda.com/privacy-policy/78378781/legal?an=no&s_ck=false&newmarkup=yes">Privacy</a></li>
                             <li><a href="https://www.iubenda.com/privacy-policy/78378781/cookie-policy?an=no&s_ck=false&newmarkup=yes">Cookie</a></li>
+                            <li><a href="loginBlog.html">Login Blog</a></li>
                         </ul>
                     </div>
                 </div>
@@ -100,7 +101,7 @@ function Footer() {
 
 </footer>`
 
-footerHTML.innerHTML = footer;
+    footerHTML.innerHTML = footer;
 }
 
 Footer();
