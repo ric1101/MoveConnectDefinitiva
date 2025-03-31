@@ -51,7 +51,7 @@ fetch(`http://127.0.0.1:8080/api/depositoMagazzino/magazzino/${dataEventoId}`)
             .then((data) => {
     
     
-                depositoInfo(dati, img, data.id)
+                depositoInfo(dati, img, data.id, data.abbonamento)
     
     
             });
@@ -59,7 +59,7 @@ fetch(`http://127.0.0.1:8080/api/depositoMagazzino/magazzino/${dataEventoId}`)
 
 
 
-function depositoInfo(dati, img, id) {
+function depositoInfo(dati, img, id, abb) {
     
 
     let visualizzaInfo = `
@@ -232,7 +232,7 @@ function depositoInfo(dati, img, id) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoDeposito(${dati.id}, ${id}, '${dati.aziendaDTO.email}' , ${dati.aziendaDTO.id}) ">Interessato</button></div>
+                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoDeposito(${dati.id}, ${id}, '${dati.aziendaDTO.email}' , ${dati.aziendaDTO.id}, '${abb}') ">Interessato</button></div>
                     <div class="col-md-2"</div>
                 </div>
                 `;
@@ -246,8 +246,12 @@ function depositoInfo(dati, img, id) {
 
 
 
-function interessamentoDeposito(richiestaId, aziendaIdAccesso, emailAziendale, idAzienda) {
+function interessamentoDeposito(richiestaId, aziendaIdAccesso, emailAziendale, idAzienda, abb) {
 
+
+    if (abb == 'base' || abb == 'plus') {
+        
+    
     fetch(`http://127.0.0.1:8080/api/depositoMagazzino/modificaMagazzinoIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
         method: "PUT",
         headers: {
@@ -286,6 +290,13 @@ function interessamentoDeposito(richiestaId, aziendaIdAccesso, emailAziendale, i
     const MailToLink= `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
     window.location.href=MailToLink;
     window.location.href = 'interesseMostrato.html';
+
+} else {
+    
+    window.location.href = 'abbonamentiRegistrato.html';
+    
+
+}
 
 
 }
