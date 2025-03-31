@@ -52,7 +52,7 @@ function recuperaToken(dati, img) {
         .then((data) => {
 
 
-            imballiInfo(dati, img, data.id)
+            imballiInfo(dati, img, data.id, data.abbonamento)
 
 
         });
@@ -60,7 +60,7 @@ function recuperaToken(dati, img) {
 
 
 
-function imballiInfo(dati, img, id) {
+function imballiInfo(dati, img, id, abb) {
 
 
     let visualizzaInfo = `
@@ -259,7 +259,7 @@ function imballiInfo(dati, img, id) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoImballi(${dati.id}, ${id},'${dati.aziendaDTO.emailAziendale}', ${dati.aziendaDTO.id})">Interessato</button></div>
+                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoImballi(${dati.id}, ${id},'${dati.aziendaDTO.emailAziendale}', ${dati.aziendaDTO.id}, '${abb}')">Interessato</button></div>
                     <div class="col-md-2"</div>
                 </div>`;
 
@@ -270,48 +270,56 @@ function imballiInfo(dati, img, id) {
 
 
 
-function interessamentoImballi(richiestaId, aziendaIdAccesso, emailAziendale, idAzienda) {
+function interessamentoImballi(richiestaId, aziendaIdAccesso, emailAziendale, idAzienda, abb) {
 
-    fetch(`http://127.0.0.1:8080/api/consegnaImballi/modificaImballiIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        }, 
-        body: JSON.stringify({
+    if (abb == 'base' || abb == 'plus') {
 
-        }),
-    })
 
-    let idRichiedente = aziendaIdAccesso;
-    let idRichiesta = richiestaId;
-    let idAziendaEmittente = idAzienda;
-    class PropostaImballi {
-        constructor(azienda, consegnaImballiId, aziendaRichiedente) {
-            (this.azienda = azienda),
-            (this.consegnaImballiId = consegnaImballiId),
-            (this.aziendaRichiedente = aziendaRichiedente)
+        fetch(`http://127.0.0.1:8080/api/consegnaImballi/modificaImballiIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
 
+            }),
+        })
+
+        let idRichiedente = aziendaIdAccesso;
+        let idRichiesta = richiestaId;
+        let idAziendaEmittente = idAzienda;
+        class PropostaImballi {
+            constructor(azienda, consegnaImballiId, aziendaRichiedente) {
+                (this.azienda = azienda),
+                    (this.consegnaImballiId = consegnaImballiId),
+                    (this.aziendaRichiedente = aziendaRichiedente)
+
+            }
         }
+
+        let newPropostaImballi = new PropostaImballi(idRichiedente, idRichiesta, idAziendaEmittente);
+
+        fetch(`http://127.0.0.1:8080/api/propostaImballi/interessataPropostaImballi`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newPropostaImballi),
+        })
+
+        const subject = "Richiesta Moveconnect";
+        const body = "Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
+        const MailToLink = `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+        window.location.href = MailToLink;
+
+
+        window.location.href = 'interesseMostrato.html';
+
+    } else {
+
+        window.location.href = 'abbonamentiRegistrato.html';
+
+
     }
-
-    let newPropostaImballi = new PropostaImballi(idRichiedente, idRichiesta, idAziendaEmittente);
-
-    fetch(`http://127.0.0.1:8080/api/propostaImballi/interessataPropostaImballi`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        }, 
-        body: JSON.stringify(newPropostaImballi),
-    })
-    
-    const subject="Richiesta Moveconnect";
-    const body="Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
-    const MailToLink= `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href=MailToLink;
-
-
-    window.location.href = 'interesseMostrato.html';
-
-
 
 }

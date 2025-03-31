@@ -15,7 +15,7 @@ fetch(`http://127.0.0.1:8080/api/scalaElevatore/scalaId/${dataEventoId}`)
     });
 
 
-    
+
 
 
 function fetchImg(dati, id) {
@@ -55,7 +55,7 @@ function recuperaToken(dati, img) {
         .then((data) => {
 
 
-            elevatoreInfo(dati, img, data.id)
+            elevatoreInfo(dati, img, data.id, data.abbonamento)
 
 
         });
@@ -63,7 +63,7 @@ function recuperaToken(dati, img) {
 
 
 
-function elevatoreInfo(dati, img, id) {
+function elevatoreInfo(dati, img, id, abb) {
 
 
     let visualizzaInfo = `
@@ -217,7 +217,7 @@ function elevatoreInfo(dati, img, id) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoElevatore(${dati.id}, ${id}, '${dati.aziendaDTO.emailAziendale}',  ${dati.aziendaDTO.id})">Interessato</button></div>
+                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoElevatore(${dati.id}, ${id}, '${dati.aziendaDTO.emailAziendale}',  ${dati.aziendaDTO.id}, '${abb}')">Interessato</button></div>
                     <div class="col-md-2"</div>
                 </div>`;
 
@@ -228,54 +228,62 @@ function elevatoreInfo(dati, img, id) {
 
 
 
-function interessamentoElevatore(richiestaId, aziendaIdAccesso, emailAziendale, idAzienda) {
+function interessamentoElevatore(richiestaId, aziendaIdAccesso, emailAziendale, idAzienda, abb) {
 
-    fetch(`http://127.0.0.1:8080/api/scalaElevatore/modificaScalaIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        }, 
-        body: JSON.stringify({
-
-        }),
-    })
+    if (abb == 'base' || abb == 'plus') {
 
 
-    let idRichiedente = aziendaIdAccesso;
-    let idRichiesta = richiestaId;
-    let idAziendaEmittente = idAzienda;
+        fetch(`http://127.0.0.1:8080/api/scalaElevatore/modificaScalaIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
 
-    console.log(idRichiedente, idRichiesta, idAziendaEmittente);
-    
-    class PropostaScala {
-        constructor(aziendaIdProponenteScala, scalaElevatoreId, aziendaIdRichiedenteScala) {
-            (this.aziendaIdProponenteScala = aziendaIdProponenteScala),
-            (this.scalaElevatoreId = scalaElevatoreId),
-            (this.aziendaIdRichiedenteScala = aziendaIdRichiedenteScala)
+            }),
+        })
 
+
+        let idRichiedente = aziendaIdAccesso;
+        let idRichiesta = richiestaId;
+        let idAziendaEmittente = idAzienda;
+
+        console.log(idRichiedente, idRichiesta, idAziendaEmittente);
+
+        class PropostaScala {
+            constructor(aziendaIdProponenteScala, scalaElevatoreId, aziendaIdRichiedenteScala) {
+                (this.aziendaIdProponenteScala = aziendaIdProponenteScala),
+                    (this.scalaElevatoreId = scalaElevatoreId),
+                    (this.aziendaIdRichiedenteScala = aziendaIdRichiedenteScala)
+
+            }
         }
+
+        let newPropostaScala = new PropostaScala(idRichiedente, idRichiesta, idAziendaEmittente);
+        console.log(newPropostaScala);
+
+
+        fetch(`http://127.0.0.1:8080/api/scala/interessataPropostaScala`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newPropostaScala),
+
+        })
+        const subject = "Richiesta Moveconnect";
+        const body = "Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
+        const MailToLink = `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+        window.location.href = MailToLink;
+
+
+        window.location.href = 'interesseMostrato.html';
+
+    } else {
+
+        window.location.href = 'abbonamentiRegistrato.html';
+
+
     }
-
-    let newPropostaScala = new PropostaScala(idRichiedente, idRichiesta, idAziendaEmittente);
-    console.log(newPropostaScala);
-    
-
-    fetch(`http://127.0.0.1:8080/api/scala/interessataPropostaScala`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        }, 
-        body: JSON.stringify(newPropostaScala),
-        
-    })
-    const subject="Richiesta Moveconnect";
-    const body="Salve ho visto la richiesta sul portale di Moveconnect e sarei interessato ";
-    const MailToLink= `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href=MailToLink;
-
-
-    window.location.href = 'interesseMostrato.html';
-
-
 
 }

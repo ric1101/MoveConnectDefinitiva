@@ -15,52 +15,52 @@ fetch(`http://127.0.0.1:8080/api/depositoMagazzino/magazzino/${dataEventoId}`)
     });
 
 
-    function fetchImg(dati, id) {
+function fetchImg(dati, id) {
 
-        let imgAzienda = document.querySelector('.imgAzienda');
-    
-        fetch(`http://127.0.0.1:8080/api/azienda/logo/${id}`)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Errore nel recupero del logo");
-                }
-                return response.blob();
-            })
-            .then((blob) => {
-                const logoUrl = URL.createObjectURL(blob);
-                
+    let imgAzienda = document.querySelector('.imgAzienda');
 
-                recuperaToken(dati, logoUrl);
-            })
-            .catch((error) => {
-                console.error("Errore nel caricamento del logo:", error);
-                imgAzienda.setAttribute(
-                    'src',
-                    './img/default-logo.png'
-                );
-            });
-    }
+    fetch(`http://127.0.0.1:8080/api/azienda/logo/${id}`)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Errore nel recupero del logo");
+            }
+            return response.blob();
+        })
+        .then((blob) => {
+            const logoUrl = URL.createObjectURL(blob);
 
 
-    function recuperaToken(dati, img) {
+            recuperaToken(dati, logoUrl);
+        })
+        .catch((error) => {
+            console.error("Errore nel caricamento del logo:", error);
+            imgAzienda.setAttribute(
+                'src',
+                './img/default-logo.png'
+            );
+        });
+}
 
-        let accessToken = localStorage.getItem('accessToken');
-    
-        fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-            .then((res) => res.json())
-            .then((data) => {
-    
-    
-                depositoInfo(dati, img, data.id, data.abbonamento)
-    
-    
-            });
-    }
+
+function recuperaToken(dati, img) {
+
+    let accessToken = localStorage.getItem('accessToken');
+
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+
+            depositoInfo(dati, img, data.id, data.abbonamento)
+
+
+        });
+}
 
 
 
 function depositoInfo(dati, img, id, abb) {
-    
+
 
     let visualizzaInfo = `
     <div class="col-lg-2"></div>
@@ -80,7 +80,7 @@ function depositoInfo(dati, img, id, abb) {
                             <h5 class="fw-bold">P. Iva: </h5>
                             <p>${dati.aziendaDTO.piva}</p>
                             <h5 class="fw-bold">Indirizzo: </h5>
-                            <p>${dati.aziendaDTO.indirizzo + ', ' + dati.aziendaDTO.citta + ', ' + dati.aziendaDTO.cap }</p>
+                            <p>${dati.aziendaDTO.indirizzo + ', ' + dati.aziendaDTO.citta + ', ' + dati.aziendaDTO.cap}</p>
                         </div>
                     </div>
                        
@@ -237,7 +237,7 @@ function depositoInfo(dati, img, id, abb) {
                 </div>
                 `;
 
-                colonnaInfo.innerHTML = visualizzaInfo;
+    colonnaInfo.innerHTML = visualizzaInfo;
 
 
 }
@@ -250,53 +250,53 @@ function interessamentoDeposito(richiestaId, aziendaIdAccesso, emailAziendale, i
 
 
     if (abb == 'base' || abb == 'plus') {
-        
-    
-    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/modificaMagazzinoIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        }, 
-        body: JSON.stringify({
 
-        }),
-    })
 
-    let idRichiedente = aziendaIdAccesso;
-    let idRichiesta = richiestaId;
-    let idAziendaEmittente = idAzienda;
+        fetch(`http://127.0.0.1:8080/api/depositoMagazzino/modificaMagazzinoIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
 
-    class PropostaDeposito {
-        constructor(aziendaIdProponenteMagazzino, depositoMagazzinoId, aziendaRichiedente) {
-            (this.aziendaIdProponenteMagazzino = aziendaIdProponenteMagazzino),
-            (this.depositoMagazzinoId = depositoMagazzinoId),
-            (this.aziendaRichiedente = aziendaRichiedente)
+            }),
+        })
 
+        let idRichiedente = aziendaIdAccesso;
+        let idRichiesta = richiestaId;
+        let idAziendaEmittente = idAzienda;
+
+        class PropostaDeposito {
+            constructor(aziendaIdProponenteMagazzino, depositoMagazzinoId, aziendaRichiedente) {
+                (this.aziendaIdProponenteMagazzino = aziendaIdProponenteMagazzino),
+                    (this.depositoMagazzinoId = depositoMagazzinoId),
+                    (this.aziendaRichiedente = aziendaRichiedente)
+
+            }
         }
+
+        let newPropostaDeposito = new PropostaDeposito(idRichiedente, idRichiesta, idAziendaEmittente);
+
+        fetch(`http://127.0.0.1:8080/api/propostaMagazzino/interessataPropostaMagazzino`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newPropostaDeposito),
+        })
+
+        const subject = "Richiesta Moveconnect";
+        const body = " Salve ho visto la richiesta sul portale Moveconnect e sarei interessato ";
+        const MailToLink = `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+        window.location.href = MailToLink;
+        window.location.href = 'interesseMostrato.html';
+
+    } else {
+
+        window.location.href = 'abbonamentiRegistrato.html';
+
+
     }
-
-    let newPropostaDeposito = new PropostaDeposito(idRichiedente, idRichiesta, idAziendaEmittente);
-
-    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/interessataPropostaMagazzino`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        }, 
-        body: JSON.stringify(newPropostaDeposito),
-    })
-
-    const subject= "Richiesta Moveconnect";
-    const body= " Salve ho visto la richiesta sul portale Moveconnect e sarei interessato ";
-    const MailToLink= `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href=MailToLink;
-    window.location.href = 'interesseMostrato.html';
-
-} else {
-    
-    window.location.href = 'abbonamentiRegistrato.html';
-    
-
-}
 
 
 }

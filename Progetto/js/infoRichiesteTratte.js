@@ -15,53 +15,53 @@ fetch(`http://127.0.0.1:8080/api/tratta/tratte/${dataEventoId}`)
     });
 
 
-    function fetchImg(dati, id) {
+function fetchImg(dati, id) {
 
-        let imgAzienda = document.querySelector('.imgAzienda');
-    
-        fetch(`http://127.0.0.1:8080/api/azienda/logo/${id}`)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Errore nel recupero del logo");
-                }
-                return response.blob();
-            })
-            .then((blob) => {
-                const logoUrl = URL.createObjectURL(blob);
-                
+    let imgAzienda = document.querySelector('.imgAzienda');
 
-                recuperaToken(dati, logoUrl);
-            })
-            .catch((error) => {
-                console.error("Errore nel caricamento del logo:", error);
-                imgAzienda.setAttribute(
-                    'src',
-                    './img/default-logo.png'
-                );
-            });
-    }
+    fetch(`http://127.0.0.1:8080/api/azienda/logo/${id}`)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Errore nel recupero del logo");
+            }
+            return response.blob();
+        })
+        .then((blob) => {
+            const logoUrl = URL.createObjectURL(blob);
 
 
-
-    function recuperaToken(dati, img) {
-
-        let accessToken = localStorage.getItem('accessToken');
-    
-        fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
-            .then((res) => res.json())
-            .then((data) => {
-    
-    
-                tratteInfo(dati, img, data.id)
-    
-    
-            });
-    }
+            recuperaToken(dati, logoUrl);
+        })
+        .catch((error) => {
+            console.error("Errore nel caricamento del logo:", error);
+            imgAzienda.setAttribute(
+                'src',
+                './img/default-logo.png'
+            );
+        });
+}
 
 
 
-function tratteInfo(dati, img, id) {
-    
+function recuperaToken(dati, img) {
+
+    let accessToken = localStorage.getItem('accessToken');
+
+    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+
+            tratteInfo(dati, img, data.id, data.abbonamento)
+
+
+        });
+}
+
+
+
+function tratteInfo(dati, img, id, abb) {
+
 
     let visualizzaInfo = `
     <div class="col-lg-2"></div>
@@ -81,7 +81,7 @@ function tratteInfo(dati, img, id) {
                             <h5 class="fw-bold">P. Iva: </h5>
                             <p>${dati.aziendaDTO.piva}</p>
                             <h5 class="fw-bold">Indirizzo: </h5>
-                            <p>${dati.aziendaDTO.indirizzo + ', ' + dati.aziendaDTO.citta + ', ' + dati.aziendaDTO.cap }</p>
+                            <p>${dati.aziendaDTO.indirizzo + ', ' + dati.aziendaDTO.citta + ', ' + dati.aziendaDTO.cap}</p>
                         </div>
                     </div>
                        
@@ -259,11 +259,11 @@ function tratteInfo(dati, img, id) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoTratte(${dati.id}, ${id}, '${dati.aziendaDTO.emailAziendale}', ${dati.aziendaDTO.id})">Interessato</button></div>
+                    <div class="col-md-2 align-self-center text-center"><button class="btn btn-primary p-3" onclick="interessamentoTratte(${dati.id}, ${id}, '${dati.aziendaDTO.emailAziendale}', ${dati.aziendaDTO.id}, '${abb}')">Interessato</button></div>
                     <div class="col-md-2"</div>
                 </div>`;
 
-                colonnaInfo.innerHTML = visualizzaInfo;
+    colonnaInfo.innerHTML = visualizzaInfo;
 
 
 }
@@ -272,45 +272,54 @@ function tratteInfo(dati, img, id) {
 
 
 
-function interessamentoTratte(richiestaId, aziendaIdAccesso, emailAziendale, idAzienda) {
+function interessamentoTratte(richiestaId, aziendaIdAccesso, emailAziendale, idAzienda, abb) {
 
-    fetch(`http://127.0.0.1:8080/api/tratta/modificaTrattaIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        }, 
-        body: JSON.stringify({
+    if (abb == 'base' || abb == 'plus') {
 
-        }),
-    })
 
-    let idRichiedente = aziendaIdAccesso;
-    let idRichiesta = richiestaId;
-    let idAziendaEmittente = idAzienda;
-    class PropostaTratte {
-        constructor(aziendaIdProponenteTratta, trattaId, aziendaIdRichiedente) {
-            (this.aziendaIdProponenteTratta = aziendaIdProponenteTratta),
-            (this.trattaId = trattaId),
-            (this.aziendaIdRichiedente = aziendaIdRichiedente)
+        fetch(`http://127.0.0.1:8080/api/tratta/modificaTrattaIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
 
+            }),
+        })
+
+        let idRichiedente = aziendaIdAccesso;
+        let idRichiesta = richiestaId;
+        let idAziendaEmittente = idAzienda;
+        class PropostaTratte {
+            constructor(aziendaIdProponenteTratta, trattaId, aziendaIdRichiedente) {
+                (this.aziendaIdProponenteTratta = aziendaIdProponenteTratta),
+                    (this.trattaId = trattaId),
+                    (this.aziendaIdRichiedente = aziendaIdRichiedente)
+
+            }
         }
+
+        let newPropostaTratte = new PropostaTratte(idRichiedente, idRichiesta, idAziendaEmittente);
+
+        fetch(`http://127.0.0.1:8080/api/trattazza/interessataPropostaTratta`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newPropostaTratte),
+        })
+
+        const subject = "Richiesta Moveconnect";
+        const body = " Salve ho visto la richiesta sul portale Moveconnect e sarei interessato ";
+        const MailToLink = `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+        window.location.href = MailToLink;
+        window.location.href = 'interesseMostrato.html';
+
+    } else {
+
+        window.location.href = 'abbonamentiRegistrato.html';
+
+
     }
-
-    let newPropostaTratte = new PropostaTratte(idRichiedente, idRichiesta, idAziendaEmittente);
-
-    fetch(`http://127.0.0.1:8080/api/trattazza/interessataPropostaTratta`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        }, 
-        body: JSON.stringify(newPropostaTratte),
-    })
-
-    const subject= "Richiesta Moveconnect";
-    const body= " Salve ho visto la richiesta sul portale Moveconnect e sarei interessato ";
-    const MailToLink= `mailto:${emailAziendale}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href=MailToLink;
-    window.location.href = 'interesseMostrato.html';
-
 
 }
