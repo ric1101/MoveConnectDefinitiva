@@ -2,6 +2,15 @@
 <html lang="it">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HTJ908FB39"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-HTJ908FB39');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Richiesta Tratte</title>
@@ -14,90 +23,91 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script type="module">
-            "use strict";
-        
-            // This loads helper components from the Extended Component Library,
-            // https://github.com/googlemaps/extended-component-library.
-            import { APILoader } from 'https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js';
-        
-            const SHORT_NAME_ADDRESS_COMPONENT_TYPES =
-                new Set(['street_number', 'administrative_area_level_1', 'postal_code']);
-        
-            const ADDRESS_COMPONENT_TYPES_IN_FORM = [
-                { componentType: 'locality', fieldId: 'locality-input' },  // Città
-                { componentType: 'administrative_area_level_1', fieldId: 'administrative_area_level_1-input' },  // Regione/Stato
-                { componentType: 'postal_code', fieldId: 'postal_code-input' },  // CAP
-                { componentType: 'country', fieldId: 'country-input' },  // Nazione
-            ];
-        
-            function getFormInputElement(componentType) {
-                return document.getElementById(componentType + '-input');
-            }
-        
-            // Function to fill in the address fields
-            function fillInAddress(place, addressType) {
-                function getComponentName(componentType) {
-                    for (const component of place.address_components || []) {
-                        if (component.types.includes(componentType)) {
-                            return SHORT_NAME_ADDRESS_COMPONENT_TYPES.has(componentType)
-                                ? component.short_name
-                                : component.long_name;
-                        }
+    <script type="module">
+        "use strict";
+
+        // This loads helper components from the Extended Component Library,
+        // https://github.com/googlemaps/extended-component-library.
+        import { APILoader } from 'https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js';
+
+        const SHORT_NAME_ADDRESS_COMPONENT_TYPES =
+            new Set(['street_number', 'administrative_area_level_1', 'postal_code']);
+
+        const ADDRESS_COMPONENT_TYPES_IN_FORM = [
+            { componentType: 'locality', fieldId: 'locality-input' },  // Città
+            { componentType: 'administrative_area_level_1', fieldId: 'administrative_area_level_1-input' },  // Regione/Stato
+            { componentType: 'postal_code', fieldId: 'postal_code-input' },  // CAP
+            { componentType: 'country', fieldId: 'country-input' },  // Nazione
+        ];
+
+        function getFormInputElement(componentType) {
+            return document.getElementById(componentType + '-input');
+        }
+
+        // Function to fill in the address fields
+        function fillInAddress(place, addressType) {
+            function getComponentName(componentType) {
+                for (const component of place.address_components || []) {
+                    if (component.types.includes(componentType)) {
+                        return SHORT_NAME_ADDRESS_COMPONENT_TYPES.has(componentType)
+                            ? component.short_name
+                            : component.long_name;
                     }
-                    return '';
                 }
-        
-                // Loop through the address components and fill in the corresponding inputs
-                ADDRESS_COMPONENT_TYPES_IN_FORM.forEach(({ componentType, fieldId }) => {
-                    const value = getComponentName(componentType);
-                    const element = document.getElementById(`${addressType}-${fieldId}`);
-                    if (element && value) {
-                        element.value = value;
-                    }
-                });
+                return '';
             }
-        
-            // Initialize the map and autocomplete for each input
-            async function initMap() {
-                const { Autocomplete } = await APILoader.importLibrary('places');
-        
-                // Autocomplete for the start address (Indirizzo Partenza)
-                const startAutocomplete = new Autocomplete(document.getElementById('start-location-input'), {
-                    fields: ['address_components', 'geometry', 'name'],
-                    types: ['address'],
-                });
-        
-                startAutocomplete.addListener('place_changed', () => {
-                    const place = startAutocomplete.getPlace();
-                    if (!place.geometry) {
-                        window.alert(`No details available for input: '${place.name}'`);
-                        return;
-                    }
-                    fillInAddress(place, 'start');  // Fill address for Indirizzo Partenza
-                });
-        
-                // Autocomplete for the end address (Indirizzo Arrivo)
-                const endAutocomplete = new Autocomplete(document.getElementById('end-location-input'), {
-                    fields: ['address_components', 'geometry', 'name'],
-                    types: ['address'],
-                });
-        
-                endAutocomplete.addListener('place_changed', () => {
-                    const place = endAutocomplete.getPlace();
-                    if (!place.geometry) {
-                        window.alert(`No details available for input: '${place.name}'`);
-                        return;
-                    }
-                    fillInAddress(place, 'end');  // Fill address for Indirizzo Arrivo
-                });
-            }
-        
-            initMap();
-        </script>
+
+            // Loop through the address components and fill in the corresponding inputs
+            ADDRESS_COMPONENT_TYPES_IN_FORM.forEach(({ componentType, fieldId }) => {
+                const value = getComponentName(componentType);
+                const element = document.getElementById(`${addressType}-${fieldId}`);
+                if (element && value) {
+                    element.value = value;
+                }
+            });
+        }
+
+        // Initialize the map and autocomplete for each input
+        async function initMap() {
+            const { Autocomplete } = await APILoader.importLibrary('places');
+
+            // Autocomplete for the start address (Indirizzo Partenza)
+            const startAutocomplete = new Autocomplete(document.getElementById('start-location-input'), {
+                fields: ['address_components', 'geometry', 'name'],
+                types: ['address'],
+            });
+
+            startAutocomplete.addListener('place_changed', () => {
+                const place = startAutocomplete.getPlace();
+                if (!place.geometry) {
+                    window.alert(`No details available for input: '${place.name}'`);
+                    return;
+                }
+                fillInAddress(place, 'start');  // Fill address for Indirizzo Partenza
+            });
+
+            // Autocomplete for the end address (Indirizzo Arrivo)
+            const endAutocomplete = new Autocomplete(document.getElementById('end-location-input'), {
+                fields: ['address_components', 'geometry', 'name'],
+                types: ['address'],
+            });
+
+            endAutocomplete.addListener('place_changed', () => {
+                const place = endAutocomplete.getPlace();
+                if (!place.geometry) {
+                    window.alert(`No details available for input: '${place.name}'`);
+                    return;
+                }
+                fillInAddress(place, 'end');  // Fill address for Indirizzo Arrivo
+            });
+        }
+
+        initMap();
+    </script>
 </head>
 
-<body style="background-image: url(./imgs/marmo.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;">
+<body
+    style="background-image: url(./imgs/marmo.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;">
     <gmpx-api-loader key="AIzaSyBj1bqlcwA9G1E6Jl9Z14ZvgLZtioIBoow" solution-channel="GMP_QB_addressselection_v4_cA">
     </gmpx-api-loader>
     <div class="navbarMain"></div>
@@ -126,36 +136,43 @@
             <div class="row g-3 p-2">
                 <div class="col-md-5 col-lg-5">
                     <label for="start-location-input" class="form-label">Indirizzo Partenza *</label>
-                    <input type="text" placeholder="Via Roma 4" id="start-location-input" class="form-control indirizzoPartenza" />
+                    <input type="text" placeholder="Via Roma 4" id="start-location-input"
+                        class="form-control indirizzoPartenza" />
                 </div>
                 <div class="col-md-2"></div>
                 <div class="col-md-5 col-lg-5">
                     <label for="" class="form-label">Indirizzo due Partenza</label>
-                    <input type="text" placeholder="Palazzina, scala, piano, etc (opzionale)" class="form-control indirizzoDuePartenza" />
+                    <input type="text" placeholder="Palazzina, scala, piano, etc (opzionale)"
+                        class="form-control indirizzoDuePartenza" />
                 </div>
             </div>
-            
+
             <div class="row g-3 p-2">
                 <div class="col-md-5 col-lg-5">
                     <label for="start-locality-input" class="form-label">Città Partenza *</label>
-                    <input type="text" placeholder="Città" id="start-locality-input" class="form-control cittaPartenza" />
+                    <input type="text" placeholder="Città" id="start-locality-input"
+                        class="form-control cittaPartenza" />
                 </div>
                 <div class="col-md-2"></div>
                 <div class="col-md-5 col-lg-5">
-                    <label for="start-administrative_area_level_1-input" class="form-label">Regione/Stato Partenza *</label>
-                    <input type="text" id="start-administrative_area_level_1-input" class="form-control regionePartenza" placeholder="Stato" maxLength="50" />
+                    <label for="start-administrative_area_level_1-input" class="form-label">Regione/Stato Partenza
+                        *</label>
+                    <input type="text" id="start-administrative_area_level_1-input" class="form-control regionePartenza"
+                        placeholder="Stato" maxLength="50" />
                 </div>
             </div>
-            
+
             <div class="row g-3 p-2">
                 <div class="col-md-5 col-lg-5">
                     <label for="start-postal_code-input" class="form-label">CAP Partenza *</label>
-                    <input type="text" id="start-postal_code-input" class="form-control capPartenza" placeholder="Zip/Postal code" />
+                    <input type="text" id="start-postal_code-input" class="form-control capPartenza"
+                        placeholder="Zip/Postal code" />
                 </div>
                 <div class="col-md-2"></div>
                 <div class="col-md-5 col-lg-5">
                     <label for="start-country-input" class="form-label">Nazione Partenza *</label>
-                    <input type="text" id="start-country-input" class="form-control paesePartenza" placeholder="Country" />
+                    <input type="text" id="start-country-input" class="form-control paesePartenza"
+                        placeholder="Country" />
                 </div>
             </div>
 
@@ -204,15 +221,17 @@
             <div class="row g-3 p-2">
                 <div class="col-md-5 col-lg-5">
                     <label for="end-location-input" class="form-label">Indirizzo Arrivo *</label>
-                    <input type="text" placeholder="Via Roma 4" id="end-location-input" class="form-control indirizzoArrivo" />
+                    <input type="text" placeholder="Via Roma 4" id="end-location-input"
+                        class="form-control indirizzoArrivo" />
                 </div>
                 <div class="col-md-2"></div>
                 <div class="col-md-5 col-lg-5">
                     <label for="" class="form-label">Indirizzo due Arrivo</label>
-                    <input type="text" placeholder="Palazzina, scala, piano, etc (opzionale)" class="form-control indirizzoDueArrivo" />
+                    <input type="text" placeholder="Palazzina, scala, piano, etc (opzionale)"
+                        class="form-control indirizzoDueArrivo" />
                 </div>
             </div>
-            
+
             <div class="row g-3 p-2">
                 <div class="col-md-5 col-lg-5">
                     <label for="end-locality-input" class="form-label">Città Arrivo *</label>
@@ -221,14 +240,16 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-5 col-lg-5">
                     <label for="end-administrative_area_level_1-input" class="form-label">Regione/Stato Arrivo *</label>
-                    <input type="text" id="end-administrative_area_level_1-input" class="form-control regioneArrivo" placeholder="Stato" maxLength="50" />
+                    <input type="text" id="end-administrative_area_level_1-input" class="form-control regioneArrivo"
+                        placeholder="Stato" maxLength="50" />
                 </div>
             </div>
-            
+
             <div class="row g-3 p-2">
                 <div class="col-md-5 col-lg-5">
                     <label for="end-postal_code-input" class="form-label">CAP Arrivo *</label>
-                    <input type="text" id="end-postal_code-input" class="form-control capArrivo" placeholder="Zip/Postal code" />
+                    <input type="text" id="end-postal_code-input" class="form-control capArrivo"
+                        placeholder="Zip/Postal code" />
                 </div>
                 <div class="col-md-2"></div>
                 <div class="col-md-5 col-lg-5">

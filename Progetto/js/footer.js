@@ -19,7 +19,7 @@ function Footer() {
                         <i class="fas fa-phone"></i>
                         <div class="cta-text">
                             <h4>Chiamaci</h4>
-                            <span>+39 331 955 4877</span>
+                            <span>+39 376 271 5197</span>
                         </div>
                     </div>
                 </div>

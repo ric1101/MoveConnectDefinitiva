@@ -2,6 +2,15 @@
 <html lang="it">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HTJ908FB39"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-HTJ908FB39');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Richiesta Imballi</title>
@@ -93,7 +102,8 @@
     </script>
 </head>
 
-<body style="background-image: url(./imgs/marmo.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;">
+<body
+    style="background-image: url(./imgs/marmo.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;">
     <gmpx-api-loader key="AIzaSyBj1bqlcwA9G1E6Jl9Z14ZvgLZtioIBoow" solution-channel="GMP_QB_addressselection_v4_cA">
     </gmpx-api-loader>
     <div class="navbarMain"></div>
@@ -275,7 +285,8 @@
                             <div class="mb-3">
 
                                 <label for="location-input" class="form-label">Indirizzo *</label>
-                                <input type="text" placeholder="Via Roma 4" id="location-input" class="form-control indirizzo" />
+                                <input type="text" placeholder="Via Roma 4" id="location-input"
+                                    class="form-control indirizzo" />
 
                             </div>
 
@@ -288,7 +299,8 @@
                             <div class="mb-3">
 
                                 <label for="" class="form-label">Indirizzo due</label>
-                                <input type="text" placeholder="Palazzina, scala, piano, etc (opzionale)" class="form-control indirizzoDue" />
+                                <input type="text" placeholder="Palazzina, scala, piano, etc (opzionale)"
+                                    class="form-control indirizzoDue" />
 
                             </div>
 
@@ -317,8 +329,10 @@
 
                             <div class="mb-3">
 
-                                <label for="administrative_area_level_1-input" class="form-label">Regione/Stato *</label>
-                                <input type="text" id="administrative_area_level_1-input" class="form-control regione" placeholder="Stato" maxLength="50" />
+                                <label for="administrative_area_level_1-input" class="form-label">Regione/Stato
+                                    *</label>
+                                <input type="text" id="administrative_area_level_1-input" class="form-control regione"
+                                    placeholder="Stato" maxLength="50" />
 
                             </div>
 
@@ -335,7 +349,8 @@
                             <div class="mb-3">
 
                                 <label for="postal_code-input" class="form-label">CAP *</label>
-                                <input type="text" id="postal_code-input" class="form-control cap" placeholder="Zip/Postal code" />
+                                <input type="text" id="postal_code-input" class="form-control cap"
+                                    placeholder="Zip/Postal code" />
 
                             </div>
 
@@ -348,7 +363,8 @@
                             <div class="mb-3">
 
                                 <label for="country-input" class="form-label">Nazione *</label>
-                                <input type="text" id="country-input" class="form-control paese" placeholder="Country" />
+                                <input type="text" id="country-input" class="form-control paese"
+                                    placeholder="Country" />
 
                             </div>
 
@@ -364,7 +380,8 @@
                             <div class="mb-3">
                                 <div data-mdb-input-init class="form-outline">
                                     <label class="form-label" for="note">Note</label>
-                                    <textarea class="form-control note" rows="4" placeholder="Esigenze particolari..."></textarea>
+                                    <textarea class="form-control note" rows="4"
+                                        placeholder="Esigenze particolari..."></textarea>
                                 </div>
                             </div>
                         </div>
@@ -375,7 +392,8 @@
 
                             <div class="mb-3">
                                 <label class="form-label">Data Consegna *</label>
-                                <input type="date" min="" max="" class="form-control arrivo" onkeydown="return false" required>
+                                <input type="date" min="" max="" class="form-control arrivo" onkeydown="return false"
+                                    required>
                             </div>
 
                         </div>
