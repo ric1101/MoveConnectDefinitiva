@@ -2,6 +2,15 @@
 <html lang="it">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HTJ908FB39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-HTJ908FB39');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cerca Aziende</title>
@@ -25,7 +34,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Londrina+Sketch&display=swap" rel="stylesheet">
 </head>
 
-<body style="background-image: url(./imgs/marmo.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;">
+<body
+  style="background-image: url(./imgs/marmo.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;">
 
   <div class="navbarMain"></div>
 
@@ -34,15 +44,16 @@
       <div class="col-md-4">
         <h1>Cerca Azienda</h1>
         <form class="d-flex ricerca w-auto">
-          <input id="searchInput" type="search" class="form-control rounded me-1" placeholder="Search" onkeyup="tokenizzami() ">
-          
+          <input id="searchInput" type="search" class="form-control rounded me-1" placeholder="Search"
+            onkeyup="tokenizzami() ">
+
           <span class="input-group-text border-0" id="search-addon">
             <i class="fas fa-search"></i>
           </span>
         </form>
       </div>
-      
-      
+
+
 
 
       <ul id="resultsList"></ul>
@@ -64,11 +75,11 @@
             <h3 style="color: white;">Migliori Recensite</h3>
           </div>
         </div>
-        
+
       </div>
     </div>
   </div>
-  
+
 
   <div class="footer"></div>
 
@@ -76,9 +87,9 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script src="../Progetto/js/homepagejs.js"></script>
-<div class="gtranslate_wrapper"></div>
- <script>window.gtranslateSettings = {"default_language":"it","detect_browser_language":true,"languages":["it","fr","de","es","zh-CN","ko","ja","ru","en","ar","hi","bn","ur"],"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"right","float_switcher_open_direction":"bottom","alt_flags":{"en":"usa","pt":"brazil"}}</script>
-<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+  <div class="gtranslate_wrapper"></div>
+  <script>window.gtranslateSettings = { "default_language": "it", "detect_browser_language": true, "languages": ["it", "fr", "de", "es", "zh-CN", "ko", "ja", "ru", "en", "ar", "hi", "bn", "ur"], "wrapper_selector": ".gtranslate_wrapper", "switcher_horizontal_position": "right", "float_switcher_open_direction": "bottom", "alt_flags": { "en": "usa", "pt": "brazil" } }</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
   <script src="../Progetto/js/footer.js"></script>
   <script src="../Progetto/js/index.js"></script>

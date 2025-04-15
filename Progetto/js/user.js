@@ -413,7 +413,16 @@ function iMieiDati(dati) {
                                     <h6 class="mb-0" style="font-size: 18px;">Email</h6>
                                 </div>
                                 <div class="col-sm-7 text-secondary" style="font-size: 18px;">
-                                    ${dati.username}
+                                    ${dati.username} <button class="btn btn-sm btn-dark ms-2">Modifica</button>
+                                </div>
+                                <hr>
+                                 <div class="row rowDati">
+                                <div class="col-sm-5">
+                                    <h6 class="mb-0" style="font-size: 18px;">password</h6>
+                                </div>
+                                <div class="col-sm-7 text-secondary" style="font-size: 18px;">
+                                    ${dati.username} 
+                                    <button class="btn btn-sm btn-dark ms-2">Modifica</button>
                                 </div>
                             </div>
                         </div>
