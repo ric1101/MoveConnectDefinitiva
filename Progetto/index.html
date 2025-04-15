@@ -2,6 +2,7 @@
 <html lang="it">
 
 <head>
+  <script src='./js/config.js'></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -31,9 +32,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Londrina+Sketch&display=swap" rel="stylesheet">
   <script>
     let accessToken = localStorage.getItem("accessToken");
+    let apiUrl = fetch(window.MY_APP_API_URL);
 
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
       .then((res) => res.json())
       .then((data) => {
 
