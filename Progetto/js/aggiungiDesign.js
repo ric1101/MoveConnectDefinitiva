@@ -8,6 +8,7 @@ let img = document.querySelector('.img');
 let datato = document.querySelector('.data');
 let writer = document.querySelector('.writer');
 let btnInviaAdd = document.querySelector('.btnInviaAdd');
+let apiUrl = fetch(window.MY_APP_API_URL);
 
 
 btnInviaAdd.addEventListener('click', aggiungiArticoloDesign);
@@ -37,7 +38,7 @@ async function aggiungiArticoloDesign() {
     );
 
 
-    await fetch(`http://127.0.0.1:8080/api/design/inserisciDesign`, {
+    await fetch(`${apiUrl}/api/design/inserisciDesign`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

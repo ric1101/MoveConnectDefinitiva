@@ -3,9 +3,11 @@
 let colonnaInfo = document.querySelector('.colonnaInfo');
 let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
+let apiUrl = fetch(window.MY_APP_API_URL);
 
 
-fetch(`http://127.0.0.1:8080/api/scalaElevatore/scalaId/${dataEventoId}`)
+
+fetch(`${apiUrl}/api/scalaElevatore/scalaId/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -22,7 +24,7 @@ function fetchImg(dati, id) {
 
     let imgAzienda = document.querySelector('.imgAzienda');
 
-    fetch(`http://127.0.0.1:8080/api/azienda/logo/${id}`)
+    fetch(`${apiUrl}/api/azienda/logo/${id}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Errore nel recupero del logo");
@@ -50,7 +52,7 @@ function recuperaToken(dati, img) {
 
     let accessToken = localStorage.getItem('accessToken');
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -233,7 +235,7 @@ function interessamentoElevatore(richiestaId, aziendaIdAccesso, emailAziendale, 
     if (abb == 'base' || abb == 'plus') {
 
 
-        fetch(`http://127.0.0.1:8080/api/scalaElevatore/modificaScalaIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
+        fetch(`${apiUrl}/api/scalaElevatore/modificaScalaIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -263,7 +265,7 @@ function interessamentoElevatore(richiestaId, aziendaIdAccesso, emailAziendale, 
         console.log(newPropostaScala);
 
 
-        fetch(`http://127.0.0.1:8080/api/scala/interessataPropostaScala`, {
+        fetch(`${apiUrl}/api/scala/interessataPropostaScala`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

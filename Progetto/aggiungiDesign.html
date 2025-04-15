@@ -22,7 +22,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
     <script>
+       
         document.addEventListener('DOMContentLoaded', () => {
+            let apiUrl = fetch(window.MY_APP_API_URL);
 
             let accessToken = localStorage.getItem('accessToken');
 
@@ -30,7 +32,7 @@
                 
             
 
-            fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+            fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
                 .then((res) => res.json())
                 .then((data) => {
 

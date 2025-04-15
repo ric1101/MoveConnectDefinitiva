@@ -8,8 +8,9 @@ let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
 </div>`;
 
 let accessToken = localStorage.getItem('accessToken');
+let apiUrl = fetch(window.MY_APP_API_URL);
 
-fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -23,7 +24,7 @@ fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
 function fetchPersonale(id) {
 
 
-    let URLB = `http://127.0.0.1:8080/api/personaleSpecializzato/tuttiIPersonaliConAzienda`;
+    let URLB = `${apiUrl}/api/personaleSpecializzato/tuttiIPersonaliConAzienda`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {
@@ -60,7 +61,7 @@ function personale(dati, id) {
 
                  
 
-                    fetch(`http://127.0.0.1:8080/api/personale/byAziendaPersonale?personaleId=${element.id}`)
+                    fetch(`${apiUrl}/api/personale/byAziendaPersonale?personaleId=${element.id}`)
                     .then((res) => res.json())
                     .then((data) => {
 
@@ -223,7 +224,7 @@ let pers2 = 0;
 
 async function fetchRegioniPersonale(regione) {
 
-    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -241,7 +242,7 @@ async function filtriRegionePersonale(regione, id) {
 
     console.log(regione);
 
-    await fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/tuttiIPersonaliConAziendaPerRegione/${regione}`) //ci va la rotta nuova
+    await fetch(`${apiUrl}/api/personaleSpecializzato/tuttiIPersonaliConAziendaPerRegione/${regione}`) //ci va la rotta nuova
         .then((res) => res.json())
         .then((data) => {
 
@@ -280,7 +281,7 @@ function personaleFiltroRegione(dati, id) {
 
                  
 
-                    fetch(`http://127.0.0.1:8080/api/personale/byAziendaPersonale?personaleId=${element.id}`)
+                    fetch(`${apiUrl}/api/personale/byAziendaPersonale?personaleId=${element.id}`)
                     .then((res) => res.json())
                     .then((data) => {
 
@@ -386,7 +387,7 @@ function personaleFiltroRegione(dati, id) {
 
 async function fetchRegioniTipiPersonale(regione, autista, falegname, montatore, operatore,) {
 
-    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -402,7 +403,7 @@ async function fetchRegioniTipiPersonale(regione, autista, falegname, montatore,
 async function filtriRegioneTipiPersonale(regione, autista, falegname, montatore, operatore, id) {
 
 
-    await fetch(`http://localhost:8080/api/personaleSpecializzato/tuttoIlPersonaleConAziendaTutto?paese=${regione}&autista=${autista}&falegname=${falegname}&montatore=${montatore}&operatore=${operatore}`)
+    await fetch(`${apiUrl}/api/personaleSpecializzato/tuttoIlPersonaleConAziendaTutto?paese=${regione}&autista=${autista}&falegname=${falegname}&montatore=${montatore}&operatore=${operatore}`)
         .then((res) => {
             if (!res.ok) {
                 throw new Error(`Errore nella risposta: ${res.status} - ${res.statusText}`);
@@ -444,7 +445,7 @@ function personaleFiltroRegioneTipiPersonale(dati, id) {
 
                  
 
-                    fetch(`http://127.0.0.1:8080/api/personale/byAziendaPersonale?personaleId=${element.id}`)
+                    fetch(`${apiUrl}/api/personale/byAziendaPersonale?personaleId=${element.id}`)
                     .then((res) => res.json())
                     .then((data) => {
 
@@ -552,7 +553,7 @@ function personaleFiltroRegioneTipiPersonale(dati, id) {
 
 async function fetchTipiPersonale(autista, falegname, montatore, operatore) {
 
-    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -569,7 +570,7 @@ async function fetchTipiPersonale(autista, falegname, montatore, operatore) {
 async function filtriTipiPersonale(autista, falegname, montatore, operatore, id) {
 
 
-    await fetch(`http://localhost:8080/api/personaleSpecializzato/tuttoIlPersonaleConAziendaTutto?autista=${autista}&falegname=${falegname}&montatore=${montatore}&operatore=${operatore}`) //ci va la rotta nuova
+    await fetch(`${apiUrl}/api/personaleSpecializzato/tuttoIlPersonaleConAziendaTutto?autista=${autista}&falegname=${falegname}&montatore=${montatore}&operatore=${operatore}`) //ci va la rotta nuova
         .then((res) => res.json())
         .then((data) => {
 
@@ -610,7 +611,7 @@ function personaleFiltroTipiPersonale(dati, id) {
 
                  
 
-                    fetch(`http://127.0.0.1:8080/api/personale/byAziendaPersonale?personaleId=${element.id}`)
+                    fetch(`${apiUrl}/api/personale/byAziendaPersonale?personaleId=${element.id}`)
                     .then((res) => res.json())
                     .then((data) => {
 

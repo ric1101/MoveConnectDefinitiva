@@ -1,10 +1,10 @@
 let bottoneBase = document.querySelector(".buttonEconomico");
 let bottonePlus = document.querySelector(".buttonPlus");
-
+let apiUrl = fetch(window.MY_APP_API_URL);
 function abbonamentoBase() {
     let accessToken = localStorage.getItem('accessToken');
     // Prima fetch per ottenere i dati dell'azienda
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => {
             // Check if the response is OK
             if (!res.ok) {
@@ -18,7 +18,7 @@ function abbonamentoBase() {
             console.log(data.id);
 
             // Seconda fetch per creare la sessione di checkout
-            fetch(`http://127.0.0.1:8080/product/v1/create-checkout-session/${data.id}?type=base`, {
+            fetch(`${apiUrl}/product/v1/create-checkout-session/${data.id}?type=base`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -58,7 +58,7 @@ function abbonamentoBase() {
 function abbonamentoPlus() {
     let accessToken = localStorage.getItem('accessToken');
     // Prima fetch per ottenere i dati dell'azienda
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => {
             // Check if the response is OK
             if (!res.ok) {
@@ -72,7 +72,7 @@ function abbonamentoPlus() {
             console.log(data.id);
 
             // Seconda fetch per creare la sessione di checkout
-            fetch(`http://127.0.0.1:8080/product/v1/create-checkout-session/${data.id}?type=plus`, {
+            fetch(`${apiUrl}/product/v1/create-checkout-session/${data.id}?type=plus`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

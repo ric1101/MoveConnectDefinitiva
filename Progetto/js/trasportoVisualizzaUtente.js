@@ -15,7 +15,7 @@ function fetchTrasporto() {
     let idRichiesteTrasporto = localStorage.getItem('iDLocalAzienda');
 
 
-    let URLB = `http://127.0.0.1:8080/api/richiestaTrasporto/tutteLeConsegneConAziendaTrasportoId/${idRichiesteTrasporto}`;
+    let URLB = `${apiUrl}/api/richiestaTrasporto/tutteLeConsegneConAziendaTrasportoId/${idRichiesteTrasporto}`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {

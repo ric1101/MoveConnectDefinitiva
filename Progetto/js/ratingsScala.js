@@ -39,11 +39,13 @@ function remove() {
 }
 
 function tokenizzami() {
+    let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
+
 
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -63,7 +65,7 @@ function recuperaDatiRecensione(id) {
 
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`http://127.0.0.1:8080/api/scala/relazioneScalaPerId/${idRel}`)
+    fetch(`${apiUrl}/api/scala/relazioneScalaPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -111,7 +113,7 @@ function recuperaToken() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -137,7 +139,7 @@ function stelleInserite(idAziendaAccesso) {
     let scelta = 0;
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`http://127.0.0.1:8080/api/scala/relazioneScalaPerId/${idRel}`)
+    fetch(`${apiUrl}/api/scala/relazioneScalaPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -247,7 +249,7 @@ function inviaRecensione(choose) {
     if (choose == 1) {
 
 
-        fetch(`http://127.0.0.1:8080/api/scala/recensitaRelazioneScalaProponente/${idRecNumber}`, {
+        fetch(`${apiUrl}/api/scala/recensitaRelazioneScalaProponente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -263,7 +265,7 @@ function inviaRecensione(choose) {
     } else {
 
 
-        fetch(`http://127.0.0.1:8080/api/scala/recensitaRelazioneScalaRichiedente/${idRecNumber}`, {
+        fetch(`${apiUrl}/api/scala/recensitaRelazioneScalaRichiedente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -277,7 +279,7 @@ function inviaRecensione(choose) {
     }
 
 
-    fetch(`http://127.0.0.1:8080/api/scala/recensioneScala`, {
+    fetch(`${apiUrl}/api/scala/recensioneScala`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

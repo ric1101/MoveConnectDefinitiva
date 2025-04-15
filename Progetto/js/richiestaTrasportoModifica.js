@@ -27,7 +27,7 @@ let btnInvioRichiestaTrasporto = document.querySelector('.btnInvioRichiestaTrasp
 
 let idTrasporto = localStorage.getItem('modificaCarico');
 
-fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/richiestaId/${idTrasporto}`)
+fetch(`${apiUrl}/api/richiestaTrasporto/richiestaId/${idTrasporto}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -111,7 +111,7 @@ function recuperaId() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -159,7 +159,7 @@ function inviaRichiesta(dati) {
 
 
 
-    fetch(`http://127.0.0.1:8080/api/richiestaTrasporto/modificaTrasporto/${idTrasporto}`, {
+    fetch(`${apiUrl}/api/richiestaTrasporto/modificaTrasporto/${idTrasporto}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

@@ -1,4 +1,7 @@
+
 function getAziendeByRegione() {
+    let apiUrl = fetch(window.MY_APP_API_URL);
+
     const regione = localStorage.getItem('regione'); 
     if (!regione) {
         console.error('Regione non trovata nel localStorage');
@@ -6,10 +9,11 @@ function getAziendeByRegione() {
     }
 
     const container = document.getElementById('aziende-container');
+
     
 
     
-    fetch(`http://127.0.0.1:8080/api/azienda/${regione}`)
+    fetch(`${apiUrl}/api/azienda/${regione}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Errore nel recupero delle aziende');

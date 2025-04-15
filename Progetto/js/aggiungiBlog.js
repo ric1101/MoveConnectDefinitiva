@@ -8,6 +8,7 @@ let img = document.querySelector('.img');
 let datato = document.querySelector('.data');
 let writer = document.querySelector('.writer');
 let btnInviaAddBlog = document.querySelector('.btnInviaAddBlog');
+let apiUrl = fetch(window.MY_APP_API_URL);
 
 
 btnInviaAddBlog.addEventListener('click', aggiungiArticoloBlog);
@@ -37,7 +38,7 @@ async function aggiungiArticoloBlog() {
     );
 
 
-    await fetch(`http://127.0.0.1:8080/api/blog/inserisciBlog`, {
+    await fetch(`${apiUrl}/api/blog/inserisciBlog`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

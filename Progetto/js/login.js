@@ -1,4 +1,5 @@
-const URLOG = `http://127.0.0.1:8080/api/azienda/login`;
+let apiUrl = fetch(window.MY_APP_API_URL);
+const URLOG = `${apiUrl}/api/azienda/login`;
 
 let username = document.querySelector('#email');
 let password = document.querySelector('#password');
@@ -7,6 +8,8 @@ let errore = document.querySelector('.errore');
 let register = document.querySelector('#register');
 let showPassword = document.querySelector('#showPassword');
 let button = document.querySelector('.btn');
+
+
 
 
 function toShowPassword() {
