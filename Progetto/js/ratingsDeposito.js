@@ -15,6 +15,9 @@ let stars =
 let output =
     document.getElementById("output");
 
+let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
+
+
 // Funtion to update rating
 function gfg(n) {
     remove();
@@ -45,7 +48,7 @@ function tokenizzami() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -65,7 +68,7 @@ function recuperaDatiRecensione(id) {
 
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/relazioneMagazzinoPerId/${idRel}`)
+    fetch(`${apiUrl}/api/propostaMagazzino/relazioneMagazzinoPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -111,7 +114,7 @@ function recuperaToken() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -134,7 +137,7 @@ function stelleInserite(idAziendaAccesso) {
     let scelta = 0;
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/relazioneMagazzinoPerId/${idRel}`)
+    fetch(`${apiUrl}/api/propostaMagazzino/relazioneMagazzinoPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -245,7 +248,7 @@ function inviaRecensione(choose) {
     if (choose == 1) {
 
 
-        fetch(`http://127.0.0.1:8080/api/propostaMagazzino/recensitaRelazioneMagazzinoProponente/${idRecNumber}`, {
+        fetch(`${apiUrl}/api/propostaMagazzino/recensitaRelazioneMagazzinoProponente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -261,7 +264,7 @@ function inviaRecensione(choose) {
     } else {
 
 
-        fetch(`http://127.0.0.1:8080/api/propostaMagazzino/recensitaRelazioneMagazzinoRichiedente/${idRecNumber}`, {
+        fetch(`${apiUrl}/api/propostaMagazzino/recensitaRelazioneMagazzinoRichiedente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -275,7 +278,7 @@ function inviaRecensione(choose) {
     }
 
 
-    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/recensioneMagazzino`, {
+    fetch(`${apiUrl}/api/propostaMagazzino/recensioneMagazzino`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

@@ -17,8 +17,9 @@ let btnInvioRichiestaScalaElevatore = document.querySelector('.btnInvioRichiesta
 
 
 let idScala = localStorage.getItem('modificaScala');
+let apiUrl = fetch(window.MY_APP_API_URL);
 
-fetch(`http://127.0.0.1:8080/api/scalaElevatore/scalaId/${idScala}`)
+fetch(`${apiUrl}/api/scalaElevatore/scalaId/${idScala}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -83,7 +84,7 @@ function recuperaId() {
     let accessToken = localStorage.getItem('accessToken');
     
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -123,7 +124,7 @@ function inviaRichiesta(dati) {
     console.log(nuovaRichiestaScalaElevatore);
 
 
-    fetch(`http://127.0.0.1:8080/api/scalaElevatore/modificaScala/${idScala}`, {
+    fetch(`${apiUrl}/api/scalaElevatore/modificaScala/${idScala}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

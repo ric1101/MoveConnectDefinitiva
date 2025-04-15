@@ -5,6 +5,7 @@ let bodyTabella = document.querySelector('.bodyTabella');
 let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
 <p>Non ci sono Corrispondenze!</p>
 </div>`;
+let apiUrl = fetch(window.MY_APP_API_URL);
 
 
 
@@ -12,7 +13,7 @@ function fetchTratte() {
 
     let idRichiesteTratte = localStorage.getItem('iDLocalAzienda');
 
-    let URLB = `http://localhost:8080/api/tratta/tutteLeConsegneConAziendaTrattaId/${idRichiesteTratte}`;
+    let URLB = `${apiUrl}/api/tratta/tutteLeConsegneConAziendaTrattaId/${idRichiesteTratte}`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {

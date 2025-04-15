@@ -24,14 +24,14 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-
+            let apiUrl = fetch(window.MY_APP_API_URL);
             let accessToken = localStorage.getItem('accessToken');
 
             if (accessToken != null && accessToken != '' && accessToken != undefined) {
                 
             
 
-            fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+            fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
                 .then((res) => res.json())
                 .then((data) => {
 

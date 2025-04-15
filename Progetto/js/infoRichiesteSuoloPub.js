@@ -3,9 +3,11 @@
 let colonnaInfo = document.querySelector('.colonnaInfo');
 let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
+let apiUrl = fetch(window.MY_APP_API_URL);
 
 
-fetch(`http://127.0.0.1:8080/api/richiesta/richiestaPerId/${dataEventoId}`)
+
+fetch(`${apiUrl}/api/richiesta/richiestaPerId/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -19,7 +21,7 @@ fetch(`http://127.0.0.1:8080/api/richiesta/richiestaPerId/${dataEventoId}`)
 
         let imgAzienda = document.querySelector('.imgAzienda');
     
-        fetch(`http://127.0.0.1:8080/api/azienda/logo/${id}`)
+        fetch(`${apiUrl}/api/azienda/logo/${id}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Errore nel recupero del logo");

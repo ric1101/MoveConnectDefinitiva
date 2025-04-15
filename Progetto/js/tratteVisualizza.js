@@ -9,7 +9,7 @@ let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
 </div>`;
 
 
-fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -24,7 +24,7 @@ fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
 function fetchTratte(id) {
 
 
-    let URLB = `http://localhost:8080/api/tratta/tuttLeTratteConAzienda`;
+    let URLB = `${apiUrl}/api/tratta/tuttLeTratteConAzienda`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {
@@ -56,7 +56,7 @@ function tratte(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`http://127.0.0.1:8080/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
+                    fetch(`${apiUrl}/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -355,7 +355,7 @@ tipoVeicolo.forEach(element => {
 
 
 async function fetchRegionePartenza(regione) {
-    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -370,7 +370,7 @@ async function filtriRegionePartenza(regione, id) {
 
     console.log(regione);
 
-    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLeTratteConAziendaPerRegionePartenza/${regione}`)
+    await fetch(`${apiUrl}/api/tratta/tutteLeTratteConAziendaPerRegionePartenza/${regione}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -404,7 +404,7 @@ function tratteFiltroSoloRegionePartenza(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`http://127.0.0.1:8080/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
+                    fetch(`${apiUrl}/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -512,7 +512,7 @@ function tratteFiltroSoloRegionePartenza(dati, id) {
 
 
 async function fetchRegionePartenzaArrivo(regionePartenza, regioneArrivo) {
-    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -526,7 +526,7 @@ async function fetchRegionePartenzaArrivo(regionePartenza, regioneArrivo) {
 async function filtriRegionePartenzaArrivo(regionePartenza, regioneArrivo, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?paesePartenza=${regionePartenza}&paeseArrivo=${regioneArrivo}`)
+    await fetch(`${apiUrl}/api/tratta/tutteLetratteConAziendaTutto?paesePartenza=${regionePartenza}&paeseArrivo=${regioneArrivo}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -560,7 +560,7 @@ function tratteFiltroRegionePartenzaArrivo(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`http://127.0.0.1:8080/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
+                    fetch(`${apiUrl}/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -670,7 +670,7 @@ function tratteFiltroRegionePartenzaArrivo(dati, id) {
 
 
 async function fetchRegioniPartenzaArrivoVeicolo(regionePartenza, regioneArrivo, veicolo) {
-    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -684,7 +684,7 @@ async function fetchRegioniPartenzaArrivoVeicolo(regionePartenza, regioneArrivo,
 async function filtriRegionePartenzaArrivoVeicolo(regionePartenza, regioneArrivo, veicolo, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?paesePartenza=${regionePartenza}&paeseArrivo=${regioneArrivo}&tipoDiVeicolo=${veicolo}`)
+    await fetch(`${apiUrl}/api/tratta/tutteLetratteConAziendaTutto?paesePartenza=${regionePartenza}&paeseArrivo=${regioneArrivo}&tipoDiVeicolo=${veicolo}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -718,7 +718,7 @@ function tratteFiltroRegionePartenzaArrivoVeicolo(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`http://127.0.0.1:8080/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
+                    fetch(`${apiUrl}/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -830,7 +830,7 @@ function tratteFiltroRegionePartenzaArrivoVeicolo(dati, id) {
 
 
 async function fetchRegionePartenzaVeicolo(regionePartenza, veicolo) {
-    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -844,7 +844,7 @@ async function fetchRegionePartenzaVeicolo(regionePartenza, veicolo) {
 async function filtriRegionePartenzaVeicolo(regionePartenza, veicolo, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?paesePartenza=${regionePartenza}&tipoDiVeicolo=${veicolo}`)
+    await fetch(`${apiUrl}/api/tratta/tutteLetratteConAziendaTutto?paesePartenza=${regionePartenza}&tipoDiVeicolo=${veicolo}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -878,7 +878,7 @@ function tratteFiltroRegionePartenzaVeicolo(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`http://127.0.0.1:8080/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
+                    fetch(`${apiUrl}/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -985,7 +985,7 @@ function tratteFiltroRegionePartenzaVeicolo(dati, id) {
 
 
 async function fetchRegioneArrivoVeicolo(regioneArrivo, veicolo) {
-    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -999,7 +999,7 @@ async function fetchRegioneArrivoVeicolo(regioneArrivo, veicolo) {
 async function filtriRegioneArrivoVeicolo(regioneArrivo, veicolo, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?paeseArrivo=${regioneArrivo}&tipoDiVeicolo=${veicolo}`)
+    await fetch(`${apiUrl}/api/tratta/tutteLetratteConAziendaTutto?paeseArrivo=${regioneArrivo}&tipoDiVeicolo=${veicolo}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1033,7 +1033,7 @@ function tratteFiltroRegioneArrivoVeicolo(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`http://127.0.0.1:8080/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
+                    fetch(`${apiUrl}/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -1143,7 +1143,7 @@ function tratteFiltroRegioneArrivoVeicolo(dati, id) {
 
 
 async function fetchRegioneArrivo(regioneArrivo) {
-    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1157,7 +1157,7 @@ async function fetchRegioneArrivo(regioneArrivo) {
 async function filtriRegioneArrivo(regioneArrivo, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLeTratteConAziendaPerRegioneArrivo/${regioneArrivo}`)
+    await fetch(`${apiUrl}/api/tratta/tutteLeTratteConAziendaPerRegioneArrivo/${regioneArrivo}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1191,7 +1191,7 @@ function tratteFiltroRegioneArrivo(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`http://127.0.0.1:8080/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
+                    fetch(`${apiUrl}/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -1301,7 +1301,7 @@ function tratteFiltroRegioneArrivo(dati, id) {
 
 
 async function fetchVeicolo(veicolo) {
-    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1315,7 +1315,7 @@ async function fetchVeicolo(veicolo) {
 async function filtriVeicolo(veicolo, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/tratta/tutteLetratteConAziendaTutto?tipoDiVeicolo=${veicolo}`)
+    await fetch(`${apiUrl}/api/tratta/tutteLetratteConAziendaTutto?tipoDiVeicolo=${veicolo}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1349,7 +1349,7 @@ function tratteFiltroVeicolo(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`http://127.0.0.1:8080/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
+                    fetch(`${apiUrl}/api/trattazza/byAziendaRichiesta?trattaId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 

@@ -13,9 +13,10 @@ let btnInviaModifica = document.querySelector('.btnInviaModificaDesign');
 let idModDesign = localStorage.getItem('idModificaDesign');
 
 function popolaModDesign() {
+    let apiUrl = fetch(window.MY_APP_API_URL);
 
 
-    fetch(`http://127.0.0.1:8080/api/design/${idModDesign}`)
+    fetch(`${apiUrl}/api/design/${idModDesign}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -59,7 +60,7 @@ async function modificaDesign() {
     );
 
 
-   await fetch(`http://127.0.0.1:8080/api/design/modificaDesign/${idModDesign}`, {
+   await fetch(`${apiUrl}/api/design/modificaDesign/${idModDesign}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

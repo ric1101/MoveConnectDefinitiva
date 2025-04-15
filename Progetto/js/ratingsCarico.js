@@ -8,6 +8,7 @@ let idAccettata = document.querySelector('.idAccettata');
 let controlloStelle = document.querySelector('.controlloStelle');
 let erroreRec = document.querySelector('.erroreRec');
 let valutazione = 0;
+let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
 
 // To access the stars
 let stars =
@@ -46,7 +47,7 @@ function tokenizzami() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -65,7 +66,7 @@ function recuperaDatiRecensione(id) {
 
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`http://127.0.0.1:8080/api/trasporto/relazioneTrasportoPerId/${idRel}`)
+    fetch(`${apiUrl}/api/trasporto/relazioneTrasportoPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -113,7 +114,7 @@ function recuperaToken() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -138,7 +139,7 @@ function stelleInserite(idAziendaAccesso) {
     let scelta = 0;
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`http://127.0.0.1:8080/api/trasporto/relazioneTrasportoPerId/${idRel}`)
+    fetch(`${apiUrl}/api/trasporto/relazioneTrasportoPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -251,7 +252,7 @@ function inviaRecensione(choose) {
     if (choose == 1) {
 
 
-        fetch(`http://127.0.0.1:8080/api/trasporto/recensitaRelazioneTrasportoProponente/${idRecNumber}`, {
+        fetch(`${apiUrl}/api/trasporto/recensitaRelazioneTrasportoProponente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -267,7 +268,7 @@ function inviaRecensione(choose) {
     } else {
 
 
-        fetch(`http://127.0.0.1:8080/api/trasporto/recensitaRelazioneTrasportoRichiedente/${idRecNumber}`, {
+        fetch(`${apiUrl}/api/trasporto/recensitaRelazioneTrasportoRichiedente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -281,7 +282,7 @@ function inviaRecensione(choose) {
     }
 
 
-    fetch(`http://127.0.0.1:8080/api/trasporto/recensioneTrasporto`, {
+    fetch(`${apiUrl}/api/trasporto/recensioneTrasporto`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

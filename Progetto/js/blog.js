@@ -5,8 +5,9 @@ let designContent = document.querySelector('.design-content');
 let blogContent = document.querySelector('.blog-content');
 
 
-const URLD = 'http://localhost:8080/api/design/tuttiIDesign';
-const URLB = 'http://localhost:8080/api/blog/tutti';
+const URLD = '${apiUrl}/api/design/tuttiIDesign';
+const URLB = '${apiUrl}/api/blog/tutti';
+let apiUrl = fetch(window.MY_APP_API_URL);
 
 
 

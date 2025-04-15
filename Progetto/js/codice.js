@@ -5,6 +5,7 @@ let btnRigenera = document.querySelector(".rigenera");
 let codice = document.querySelector('.codice');
 let username = localStorage.getItem('emailUtente');
 let errore = document.querySelector('.errore');
+let apiUrl = fetch(window.MY_APP_API_URL);
 
 
 
@@ -31,7 +32,7 @@ function fetchInvio() {
   console.log(username, codice.value);
 
 
-  fetch(`http://127.0.0.1:8080/api/azienda/verify-azienda?username=${username}&verificationCode=${codice.value}`, {
+  fetch(`${apiUrl}/api/azienda/verify-azienda?username=${username}&verificationCode=${codice.value}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -59,7 +60,7 @@ function rigenera(){
   let rigenera = new Rigenera(username);
   console.log(username);
 
-  fetch(`http://127.0.0.1:8080/api/azienda/rigenera-codice?username=${username}`,{ 
+  fetch(`${apiUrl}/api/azienda/rigenera-codice?username=${username}`,{ 
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

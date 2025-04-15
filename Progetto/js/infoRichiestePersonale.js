@@ -3,9 +3,11 @@
 let colonnaInfo = document.querySelector('.colonnaInfo');
 let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
+let apiUrl = fetch(window.MY_APP_API_URL);
 
 
-fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/personale/${dataEventoId}`)
+
+fetch(`${apiUrl}/api/personaleSpecializzato/personale/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -19,7 +21,7 @@ function fetchImg(dati, id) {
 
     let imgAzienda = document.querySelector('.imgAzienda');
 
-    fetch(`http://127.0.0.1:8080/api/azienda/logo/${id}`)
+    fetch(`${apiUrl}/api/azienda/logo/${id}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Errore nel recupero del logo");
@@ -48,7 +50,7 @@ function recuperaToken(dati, img) {
 
     let accessToken = localStorage.getItem('accessToken');
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -240,7 +242,7 @@ function interessamentoPersonale(richiestaId, aziendaIdAccesso, emailAziendale, 
 
     if (abb == 'base' || abb == 'plus') {
 
-        fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/modificapersonaleIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
+        fetch(`${apiUrl}/api/personaleSpecializzato/modificapersonaleIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -264,7 +266,7 @@ function interessamentoPersonale(richiestaId, aziendaIdAccesso, emailAziendale, 
 
         let newPropostaPersonale = new PropostaPersonale(idRichiedente, idRichiesta, idAziendaEmittente);
 
-        fetch(`http://127.0.0.1:8080/api/personale/interessataPropostaPersonale`, {
+        fetch(`${apiUrl}/api/personale/interessataPropostaPersonale`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

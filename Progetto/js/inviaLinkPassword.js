@@ -7,11 +7,13 @@ const regexEMAIL = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 function inviaMail() {
 
+
     event.preventDefault();
-    
+    let apiUrl = fetch(window.MY_APP_API_URL);
+
     let username = email.value;
     
-  fetch(`http://localhost:8080/api/azienda/recupera-password?username=${username}`, {
+  fetch(`${apiUrl}/api/azienda/recupera-password?username=${username}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

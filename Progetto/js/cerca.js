@@ -1,13 +1,14 @@
 /* -------------------------------------------------------------------------- */
 /*                   Funzione per cercare aziende per nome                    */
 /* -------------------------------------------------------------------------- */
+let apiUrl = fetch(window.MY_APP_API_URL);
 
 function tokenizzami() {
 
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -34,7 +35,7 @@ async function cercaAzienda(nomeAziendaNostra) {
     }
 
     try {
-        let response = await fetch(`http://localhost:8080/api/azienda/search?nomeAzienda=${encodeURIComponent(nomeAzienda)}`);
+        let response = await fetch(`${apiUrl}/api/azienda/search?nomeAzienda=${encodeURIComponent(nomeAzienda)}`);
         let aziende = await response.json();
 
         let resultsList = document.getElementById("ricerca");
@@ -75,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -131,7 +132,7 @@ function setParam(nomeAziendaDue, id) {
 
 async function loadAziendaByNome(nomeAzienda, id) {
     try {
-        let response = await fetch(`http://127.0.0.1:8080/api/azienda/searchNomeAzienda?nomeAzienda=${nomeAzienda}`);
+        let response = await fetch(`${apiUrl}/api/azienda/searchNomeAzienda?nomeAzienda=${nomeAzienda}`);
         if (!response.ok) throw new Error("Errore nel recupero dei dati dell'azienda");
 
         let data = await response.json();
@@ -150,7 +151,7 @@ async function loadAziendaByNome(nomeAzienda, id) {
 
 async function recensioniAzienda(dati, idAziendaMittente, idAziendaDestinataria) {
 
-    await fetch(`http://127.0.0.1:8080/api/azienda/recensioneImballiFinaleAme/${idAziendaDestinataria}`)
+    await fetch(`${apiUrl}/api/azienda/recensioneImballiFinaleAme/${idAziendaDestinataria}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -165,7 +166,7 @@ async function recensioniAzienda(dati, idAziendaMittente, idAziendaDestinataria)
 
 async function calcolaPartner(recensioni, dati, idAziendaMittente, idAziendaDestinataria) {
 
-    await fetch(`http://127.0.0.1:8080/api/amicizia/counterPartner/${idAziendaDestinataria}`)
+    await fetch(`${apiUrl}/api/amicizia/counterPartner/${idAziendaDestinataria}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -189,7 +190,7 @@ function fetchImg(idAzienda) {
     console.log(imgAzienda);
 
 
-    fetch(`http://127.0.0.1:8080/api/azienda/logo/${idAzienda}`)
+    fetch(`${apiUrl}/api/azienda/logo/${idAzienda}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Errore nel recupero del logo");
@@ -217,7 +218,7 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
     let container = document.querySelector(".container");
 
 
-    await fetch(`http://127.0.0.1:8080/api/amicizia/amicizie/${idAziendaMittente}/${idAziendaDestinataria}`)
+    await fetch(`${apiUrl}/api/amicizia/amicizie/${idAziendaMittente}/${idAziendaDestinataria}`)
         .then((res) => {
             if (res.status === 404) {
 
@@ -1137,7 +1138,7 @@ function mostraAmici(id) {
         console.log();
 
 
-        fetch(`http://127.0.0.1:8080/api/amicizia/counterPartnerTotale/${id}`)
+        fetch(`${apiUrl}/api/amicizia/counterPartnerTotale/${id}`)
             .then((res) => res.json())
             .then((data) => {
 
@@ -1147,7 +1148,7 @@ function mostraAmici(id) {
                     console.log(element.id);
 
 
-                    fetch(`http://127.0.0.1:8080/api/azienda/logo/${element.id}`)
+                    fetch(`${apiUrl}/api/azienda/logo/${element.id}`)
                         .then((response) => {
                             if (!response.ok) {
                                 throw new Error("Errore nel recupero del logo");
@@ -1188,7 +1189,7 @@ function mostraAmici(id) {
 
 function segnala(id, username, nomeAzienda) {
 
-    fetch(`http://127.0.0.1:8080/api/azienda/segnalaAzienda/${id}`, {
+    fetch(`${apiUrl}/api/azienda/segnalaAzienda/${id}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -1222,7 +1223,7 @@ function inviaAmicizia(idAzienda1, idAzienda2) {
 
 
 
-    fetch(`http://127.0.0.1:8080/api/amicizia/richiestaAmicizia/${idAzienda1}/${idAzienda2}`, {
+    fetch(`${apiUrl}/api/amicizia/richiestaAmicizia/${idAzienda1}/${idAzienda2}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -1246,7 +1247,7 @@ function annullaRichiestaAmicizia(idAzienda1, idAzienda2) {
 
 
 
-    fetch(`http://127.0.0.1:8080/api/amicizia/amiciziaRifiutata/${idAzienda1}/${idAzienda2}`, {
+    fetch(`${apiUrl}/api/amicizia/amiciziaRifiutata/${idAzienda1}/${idAzienda2}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -1260,7 +1261,7 @@ let piuRecensioni = document.querySelector(".piuRecensioni");
 
 function piuRecensite(){
     
-     fetch(`http://127.0.0.1:8080/api/azienda/top5-recensioni`)
+     fetch(`${apiUrl}/api/azienda/top5-recensioni`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -1290,7 +1291,7 @@ piuRecensite();
 
 function miglioriRecensite(){
     
-    fetch(`http://127.0.0.1:8080/api/azienda/top-azienda`)
+    fetch(`${apiUrl}/api/azienda/top-azienda`)
    .then((res) => res.json())
    .then((data) => {
 

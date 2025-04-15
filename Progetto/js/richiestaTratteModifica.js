@@ -24,7 +24,7 @@ let btnInvioRichiestaTratte = document.querySelector('.btnInvioRichiestaTratte')
 
 let idTratta = localStorage.getItem('modificaTratta');
 
-fetch(`http://127.0.0.1:8080/api/tratta/tratte/${idTratta}`)
+fetch(`${apiUrl}/api/tratta/tratte/${idTratta}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -104,7 +104,7 @@ function recuperaId() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -151,7 +151,7 @@ function inviaRichiesta(dati) {
 
 
 
-    fetch(`http://127.0.0.1:8080/api/tratta/modificaTratta/${idTratta}`, {
+    fetch(`${apiUrl}/api/tratta/modificaTratta/${idTratta}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

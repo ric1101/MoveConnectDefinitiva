@@ -7,9 +7,10 @@ let nessunaCorrispondenza = `<div class="m-flex justify-content-center mt-3">
 </div>`;
 
 let accessToken = localStorage.getItem('accessToken');
+let apiUrl = fetch(window.MY_APP_API_URL);
 
 
-fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -22,7 +23,7 @@ fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
 function fetchMagazzino(id) {
 
 
-    let URLB = `http://127.0.0.1:8080/api/depositoMagazzino/tuttiIMagazziniConAzienda`;
+    let URLB = `${apiUrl}/api/depositoMagazzino/tuttiIMagazziniConAzienda`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {
@@ -58,7 +59,7 @@ function magazzino(dati, id) {
 
                     
 
-                    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                    fetch(`${apiUrl}/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -259,7 +260,7 @@ let mag3 = 0;
 
 async function fetchRegioniDeposito(regione) {
 
-    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -274,7 +275,7 @@ async function filtriRegioneDeposito(regione, id) {
 
     console.log(regione);
 
-    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiIMagazziniConAziendaPerRegione/${regione}`)
+    await fetch(`${apiUrl}/api/depositoMagazzino/tuttiIMagazziniConAziendaPerRegione/${regione}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -312,7 +313,7 @@ function depositoFiltroSoloRegione(dati, id) {
 
                     
 
-                    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                    fetch(`${apiUrl}/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -422,7 +423,7 @@ function depositoFiltroSoloRegione(dati, id) {
 
 async function fetchRegioniTipoDeposito(regione, mobilio, pedane, altro) {
 
-    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -437,7 +438,7 @@ async function filtriRegioneTipoDeposito(regione, mobilio, pedane, altro, id) {
 
     console.log(regione);
 
-    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?paese=${regione}&mobilio=${mobilio}&pedane=${pedane}&altro=${altro}`)
+    await fetch(`${apiUrl}/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?paese=${regione}&mobilio=${mobilio}&pedane=${pedane}&altro=${altro}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -475,7 +476,7 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
 
                     
 
-                    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                    fetch(`${apiUrl}/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -585,7 +586,7 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
 
 async function fetchRegioniDepositoMq(regione, mq) {
 
-    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -601,7 +602,7 @@ async function filtriRegioneDepositoMq(regione, mq, id) {
 
     console.log(regione);
 
-    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?paese=${regione}&mq=${mq}`)
+    await fetch(`${apiUrl}/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?paese=${regione}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -638,7 +639,7 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
 
                     
 
-                    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                    fetch(`${apiUrl}/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -748,7 +749,7 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
 
 async function fetchRegioneTipoDepositoMq(regione, mobilio, pedane, altro, mq) {
 
-    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -764,7 +765,7 @@ async function filtriRegioneTipoDepositoMq(regione, mobilio, pedane, altro, mq, 
 
     console.log(regione);
 
-    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?paese=${regione}&mobilio=${mobilio}&pedane=${pedane}&altro=${altro}&mq=${mq}`)
+    await fetch(`${apiUrl}/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?paese=${regione}&mobilio=${mobilio}&pedane=${pedane}&altro=${altro}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -801,7 +802,7 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
 
                     
 
-                    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                    fetch(`${apiUrl}/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -911,7 +912,7 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
 
 async function fetchTipoDeposito(mobilio, pedane, altro) {
 
-    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -924,7 +925,7 @@ async function fetchTipoDeposito(mobilio, pedane, altro) {
 async function filtriTipoDeposito(mobilio, pedane, altro, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?mobilio=${mobilio}&pedane=${pedane}&altro=${altro}`)
+    await fetch(`${apiUrl}/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?mobilio=${mobilio}&pedane=${pedane}&altro=${altro}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -962,7 +963,7 @@ function depositoFiltroTipoDeposito(dati, id) {
 
                     
 
-                    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                    fetch(`${apiUrl}/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -1073,7 +1074,7 @@ function depositoFiltroTipoDeposito(dati, id) {
 
 async function fetchTipoDepositoMq(mobilio, pedane, altro, mq) {
 
-    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1086,7 +1087,7 @@ async function fetchTipoDepositoMq(mobilio, pedane, altro, mq) {
 async function filtriTipoDepositoMq(mobilio, pedane, altro, mq, id) {
 
 
-    await fetch(`http://127.0.0.1:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?mobilio=${mobilio}&pedane=${pedane}&altro=${altro}&mq=${mq}`)
+    await fetch(`${apiUrl}/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?mobilio=${mobilio}&pedane=${pedane}&altro=${altro}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1124,7 +1125,7 @@ function depositoFiltroTipoDepositoMq(dati, id) {
 
                     
 
-                    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                    fetch(`${apiUrl}/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -1235,7 +1236,7 @@ function depositoFiltroTipoDepositoMq(dati, id) {
 
 async function fetchDemoDeposito(mq) {
 
-    await fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1247,7 +1248,7 @@ async function fetchDemoDeposito(mq) {
 
 async function filtriDemoDepositoMq(mq, id) {
 
-    let rottaPerSoliMQ = `http://localhost:8080/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?mq=${mq}`;
+    let rottaPerSoliMQ = `${apiUrl}/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?mq=${mq}`;
 
     console.log(rottaPerSoliMQ);
 
@@ -1289,7 +1290,7 @@ function depositoFiltroDemoDeposito(dati, id) {
 
                     
 
-                    fetch(`http://127.0.0.1:8080/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                    fetch(`${apiUrl}/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 

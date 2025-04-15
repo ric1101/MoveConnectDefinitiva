@@ -1,6 +1,8 @@
 let footerHTML = document.querySelector(".footer");
 
 function Footer() {
+    let apiUrl = fetch(window.MY_APP_API_URL);
+
     let footer = `<footer class="footer-section ">
     <div class="container ">
         <div class="footer-cta pt-5">
@@ -111,7 +113,7 @@ function gestisci() {
     
     let accessToken = localStorage.getItem('accessToken');
     
-        fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+        fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
             .then((res) => res.json())
             .then((data) => {
     
