@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Nascondi la navbar in base all'accessToken immediatamente
     let accessToken = localStorage.getItem("accessToken");
     
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
             richiesteRicevute(data.id);
@@ -297,7 +297,7 @@ let boxes = document.querySelector(".notifi-box");
 function mostraNotifiche(id) {
 
 
-    fetch(`http://127.0.0.1:8080/api/amicizia/counterPartnerArrivate/${id}`)
+    fetch(`https://127.0.0.1/api/amicizia/counterPartnerArrivate/${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -311,7 +311,7 @@ function mostraNotifiche(id) {
 }
 
 function richiesteRicevute(id) {
-    fetch(`http://127.0.0.1:8080/api/amicizia/amicizieRicevute?idAzienda2=${id}`)
+    fetch(`https://127.0.0.1/api/amicizia/amicizieRicevute?idAzienda2=${id}`)
         .then((res) => res.json())
         .then((data) => {
             console.log('Received data:', data); // Log the raw data
@@ -391,7 +391,7 @@ function accettaAmicizia(dataId1, dataId2) {
     console.log("BELLAAAA2" + dataId2);
 
 
-    fetch(`http://127.0.0.1:8080/api/amicizia/accettataAmicizia/${dataId1}/${dataId2}`, {
+    fetch(`https://127.0.0.1/api/amicizia/accettataAmicizia/${dataId1}/${dataId2}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -408,7 +408,7 @@ function accettaAmicizia(dataId1, dataId2) {
 
 function rifiutaAmicizia(idAzienda1, idAzienda2) {
 
-    fetch(`http://127.0.0.1:8080/api/amicizia/amiciziaRifiutata/${idAzienda1}/${idAzienda2}`, {
+    fetch(`https://127.0.0.1/api/amicizia/amiciziaRifiutata/${idAzienda1}/${idAzienda2}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",

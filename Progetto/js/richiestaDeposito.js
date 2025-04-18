@@ -56,7 +56,7 @@ function recuperaId() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -101,7 +101,7 @@ function inviaRichiesta(dati) {
         console.log(nuovaRichiestaDeposito);
 
 
-        fetch(`http://127.0.0.1:8080/api/depositoMagazzino/inserisciMagazzino/${azienda_id}`, { //Inserire qui la rotta
+        fetch(`https://127.0.0.1/api/depositoMagazzino/inserisciMagazzino/${azienda_id}`, { //Inserire qui la rotta
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -11,7 +11,7 @@ function inviaMail() {
     
     let username = email.value;
     
-  fetch(`http://localhost:8080/api/azienda/recupera-password?username=${username}`, {
+  fetch(`https://127.0.0.1/api/azienda/recupera-password?username=${username}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

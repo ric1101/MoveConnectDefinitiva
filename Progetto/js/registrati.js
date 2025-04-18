@@ -101,7 +101,7 @@ function registrazioneAzienda() {
 
   console.log(nuovaAzienda);
 
-  fetch("http://127.0.0.1:8080/api/azienda/registerSerio", {
+  fetch("https://127.0.0.1/api/azienda/registerSerio", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

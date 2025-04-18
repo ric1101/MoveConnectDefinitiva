@@ -1,4 +1,5 @@
-const URLOG = `http://127.0.0.1:8080/api/azienda/login`;
+
+const URLOG = `https://127.0.0.1/api/azienda/login`;
 
 let username = document.querySelector('#email');
 let password = document.querySelector('#password');

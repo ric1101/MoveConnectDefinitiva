@@ -25,7 +25,7 @@ let btnInvioRichiestaDeposito = document.querySelector('.btnInvioRichiestaDeposi
 
 let idMagazzino = localStorage.getItem('modificaMagazzino');
 
-fetch(`http://127.0.0.1:8080/api/depositoMagazzino/magazzino/${idMagazzino}`)
+fetch(`https://127.0.0.1/api/depositoMagazzino/magazzino/${idMagazzino}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -97,7 +97,7 @@ function recuperaId() {
     let accessToken = localStorage.getItem('accessToken');
     
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -140,7 +140,7 @@ function inviaRichiesta(dati) {
     console.log(nuovaRichiestaDeposito);
 
 
-    fetch(`http://127.0.0.1:8080/api/depositoMagazzino/modificaMagazzino/${idMagazzino}`, { //Inserire qui la rotta
+    fetch(`https://127.0.0.1/api/depositoMagazzino/modificaMagazzino/${idMagazzino}`, { //Inserire qui la rotta
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

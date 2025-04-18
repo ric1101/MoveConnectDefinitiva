@@ -12,7 +12,7 @@ function fetchMagazzino() {
 
     let idRichiesteMagazzino = localStorage.getItem('iDLocalAzienda');
 
-    let URLB = `http://127.0.0.1:8080/api/depositoMagazzino/tutteLeConsegneConAziendaMagazzinoId/${idRichiesteMagazzino}`;
+    let URLB = `https://127.0.0.1/api/depositoMagazzino/tutteLeConsegneConAziendaMagazzinoId/${idRichiesteMagazzino}`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {

@@ -13,7 +13,7 @@ function fetchPersonale() {
 
     let idRichiestePersonale = localStorage.getItem('iDLocalAzienda');
 
-    let URLB = `http://127.0.0.1:8080/api/personaleSpecializzato/tutteLeConsegneConAziendaPersonaleId/${idRichiestePersonale}`;
+    let URLB = `https://127.0.0.1/api/personaleSpecializzato/tutteLeConsegneConAziendaPersonaleId/${idRichiestePersonale}`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {

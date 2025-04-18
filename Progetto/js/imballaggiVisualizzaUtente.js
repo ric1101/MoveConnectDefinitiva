@@ -11,7 +11,7 @@ function fetchImballaggi() {
 
     let idRichiesteImballi = localStorage.getItem('iDLocalAzienda');
 
-    let URLB = `http://127.0.0.1:8080/api/consegnaImballi/tutteLeConsegneConAziendaId/${idRichiesteImballi}`;
+    let URLB = `https://127.0.0.1/api/consegnaImballi/tutteLeConsegneConAziendaId/${idRichiesteImballi}`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {

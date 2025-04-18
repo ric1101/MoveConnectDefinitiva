@@ -12,7 +12,7 @@ function fetchElevatore() {
 
     let idRichiesteScale = localStorage.getItem('iDLocalAzienda');
 
-    let URLB = `http://127.0.0.1:8080/api/scalaElevatore/tutteLeConsegneConAziendaScalaId/${idRichiesteScale}`;
+    let URLB = `https://127.0.0.1/api/scalaElevatore/tutteLeConsegneConAziendaScalaId/${idRichiesteScale}`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {

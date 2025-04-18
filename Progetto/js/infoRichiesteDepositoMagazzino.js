@@ -5,7 +5,7 @@ let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
 
 
-fetch(`http://127.0.0.1:8080/api/depositoMagazzino/magazzino/${dataEventoId}`)
+fetch(`https://127.0.0.1/api/depositoMagazzino/magazzino/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -19,7 +19,7 @@ function fetchImg(dati, id) {
 
     let imgAzienda = document.querySelector('.imgAzienda');
 
-    fetch(`http://127.0.0.1:8080/api/azienda/logo/${id}`)
+    fetch(`https://127.0.0.1/api/azienda/logo/${id}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Errore nel recupero del logo");
@@ -46,7 +46,7 @@ function recuperaToken(dati, img) {
 
     let accessToken = localStorage.getItem('accessToken');
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -252,7 +252,7 @@ function interessamentoDeposito(richiestaId, aziendaIdAccesso, emailAziendale, i
     if (abb == 'base' || abb == 'plus') {
 
 
-        fetch(`http://127.0.0.1:8080/api/depositoMagazzino/modificaMagazzinoIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
+        fetch(`https://127.0.0.1/api/depositoMagazzino/modificaMagazzinoIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -277,7 +277,7 @@ function interessamentoDeposito(richiestaId, aziendaIdAccesso, emailAziendale, i
 
         let newPropostaDeposito = new PropostaDeposito(idRichiedente, idRichiesta, idAziendaEmittente);
 
-        fetch(`http://127.0.0.1:8080/api/propostaMagazzino/interessataPropostaMagazzino`, {
+        fetch(`https://127.0.0.1/api/propostaMagazzino/interessataPropostaMagazzino`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

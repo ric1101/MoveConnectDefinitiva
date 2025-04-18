@@ -12,7 +12,7 @@ function fetchTratte() {
 
     let idRichiesteTratte = localStorage.getItem('iDLocalAzienda');
 
-    let URLB = `http://localhost:8080/api/tratta/tutteLeConsegneConAziendaTrattaId/${idRichiesteTratte}`;
+    let URLB = `https://127.0.0.1/api/tratta/tutteLeConsegneConAziendaTrattaId/${idRichiesteTratte}`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {

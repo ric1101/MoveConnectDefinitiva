@@ -23,7 +23,7 @@ let btnInvioRichiestaImballi = document.querySelector('.btnInvioRichiestaPersona
 
 let idPersonale = localStorage.getItem('modificaPersonale');
 
-fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/personale/${idPersonale}`)
+fetch(`https://127.0.0.1/api/personaleSpecializzato/personale/${idPersonale}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -99,7 +99,7 @@ function recuperaId() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`http://127.0.0.1:8080/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -140,7 +140,7 @@ function inviaRichiesta(dati) {
     console.log(nuovaRichiestaPersonale);
 
 
-    fetch(`http://127.0.0.1:8080/api/personaleSpecializzato/modificapersonale/${idPersonale}`, {
+    fetch(`https://127.0.0.1/api/personaleSpecializzato/modificapersonale/${idPersonale}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

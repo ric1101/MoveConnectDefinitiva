@@ -7,7 +7,7 @@ let bodyTabella = document.querySelector('.bodyTabella');
 async function popolaGestionaleDesign() {
     bodyTabella.innerHTML = "";
 
-    await fetch(`http://127.0.0.1:8080/api/design/tuttiIDesign`)
+    await fetch(`https://127.0.0.1/api/design/tuttiIDesign`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -44,7 +44,7 @@ popolaGestionaleDesign();
 
 async function eliminaDesign(id) {
 
-    await fetch(`http://127.0.0.1:8080/api/design/eliminaDesign/${id}`, {
+    await fetch(`https://127.0.0.1/api/design/eliminaDesign/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
