@@ -13,6 +13,7 @@ let btnInviaModificaBlog = document.querySelector('.btnInviaModificaBlog');
 let idMod = localStorage.getItem('idModificaBlog');
 
 function popolaModBlog() {
+    let apiUrl = fetch(window.MY_APP_API_URL);
 
 
     fetch(`https://127.0.0.1/api/blog/${idMod}`)

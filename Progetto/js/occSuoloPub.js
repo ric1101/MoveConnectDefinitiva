@@ -48,6 +48,7 @@ class OccSuoloPub {
 
 
 function recuperaId() {
+    let apiUrl = fetch(window.MY_APP_API_URL);
     
     let accessToken = localStorage.getItem('accessToken');
     
@@ -69,6 +70,7 @@ function recuperaId() {
 
 
 function inviaRichiesta(dati) {
+    
 
     let azienda_id = dati.id;
 

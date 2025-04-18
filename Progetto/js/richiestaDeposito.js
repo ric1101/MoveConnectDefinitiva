@@ -52,6 +52,8 @@ class Deposito {
 }
 
 function recuperaId() {
+    let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
+
 
     let accessToken = localStorage.getItem('accessToken');
 

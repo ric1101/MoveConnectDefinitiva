@@ -1,6 +1,6 @@
 let bottoneBase = document.querySelector(".buttonEconomico");
 let bottonePlus = document.querySelector(".buttonPlus");
-
+let apiUrl = fetch(window.MY_APP_API_URL);
 function abbonamentoBase() {
     let accessToken = localStorage.getItem('accessToken');
     // Prima fetch per ottenere i dati dell'azienda

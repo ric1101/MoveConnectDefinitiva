@@ -12,6 +12,8 @@ let pesoMassimo = document.querySelector('.pesoMassimo');
 let inizio = document.querySelector('.inizio');
 let fine = document.querySelector('.fine');
 let note = document.querySelector('.note');
+let apiUrl = fetch(window.MY_APP_API_URL);
+
 
 let btnInvioRichiestaScalaElevatore = document.querySelector('.btnInvioRichiestaScalaElevatore');
 

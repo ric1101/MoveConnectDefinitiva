@@ -7,6 +7,7 @@ let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
 </div>`;
 
 let accessToken = localStorage.getItem('accessToken');
+let apiUrl = fetch(window.MY_APP_API_URL);
 
 
 

@@ -8,6 +8,7 @@ let idAccettata = document.querySelector('.idAccettata');
 let controlloStelle = document.querySelector('.controlloStelle');
 let erroreRec = document.querySelector('.erroreRec');
 let valutazione = 0;
+let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
 
 // To access the stars
 let stars =

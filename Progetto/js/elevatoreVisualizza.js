@@ -7,6 +7,7 @@ let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
 </div>`;
 
 let accessToken = localStorage.getItem('accessToken');
+let apiUrl = fetch(window.MY_APP_API_URL);
 
 
 fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
@@ -24,11 +25,7 @@ fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
 function fetchElevatore(id) {
 
     let URLB = `https://127.0.0.1/api/scalaElevatore/tutteScaleConAzienda`;
-    fetch(URLB)
         .then((res) => res.json())
-        .then((data) => {
-
-            console.log(data);
             elevatore(data, id);
         });
 

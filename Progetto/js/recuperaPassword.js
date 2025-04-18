@@ -35,6 +35,8 @@ class Azienda {
 }
 
 function verificaCodice() {
+    let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
+
 
     console.log('ciao12');
 

@@ -2,6 +2,7 @@ let articoloIntero = document.querySelector('.articoloIntero');
 
 let id = JSON.parse(localStorage.getItem('artId'));
 console.log(id);
+let apiUrl = fetch(window.MY_APP_API_URL);
 
 
 async function DesignOBlog() {

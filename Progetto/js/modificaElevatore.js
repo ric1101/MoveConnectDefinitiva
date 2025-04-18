@@ -17,6 +17,7 @@ let btnInvioRichiestaScalaElevatore = document.querySelector('.btnInvioRichiesta
 
 
 let idScala = localStorage.getItem('modificaScala');
+let apiUrl = fetch(window.MY_APP_API_URL);
 
 fetch(`https://127.0.0.1/api/scalaElevatore/scalaId/${idScala}`)
     .then((res) => res.json())

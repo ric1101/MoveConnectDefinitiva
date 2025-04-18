@@ -1,6 +1,8 @@
 let footerHTML = document.querySelector(".footer");
 
 function Footer() {
+    let apiUrl = fetch(window.MY_APP_API_URL);
+
     let footer = `<footer class="footer-section ">
     <div class="container ">
         <div class="footer-cta pt-5">
@@ -19,7 +21,7 @@ function Footer() {
                         <i class="fas fa-phone"></i>
                         <div class="cta-text">
                             <h4>Chiamaci</h4>
-                            <span>+39 331 955 4877</span>
+                            <span>+39 376 271 5197</span>
                         </div>
                     </div>
                 </div>

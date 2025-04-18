@@ -21,6 +21,8 @@ let altroo = document.querySelector('#falegname-count');
 
 let btnInvioRichiestaDeposito = document.querySelector('.btnInvioRichiestaDeposito');
 
+let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
+
 
 
 let idMagazzino = localStorage.getItem('modificaMagazzino');

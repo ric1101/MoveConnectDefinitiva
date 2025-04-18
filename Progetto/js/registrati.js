@@ -76,6 +76,8 @@ class Azienda {
 
 
 function registrazioneAzienda() {
+  let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
+
   
   event.preventDefault();
 

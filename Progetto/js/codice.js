@@ -5,6 +5,7 @@ let btnRigenera = document.querySelector(".rigenera");
 let codice = document.querySelector('.codice');
 let username = localStorage.getItem('emailUtente');
 let errore = document.querySelector('.errore');
+let apiUrl = fetch(window.MY_APP_API_URL);
 
 
 

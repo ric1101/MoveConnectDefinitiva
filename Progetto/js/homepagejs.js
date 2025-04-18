@@ -1,8 +1,11 @@
 let navbarHTML = document.querySelector(".navbarMain");
+let apiUrl = fetch(window.MY_APP_API_URL);
+
 
 navbar();
 
 function navbar() {
+
     let navBarFinale = `<nav class="navbar navbar-expand-xxl navbar-fixed-top" style="background-color: #1B2023;">
     <div class="container-fluid">
         <!-- Logo -->

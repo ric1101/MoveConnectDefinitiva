@@ -13,6 +13,7 @@ let btnInviaModifica = document.querySelector('.btnInviaModificaDesign');
 let idModDesign = localStorage.getItem('idModificaDesign');
 
 function popolaModDesign() {
+    let apiUrl = fetch(window.MY_APP_API_URL);
 
 
     fetch(`https://127.0.0.1/api/design/${idModDesign}`)

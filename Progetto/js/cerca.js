@@ -1,6 +1,7 @@
 /* -------------------------------------------------------------------------- */
 /*                   Funzione per cercare aziende per nome                    */
 /* -------------------------------------------------------------------------- */
+let apiUrl = fetch(window.MY_APP_API_URL);
 
 function tokenizzami() {
 

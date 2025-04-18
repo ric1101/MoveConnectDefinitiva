@@ -5,6 +5,8 @@ let bodyTabella = document.querySelector('.bodyTabella');
 
 
 async function popolaGestionaleBlog() {
+    let apiUrl = fetch(window.MY_APP_API_URL);
+
     bodyTabella.innerHTML = "";
 
     await fetch(`https://127.0.0.1/api/blog/tutti`)

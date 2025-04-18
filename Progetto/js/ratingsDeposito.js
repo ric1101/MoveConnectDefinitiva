@@ -15,6 +15,9 @@ let stars =
 let output =
     document.getElementById("output");
 
+let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
+
+
 // Funtion to update rating
 function gfg(n) {
     remove();

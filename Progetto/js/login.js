@@ -10,6 +10,8 @@ let showPassword = document.querySelector('#showPassword');
 let button = document.querySelector('.btn');
 
 
+
+
 function toShowPassword() {
     if (password.type === 'text') {
         password.type = 'password'

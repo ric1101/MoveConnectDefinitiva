@@ -6,7 +6,7 @@ let nessunaCorrispondenza = `<div class="m-flex justify-content-center mt-3">
 <p>Non ci sono Corrispondenze!</p>
 </div>`;
 
-
+let apiUrl = fetch(window.MY_APP_API_URL);
 
 function fetchMagazzino() {
 

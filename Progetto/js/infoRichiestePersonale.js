@@ -3,6 +3,7 @@
 let colonnaInfo = document.querySelector('.colonnaInfo');
 let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
+let apiUrl = fetch(window.MY_APP_API_URL);
 
 
 fetch(`https://127.0.0.1/api/personaleSpecializzato/personale/${dataEventoId}`)

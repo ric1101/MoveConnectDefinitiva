@@ -24,7 +24,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-
+            let apiUrl = fetch(window.MY_APP_API_URL);
             let accessToken = localStorage.getItem('accessToken');
 
             if (accessToken != null && accessToken != '' && accessToken != undefined) {
