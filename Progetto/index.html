@@ -47,16 +47,14 @@
   <script>
     let accessToken = localStorage.getItem("accessToken");
 
-
     fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
       .then((res) => res.json())
       .then((data) => {
 
 
-
         if (data.abbonamento == null) {
 
-          window.location.replace('abbonamentiRegistrato.html'); // Evita il back button
+          window.location.replace('controllo.html'); // Evita il back button
           mostraNavbarAbbonamento();
 
         } else if (data.abbonamento == 'base') {
@@ -100,9 +98,7 @@
           <div class="d-flex justify-content-center">
             <img src="imgs/img22.png" alt="Logo" class="imgPiccola" style="width: 256px; height: auto;">
           </div>
-
           <img src="imgs/img22.png" alt="Logo" class="animated-logo" style="width: 256px; height: auto;">
-
           <div class="allineaRighe d-flex justify-content-center">
             <div class="righe row d-flex justify-content-center">
               <div class="p-0 d-flex justify-content-center">
@@ -497,39 +493,39 @@
   </div>
   <div class="text-wrapper">
     <div class="titles">
-      <a href="" class="titles-item"><img src="imgs/1.png" alt=""></a>
-      <a href="" class="titles-item"><img src="imgs/2.png" alt=""></a>
-      <a href="" class="titles-item"><img src="imgs/3.png" alt=""></a>
-      <a href="" class="titles-item"><img src="imgs/4.png" alt=""></a>
-      <a href="" class="titles-item"><img src="imgs/5.png" alt=""></a>
-      <a href="" class="titles-item"><img src="imgs/6.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
     </div>
     <!-- Duplicazione per lo scorrimento continuo -->
     <div class="titles">
-      <a href="" class="titles-item"><img src="imgs/1.png" alt=""></a>
-      <a href="" class="titles-item"><img src="imgs/2.png" alt=""></a>
-      <a href="" class="titles-item"><img src="imgs/3.png" alt=""></a>
-      <a href="" class="titles-item"><img src="imgs/4.png" alt=""></a>
-      <a href="" class="titles-item"><img src="imgs/5.png" alt=""></a>
-      <a href="" class="titles-item"><img src="imgs/6.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
     </div>
 
     <div class="titles">
-      <a href="" class="titles-item"><img src="imgs/1.png" alt=""></a>
-      <a href="" class="titles-item"><img src="imgs/2.png" alt=""></a>
-      <a href="" class="titles-item"><img src="imgs/3.png" alt=""></a>
-      <a href="" class="titles-item"><img src="imgs/4.png" alt=""></a>
-      <a href="" class="titles-item"><img src="imgs/5.png" alt=""></a>
-      <a href="" class="titles-item"><img src="imgs/6.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
     </div>
 
     <div class="titles">
-      <a href="" class="titles-item"><img src="imgs/1.png" alt=""></a>
-      <a href="" class="titles-item"><img src="imgs/2.png" alt=""></a>
-      <a href="" class="titles-item"><img src="imgs/3.png" alt=""></a>
-      <a href="" class="titles-item"><img src="imgs/4.png" alt=""></a>
-      <a href="" class="titles-item"><img src="imgs/5.png" alt=""></a>
-      <a href="" class="titles-item"><img src="imgs/6.png" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
+      <a href="" class="titles-item"><img src="imgs/contact.png" style="height: 300px;" alt=""></a>
     </div>
   </div>
 
