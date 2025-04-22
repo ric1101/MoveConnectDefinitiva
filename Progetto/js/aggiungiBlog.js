@@ -36,7 +36,7 @@ async function aggiungiArticoloBlog() {
     );
 
 
-    await fetch(`https://3.123.172.27/api/blog/inserisciBlog`, {
+    await fetch(`https://moveconnect.it/api/blog/inserisciBlog`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

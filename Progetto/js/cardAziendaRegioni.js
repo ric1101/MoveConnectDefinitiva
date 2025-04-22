@@ -12,7 +12,7 @@ function getAziendeByRegione() {
     
 
     
-    fetch(`https://3.123.172.27/api/azienda/${regione}`)
+    fetch(`https://moveconnect.it/api/azienda/${regione}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Errore nel recupero delle aziende');

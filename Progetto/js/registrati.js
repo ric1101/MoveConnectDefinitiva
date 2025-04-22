@@ -102,7 +102,7 @@ function registrazioneAzienda() {
 
   console.log(nuovaAzienda);
 
-  fetch("https://3.123.172.27/api/azienda/registerSerio", {
+  fetch("https://moveconnect.it/api/azienda/registerSerio", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

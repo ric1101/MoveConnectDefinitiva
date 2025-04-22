@@ -13,7 +13,7 @@ function fetchPersonale() {
 
     let idRichiestePersonale = localStorage.getItem('iDLocalAzienda');
 
-    let URLB = `https://3.123.172.27/api/personaleSpecializzato/tutteLeConsegneConAziendaPersonaleId/${idRichiestePersonale}`;
+    let URLB = `https://moveconnect.it/api/personaleSpecializzato/tutteLeConsegneConAziendaPersonaleId/${idRichiestePersonale}`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {
@@ -39,7 +39,7 @@ function personale(dati) {
 
         dati.forEach(element => {
 
-            nomeAziendaInterna.innerHTML = `<a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>`;
+            nomeAziendaInterna.innerHTML = `<a href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>`;
 
             if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 

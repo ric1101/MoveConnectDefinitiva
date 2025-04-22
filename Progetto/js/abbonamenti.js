@@ -3,7 +3,7 @@ let bottonePlus = document.querySelector(".buttonPlus");
 function abbonamentoBase() {
     let accessToken = localStorage.getItem('accessToken');
     // Prima fetch per ottenere i dati dell'azienda
-    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => {
             // Check if the response is OK
             if (!res.ok) {
@@ -17,7 +17,7 @@ function abbonamentoBase() {
             console.log(data.id);
 
             // Seconda fetch per creare la sessione di checkout
-            fetch(`https://3.123.172.27/api/product/v1/create-checkout-session/${data.id}?type=base`, {
+            fetch(`https://moveconnect.it/api/product/v1/create-checkout-session/${data.id}?type=base`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -57,7 +57,7 @@ function abbonamentoBase() {
 function abbonamentoPlus() {
     let accessToken = localStorage.getItem('accessToken');
     // Prima fetch per ottenere i dati dell'azienda
-    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => {
             // Check if the response is OK
             if (!res.ok) {
@@ -71,7 +71,7 @@ function abbonamentoPlus() {
             console.log(data.id);
 
             // Seconda fetch per creare la sessione di checkout
-            fetch(`https://3.123.172.27/api/product/v1/create-checkout-session/${data.id}?type=plus`, {
+            fetch(`https://moveconnect.it/api/product/v1/create-checkout-session/${data.id}?type=plus`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

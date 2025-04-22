@@ -5,8 +5,8 @@ let designContent = document.querySelector('.design-content');
 let blogContent = document.querySelector('.blog-content');
 
 
-const URLD = `https://3.123.172.27/api/design/tuttiIDesign`;
-const URLB = `https://3.123.172.27/api/blog/tutti`;
+const URLD = `https://moveconnect.it/api/design/tuttiIDesign`;
+const URLB = `https://moveconnect.it/api/blog/tutti`;
 
 
 
@@ -63,14 +63,14 @@ function popolaArticoliDesign(dati) {
 
 
         let articolo = `<div class="design-item">
-        <a id="${element.id}" class="designLink" href="/Progetto/article.html">
+        <a id="${element.id}" class="designLink" href="/article.html">
         <div class="design-img" style="background-image: url(${element.img});">
         
         
         </div>
         </a>
         <div class="design-title">
-        <a id="${element.id}" class="designLink Linkdesign" href="/Progetto/article.html">${element.titolo}</a>
+        <a id="${element.id}" class="designLink Linkdesign" href="/article.html">${element.titolo}</a>
         </div>
         </div>`;
 
@@ -124,7 +124,7 @@ function popolaArticoliBlog(dati) {
         <span>${element.data}</span>
         <h2>${element.titolo}</h2>
         <p class="puntino">${element.desc}</p>
-        <a class="blogLink" id="${element.id}" href="/Progetto/article.html">Scopri di più</a>
+        <a class="blogLink" id="${element.id}" href="/article.html">Scopri di più</a>
         </div>
         </div>`;
         blogContent.innerHTML += articolo;

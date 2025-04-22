@@ -38,7 +38,7 @@ async function aggiungiArticoloDesign() {
     );
 
 
-    await fetch(`https://3.123.172.27/api/design/inserisciDesign`, {
+    await fetch(`https://moveconnect.it/api/design/inserisciDesign`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

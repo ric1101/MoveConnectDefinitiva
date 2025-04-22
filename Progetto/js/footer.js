@@ -112,7 +112,7 @@ function gestisci() {
     
     let accessToken = localStorage.getItem('accessToken');
     
-        fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+        fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
             .then((res) => res.json())
             .then((data) => {
     

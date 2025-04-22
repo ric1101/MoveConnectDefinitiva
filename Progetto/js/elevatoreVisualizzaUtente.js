@@ -14,7 +14,7 @@ function fetchElevatore() {
 
     let idRichiesteScale = localStorage.getItem('iDLocalAzienda');
 
-    let URLB = `https://3.123.172.27/api/scalaElevatore/tutteLeConsegneConAziendaScalaId/${idRichiesteScale}`;
+    let URLB = `https://moveconnect.it/api/scalaElevatore/tutteLeConsegneConAziendaScalaId/${idRichiesteScale}`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {
@@ -40,7 +40,7 @@ function elevatore(dati) {
         
         dati.forEach(element => {
             
-            nomeAziendaInterna.innerHTML = `<a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>`;
+            nomeAziendaInterna.innerHTML = `<a href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>`;
 
 
             if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {

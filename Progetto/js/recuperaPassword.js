@@ -43,7 +43,7 @@ function verificaCodice() {
     let nuovaAzienda = new Azienda(username, codiceVerificaRecuperoPassword.value);
     console.log(nuovaAzienda);
 
-    fetch(`https://3.123.172.27/api/azienda/verifyCodePassChange`, {
+    fetch(`https://moveconnect.it/api/azienda/verifyCodePassChange`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -76,7 +76,7 @@ function rigenera(){
     let rigenera = new Rigenera(username);
     console.log(username);
   
-    fetch(`https://3.123.172.27/api/azienda/rigenera-password?username=${username}`,{ 
+    fetch(`https://moveconnect.it/api/azienda/rigenera-password?username=${username}`,{ 
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -157,7 +157,7 @@ btnInvio.addEventListener('click', cambiaPassword);
 function fetchInvioNuovaPassword() {
 
 
-    fetch(`https://3.123.172.27/api/azienda/set-password?username=${username}&newPassword=${newPassword.value}`, {
+    fetch(`https://moveconnect.it/api/azienda/set-password?username=${username}&newPassword=${newPassword.value}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

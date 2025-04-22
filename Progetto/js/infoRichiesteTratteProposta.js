@@ -6,7 +6,7 @@ console.log(dataEventoId);
  
 
 
-fetch(`https://3.123.172.27/api/tratta/tratte/${dataEventoId}`)
+fetch(`https://moveconnect.it/api/tratta/tratte/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -20,7 +20,7 @@ fetch(`https://3.123.172.27/api/tratta/tratte/${dataEventoId}`)
 
         let imgAzienda = document.querySelector('.imgAzienda');
     
-        fetch(`https://3.123.172.27/api/azienda/logo/${id}`)
+        fetch(`https://moveconnect.it/api/azienda/logo/${id}`)
                 if (!response.ok) {
             })
             .then((blob) => {
@@ -44,7 +44,7 @@ fetch(`https://3.123.172.27/api/tratta/tratte/${dataEventoId}`)
 
         let accessToken = localStorage.getItem('accessToken');
     
-        fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+        fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
             .then((res) => res.json())
             .then((data) => {
     

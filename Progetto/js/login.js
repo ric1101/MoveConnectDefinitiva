@@ -1,5 +1,5 @@
 
-const URLOG = `https://3.123.172.27/api/azienda/login`;
+const URLOG = `https://moveconnect.it/api/azienda/login`;
 
 let username = document.querySelector('#email');
 let password = document.querySelector('#password');

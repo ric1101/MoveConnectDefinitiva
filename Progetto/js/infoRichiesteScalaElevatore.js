@@ -6,7 +6,7 @@ console.log(dataEventoId);
  
 
 
-fetch(`https://3.123.172.27/api/scalaElevatore/scalaId/${dataEventoId}`)
+fetch(`https://moveconnect.it/api/scalaElevatore/scalaId/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -23,7 +23,7 @@ function fetchImg(dati, id) {
 
     let imgAzienda = document.querySelector('.imgAzienda');
 
-    fetch(`https://3.123.172.27/api/azienda/logo/${id}`)
+    fetch(`https://moveconnect.it/api/azienda/logo/${id}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Errore nel recupero del logo");
@@ -51,7 +51,7 @@ function recuperaToken(dati, img) {
 
     let accessToken = localStorage.getItem('accessToken');
 
-    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -234,7 +234,7 @@ function interessamentoElevatore(richiestaId, aziendaIdAccesso, emailAziendale, 
     if (abb == 'base' || abb == 'plus') {
 
 
-        fetch(`https://3.123.172.27/api/scalaElevatore/modificaScalaIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
+        fetch(`https://moveconnect.it/api/scalaElevatore/modificaScalaIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -264,7 +264,7 @@ function interessamentoElevatore(richiestaId, aziendaIdAccesso, emailAziendale, 
         console.log(newPropostaScala);
 
 
-        fetch(`https://3.123.172.27/api/scala/interessataPropostaScala`, {
+        fetch(`https://moveconnect.it/api/scala/interessataPropostaScala`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

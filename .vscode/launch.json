@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "https://3.123.172.27",
+            "url": "https://moveconnect.it",
             "webRoot": "${workspaceFolder}"
         }
     ]

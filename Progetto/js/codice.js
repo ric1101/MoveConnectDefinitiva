@@ -32,7 +32,7 @@ function fetchInvio() {
   console.log(username, codice.value);
 
 
-  fetch(`https://3.123.172.27/api/azienda/verify-azienda?username=${username}&verificationCode=${codice.value}`, {
+  fetch(`https://moveconnect.it/api/azienda/verify-azienda?username=${username}&verificationCode=${codice.value}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -60,7 +60,7 @@ function rigenera(){
   let rigenera = new Rigenera(username);
   console.log(username);
 
-  fetch(`https://3.123.172.27/api/azienda/rigenera-codice?username=${username}`,{ 
+  fetch(`https://moveconnect.it/api/azienda/rigenera-codice?username=${username}`,{ 
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

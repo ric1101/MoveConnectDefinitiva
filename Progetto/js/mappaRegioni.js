@@ -129,20 +129,20 @@ function mappa() {
 
         // marker
         var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
+            iconUrl: '../imgs/file (1).png',
             iconSize: [60, 60],
         });
 
         var singleMarker = L.marker([42.600988, 13.704649], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../imgs/1.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([42.015883, 13.628597], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../imgs/2.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([42.091340, 14.436092], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../imgs/3.png"/>').openPopup()
         popUp.addTo(map);
 
 
@@ -154,16 +154,16 @@ function mappa() {
 
         // marker
         var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
+            iconUrl: '../imgs/file (1).png',
             iconSize: [60, 60],
         });
 
         var singleMarker = L.marker([40.727628, 15.889481], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../imgs/1.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([40.225591, 16.186651], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../imgs/2.png"/>').openPopup()
         popUp.addTo(map);
 
 
@@ -174,16 +174,16 @@ function mappa() {
 
         // marker
         var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
+            iconUrl: '../imgs/file (1).png',
             iconSize: [60, 60],
         });
 
         var singleMarker = L.marker([39.561854, 16.299919], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../imgs/1.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([38.560005, 16.285260], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../imgs/2.png"/>').openPopup()
         popUp.addTo(map);
 
 
@@ -196,20 +196,20 @@ function mappa() {
 
         // marker
         var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
+            iconUrl: '../imgs/file (1).png',
             iconSize: [60, 60],
         });
 
         var singleMarker = L.marker([41.168754, 14.453713], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../imgs/1.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([40.432757, 15.250221], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../imgs/2.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([40.994850, 15.085426], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../imgs/3.png"/>').openPopup()
         popUp.addTo(map);
 
 
@@ -223,20 +223,20 @@ function mappa() {
 
         // marker
         var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
+            iconUrl: '../imgs/file (1).png',
             iconSize: [60, 60],
         });
 
         var singleMarker = L.marker([44.713586, 10.140913], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../imgs/1.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([44.054062, 12.167891], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../imgs/2.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([44.701874, 11.503218], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../imgs/3.png"/>').openPopup()
         popUp.addTo(map);
 
 
@@ -249,20 +249,20 @@ function mappa() {
 
         // marker
         var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
+            iconUrl: '../imgs/file (1).png',
             iconSize: [60, 60],
         });
 
         var singleMarker = L.marker([45.877812, 13.317382], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../imgs/1.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([46.454172, 13.127868], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../imgs/2.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([46.015316, 12.669189], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../imgs/3.png"/>').openPopup()
         popUp.addTo(map);
 
 
@@ -275,20 +275,20 @@ function mappa() {
 
         // marker
         var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
+            iconUrl: '../imgs/file (1).png',
             iconSize: [60, 60],
         });
 
         var singleMarker = L.marker([42.346479, 12.896853], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../imgs/1.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([42.391122, 11.990481], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../imgs/2.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([41.545704, 13.347293], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../imgs/3.png"/>').openPopup()
         popUp.addTo(map);
 
 
@@ -300,20 +300,20 @@ function mappa() {
 
         // marker
         var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
+            iconUrl: '../imgs/file (1).png',
             iconSize: [60, 60],
         });
 
         var singleMarker = L.marker([43.997373, 7.879161], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../imgs/1.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([44.489270, 9.208507], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../imgs/2.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([44.159168, 9.779796], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../imgs/3.png"/>').openPopup()
         popUp.addTo(map);
 
 
@@ -328,24 +328,24 @@ function mappa() {
 
         // marker
         var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
+            iconUrl: '../imgs/file (1).png',
             iconSize: [60, 60],
         });
 
         var singleMarker = L.marker([45.359496, 9.213174], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../imgs/1.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([45.301043, 10.367970], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../imgs/2.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([46.056224, 9.961482], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../imgs/3.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([45.876424, 9.268605], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../imgs/3.png"/>').openPopup()
         popUp.addTo(map);
 
 
@@ -358,20 +358,20 @@ function mappa() {
 
         // marker
         var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
+            iconUrl: '../imgs/file (1).png',
             iconSize: [60, 60],
         });
 
         var singleMarker = L.marker([43.655244, 12.905283], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../imgs/1.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([43.070829, 13.579241], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../imgs/2.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([43.458517, 13.144829], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../imgs/3.png"/>').openPopup()
         popUp.addTo(map);
 
 
@@ -384,20 +384,20 @@ function mappa() {
 
         // marker
         var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
+            iconUrl: '../imgs/file (1).png',
             iconSize: [60, 60],
         });
 
         var singleMarker = L.marker([41.599191, 14.424031], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../imgs/1.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([41.903785, 14.920502], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../imgs/2.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([41.589420, 14.796384], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../imgs/3.png"/>').openPopup()
         popUp.addTo(map);
 
 
@@ -409,24 +409,24 @@ function mappa() {
 
         // marker
         var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
+            iconUrl: '../imgs/file (1).png',
             iconSize: [60, 60],
         });
 
         var singleMarker = L.marker([44.497406, 7.690690], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../imgs/1.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([45.844988, 8.261979], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../imgs/2.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([45.047252, 7.185319], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../imgs/3.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([44.833396, 8.665727], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../imgs/3.png"/>').openPopup()
         popUp.addTo(map);
 
 
@@ -439,20 +439,20 @@ function mappa() {
 
         // marker
         var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
+            iconUrl: '../imgs/file (1).png',
             iconSize: [60, 60],
         });
 
         var singleMarker = L.marker([41.516751, 15.583689], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../imgs/1.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([40.308801, 18.116037], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../imgs/2.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([41.021302, 16.869089], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../imgs/3.png"/>').openPopup()
         popUp.addTo(map);
 
 
@@ -464,20 +464,20 @@ function mappa() {
 
         // marker
         var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
+            iconUrl: '../imgs/file (1).png',
             iconSize: [60, 60],
         });
 
         var singleMarker = L.marker([39.365339, 9.109766], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../imgs/1.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([40.777662, 8.686793], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../imgs/2.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([40.577696, 9.488795], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../imgs/3.png"/>').openPopup()
         popUp.addTo(map);
 
 
@@ -488,20 +488,20 @@ function mappa() {
 
         // marker
         var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
+            iconUrl: '../imgs/file (1).png',
             iconSize: [60, 60],
         });
 
         var singleMarker = L.marker([37.967854, 13.246443], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../imgs/1.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([37.045457, 14.833843], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../imgs/2.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([37.978153, 15.088611], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../imgs/3.png"/>').openPopup()
         popUp.addTo(map);
 
 
@@ -513,20 +513,20 @@ function mappa() {
 
         // marker
         var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
+            iconUrl: '../imgs/file (1).png',
             iconSize: [60, 60],
         });
 
         var singleMarker = L.marker([43.714973, 11.422429], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../imgs/1.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([42.868660, 11.375275], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../imgs/2.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([44.035550, 10.359055], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../imgs/3.png"/>').openPopup()
         popUp.addTo(map);
 
 
@@ -538,20 +538,20 @@ function mappa() {
 
         // marker
         var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
+            iconUrl: '../imgs/file (1).png',
             iconSize: [60, 60],
         });
 
         var singleMarker = L.marker([46.112815, 11.077520], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../imgs/1.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([46.820328, 11.868536], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../imgs/2.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([46.676793, 10.787872], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../imgs/3.png"/>').openPopup()
         popUp.addTo(map);
 
 
@@ -563,20 +563,20 @@ function mappa() {
 
         // marker
         var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
+            iconUrl: '../imgs/file (1).png',
             iconSize: [60, 60],
         });
 
         var singleMarker = L.marker([42.616027, 12.651967], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../imgs/1.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([43.388469, 12.393618], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../imgs/2.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([42.863623, 12.184597], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../imgs/3.png"/>').openPopup()
         popUp.addTo(map);
 
 
@@ -589,16 +589,16 @@ function mappa() {
 
         // marker
         var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
+            iconUrl: '../imgs/file (1).png',
             iconSize: [60, 60],
         });
 
         var singleMarker = L.marker([45.850354, 7.676546], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../imgs/1.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([45.772121, 7.097092], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../imgs/2.png"/>').openPopup()
         popUp.addTo(map);
 
 
@@ -610,20 +610,20 @@ function mappa() {
 
         // marker
         var myIcon = L.icon({
-            iconUrl: '../Progetto/imgs/file (1).png',
+            iconUrl: '../imgs/file (1).png',
             iconSize: [60, 60],
         });
 
         var singleMarker = L.marker([45.468554, 11.381964], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../Progetto/imgs/1.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Tracks</a></h1> <p> Azienda di trasporti ad alta velocità per magazzini </p> <img src="../imgs/1.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([46.047371, 12.139735], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../Progetto/imgs/2.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Fast And Easy</a></h1> <p> Azienda di trasporti ad alta velocità per mobili, armadi e molto altro </p> <img src="../imgs/2.png"/>').openPopup()
         popUp.addTo(map);
 
         var singleMarker = L.marker([45.216022, 11.933961], { icon: myIcon, draggable: false });
-        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../Progetto/imgs/3.png"/>').openPopup()
+        var popUp = singleMarker.bindPopup('<h1><a href="https://www.samsung.com/it/support/repair/" target="_blank" >Mobili Service</a></h1> <p> Azienda di trasporti solamente per mobilificio medio pesante </p> <img src="../imgs/3.png"/>').openPopup()
         popUp.addTo(map);
 
 

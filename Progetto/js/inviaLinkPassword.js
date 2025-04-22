@@ -12,7 +12,7 @@ function inviaMail() {
 
     let username = email.value;
     
-  fetch(`https://3.123.172.27/api/azienda/recupera-password?username=${username}`, {
+  fetch(`https://moveconnect.it/api/azienda/recupera-password?username=${username}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

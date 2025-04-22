@@ -10,7 +10,7 @@ let accessToken = localStorage.getItem('accessToken');
  
 
 
-fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -23,7 +23,7 @@ fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
 function fetchMagazzino(id) {
 
 
-    let URLB = `https://3.123.172.27/api/depositoMagazzino/tuttiIMagazziniConAzienda`;
+    let URLB = `https://moveconnect.it/api/depositoMagazzino/tuttiIMagazziniConAzienda`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {
@@ -59,7 +59,7 @@ function magazzino(dati, id) {
 
                     
 
-                    fetch(`https://3.123.172.27/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -107,7 +107,7 @@ function magazzino(dati, id) {
                         let tabella = `<tr>
                         
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>      
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.paese}</td>
@@ -260,7 +260,7 @@ let mag3 = 0;
 
 async function fetchRegioniDeposito(regione) {
 
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -275,7 +275,7 @@ async function filtriRegioneDeposito(regione, id) {
 
     console.log(regione);
 
-    await fetch(`https://3.123.172.27/api/depositoMagazzino/tuttiIMagazziniConAziendaPerRegione/${regione}`)
+    await fetch(`https://moveconnect.it/api/depositoMagazzino/tuttiIMagazziniConAziendaPerRegione/${regione}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -313,7 +313,7 @@ function depositoFiltroSoloRegione(dati, id) {
 
                     
 
-                    fetch(`https://3.123.172.27/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -361,7 +361,7 @@ function depositoFiltroSoloRegione(dati, id) {
                         let tabella = `<tr>
                         
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>      
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.paese}</td>
@@ -423,7 +423,7 @@ function depositoFiltroSoloRegione(dati, id) {
 
 async function fetchRegioniTipoDeposito(regione, mobilio, pedane, altro) {
 
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -438,7 +438,7 @@ async function filtriRegioneTipoDeposito(regione, mobilio, pedane, altro, id) {
 
     console.log(regione);
 
-    await fetch(`https://3.123.172.27/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?paese=${regione}&mobilio=${mobilio}&pedane=${pedane}&altro=${altro}`)
+    await fetch(`https://moveconnect.it/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?paese=${regione}&mobilio=${mobilio}&pedane=${pedane}&altro=${altro}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -476,7 +476,7 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
 
                     
 
-                    fetch(`https://3.123.172.27/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -524,7 +524,7 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
                         let tabella = `<tr>
                         
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>     
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.paese}</td>
@@ -586,7 +586,7 @@ function depositoFiltroRegioneTipoDeposito(dati, id) {
 
 async function fetchRegioniDepositoMq(regione, mq) {
 
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -602,7 +602,7 @@ async function filtriRegioneDepositoMq(regione, mq, id) {
 
     console.log(regione);
 
-    await fetch(`https://3.123.172.27/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?paese=${regione}&mq=${mq}`)
+    await fetch(`https://moveconnect.it/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?paese=${regione}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -639,7 +639,7 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
 
                     
 
-                    fetch(`https://3.123.172.27/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -687,7 +687,7 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
                         let tabella = `<tr>
                         
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>      
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.paese}</td>
@@ -749,7 +749,7 @@ function depositoFiltroRegioneDepositoMq(dati, id) {
 
 async function fetchRegioneTipoDepositoMq(regione, mobilio, pedane, altro, mq) {
 
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -765,7 +765,7 @@ async function filtriRegioneTipoDepositoMq(regione, mobilio, pedane, altro, mq, 
 
     console.log(regione);
 
-    await fetch(`https://3.123.172.27/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?paese=${regione}&mobilio=${mobilio}&pedane=${pedane}&altro=${altro}&mq=${mq}`)
+    await fetch(`https://moveconnect.it/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?paese=${regione}&mobilio=${mobilio}&pedane=${pedane}&altro=${altro}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -802,7 +802,7 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
 
                     
 
-                    fetch(`https://3.123.172.27/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -850,7 +850,7 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
                         let tabella = `<tr>
                         
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>     
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.paese}</td>
@@ -912,7 +912,7 @@ function depositoFiltroRegioneTipoDepositoMq(dati, id) {
 
 async function fetchTipoDeposito(mobilio, pedane, altro) {
 
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -925,7 +925,7 @@ async function fetchTipoDeposito(mobilio, pedane, altro) {
 async function filtriTipoDeposito(mobilio, pedane, altro, id) {
 
 
-    await fetch(`https://3.123.172.27/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?mobilio=${mobilio}&pedane=${pedane}&altro=${altro}`)
+    await fetch(`https://moveconnect.it/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?mobilio=${mobilio}&pedane=${pedane}&altro=${altro}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -963,7 +963,7 @@ function depositoFiltroTipoDeposito(dati, id) {
 
                     
 
-                    fetch(`https://3.123.172.27/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -1011,7 +1011,7 @@ function depositoFiltroTipoDeposito(dati, id) {
                         let tabella = `<tr>
                         
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>     
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.paese}</td>
@@ -1074,7 +1074,7 @@ function depositoFiltroTipoDeposito(dati, id) {
 
 async function fetchTipoDepositoMq(mobilio, pedane, altro, mq) {
 
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1087,7 +1087,7 @@ async function fetchTipoDepositoMq(mobilio, pedane, altro, mq) {
 async function filtriTipoDepositoMq(mobilio, pedane, altro, mq, id) {
 
 
-    await fetch(`https://3.123.172.27/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?mobilio=${mobilio}&pedane=${pedane}&altro=${altro}&mq=${mq}`)
+    await fetch(`https://moveconnect.it/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?mobilio=${mobilio}&pedane=${pedane}&altro=${altro}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1125,7 +1125,7 @@ function depositoFiltroTipoDepositoMq(dati, id) {
 
                     
 
-                    fetch(`https://3.123.172.27/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -1173,7 +1173,7 @@ function depositoFiltroTipoDepositoMq(dati, id) {
                         let tabella = `<tr>
                         
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>     
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.paese}</td>
@@ -1236,7 +1236,7 @@ function depositoFiltroTipoDepositoMq(dati, id) {
 
 async function fetchDemoDeposito(mq) {
 
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1248,7 +1248,7 @@ async function fetchDemoDeposito(mq) {
 
 async function filtriDemoDepositoMq(mq, id) {
 
-    let rottaPerSoliMQ = `https://3.123.172.27/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?mq=${mq}`;
+    let rottaPerSoliMQ = `https://moveconnect.it/api/depositoMagazzino/tuttiMagazziniConAziendaTutto?mq=${mq}`;
 
     console.log(rottaPerSoliMQ);
 
@@ -1290,7 +1290,7 @@ function depositoFiltroDemoDeposito(dati, id) {
 
                     
 
-                    fetch(`https://3.123.172.27/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/propostaMagazzino/byAziendaMagazzino?depositoMagazzinoId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -1338,7 +1338,7 @@ function depositoFiltroDemoDeposito(dati, id) {
                         let tabella = `<tr>
                         
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>     
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.paese}</td>

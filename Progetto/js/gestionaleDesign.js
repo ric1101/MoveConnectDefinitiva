@@ -8,7 +8,7 @@ async function popolaGestionaleDesign() {
 
     bodyTabella.innerHTML = "";
 
-    await fetch(`https://3.123.172.27/api/design/tuttiIDesign`)
+    await fetch(`https://moveconnect.it/api/design/tuttiIDesign`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -45,7 +45,7 @@ popolaGestionaleDesign();
 
 async function eliminaDesign(id) {
 
-    await fetch(`https://3.123.172.27/api/design/eliminaDesign/${id}`, {
+    await fetch(`https://moveconnect.it/api/design/eliminaDesign/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",

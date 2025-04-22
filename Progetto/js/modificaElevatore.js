@@ -19,7 +19,7 @@ let btnInvioRichiestaScalaElevatore = document.querySelector('.btnInvioRichiesta
 let idScala = localStorage.getItem('modificaScala');
  
 
-fetch(`https://3.123.172.27/api/scalaElevatore/scalaId/${idScala}`)
+fetch(`https://moveconnect.it/api/scalaElevatore/scalaId/${idScala}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -84,7 +84,7 @@ function recuperaId() {
     let accessToken = localStorage.getItem('accessToken');
     
 
-    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -124,7 +124,7 @@ function inviaRichiesta(dati) {
     console.log(nuovaRichiestaScalaElevatore);
 
 
-    fetch(`https://3.123.172.27/api/scalaElevatore/modificaScala/${idScala}`, {
+    fetch(`https://moveconnect.it/api/scalaElevatore/modificaScala/${idScala}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

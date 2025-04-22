@@ -10,7 +10,7 @@ let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
 </div>`;
 
 
-    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -23,7 +23,7 @@ let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
 function fetchTrasporto(id) {
 
 
-    let URLB = `https://3.123.172.27/api/richiestaTrasporto/tuttiITrasportiConAzienda`;
+    let URLB = `https://moveconnect.it/api/richiestaTrasporto/tuttiITrasportiConAzienda`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {
@@ -57,7 +57,7 @@ function trasporto(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`https://3.123.172.27/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
                     .then((res) => res.json())
                     .then((data) => {
 
@@ -105,7 +105,7 @@ function trasporto(dati, id) {
                     let tabella = `<tr>
                     
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                           
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
@@ -280,7 +280,7 @@ console.log(reg1);
 
 async function fetchRegioniPartenza(regione) {
     console.log(reg1);
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -295,7 +295,7 @@ async function filtriRegionePartenza(regione, id) {
 
     console.log(regione);
 
-    await fetch(`https://3.123.172.27/api/richiestaTrasporto/tuttiITrasportiConAziendaPerRegionePartenza/${regione}`)
+    await fetch(`https://moveconnect.it/api/richiestaTrasporto/tuttiITrasportiConAziendaPerRegionePartenza/${regione}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -330,7 +330,7 @@ function trasportoFiltroSoloRegionePartenza(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`https://3.123.172.27/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
                     .then((res) => res.json())
                     .then((data) => {
 
@@ -378,7 +378,7 @@ function trasportoFiltroSoloRegionePartenza(dati, id) {
                     let tabella = `<tr>
                     
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
@@ -439,7 +439,7 @@ function trasportoFiltroSoloRegionePartenza(dati, id) {
 
 async function fetchRegioniArrivo(regione) {
 
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -455,7 +455,7 @@ async function filtriRegioneArrivo(regione, id) {
 
     console.log(regione);
 
-    await fetch(`https://3.123.172.27/api/richiestaTrasporto/tuttiITrasportiConAziendaPerRegioneArrivo/${regione}`)
+    await fetch(`https://moveconnect.it/api/richiestaTrasporto/tuttiITrasportiConAziendaPerRegioneArrivo/${regione}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -490,7 +490,7 @@ function trasportoFiltroSoloRegioneArrivo(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`https://3.123.172.27/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
                     .then((res) => res.json())
                     .then((data) => {
 
@@ -538,7 +538,7 @@ function trasportoFiltroSoloRegioneArrivo(dati, id) {
                     let tabella = `<tr>
                     
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                             
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
@@ -601,7 +601,7 @@ function trasportoFiltroSoloRegioneArrivo(dati, id) {
 
 async function fetchRegioniDoppie(regionePartenza, regioneArrivo) {
 
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -615,7 +615,7 @@ async function fetchRegioniDoppie(regionePartenza, regioneArrivo) {
 async function filtriRegioniDoppie(regionePartenza, regioneArrivo, id) {
 
 
-    await fetch(`https://3.123.172.27/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paesePartenza=${regionePartenza}&paeseArrivo=${regioneArrivo}`)
+    await fetch(`https://moveconnect.it/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paesePartenza=${regionePartenza}&paeseArrivo=${regioneArrivo}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -650,7 +650,7 @@ function trasportoFiltroRegioniDoppie(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`https://3.123.172.27/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
                     .then((res) => res.json())
                     .then((data) => {
 
@@ -698,7 +698,7 @@ function trasportoFiltroRegioniDoppie(dati, id) {
                     let tabella = `<tr>
                     
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
@@ -761,7 +761,7 @@ function trasportoFiltroRegioniDoppie(dati, id) {
 
 async function fetchRegioniMq(regione, mq) {
 
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -774,8 +774,8 @@ async function fetchRegioniMq(regione, mq) {
 
 async function filtriRegioniMq(regione, mq, id) {
 
-    let rottaPartenza = `https://3.123.172.27/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paesePartenza=${regione}&mq=${mq}`;
-    let rottaArrivo = `https://3.123.172.27/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paeseArrivo=${regione}&mq=${mq}`
+    let rottaPartenza = `https://moveconnect.it/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paesePartenza=${regione}&mq=${mq}`;
+    let rottaArrivo = `https://moveconnect.it/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paeseArrivo=${regione}&mq=${mq}`
 
     if (reg1 == 0) {
         console.log('ciaoneeee');
@@ -831,7 +831,7 @@ function trasportoFiltroRegioniMq(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`https://3.123.172.27/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
                     .then((res) => res.json())
                     .then((data) => {
 
@@ -879,7 +879,7 @@ function trasportoFiltroRegioniMq(dati, id) {
                     let tabella = `<tr>
                     
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
@@ -939,7 +939,7 @@ function trasportoFiltroRegioniMq(dati, id) {
 
 async function fetchRegionePartenzaArrivoMq(regionePartenza, regioneArrivo, mq) {
 
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -953,7 +953,7 @@ async function fetchRegionePartenzaArrivoMq(regionePartenza, regioneArrivo, mq) 
 async function filtriRegioniDoppieMq(regionePartenza, regioneArrivo, mq, id) {
 
 
-    await fetch(`https://3.123.172.27/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paeseePartenza=${regionePartenza}&paeseArrivo=${regioneArrivo}&mq=${mq}`)
+    await fetch(`https://moveconnect.it/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paeseePartenza=${regionePartenza}&paeseArrivo=${regioneArrivo}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -988,7 +988,7 @@ function trasportoFiltroRegioniDoppieMq(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`https://3.123.172.27/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
                     .then((res) => res.json())
                     .then((data) => {
 
@@ -1036,7 +1036,7 @@ function trasportoFiltroRegioniDoppieMq(dati, id) {
                     let tabella = `<tr>
                     
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
@@ -1097,7 +1097,7 @@ function trasportoFiltroRegioniDoppieMq(dati, id) {
 
 async function fetchDemo(mq) {
 
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1113,7 +1113,7 @@ async function fetchDemo(mq) {
 async function filtriDemo(mq, id) {
 
 
-    await fetch(`https://3.123.172.27/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?mq=${mq}`)
+    await fetch(`https://moveconnect.it/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1150,7 +1150,7 @@ function trasportoFiltroDemo(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`https://3.123.172.27/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
                     .then((res) => res.json())
                     .then((data) => {
 
@@ -1198,7 +1198,7 @@ function trasportoFiltroDemo(dati, id) {
                     let tabella = `<tr>
                     
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
@@ -1458,7 +1458,7 @@ sliderDemo.addEventListener('change', () => {
 
 async function fetchMerce(merce) {
 
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1472,7 +1472,7 @@ async function fetchMerce(merce) {
 async function filtriMerce(merce, id) {
 
 
-    await fetch(`https://3.123.172.27/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?tipoDiVeicolo=${merce}`)
+    await fetch(`https://moveconnect.it/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?tipoDiVeicolo=${merce}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1507,7 +1507,7 @@ function trasportoFiltroMerce(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`https://3.123.172.27/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
                     .then((res) => res.json())
                     .then((data) => {
 
@@ -1555,7 +1555,7 @@ function trasportoFiltroMerce(dati, id) {
                     let tabella = `<tr>
                     
                         <td class="text-center">
-                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>  
+                            <a href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>  
                         </td>                           
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
@@ -1615,7 +1615,7 @@ function trasportoFiltroMerce(dati, id) {
 
 async function fetchRegionePartenzaMerce(regionePartenza, merce) {
 
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1629,7 +1629,7 @@ async function fetchRegionePartenzaMerce(regionePartenza, merce) {
 async function filtriRegionePartenzaMerce(regionePartenza, merce, id) {
 
 
-    await fetch(`https://3.123.172.27/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paesePartenza=${regionePartenza}&tipoDiVeicolo=${merce}`)
+    await fetch(`https://moveconnect.it/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paesePartenza=${regionePartenza}&tipoDiVeicolo=${merce}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1664,7 +1664,7 @@ function trasportoFiltroRegionePartenzaMerce(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`https://3.123.172.27/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
                     .then((res) => res.json())
                     .then((data) => {
 
@@ -1712,7 +1712,7 @@ function trasportoFiltroRegionePartenzaMerce(dati, id) {
                     let tabella = `<tr>
                     
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
@@ -1774,7 +1774,7 @@ function trasportoFiltroRegionePartenzaMerce(dati, id) {
 
 async function fetchRegioneArrivoMerce(regioneArrivo, merce) {
 
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1788,7 +1788,7 @@ async function fetchRegioneArrivoMerce(regioneArrivo, merce) {
 async function filtriRegioneArrivoMerce(regioneArrivo, merce, id) {
 
 
-    await fetch(`https://3.123.172.27/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paeseArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}`)
+    await fetch(`https://moveconnect.it/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paeseArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1823,7 +1823,7 @@ function trasportoFiltroRegioneArrivoMerce(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`https://3.123.172.27/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
                     .then((res) => res.json())
                     .then((data) => {
 
@@ -1871,7 +1871,7 @@ function trasportoFiltroRegioneArrivoMerce(dati, id) {
                     let tabella = `<tr>
                     
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
@@ -1934,7 +1934,7 @@ function trasportoFiltroRegioneArrivoMerce(dati, id) {
 
 async function fetchRegionePartenzaArrivoMerce(regionePartenza, regioneArrivo, merce) {
 
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1948,7 +1948,7 @@ async function fetchRegionePartenzaArrivoMerce(regionePartenza, regioneArrivo, m
 async function filtriRegionePartenzaArrivoMerce(regionePartenza, regioneArrivo, merce, id) {
 
 
-    await fetch(`https://3.123.172.27/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paesePartenza=${regionePartenza}&paeseArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}`)
+    await fetch(`https://moveconnect.it/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paesePartenza=${regionePartenza}&paeseArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1983,7 +1983,7 @@ function trasportoFiltroRegionePartenzaArrivoMerce(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`https://3.123.172.27/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
                     .then((res) => res.json())
                     .then((data) => {
 
@@ -2031,7 +2031,7 @@ function trasportoFiltroRegionePartenzaArrivoMerce(dati, id) {
                     let tabella = `<tr>
                     
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                             
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
@@ -2096,7 +2096,7 @@ function trasportoFiltroRegionePartenzaArrivoMerce(dati, id) {
 
 async function fetchRegionePartenzaArrivoMerceMq(regionePartenza, regioneArrivo, merce, mq) {
 
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -2110,7 +2110,7 @@ async function fetchRegionePartenzaArrivoMerceMq(regionePartenza, regioneArrivo,
 async function filtriRegionePartenzaArrivoMerceMq(regionePartenza, regioneArrivo, merce, mq, id) {
 
 
-    await fetch(`https://3.123.172.27/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paesePartenza=${regionePartenza}&paeseArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}&mq=${mq}`)
+    await fetch(`https://moveconnect.it/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paesePartenza=${regionePartenza}&paeseArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -2145,7 +2145,7 @@ function trasportoFiltroRegionePartenzaArrivoMerceMq(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`https://3.123.172.27/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
                     .then((res) => res.json())
                     .then((data) => {
 
@@ -2193,7 +2193,7 @@ function trasportoFiltroRegionePartenzaArrivoMerceMq(dati, id) {
                     let tabella = `<tr>
                     
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
@@ -2255,7 +2255,7 @@ function trasportoFiltroRegionePartenzaArrivoMerceMq(dati, id) {
 
 async function fetchRegionePartenzaMerceMq(regionePartenza, merce, mq) {
 
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -2269,7 +2269,7 @@ async function fetchRegionePartenzaMerceMq(regionePartenza, merce, mq) {
 async function filtriRegionePartenzaMerceMq(regionePartenza, merce, mq, id) {
 
 
-    await fetch(`https://3.123.172.27/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paesePartenza=${regionePartenza}&tipoDiVeicolo=${merce}&mq=${mq}`)
+    await fetch(`https://moveconnect.it/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paesePartenza=${regionePartenza}&tipoDiVeicolo=${merce}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -2304,7 +2304,7 @@ function trasportoFiltroRegionePartenzaMerceMq(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`https://3.123.172.27/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
                     .then((res) => res.json())
                     .then((data) => {
 
@@ -2352,7 +2352,7 @@ function trasportoFiltroRegionePartenzaMerceMq(dati, id) {
                     let tabella = `<tr>
                     
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
@@ -2416,7 +2416,7 @@ function trasportoFiltroRegionePartenzaMerceMq(dati, id) {
 
 async function fetchRegioneArrivoMerceMq(regioneArrivo, merce, mq) {
 
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -2430,7 +2430,7 @@ async function fetchRegioneArrivoMerceMq(regioneArrivo, merce, mq) {
 async function filtriRegioneArrivoMerceMq(regioneArrivo, merce, mq, id) {
 
 
-    await fetch(`https://3.123.172.27/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paeseArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}&mq=${mq}`)
+    await fetch(`https://moveconnect.it/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?paeseArrivo=${regioneArrivo}&tipoDiVeicolo=${merce}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -2465,7 +2465,7 @@ function trasportoFiltroRegioneArrivoMerceMq(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`https://3.123.172.27/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
                     .then((res) => res.json())
                     .then((data) => {
 
@@ -2513,7 +2513,7 @@ function trasportoFiltroRegioneArrivoMerceMq(dati, id) {
                     let tabella = `<tr>
                     
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>
@@ -2578,7 +2578,7 @@ function trasportoFiltroRegioneArrivoMerceMq(dati, id) {
 
 async function fetchMerceMq(merce, mq) {
 
-    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -2592,7 +2592,7 @@ async function fetchMerceMq(merce, mq) {
 async function filtriMerceMq(merce, mq, id) {
 
 
-    await fetch(`https://3.123.172.27/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?tipoDiVeicolo=${merce}&mq=${mq}`)
+    await fetch(`https://moveconnect.it/api/richiestaTrasporto/tuttiITrasportiConAziendaTutto?tipoDiVeicolo=${merce}&mq=${mq}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -2628,7 +2628,7 @@ function trasportoFiltroMerceMq(dati, id) {
 
                 if (element.azienda.id != id) {
 
-                    fetch(`https://3.123.172.27/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/trasporto/byAziendaRichiesta?trasportoId=${element.id}`)
                     .then((res) => res.json())
                     .then((data) => {
 
@@ -2676,7 +2676,7 @@ function trasportoFiltroMerceMq(dati, id) {
                     let tabella = `<tr>
                     
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>                              
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.cittaPartenza}</td>

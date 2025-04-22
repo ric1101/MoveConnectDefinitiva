@@ -1,1 +1,1 @@
-window.MY_APP_API_URL='https://3.123.172.27';
+window.MY_APP_API_URL='https://moveconnect.it';

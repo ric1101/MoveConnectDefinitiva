@@ -15,7 +15,7 @@ let idMod = localStorage.getItem('idModificaBlog');
 function popolaModBlog() {
 
 
-    fetch(`https://3.123.172.27/api/blog/${idMod}`)
+    fetch(`https://moveconnect.it/api/blog/${idMod}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -64,7 +64,7 @@ async function modificaBlog() {
     
 
 
-    await fetch(`https://3.123.172.27/api/blog/modificaBlog/${idMod}`, {
+    await fetch(`https://moveconnect.it/api/blog/modificaBlog/${idMod}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

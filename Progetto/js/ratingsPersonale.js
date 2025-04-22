@@ -45,7 +45,7 @@ function tokenizzami() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -65,7 +65,7 @@ function recuperaDatiRecensione(id) {
 
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`https://3.123.172.27/api/personale/relazionePersonalePerId/${idRel}`)
+    fetch(`https://moveconnect.it/api/personale/relazionePersonalePerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -112,7 +112,7 @@ function recuperaToken() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -136,7 +136,7 @@ function stelleInserite(idAziendaAccesso) {
     let scelta = 0;
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`https://3.123.172.27/api/personale/relazionePersonalePerId/${idRel}`)
+    fetch(`https://moveconnect.it/api/personale/relazionePersonalePerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -244,7 +244,7 @@ function inviaRecensione(choose) {
     if (choose == 1) {
 
 
-        fetch(`https://3.123.172.27/api/personale/recensitaRelazionePersonaleProponente/${idRecNumber}`, {
+        fetch(`https://moveconnect.it/api/personale/recensitaRelazionePersonaleProponente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -260,7 +260,7 @@ function inviaRecensione(choose) {
     } else {
 
 
-        fetch(`https://3.123.172.27/api/personale/recensitaRelazionePersonaleRichiedente/${idRecNumber}`, {
+        fetch(`https://moveconnect.it/api/personale/recensitaRelazionePersonaleRichiedente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -274,7 +274,7 @@ function inviaRecensione(choose) {
     }
 
 
-    fetch(`https://3.123.172.27/api/personale/recensionePersonale`, {
+    fetch(`https://moveconnect.it/api/personale/recensionePersonale`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

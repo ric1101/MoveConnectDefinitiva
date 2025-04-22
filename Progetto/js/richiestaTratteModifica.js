@@ -24,7 +24,7 @@ let btnInvioRichiestaTratte = document.querySelector('.btnInvioRichiestaTratte')
 
 let idTratta = localStorage.getItem('modificaTratta');
 
-fetch(`https://3.123.172.27/api/tratta/tratte/${idTratta}`)
+fetch(`https://moveconnect.it/api/tratta/tratte/${idTratta}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -104,7 +104,7 @@ function recuperaId() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -151,7 +151,7 @@ function inviaRichiesta(dati) {
 
 
 
-    fetch(`https://3.123.172.27/api/tratta/modificaTratta/${idTratta}`, {
+    fetch(`https://moveconnect.it/api/tratta/modificaTratta/${idTratta}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

@@ -13,7 +13,7 @@ function fetchTratte() {
 
     let idRichiesteTratte = localStorage.getItem('iDLocalAzienda');
 
-    let URLB = `https://3.123.172.27/api/tratta/tutteLeConsegneConAziendaTrattaId/${idRichiesteTratte}`;
+    let URLB = `https://moveconnect.it/api/tratta/tutteLeConsegneConAziendaTrattaId/${idRichiesteTratte}`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {
@@ -38,7 +38,7 @@ function tratte(dati) {
 
         dati.forEach(element => {
 
-            nomeAziendaInterna.innerHTML = `<a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>`;
+            nomeAziendaInterna.innerHTML = `<a href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>`;
 
 
             if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {

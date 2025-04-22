@@ -44,7 +44,7 @@ function tokenizzami() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -64,7 +64,7 @@ function recuperaDatiRecensione(id) {
 
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`https://3.123.172.27/api/propostaImballi/relazioneImballiPerId/${idRel}`)
+    fetch(`https://moveconnect.it/api/propostaImballi/relazioneImballiPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -108,7 +108,7 @@ function recuperaToken() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -131,7 +131,7 @@ function stelleInserite(idAziendaAccesso) {
     let scelta = 0;
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`https://3.123.172.27/api/propostaImballi/relazioneImballiPerId/${idRel}`)
+    fetch(`https://moveconnect.it/api/propostaImballi/relazioneImballiPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -239,7 +239,7 @@ function inviaRecensione(choose) {
     if (choose == 1) {
 
 
-        fetch(`https://3.123.172.27/api/propostaImballi/recensitaRelazioneImballiProponente/${idRecNumber}`, {
+        fetch(`https://moveconnect.it/api/propostaImballi/recensitaRelazioneImballiProponente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -255,7 +255,7 @@ function inviaRecensione(choose) {
     } else {
 
 
-        fetch(`https://3.123.172.27/api/propostaImballi/recensitaRelazioneImballiRichiedente/${idRecNumber}`, {
+        fetch(`https://moveconnect.it/api/propostaImballi/recensitaRelazioneImballiRichiedente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -269,7 +269,7 @@ function inviaRecensione(choose) {
     }
 
 
-    fetch(`https://3.123.172.27/api/propostaImballi/recensioneImballi`, {
+    fetch(`https://moveconnect.it/api/propostaImballi/recensioneImballi`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

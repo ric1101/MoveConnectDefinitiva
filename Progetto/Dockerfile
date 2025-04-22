@@ -1,6 +1,6 @@
 # Use a lightweight base image
 FROM nginx:alpine
 
-COPY . /usr/share/nginx/html/Progetto
+COPY . /usr/share/nginx/html
 COPY ./csr /app/csr
 COPY default.conf /etc/nginx/conf.d
