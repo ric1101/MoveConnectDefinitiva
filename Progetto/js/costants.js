@@ -1,1 +1,1 @@
-export const basePath = 'https://127.0.0.1';
+export const basePath = 'https://3.123.172.27';

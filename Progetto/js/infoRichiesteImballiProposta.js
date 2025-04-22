@@ -3,10 +3,10 @@
 let colonnaInfo = document.querySelector('.colonnaInfo');
 let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
-let apiUrl = fetch(window.MY_APP_API_URL);
+ 
 
 
-fetch(`https://127.0.0.1/api/consegnaImballi/consegnas/${dataEventoId}`)
+fetch(`https://3.123.172.27/api/consegnaImballi/consegnas/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -21,7 +21,7 @@ function fetchImg(dati, id) {
 
     let imgAzienda = document.querySelector('.imgAzienda');
 
-    fetch(`https://127.0.0.1/api/azienda/logo/${id}`)
+    fetch(`https://3.123.172.27/api/azienda/logo/${id}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Errore nel recupero del logo");
@@ -48,7 +48,7 @@ function recuperaToken(dati, img) {
 
     let accessToken = localStorage.getItem('accessToken');
 
-    fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 

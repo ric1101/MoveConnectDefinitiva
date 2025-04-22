@@ -6,13 +6,13 @@ let nessunaCorrispondenza = `<div class="m-flex justify-content-center mt-3">
 <p>Non ci sono Corrispondenze!</p>
 </div>`;
 
-let apiUrl = fetch(window.MY_APP_API_URL);
+ 
 
 function fetchMagazzino() {
 
     let idRichiesteMagazzino = localStorage.getItem('iDLocalAzienda');
 
-    let URLB = `https://127.0.0.1/api/depositoMagazzino/tutteLeConsegneConAziendaMagazzinoId/${idRichiesteMagazzino}`;
+    let URLB = `https://3.123.172.27/api/depositoMagazzino/tutteLeConsegneConAziendaMagazzinoId/${idRichiesteMagazzino}`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {

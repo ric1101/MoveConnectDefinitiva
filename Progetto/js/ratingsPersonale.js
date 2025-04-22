@@ -40,13 +40,12 @@ function remove() {
 
 
 function tokenizzami() {
-    let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
 
 
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -66,7 +65,7 @@ function recuperaDatiRecensione(id) {
 
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`https://127.0.0.1/api/personale/relazionePersonalePerId/${idRel}`)
+    fetch(`https://3.123.172.27/api/personale/relazionePersonalePerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -113,7 +112,7 @@ function recuperaToken() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -137,7 +136,7 @@ function stelleInserite(idAziendaAccesso) {
     let scelta = 0;
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`https://127.0.0.1/api/personale/relazionePersonalePerId/${idRel}`)
+    fetch(`https://3.123.172.27/api/personale/relazionePersonalePerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -245,7 +244,7 @@ function inviaRecensione(choose) {
     if (choose == 1) {
 
 
-        fetch(`https://127.0.0.1/api/personale/recensitaRelazionePersonaleProponente/${idRecNumber}`, {
+        fetch(`https://3.123.172.27/api/personale/recensitaRelazionePersonaleProponente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -261,7 +260,7 @@ function inviaRecensione(choose) {
     } else {
 
 
-        fetch(`https://127.0.0.1/api/personale/recensitaRelazionePersonaleRichiedente/${idRecNumber}`, {
+        fetch(`https://3.123.172.27/api/personale/recensitaRelazionePersonaleRichiedente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -275,7 +274,7 @@ function inviaRecensione(choose) {
     }
 
 
-    fetch(`https://127.0.0.1/api/personale/recensionePersonale`, {
+    fetch(`https://3.123.172.27/api/personale/recensionePersonale`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

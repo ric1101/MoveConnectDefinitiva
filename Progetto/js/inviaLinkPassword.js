@@ -9,11 +9,10 @@ function inviaMail() {
 
 
     event.preventDefault();
-    let apiUrl = fetch(window.MY_APP_API_URL);
 
     let username = email.value;
     
-  fetch(`https://127.0.0.1/api/azienda/recupera-password?username=${username}`, {
+  fetch(`https://3.123.172.27/api/azienda/recupera-password?username=${username}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

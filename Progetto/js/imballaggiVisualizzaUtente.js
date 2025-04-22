@@ -5,7 +5,7 @@ let bodyTabella = document.querySelector('.bodyTabella');
 let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
 <p>Non ci sono Corrispondenze!</p>
 </div>`;
-let apiUrl = fetch(window.MY_APP_API_URL);
+ 
 
 
 
@@ -13,7 +13,7 @@ function fetchImballaggi() {
 
     let idRichiesteImballi = localStorage.getItem('iDLocalAzienda');
 
-    let URLB = `https://127.0.0.1/api/consegnaImballi/tutteLeConsegneConAziendaId/${idRichiesteImballi}`;
+    let URLB = `https://3.123.172.27/api/consegnaImballi/tutteLeConsegneConAziendaId/${idRichiesteImballi}`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {

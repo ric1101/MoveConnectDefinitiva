@@ -40,13 +40,12 @@ function remove() {
 
 
 function tokenizzami() {
-    let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
 
 
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -66,7 +65,7 @@ function recuperaDatiRecensione(id) {
 
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`https://127.0.0.1/api/trattazza/relazioneImballiPerId/${idRel}`)
+    fetch(`https://3.123.172.27/api/trattazza/relazioneImballiPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -112,7 +111,7 @@ function recuperaToken() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -137,7 +136,7 @@ function stelleInserite(idAziendaAccesso) {
     let scelta = 0;
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`https://127.0.0.1/api/trattazza/relazioneImballiPerId/${idRel}`)
+    fetch(`https://3.123.172.27/api/trattazza/relazioneImballiPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -247,7 +246,7 @@ function inviaRecensione(choose) {
     if (choose == 1) {
 
 
-        fetch(`https://127.0.0.1/api/trattazza/recensitaRelazioneTrattaProponente/${idRecNumber}`, {
+        fetch(`https://3.123.172.27/api/trattazza/recensitaRelazioneTrattaProponente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -263,7 +262,7 @@ function inviaRecensione(choose) {
     } else {
 
 
-        fetch(`https://127.0.0.1/api/trattazza/recensitaRelazioneTrattaRichiedente/${idRecNumber}`, {
+        fetch(`https://3.123.172.27/api/trattazza/recensitaRelazioneTrattaRichiedente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -277,7 +276,7 @@ function inviaRecensione(choose) {
     }
 
 
-    fetch(`https://127.0.0.1/api/trattazza/recensioneTratta`, {
+    fetch(`https://3.123.172.27/api/trattazza/recensioneTratta`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

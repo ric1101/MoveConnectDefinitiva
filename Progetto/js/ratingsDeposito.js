@@ -15,7 +15,7 @@ let stars =
 let output =
     document.getElementById("output");
 
-let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
+ // dentro ogni funzione
 
 
 // Funtion to update rating
@@ -48,7 +48,7 @@ function tokenizzami() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -68,7 +68,7 @@ function recuperaDatiRecensione(id) {
 
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`https://127.0.0.1/api/propostaMagazzino/relazioneMagazzinoPerId/${idRel}`)
+    fetch(`https://3.123.172.27/api/propostaMagazzino/relazioneMagazzinoPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -114,7 +114,7 @@ function recuperaToken() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -137,7 +137,7 @@ function stelleInserite(idAziendaAccesso) {
     let scelta = 0;
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`https://127.0.0.1/api/propostaMagazzino/relazioneMagazzinoPerId/${idRel}`)
+    fetch(`https://3.123.172.27/api/propostaMagazzino/relazioneMagazzinoPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -248,7 +248,7 @@ function inviaRecensione(choose) {
     if (choose == 1) {
 
 
-        fetch(`https://127.0.0.1/api/propostaMagazzino/recensitaRelazioneMagazzinoProponente/${idRecNumber}`, {
+        fetch(`https://3.123.172.27/api/propostaMagazzino/recensitaRelazioneMagazzinoProponente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -264,7 +264,7 @@ function inviaRecensione(choose) {
     } else {
 
 
-        fetch(`https://127.0.0.1/api/propostaMagazzino/recensitaRelazioneMagazzinoRichiedente/${idRecNumber}`, {
+        fetch(`https://3.123.172.27/api/propostaMagazzino/recensitaRelazioneMagazzinoRichiedente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -278,7 +278,7 @@ function inviaRecensione(choose) {
     }
 
 
-    fetch(`https://127.0.0.1/api/propostaMagazzino/recensioneMagazzino`, {
+    fetch(`https://3.123.172.27/api/propostaMagazzino/recensioneMagazzino`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

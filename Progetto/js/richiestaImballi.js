@@ -61,13 +61,12 @@ class Imballi {
 
 
 function recuperaId() {
-    let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
 
 
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -114,7 +113,7 @@ function inviaRichiesta(dati) {
         console.log(nuovaRichiestaImballi);
 
 
-        fetch(`https://127.0.0.1/api/consegnaImballi/inserisciConsegna/${azienda_id}`, {
+        fetch(`https://3.123.172.27/api/consegnaImballi/inserisciConsegna/${azienda_id}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

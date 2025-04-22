@@ -5,8 +5,8 @@ let designContent = document.querySelector('.design-content');
 let blogContent = document.querySelector('.blog-content');
 
 
-const URLD = `https://127.0.0.1/api/design/tuttiIDesign`;
-const URLB = `https://127.0.0.1/api/blog/tutti`;
+const URLD = `https://3.123.172.27/api/design/tuttiIDesign`;
+const URLB = `https://3.123.172.27/api/blog/tutti`;
 
 
 

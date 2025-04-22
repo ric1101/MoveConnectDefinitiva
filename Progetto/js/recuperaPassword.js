@@ -35,7 +35,6 @@ class Azienda {
 }
 
 function verificaCodice() {
-    let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
 
 
     console.log('ciao12');
@@ -44,7 +43,7 @@ function verificaCodice() {
     let nuovaAzienda = new Azienda(username, codiceVerificaRecuperoPassword.value);
     console.log(nuovaAzienda);
 
-    fetch(`https://127.0.0.1/api/azienda/verifyCodePassChange`, {
+    fetch(`https://3.123.172.27/api/azienda/verifyCodePassChange`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -77,7 +76,7 @@ function rigenera(){
     let rigenera = new Rigenera(username);
     console.log(username);
   
-    fetch(`https://127.0.0.1/api/azienda/rigenera-password?username=${username}`,{ 
+    fetch(`https://3.123.172.27/api/azienda/rigenera-password?username=${username}`,{ 
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -158,7 +157,7 @@ btnInvio.addEventListener('click', cambiaPassword);
 function fetchInvioNuovaPassword() {
 
 
-    fetch(`https://127.0.0.1/api/azienda/set-password?username=${username}&newPassword=${newPassword.value}`, {
+    fetch(`https://3.123.172.27/api/azienda/set-password?username=${username}&newPassword=${newPassword.value}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

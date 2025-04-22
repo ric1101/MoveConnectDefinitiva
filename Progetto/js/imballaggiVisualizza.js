@@ -7,12 +7,12 @@ let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
 </div>`;
 
 let accessToken = localStorage.getItem('accessToken');
-let apiUrl = fetch(window.MY_APP_API_URL);
+ 
 
 
 
 
-fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -26,7 +26,7 @@ fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
 function fetchImballaggi(id) {
 
 
-    let URLB = `https://127.0.0.1/api/consegnaImballi/tutteLeConsegneConAzienda`;
+    let URLB = `https://3.123.172.27/api/consegnaImballi/tutteLeConsegneConAzienda`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {
@@ -62,7 +62,7 @@ function imballaggi(dati, id) {
 
                     
 
-                    fetch(`https://127.0.0.1/api/propostaImballi/byAziendaRichiesta?consegnaImballiId=${element.id}`)
+                    fetch(`https://3.123.172.27/api/propostaImballi/byAziendaRichiesta?consegnaImballiId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -240,7 +240,7 @@ let imb2 = 0;
 
 async function fetchRegioniImballi(regione) {
 
-    await fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -258,7 +258,7 @@ async function filtriRegioneImballi(regione, id) {
 
     console.log(regione);
 
-    await fetch(`https://127.0.0.1/api/consegnaImballi/tutteLeConsegneConAziendaPerRegione/${regione}`) //ci va la rotta nuova
+    await fetch(`https://3.123.172.27/api/consegnaImballi/tutteLeConsegneConAziendaPerRegione/${regione}`) //ci va la rotta nuova
         .then((res) => res.json())
         .then((data) => {
 
@@ -299,7 +299,7 @@ function imballaggiFiltroRegioneImballi(dati, id) {
 
                     
 
-                    fetch(`https://127.0.0.1/api/propostaImballi/byAziendaRichiesta?consegnaImballiId=${element.id}`)
+                    fetch(`https://3.123.172.27/api/propostaImballi/byAziendaRichiesta?consegnaImballiId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -406,7 +406,7 @@ function imballaggiFiltroRegioneImballi(dati, id) {
 
 async function fetchRegioniTipiImballi(regione, imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8) {
 
-    await fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -422,7 +422,7 @@ async function fetchRegioniTipiImballi(regione, imballo1, imballo2, imballo3, im
 async function filtriRegioneTipiImballi(regione, imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8, id) {
 
 
-    await fetch(`https://127.0.0.1/api/consegnaImballi/tuttiGliImballiConAziendaTutto?paese=${regione}&imballo1=${imballo1}&imballo2=${imballo2}&imballo3=${imballo3}&imballo4=${imballo4}&imballo5=${imballo5}&imballo6=${imballo6}&imballo7=${imballo7}&imballo8=${imballo8}`)
+    await fetch(`https://3.123.172.27/api/consegnaImballi/tuttiGliImballiConAziendaTutto?paese=${regione}&imballo1=${imballo1}&imballo2=${imballo2}&imballo3=${imballo3}&imballo4=${imballo4}&imballo5=${imballo5}&imballo6=${imballo6}&imballo7=${imballo7}&imballo8=${imballo8}`)
         .then((res) => {
             if (!res.ok) {
                 throw new Error(`Errore nella risposta: ${res.status} - ${res.statusText}`);
@@ -466,7 +466,7 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
 
                     
 
-                    fetch(`https://127.0.0.1/api/propostaImballi/byAziendaRichiesta?consegnaImballiId=${element.id}`)
+                    fetch(`https://3.123.172.27/api/propostaImballi/byAziendaRichiesta?consegnaImballiId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -576,7 +576,7 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
 
 async function fetchTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8) {
 
-    await fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -593,7 +593,7 @@ async function fetchTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo5
 async function filtriTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8, id) {
 
 
-    await fetch(`https://127.0.0.1/api/consegnaImballi/tuttiGliImballiConAziendaTutto?imballo1=${imballo1}&imballo2=${imballo2}&imballo3=${imballo3}&imballo4=${imballo4}&imballo5=${imballo5}&imballo6=${imballo6}&imballo7=${imballo7}&imballo8=${imballo8}`) //ci va la rotta nuova
+    await fetch(`https://3.123.172.27/api/consegnaImballi/tuttiGliImballiConAziendaTutto?imballo1=${imballo1}&imballo2=${imballo2}&imballo3=${imballo3}&imballo4=${imballo4}&imballo5=${imballo5}&imballo6=${imballo6}&imballo7=${imballo7}&imballo8=${imballo8}`) //ci va la rotta nuova
         .then((res) => res.json())
         .then((data) => {
 
@@ -636,7 +636,7 @@ function imballaggiFiltroTipiImballi(dati, id) {
 
                     
 
-                    fetch(`https://127.0.0.1/api/propostaImballi/byAziendaRichiesta?consegnaImballiId=${element.id}`)
+                    fetch(`https://3.123.172.27/api/propostaImballi/byAziendaRichiesta?consegnaImballiId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 

@@ -7,10 +7,10 @@ let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
 </div>`;
 
 let accessToken = localStorage.getItem('accessToken');
-let apiUrl = fetch(window.MY_APP_API_URL);
+ 
 
 
-fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -24,7 +24,7 @@ fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
 
 function fetchElevatore(id) {
 
-    let URLB = `https://127.0.0.1/api/scalaElevatore/tutteScaleConAzienda`;
+    let URLB = `https://3.123.172.27/api/scalaElevatore/tutteScaleConAzienda`;
         .then((res) => res.json())
             elevatore(data, id);
         });
@@ -56,7 +56,7 @@ function elevatore(dati, id) {
 
 
 
-                    fetch(`https://127.0.0.1/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                    fetch(`https://3.123.172.27/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -274,7 +274,7 @@ regioniScala.forEach(element => {
 
 async function fetchRegioni(regione) {
 
-    await fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -289,7 +289,7 @@ async function filtriRegione(regione, id) {
 
     console.log(regione);
 
-    await fetch(`https://127.0.0.1/api/scalaElevatore/tutteLeScaleConAziendaPerRegione/${regione}`)
+    await fetch(`https://3.123.172.27/api/scalaElevatore/tutteLeScaleConAziendaPerRegione/${regione}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -328,7 +328,7 @@ function elevatoreFiltroSoloRegione(dati, id) {
 
 
 
-                    fetch(`https://127.0.0.1/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                    fetch(`https://3.123.172.27/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -467,7 +467,7 @@ scalaEl.forEach(element => {
 
 async function fetchScala(scala) {
 
-    await fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -480,7 +480,7 @@ async function fetchScala(scala) {
 async function filtriScala(scala, id) {
 
 
-    await fetch(`https://127.0.0.1/api/scalaElevatore/tutteLeScaleConAziendaTutto?tipoDiScala=${scala}`)
+    await fetch(`https://3.123.172.27/api/scalaElevatore/tutteLeScaleConAziendaTutto?tipoDiScala=${scala}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -519,7 +519,7 @@ function elevatoreFiltroScala(dati, id) {
 
 
 
-                    fetch(`https://127.0.0.1/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                    fetch(`https://3.123.172.27/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -637,7 +637,7 @@ function elevatoreFiltroScala(dati, id) {
 
 async function fetchRegioniScale(regione, scala) {
 
-    await fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -651,7 +651,7 @@ async function fetchRegioniScale(regione, scala) {
 async function filtriRegioniScala(regione, scala, id) {
 
 
-    await fetch(`https://127.0.0.1/api/scalaElevatore/tutteLeScaleConAziendaTutto?paese=${regione}&tipoDiScala=${scala}`)
+    await fetch(`https://3.123.172.27/api/scalaElevatore/tutteLeScaleConAziendaTutto?paese=${regione}&tipoDiScala=${scala}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -690,7 +690,7 @@ function elevatoreFiltroRegioniScala(dati, id) {
 
 
 
-                    fetch(`https://127.0.0.1/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                    fetch(`https://3.123.172.27/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -832,7 +832,7 @@ pesoMax.forEach(element => {
 
 async function fetchPeso(peso) {
 
-    await fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -844,7 +844,7 @@ async function fetchPeso(peso) {
 
 async function filtriPeso(peso, id) {
 
-    await fetch(`https://127.0.0.1/api/scalaElevatore/tutteLeScaleConAziendaTutto?pesoMassimo=${peso}`)
+    await fetch(`https://3.123.172.27/api/scalaElevatore/tutteLeScaleConAziendaTutto?pesoMassimo=${peso}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -883,7 +883,7 @@ function elevatoreFiltroPeso(dati, id) {
 
 
 
-                    fetch(`https://127.0.0.1/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                    fetch(`https://3.123.172.27/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -991,7 +991,7 @@ function elevatoreFiltroPeso(dati, id) {
 
 async function fetchRegioniPeso(regione, peso) {
 
-    await fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1005,7 +1005,7 @@ async function fetchRegioniPeso(regione, peso) {
 async function filtriRegioniPeso(regione, peso, id) {
 
 
-    await fetch(`https://127.0.0.1/api/scalaElevatore/tutteLeScaleConAziendaTutto?paese=${regione}&pesoMassimo=${peso}`)
+    await fetch(`https://3.123.172.27/api/scalaElevatore/tutteLeScaleConAziendaTutto?paese=${regione}&pesoMassimo=${peso}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1044,7 +1044,7 @@ function elevatoreFiltroRegioniPeso(dati, id) {
 
 
 
-                    fetch(`https://127.0.0.1/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                    fetch(`https://3.123.172.27/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -1151,7 +1151,7 @@ function elevatoreFiltroRegioniPeso(dati, id) {
 
 async function fetchRegioneScalaPeso(regione, scala, peso) {
 
-    await fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1165,7 +1165,7 @@ async function fetchRegioneScalaPeso(regione, scala, peso) {
 async function filtriRegioniScalaPeso(regione, scala, peso, id) {
 
 
-    await fetch(`https://127.0.0.1/api/scalaElevatore/tutteLeScaleConAziendaTutto?paese=${regione}&tipoDiScala=${scala}&pesoMassimo=${peso}`)
+    await fetch(`https://3.123.172.27/api/scalaElevatore/tutteLeScaleConAziendaTutto?paese=${regione}&tipoDiScala=${scala}&pesoMassimo=${peso}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1205,7 +1205,7 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
 
 
 
-                    fetch(`https://127.0.0.1/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                    fetch(`https://3.123.172.27/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -1314,7 +1314,7 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
 
 async function fetchScalaPeso(scala, peso) {
 
-    await fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1327,7 +1327,7 @@ async function fetchScalaPeso(scala, peso) {
 async function filtriScalaPeso(scala, peso, id) {
 
 
-    await fetch(`https://127.0.0.1/api/scalaElevatore/tutteLeScaleConAziendaTutto?tipoDiScala=${scala}&pesoMassimo=${peso}`)
+    await fetch(`https://3.123.172.27/api/scalaElevatore/tutteLeScaleConAziendaTutto?tipoDiScala=${scala}&pesoMassimo=${peso}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1366,7 +1366,7 @@ function elevatoreFiltroScalaPeso(dati, id) {
 
 
 
-                    fetch(`https://127.0.0.1/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                    fetch(`https://3.123.172.27/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 

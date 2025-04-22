@@ -8,7 +8,7 @@ let idAccettata = document.querySelector('.idAccettata');
 let controlloStelle = document.querySelector('.controlloStelle');
 let erroreRec = document.querySelector('.erroreRec');
 let valutazione = 0;
-let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
+ // dentro ogni funzione
 
 // To access the stars
 let stars =
@@ -47,7 +47,7 @@ function tokenizzami() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -66,7 +66,7 @@ function recuperaDatiRecensione(id) {
 
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`https://127.0.0.1/api/trasporto/relazioneTrasportoPerId/${idRel}`)
+    fetch(`https://3.123.172.27/api/trasporto/relazioneTrasportoPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -114,7 +114,7 @@ function recuperaToken() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -139,7 +139,7 @@ function stelleInserite(idAziendaAccesso) {
     let scelta = 0;
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`https://127.0.0.1/api/trasporto/relazioneTrasportoPerId/${idRel}`)
+    fetch(`https://3.123.172.27/api/trasporto/relazioneTrasportoPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -252,7 +252,7 @@ function inviaRecensione(choose) {
     if (choose == 1) {
 
 
-        fetch(`https://127.0.0.1/api/trasporto/recensitaRelazioneTrasportoProponente/${idRecNumber}`, {
+        fetch(`https://3.123.172.27/api/trasporto/recensitaRelazioneTrasportoProponente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -268,7 +268,7 @@ function inviaRecensione(choose) {
     } else {
 
 
-        fetch(`https://127.0.0.1/api/trasporto/recensitaRelazioneTrasportoRichiedente/${idRecNumber}`, {
+        fetch(`https://3.123.172.27/api/trasporto/recensitaRelazioneTrasportoRichiedente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -282,7 +282,7 @@ function inviaRecensione(choose) {
     }
 
 
-    fetch(`https://127.0.0.1/api/trasporto/recensioneTrasporto`, {
+    fetch(`https://3.123.172.27/api/trasporto/recensioneTrasporto`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

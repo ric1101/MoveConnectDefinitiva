@@ -2,7 +2,7 @@ let articoloIntero = document.querySelector('.articoloIntero');
 
 let id = JSON.parse(localStorage.getItem('artId'));
 console.log(id);
-let apiUrl = fetch(window.MY_APP_API_URL);
+ 
 
 
 async function DesignOBlog() {
@@ -10,7 +10,7 @@ async function DesignOBlog() {
     let esito = localStorage.getItem('art');
 
     if (esito === 'Blog') {
-        let URLB = `https://127.0.0.1/api/blog/${id}`;
+        let URLB = `https://3.123.172.27/api/blog/${id}`;
         await fetch(URLB)
             .then((res) => res.json())
             .then((data) => {
@@ -23,7 +23,7 @@ async function DesignOBlog() {
 
     } else if (esito === 'Design') {
 
-        let URLD = `https://127.0.0.1/api/design/${id}`;
+        let URLD = `https://3.123.172.27/api/design/${id}`;
         await fetch(URLD)
             .then((res) => res.json())
             .then((data) => {

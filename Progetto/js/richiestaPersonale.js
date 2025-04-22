@@ -53,7 +53,7 @@ function recuperaId() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -96,7 +96,7 @@ function inviaRichiesta(dati) {
         console.log(nuovaRichiestaPersonale);
 
 
-        fetch(`https://127.0.0.1/api/personaleSpecializzato/inserisciPersonale/${azienda_id}`, {  //Inserire qui la rotta
+        fetch(`https://3.123.172.27/api/personaleSpecializzato/inserisciPersonale/${azienda_id}`, {  //Inserire qui la rotta
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

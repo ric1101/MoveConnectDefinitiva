@@ -3,10 +3,10 @@
 let colonnaInfo = document.querySelector('.colonnaInfo');
 let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
-let apiUrl = fetch(window.MY_APP_API_URL);
+ 
 
 
-fetch(`https://127.0.0.1/api/depositoMagazzino/magazzino/${dataEventoId}`)
+fetch(`https://3.123.172.27/api/depositoMagazzino/magazzino/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -20,7 +20,7 @@ function fetchImg(dati, id) {
 
     let imgAzienda = document.querySelector('.imgAzienda');
 
-    fetch(`https://127.0.0.1/api/azienda/logo/${id}`)
+    fetch(`https://3.123.172.27/api/azienda/logo/${id}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Errore nel recupero del logo");
@@ -47,7 +47,7 @@ function recuperaToken(dati, img) {
 
     let accessToken = localStorage.getItem('accessToken');
 
-    fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -253,7 +253,7 @@ function interessamentoDeposito(richiestaId, aziendaIdAccesso, emailAziendale, i
     if (abb == 'base' || abb == 'plus') {
 
 
-        fetch(`https://127.0.0.1/api/depositoMagazzino/modificaMagazzinoIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
+        fetch(`https://3.123.172.27/api/depositoMagazzino/modificaMagazzinoIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -278,7 +278,7 @@ function interessamentoDeposito(richiestaId, aziendaIdAccesso, emailAziendale, i
 
         let newPropostaDeposito = new PropostaDeposito(idRichiedente, idRichiesta, idAziendaEmittente);
 
-        fetch(`https://127.0.0.1/api/propostaMagazzino/interessataPropostaMagazzino`, {
+        fetch(`https://3.123.172.27/api/propostaMagazzino/interessataPropostaMagazzino`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

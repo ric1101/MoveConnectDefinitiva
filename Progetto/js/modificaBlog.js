@@ -13,10 +13,9 @@ let btnInviaModificaBlog = document.querySelector('.btnInviaModificaBlog');
 let idMod = localStorage.getItem('idModificaBlog');
 
 function popolaModBlog() {
-    let apiUrl = fetch(window.MY_APP_API_URL);
 
 
-    fetch(`https://127.0.0.1/api/blog/${idMod}`)
+    fetch(`https://3.123.172.27/api/blog/${idMod}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -65,7 +64,7 @@ async function modificaBlog() {
     
 
 
-    await fetch(`https://127.0.0.1/api/blog/modificaBlog/${idMod}`, {
+    await fetch(`https://3.123.172.27/api/blog/modificaBlog/${idMod}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

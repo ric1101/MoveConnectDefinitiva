@@ -5,11 +5,10 @@ let bodyTabella = document.querySelector('.bodyTabella');
 
 
 async function popolaGestionaleBlog() {
-    let apiUrl = fetch(window.MY_APP_API_URL);
 
     bodyTabella.innerHTML = "";
 
-    await fetch(`https://127.0.0.1/api/blog/tutti`)
+    await fetch(`https://3.123.172.27/api/blog/tutti`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -46,7 +45,7 @@ popolaGestionaleBlog();
 
 async function eliminaBlog(id) {
 
-    await fetch(`https://127.0.0.1/api/blog/eliminaBlog/${id}`, {
+    await fetch(`https://3.123.172.27/api/blog/eliminaBlog/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",

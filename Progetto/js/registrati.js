@@ -76,7 +76,6 @@ class Azienda {
 
 
 function registrazioneAzienda() {
-  let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
 
   
   event.preventDefault();
@@ -103,7 +102,7 @@ function registrazioneAzienda() {
 
   console.log(nuovaAzienda);
 
-  fetch("https://127.0.0.1/api/azienda/registerSerio", {
+  fetch("https://3.123.172.27/api/azienda/registerSerio", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

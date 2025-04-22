@@ -1,14 +1,13 @@
 /* -------------------------------------------------------------------------- */
 /*                   Funzione per cercare aziende per nome                    */
 /* -------------------------------------------------------------------------- */
-let apiUrl = fetch(window.MY_APP_API_URL);
 
 function tokenizzami() {
 
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -35,7 +34,7 @@ async function cercaAzienda(nomeAziendaNostra) {
     }
 
     try {
-        let response = await fetch(`https://127.0.0.1/api/azienda/search?nomeAzienda=${encodeURIComponent(nomeAzienda)}`);
+        let response = await fetch(`https://3.123.172.27/api/azienda/search?nomeAzienda=${encodeURIComponent(nomeAzienda)}`);
         let aziende = await response.json();
 
         let resultsList = document.getElementById("ricerca");
@@ -76,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`https://127.0.0.1/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://3.123.172.27/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -108,7 +107,7 @@ function setParam(nomeAziendaDue, id) {
     console.log(parseLink);
 
 
-    if (parseLink.includes('http://127.0.0.1:5501/Progetto/paginaUtente.html?nomeAzienda=')) {
+    if (parseLink.includes('https://3.123.172.27/Progetto/paginaUtente.html?nomeAzienda=')) {
 
         console.log('cc');
 
@@ -132,7 +131,7 @@ function setParam(nomeAziendaDue, id) {
 
 async function loadAziendaByNome(nomeAzienda, id) {
     try {
-        let response = await fetch(`https://127.0.0.1/api/azienda/searchNomeAzienda?nomeAzienda=${nomeAzienda}`);
+        let response = await fetch(`https://3.123.172.27/api/azienda/searchNomeAzienda?nomeAzienda=${nomeAzienda}`);
         if (!response.ok) throw new Error("Errore nel recupero dei dati dell'azienda");
 
         let data = await response.json();
@@ -151,7 +150,7 @@ async function loadAziendaByNome(nomeAzienda, id) {
 
 async function recensioniAzienda(dati, idAziendaMittente, idAziendaDestinataria) {
 
-    await fetch(`https://127.0.0.1/api/azienda/recensioneImballiFinaleAme/${idAziendaDestinataria}`)
+    await fetch(`https://3.123.172.27/api/azienda/recensioneImballiFinaleAme/${idAziendaDestinataria}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -166,7 +165,7 @@ async function recensioniAzienda(dati, idAziendaMittente, idAziendaDestinataria)
 
 async function calcolaPartner(recensioni, dati, idAziendaMittente, idAziendaDestinataria) {
 
-    await fetch(`https://127.0.0.1/api/amicizia/counterPartner/${idAziendaDestinataria}`)
+    await fetch(`https://3.123.172.27/api/amicizia/counterPartner/${idAziendaDestinataria}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -190,7 +189,7 @@ function fetchImg(idAzienda) {
     console.log(imgAzienda);
 
 
-    fetch(`https://127.0.0.1/api/azienda/logo/${idAzienda}`)
+    fetch(`https://3.123.172.27/api/azienda/logo/${idAzienda}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Errore nel recupero del logo");
@@ -218,7 +217,7 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
     let container = document.querySelector(".container");
 
 
-    await fetch(`https://127.0.0.1/api/amicizia/amicizie/${idAziendaMittente}/${idAziendaDestinataria}`)
+    await fetch(`https://3.123.172.27/api/amicizia/amicizie/${idAziendaMittente}/${idAziendaDestinataria}`)
         .then((res) => {
             if (res.status === 404) {
 
@@ -1138,7 +1137,7 @@ function mostraAmici(id) {
         console.log();
 
 
-        fetch(`https://127.0.0.1/api/amicizia/counterPartnerTotale/${id}`)
+        fetch(`https://3.123.172.27/api/amicizia/counterPartnerTotale/${id}`)
             .then((res) => res.json())
             .then((data) => {
 
@@ -1148,7 +1147,7 @@ function mostraAmici(id) {
                     console.log(element.id);
 
 
-                    fetch(`https://127.0.0.1/api/azienda/logo/${element.id}`)
+                    fetch(`https://3.123.172.27/api/azienda/logo/${element.id}`)
                         .then((response) => {
                             if (!response.ok) {
                                 throw new Error("Errore nel recupero del logo");
@@ -1189,7 +1188,7 @@ function mostraAmici(id) {
 
 function segnala(id, username, nomeAzienda) {
 
-    fetch(`https://127.0.0.1/api/azienda/segnalaAzienda/${id}`, {
+    fetch(`https://3.123.172.27/api/azienda/segnalaAzienda/${id}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -1223,7 +1222,7 @@ function inviaAmicizia(idAzienda1, idAzienda2) {
 
 
 
-    fetch(`https://127.0.0.1/api/amicizia/richiestaAmicizia/${idAzienda1}/${idAzienda2}`, {
+    fetch(`https://3.123.172.27/api/amicizia/richiestaAmicizia/${idAzienda1}/${idAzienda2}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -1247,7 +1246,7 @@ function annullaRichiestaAmicizia(idAzienda1, idAzienda2) {
 
 
 
-    fetch(`https://127.0.0.1/api/amicizia/amiciziaRifiutata/${idAzienda1}/${idAzienda2}`, {
+    fetch(`https://3.123.172.27/api/amicizia/amiciziaRifiutata/${idAzienda1}/${idAzienda2}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -1261,7 +1260,7 @@ let piuRecensioni = document.querySelector(".piuRecensioni");
 
 function piuRecensite(){
     
-     fetch(`https://127.0.0.1/api/azienda/top5-recensioni`)
+     fetch(`https://3.123.172.27/api/azienda/top5-recensioni`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -1291,7 +1290,7 @@ piuRecensite();
 
 function miglioriRecensite(){
     
-    fetch(`https://127.0.0.1/api/azienda/top-azienda`)
+    fetch(`https://3.123.172.27/api/azienda/top-azienda`)
    .then((res) => res.json())
    .then((data) => {
 
