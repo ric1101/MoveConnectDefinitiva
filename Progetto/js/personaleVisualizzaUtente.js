@@ -6,14 +6,14 @@ let bodyTabella = document.querySelector('.bodyTabella');
 let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
 <p>Non ci sono Corrispondenze!</p>
 </div>`;
-let apiUrl = fetch(window.MY_APP_API_URL);// inserisci dentro ogni funzione
+ // inserisci dentro ogni funzione
 
 
 function fetchPersonale() {
 
     let idRichiestePersonale = localStorage.getItem('iDLocalAzienda');
 
-    let URLB = `${apiUrl}/api/personaleSpecializzato/tutteLeConsegneConAziendaPersonaleId/${idRichiestePersonale}`;
+    let URLB = `https://moveconnect.it/api/personaleSpecializzato/tutteLeConsegneConAziendaPersonaleId/${idRichiestePersonale}`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {
@@ -39,7 +39,7 @@ function personale(dati) {
 
         dati.forEach(element => {
 
-            nomeAziendaInterna.innerHTML = `<a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>`;
+            nomeAziendaInterna.innerHTML = `<a href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>`;
 
             if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {
 

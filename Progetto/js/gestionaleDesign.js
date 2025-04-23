@@ -5,11 +5,10 @@ let bodyTabella = document.querySelector('.bodyTabella');
 
 
 async function popolaGestionaleDesign() {
-    let apiUrl = fetch(window.MY_APP_API_URL);
 
     bodyTabella.innerHTML = "";
 
-    await fetch(`${apiUrl}/api/design/tuttiIDesign`)
+    await fetch(`https://moveconnect.it/api/design/tuttiIDesign`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -46,7 +45,7 @@ popolaGestionaleDesign();
 
 async function eliminaDesign(id) {
 
-    await fetch(`${apiUrl}/api/design/eliminaDesign/${id}`, {
+    await fetch(`https://moveconnect.it/api/design/eliminaDesign/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",

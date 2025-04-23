@@ -27,7 +27,7 @@ let btnInvioRichiestaTrasporto = document.querySelector('.btnInvioRichiestaTrasp
 
 let idTrasporto = localStorage.getItem('modificaCarico');
 
-fetch(`${apiUrl}/api/richiestaTrasporto/richiestaId/${idTrasporto}`)
+fetch(`https://moveconnect.it/api/richiestaTrasporto/richiestaId/${idTrasporto}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -111,7 +111,7 @@ function recuperaId() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -159,7 +159,7 @@ function inviaRichiesta(dati) {
 
 
 
-    fetch(`${apiUrl}/api/richiestaTrasporto/modificaTrasporto/${idTrasporto}`, {
+    fetch(`https://moveconnect.it/api/richiestaTrasporto/modificaTrasporto/${idTrasporto}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

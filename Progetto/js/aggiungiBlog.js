@@ -8,8 +8,6 @@ let img = document.querySelector('.img');
 let datato = document.querySelector('.data');
 let writer = document.querySelector('.writer');
 let btnInviaAddBlog = document.querySelector('.btnInviaAddBlog');
-let apiUrl = fetch(window.MY_APP_API_URL);
-
 
 btnInviaAddBlog.addEventListener('click', aggiungiArticoloBlog);
 
@@ -38,7 +36,7 @@ async function aggiungiArticoloBlog() {
     );
 
 
-    await fetch(`${apiUrl}/api/blog/inserisciBlog`, {
+    await fetch(`https://moveconnect.it/api/blog/inserisciBlog`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

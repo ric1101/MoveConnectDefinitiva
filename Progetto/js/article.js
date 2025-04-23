@@ -2,7 +2,7 @@ let articoloIntero = document.querySelector('.articoloIntero');
 
 let id = JSON.parse(localStorage.getItem('artId'));
 console.log(id);
-let apiUrl = fetch(window.MY_APP_API_URL);
+ 
 
 
 async function DesignOBlog() {
@@ -10,7 +10,7 @@ async function DesignOBlog() {
     let esito = localStorage.getItem('art');
 
     if (esito === 'Blog') {
-        let URLB = `${apiUrl}/api/blog/${id}`;
+        let URLB = `https://moveconnect.it/api/blog/${id}`;
         await fetch(URLB)
             .then((res) => res.json())
             .then((data) => {
@@ -23,7 +23,7 @@ async function DesignOBlog() {
 
     } else if (esito === 'Design') {
 
-        let URLD = `${apiUrl}/api/design/${id}`;
+        let URLD = `https://moveconnect.it/api/design/${id}`;
         await fetch(URLD)
             .then((res) => res.json())
             .then((data) => {
@@ -65,7 +65,7 @@ function articolo(dati) {
     <div class="col-md-1"></div>
     <div class="col-md-2 p-2 imgPexels" style="background-color: #1B2023;">
         <div class="row" >
-            <img src="/Progetto/imgs/img22.png" alt="" style="width: 100%; height: 100%;">
+            <img src="/imgs/img22.png" alt="" style="width: 100%; height: 100%;">
         </div>
         <div class="row" style="height: 20px;"></div>
         <div class="row footer-social-icon d-flex justify-content-center">

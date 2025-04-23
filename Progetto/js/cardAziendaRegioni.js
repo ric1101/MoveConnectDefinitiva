@@ -1,6 +1,5 @@
 
 function getAziendeByRegione() {
-    let apiUrl = fetch(window.MY_APP_API_URL);
 
     const regione = localStorage.getItem('regione'); 
     if (!regione) {
@@ -13,7 +12,7 @@ function getAziendeByRegione() {
     
 
     
-    fetch(`${apiUrl}/api/azienda/${regione}`)
+    fetch(`https://moveconnect.it/api/azienda/${regione}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Errore nel recupero delle aziende');

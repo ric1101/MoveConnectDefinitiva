@@ -276,7 +276,7 @@ async function userView() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -301,7 +301,7 @@ function fetchImg(id) {
 
     let imgAzienda = document.querySelector('.imgAzienda');
 
-    fetch(`${apiUrl}/api/azienda/logo/${id}`)
+    fetch(`https://moveconnect.it/api/azienda/logo/${id}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Errore nel recupero del logo");
@@ -458,7 +458,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function getTokenFeed() {
 
-    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -477,7 +477,7 @@ function feedback(id) {
 
 
 
-    fetch(`${apiUrl}/api/azienda/recensioneImballiFinalePerUtente/${id}`)
+    fetch(`https://moveconnect.it/api/azienda/recensioneImballiFinalePerUtente/${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -686,7 +686,7 @@ function caricaLogo() {
 function fetchInviaImmagine() {
 
 
-    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -717,7 +717,7 @@ async function inviaImmagine(id) {
     result.innerHTML = 'stiamo caricando il tuo logo!';
 
     try {
-        const response = await fetch(`${apiUrl}/api/azienda/uploadlogo/${id}`, {
+        const response = await fetch(`https://moveconnect.it/api/azienda/uploadlogo/${id}`, {
             method: "POST",
             body: formData,
 
@@ -974,7 +974,7 @@ function upload() {
 //     let accessToken = localStorage.getItem('accessToken');
 
 
-//     await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+//     await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
 //         .then((res) => res.json())
 //         .then((data) => {
 
@@ -997,7 +997,7 @@ function upload() {
 
 // function deleteSuolo(id) {
 
-//     fetch(`${apiUrl}/api/richiesta/eliminaRichiesta/${id}`, {
+//     fetch(`https://moveconnect.it/api/richiesta/eliminaRichiesta/${id}`, {
 //         method: "DELETE",
 //         headers: {
 //             "Content-Type": "application/json",
@@ -1466,7 +1466,7 @@ async function fetchIdCaricoUscita() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1482,7 +1482,7 @@ async function fetchIdCaricoUscita() {
 async function fetchCaricoUscita(id) {
 
 
-    await fetch(`${apiUrl}/api/richiestaTrasporto/tutteLeConsegneConAziendaTrasportoId/${id}`)
+    await fetch(`https://moveconnect.it/api/richiestaTrasporto/tutteLeConsegneConAziendaTrasportoId/${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1507,7 +1507,7 @@ if (richiesteTrasportoUscita) {
 
 async function deleteCarico(id) {
 
-    await fetch(`${apiUrl}/api/richiestaTrasporto/eliminaRichiesta/${id}`, {
+    await fetch(`https://moveconnect.it/api/richiestaTrasporto/eliminaRichiesta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -1522,7 +1522,7 @@ async function deleteCarico(id) {
 async function deleteCaricoProposte(id) {
 
 
-    await fetch(`${apiUrl}/api/richiestaTrasporto/eliminaRichiesta/${id}`, {
+    await fetch(`https://moveconnect.it/api/richiestaTrasporto/eliminaRichiesta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -1530,7 +1530,7 @@ async function deleteCaricoProposte(id) {
     })
 
 
-    await fetch(`${apiUrl}/api/trasporto/eliminaProposte/${id}`, {
+    await fetch(`https://moveconnect.it/api/trasporto/eliminaProposte/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -1893,7 +1893,7 @@ async function fetchScalaElevatoreIdUscita() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1911,7 +1911,7 @@ async function fetchScalaElevatoreUscita(id) {
 
 
 
-    await fetch(`${apiUrl}/api/scalaElevatore/tutteLeConsegneConAziendaScalaId/${id}`)
+    await fetch(`https://moveconnect.it/api/scalaElevatore/tutteLeConsegneConAziendaScalaId/${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1934,7 +1934,7 @@ if (richiesteScalaElevatoreUscita) {
 
 async function deleteScala(id) {
 
-    await fetch(`${apiUrl}/api/scalaElevatore/eliminaScala/${id}`, {
+    await fetch(`https://moveconnect.it/api/scalaElevatore/eliminaScala/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -1948,14 +1948,14 @@ async function deleteScala(id) {
 
 async function deleteScalaProposte(id) {
 
-    await fetch(`${apiUrl}/api/scalaElevatore/eliminaScala/${id}`, {
+    await fetch(`https://moveconnect.it/api/scalaElevatore/eliminaScala/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
         }
     })
 
-    await fetch(`${apiUrl}/api/scala/eliminaProposte/${id}`, {
+    await fetch(`https://moveconnect.it/api/scala/eliminaProposte/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -2408,7 +2408,7 @@ async function fetchConsegnaImballiIdUscita() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -2426,7 +2426,7 @@ async function fetchConsegnaImballiUscita(id) {
 
 
 
-    await fetch(`${apiUrl}/api/consegnaImballi/tutteLeConsegneConAziendaId/${id}`)
+    await fetch(`https://moveconnect.it/api/consegnaImballi/tutteLeConsegneConAziendaId/${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -2450,7 +2450,7 @@ if (richiesteConsegnaImballiUscita) {
 
 async function deleteImballi(id) {
 
-    await fetch(`${apiUrl}/api/consegnaImballi/eliminaconsegna/${id}`, {
+    await fetch(`https://moveconnect.it/api/consegnaImballi/eliminaconsegna/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -2465,7 +2465,7 @@ async function deleteImballi(id) {
 async function deleteImballiProposte(id) {
 
 
-    await fetch(`${apiUrl}/api/propostaImballi/eliminaProposte/${id}`, {
+    await fetch(`https://moveconnect.it/api/propostaImballi/eliminaProposte/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -2473,7 +2473,7 @@ async function deleteImballiProposte(id) {
     })
 
 
-    await fetch(`${apiUrl}/api/consegnaImballi/eliminaconsegna/${id}`, {
+    await fetch(`https://moveconnect.it/api/consegnaImballi/eliminaconsegna/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -2853,7 +2853,7 @@ async function fetchRichiestePersonaleSpecializzatoIdUscita() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -2871,7 +2871,7 @@ async function fetchRichiestePersonaleSpecializzatoUscita(id) {
 
 
 
-    await fetch(`${apiUrl}/api/personaleSpecializzato/tutteLeConsegneConAziendaPersonaleId/${id}`)
+    await fetch(`https://moveconnect.it/api/personaleSpecializzato/tutteLeConsegneConAziendaPersonaleId/${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -2894,7 +2894,7 @@ if (richiestePersonaleSpecUscita) {
 
 async function deletePersonale(id) {
 
-    await fetch(`${apiUrl}/api/personaleSpecializzato/eliminaRichiesta/${id}`, {
+    await fetch(`https://moveconnect.it/api/personaleSpecializzato/eliminaRichiesta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -2908,14 +2908,14 @@ async function deletePersonale(id) {
 
 async function deletePersonaleProposte(id) {
 
-    await fetch(`${apiUrl}/api/personaleSpecializzato/eliminaRichiesta/${id}`, {
+    await fetch(`https://moveconnect.it/api/personaleSpecializzato/eliminaRichiesta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
         }
     })
 
-    await fetch(`${apiUrl}/api/personale/eliminaProposte/${id}`, {
+    await fetch(`https://moveconnect.it/api/personale/eliminaProposte/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -3311,7 +3311,7 @@ async function fetchRichiesteDepositoMagazzinoIdUscita() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -3329,7 +3329,7 @@ async function fetchRichiesteDepositoMagazzinoUscita(id) {
 
 
 
-    await fetch(`${apiUrl}/api/depositoMagazzino/tutteLeConsegneConAziendaMagazzinoId/${id}`)
+    await fetch(`https://moveconnect.it/api/depositoMagazzino/tutteLeConsegneConAziendaMagazzinoId/${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -3354,7 +3354,7 @@ if (richiesteDepositoMagazzinoUscita) {
 
 async function deleteMagazzino(id) {
 
-    await fetch(`${apiUrl}/api/depositoMagazzino/eliminaMagazzino/${id}`, {
+    await fetch(`https://moveconnect.it/api/depositoMagazzino/eliminaMagazzino/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -3368,14 +3368,14 @@ async function deleteMagazzino(id) {
 
 async function deleteMagazzinoProposte(id) {
 
-    await fetch(`${apiUrl}/api/depositoMagazzino/eliminaMagazzino/${id}`, {
+    await fetch(`https://moveconnect.it/api/depositoMagazzino/eliminaMagazzino/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
         }
     })
 
-    await fetch(`${apiUrl}/api/propostaMagazzino/eliminaProposte/${id}`, {
+    await fetch(`https://moveconnect.it/api/propostaMagazzino/eliminaProposte/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -3827,7 +3827,7 @@ async function fetchTratteIdUscita() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -3845,7 +3845,7 @@ async function fetchTratteUscita(id) {
 
 
 
-    await fetch(`${apiUrl}/api/tratta/tutteLeConsegneConAziendaTrattaId/${id}`)
+    await fetch(`https://moveconnect.it/api/tratta/tutteLeConsegneConAziendaTrattaId/${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -3868,7 +3868,7 @@ if (richiesteTrattaUscita) {
 
 async function deleteTratta(id) {
 
-    await fetch(`${apiUrl}/api/tratta/eliminaRichiesta/${id}`, {
+    await fetch(`https://moveconnect.it/api/tratta/eliminaRichiesta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -3883,7 +3883,7 @@ async function deleteTratta(id) {
 async function deleteTrattaProposte(id) {
 
 
-    await fetch(`${apiUrl}/api/tratta/eliminaRichiesta/${id}`, {
+    await fetch(`https://moveconnect.it/api/tratta/eliminaRichiesta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -3891,7 +3891,7 @@ async function deleteTrattaProposte(id) {
     })
 
 
-    await fetch(`${apiUrl}/api/trattazza/eliminaProposte/${id}`, {
+    await fetch(`https://moveconnect.it/api/trattazza/eliminaProposte/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -4027,7 +4027,7 @@ function ascoltoCarico() {
 
 function eliminaPropostaCarico(id) {
 
-    fetch(`${apiUrl}/api/trasporto/eliminaProposta/${id}`, {
+    fetch(`https://moveconnect.it/api/trasporto/eliminaProposta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -4043,7 +4043,7 @@ function accettaPropostaCarico(idR, consegnaCaricoId) {
 
     let cid = consegnaCaricoId;
 
-    fetch(`${apiUrl}/api/trasporto/inCorsoRichiestaTrasporto/${cid}`, {
+    fetch(`https://moveconnect.it/api/trasporto/inCorsoRichiestaTrasporto/${cid}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -4056,7 +4056,7 @@ function accettaPropostaCarico(idR, consegnaCaricoId) {
 
     let id = idR;
 
-    fetch(`${apiUrl}/api/trasporto/inAttesaRichiesta/${id}`, {
+    fetch(`https://moveconnect.it/api/trasporto/inAttesaRichiesta/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -4082,7 +4082,7 @@ async function fetchCaricoInteresse() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -4097,7 +4097,7 @@ async function fetchCaricoInteresse() {
 
 function recuperaProposteCarico(id) {
 
-    fetch(`${apiUrl}/api/trasporto/byAziendaRichiedente?aziendaRichiedente=${id}`)
+    fetch(`https://moveconnect.it/api/trasporto/byAziendaRichiedente?aziendaRichiedente=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -4225,7 +4225,7 @@ function ascoltoScala() {
 
 function eliminaPropostaScala(id) {
 
-    fetch(`${apiUrl}/api/scala/eliminaProposta/${id}`, {
+    fetch(`https://moveconnect.it/api/scala/eliminaProposta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -4241,7 +4241,7 @@ function accettaPropostaScala(idR, scalaId) {
 
     let cid = scalaId;
 
-    fetch(`${apiUrl}/api/scala/inCorsoRichiestaScala/${cid}`, {
+    fetch(`https://moveconnect.it/api/scala/inCorsoRichiestaScala/${cid}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -4255,7 +4255,7 @@ function accettaPropostaScala(idR, scalaId) {
 
     let id = idR;
 
-    fetch(`${apiUrl}/api/scala/inAttesaRichiesta/${id}`, {
+    fetch(`https://moveconnect.it/api/scala/inAttesaRichiesta/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -4280,7 +4280,7 @@ async function fetchScalaInteresse() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -4296,7 +4296,7 @@ async function fetchScalaInteresse() {
 
 function recuperaProposteScala(id) {
 
-    fetch(`${apiUrl}/api/scala/byAziendaRichiedente?aziendaRichiedente=${id}`)
+    fetch(`https://moveconnect.it/api/scala/byAziendaRichiedente?aziendaRichiedente=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -4421,7 +4421,7 @@ function ascoltoImballi() {
 
 function eliminaPropostaImballi(id) {
 
-    fetch(`${apiUrl}/api/propostaImballi/eliminaProposta/${id}`, {
+    fetch(`https://moveconnect.it/api/propostaImballi/eliminaProposta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -4437,7 +4437,7 @@ function accettaPropostaImballi(idR, consegnaImballiId, /*consegnaImballiAzienda
 
     let cid = consegnaImballiId;
 
-    fetch(`${apiUrl}/api/propostaImballi/inCorsoRichiestaImballi/${consegnaImballiId}`, {
+    fetch(`https://moveconnect.it/api/propostaImballi/inCorsoRichiestaImballi/${consegnaImballiId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -4451,7 +4451,7 @@ function accettaPropostaImballi(idR, consegnaImballiId, /*consegnaImballiAzienda
     let id = idR;
 
 
-    fetch(`${apiUrl}/api/propostaImballi/inAttesaProposta/${id}`, {
+    fetch(`https://moveconnect.it/api/propostaImballi/inAttesaProposta/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -4479,7 +4479,7 @@ async function fetchImballiInteresse() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -4496,7 +4496,7 @@ async function fetchImballiInteresse() {
 
 function recuperaProposteImballi(id) {
 
-    fetch(`${apiUrl}/api/propostaImballi/byAziendaRichiedente?aziendaRichiedente=${id}`)
+    fetch(`https://moveconnect.it/api/propostaImballi/byAziendaRichiedente?aziendaRichiedente=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -4618,7 +4618,7 @@ function ascoltoPersonale() {
 
 function eliminaPropostaPersonale(id) {
 
-    fetch(`${apiUrl}/api/personale/eliminaProposta/${id}`, {
+    fetch(`https://moveconnect.it/api/personale/eliminaProposta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -4634,7 +4634,7 @@ function accettaPropostaPersonale(idR, consegnaPersonaleId) {
 
     let cid = consegnaPersonaleId;
 
-    fetch(`${apiUrl}/api/personale/inCorsoRichiestaPersonale/${cid}`, {
+    fetch(`https://moveconnect.it/api/personale/inCorsoRichiestaPersonale/${cid}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -4648,7 +4648,7 @@ function accettaPropostaPersonale(idR, consegnaPersonaleId) {
 
     let id = idR;
 
-    fetch(`${apiUrl}/api/personale/inAttesaRichiesta/${id}`, {
+    fetch(`https://moveconnect.it/api/personale/inAttesaRichiesta/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -4672,7 +4672,7 @@ async function fetchPersonaleInteresse() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -4689,7 +4689,7 @@ async function fetchPersonaleInteresse() {
 
 function recuperaPropostePersonale(id) {
 
-    fetch(`${apiUrl}/api/personale/byAziendaPersonaleRichiedente?aziendaRichiedentePersonale=${id}`)
+    fetch(`https://moveconnect.it/api/personale/byAziendaPersonaleRichiedente?aziendaRichiedentePersonale=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -4814,7 +4814,7 @@ function ascoltoTratte() {
 
 function eliminaPropostaTratte(id) {
 
-    fetch(`${apiUrl}/api/trattazza/eliminaProposta/${id}`, {
+    fetch(`https://moveconnect.it/api/trattazza/eliminaProposta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -4831,7 +4831,7 @@ function accettaPropostaTratte(idR, tratteId) {
 
     let cid = tratteId;
 
-    fetch(`${apiUrl}/api/trattazza/inCorsoRichiestaImballi/${cid}`, {
+    fetch(`https://moveconnect.it/api/trattazza/inCorsoRichiestaImballi/${cid}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -4844,7 +4844,7 @@ function accettaPropostaTratte(idR, tratteId) {
 
     let id = idR;
 
-    fetch(`${apiUrl}/api/trattazza/inAttesaRichiesta/${id}`, {
+    fetch(`https://moveconnect.it/api/trattazza/inAttesaRichiesta/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -4868,7 +4868,7 @@ async function fetchTratteInteresse() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -4885,7 +4885,7 @@ async function fetchTratteInteresse() {
 
 function recuperaProposteTratte(id) {
 
-    fetch(`${apiUrl}/api/trattazza/byAziendaRichiedente?aziendaRichiedente=${id}`)
+    fetch(`https://moveconnect.it/api/trattazza/byAziendaRichiedente?aziendaRichiedente=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -5003,7 +5003,7 @@ function ascoltoDeposito() {
 
 function eliminaPropostaDeposito(id) {
 
-    fetch(`${apiUrl}/api/propostaMagazzino/eliminaProposta/${id}`, {
+    fetch(`https://moveconnect.it/api/propostaMagazzino/eliminaProposta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -5019,7 +5019,7 @@ function accettaPropostaDeposito(idR, consegnaDepositoId) {
 
     let cid = consegnaDepositoId;
 
-    fetch(`${apiUrl}/api/propostaMagazzino/inCorsoRichiestaMagazzino/${cid}`, {
+    fetch(`https://moveconnect.it/api/propostaMagazzino/inCorsoRichiestaMagazzino/${cid}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -5033,7 +5033,7 @@ function accettaPropostaDeposito(idR, consegnaDepositoId) {
 
     let id = idR;
 
-    fetch(`${apiUrl}/api/propostaMagazzino/inAttesaRichiesta/${id}`, {
+    fetch(`https://moveconnect.it/api/propostaMagazzino/inAttesaRichiesta/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -5059,7 +5059,7 @@ async function fetchDepositoInteresse() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -5076,7 +5076,7 @@ async function fetchDepositoInteresse() {
 
 function recuperaProposteDeposito(id) {
 
-    fetch(`${apiUrl}/api/propostaMagazzino/byAziendaMagazzinoRichiesta?aziendaRichiedente=${id}`)
+    fetch(`https://moveconnect.it/api/propostaMagazzino/byAziendaMagazzinoRichiesta?aziendaRichiedente=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -5279,7 +5279,7 @@ async function fetchImballiRelazione() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -5297,7 +5297,7 @@ async function fetchImballiRelazione() {
 async function annullaRelazioneImballi(id, richiestaId) {
 
 
-    await fetch(`${apiUrl}/api/propostaImballi/annullataEBastaRelazioneImballiProponente/${id}`, {
+    await fetch(`https://moveconnect.it/api/propostaImballi/annullataEBastaRelazioneImballiProponente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -5305,7 +5305,7 @@ async function annullaRelazioneImballi(id, richiestaId) {
         body: JSON.stringify(id)
     })
 
-    await fetch(`${apiUrl}/api/propostaImballi/annullataRelazioneImballiRichiedente/${id}`, {
+    await fetch(`https://moveconnect.it/api/propostaImballi/annullataRelazioneImballiRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -5314,7 +5314,7 @@ async function annullaRelazioneImballi(id, richiestaId) {
     })
 
 
-    await fetch(`${apiUrl}/api/consegnaImballi/imballiAperta/${richiestaId}`, {
+    await fetch(`https://moveconnect.it/api/consegnaImballi/imballiAperta/${richiestaId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -5333,7 +5333,7 @@ async function annullaRelazioneImballi(id, richiestaId) {
 function recuperaRelazioneImballi(id) {
 
 
-    fetch(`${apiUrl}/api/propostaImballi/byAziendaRelazioneRichiedente?consegnaImballiAziendaId=${id}`)
+    fetch(`https://moveconnect.it/api/propostaImballi/byAziendaRelazioneRichiedente?consegnaImballiAziendaId=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -5542,7 +5542,7 @@ async function fetchPersonaleRelazione() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -5560,7 +5560,7 @@ async function fetchPersonaleRelazione() {
 async function annullaRelazionePersonale(id, richiestaId) {
 
 
-    await fetch(`${apiUrl}/api/personale/annullataRelazionePersonaleProponenteEBasta/${id}`, {
+    await fetch(`https://moveconnect.it/api/personale/annullataRelazionePersonaleProponenteEBasta/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -5568,7 +5568,7 @@ async function annullaRelazionePersonale(id, richiestaId) {
         body: JSON.stringify(id)
     })
 
-    await fetch(`${apiUrl}/api/personale/annullataRelazionePersonaleRichiedente/${id}`, {
+    await fetch(`https://moveconnect.it/api/personale/annullataRelazionePersonaleRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -5576,7 +5576,7 @@ async function annullaRelazionePersonale(id, richiestaId) {
         body: JSON.stringify(id)
     })
 
-    await fetch(`${apiUrl}/api/personaleSpecializzato/personaleAperta/${richiestaId}`, {
+    await fetch(`https://moveconnect.it/api/personaleSpecializzato/personaleAperta/${richiestaId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -5593,7 +5593,7 @@ async function annullaRelazionePersonale(id, richiestaId) {
 function recuperaRelazionePersonale(id) {
 
 
-    fetch(`${apiUrl}/api/personale/byAziendaPersonaleRelazioneRichiedente?personaleSpecializzatoAziendaId=${id}`)
+    fetch(`https://moveconnect.it/api/personale/byAziendaPersonaleRelazioneRichiedente?personaleSpecializzatoAziendaId=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -5810,7 +5810,7 @@ async function fetchTratteRelazione() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -5828,7 +5828,7 @@ async function fetchTratteRelazione() {
 async function annullaRelazioneTratte(id, richiestaId) {
 
 
-    await fetch(`${apiUrl}/api/trattazza/annullataRelazioneTrattaProponenteEBasta/${id}`, {
+    await fetch(`https://moveconnect.it/api/trattazza/annullataRelazioneTrattaProponenteEBasta/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -5836,7 +5836,7 @@ async function annullaRelazioneTratte(id, richiestaId) {
         body: JSON.stringify(id)
     })
 
-    await fetch(`${apiUrl}/api/trattazza/annullataRelazioneTrattaRichiedente/${id}`, {
+    await fetch(`https://moveconnect.it/api/trattazza/annullataRelazioneTrattaRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -5844,7 +5844,7 @@ async function annullaRelazioneTratte(id, richiestaId) {
         body: JSON.stringify(id)
     })
 
-    await fetch(`${apiUrl}/api/tratta/trattaAperta/${richiestaId}`, {
+    await fetch(`https://moveconnect.it/api/tratta/trattaAperta/${richiestaId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -5861,7 +5861,7 @@ async function annullaRelazioneTratte(id, richiestaId) {
 function recuperaRelazioneTratte(id) {
 
 
-    fetch(`${apiUrl}/api/trattazza/byAziendaRelazioneRichiedente?depositoMTrattaAziendaId=${id}`)
+    fetch(`https://moveconnect.it/api/trattazza/byAziendaRelazioneRichiedente?depositoMTrattaAziendaId=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -6072,7 +6072,7 @@ async function fetchDepositoRelazione() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -6090,7 +6090,7 @@ async function fetchDepositoRelazione() {
 async function annullaRelazioneDeposito(id, richiestaId) {
 
 
-    await fetch(`${apiUrl}/api/propostaMagazzino/annullataRelazioneMagazzinoProponenteEBasta/${id}`, {
+    await fetch(`https://moveconnect.it/api/propostaMagazzino/annullataRelazioneMagazzinoProponenteEBasta/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -6098,7 +6098,7 @@ async function annullaRelazioneDeposito(id, richiestaId) {
         body: JSON.stringify(id)
     })
 
-    await fetch(`${apiUrl}/api/propostaMagazzino/annullataRelazioneMagazzinoRichiedente/${id}`, {
+    await fetch(`https://moveconnect.it/api/propostaMagazzino/annullataRelazioneMagazzinoRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -6106,7 +6106,7 @@ async function annullaRelazioneDeposito(id, richiestaId) {
         body: JSON.stringify(id)
     })
 
-    await fetch(`${apiUrl}/api/depositoMagazzino/depositoAperta/${richiestaId}`, {
+    await fetch(`https://moveconnect.it/api/depositoMagazzino/depositoAperta/${richiestaId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -6123,7 +6123,7 @@ async function annullaRelazioneDeposito(id, richiestaId) {
 function recuperaRelazioneDeposito(id) {
 
 
-    fetch(`${apiUrl}/api/propostaMagazzino/byAziendaMagazzinoRelazioneRichiedente?depositoMagazzinoAziendaId=${id}`)
+    fetch(`https://moveconnect.it/api/propostaMagazzino/byAziendaMagazzinoRelazioneRichiedente?depositoMagazzinoAziendaId=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -6328,7 +6328,7 @@ async function fetchScalaRelazione() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -6346,7 +6346,7 @@ async function fetchScalaRelazione() {
 async function annullaRelazioneScala(id, richiestaId) {
 
 
-    await fetch(`${apiUrl}/api/scala/annullataRelazioneScalaRichiedenteEBasta/${id}`, {
+    await fetch(`https://moveconnect.it/api/scala/annullataRelazioneScalaRichiedenteEBasta/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -6354,7 +6354,7 @@ async function annullaRelazioneScala(id, richiestaId) {
         body: JSON.stringify(id)
     })
 
-    await fetch(`${apiUrl}/api/scala/annullataRelazioneScalaRichiedente/${id}`, {
+    await fetch(`https://moveconnect.it/api/scala/annullataRelazioneScalaRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -6362,7 +6362,7 @@ async function annullaRelazioneScala(id, richiestaId) {
         body: JSON.stringify(id)
     })
 
-    await fetch(`${apiUrl}/api/scalaElevatore/scalaAperta/${richiestaId}`, {
+    await fetch(`https://moveconnect.it/api/scalaElevatore/scalaAperta/${richiestaId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -6380,7 +6380,7 @@ async function annullaRelazioneScala(id, richiestaId) {
 function recuperaRelazioneScala(id) {
 
 
-    fetch(`${apiUrl}/api/scala/byAziendaRelazioneRichiedente?scalaElevatoreAziendaId=${id}`)
+    fetch(`https://moveconnect.it/api/scala/byAziendaRelazioneRichiedente?scalaElevatoreAziendaId=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -6600,7 +6600,7 @@ async function fetchCaricoRelazione() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -6618,7 +6618,7 @@ async function fetchCaricoRelazione() {
 async function annullaRelazioneCarico(id, richiestaId) {
 
 
-    await fetch(`${apiUrl}/api/trasporto/annullataEBastaRelazioneTrasportoProponente/${id}`, {
+    await fetch(`https://moveconnect.it/api/trasporto/annullataEBastaRelazioneTrasportoProponente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -6626,7 +6626,7 @@ async function annullaRelazioneCarico(id, richiestaId) {
         body: JSON.stringify(id)
     })
 
-    await fetch(`${apiUrl}/api/trasporto/annullataRelazioneTrasportoRichiedente/${id}`, {
+    await fetch(`https://moveconnect.it/api/trasporto/annullataRelazioneTrasportoRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -6634,7 +6634,7 @@ async function annullaRelazioneCarico(id, richiestaId) {
         body: JSON.stringify(id)
     })
 
-    await fetch(`${apiUrl}/api/richiestaTrasporto/trasportoAperta/${richiestaId}`, {
+    await fetch(`https://moveconnect.it/api/richiestaTrasporto/trasportoAperta/${richiestaId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -6652,7 +6652,7 @@ async function annullaRelazioneCarico(id, richiestaId) {
 function recuperaRelazioneCarico(id) {
 
 
-    fetch(`${apiUrl}/api/trasporto/byAziendaRelazioneRichiedente?trasportoAziendaId=${id}`)
+    fetch(`https://moveconnect.it/api/trasporto/byAziendaRelazioneRichiedente?trasportoAziendaId=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -6783,7 +6783,7 @@ function visualizzaRichiesteImballiInteresseEntrata(imballo) {
 
 function eliminaPropostaImballiInteresseEntrata(id) {
 
-    fetch(`${apiUrl}/api/propostaImballi/eliminaProposta/${id}`, {
+    fetch(`https://moveconnect.it/api/propostaImballi/eliminaProposta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -6817,7 +6817,7 @@ function accettaPropostaImballiInteresseEntrata(idR, consegnaImballiId, consegna
 
     let newRelazioneImballi = new RelazioneImballi(consegnaImballiID, consegnaImballiAziendaID, propostaAccettataID);
 
-    fetch(`${apiUrl}/api/propostaImballi/relazioneImballi`, {
+    fetch(`https://moveconnect.it/api/propostaImballi/relazioneImballi`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -6826,7 +6826,7 @@ function accettaPropostaImballiInteresseEntrata(idR, consegnaImballiId, consegna
     })
 
 
-    fetch(`${apiUrl}/api/propostaImballi/eliminaProposte/${cid}`, {
+    fetch(`https://moveconnect.it/api/propostaImballi/eliminaProposte/${cid}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -6847,7 +6847,7 @@ async function fetchImballiInteresseEntrata() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -6863,7 +6863,7 @@ async function fetchImballiInteresseEntrata() {
 
 function recuperaProposteImballiInteresseEntrata(id) {
 
-    fetch(`${apiUrl}/api/propostaImballi/byAziendaPropostaProponenteInUscita?azienda=${id}`)
+    fetch(`https://moveconnect.it/api/propostaImballi/byAziendaPropostaProponenteInUscita?azienda=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -6978,7 +6978,7 @@ function visualizzaRichiestePersonaleInteresseEntrata(personale) {
 
 function eliminaPropostaPersonaleInteresseEntrata(id) {
 
-    fetch(`${apiUrl}/api/personale/eliminaProposta/${id}`, {
+    fetch(`https://moveconnect.it/api/personale/eliminaProposta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -7010,7 +7010,7 @@ function accettaPropostaPersonaleInteresseEntrata(idR, consegnaPersonaleId, cons
 
     let newRelazionePersonale = new RelazionePersonale(consegnaPersonaleID, consegnaPersonaleAziendaID, propostaAccettataID);
 
-    fetch(`${apiUrl}/api/personale/relazionePersonale`, {
+    fetch(`https://moveconnect.it/api/personale/relazionePersonale`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -7018,7 +7018,7 @@ function accettaPropostaPersonaleInteresseEntrata(idR, consegnaPersonaleId, cons
         body: JSON.stringify(newRelazionePersonale)
     })
 
-    fetch(`${apiUrl}/api/personale/eliminaProposte/${cid}`, {
+    fetch(`https://moveconnect.it/api/personale/eliminaProposte/${cid}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -7037,7 +7037,7 @@ async function fetchPersonaleInteresseEntrata() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -7053,7 +7053,7 @@ async function fetchPersonaleInteresseEntrata() {
 
 function recuperaPropostePersonaleInteresseEntrata(id) {
 
-    fetch(`${apiUrl}/api/personale/byAziendaPersonaleUscita?aziendaIdProponentePersonale=${id}`)
+    fetch(`https://moveconnect.it/api/personale/byAziendaPersonaleUscita?aziendaIdProponentePersonale=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -7168,7 +7168,7 @@ function visualizzaRichiesteDepositoInteresseEntrata(deposito) {
 
 function eliminaPropostaDepositoInteresseEntrata(id) {
 
-    fetch(`${apiUrl}/api/propostaMagazzino/eliminaProposta/${id}`, {
+    fetch(`https://moveconnect.it/api/propostaMagazzino/eliminaProposta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -7200,7 +7200,7 @@ function accettaPropostaDepositoInteresseEntrata(idR, consegnaDepositoId, conseg
 
     let newRelazioneDeposito = new RelazioneDeposito(depositoID, depositoAziendaID, propostaAccettataID);
 
-    fetch(`${apiUrl}/api/propostaMagazzino/relazioneMagazzino`, {
+    fetch(`https://moveconnect.it/api/propostaMagazzino/relazioneMagazzino`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -7208,7 +7208,7 @@ function accettaPropostaDepositoInteresseEntrata(idR, consegnaDepositoId, conseg
         body: JSON.stringify(newRelazioneDeposito)
     })
 
-    fetch(`${apiUrl}/api/propostaMagazzino/eliminaProposte/${cid}`, {
+    fetch(`https://moveconnect.it/api/propostaMagazzino/eliminaProposte/${cid}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -7226,7 +7226,7 @@ async function fetchDepositoInteresseEntrata() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -7242,7 +7242,7 @@ async function fetchDepositoInteresseEntrata() {
 
 function recuperaProposteDepositoInteresseEntrata(id) {
 
-    fetch(`${apiUrl}/api/propostaMagazzino/byAziendaPropostaProponenteInUscitaMagazzino?aziendaIdProponenteMagazzino=${id}`)
+    fetch(`https://moveconnect.it/api/propostaMagazzino/byAziendaPropostaProponenteInUscitaMagazzino?aziendaIdProponenteMagazzino=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -7352,7 +7352,7 @@ function visualizzaRichiesteTrattaInteresseEntrata(tratta) {
 
 function eliminaPropostaTrattaInteresseEntrata(id) {
 
-    fetch(`${apiUrl}/api/trattazza/eliminaProposta/${id}`, {
+    fetch(`https://moveconnect.it/api/trattazza/eliminaProposta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -7386,7 +7386,7 @@ function accettaPropostaTrattaInteresseEntrata(idR, tratteId, tratteAziendaId, p
 
     let newRelazioneTratte = new RelazioneTratte(tratteID, tratteAziendaID, propostaAccettataID);
 
-    fetch(`${apiUrl}/api/trattazza/relazioneTratta`, {
+    fetch(`https://moveconnect.it/api/trattazza/relazioneTratta`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -7394,7 +7394,7 @@ function accettaPropostaTrattaInteresseEntrata(idR, tratteId, tratteAziendaId, p
         body: JSON.stringify(newRelazioneTratte)
     })
 
-    fetch(`${apiUrl}/api/trattazza/eliminaProposte/${cid}`, {
+    fetch(`https://moveconnect.it/api/trattazza/eliminaProposte/${cid}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -7412,7 +7412,7 @@ async function fetchTrattaInteresseEntrata() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -7428,7 +7428,7 @@ async function fetchTrattaInteresseEntrata() {
 
 function recuperaProposteTrattaInteresseEntrata(id) {
 
-    fetch(`${apiUrl}/api/trattazza/byAziendaProponenteTrattaInUscita?AziendaIdProponenteTratta=${id}`)
+    fetch(`https://moveconnect.it/api/trattazza/byAziendaProponenteTrattaInUscita?AziendaIdProponenteTratta=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -7538,7 +7538,7 @@ function visualizzaRichiesteCaricoInteresseEntrata(carico) {
 
 function eliminaPropostaCaricoInteresseEntrata(id) {
 
-    fetch(`${apiUrl}/api/trasporto/eliminaProposta/${id}`, {
+    fetch(`https://moveconnect.it/api/trasporto/eliminaProposta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -7569,7 +7569,7 @@ function accettaPropostaCaricoInteresseEntrata(idR, consegnaCaricoId, consegnaCa
 
     let newRelazione = new RelazioneCarico(consegnaCaricoID, consegnaCaricoAziendaID, propostaAccettataID);
 
-    fetch(`${apiUrl}/api/trasporto/relazioneTrasporto`, {
+    fetch(`https://moveconnect.it/api/trasporto/relazioneTrasporto`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -7577,7 +7577,7 @@ function accettaPropostaCaricoInteresseEntrata(idR, consegnaCaricoId, consegnaCa
         body: JSON.stringify(newRelazione)
     })
 
-    fetch(`${apiUrl}/api/trasporto/eliminaProposte/${cid}`, {
+    fetch(`https://moveconnect.it/api/trasporto/eliminaProposte/${cid}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -7597,7 +7597,7 @@ async function fetchCaricoInteresseEntrata() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -7613,7 +7613,7 @@ async function fetchCaricoInteresseEntrata() {
 
 function recuperaProposteCaricoInteresseEntrata(id) {
 
-    fetch(`${apiUrl}/api/trasporto/byAziendaProponenteInUscita?aziendaIdProponenteTrasporto=${id}`)
+    fetch(`https://moveconnect.it/api/trasporto/byAziendaProponenteInUscita?aziendaIdProponenteTrasporto=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -7724,7 +7724,7 @@ function visualizzaRichiesteScalaInteresseEntrata(scala) {
 
 function eliminaPropostaScalaInteresseEntrata(id) {
 
-    fetch(`${apiUrl}/api/scala/eliminaProposta/${id}`, {
+    fetch(`https://moveconnect.it/api/scala/eliminaProposta/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -7758,7 +7758,7 @@ function accettaPropostaScalaInteresseEntrata(idR, scalaId, scalaAziendaId, prop
 
     let newRelazione = new RelazioneScala(scalaID, scalaAziendaID, propostaAccettataID);
 
-    fetch(`${apiUrl}/api/scala/relazioneScala`, {
+    fetch(`https://moveconnect.it/api/scala/relazioneScala`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -7766,7 +7766,7 @@ function accettaPropostaScalaInteresseEntrata(idR, scalaId, scalaAziendaId, prop
         body: JSON.stringify(newRelazione)
     })
 
-    fetch(`${apiUrl}/api/scala/eliminaProposte/${cid}`, {
+    fetch(`https://moveconnect.it/api/scala/eliminaProposte/${cid}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -7787,7 +7787,7 @@ async function fetchScalaInteresseEntrata() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -7803,7 +7803,7 @@ async function fetchScalaInteresseEntrata() {
 
 function recuperaProposteScalaInteresseEntrata(id) {
 
-    fetch(`${apiUrl}/api/scala/byAziendaPropostaScalaInUscita?aziendaIdProponenteScala=${id}`)
+    fetch(`https://moveconnect.it/api/scala/byAziendaPropostaScalaInUscita?aziendaIdProponenteScala=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -7970,7 +7970,7 @@ async function fetchCaricoRelazioneEntrata() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -7988,7 +7988,7 @@ async function fetchCaricoRelazioneEntrata() {
 async function evadiRelazioneCaricoEntrata(id, richiestaId) {
 
 
-    await fetch(`${apiUrl}/api/trasporto/completatoRelazioneTrasportoRichiedente/${id}`, {
+    await fetch(`https://moveconnect.it/api/trasporto/completatoRelazioneTrasportoRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -7997,7 +7997,7 @@ async function evadiRelazioneCaricoEntrata(id, richiestaId) {
     })
 
 
-    await fetch(`${apiUrl}/api/richiestaTrasporto/modificapTrasportoIdEvasa/${richiestaId}`, {
+    await fetch(`https://moveconnect.it/api/richiestaTrasporto/modificapTrasportoIdEvasa/${richiestaId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -8006,7 +8006,7 @@ async function evadiRelazioneCaricoEntrata(id, richiestaId) {
 
     })
 
-    await fetch(`${apiUrl}/api/trasporto/evasaRelazioneTrasportoProponente/${id}`, {
+    await fetch(`https://moveconnect.it/api/trasporto/evasaRelazioneTrasportoProponente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -8025,7 +8025,7 @@ async function evadiRelazioneCaricoEntrata(id, richiestaId) {
 function recuperaRelazioneCaricoEntrata(id) {
 
 
-    fetch(`${apiUrl}/api/trasporto/byAziendaRelazioneInUscita?propostaAccettataTrasportoId=${id}`)
+    fetch(`https://moveconnect.it/api/trasporto/byAziendaRelazioneInUscita?propostaAccettataTrasportoId=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -8201,7 +8201,7 @@ async function fetchScalaRelazioneEntrata() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -8219,7 +8219,7 @@ async function fetchScalaRelazioneEntrata() {
 async function evadiRelazioneScalaEntrata(id, richiestaId) {
 
 
-    await fetch(`${apiUrl}/api/scala/completatoRelazioneScalaRichiedente/${id}`, {
+    await fetch(`https://moveconnect.it/api/scala/completatoRelazioneScalaRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -8228,7 +8228,7 @@ async function evadiRelazioneScalaEntrata(id, richiestaId) {
     })
 
 
-    await fetch(`${apiUrl}/api/scalaElevatore/modificaScalaIdEvasa/${richiestaId}`, {
+    await fetch(`https://moveconnect.it/api/scalaElevatore/modificaScalaIdEvasa/${richiestaId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -8237,7 +8237,7 @@ async function evadiRelazioneScalaEntrata(id, richiestaId) {
 
     })
 
-    await fetch(`${apiUrl}/api/scala/evasaRelazioneScalaProponente/${id}`, {
+    await fetch(`https://moveconnect.it/api/scala/evasaRelazioneScalaProponente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -8255,7 +8255,7 @@ async function evadiRelazioneScalaEntrata(id, richiestaId) {
 function recuperaRelazioneScalaEntrata(id) {
 
 
-    fetch(`${apiUrl}/api/scala/byAziendaRelazioneScalaInUscita?propostaAccettataScalaId=${id}`)
+    fetch(`https://moveconnect.it/api/scala/byAziendaRelazioneScalaInUscita?propostaAccettataScalaId=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -8432,7 +8432,7 @@ async function fetchDepositoRelazioneEntrata() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -8450,7 +8450,7 @@ async function fetchDepositoRelazioneEntrata() {
 async function evadiRelazioneDepositoEntrata(id, richiestaId) {
 
 
-    await fetch(`${apiUrl}/api/propostaMagazzino/completatoRelazioneMagazzinoRichiedente/${id}`, {
+    await fetch(`https://moveconnect.it/api/propostaMagazzino/completatoRelazioneMagazzinoRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -8459,7 +8459,7 @@ async function evadiRelazioneDepositoEntrata(id, richiestaId) {
     })
 
 
-    await fetch(`${apiUrl}/api/depositoMagazzino/modificaMagazzinoIdEvasa/${richiestaId}`, {
+    await fetch(`https://moveconnect.it/api/depositoMagazzino/modificaMagazzinoIdEvasa/${richiestaId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -8468,7 +8468,7 @@ async function evadiRelazioneDepositoEntrata(id, richiestaId) {
 
     })
 
-    await fetch(`${apiUrl}/api/propostaMagazzino/evasaRelazioneMagazzinoProponente/${id}`, {
+    await fetch(`https://moveconnect.it/api/propostaMagazzino/evasaRelazioneMagazzinoProponente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -8487,7 +8487,7 @@ async function evadiRelazioneDepositoEntrata(id, richiestaId) {
 function recuperaRelazioneDepositoEntrata(id) {
 
 
-    fetch(`${apiUrl}/api/propostaMagazzino/relazioniPerId?propostaAccettataIdMagazzino=${id}`)
+    fetch(`https://moveconnect.it/api/propostaMagazzino/relazioniPerId?propostaAccettataIdMagazzino=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -8664,7 +8664,7 @@ async function fetchTratteRelazioneEntrata() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -8682,7 +8682,7 @@ async function fetchTratteRelazioneEntrata() {
 async function evadiRelazioneTratteEntrata(id, richiestaId) {
 
 
-    await fetch(`${apiUrl}/api/trattazza/completatoRelazioneTrattaRichiedente/${id}`, {
+    await fetch(`https://moveconnect.it/api/trattazza/completatoRelazioneTrattaRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -8691,7 +8691,7 @@ async function evadiRelazioneTratteEntrata(id, richiestaId) {
     })
 
 
-    await fetch(`${apiUrl}/api/tratta/modificaTrattaIdEvasa/${richiestaId}`, {
+    await fetch(`https://moveconnect.it/api/tratta/modificaTrattaIdEvasa/${richiestaId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -8700,7 +8700,7 @@ async function evadiRelazioneTratteEntrata(id, richiestaId) {
 
     })
 
-    await fetch(`${apiUrl}/api/trattazza/evasaRelazioneTrattaProponente/${id}`, {
+    await fetch(`https://moveconnect.it/api/trattazza/evasaRelazioneTrattaProponente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -8719,7 +8719,7 @@ async function evadiRelazioneTratteEntrata(id, richiestaId) {
 function recuperaRelazioneTratteEntrata(id) {
 
 
-    fetch(`${apiUrl}/api/trattazza/byAziendaRelazioneTrattaInUscita?propostaAccettataIdTratta=${id}`)
+    fetch(`https://moveconnect.it/api/trattazza/byAziendaRelazioneTrattaInUscita?propostaAccettataIdTratta=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -8896,7 +8896,7 @@ async function fetchPersonaleRelazioneEntrata() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -8914,7 +8914,7 @@ async function fetchPersonaleRelazioneEntrata() {
 async function evadiRelazionePersonaleEntrata(id, richiestaId) {
 
 
-    await fetch(`${apiUrl}/api/personale/completatoRelazionePersonaleRichiedente/${id}`, {
+    await fetch(`https://moveconnect.it/api/personale/completatoRelazionePersonaleRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -8923,7 +8923,7 @@ async function evadiRelazionePersonaleEntrata(id, richiestaId) {
     })
 
 
-    await fetch(`${apiUrl}/api/personaleSpecializzato/modificapersonaleIdEvasa/${richiestaId}`, {
+    await fetch(`https://moveconnect.it/api/personaleSpecializzato/modificapersonaleIdEvasa/${richiestaId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -8932,7 +8932,7 @@ async function evadiRelazionePersonaleEntrata(id, richiestaId) {
 
     })
 
-    await fetch(`${apiUrl}/api/personale/evasaRelazionePersonaleProponente/${id}`, {
+    await fetch(`https://moveconnect.it/api/personale/evasaRelazionePersonaleProponente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -8951,7 +8951,7 @@ async function evadiRelazionePersonaleEntrata(id, richiestaId) {
 function recuperaRelazionePersonaleEntrata(id) {
 
 
-    fetch(`${apiUrl}/api/personale/byAziendaRelazioneUscita?propostaAccettataPersonaleId=${id}`)
+    fetch(`https://moveconnect.it/api/personale/byAziendaRelazioneUscita?propostaAccettataPersonaleId=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -9127,7 +9127,7 @@ async function fetchImballiRelazioneEntrata() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -9145,7 +9145,7 @@ async function fetchImballiRelazioneEntrata() {
 async function evadiRelazioneImballiEntrata(id, richiestaId) {
 
 
-    await fetch(`${apiUrl}/api/propostaImballi/completatoRelazioneImballiRichiedente/${id}`, {
+    await fetch(`https://moveconnect.it/api/propostaImballi/completatoRelazioneImballiRichiedente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -9154,7 +9154,7 @@ async function evadiRelazioneImballiEntrata(id, richiestaId) {
     })
 
 
-    await fetch(`${apiUrl}/api/consegnaImballi/modificaImballiIdEvasa/${richiestaId}`, {
+    await fetch(`https://moveconnect.it/api/consegnaImballi/modificaImballiIdEvasa/${richiestaId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -9163,7 +9163,7 @@ async function evadiRelazioneImballiEntrata(id, richiestaId) {
 
     })
 
-    await fetch(`${apiUrl}/api/propostaImballi/evasaRelazioneImballiProponente/${id}`, {
+    await fetch(`https://moveconnect.it/api/propostaImballi/evasaRelazioneImballiProponente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -9182,7 +9182,7 @@ async function evadiRelazioneImballiEntrata(id, richiestaId) {
 function recuperaRelazioneImballiEntrata(id) {
 
 
-    fetch(`${apiUrl}/api/propostaImballi/relazioniPerId?propostaAccettataId=${id}`)
+    fetch(`https://moveconnect.it/api/propostaImballi/relazioniPerId?propostaAccettataId=${id}`)
         .then((res) => res.json())
         .then((data) => {
 

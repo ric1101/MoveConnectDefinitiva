@@ -21,13 +21,13 @@ let altroo = document.querySelector('#falegname-count');
 
 let btnInvioRichiestaDeposito = document.querySelector('.btnInvioRichiestaDeposito');
 
-let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
+ // dentro ogni funzione
 
 
 
 let idMagazzino = localStorage.getItem('modificaMagazzino');
 
-fetch(`${apiUrl}/api/depositoMagazzino/magazzino/${idMagazzino}`)
+fetch(`https://moveconnect.it/api/depositoMagazzino/magazzino/${idMagazzino}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -99,7 +99,7 @@ function recuperaId() {
     let accessToken = localStorage.getItem('accessToken');
     
 
-    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -142,7 +142,7 @@ function inviaRichiesta(dati) {
     console.log(nuovaRichiestaDeposito);
 
 
-    fetch(`${apiUrl}/api/depositoMagazzino/modificaMagazzino/${idMagazzino}`, { //Inserire qui la rotta
+    fetch(`https://moveconnect.it/api/depositoMagazzino/modificaMagazzino/${idMagazzino}`, { //Inserire qui la rotta
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

@@ -7,13 +7,12 @@ let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
 </div>`;
 
 let accessToken = localStorage.getItem('accessToken');
-let apiUrl = fetch(window.MY_APP_API_URL);
+ 
 
 
 
 
-
-fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -27,7 +26,7 @@ fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
 function fetchImballaggi(id) {
 
 
-    let URLB = `${apiUrl}/api/consegnaImballi/tutteLeConsegneConAzienda`;
+    let URLB = `https://moveconnect.it/api/consegnaImballi/tutteLeConsegneConAzienda`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {
@@ -63,7 +62,7 @@ function imballaggi(dati, id) {
 
                     
 
-                    fetch(`${apiUrl}/api/propostaImballi/byAziendaRichiesta?consegnaImballiId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/propostaImballi/byAziendaRichiesta?consegnaImballiId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -111,7 +110,7 @@ function imballaggi(dati, id) {
                         let tabella = `<tr>
                         
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>      
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.paese}</td>
@@ -241,7 +240,7 @@ let imb2 = 0;
 
 async function fetchRegioniImballi(regione) {
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -259,7 +258,7 @@ async function filtriRegioneImballi(regione, id) {
 
     console.log(regione);
 
-    await fetch(`${apiUrl}/api/consegnaImballi/tutteLeConsegneConAziendaPerRegione/${regione}`) //ci va la rotta nuova
+    await fetch(`https://moveconnect.it/api/consegnaImballi/tutteLeConsegneConAziendaPerRegione/${regione}`) //ci va la rotta nuova
         .then((res) => res.json())
         .then((data) => {
 
@@ -300,7 +299,7 @@ function imballaggiFiltroRegioneImballi(dati, id) {
 
                     
 
-                    fetch(`${apiUrl}/api/propostaImballi/byAziendaRichiesta?consegnaImballiId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/propostaImballi/byAziendaRichiesta?consegnaImballiId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -348,7 +347,7 @@ function imballaggiFiltroRegioneImballi(dati, id) {
                         let tabella = `<tr>
                         
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.paese}</td>
@@ -407,7 +406,7 @@ function imballaggiFiltroRegioneImballi(dati, id) {
 
 async function fetchRegioniTipiImballi(regione, imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8) {
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -423,7 +422,7 @@ async function fetchRegioniTipiImballi(regione, imballo1, imballo2, imballo3, im
 async function filtriRegioneTipiImballi(regione, imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8, id) {
 
 
-    await fetch(`${apiUrl}/api/consegnaImballi/tuttiGliImballiConAziendaTutto?paese=${regione}&imballo1=${imballo1}&imballo2=${imballo2}&imballo3=${imballo3}&imballo4=${imballo4}&imballo5=${imballo5}&imballo6=${imballo6}&imballo7=${imballo7}&imballo8=${imballo8}`)
+    await fetch(`https://moveconnect.it/api/consegnaImballi/tuttiGliImballiConAziendaTutto?paese=${regione}&imballo1=${imballo1}&imballo2=${imballo2}&imballo3=${imballo3}&imballo4=${imballo4}&imballo5=${imballo5}&imballo6=${imballo6}&imballo7=${imballo7}&imballo8=${imballo8}`)
         .then((res) => {
             if (!res.ok) {
                 throw new Error(`Errore nella risposta: ${res.status} - ${res.statusText}`);
@@ -467,7 +466,7 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
 
                     
 
-                    fetch(`${apiUrl}/api/propostaImballi/byAziendaRichiesta?consegnaImballiId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/propostaImballi/byAziendaRichiesta?consegnaImballiId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -515,7 +514,7 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
                         let tabella = `<tr>
                         
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>     
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.paese}</td>
@@ -577,7 +576,7 @@ function imballaggiFiltroRegioneTipiImballi(dati, id) {
 
 async function fetchTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8) {
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -594,7 +593,7 @@ async function fetchTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo5
 async function filtriTipiImballi(imballo1, imballo2, imballo3, imballo4, imballo5, imballo6, imballo7, imballo8, id) {
 
 
-    await fetch(`${apiUrl}/api/consegnaImballi/tuttiGliImballiConAziendaTutto?imballo1=${imballo1}&imballo2=${imballo2}&imballo3=${imballo3}&imballo4=${imballo4}&imballo5=${imballo5}&imballo6=${imballo6}&imballo7=${imballo7}&imballo8=${imballo8}`) //ci va la rotta nuova
+    await fetch(`https://moveconnect.it/api/consegnaImballi/tuttiGliImballiConAziendaTutto?imballo1=${imballo1}&imballo2=${imballo2}&imballo3=${imballo3}&imballo4=${imballo4}&imballo5=${imballo5}&imballo6=${imballo6}&imballo7=${imballo7}&imballo8=${imballo8}`) //ci va la rotta nuova
         .then((res) => res.json())
         .then((data) => {
 
@@ -637,7 +636,7 @@ function imballaggiFiltroTipiImballi(dati, id) {
 
                     
 
-                    fetch(`${apiUrl}/api/propostaImballi/byAziendaRichiesta?consegnaImballiId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/propostaImballi/byAziendaRichiesta?consegnaImballiId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -685,7 +684,7 @@ function imballaggiFiltroTipiImballi(dati, id) {
                         let tabella = `<tr>
                         
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>     
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.paese}</td>

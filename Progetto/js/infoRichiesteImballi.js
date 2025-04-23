@@ -3,11 +3,10 @@
 let colonnaInfo = document.querySelector('.colonnaInfo');
 let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
-let apiUrl = fetch(window.MY_APP_API_URL);
+ 
 
 
-
-fetch(`${apiUrl}/api/consegnaImballi/consegnas/${dataEventoId}`)
+fetch(`https://moveconnect.it/api/consegnaImballi/consegnas/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -22,7 +21,7 @@ function fetchImg(dati, id) {
 
     let imgAzienda = document.querySelector('.imgAzienda');
 
-    fetch(`${apiUrl}/api/azienda/logo/${id}`)
+    fetch(`https://moveconnect.it/api/azienda/logo/${id}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Errore nel recupero del logo");
@@ -49,7 +48,7 @@ function recuperaToken(dati, img) {
 
     let accessToken = localStorage.getItem('accessToken');
 
-    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -277,7 +276,7 @@ function interessamentoImballi(richiestaId, aziendaIdAccesso, emailAziendale, id
     if (abb == 'base' || abb == 'plus') {
 
 
-        fetch(`${apiUrl}/api/consegnaImballi/modificaImballiIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
+        fetch(`https://moveconnect.it/api/consegnaImballi/modificaImballiIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -301,7 +300,7 @@ function interessamentoImballi(richiestaId, aziendaIdAccesso, emailAziendale, id
 
         let newPropostaImballi = new PropostaImballi(idRichiedente, idRichiesta, idAziendaEmittente);
 
-        fetch(`${apiUrl}/api/propostaImballi/interessataPropostaImballi`, {
+        fetch(`https://moveconnect.it/api/propostaImballi/interessataPropostaImballi`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

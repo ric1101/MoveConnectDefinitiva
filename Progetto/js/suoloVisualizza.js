@@ -3,7 +3,7 @@ let bodyTabella = document.querySelector('.bodyTabella');
 
 let accessToken = localStorage.getItem('accessToken');
 
-fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -17,7 +17,7 @@ fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
 function fetchSuolo(id) {
 
 
-    let URLB = `${apiUrl}/api/richiesta/tutteConAzienda`;
+    let URLB = `https://moveconnect.it/api/richiesta/tutteConAzienda`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {

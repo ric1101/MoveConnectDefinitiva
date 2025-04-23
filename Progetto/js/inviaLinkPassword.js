@@ -9,11 +9,10 @@ function inviaMail() {
 
 
     event.preventDefault();
-    let apiUrl = fetch(window.MY_APP_API_URL);
 
     let username = email.value;
     
-  fetch(`${apiUrl}/api/azienda/recupera-password?username=${username}`, {
+  fetch(`https://moveconnect.it/api/azienda/recupera-password?username=${username}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

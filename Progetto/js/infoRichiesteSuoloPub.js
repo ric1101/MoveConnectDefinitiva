@@ -3,11 +3,10 @@
 let colonnaInfo = document.querySelector('.colonnaInfo');
 let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
-let apiUrl = fetch(window.MY_APP_API_URL);
+ 
 
 
-
-fetch(`${apiUrl}/api/richiesta/richiestaPerId/${dataEventoId}`)
+fetch(`https://moveconnect.it/api/richiesta/richiestaPerId/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -21,7 +20,7 @@ fetch(`${apiUrl}/api/richiesta/richiestaPerId/${dataEventoId}`)
 
         let imgAzienda = document.querySelector('.imgAzienda');
     
-        fetch(`${apiUrl}/api/azienda/logo/${id}`)
+        fetch(`https://moveconnect.it/api/azienda/logo/${id}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Errore nel recupero del logo");

@@ -1,5 +1,4 @@
 let navbarHTML = document.querySelector(".navbarMain");
-let apiUrl = fetch(window.MY_APP_API_URL);
 
 
 navbar();
@@ -9,7 +8,7 @@ function navbar() {
     let navBarFinale = `<nav class="navbar navbar-expand-xxl navbar-fixed-top" style="background-color: #1B2023;">
     <div class="container-fluid">
         <!-- Logo -->
-        <a class="navbar-brand fs-4" href="index.html"><img class="logo" src="../Progetto/imgs/img.png" alt=""></a>
+        <a class="navbar-brand fs-4" href="index.html"><img class="logo" src="../imgs/img.png" alt=""></a>
         <!-- Bottoni -->
         <button class="navbar-toggler shadow-0 border-0 hamburger" type="button" data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"
@@ -23,7 +22,7 @@ function navbar() {
             <!-- SideBar Header -->
             <div class="offcanvas-header text-black border-bottom"
                 style="background-color: #1B2023;border-bottom: solid 0.3rem #FAAD06 !important;">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img class="logo" src="../Progetto/imgs/img2.png"
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img class="logo" src="../imgs/img2.png"
                         alt=""></h5>
                 <div class="icon ms-auto">
                     <i class="fa-regular fa-circle-xmark closed" style="color: #ffffff; font-size: 30px" closed
@@ -162,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Nascondi la navbar in base all'accessToken immediatamente
     let accessToken = localStorage.getItem("accessToken");
     
-    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
             richiesteRicevute(data.id);
@@ -209,7 +208,7 @@ function mostraNavbarLoggata() {
     login.classList.add("d-none");
     partners.classList.remove("d-none");
     blogs.classList.remove("d-none");
-    if (window.location.href == 'http://127.0.0.1:5501/Progetto/index.html') {
+    if (window.location.href == 'https://moveconnect.it/index.html') {
         banner.classList.add("d-none");
         banner1.classList.remove('d-none');
 
@@ -223,7 +222,7 @@ function mostraNavbarLoggata() {
 
 
 function mostraNavbarAbbonamento() {
-    if (window.location.href == 'http://127.0.0.1:5501/Progetto/index.html') {
+    if (window.location.href == 'https://moveconnect.it/index.html') {
         banner.classList.add('d-none');
         banner1.classList.add('d-none');
     }
@@ -249,7 +248,7 @@ function mostraNavbarAbbonamento() {
 function mostraNavbarNonLoggata() {
     console.log('weww');
 
-    if (window.location.href == 'http://127.0.0.1:5501/Progetto/index.html') {
+    if (window.location.href == 'https://moveconnect.it/index.html') {
         banner.classList.remove("d-none");
         banner1.classList.add('d-none');
 
@@ -300,7 +299,7 @@ let boxes = document.querySelector(".notifi-box");
 function mostraNotifiche(id) {
 
 
-    fetch(`${apiUrl}/api/amicizia/counterPartnerArrivate/${id}`)
+    fetch(`https://moveconnect.it/api/amicizia/counterPartnerArrivate/${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -314,7 +313,7 @@ function mostraNotifiche(id) {
 }
 
 function richiesteRicevute(id) {
-    fetch(`${apiUrl}/api/amicizia/amicizieRicevute?idAzienda2=${id}`)
+    fetch(`https://moveconnect.it/api/amicizia/amicizieRicevute?idAzienda2=${id}`)
         .then((res) => res.json())
         .then((data) => {
             console.log('Received data:', data); // Log the raw data
@@ -394,7 +393,7 @@ function accettaAmicizia(dataId1, dataId2) {
     console.log("BELLAAAA2" + dataId2);
 
 
-    fetch(`${apiUrl}/api/amicizia/accettataAmicizia/${dataId1}/${dataId2}`, {
+    fetch(`https://moveconnect.it/api/amicizia/accettataAmicizia/${dataId1}/${dataId2}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -411,7 +410,7 @@ function accettaAmicizia(dataId1, dataId2) {
 
 function rifiutaAmicizia(idAzienda1, idAzienda2) {
 
-    fetch(`${apiUrl}/api/amicizia/amiciziaRifiutata/${idAzienda1}/${idAzienda2}`, {
+    fetch(`https://moveconnect.it/api/amicizia/amiciziaRifiutata/${idAzienda1}/${idAzienda2}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",

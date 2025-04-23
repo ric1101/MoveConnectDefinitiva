@@ -3,11 +3,10 @@
 let colonnaInfo = document.querySelector('.colonnaInfo');
 let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
-let apiUrl = fetch(window.MY_APP_API_URL);
+ 
 
 
-
-fetch(`${apiUrl}/api/tratta/tratte/${dataEventoId}`)
+fetch(`https://moveconnect.it/api/tratta/tratte/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -21,12 +20,8 @@ fetch(`${apiUrl}/api/tratta/tratte/${dataEventoId}`)
 
         let imgAzienda = document.querySelector('.imgAzienda');
     
-        fetch(`${apiUrl}/api/azienda/logo/${id}`)
-            .then((response) => {
+        fetch(`https://moveconnect.it/api/azienda/logo/${id}`)
                 if (!response.ok) {
-                    throw new Error("Errore nel recupero del logo");
-                }
-                return response.blob();
             })
             .then((blob) => {
                 const logoUrl = URL.createObjectURL(blob);
@@ -49,7 +44,7 @@ fetch(`${apiUrl}/api/tratta/tratte/${dataEventoId}`)
 
         let accessToken = localStorage.getItem('accessToken');
     
-        fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+        fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
             .then((res) => res.json())
             .then((data) => {
     

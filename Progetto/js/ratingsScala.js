@@ -39,13 +39,11 @@ function remove() {
 }
 
 function tokenizzami() {
-    let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
-
 
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -65,7 +63,7 @@ function recuperaDatiRecensione(id) {
 
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`${apiUrl}/api/scala/relazioneScalaPerId/${idRel}`)
+    fetch(`https://moveconnect.it/api/scala/relazioneScalaPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -113,7 +111,7 @@ function recuperaToken() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -139,7 +137,7 @@ function stelleInserite(idAziendaAccesso) {
     let scelta = 0;
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`${apiUrl}/api/scala/relazioneScalaPerId/${idRel}`)
+    fetch(`https://moveconnect.it/api/scala/relazioneScalaPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -249,7 +247,7 @@ function inviaRecensione(choose) {
     if (choose == 1) {
 
 
-        fetch(`${apiUrl}/api/scala/recensitaRelazioneScalaProponente/${idRecNumber}`, {
+        fetch(`https://moveconnect.it/api/scala/recensitaRelazioneScalaProponente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -265,7 +263,7 @@ function inviaRecensione(choose) {
     } else {
 
 
-        fetch(`${apiUrl}/api/scala/recensitaRelazioneScalaRichiedente/${idRecNumber}`, {
+        fetch(`https://moveconnect.it/api/scala/recensitaRelazioneScalaRichiedente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -279,7 +277,7 @@ function inviaRecensione(choose) {
     }
 
 
-    fetch(`${apiUrl}/api/scala/recensioneScala`, {
+    fetch(`https://moveconnect.it/api/scala/recensioneScala`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

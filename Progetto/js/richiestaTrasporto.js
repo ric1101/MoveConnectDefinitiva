@@ -72,7 +72,7 @@ function recuperaId() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -122,7 +122,7 @@ function inviaRichiesta(dati) {
 
 
 
-        fetch(`${apiUrl}/api/richiestaTrasporto/aggiungiRichiestaTrasporto/${azienda_id}`, {
+        fetch(`https://moveconnect.it/api/richiestaTrasporto/aggiungiRichiestaTrasporto/${azienda_id}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

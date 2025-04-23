@@ -13,10 +13,9 @@ let btnInviaModifica = document.querySelector('.btnInviaModificaDesign');
 let idModDesign = localStorage.getItem('idModificaDesign');
 
 function popolaModDesign() {
-    let apiUrl = fetch(window.MY_APP_API_URL);
 
 
-    fetch(`${apiUrl}/api/design/${idModDesign}`)
+    fetch(`https://moveconnect.it/api/design/${idModDesign}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -60,7 +59,7 @@ async function modificaDesign() {
     );
 
 
-   await fetch(`${apiUrl}/api/design/modificaDesign/${idModDesign}`, {
+   await fetch(`https://moveconnect.it/api/design/modificaDesign/${idModDesign}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

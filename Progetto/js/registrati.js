@@ -76,7 +76,6 @@ class Azienda {
 
 
 function registrazioneAzienda() {
-  let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
 
   
   event.preventDefault();
@@ -103,7 +102,7 @@ function registrazioneAzienda() {
 
   console.log(nuovaAzienda);
 
-  fetch("${apiUrl}/api/azienda/registerSerio", {
+  fetch("https://moveconnect.it/api/azienda/registerSerio", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -52,13 +52,12 @@ class Deposito {
 }
 
 function recuperaId() {
-    let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
 
 
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -103,7 +102,7 @@ function inviaRichiesta(dati) {
         console.log(nuovaRichiestaDeposito);
 
 
-        fetch(`${apiUrl}/api/depositoMagazzino/inserisciMagazzino/${azienda_id}`, { //Inserire qui la rotta
+        fetch(`https://moveconnect.it/api/depositoMagazzino/inserisciMagazzino/${azienda_id}`, { //Inserire qui la rotta
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

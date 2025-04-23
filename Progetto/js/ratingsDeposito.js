@@ -15,7 +15,7 @@ let stars =
 let output =
     document.getElementById("output");
 
-let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
+ // dentro ogni funzione
 
 
 // Funtion to update rating
@@ -48,7 +48,7 @@ function tokenizzami() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -68,7 +68,7 @@ function recuperaDatiRecensione(id) {
 
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`${apiUrl}/api/propostaMagazzino/relazioneMagazzinoPerId/${idRel}`)
+    fetch(`https://moveconnect.it/api/propostaMagazzino/relazioneMagazzinoPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -114,7 +114,7 @@ function recuperaToken() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -137,7 +137,7 @@ function stelleInserite(idAziendaAccesso) {
     let scelta = 0;
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`${apiUrl}/api/propostaMagazzino/relazioneMagazzinoPerId/${idRel}`)
+    fetch(`https://moveconnect.it/api/propostaMagazzino/relazioneMagazzinoPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -248,7 +248,7 @@ function inviaRecensione(choose) {
     if (choose == 1) {
 
 
-        fetch(`${apiUrl}/api/propostaMagazzino/recensitaRelazioneMagazzinoProponente/${idRecNumber}`, {
+        fetch(`https://moveconnect.it/api/propostaMagazzino/recensitaRelazioneMagazzinoProponente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -264,7 +264,7 @@ function inviaRecensione(choose) {
     } else {
 
 
-        fetch(`${apiUrl}/api/propostaMagazzino/recensitaRelazioneMagazzinoRichiedente/${idRecNumber}`, {
+        fetch(`https://moveconnect.it/api/propostaMagazzino/recensitaRelazioneMagazzinoRichiedente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -278,7 +278,7 @@ function inviaRecensione(choose) {
     }
 
 
-    fetch(`${apiUrl}/api/propostaMagazzino/recensioneMagazzino`, {
+    fetch(`https://moveconnect.it/api/propostaMagazzino/recensioneMagazzino`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

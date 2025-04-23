@@ -31,7 +31,7 @@ let btnInvioRichiestaImballi = document.querySelector('.btnInvioRichiestaImballi
 
 let idImballi = localStorage.getItem('modificaImballi');
 
-fetch(`${apiUrl}/api/consegnaImballi/consegnas/${idImballi}`)
+fetch(`https://moveconnect.it/api/consegnaImballi/consegnas/${idImballi}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -120,7 +120,7 @@ function recuperaId() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -165,7 +165,7 @@ function inviaRichiesta(dati) {
     console.log(nuovaRichiestaImballi);
 
 
-    fetch(`${apiUrl}/api/consegnaImballi/modificaConsegna/${idImballi}`, {
+    fetch(`https://moveconnect.it/api/consegnaImballi/modificaConsegna/${idImballi}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

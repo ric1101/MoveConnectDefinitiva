@@ -1,14 +1,13 @@
 /* -------------------------------------------------------------------------- */
 /*                   Funzione per cercare aziende per nome                    */
 /* -------------------------------------------------------------------------- */
-let apiUrl = fetch(window.MY_APP_API_URL);
 
 function tokenizzami() {
 
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -35,7 +34,7 @@ async function cercaAzienda(nomeAziendaNostra) {
     }
 
     try {
-        let response = await fetch(`${apiUrl}/api/azienda/search?nomeAzienda=${encodeURIComponent(nomeAzienda)}`);
+        let response = await fetch(`https://moveconnect.it/api/azienda/search?nomeAzienda=${encodeURIComponent(nomeAzienda)}`);
         let aziende = await response.json();
 
         let resultsList = document.getElementById("ricerca");
@@ -76,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -108,7 +107,7 @@ function setParam(nomeAziendaDue, id) {
     console.log(parseLink);
 
 
-    if (parseLink.includes('http://127.0.0.1:5501/Progetto/paginaUtente.html?nomeAzienda=')) {
+    if (parseLink.includes('https://moveconnect.it/paginaUtente.html?nomeAzienda=')) {
 
         console.log('cc');
 
@@ -132,7 +131,7 @@ function setParam(nomeAziendaDue, id) {
 
 async function loadAziendaByNome(nomeAzienda, id) {
     try {
-        let response = await fetch(`${apiUrl}/api/azienda/searchNomeAzienda?nomeAzienda=${nomeAzienda}`);
+        let response = await fetch(`https://moveconnect.it/api/azienda/searchNomeAzienda?nomeAzienda=${nomeAzienda}`);
         if (!response.ok) throw new Error("Errore nel recupero dei dati dell'azienda");
 
         let data = await response.json();
@@ -151,7 +150,7 @@ async function loadAziendaByNome(nomeAzienda, id) {
 
 async function recensioniAzienda(dati, idAziendaMittente, idAziendaDestinataria) {
 
-    await fetch(`${apiUrl}/api/azienda/recensioneImballiFinaleAme/${idAziendaDestinataria}`)
+    await fetch(`https://moveconnect.it/api/azienda/recensioneImballiFinaleAme/${idAziendaDestinataria}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -166,7 +165,7 @@ async function recensioniAzienda(dati, idAziendaMittente, idAziendaDestinataria)
 
 async function calcolaPartner(recensioni, dati, idAziendaMittente, idAziendaDestinataria) {
 
-    await fetch(`${apiUrl}/api/amicizia/counterPartner/${idAziendaDestinataria}`)
+    await fetch(`https://moveconnect.it/api/amicizia/counterPartner/${idAziendaDestinataria}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -190,7 +189,7 @@ function fetchImg(idAzienda) {
     console.log(imgAzienda);
 
 
-    fetch(`${apiUrl}/api/azienda/logo/${idAzienda}`)
+    fetch(`https://moveconnect.it/api/azienda/logo/${idAzienda}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Errore nel recupero del logo");
@@ -218,7 +217,7 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
     let container = document.querySelector(".container");
 
 
-    await fetch(`${apiUrl}/api/amicizia/amicizie/${idAziendaMittente}/${idAziendaDestinataria}`)
+    await fetch(`https://moveconnect.it/api/amicizia/amicizie/${idAziendaMittente}/${idAziendaDestinataria}`)
         .then((res) => {
             if (res.status === 404) {
 
@@ -1018,7 +1017,7 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
                             <div class="row d-flex">
                                 <div class="d-flex flex-row poli">
                                     <div class="col-md-8 col-sm-8 col-8">
-                                        <a style="color:#FAAD06;" href="/Progetto/paginaUtente.html?nomeAzienda=${element.nomeAzienda}"><h4 class="mt-2 mb-0 titolino">${element.nomeAzienda}</h4></a>
+                                        <a style="color:#FAAD06;" href="/paginaUtente.html?nomeAzienda=${element.nomeAzienda}"><h4 class="mt-2 mb-0 titolino">${element.nomeAzienda}</h4></a>
                                         <div class="d-flex">
                                             <p class="text-left widete m-0" style="display: flex; align-items: center;"><span class="text-muted">${element.valutazione} </span>
                                                 <div class="containerStelle-${index}" style="padding-left: 10px;"></div>
@@ -1138,7 +1137,7 @@ function mostraAmici(id) {
         console.log();
 
 
-        fetch(`${apiUrl}/api/amicizia/counterPartnerTotale/${id}`)
+        fetch(`https://moveconnect.it/api/amicizia/counterPartnerTotale/${id}`)
             .then((res) => res.json())
             .then((data) => {
 
@@ -1148,7 +1147,7 @@ function mostraAmici(id) {
                     console.log(element.id);
 
 
-                    fetch(`${apiUrl}/api/azienda/logo/${element.id}`)
+                    fetch(`https://moveconnect.it/api/azienda/logo/${element.id}`)
                         .then((response) => {
                             if (!response.ok) {
                                 throw new Error("Errore nel recupero del logo");
@@ -1161,9 +1160,9 @@ function mostraAmici(id) {
 
                             let amicoSingolo = `<div class="col-md-2">
                                                 <div class="containerLogoImg2">
-                                                    <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.nomeAzienda}"><img src="${logoUrl}" alt="" class='partner-${index}'></a>
+                                                    <a href="/paginaUtente.html?nomeAzienda=${element.nomeAzienda}"><img src="${logoUrl}" alt="" class='partner-${index}'></a>
                                                 </div>
-                                            <a href="/Progetto/paginaUtente.html?nomeAzienda=${element.nomeAzienda}"><h5 class="text-black text-center">${element.nomeAzienda}</h5></a>
+                                            <a href="/paginaUtente.html?nomeAzienda=${element.nomeAzienda}"><h5 class="text-black text-center">${element.nomeAzienda}</h5></a>
                                             </div>`;
 
                             containerTitolo.innerHTML += amicoSingolo;
@@ -1189,7 +1188,7 @@ function mostraAmici(id) {
 
 function segnala(id, username, nomeAzienda) {
 
-    fetch(`${apiUrl}/api/azienda/segnalaAzienda/${id}`, {
+    fetch(`https://moveconnect.it/api/azienda/segnalaAzienda/${id}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -1223,7 +1222,7 @@ function inviaAmicizia(idAzienda1, idAzienda2) {
 
 
 
-    fetch(`${apiUrl}/api/amicizia/richiestaAmicizia/${idAzienda1}/${idAzienda2}`, {
+    fetch(`https://moveconnect.it/api/amicizia/richiestaAmicizia/${idAzienda1}/${idAzienda2}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -1247,7 +1246,7 @@ function annullaRichiestaAmicizia(idAzienda1, idAzienda2) {
 
 
 
-    fetch(`${apiUrl}/api/amicizia/amiciziaRifiutata/${idAzienda1}/${idAzienda2}`, {
+    fetch(`https://moveconnect.it/api/amicizia/amiciziaRifiutata/${idAzienda1}/${idAzienda2}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -1261,7 +1260,7 @@ let piuRecensioni = document.querySelector(".piuRecensioni");
 
 function piuRecensite(){
     
-     fetch(`${apiUrl}/api/azienda/top5-recensioni`)
+     fetch(`https://moveconnect.it/api/azienda/top5-recensioni`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -1276,7 +1275,7 @@ function showRecensite(data){
     let i = 1;
      data.forEach(element => {
         let recensioni =    
-        `<p style="color: white";>#${i} <a style="color:#FAAD06;" href="/Progetto/paginaUtente.html?nomeAzienda=${element.nomeAzienda}" target="_blank">${element.nomeAzienda} <a/> <span> (${element.total_recensioni}) </span></p>`;
+        `<p style="color: white";>#${i} <a style="color:#FAAD06;" href="/paginaUtente.html?nomeAzienda=${element.nomeAzienda}" target="_blank">${element.nomeAzienda} <a/> <span> (${element.total_recensioni}) </span></p>`;
             i++;
             piuRecensioni.innerHTML += recensioni;
      });
@@ -1291,7 +1290,7 @@ piuRecensite();
 
 function miglioriRecensite(){
     
-    fetch(`${apiUrl}/api/azienda/top-azienda`)
+    fetch(`https://moveconnect.it/api/azienda/top-azienda`)
    .then((res) => res.json())
    .then((data) => {
 
@@ -1308,7 +1307,7 @@ function showMiglioriRecensite(data){
     let i = 1;
      data.forEach(element => {
         let recensioni =    
-        `<p style="color: white";>#${i} <a style="color:#FAAD06;" href="/Progetto/paginaUtente.html?nomeAzienda=${element.nomeAzienda}" target="_blank">${element.nomeAzienda} <a/> <span>(${element.avg_valutazione}⭐) </span></p>`;
+        `<p style="color: white";>#${i} <a style="color:#FAAD06;" href="/paginaUtente.html?nomeAzienda=${element.nomeAzienda}" target="_blank">${element.nomeAzienda} <a/> <span>(${element.avg_valutazione}⭐) </span></p>`;
             i++;
             miglioriRecensioni.innerHTML += recensioni;
      });

@@ -1,1 +1,1 @@
-window.MY_APP_API_URL='http://localhost:8080';
+window.MY_APP_API_URL='https://moveconnect.it';

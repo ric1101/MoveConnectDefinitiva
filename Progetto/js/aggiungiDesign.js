@@ -8,7 +8,7 @@ let img = document.querySelector('.img');
 let datato = document.querySelector('.data');
 let writer = document.querySelector('.writer');
 let btnInviaAdd = document.querySelector('.btnInviaAdd');
-let apiUrl = fetch(window.MY_APP_API_URL);
+ 
 
 
 btnInviaAdd.addEventListener('click', aggiungiArticoloDesign);
@@ -38,7 +38,7 @@ async function aggiungiArticoloDesign() {
     );
 
 
-    await fetch(`${apiUrl}/api/design/inserisciDesign`, {
+    await fetch(`https://moveconnect.it/api/design/inserisciDesign`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

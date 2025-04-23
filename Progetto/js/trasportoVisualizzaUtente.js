@@ -15,7 +15,7 @@ function fetchTrasporto() {
     let idRichiesteTrasporto = localStorage.getItem('iDLocalAzienda');
 
 
-    let URLB = `${apiUrl}/api/richiestaTrasporto/tutteLeConsegneConAziendaTrasportoId/${idRichiesteTrasporto}`;
+    let URLB = `https://moveconnect.it/api/richiestaTrasporto/tutteLeConsegneConAziendaTrasportoId/${idRichiesteTrasporto}`;
     fetch(URLB)
         .then((res) => res.json())
         .then((data) => {
@@ -42,7 +42,7 @@ function trasporto(dati) {
 
         dati.forEach(element => {
 
-            nomeAziendaInterna.innerHTML = `<a href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>`;
+            nomeAziendaInterna.innerHTML = `<a href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>`;
 
 
             if (element.stato == 'APERTA' || element.stato == 'INTERESSATA') {

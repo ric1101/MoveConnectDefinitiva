@@ -3,11 +3,10 @@
 let colonnaInfo = document.querySelector('.colonnaInfo');
 let dataEventoId = localStorage.getItem('data-evento-id');
 console.log(dataEventoId);
-let apiUrl = fetch(window.MY_APP_API_URL);
+ 
 
 
-
-fetch(`${apiUrl}/api/tratta/tratte/${dataEventoId}`)
+fetch(`https://moveconnect.it/api/tratta/tratte/${dataEventoId}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -21,7 +20,7 @@ function fetchImg(dati, id) {
 
     let imgAzienda = document.querySelector('.imgAzienda');
 
-    fetch(`${apiUrl}/api/azienda/logo/${id}`)
+    fetch(`https://moveconnect.it/api/azienda/logo/${id}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Errore nel recupero del logo");
@@ -49,7 +48,7 @@ function recuperaToken(dati, img) {
 
     let accessToken = localStorage.getItem('accessToken');
 
-    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -279,7 +278,7 @@ function interessamentoTratte(richiestaId, aziendaIdAccesso, emailAziendale, idA
     if (abb == 'base' || abb == 'plus') {
 
 
-        fetch(`${apiUrl}/api/tratta/modificaTrattaIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
+        fetch(`https://moveconnect.it/api/tratta/modificaTrattaIdRichiesta/${richiestaId}/${aziendaIdAccesso}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -303,7 +302,7 @@ function interessamentoTratte(richiestaId, aziendaIdAccesso, emailAziendale, idA
 
         let newPropostaTratte = new PropostaTratte(idRichiedente, idRichiesta, idAziendaEmittente);
 
-        fetch(`${apiUrl}/api/trattazza/interessataPropostaTratta`, {
+        fetch(`https://moveconnect.it/api/trattazza/interessataPropostaTratta`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

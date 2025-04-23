@@ -12,7 +12,7 @@ let pesoMassimo = document.querySelector('.pesoMassimo');
 let inizio = document.querySelector('.inizio');
 let fine = document.querySelector('.fine');
 let note = document.querySelector('.note');
-let apiUrl = fetch(window.MY_APP_API_URL);
+ 
 
 
 let btnInvioRichiestaScalaElevatore = document.querySelector('.btnInvioRichiestaScalaElevatore');
@@ -52,7 +52,7 @@ function recuperaId() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -95,7 +95,7 @@ function inviaRichiesta(dati) {
         console.log(nuovaRichiestaScalaElevatore);
 
 
-        fetch(`${apiUrl}/api/scalaElevatore/inserisciScala/${azienda_id}`, {
+        fetch(`https://moveconnect.it/api/scalaElevatore/inserisciScala/${azienda_id}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

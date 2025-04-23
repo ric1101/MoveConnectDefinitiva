@@ -7,11 +7,10 @@ let nessunaCorrispondenza = `<div class="d-flex justify-content-center mt-3">
 </div>`;
 
 let accessToken = localStorage.getItem('accessToken');
-let apiUrl = fetch(window.MY_APP_API_URL);
+ 
 
 
-
-fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
     .then((res) => res.json())
     .then((data) => {
 
@@ -25,12 +24,8 @@ fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
 
 function fetchElevatore(id) {
 
-    let URLB = `${apiUrl}/api/scalaElevatore/tutteScaleConAzienda`;
-    fetch(URLB)
+    let URLB = `https://moveconnect.it/api/scalaElevatore/tutteScaleConAzienda`;
         .then((res) => res.json())
-        .then((data) => {
-
-            console.log(data);
             elevatore(data, id);
         });
 
@@ -61,7 +56,7 @@ function elevatore(dati, id) {
 
 
 
-                    fetch(`${apiUrl}/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -109,7 +104,7 @@ function elevatore(dati, id) {
                         let tabella = `<tr>
                         
                     <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.citta}</td>
@@ -279,7 +274,7 @@ regioniScala.forEach(element => {
 
 async function fetchRegioni(regione) {
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -294,7 +289,7 @@ async function filtriRegione(regione, id) {
 
     console.log(regione);
 
-    await fetch(`${apiUrl}/api/scalaElevatore/tutteLeScaleConAziendaPerRegione/${regione}`)
+    await fetch(`https://moveconnect.it/api/scalaElevatore/tutteLeScaleConAziendaPerRegione/${regione}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -333,7 +328,7 @@ function elevatoreFiltroSoloRegione(dati, id) {
 
 
 
-                    fetch(`${apiUrl}/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -381,7 +376,7 @@ function elevatoreFiltroSoloRegione(dati, id) {
                         let tabella = `<tr>
                         
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.citta}</td>
@@ -472,7 +467,7 @@ scalaEl.forEach(element => {
 
 async function fetchScala(scala) {
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -485,7 +480,7 @@ async function fetchScala(scala) {
 async function filtriScala(scala, id) {
 
 
-    await fetch(`${apiUrl}/api/scalaElevatore/tutteLeScaleConAziendaTutto?tipoDiScala=${scala}`)
+    await fetch(`https://moveconnect.it/api/scalaElevatore/tutteLeScaleConAziendaTutto?tipoDiScala=${scala}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -524,7 +519,7 @@ function elevatoreFiltroScala(dati, id) {
 
 
 
-                    fetch(`${apiUrl}/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -572,7 +567,7 @@ function elevatoreFiltroScala(dati, id) {
                         let tabella = `<tr>
                         
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.citta}</td>
@@ -642,7 +637,7 @@ function elevatoreFiltroScala(dati, id) {
 
 async function fetchRegioniScale(regione, scala) {
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -656,7 +651,7 @@ async function fetchRegioniScale(regione, scala) {
 async function filtriRegioniScala(regione, scala, id) {
 
 
-    await fetch(`${apiUrl}/api/scalaElevatore/tutteLeScaleConAziendaTutto?paese=${regione}&tipoDiScala=${scala}`)
+    await fetch(`https://moveconnect.it/api/scalaElevatore/tutteLeScaleConAziendaTutto?paese=${regione}&tipoDiScala=${scala}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -695,7 +690,7 @@ function elevatoreFiltroRegioniScala(dati, id) {
 
 
 
-                    fetch(`${apiUrl}/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -743,7 +738,7 @@ function elevatoreFiltroRegioniScala(dati, id) {
                         let tabella = `<tr>
                         
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.citta}</td>
@@ -837,7 +832,7 @@ pesoMax.forEach(element => {
 
 async function fetchPeso(peso) {
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -849,7 +844,7 @@ async function fetchPeso(peso) {
 
 async function filtriPeso(peso, id) {
 
-    await fetch(`${apiUrl}/api/scalaElevatore/tutteLeScaleConAziendaTutto?pesoMassimo=${peso}`)
+    await fetch(`https://moveconnect.it/api/scalaElevatore/tutteLeScaleConAziendaTutto?pesoMassimo=${peso}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -888,7 +883,7 @@ function elevatoreFiltroPeso(dati, id) {
 
 
 
-                    fetch(`${apiUrl}/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -936,7 +931,7 @@ function elevatoreFiltroPeso(dati, id) {
                         let tabella = `<tr>
                         
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.citta}</td>
@@ -996,7 +991,7 @@ function elevatoreFiltroPeso(dati, id) {
 
 async function fetchRegioniPeso(regione, peso) {
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1010,7 +1005,7 @@ async function fetchRegioniPeso(regione, peso) {
 async function filtriRegioniPeso(regione, peso, id) {
 
 
-    await fetch(`${apiUrl}/api/scalaElevatore/tutteLeScaleConAziendaTutto?paese=${regione}&pesoMassimo=${peso}`)
+    await fetch(`https://moveconnect.it/api/scalaElevatore/tutteLeScaleConAziendaTutto?paese=${regione}&pesoMassimo=${peso}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1049,7 +1044,7 @@ function elevatoreFiltroRegioniPeso(dati, id) {
 
 
 
-                    fetch(`${apiUrl}/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -1097,7 +1092,7 @@ function elevatoreFiltroRegioniPeso(dati, id) {
                         let tabella = `<tr>
                         
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.citta}</td>
@@ -1156,7 +1151,7 @@ function elevatoreFiltroRegioniPeso(dati, id) {
 
 async function fetchRegioneScalaPeso(regione, scala, peso) {
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1170,7 +1165,7 @@ async function fetchRegioneScalaPeso(regione, scala, peso) {
 async function filtriRegioniScalaPeso(regione, scala, peso, id) {
 
 
-    await fetch(`${apiUrl}/api/scalaElevatore/tutteLeScaleConAziendaTutto?paese=${regione}&tipoDiScala=${scala}&pesoMassimo=${peso}`)
+    await fetch(`https://moveconnect.it/api/scalaElevatore/tutteLeScaleConAziendaTutto?paese=${regione}&tipoDiScala=${scala}&pesoMassimo=${peso}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1210,7 +1205,7 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
 
 
 
-                    fetch(`${apiUrl}/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -1258,7 +1253,7 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
                         let tabella = `<tr>
                         
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.citta}</td>
@@ -1319,7 +1314,7 @@ function elevatoreFiltroRegioniScalaPeso(dati, id) {
 
 async function fetchScalaPeso(scala, peso) {
 
-    await fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    await fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1332,7 +1327,7 @@ async function fetchScalaPeso(scala, peso) {
 async function filtriScalaPeso(scala, peso, id) {
 
 
-    await fetch(`${apiUrl}/api/scalaElevatore/tutteLeScaleConAziendaTutto?tipoDiScala=${scala}&pesoMassimo=${peso}`)
+    await fetch(`https://moveconnect.it/api/scalaElevatore/tutteLeScaleConAziendaTutto?tipoDiScala=${scala}&pesoMassimo=${peso}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -1371,7 +1366,7 @@ function elevatoreFiltroScalaPeso(dati, id) {
 
 
 
-                    fetch(`${apiUrl}/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
+                    fetch(`https://moveconnect.it/api/scala/byAziendaRichiesta?scalaElevatoreId=${element.id}`)
                         .then((res) => res.json())
                         .then((data) => {
 
@@ -1419,7 +1414,7 @@ function elevatoreFiltroScalaPeso(dati, id) {
                         let tabella = `<tr>
                         
                          <td class="text-center">
-                        <a style="color:#FAAD06;"href="/Progetto/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
+                        <a style="color:#FAAD06;"href="/paginaUtente.html?nomeAzienda=${element.azienda.nomeAzienda}">${element.azienda.nomeAzienda}</a>
                     </td>   
                         <td class="text-center">${element.id}</td>
                         <td class="text-center" data-eventoid="1">${element.citta}</td>

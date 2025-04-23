@@ -40,13 +40,12 @@ function remove() {
 
 
 function tokenizzami() {
-    let apiUrl = fetch(window.MY_APP_API_URL);// dentro ogni funzione
 
 
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -66,7 +65,7 @@ function recuperaDatiRecensione(id) {
 
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`${apiUrl}/api/trattazza/relazioneImballiPerId/${idRel}`)
+    fetch(`https://moveconnect.it/api/trattazza/relazioneImballiPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -112,7 +111,7 @@ function recuperaToken() {
     let accessToken = localStorage.getItem('accessToken');
 
 
-    fetch(`${apiUrl}/api/azienda/fromToken?token=${accessToken}`)
+    fetch(`https://moveconnect.it/api/azienda/fromToken?token=${accessToken}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -137,7 +136,7 @@ function stelleInserite(idAziendaAccesso) {
     let scelta = 0;
     let idRel = localStorage.getItem('idRecensione');
 
-    fetch(`${apiUrl}/api/trattazza/relazioneImballiPerId/${idRel}`)
+    fetch(`https://moveconnect.it/api/trattazza/relazioneImballiPerId/${idRel}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -247,7 +246,7 @@ function inviaRecensione(choose) {
     if (choose == 1) {
 
 
-        fetch(`${apiUrl}/api/trattazza/recensitaRelazioneTrattaProponente/${idRecNumber}`, {
+        fetch(`https://moveconnect.it/api/trattazza/recensitaRelazioneTrattaProponente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -263,7 +262,7 @@ function inviaRecensione(choose) {
     } else {
 
 
-        fetch(`${apiUrl}/api/trattazza/recensitaRelazioneTrattaRichiedente/${idRecNumber}`, {
+        fetch(`https://moveconnect.it/api/trattazza/recensitaRelazioneTrattaRichiedente/${idRecNumber}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -277,7 +276,7 @@ function inviaRecensione(choose) {
     }
 
 
-    fetch(`${apiUrl}/api/trattazza/recensioneTratta`, {
+    fetch(`https://moveconnect.it/api/trattazza/recensioneTratta`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
