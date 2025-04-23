@@ -857,13 +857,13 @@ async function iMieiDatiUtente(recensioni, dati, idAziendaMittente, idAziendaDes
                                     class="text-success">✔</span>
                             </div>
                             <div class="mb-2">
-                                <strong>Numero di Telefono Verificato:</strong> <span class="text-success">✔</span>
+                                <strong>Numero di Telefono Verificato:</strong> <span class="text-success"> ✔</span>
                             </div>
                             <div class="mb-2">
-                                <strong>P.IVA Verificata:</strong> <span class="text-success">✔</span>
+                                <strong>P.IVA Verificata:</strong> <span class="text-success"> ✔</span>
                             </div>
                             <div class="mb-2"></div>
-                            <strong>Indirizzo:</strong><span>Via Esempio 1, Milano </span>
+                            <strong>Indirizzo:</strong><span> ✔</span>
                         </div>
                     </div>
                 </div>
