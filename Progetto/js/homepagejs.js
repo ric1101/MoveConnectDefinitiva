@@ -150,7 +150,6 @@ let visualizza = document.querySelector(".visualizza");
 let abb = document.querySelector(".abb");
 let partners = document.querySelector(".partners");
 let blogs = document.querySelector(".blogs");
-let multiRegione = document.querySelector(".multiRegione");
 let banner = document.querySelector(".banner");
 let banner1 = document.querySelector(".banner1");
 let abbPaga = document.querySelector(".abbPaga");
@@ -214,9 +213,7 @@ function mostraNavbarLoggata() {
 
     }
     cercaAziende.classList.remove("d-none");
-    if (multiRegione != null) {
-        multiRegione.classList.remove("d-none");
-    }
+    
     item.classList.add("d-none");
 }
 
@@ -239,9 +236,7 @@ function mostraNavbarAbbonamento() {
     blogs.classList.remove("d-none");
     // ricerca.classList.remove('d-none');
     cercaAziende.classList.add("d-none");
-    if (multiRegione != null) {
-        multiRegione.classList.remove("d-none");
-    }
+    
     item.classList.add("d-none");
 }
 
@@ -263,9 +258,7 @@ function mostraNavbarNonLoggata() {
     abb.classList.remove("d-none");
     partners.classList.remove("d-none");
     blogs.classList.remove("d-none");
-    if (multiRegione != null) {
-        multiRegione.classList.add("d-none");
-    }
+    
 }
 
 
