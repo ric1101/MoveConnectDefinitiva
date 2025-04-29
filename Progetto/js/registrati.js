@@ -20,7 +20,7 @@ let bottoneRegistrati = document.querySelector("#registrati");
 let showPassword = document.querySelector("#showPassword");
 let checkboxPrivacy = document.querySelector("#flexCheckPrivacy");
 let checkboxCookie = document.querySelector("#flexCheckCookie");
-
+let terminiCondizioni = document.querySelector("#terminiCondizioni");
 
 let listaErrori = document.querySelector('#listaErrori');
 let erroreLunghezzaMin = document.querySelector('.erroreLunghezzaMin');
@@ -250,7 +250,7 @@ function controlloDati() {
     numeroTelefonicoAziendale.value.match(regexNumTel) &&
     numeroTelefono.value.match(regexNumTel) &&
     checkboxPrivacy.checked &&
-    checkboxCookie.checked) {
+    checkboxCookie.checked && terminiCondizioni.checked) {
 
       nonInviato.innerHTML = '';
       registrazioneAzienda();
