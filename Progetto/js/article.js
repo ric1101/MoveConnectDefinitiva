@@ -70,18 +70,18 @@ function articolo(dati) {
         <div class="row" style="height: 20px;"></div>
         <div class="row footer-social-icon d-flex justify-content-center">
             <div class="row p-3">
-                <a href="#"><i class="fab fa-facebook-f facebook-bg"></i> Facebook</a>
+                <a href="https://www.facebook.com/profile.php?id=61571642270034"><i class="fab fa-facebook-f facebook-bg"></i> Facebook</a>
             </div>
             <div class="row p-3">
-                <a href="#"><i class="fab fa-twitter twitter-bg"></i> Twitter</a>
+                <a href="https://x.com/Move_Connect_"><i class="fab fa-twitter twitter-bg"></i> Twitter</a>
 
             </div>
             <div class="row p-3">
-                <a href="#"><i class="fab fa-instagram instagram-bg"></i> Instagram</a>
+                <a href="https://www.instagram.com/moveconnect.srl?igsh=MTU5cjAxdzh0NjNleA=="><i class="fab fa-instagram instagram-bg"></i> Instagram</a>
 
             </div>
             <div class="row p-3">
-                <a href="#"><i class="fa-brands fa-tiktok tiktok-bg"></i> TikTok</a>
+                <a href="http://tiktok.com/@move.connect_"><i class="fa-brands fa-tiktok tiktok-bg"></i> TikTok</a>
 
             </div>
             
